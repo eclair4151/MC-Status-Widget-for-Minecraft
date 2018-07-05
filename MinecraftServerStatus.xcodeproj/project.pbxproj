@@ -7,14 +7,70 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F01D8EBCB755756D103B65F /* Pods_MinecraftServerStatusWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB8402D48FDE342CBF3079A /* Pods_MinecraftServerStatusWidget.framework */; };
+		241AD77B20C01821006E1939 /* RequestUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8287B20BF76A400F2D348 /* RequestUtil.swift */; };
+		242815C020BE4754001D11FD /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 242815BF20BE4754001D11FD /* NotificationCenter.framework */; };
+		242815C320BE4754001D11FD /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242815C220BE4754001D11FD /* TodayViewController.swift */; };
+		242815C620BE4754001D11FD /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 242815C420BE4754001D11FD /* MainInterface.storyboard */; };
+		242815CA20BE4754001D11FD /* MinecraftServerStatusWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 242815BE20BE4754001D11FD /* MinecraftServerStatusWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		242815D020BE4DBF001D11FD /* ServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242815CF20BE4DBF001D11FD /* ServerTableViewCell.swift */; };
+		243058FF20E4535500ADAECE /* LargeServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243058FE20E4535500ADAECE /* LargeServerTableViewCell.swift */; };
+		24938B1F20DD18D000B00C9C /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24938B1E20DD18D000B00C9C /* CardTableViewCell.swift */; };
+		24A55A0320E9C57700612C50 /* AppInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A55A0220E9C57700612C50 /* AppInfoTableViewController.swift */; };
 		24C92F6820BE42210072A60C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C92F6720BE42210072A60C /* AppDelegate.swift */; };
 		24C92F6A20BE42210072A60C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C92F6920BE42210072A60C /* ViewController.swift */; };
 		24C92F6D20BE42210072A60C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C92F6B20BE42210072A60C /* Main.storyboard */; };
 		24C92F6F20BE42210072A60C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C92F6E20BE42210072A60C /* Assets.xcassets */; };
 		24C92F7220BE42210072A60C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C92F7020BE42210072A60C /* LaunchScreen.storyboard */; };
+		24E8287C20BF76A400F2D348 /* RequestUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8287B20BF76A400F2D348 /* RequestUtil.swift */; };
+		24EB9BB120C1944400C9894A /* ServerStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EB9BB020C1944400C9894A /* ServerStatusViewModel.swift */; };
+		24EB9BB220C1955B00C9894A /* ServerStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EB9BB020C1944400C9894A /* ServerStatusViewModel.swift */; };
+		24EB9BB420C1A0DE00C9894A /* UIExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EB9BB320C1A0DE00C9894A /* UIExtentions.swift */; };
+		24EB9BB520C1A10200C9894A /* UIExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EB9BB320C1A0DE00C9894A /* UIExtentions.swift */; };
+		24EB9BBA20C2F30600C9894A /* SavedServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EB9BB920C2F30600C9894A /* SavedServer.swift */; };
+		24EB9BBB20C2F44300C9894A /* SavedServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EB9BB920C2F30600C9894A /* SavedServer.swift */; };
+		24EB9BBD20C2F85800C9894A /* NewServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EB9BBC20C2F85800C9894A /* NewServerViewController.swift */; };
+		482D532640011A6A2A8B025B /* Pods_MinecraftServerStatus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C934D444747C83520B9B377 /* Pods_MinecraftServerStatus.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		242815C820BE4754001D11FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24C92F5C20BE42210072A60C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 242815BD20BE4754001D11FD;
+			remoteInfo = MinecraftServerStatusWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		242815CE20BE4754001D11FD /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				242815CA20BE4754001D11FD /* MinecraftServerStatusWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		079D8F892A68CFC72E9D974A /* Pods-MinecraftServerStatus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinecraftServerStatus.release.xcconfig"; path = "Pods/Target Support Files/Pods-MinecraftServerStatus/Pods-MinecraftServerStatus.release.xcconfig"; sourceTree = "<group>"; };
+		211FE1533CEA467F01D5462C /* Pods-MinecraftServerStatusWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinecraftServerStatusWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MinecraftServerStatusWidget/Pods-MinecraftServerStatusWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		242815BE20BE4754001D11FD /* MinecraftServerStatusWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MinecraftServerStatusWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		242815BF20BE4754001D11FD /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		242815C220BE4754001D11FD /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		242815C520BE4754001D11FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		242815C720BE4754001D11FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		242815CF20BE4DBF001D11FD /* ServerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTableViewCell.swift; sourceTree = "<group>"; };
+		243058FE20E4535500ADAECE /* LargeServerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeServerTableViewCell.swift; sourceTree = "<group>"; };
+		24938B1E20DD18D000B00C9C /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		24A55A0020E9AF5700612C50 /* MinecraftServerStatus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MinecraftServerStatus.entitlements; sourceTree = "<group>"; };
+		24A55A0120E9AF8900612C50 /* MinecraftServerStatusWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MinecraftServerStatusWidget.entitlements; sourceTree = "<group>"; };
+		24A55A0220E9C57700612C50 /* AppInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoTableViewController.swift; sourceTree = "<group>"; };
 		24C92F6420BE42210072A60C /* MinecraftServerStatus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinecraftServerStatus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C92F6720BE42210072A60C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24C92F6920BE42210072A60C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,24 +78,59 @@
 		24C92F6E20BE42210072A60C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24C92F7120BE42210072A60C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24C92F7320BE42210072A60C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24E8287B20BF76A400F2D348 /* RequestUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestUtil.swift; sourceTree = "<group>"; };
+		24EB9BAF20C01D6700C9894A /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24EB9BB020C1944400C9894A /* ServerStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusViewModel.swift; sourceTree = "<group>"; };
+		24EB9BB320C1A0DE00C9894A /* UIExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtentions.swift; sourceTree = "<group>"; };
+		24EB9BB920C2F30600C9894A /* SavedServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedServer.swift; sourceTree = "<group>"; };
+		24EB9BBC20C2F85800C9894A /* NewServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewServerViewController.swift; sourceTree = "<group>"; };
+		2C934D444747C83520B9B377 /* Pods_MinecraftServerStatus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MinecraftServerStatus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FB8402D48FDE342CBF3079A /* Pods_MinecraftServerStatusWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MinecraftServerStatusWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3CDE519FAD44A27FE7224B4 /* Pods-MinecraftServerStatusWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinecraftServerStatusWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-MinecraftServerStatusWidget/Pods-MinecraftServerStatusWidget.release.xcconfig"; sourceTree = "<group>"; };
+		C3421CEB02B4330B430985A0 /* Pods-MinecraftServerStatus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinecraftServerStatus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MinecraftServerStatus/Pods-MinecraftServerStatus.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		242815BB20BE4754001D11FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				242815C020BE4754001D11FD /* NotificationCenter.framework in Frameworks */,
+				0F01D8EBCB755756D103B65F /* Pods_MinecraftServerStatusWidget.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24C92F6120BE42210072A60C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				482D532640011A6A2A8B025B /* Pods_MinecraftServerStatus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		242815C120BE4754001D11FD /* MinecraftServerStatusWidget */ = {
+			isa = PBXGroup;
+			children = (
+				24A55A0120E9AF8900612C50 /* MinecraftServerStatusWidget.entitlements */,
+				242815C220BE4754001D11FD /* TodayViewController.swift */,
+				242815C420BE4754001D11FD /* MainInterface.storyboard */,
+				242815C720BE4754001D11FD /* Info.plist */,
+				242815CF20BE4DBF001D11FD /* ServerTableViewCell.swift */,
+			);
+			path = MinecraftServerStatusWidget;
+			sourceTree = "<group>";
+		};
 		24C92F5B20BE42210072A60C = {
 			isa = PBXGroup;
 			children = (
 				24C92F6620BE42210072A60C /* MinecraftServerStatus */,
+				242815C120BE4754001D11FD /* MinecraftServerStatusWidget */,
 				24C92F6520BE42210072A60C /* Products */,
+				AE925480F83E678CD9D8AAF7 /* Pods */,
+				A13350A4735884291F0C6394 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -47,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				24C92F6420BE42210072A60C /* MinecraftServerStatus.app */,
+				242815BE20BE4754001D11FD /* MinecraftServerStatusWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,8 +146,11 @@
 		24C92F6620BE42210072A60C /* MinecraftServerStatus */ = {
 			isa = PBXGroup;
 			children = (
+				24A55A0020E9AF5700612C50 /* MinecraftServerStatus.entitlements */,
+				24EB9BB820C2F2C100C9894A /* Helpers */,
+				24EB9BB720C2F2B700C9894A /* ViewControllers */,
+				24EB9BB620C2F2A800C9894A /* Models */,
 				24C92F6720BE42210072A60C /* AppDelegate.swift */,
-				24C92F6920BE42210072A60C /* ViewController.swift */,
 				24C92F6B20BE42210072A60C /* Main.storyboard */,
 				24C92F6E20BE42210072A60C /* Assets.xcassets */,
 				24C92F7020BE42210072A60C /* LaunchScreen.storyboard */,
@@ -64,20 +159,96 @@
 			path = MinecraftServerStatus;
 			sourceTree = "<group>";
 		};
+		24EB9BB620C2F2A800C9894A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				24EB9BB020C1944400C9894A /* ServerStatusViewModel.swift */,
+				24EB9BB920C2F30600C9894A /* SavedServer.swift */,
+				243058FE20E4535500ADAECE /* LargeServerTableViewCell.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		24EB9BB720C2F2B700C9894A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				24C92F6920BE42210072A60C /* ViewController.swift */,
+				24EB9BBC20C2F85800C9894A /* NewServerViewController.swift */,
+				24A55A0220E9C57700612C50 /* AppInfoTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		24EB9BB820C2F2C100C9894A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				24938B1E20DD18D000B00C9C /* CardTableViewCell.swift */,
+				24E8287B20BF76A400F2D348 /* RequestUtil.swift */,
+				24EB9BB320C1A0DE00C9894A /* UIExtentions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A13350A4735884291F0C6394 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24EB9BAF20C01D6700C9894A /* Alamofire.framework */,
+				2C934D444747C83520B9B377 /* Pods_MinecraftServerStatus.framework */,
+				242815BF20BE4754001D11FD /* NotificationCenter.framework */,
+				3FB8402D48FDE342CBF3079A /* Pods_MinecraftServerStatusWidget.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AE925480F83E678CD9D8AAF7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C3421CEB02B4330B430985A0 /* Pods-MinecraftServerStatus.debug.xcconfig */,
+				079D8F892A68CFC72E9D974A /* Pods-MinecraftServerStatus.release.xcconfig */,
+				211FE1533CEA467F01D5462C /* Pods-MinecraftServerStatusWidget.debug.xcconfig */,
+				B3CDE519FAD44A27FE7224B4 /* Pods-MinecraftServerStatusWidget.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		24C92F6320BE42210072A60C /* MinecraftServerStatus */ = {
+		242815BD20BE4754001D11FD /* MinecraftServerStatusWidget */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24C92F7620BE42210072A60C /* Build configuration list for PBXNativeTarget "MinecraftServerStatus" */;
+			buildConfigurationList = 242815CD20BE4754001D11FD /* Build configuration list for PBXNativeTarget "MinecraftServerStatusWidget" */;
 			buildPhases = (
-				24C92F6020BE42210072A60C /* Sources */,
-				24C92F6120BE42210072A60C /* Frameworks */,
-				24C92F6220BE42210072A60C /* Resources */,
+				81CE2AC3A62B00BF84871D47 /* [CP] Check Pods Manifest.lock */,
+				242815BA20BE4754001D11FD /* Sources */,
+				242815BB20BE4754001D11FD /* Frameworks */,
+				242815BC20BE4754001D11FD /* Resources */,
+				33ADB413AFD6EE63526EB1C9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+			);
+			name = MinecraftServerStatusWidget;
+			productName = MinecraftServerStatusWidget;
+			productReference = 242815BE20BE4754001D11FD /* MinecraftServerStatusWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		24C92F6320BE42210072A60C /* MinecraftServerStatus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24C92F7620BE42210072A60C /* Build configuration list for PBXNativeTarget "MinecraftServerStatus" */;
+			buildPhases = (
+				5F01F5BFC3081935223E896E /* [CP] Check Pods Manifest.lock */,
+				24C92F6020BE42210072A60C /* Sources */,
+				24C92F6120BE42210072A60C /* Frameworks */,
+				24C92F6220BE42210072A60C /* Resources */,
+				DFFF9997212A97257AA692FC /* [CP] Embed Pods Frameworks */,
+				81C06C86615C8E021D2F3E36 /* [CP] Copy Pods Resources */,
+				242815CE20BE4754001D11FD /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				242815C920BE4754001D11FD /* PBXTargetDependency */,
 			);
 			name = MinecraftServerStatus;
 			productName = MinecraftServerStatus;
@@ -94,9 +265,23 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = ShemeshApps;
 				TargetAttributes = {
+					242815BD20BE4754001D11FD = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					24C92F6320BE42210072A60C = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -114,11 +299,20 @@
 			projectRoot = "";
 			targets = (
 				24C92F6320BE42210072A60C /* MinecraftServerStatus */,
+				242815BD20BE4754001D11FD /* MinecraftServerStatusWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		242815BC20BE4754001D11FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				242815C620BE4754001D11FD /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24C92F6220BE42210072A60C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -131,19 +325,153 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		33ADB413AFD6EE63526EB1C9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MinecraftServerStatusWidget/Pods-MinecraftServerStatusWidget-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F01F5BFC3081935223E896E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MinecraftServerStatus-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81C06C86615C8E021D2F3E36 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MinecraftServerStatus/Pods-MinecraftServerStatus-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81CE2AC3A62B00BF84871D47 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MinecraftServerStatusWidget-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFFF9997212A97257AA692FC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MinecraftServerStatus/Pods-MinecraftServerStatus-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftRater/SwiftRater.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftRater.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MinecraftServerStatus/Pods-MinecraftServerStatus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		242815BA20BE4754001D11FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24EB9BBB20C2F44300C9894A /* SavedServer.swift in Sources */,
+				24EB9BB520C1A10200C9894A /* UIExtentions.swift in Sources */,
+				24EB9BB220C1955B00C9894A /* ServerStatusViewModel.swift in Sources */,
+				241AD77B20C01821006E1939 /* RequestUtil.swift in Sources */,
+				242815D020BE4DBF001D11FD /* ServerTableViewCell.swift in Sources */,
+				242815C320BE4754001D11FD /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24C92F6020BE42210072A60C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				24C92F6A20BE42210072A60C /* ViewController.swift in Sources */,
+				24EB9BB120C1944400C9894A /* ServerStatusViewModel.swift in Sources */,
+				24A55A0320E9C57700612C50 /* AppInfoTableViewController.swift in Sources */,
+				24EB9BBA20C2F30600C9894A /* SavedServer.swift in Sources */,
+				24E8287C20BF76A400F2D348 /* RequestUtil.swift in Sources */,
+				24EB9BB420C1A0DE00C9894A /* UIExtentions.swift in Sources */,
 				24C92F6820BE42210072A60C /* AppDelegate.swift in Sources */,
+				24EB9BBD20C2F85800C9894A /* NewServerViewController.swift in Sources */,
+				243058FF20E4535500ADAECE /* LargeServerTableViewCell.swift in Sources */,
+				24938B1F20DD18D000B00C9C /* CardTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		242815C920BE4754001D11FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 242815BD20BE4754001D11FD /* MinecraftServerStatusWidget */;
+			targetProxy = 242815C820BE4754001D11FD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		242815C420BE4754001D11FD /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				242815C520BE4754001D11FD /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		24C92F6B20BE42210072A60C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -163,6 +491,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		242815CB20BE4754001D11FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 211FE1533CEA467F01D5462C /* Pods-MinecraftServerStatusWidget.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MinecraftServerStatusWidget/MinecraftServerStatusWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FDYR7V7AH4;
+				INFOPLIST_FILE = MinecraftServerStatusWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.MinecraftServerStatusWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		242815CC20BE4754001D11FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3CDE519FAD44A27FE7224B4 /* Pods-MinecraftServerStatusWidget.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MinecraftServerStatusWidget/MinecraftServerStatusWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FDYR7V7AH4;
+				INFOPLIST_FILE = MinecraftServerStatusWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.MinecraftServerStatusWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		24C92F7420BE42210072A60C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -272,11 +636,15 @@
 		};
 		24C92F7720BE42210072A60C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3421CEB02B4330B430985A0 /* Pods-MinecraftServerStatus.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MinecraftServerStatus/MinecraftServerStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				INFOPLIST_FILE = MinecraftServerStatus/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -287,11 +655,15 @@
 		};
 		24C92F7820BE42210072A60C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 079D8F892A68CFC72E9D974A /* Pods-MinecraftServerStatus.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MinecraftServerStatus/MinecraftServerStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				INFOPLIST_FILE = MinecraftServerStatus/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -303,6 +675,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		242815CD20BE4754001D11FD /* Build configuration list for PBXNativeTarget "MinecraftServerStatusWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				242815CB20BE4754001D11FD /* Debug */,
+				242815CC20BE4754001D11FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		24C92F5F20BE42210072A60C /* Build configuration list for PBXProject "MinecraftServerStatus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

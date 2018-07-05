@@ -2,11 +2,14 @@
 //  AppDelegate.swift
 //  MinecraftServerStatus
 //
-//  Created by Temp on 5/29/18.
+//  Created by Tomer on 5/29/18.
 //  Copyright © 2018 ShemeshApps. All rights reserved.
 //
 
 import UIKit
+import RealmSwift
+import Realm
+import SwiftRater
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    
+        //used for sharing realm data between extention
+        let sharedDirectory: URL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.shemeshapps.MinecraftServerStatus")! as URL
+        let sharedRealmURL = sharedDirectory.appendingPathComponent("db.realm")
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(fileURL: sharedRealmURL)
+
+        SwiftRater.usesUntilPrompt = 4
+        SwiftRater.daysBeforeReminding = 2
+        SwiftRater.showLaterButton = true
+        SwiftRater.appLaunched()
+        
         return true
     }
 

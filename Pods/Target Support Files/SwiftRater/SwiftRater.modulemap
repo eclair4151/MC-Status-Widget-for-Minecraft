@@ -1,0 +1,6 @@
+framework module SwiftRater {
+  umbrella header "SwiftRater-umbrella.h"
+
+  export *
+  module * { export * }
+}
