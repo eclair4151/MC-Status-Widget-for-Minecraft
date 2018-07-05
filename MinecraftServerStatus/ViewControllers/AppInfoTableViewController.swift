@@ -17,6 +17,9 @@ class AppInfoTableViewController: UITableViewController {
 
     
     @IBAction func viewSourceClicked(_ sender: Any) {
+        UIApplication.shared.open(URL(string : "https://github.com/eclair4151/MinecraftServerStatusWidget")!, options: [:], completionHandler: { (status) in
+            
+        })
     }
     
     @IBAction func appReviewClicked(_ sender: Any) {

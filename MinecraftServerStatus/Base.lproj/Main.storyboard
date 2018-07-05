@@ -259,7 +259,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kCq-US-QCB" firstAttribute="trailing" secondItem="22E-Jf-LVg" secondAttribute="trailing" id="5Ga-CP-nZx"/>
-                            <constraint firstItem="kCq-US-QCB" firstAttribute="bottom" secondItem="22E-Jf-LVg" secondAttribute="bottom" id="OaR-Ud-1fc"/>
+                            <constraint firstItem="kCq-US-QCB" firstAttribute="bottom" secondItem="U8h-4Z-Bvd" secondAttribute="bottom" id="OaR-Ud-1fc"/>
                             <constraint firstItem="kCq-US-QCB" firstAttribute="top" secondItem="22E-Jf-LVg" secondAttribute="top" id="b34-ri-ZRq"/>
                             <constraint firstItem="kCq-US-QCB" firstAttribute="leading" secondItem="22E-Jf-LVg" secondAttribute="leading" id="vR6-H0-gKU"/>
                         </constraints>
@@ -288,7 +288,7 @@
         <scene sceneID="LIR-6F-ojH">
             <objects>
                 <tableViewController title="App Info" id="guR-J9-2FS" customClass="AppInfoTableViewController" customModule="MinecraftServerStatus" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="wou-J4-9S3">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="wou-J4-9S3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -367,8 +367,8 @@
 https://github.com/SwiftyJSON/SwiftyJSON
 https://github.com/Alamofire/Alamofire
 https://github.com/cbpowell/MarqueeLabel
-https://api.mcsrvstat.us
-https://github.com/takecian/SwiftRater</string>
+https://github.com/takecian/SwiftRater
+https://api.mcsrvstat.us</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <dataDetectorType key="dataDetectorTypes" link="YES"/>

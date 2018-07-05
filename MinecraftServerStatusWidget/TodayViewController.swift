@@ -88,7 +88,6 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         return attributedString
     }
     
-    //we always want to refresh in the widget because this data is always changing
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         completionHandler(NCUpdateResult.newData)
     }
