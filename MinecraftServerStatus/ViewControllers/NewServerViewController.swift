@@ -65,7 +65,7 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
             alertBox("Error", message: "Field is empty", controller: self)
         } else if (self.delegate.checkForName(serverNameInput.text!) && (serverToEdit == nil || serverToEdit.name != serverNameInput.text!)) {
             alertBox("Error", message: "You already have a server with that name", controller: self)
-        } else if (self.showInWidgetSwitch.isOn && !delegate.spaceForWidgetItem()) {
+        } else if (self.serverToEdit == nil && self.showInWidgetSwitch.isOn && !delegate.spaceForWidgetItem()) {
             alertBox("Error", message: "You can only show 4 servers in your widget at once. Disable another before adding this one", controller: self)
         } else if (self.serverToEdit == nil) {
             //creating new server
