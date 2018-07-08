@@ -21,6 +21,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     var servers: Results<SavedServer>!
     var serverStatus:[String:ServerStatusViewModel]!
     var realm:Realm!
+    var numServersToShow:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,13 +70,21 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         }
     }
     
+    //returns the number of servers we should show in the widget
+    func numServers(maxSize: Int) -> Int {
+        return min(maxSize/110, servers.count)
+    }
+    
+
     //keep track of what mode we are in.
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == .expanded {
             expanded = true
-            self.preferredContentSize = CGSize(width: maxSize.width, height: CGFloat(110 * servers.count))
+            self.numServersToShow = numServers(maxSize: Int(maxSize.height))
+            self.preferredContentSize = CGSize(width: maxSize.width, height: CGFloat(110 * self.numServersToShow))
         } else if activeDisplayMode == .compact {
             expanded = false
+            self.numServersToShow = min(1, self.servers.count)
             self.preferredContentSize = CGSize(width: maxSize.width, height: 110)
         }
     }
@@ -151,11 +160,22 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return servers.count
+        return self.numServersToShow
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 110
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        openAppPressed(self)
+    }
+    
+    
+    @IBAction func openAppPressed(_ sender: Any) {
+        let myAppUrl = URL(string: "open-app:")!
+        extensionContext?.open(myAppUrl, completionHandler: { (success) in
+        })
+    }
 }

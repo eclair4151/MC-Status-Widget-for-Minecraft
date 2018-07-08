@@ -15,16 +15,15 @@ class AppInfoTableViewController: UITableViewController {
         super.viewDidLoad()
     }
 
-    
-    @IBAction func viewSourceClicked(_ sender: Any) {
-        UIApplication.shared.open(URL(string : "https://github.com/eclair4151/MinecraftServerStatusWidget")!, options: [:], completionHandler: { (status) in
-            
-        })
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath.section == 0) {
+            UIApplication.shared.open(URL(string : "https://github.com/eclair4151/MinecraftServerStatusWidget")!, options: [:], completionHandler: { (status) in
+                
+            })
+        } else if indexPath.section == 1{
+            SwiftRater.rateApp()
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    @IBAction func appReviewClicked(_ sender: Any) {
-        SwiftRater.rateApp()
-    }
-    
-
 }
