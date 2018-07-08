@@ -29,7 +29,7 @@
         <!--Minecraft Servers-->
         <scene sceneID="3sN-bx-nl0">
             <objects>
-                <viewController id="3Uf-6Z-7aN" customClass="ViewController" customModule="MinecraftServerStatus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="3Uf-6Z-7aN" customClass="ViewController" customModule="MinecraftServerStatus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U8h-4Z-Bvd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -124,7 +124,7 @@
                                                             </constraints>
                                                         </activityIndicatorView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Host: 192.168.1.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPz-Gk-QUs">
-                                                            <rect key="frame" x="8" y="118" width="128" height="21"/>
+                                                            <rect key="frame" x="8" y="118" width="339" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="VmL-ZA-WNL"/>
                                                             </constraints>
@@ -211,6 +211,7 @@
                                                         <constraint firstItem="oUi-Sx-l06" firstAttribute="leading" secondItem="mAQ-oc-MDW" secondAttribute="leading" constant="8" id="bnp-O6-6g7"/>
                                                         <constraint firstItem="K7T-A1-c8I" firstAttribute="top" secondItem="EPz-Gk-QUs" secondAttribute="bottom" constant="4" id="c72-Tu-32D"/>
                                                         <constraint firstItem="EPz-Gk-QUs" firstAttribute="top" secondItem="W1C-F1-8VS" secondAttribute="bottom" constant="4" id="erf-LN-Ypg"/>
+                                                        <constraint firstAttribute="trailing" secondItem="EPz-Gk-QUs" secondAttribute="trailing" constant="8" id="jJm-Tf-OoU"/>
                                                         <constraint firstItem="2y7-Xh-X4y" firstAttribute="top" secondItem="gkt-aB-3n1" secondAttribute="bottom" constant="15" id="jJp-Vq-d5y"/>
                                                         <constraint firstItem="Abk-pi-cE4" firstAttribute="top" secondItem="tVb-Xn-V9o" secondAttribute="bottom" constant="4" id="k33-Iw-swn"/>
                                                         <constraint firstItem="2y7-Xh-X4y" firstAttribute="leading" secondItem="tVb-Xn-V9o" secondAttribute="trailing" constant="4" id="lQD-uJ-2Xu"/>
@@ -252,7 +253,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="3Uf-6Z-7aN" id="hqT-gR-hqs"/>
-                                    <outlet property="delegate" destination="3Uf-6Z-7aN" id="mIX-62-kfU"/>
+                                    <outlet property="delegate" destination="3Uf-6Z-7aN" id="n8k-xO-wi2"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -302,21 +303,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmR-cq-L0r">
-                                                    <rect key="frame" x="78" y="7" width="219" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="219" id="ooN-1d-R9b"/>
-                                                        <constraint firstAttribute="height" constant="30" id="sfc-6z-Ijq"/>
-                                                    </constraints>
-                                                    <state key="normal" title="View the source code on Github"/>
-                                                    <connections>
-                                                        <action selector="viewSourceClicked:" destination="guR-J9-2FS" eventType="touchUpInside" id="I9H-zf-If4"/>
-                                                    </connections>
-                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View the source on Github" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2PV-j7-1kA">
+                                                    <rect key="frame" x="86" y="11" width="202" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0014138489788161346" green="0.52662142302044579" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="BmR-cq-L0r" firstAttribute="centerY" secondItem="QY4-wL-7WM" secondAttribute="centerY" id="EZF-ka-X1I"/>
-                                                <constraint firstItem="BmR-cq-L0r" firstAttribute="centerX" secondItem="QY4-wL-7WM" secondAttribute="centerX" id="iEq-1e-kbR"/>
+                                                <constraint firstItem="2PV-j7-1kA" firstAttribute="centerY" secondItem="QY4-wL-7WM" secondAttribute="centerY" id="yrK-5f-StE"/>
+                                                <constraint firstItem="2PV-j7-1kA" firstAttribute="centerX" secondItem="QY4-wL-7WM" secondAttribute="centerX" id="z08-PD-3vI"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -331,21 +327,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UkH-3c-hW2">
-                                                    <rect key="frame" x="115" y="7" width="145" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="145" id="O7F-WK-OJj"/>
-                                                        <constraint firstAttribute="height" constant="30" id="quz-Fr-j61"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Leave an App Review"/>
-                                                    <connections>
-                                                        <action selector="appReviewClicked:" destination="guR-J9-2FS" eventType="touchUpInside" id="aTY-gr-EqG"/>
-                                                    </connections>
-                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leave an App Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8D-jM-giI">
+                                                    <rect key="frame" x="106" y="12" width="162" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0014138489790000001" green="0.52662142300000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="UkH-3c-hW2" firstAttribute="centerY" secondItem="cDm-td-0ch" secondAttribute="centerY" id="eK8-Kp-ppQ"/>
-                                                <constraint firstItem="UkH-3c-hW2" firstAttribute="centerX" secondItem="cDm-td-0ch" secondAttribute="centerX" id="ffI-4E-r87"/>
+                                                <constraint firstItem="A8D-jM-giI" firstAttribute="centerX" secondItem="cDm-td-0ch" secondAttribute="centerX" id="7mL-OO-fFf"/>
+                                                <constraint firstItem="A8D-jM-giI" firstAttribute="centerY" secondItem="cDm-td-0ch" secondAttribute="centerY" id="xpg-US-KG6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

@@ -200,7 +200,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 } else {
                     cell.statusResultLabel.text = "ONLINE"
                     cell.statusResultLabel.textColor = UIColor(rgb: 0x009933)
-                    
+                    cell.motdLabel.attributedText = BoldPartOfString("Motd: ", label: "")
+                    cell.statusLabel.attributedText = BoldPartOfString("Status:", label: "")
+
                     cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: String(status.serverData["players"]["online"].intValue) + "/" + String(status.serverData["players"]["max"].intValue))
                     
                     if status.serverData["debug"]["query"].boolValue {

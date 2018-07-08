@@ -62,11 +62,9 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
     //when the save do some verification and maybe throw an error
     @IBAction func saveButtonClicked(_ sender: Any) {
         if (serverNameInput.text?.isEmpty)! || (serverUrlInput.text?.isEmpty)! {
-            alertBox("Error", message: "Field is empty", controller: self)
+            alertBox("Error", message: "One or more fields are empty", controller: self)
         } else if (self.delegate.checkForName(serverNameInput.text!) && (serverToEdit == nil || serverToEdit.name != serverNameInput.text!)) {
             alertBox("Error", message: "You already have a server with that name", controller: self)
-        } else if (self.serverToEdit == nil && self.showInWidgetSwitch.isOn && !delegate.spaceForWidgetItem()) {
-            alertBox("Error", message: "You can only show 4 servers in your widget at once. Disable another before adding this one", controller: self)
         } else if (self.serverToEdit == nil) {
             //creating new server
             let realm = try! Realm()
