@@ -113,11 +113,40 @@
                                     <outlet property="delegate" destination="M4Y-Lb-cyx" id="3XP-e4-qP5"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="98D-fN-oZ1">
+                                <rect key="frame" x="0.0" y="20" width="375" height="110"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUA-MA-GKK">
+                                        <rect key="frame" x="16" y="37" width="343" height="36"/>
+                                        <color key="backgroundColor" red="0.19787869599999999" green="0.41858958039999999" blue="0.72243553709999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="QLX-bc-jwX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" title="+Open the app to add a Server">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openAppPressed:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="9i0-b0-CRf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="jUA-MA-GKK" firstAttribute="leading" secondItem="98D-fN-oZ1" secondAttribute="leading" constant="16" id="QgJ-nj-36i"/>
+                                    <constraint firstItem="jUA-MA-GKK" firstAttribute="centerY" secondItem="98D-fN-oZ1" secondAttribute="centerY" id="xJf-Gh-xKW"/>
+                                    <constraint firstAttribute="trailing" secondItem="jUA-MA-GKK" secondAttribute="trailing" constant="16" id="zcR-pJ-0BX"/>
+                                    <constraint firstAttribute="height" constant="110" id="zgC-5D-nWb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="98D-fN-oZ1" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="8EL-xI-Eom"/>
                             <constraint firstItem="HEl-fj-fAH" firstAttribute="bottom" secondItem="ssy-KU-ocm" secondAttribute="bottom" id="HfJ-Pd-gb1"/>
+                            <constraint firstItem="98D-fN-oZ1" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="UEb-ZC-WEl"/>
                             <constraint firstItem="HEl-fj-fAH" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="m3G-YV-2Yy"/>
                             <constraint firstItem="HEl-fj-fAH" firstAttribute="trailing" secondItem="ssy-KU-ocm" secondAttribute="trailing" id="pO6-Zd-gxf"/>
+                            <constraint firstItem="98D-fN-oZ1" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="q6c-xy-VyB"/>
                             <constraint firstItem="HEl-fj-fAH" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="uj2-hg-55J"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
@@ -125,6 +154,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="noServersView" destination="98D-fN-oZ1" id="SZr-wv-2mP"/>
                         <outlet property="tableView" destination="HEl-fj-fAH" id="v8O-Bs-buY"/>
                     </connections>
                 </viewController>

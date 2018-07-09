@@ -15,6 +15,7 @@ import Realm
 
 class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var noServersView: UIView!
     @IBOutlet weak var tableView: UITableView!
     var expanded: Bool!
     
@@ -43,6 +44,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
             self.extensionContext?.widgetLargestAvailableDisplayMode = NCWidgetDisplayMode.expanded
         }
         
+        if servers.count == 0 {
+            self.noServersView.isHidden = false
+            self.tableView.isHidden = true
+        } else {
+            self.noServersView.isHidden = true
+            self.tableView.isHidden = false
+        }
         serverStatus = [:]
         for server in servers {
             serverStatus[server.id] = ServerStatusViewModel()
