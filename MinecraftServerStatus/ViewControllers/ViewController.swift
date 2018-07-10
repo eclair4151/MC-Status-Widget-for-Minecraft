@@ -85,7 +85,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.serverStatus[server.id] = ServerStatusViewModel()
             }
             self.serverStatus[server.id]?.loading = true
-            
+            self.serverStatus[server.id]?.error = false
             getServer(server: server.serverUrl) { response in
                 let serverStatus = self.serverStatus[server.id]
                 serverStatus?.loading = false
