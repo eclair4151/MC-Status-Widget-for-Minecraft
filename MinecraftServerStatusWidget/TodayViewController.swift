@@ -52,6 +52,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
             self.tableView.isHidden = false
         }
         serverStatus = [:]
+        self.numServersToShow = servers.count
         for server in servers {
             serverStatus[server.id] = ServerStatusViewModel()
             getServer(server: server.serverUrl) { response in
@@ -79,23 +80,22 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
     
     //returns the number of servers we should show in the widget
-    func numServers(maxSize: Int) -> Int {
+    func maxNumServers(maxSize: Int) -> Int {
         return min(maxSize/110, servers.count)
     }
-    
+
 
     //keep track of what mode we are in.
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == .expanded {
             expanded = true
-            self.numServersToShow = numServers(maxSize: Int(maxSize.height))
-            self.preferredContentSize = CGSize(width: maxSize.width, height: CGFloat(110 * self.numServersToShow))
+            self.preferredContentSize = CGSize(width: maxSize.width, height: CGFloat(110 * maxNumServers(maxSize: Int(maxSize.height))))
         } else if activeDisplayMode == .compact {
             expanded = false
-            self.numServersToShow = min(1, self.servers.count)
             self.preferredContentSize = CGSize(width: maxSize.width, height: 110)
         }
     }
+    
     
     func BoldPartOfString(_ prefix: String, label: String) -> NSMutableAttributedString {
         let attrs = [NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 17)]
@@ -149,7 +149,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
                     cell.statusLabel.textColor = UIColor(rgb: 0x009933)
                     
                     cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: String(status.serverData["players"]["online"].intValue) + "/" + String(status.serverData["players"]["max"].intValue))
-
+    
                     if let playerArray = status.serverData["players"]["list"].array {
                         var playerString = Array(playerArray.prefix(20)).map { String($0.stringValue) }.joined(separator: ", ")
                         if playerArray.count > 20 {

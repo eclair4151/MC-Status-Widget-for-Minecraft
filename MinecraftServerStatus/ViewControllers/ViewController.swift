@@ -70,6 +70,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @objc func addTapped() {
         performSegue(withIdentifier: "NewItem", sender: self)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.editClicked(self)
+        }
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
@@ -304,20 +307,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
         return false
-    }
-
-    //make sure there are less than 4 widgets
-    func spaceForWidgetItem() -> Bool {
-        var num = 0
-        for server in self.servers {
-            if server.showInWidget {
-                num = num + 1
-                if num == 4 {
-                    return false
-                }
-            }
-        }
-        return true
     }
 }
 
