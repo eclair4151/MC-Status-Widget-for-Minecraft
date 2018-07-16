@@ -13,8 +13,6 @@ protocol ServerEditProtocol: class {
     func serverAdded(_ newServer:SavedServer)
     func serverEdited(_ editedServer:SavedServer)
     func checkForName(_ serverName:String) -> Bool
-    func spaceForWidgetItem() -> Bool
-
 }
 
 class NewServerViewController: UIViewController, UITextFieldDelegate {
