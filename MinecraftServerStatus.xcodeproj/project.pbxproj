@@ -15,6 +15,7 @@
 		242815CA20BE4754001D11FD /* MinecraftServerStatusWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 242815BE20BE4754001D11FD /* MinecraftServerStatusWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		242815D020BE4DBF001D11FD /* ServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242815CF20BE4DBF001D11FD /* ServerTableViewCell.swift */; };
 		243058FF20E4535500ADAECE /* LargeServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243058FE20E4535500ADAECE /* LargeServerTableViewCell.swift */; };
+		244480B72109FF6000F09C15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C92F6E20BE42210072A60C /* Assets.xcassets */; };
 		24938B1F20DD18D000B00C9C /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24938B1E20DD18D000B00C9C /* CardTableViewCell.swift */; };
 		24A55A0320E9C57700612C50 /* AppInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A55A0220E9C57700612C50 /* AppInfoTableViewController.swift */; };
 		24C92F6820BE42210072A60C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C92F6720BE42210072A60C /* AppDelegate.swift */; };
@@ -309,6 +310,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				244480B72109FF6000F09C15 /* Assets.xcassets in Resources */,
 				242815C620BE4754001D11FD /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

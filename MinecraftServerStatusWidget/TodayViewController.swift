@@ -121,7 +121,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
                 cell.icon.image = image
             }
         } else {
-            cell.icon.image = nil
+            cell.icon.image = UIImage(named: "DefaultIcon");
         }
         
         cell.nameLabel.text = server.name

@@ -173,7 +173,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 cell.icon.image = image
             }
         }else {
-            cell.icon.image = nil
+            cell.icon.image = UIImage(named: "DefaultIcon");
         }
         
         //If cell is loading and we have no saved data show a mostly blank cell
@@ -208,7 +208,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
                     cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: String(status.serverData["players"]["online"].intValue) + "/" + String(status.serverData["players"]["max"].intValue))
                     
-                    if status.serverData["debug"]["query"].boolValue {
+                    //we cant trust the query response here. Query may return false even if it is on if udp is blocked on the server.
+                    if (status.serverData["players"]["online"].intValue > 0) {
                         if let playerArray = status.serverData["players"]["list"].array {
                             var playerString = Array(playerArray.prefix(20)).map { String($0.stringValue) }.joined(separator: ", ")
                             if playerArray.count > 20 {
@@ -218,14 +219,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                             cell.playerListLabel.animationDelay = 3
                             cell.playerListLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
                         } else {
-                            cell.playerListLabel.text = ""
+                            cell.playerListLabel.text = "Turn on enable-query in server.properties to see the list of players.                 "
+                            cell.playerListLabel.animationDelay = 7
+                            cell.playerListLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
                         }
                     } else {
-                        cell.playerListLabel.text = "Turn on enable-query in server.properties to see the list of players.                 "
-                        cell.playerListLabel.animationDelay = 7
-                        cell.playerListLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
+                        cell.playerListLabel.text = ""
                     }
-                    
                     
                     let motdText = status.serverData["motd"]["clean"].arrayValue.map { $0.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)}.joined(separator: "   ") + "         "
                     
@@ -279,15 +279,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //for when a person is reordering the tableview cells
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let server1 = self.servers[sourceIndexPath.row]
-        let server2 = self.servers[destinationIndexPath.row]
-        let server1Order = server1.order
-        
+        //borrowed from https://gist.github.com/kishikawakatsumi/cc4a1f32fb8ee34eb509d54027d731b5
         try! realm.write {
-            server1.order = server2.order
-            server2.order = server1Order
+            let sourceObject = servers[sourceIndexPath.row]
+            let destinationObject = servers[destinationIndexPath.row]
+            
+            let destinationObjectOrder = destinationObject.order
+            
+            if sourceIndexPath.row < destinationIndexPath.row {
+                for index in sourceIndexPath.row...destinationIndexPath.row {
+                    let object = servers[index]
+                    object.order -= 1
+                }
+            } else {
+                for index in (destinationIndexPath.row..<sourceIndexPath.row).reversed() {
+                    let object = servers[index]
+                    object.order += 1
+                }
+            }
+            sourceObject.order = destinationObjectOrder
         }
-        servers = realm.objects(SavedServer.self).sorted(byKeyPath: "order")
     }
     
     
