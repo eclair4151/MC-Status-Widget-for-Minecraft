@@ -23,10 +23,12 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     var serverStatus:[String:ServerStatusViewModel]!
     var realm:Realm!
     var numServersToShow:Int = 0
+    var rowHeight:CGFloat = 0
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.estimatedRowHeight = 110
+        self.tableView.estimatedRowHeight = self.rowHeight
         
         //for shaing realm data between app and widget
         let sharedDirectory: URL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.shemeshapps.MinecraftServerStatus")! as URL
@@ -81,18 +83,20 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     
     //returns the number of servers we should show in the widget
     func maxNumServers(maxSize: Int) -> Int {
-        return min(maxSize/110, servers.count)
+        return min(maxSize/Int(self.rowHeight), servers.count)
     }
 
 
     //keep track of what mode we are in.
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        self.rowHeight = self.extensionContext!.widgetMaximumSize(for: .compact).height
+        
         if activeDisplayMode == .expanded {
             expanded = true
-            self.preferredContentSize = CGSize(width: maxSize.width, height: CGFloat(110 * maxNumServers(maxSize: Int(maxSize.height))))
+            self.preferredContentSize = CGSize(width: maxSize.width, height: self.rowHeight * CGFloat(maxNumServers(maxSize: Int(maxSize.height))))
         } else if activeDisplayMode == .compact {
             expanded = false
-            self.preferredContentSize = CGSize(width: maxSize.width, height: 110)
+            self.preferredContentSize = CGSize(width: maxSize.width, height: self.rowHeight)
         }
     }
     
@@ -164,6 +168,11 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
                 }
             }
         }
+        
+        cell.nameLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+        cell.playerCountLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+        cell.playerListLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
+
         return cell
     }
     
@@ -172,7 +181,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        return self.rowHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
