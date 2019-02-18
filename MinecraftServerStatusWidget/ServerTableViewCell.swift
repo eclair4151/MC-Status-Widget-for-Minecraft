@@ -16,6 +16,7 @@ class ServerTableViewCell: UITableViewCell {
     @IBOutlet weak var playerCountLabel: UILabel!
     @IBOutlet weak var playerListLabel: MarqueeLabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var refreshButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

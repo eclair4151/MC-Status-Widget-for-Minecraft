@@ -56,30 +56,36 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         serverStatus = [:]
         self.numServersToShow = servers.count
         for server in servers {
-            serverStatus[server.id] = ServerStatusViewModel()
-            getServer(server: server.serverUrl) { response in
-                
-                let serverStatus = self.serverStatus[server.id]
-                serverStatus?.loading = false
-                
-                switch response.result {
-                case .success(let value):
-                    let json = JSON(value)
-                    serverStatus?.serverData = json
-                    
-                    if let imageString = json["icon"].string {
-                        try! self.realm.write {
-                            server.serverIcon = imageString
-                        }
-                    }
-                case .failure(let error):
-                    print(error)
-                    serverStatus?.error = true
-                }
-                self.tableView.reloadData()
-            }
+            refreshServer(server: server)
         }
     }
+    
+    
+    func refreshServer(server: SavedServer) {
+        serverStatus[server.id] = ServerStatusViewModel()
+        getServer(server: server.serverUrl) { response in
+            
+            let serverStatus = self.serverStatus[server.id]
+            serverStatus?.loading = false
+            
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                serverStatus?.serverData = json
+                
+                if let imageString = json["icon"].string {
+                    try! self.realm.write {
+                        server.serverIcon = imageString
+                    }
+                }
+            case .failure(let error):
+                print(error)
+                serverStatus?.error = true
+            }
+            self.tableView.reloadData()
+        }
+    }
+    
     
     //returns the number of servers we should show in the widget
     func maxNumServers(maxSize: Int) -> Int {
@@ -102,7 +108,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     
     
     func BoldPartOfString(_ prefix: String, label: String) -> NSMutableAttributedString {
-        let attrs = [NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 17)]
+        let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 17)]
         let attributedString = NSMutableAttributedString(string: prefix, attributes:attrs)
         let normalString = NSMutableAttributedString(string:" " + label)
         attributedString.append(normalString)
@@ -129,14 +135,19 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         }
         
         cell.nameLabel.text = server.name
+        cell.refreshButton.tag = indexPath.row
         
         if status.loading {
             cell.statusLabel.text = ""
             cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: "")
             cell.playerListLabel.text = ""
             cell.activityIndicator.startAnimating()
+            cell.refreshButton.isHidden = true
         } else {
             cell.activityIndicator.stopAnimating()
+            cell.refreshButton.isHidden = false
+            cell.refreshButton.addTarget(self, action:#selector(self.refreshPressed), for: .touchUpInside)
+
             if status.error {
                 cell.statusLabel.text = "UNKNOWN"
                 cell.statusLabel.textColor = UIColor(rgb: 0x000000)
@@ -169,11 +180,17 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
             }
         }
         
-        cell.nameLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
-        cell.playerCountLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
-        cell.playerListLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
+        cell.nameLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
+        cell.playerCountLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
+        cell.playerListLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline)
 
         return cell
+    }
+    
+    @objc func refreshPressed(sender: UIButton!) {
+       let serverToUpdate = self.servers[sender.tag]
+        refreshServer(server: serverToUpdate)
+       self.tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

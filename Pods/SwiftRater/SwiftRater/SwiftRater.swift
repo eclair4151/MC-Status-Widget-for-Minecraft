@@ -17,9 +17,9 @@ import StoreKit
         case later = 2
     }
 
-    public let SwiftRaterErrorDomain = "Siren Error Domain"
+    @objc public let SwiftRaterErrorDomain = "Siren Error Domain"
 
-    public static var daysUntilPrompt: Int {
+    @objc public static var daysUntilPrompt: Int {
         get {
             return UsageDataManager.shared.daysUntilPrompt
         }
@@ -27,7 +27,7 @@ import StoreKit
             UsageDataManager.shared.daysUntilPrompt = newValue
         }
     }
-    public static var usesUntilPrompt: Int {
+    @objc public static var usesUntilPrompt: Int {
         get {
             return UsageDataManager.shared.usesUntilPrompt
         }
@@ -35,7 +35,7 @@ import StoreKit
             UsageDataManager.shared.usesUntilPrompt = newValue
         }
     }
-    public static var significantUsesUntilPrompt: Int {
+    @objc public static var significantUsesUntilPrompt: Int {
         get {
             return UsageDataManager.shared.significantUsesUntilPrompt
         }
@@ -44,7 +44,7 @@ import StoreKit
         }
     }
 
-    public static var daysBeforeReminding: Int {
+    @objc public static var daysBeforeReminding: Int {
         get {
             return UsageDataManager.shared.daysBeforeReminding
         }
@@ -52,7 +52,7 @@ import StoreKit
             UsageDataManager.shared.daysBeforeReminding = newValue
         }
     }
-    public static var debugMode: Bool {
+    @objc public static var debugMode: Bool {
         get {
             return UsageDataManager.shared.debugMode
         }
@@ -61,22 +61,26 @@ import StoreKit
         }
     }
 
-    public static var useStoreKitIfAvailable: Bool = true
+    @objc public static var useStoreKitIfAvailable: Bool = true
 
-    public static var showLaterButton: Bool = true
+    @objc public static var showLaterButton: Bool = true
 
-    public static var alertTitle: String?
-    public static var alertMessage: String?
-    public static var alertCancelTitle: String?
-    public static var alertRateTitle: String?
-    public static var alertRateLaterTitle: String?
-    public static var appName: String?
+    @objc public static var alertTitle: String?
+    @objc public static var alertMessage: String?
+    @objc public static var alertCancelTitle: String?
+    @objc public static var alertRateTitle: String?
+    @objc public static var alertRateLaterTitle: String?
+    @objc public static var appName: String?
 
-    public static var showLog: Bool = false
-    public static var resetWhenAppUpdated: Bool = true
+    @objc public static var showLog: Bool = false
+    @objc public static var resetWhenAppUpdated: Bool = true
 
-    public static var shared = SwiftRater()
+    @objc public static var shared = SwiftRater()
 
+    @objc public static var isRateDone: Bool {
+        return UsageDataManager.shared.isRateDone
+    }
+    
     fileprivate var appID: Int?
 
     private static var appVersion: String {
@@ -126,7 +130,7 @@ import StoreKit
         super.init()
     }
 
-    public static func appLaunched() {
+    @objc public static func appLaunched() {
         if SwiftRater.resetWhenAppUpdated && SwiftRater.appVersion != UsageDataManager.shared.trackingVersion {
             UsageDataManager.shared.reset()
             UsageDataManager.shared.trackingVersion = SwiftRater.appVersion
@@ -135,32 +139,28 @@ import StoreKit
         SwiftRater.shared.perform()
     }
 
-    public static func incrementSignificantUsageCount() {
+    @objc public static func incrementSignificantUsageCount() {
         UsageDataManager.shared.incrementSignificantUseCount()
     }
 
     @discardableResult
-    public static func check() -> Bool {
+    @objc public static func check(host: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> Bool {
         guard UsageDataManager.shared.ratingConditionsHaveBeenMet else {
             return false
         }
         
-        SwiftRater.shared.showRatingAlert()
+        SwiftRater.shared.showRatingAlert(host: host, force: false)
         return true
     }
     
-    public static func rateApp() {
+    @objc public static func rateApp(host: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) {
         NSLog("[SwiftRater] Trying to show review request dialog.")
-        if #available(iOS 10.3, *), SwiftRater.useStoreKitIfAvailable {
-            SKStoreReviewController.requestReview()
-        } else {
-            SwiftRater.shared.rateAppWithAppStore()
-        }
-        
+        SwiftRater.shared.showRatingAlert(host: host, force: true)
+
         UsageDataManager.shared.isRateDone = true
     }
 
-    public static func reset() {
+    @objc public static func reset() {
         UsageDataManager.shared.reset()
     }
 
@@ -285,9 +285,9 @@ import StoreKit
         UsageDataManager.shared.incrementSignificantUseCount()
     }
 
-    private func showRatingAlert() {
+    private func showRatingAlert(host: UIViewController?, force: Bool) {
         NSLog("[SwiftRater] Trying to show review request dialog.")
-        if #available(iOS 10.3, *), SwiftRater.useStoreKitIfAvailable {
+        if #available(iOS 10.3, *), SwiftRater.useStoreKitIfAvailable, !force {
             SKStoreReviewController.requestReview()
             UsageDataManager.shared.isRateDone = true
         } else {
@@ -316,7 +316,7 @@ import StoreKit
                 alertController.preferredAction = rateAction
             }
             
-            UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+            host?.present(alertController, animated: true, completion: nil)
         }
     }
     

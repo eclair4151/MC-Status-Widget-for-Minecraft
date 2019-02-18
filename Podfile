@@ -6,8 +6,8 @@ target 'MinecraftServerStatus' do
   use_frameworks!
   pod 'RealmSwift'
   pod 'MarqueeLabel/Swift'
-  pod 'SwiftyJSON', '~> 4.0'
-  pod 'Alamofire', '~> 4.7'
+  pod 'SwiftyJSON', '~> 4.2.0'
+  pod 'Alamofire', '~> 4.8.1'
   pod 'SwiftRater'
 
 end
@@ -16,8 +16,8 @@ target 'MinecraftServerStatusWidget' do
     # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
     use_frameworks!
     pod 'RealmSwift'
-    pod 'SwiftyJSON', '~> 4.0'
+    pod 'SwiftyJSON', '~> 4.2.0'
     pod 'MarqueeLabel/Swift'
-    pod 'Alamofire', '~> 4.7'
+    pod 'Alamofire', '~> 4.8.1'
     
 end
