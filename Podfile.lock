@@ -1,29 +1,38 @@
 PODS:
-  - Alamofire (4.7.2)
-  - MarqueeLabel/Swift (3.1.4)
-  - Realm (3.6.0):
-    - Realm/Headers (= 3.6.0)
-  - Realm/Headers (3.6.0)
-  - RealmSwift (3.6.0):
-    - Realm (= 3.6.0)
-  - SwiftRater (1.0.0)
-  - SwiftyJSON (4.1.0)
+  - Alamofire (4.8.1)
+  - MarqueeLabel/Swift (3.2.0)
+  - Realm (3.13.1):
+    - Realm/Headers (= 3.13.1)
+  - Realm/Headers (3.13.1)
+  - RealmSwift (3.13.1):
+    - Realm (= 3.13.1)
+  - SwiftRater (1.4.0)
+  - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.7)
+  - Alamofire (~> 4.8.1)
   - MarqueeLabel/Swift
   - RealmSwift
   - SwiftRater
-  - SwiftyJSON (~> 4.0)
+  - SwiftyJSON (~> 4.2.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - MarqueeLabel
+    - Realm
+    - RealmSwift
+    - SwiftRater
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
-  MarqueeLabel: bf768455fe88d427f71476ebb23f9092b660f40b
-  Realm: 08b464b462d4f31bbd4ba5f5a1c8722ef0a700b7
-  RealmSwift: 973e1499c44ab571f894c2c908e2db450be280c3
-  SwiftRater: f8308d1ef8544a4136d45912ffb083f0b14f03ea
-  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
+  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
+  SwiftRater: d0d1f93a20cd1fa701169fe8db99e6f3039cd3c4
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 3d9851d71057fca464c6926fbafec5e2a8391900
+PODFILE CHECKSUM: 28a5c1763d2b6321436f2658fdebf83fb720ddde
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.6.0

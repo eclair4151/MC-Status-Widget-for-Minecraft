@@ -25,7 +25,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         self.tableView.estimatedRowHeight = 257
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10) { // wait 10 seconds before asking for a review
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { // wait 10 seconds before asking for a review
             SwiftRater.check()
         }
         
@@ -36,7 +36,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let refreshControl = UIRefreshControl()
         self.tableView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: UIControl.Event.valueChanged)
 
         self.realm = try! Realm()
         serverStatus = [:]
@@ -126,7 +126,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return 257
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
            //when we delete a server we need to go through and fix the order number for everything after it
@@ -251,7 +251,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func BoldPartOfString(_ prefix: String, label: String) -> NSMutableAttributedString {
-        let attrs = [NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 17)]
+        let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 17)]
         let attributedString = NSMutableAttributedString(string: prefix, attributes:attrs)
         let normalString = NSMutableAttributedString(string:" " + label)
         attributedString.append(normalString)
@@ -305,9 +305,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         //bad hack to turn off edit mode after the new screen has appeared without using a delegate
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.editClicked(tableView)
-        }
     }
     
     //check that hte name is unique

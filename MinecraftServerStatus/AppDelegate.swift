@@ -17,14 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
         //used for sharing realm data between extention
         let sharedDirectory: URL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.shemeshapps.MinecraftServerStatus")! as URL
         let sharedRealmURL = sharedDirectory.appendingPathComponent("db.realm")
         Realm.Configuration.defaultConfiguration = Realm.Configuration(fileURL: sharedRealmURL)
 
-        SwiftRater.usesUntilPrompt = 4
+        SwiftRater.usesUntilPrompt = 3
         SwiftRater.daysBeforeReminding = 2
         SwiftRater.showLaterButton = true
         SwiftRater.appLaunched()
