@@ -24,7 +24,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getServerStatus(address: "tomershemesh.me", port: 25565)
+        StatusChecker(addressAndPort: "tomershemesh.me").getStatus { status in
+            print(status)
+        }
         
         
         self.tableView.estimatedRowHeight = 257
