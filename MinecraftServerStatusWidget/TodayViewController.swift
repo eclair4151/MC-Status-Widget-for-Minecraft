@@ -154,17 +154,12 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
                 cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: "")
                 cell.playerListLabel.text = ""
             } else {
-                if status.serverData["offline"].boolValue {
-                    cell.statusLabel.text = "OFFLINE"
-                    cell.statusLabel.textColor = UIColor(rgb: 0xCC0000)
-                    cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: "")
-                    cell.playerListLabel.text = ""
-                } else {
+                if status.serverData["online"].boolValue {
                     cell.statusLabel.text = "ONLINE"
                     cell.statusLabel.textColor = UIColor(rgb: 0x009933)
                     
                     cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: String(status.serverData["players"]["online"].intValue) + "/" + String(status.serverData["players"]["max"].intValue))
-    
+                    
                     if let playerArray = status.serverData["players"]["list"].array {
                         var playerString = Array(playerArray.prefix(20)).map { String($0.stringValue) }.joined(separator: ", ")
                         if playerArray.count > 20 {
@@ -176,6 +171,11 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
                     } else {
                         cell.playerListLabel.text = ""
                     }
+                } else {
+                    cell.statusLabel.text = "OFFLINE"
+                    cell.statusLabel.textColor = UIColor(rgb: 0xCC0000)
+                    cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: "")
+                    cell.playerListLabel.text = ""
                 }
             }
         }

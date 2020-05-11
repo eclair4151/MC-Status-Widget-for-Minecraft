@@ -8,7 +8,26 @@
 
 import Foundation
 import Alamofire
+import SwiftSocket
 
-public func getServer(server:String, listener: @escaping (DataResponse<Any>) -> Void) {
-    Alamofire.request("https:/api.mcsrvstat.us/1/" + server).responseJSON(completionHandler: listener)
+public func getServer(server:String, listener: @escaping (AFDataResponse<Any>) -> Void) {
+    AF.request("https:/api.mcsrvstat.us/2/" + server).responseJSON(completionHandler: listener)
+}
+
+
+public func getServerStatus(address: String, port: Int) {
+    
+    let client = TCPClient(address: address, port: Int32(port))
+    switch client.connect(timeout: 10) {
+      case .success:
+        // Connection successful 🎉
+        print("woo")
+      case .failure(let error):
+        // 💩
+        print("boo")
+    }
+    
+  //  let res = client.connect(timeout: 5)
+    print("test")
+
 }

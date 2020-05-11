@@ -380,7 +380,8 @@ public:
     /// types that are derived from util::File::AccessError, the
     /// derived exception type is thrown. In particular,
     /// util::File::Exists will be thrown if the file exists already.
-    void write(const std::string& file, const char* encryption_key = nullptr, uint64_t version = 0) const;
+    void write(const std::string& file, const char* encryption_key = nullptr, uint64_t version = 0,
+               bool write_history = true) const;
 
     /// Write this database to a memory buffer.
     ///
@@ -695,8 +696,8 @@ private:
 
     void mark_all_table_accessors() noexcept;
 
-    void write(util::File& file, const char* encryption_key, uint_fast64_t version_number) const;
-    void write(std::ostream&, bool pad, uint_fast64_t version_numer) const;
+    void write(util::File& file, const char* encryption_key, uint_fast64_t version_number, bool write_history) const;
+    void write(std::ostream&, bool pad, uint_fast64_t version_numer, bool write_history) const;
 
     Replication* get_replication() const noexcept;
     void set_replication(Replication*) noexcept;
@@ -796,6 +797,7 @@ private:
     void set_history_schema_version(int version);
     void set_history_parent(Array& history_root) noexcept;
     void prepare_history_parent(Array& history_root, int history_type, int history_schema_version);
+    static void validate_top_array(const Array& arr, const SlabAlloc& alloc);
 
     friend class Table;
     friend class GroupWriter;
@@ -990,7 +992,7 @@ void Group::to_json(S& out, size_t link_depth, std::map<std::string, std::string
     std::map<std::string, std::string> renames2;
     renames = renames ? renames : &renames2;
 
-    out << "{";
+    out << "{" << std::endl;
 
     for (size_t i = 0; i < m_tables.size(); ++i) {
         StringData name = m_table_names.get(i);
@@ -1005,9 +1007,10 @@ void Group::to_json(S& out, size_t link_depth, std::map<std::string, std::string
         out << "\"" << name << "\"";
         out << ":";
         table->to_json(out, link_depth, renames);
+        out << std::endl;
     }
 
-    out << "}";
+    out << "}" << std::endl;
 }
 
 inline void Group::init_array_parents() noexcept

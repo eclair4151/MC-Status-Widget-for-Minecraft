@@ -23,6 +23,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getServerStatus(address: "tomershemesh.me", port: 25565)
+        
+        
         self.tableView.estimatedRowHeight = 257
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) { // wait 10 seconds before asking for a review
@@ -196,45 +200,45 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 cell.statusResultLabel.textColor = UIColor(rgb: 0x000000)
             } else {
                 //other wise show the online of offline value
-                if status.serverData["offline"].boolValue {
+                if status.serverData["online"].boolValue {
+                     cell.statusResultLabel.text = "ONLINE"
+                     cell.statusResultLabel.textColor = UIColor(rgb: 0x009933)
+                     cell.motdLabel.attributedText = BoldPartOfString("Motd: ", label: "")
+                     cell.statusLabel.attributedText = BoldPartOfString("Status:", label: "")
+
+                     cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: String(status.serverData["players"]["online"].intValue) + "/" + String(status.serverData["players"]["max"].intValue))
+                     
+                     //we cant trust the query response here. Query may return false even if it is on if udp is blocked on the server.
+                     if (status.serverData["players"]["online"].intValue > 0) {
+                         if let playerArray = status.serverData["players"]["list"].array {
+                             var playerString = Array(playerArray.prefix(20)).map { String($0.stringValue) }.joined(separator: ", ")
+                             if playerArray.count > 20 {
+                                 playerString += ",...       "
+                             }
+                             cell.playerListLabel.text = playerString
+                             cell.playerListLabel.animationDelay = 3
+                             cell.playerListLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
+                         } else {
+                             cell.playerListLabel.text = "Turn on enable-query in server.properties to see the list of players.                 "
+                             cell.playerListLabel.animationDelay = 7
+                             cell.playerListLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
+                         }
+                     } else {
+                         cell.playerListLabel.text = ""
+                     }
+                     
+                     let motdText = status.serverData["motd"]["clean"].arrayValue.map { $0.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)}.joined(separator: "   ") + "         "
+                     
+                     cell.motdMessageLabel.text = motdText
+                     cell.motdMessageLabel.animationDelay = 5
+                     cell.motdMessageLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
+                     
+                     cell.versionLabel.attributedText = BoldPartOfString("Version: ", label: status.serverData["version"].stringValue)
+                     cell.portLabel.attributedText = BoldPartOfString("Port: ", label: status.serverData["port"].stringValue)
+                } else {
                     resetCellData(cell: cell)
                     cell.statusResultLabel.text = "OFFLINE"
                     cell.statusResultLabel.textColor = UIColor(rgb: 0xCC0000)
-                } else {
-                    cell.statusResultLabel.text = "ONLINE"
-                    cell.statusResultLabel.textColor = UIColor(rgb: 0x009933)
-                    cell.motdLabel.attributedText = BoldPartOfString("Motd: ", label: "")
-                    cell.statusLabel.attributedText = BoldPartOfString("Status:", label: "")
-
-                    cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: String(status.serverData["players"]["online"].intValue) + "/" + String(status.serverData["players"]["max"].intValue))
-                    
-                    //we cant trust the query response here. Query may return false even if it is on if udp is blocked on the server.
-                    if (status.serverData["players"]["online"].intValue > 0) {
-                        if let playerArray = status.serverData["players"]["list"].array {
-                            var playerString = Array(playerArray.prefix(20)).map { String($0.stringValue) }.joined(separator: ", ")
-                            if playerArray.count > 20 {
-                                playerString += ",...       "
-                            }
-                            cell.playerListLabel.text = playerString
-                            cell.playerListLabel.animationDelay = 3
-                            cell.playerListLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
-                        } else {
-                            cell.playerListLabel.text = "Turn on enable-query in server.properties to see the list of players.                 "
-                            cell.playerListLabel.animationDelay = 7
-                            cell.playerListLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
-                        }
-                    } else {
-                        cell.playerListLabel.text = ""
-                    }
-                    
-                    let motdText = status.serverData["motd"]["clean"].arrayValue.map { $0.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)}.joined(separator: "   ") + "         "
-                    
-                    cell.motdMessageLabel.text = motdText
-                    cell.motdMessageLabel.animationDelay = 5
-                    cell.motdMessageLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
-                    
-                    cell.versionLabel.attributedText = BoldPartOfString("Version: ", label: status.serverData["version"].stringValue)
-                    cell.portLabel.attributedText = BoldPartOfString("Port: ", label: status.serverData["port"].stringValue)
                 }
             }
         }
