@@ -35,7 +35,7 @@ pod "SwiftRater"
 ```
 ### Carthage
 
-SwiftRoutes is compatible with [Carthage](https://github.com/Carthage/Carthage). Add it to your `Cartfile`:
+SwiftRater is compatible with [Carthage](https://github.com/Carthage/Carthage). Add it to your `Cartfile`:
 
 ```ruby
 github "takecian/SwiftRater"
@@ -95,13 +95,13 @@ func postComment() {
 
 ```
 
-4(Optional).Call `SwiftRater.rateApp()` to let your users to review your app on the App Store/in your app directly.
+4(Optional).Call `SwiftRater.rateApp(host:)` to let your users to review your app on the App Store/in your app directly.
 
 ```
 func rateButtonDidClick(sender: UIButton) {
     // do something ..
 
-	SwiftRater.rateApp()
+	SwiftRater.rateApp(host: self)
 }
 
 ```
@@ -135,6 +135,39 @@ You can customize text in review request dialog for iOS10.2 or before devices. S
 - SwiftRater.alertRateLaterTitle
 - SwiftRater.appName
 
+## Country code
+
+If your app is only avaiable for some coutnries, please add country code at Setup phase.
+
+```
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        SwiftRater.daysUntilPrompt = 7
+        SwiftRater.usesUntilPrompt = 10
+
+        SwiftRater.countryCode = "fr"
+
+        SwiftRater.debugMode = true
+        SwiftRater.appLaunched()
+        return true
+    }
+```
+
+## App ID
+
+Optional, you can set App ID explicitly. If not, SwiftRater will get App ID from appstore by bundle ID.
+
+```
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        SwiftRater.daysUntilPrompt = 7
+        SwiftRater.usesUntilPrompt = 10
+
+        SwiftRater.appID = "1104775712"
+
+        SwiftRater.debugMode = true
+        SwiftRater.appLaunched()
+        return true
+    }
+```
 ## Demo
 
 You can find Demo app in this repo.

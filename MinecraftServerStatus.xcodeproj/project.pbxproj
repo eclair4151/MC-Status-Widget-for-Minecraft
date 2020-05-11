@@ -32,6 +32,10 @@
 		24EB9BBB20C2F44300C9894A /* SavedServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EB9BB920C2F30600C9894A /* SavedServer.swift */; };
 		24EB9BBD20C2F85800C9894A /* NewServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EB9BBC20C2F85800C9894A /* NewServerViewController.swift */; };
 		482D532640011A6A2A8B025B /* Pods_MinecraftServerStatus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C934D444747C83520B9B377 /* Pods_MinecraftServerStatus.framework */; };
+		F16AF6D72469B5B700A4BFDA /* SwiftSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16AF6D62469B59900A4BFDA /* SwiftSocket.framework */; };
+		F16AF6D82469B5B700A4BFDA /* SwiftSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F16AF6D62469B59900A4BFDA /* SwiftSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F16AF6D92469B5BB00A4BFDA /* SwiftSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16AF6D62469B59900A4BFDA /* SwiftSocket.framework */; };
+		F16AF6DA2469B5BB00A4BFDA /* SwiftSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F16AF6D62469B59900A4BFDA /* SwiftSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +45,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 242815BD20BE4754001D11FD;
 			remoteInfo = MinecraftServerStatusWidget;
+		};
+		F16AF6D52469B59900A4BFDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F16AF6D12469B59900A4BFDA /* SwiftSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 377DAA691DCDE40200009697;
+			remoteInfo = "SwiftSocket iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -54,6 +65,28 @@
 				242815CA20BE4754001D11FD /* MinecraftServerStatusWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F16AF6C42469B2B300A4BFDA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F16AF6DA2469B5BB00A4BFDA /* SwiftSocket.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F16AF6C82469B2B900A4BFDA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F16AF6D82469B5B700A4BFDA /* SwiftSocket.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -89,6 +122,7 @@
 		3FB8402D48FDE342CBF3079A /* Pods_MinecraftServerStatusWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MinecraftServerStatusWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3CDE519FAD44A27FE7224B4 /* Pods-MinecraftServerStatusWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinecraftServerStatusWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-MinecraftServerStatusWidget/Pods-MinecraftServerStatusWidget.release.xcconfig"; sourceTree = "<group>"; };
 		C3421CEB02B4330B430985A0 /* Pods-MinecraftServerStatus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinecraftServerStatus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MinecraftServerStatus/Pods-MinecraftServerStatus.debug.xcconfig"; sourceTree = "<group>"; };
+		F16AF6D12469B59900A4BFDA /* SwiftSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftSocket.xcodeproj; path = SwiftSocket/SwiftSocket.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +132,7 @@
 			files = (
 				242815C020BE4754001D11FD /* NotificationCenter.framework in Frameworks */,
 				0F01D8EBCB755756D103B65F /* Pods_MinecraftServerStatusWidget.framework in Frameworks */,
+				F16AF6D72469B5B700A4BFDA /* SwiftSocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				482D532640011A6A2A8B025B /* Pods_MinecraftServerStatus.framework in Frameworks */,
+				F16AF6D92469B5BB00A4BFDA /* SwiftSocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +163,7 @@
 		24C92F5B20BE42210072A60C = {
 			isa = PBXGroup;
 			children = (
+				F16AF6D12469B59900A4BFDA /* SwiftSocket.xcodeproj */,
 				24C92F6620BE42210072A60C /* MinecraftServerStatus */,
 				242815C120BE4754001D11FD /* MinecraftServerStatusWidget */,
 				24C92F6520BE42210072A60C /* Products */,
@@ -212,6 +249,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F16AF6D22469B59900A4BFDA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F16AF6D62469B59900A4BFDA /* SwiftSocket.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -223,6 +268,7 @@
 				242815BA20BE4754001D11FD /* Sources */,
 				242815BB20BE4754001D11FD /* Frameworks */,
 				242815BC20BE4754001D11FD /* Resources */,
+				F16AF6C82469B2B900A4BFDA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -243,6 +289,7 @@
 				24C92F6220BE42210072A60C /* Resources */,
 				DFFF9997212A97257AA692FC /* [CP] Embed Pods Frameworks */,
 				242815CE20BE4754001D11FD /* Embed App Extensions */,
+				F16AF6C42469B2B300A4BFDA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -276,7 +323,7 @@
 					};
 					24C92F6320BE42210072A60C = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1140;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -297,6 +344,12 @@
 			mainGroup = 24C92F5B20BE42210072A60C;
 			productRefGroup = 24C92F6520BE42210072A60C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F16AF6D22469B59900A4BFDA /* Products */;
+					ProjectRef = F16AF6D12469B59900A4BFDA /* SwiftSocket.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				24C92F6320BE42210072A60C /* MinecraftServerStatus */,
@@ -304,6 +357,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F16AF6D62469B59900A4BFDA /* SwiftSocket.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftSocket.framework;
+			remoteRef = F16AF6D52469B59900A4BFDA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		242815BC20BE4754001D11FD /* Resources */ = {
@@ -476,7 +539,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.MinecraftServerStatusWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -494,7 +558,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.MinecraftServerStatusWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -555,6 +620,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -606,6 +672,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -616,15 +683,20 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MinecraftServerStatus/MinecraftServerStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				INFOPLIST_FILE = MinecraftServerStatus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -635,15 +707,19 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MinecraftServerStatus/MinecraftServerStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				INFOPLIST_FILE = MinecraftServerStatus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
