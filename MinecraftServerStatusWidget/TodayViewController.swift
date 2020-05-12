@@ -155,15 +155,19 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
             switch (status.serverStatus?.status) {
             case .Offline:
                 cell.statusLabel.text = "OFFLINE"
+                cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: "")
+                cell.playerListLabel.text = ""
                 cell.statusLabel.textColor = UIColor(rgb: 0xCC0000)
                 break
             case .Unknown:
                 cell.statusLabel.text = "UNKNOWN"
+                cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: "")
+                cell.playerListLabel.text = ""
                 cell.statusLabel.textColor = UIColor(rgb: 0x777777)
                 break
             case .Online:
                 cell.statusLabel.text = "ONLINE"
-                cell.statusLabel.textColor = UIColor(rgb: 0x009933)
+                cell.statusLabel.textColor = UIColor(rgb: 0x008a2e)
 
                 if let players = status.serverStatus?.players {
                     cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: String(players.online) + "/" + String(players.max))

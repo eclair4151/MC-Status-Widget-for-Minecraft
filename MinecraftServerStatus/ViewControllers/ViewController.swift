@@ -81,29 +81,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         reloadTableData(initializeData: false)
     }
     
-    @available(iOS 12.0, *)
     func reloadTheme() {
-        if self.traitCollection.userInterfaceStyle == .dark {
-            self.tableView.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
-            self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+        if #available(iOS 12.0, *) {
+            if self.traitCollection.userInterfaceStyle == .dark {
+               self.tableView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+               self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
 
-        } else {
-            self.tableView.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
-            self.view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
+            } else {
+               self.tableView.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
+               self.view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
+            }
+            self.tableView.reloadData()
         }
-        self.tableView.reloadData()
     }
     
     override func viewDidLayoutSubviews() {
-        if #available(iOS 12.0, *) {
-            reloadTheme()
-        }
+        reloadTheme()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        reloadTheme()
     }
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        if #available(iOS 12.0, *) {
-            reloadTheme()
-        }
+        reloadTheme()
     }
     
     func reloadTableData(initializeData: Bool) {
@@ -181,7 +182,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         if #available(iOS 12.0, *) {
             if self.traitCollection.userInterfaceStyle == .dark {
-                cell.cardView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+                cell.cardView.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
                 cell.loadingIndicator.color = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0)
             } else {
                 cell.cardView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
@@ -256,7 +257,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
                 
                 if let description = status.description {
-                    cell.motdMessageLabel.text = description.text
+                    if let descText = description.text, !descText.isEmpty {
+                        cell.motdMessageLabel.text = descText.replacingOccurrences(of: "\n", with: " ")
+                    } else if let extras = description.extra, extras.count > 0 {
+                        cell.motdMessageLabel.text = extras.reduce("", { previousString, nextExtra in
+                            return previousString + (nextExtra.text?.replacingOccurrences(of: "\n", with: " ") ?? "")
+                        })
+                    } else {
+                        cell.motdMessageLabel.text = ""
+                    }
                     cell.motdMessageLabel.animationDelay = 5
                     cell.motdMessageLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
                 }

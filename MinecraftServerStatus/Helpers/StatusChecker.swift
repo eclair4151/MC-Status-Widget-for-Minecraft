@@ -9,15 +9,13 @@
 import Foundation
 import Alamofire
 import SwiftSocket
+import SwiftyJSON
 
-
-public func getServer(server:String, listener: @escaping (AFDataResponse<Any>) -> Void) {
-    AF.request("https:/api.mcsrvstat.us/2/" + server).responseJSON(completionHandler: listener)
-}
 
 class StatusChecker {
     let address: String
     let port: Int
+    var attemptLegacy = true
     
     init(addressAndPort: String) {
         let addressPieces = addressAndPort.splitPort()
@@ -37,7 +35,7 @@ class StatusChecker {
 
             //create tcp connection directly to minecraft server
             let client = TCPClient(address: self.address, port: Int32(self.port))
-            switch client.connect(timeout: 50) {
+            switch client.connect(timeout: 3) {
                 case .success:
                   // we connected, lets send the status request
                   let sendData = self.getStatusQueryData(address: self.address, port: self.port)
@@ -62,14 +60,17 @@ class StatusChecker {
 
                 case .failure(let error):
                     print(error)
-                    listener(ServerStatus(status: .Offline))
+                    //listener(ServerStatus(status: .Offline))
                     client.close()
+                    if self.attemptLegacy {
+                        self.getLegacyServer(server: "\(self.address)", listener: listener)
+                    }
             }
         }
     }
     
     
-    public func getStatus(listener: @escaping (ServerStatus) -> Void) {
+    public func getStatus(listener: @escaping (ServerStatus) -> Void, attemptLegacy: Bool = true) {
         getStatusBg(listener: listener)
     }
 
@@ -81,7 +82,7 @@ class StatusChecker {
 
     private func readAndParseStatusData(client: TCPClient) -> ServerStatus? {
         //read initial chunk of data
-        var data: [Byte] = client.read(1024*10, timeout: 5) ?? []
+        var data: [Byte] = client.read(1024*10, timeout: 3) ?? []
 
         //start and see how long this message should be
         let expectedSize = readVariableSizedInt(bytes: &data)
@@ -90,7 +91,7 @@ class StatusChecker {
         //while we are still missing parts of the message we should keep reading
         while data.count < expectedSize {
             usleep(100000) //sleep for .1 seconds and keep reading
-            data += client.read(1024*10, timeout: 5) ?? []
+            data += client.read(1024*10, timeout: 3) ?? []
             maxRetry -= 1
             //timeout after 3 seconds of waiting
             if (maxRetry < 0) {
@@ -105,16 +106,19 @@ class StatusChecker {
         
         data.removeFirst()
 
-        //then read in the json length which we dont care about since we are reading the reast of the response anyway
+        //then read in the json length which we dont care about since we are reading the rest of the response anyway
         _ = readVariableSizedInt(bytes: &data)
 
         //make sure the rest is a valid string
         guard let response = String(bytes: data, encoding: .utf8) else {
             return nil
         }
+        
+        //idk wtf these things are
+        let jsonData = response.replacingOccurrences(of: "§.", with: "", options: .regularExpression).data(using: .utf8)!
 
         //attempt to parse it into our json
-        return try? JSONDecoder().decode(ServerStatus.self, from: response.data(using: .utf8)!)
+        return try? JSONDecoder().decode(ServerStatus.self, from: jsonData)
     }
 
 
@@ -197,26 +201,26 @@ class StatusChecker {
         return result
     }
 
+
     
-//    func getAddressIp(address:String) {
-//       if let url = URL(string: address) {
-//          var request = URLRequest(url: url)
-//          request.httpMethod = "HEAD"
-//          URLSession(configuration: .default)
-//          .dataTask(with: request) { (_, response, error) -> Void in
-//             guard error == nil else {
-//                print("Error:", error ?? "")
-//                return
-//             }
-//             guard (response as? HTTPURLResponse)?
-//             .statusCode == 200 else {
-//                print("The host is down")
-//                return
-//             }
-//             print("The host is up and running")
-//          }
-//          .resume()
-//       }
-//    }
+    private func getLegacyServer(server:String, listener: @escaping (ServerStatus) -> Void) {
+        AF.request("https:/api.mcsrvstat.us/2/" + server).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                if json["online"].boolValue {
+                    StatusChecker(addressAndPort: json["ip"].stringValue + ":" + String(json["port"].intValue)).getStatus(listener: { status in
+                        listener(status)
+                    }, attemptLegacy: false)
+                } else {
+                    listener(ServerStatus(status: .Offline))
+                }
+                
+            case .failure(let error):
+                print(error)
+                listener(ServerStatus(status: .Unknown))
+            }
+        }
+    }
 }
 

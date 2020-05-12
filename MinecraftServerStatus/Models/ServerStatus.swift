@@ -26,7 +26,8 @@ public class ServerStatus: Codable {
 
 
 class Description: Codable {
-    let text: String!
+    let text: String?
+    let extra: [DescriptionExtra]?
 }
 
 class Players: Codable {
@@ -42,4 +43,8 @@ class Version: Codable {
 class UserSample: Codable {
     let name: String!
     let id: String!
+}
+
+class DescriptionExtra: Codable {
+    let text: String?
 }
