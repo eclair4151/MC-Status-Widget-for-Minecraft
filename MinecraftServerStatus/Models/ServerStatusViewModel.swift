@@ -12,13 +12,12 @@ import SwiftyJSON
 //server model that is mapped to a row of the table.
 public class ServerStatusViewModel {
     init() {
-        self.error = false
         self.loading = true
         self.serverData = JSON.null
     }
     
     var loading: Bool
-    var error: Bool
     var serverData: JSON
+    var serverStatus: ServerStatus? = nil
 
 }

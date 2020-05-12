@@ -63,26 +63,20 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     
     func refreshServer(server: SavedServer) {
         serverStatus[server.id] = ServerStatusViewModel()
-        getServer(server: server.serverUrl) { response in
+        StatusChecker(addressAndPort: server.serverUrl).getStatus { status in
+            DispatchQueue.main.async {
+                let serverStatusVm = self.serverStatus[server.id]
+                serverStatusVm?.loading = false
+                serverStatusVm?.serverStatus = status
             
-            let serverStatus = self.serverStatus[server.id]
-            serverStatus?.loading = false
-            
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                serverStatus?.serverData = json
-                
-                if let imageString = json["icon"].string {
+                if let imageString = status.favicon {
                     try! self.realm.write {
                         server.serverIcon = imageString
                     }
                 }
-            case .failure(let error):
-                print(error)
-                serverStatus?.error = true
+                
+                self.tableView.reloadData()
             }
-            self.tableView.reloadData()
         }
     }
     
@@ -123,6 +117,17 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         let cell = tableView.dequeueReusableCell(withIdentifier: "ServerRow", for: indexPath) as! ServerTableViewCell
         let server = servers[indexPath.row]
         let status = self.serverStatus[server.id]!
+
+        if #available(iOS 12.0, *) {
+            if self.traitCollection.userInterfaceStyle == .dark {
+                cell.activityIndicator.color = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0)
+            } else {
+                cell.activityIndicator.color = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1.0)
+                
+            }
+        }
+        
+        cell.icon.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.1)
         
         if server.serverIcon != "" {
             let imageString = String(server.serverIcon.split(separator: ",")[1])
@@ -138,48 +143,57 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         cell.refreshButton.tag = indexPath.row
         
         if status.loading {
+            cell.activityIndicator.startAnimating()
+            cell.refreshButton.isHidden = true
             cell.statusLabel.text = ""
             cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: "")
             cell.playerListLabel.text = ""
-            cell.activityIndicator.startAnimating()
-            cell.refreshButton.isHidden = true
         } else {
             cell.activityIndicator.stopAnimating()
             cell.refreshButton.isHidden = false
             cell.refreshButton.addTarget(self, action:#selector(self.refreshPressed), for: .touchUpInside)
-
-            if status.error {
+            switch (status.serverStatus?.status) {
+            case .Offline:
+                cell.statusLabel.text = "OFFLINE"
+                cell.statusLabel.textColor = UIColor(rgb: 0xCC0000)
+                break
+            case .Unknown:
                 cell.statusLabel.text = "UNKNOWN"
-                cell.statusLabel.textColor = UIColor(rgb: 0x000000)
-                cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: "")
-                cell.playerListLabel.text = ""
-            } else {
-                if status.serverData["online"].boolValue {
-                    cell.statusLabel.text = "ONLINE"
-                    cell.statusLabel.textColor = UIColor(rgb: 0x009933)
-                    
-                    cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: String(status.serverData["players"]["online"].intValue) + "/" + String(status.serverData["players"]["max"].intValue))
-                    
-                    if let playerArray = status.serverData["players"]["list"].array {
-                        var playerString = Array(playerArray.prefix(20)).map { String($0.stringValue) }.joined(separator: ", ")
-                        if playerArray.count > 20 {
-                            playerString += ",...       "
+                cell.statusLabel.textColor = UIColor(rgb: 0x777777)
+                break
+            case .Online:
+                cell.statusLabel.text = "ONLINE"
+                cell.statusLabel.textColor = UIColor(rgb: 0x009933)
+
+                if let players = status.serverStatus?.players {
+                    cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: String(players.online) + "/" + String(players.max))
+                    if let playerList = players.sample {
+                        var playerListString = playerList.map{ $0.name }.joined(separator: ", ")
+                        if players.online > playerList.count {
+                            playerListString += ",...       "
                         }
-                        cell.playerListLabel.text = playerString
+                        cell.playerListLabel.text = playerListString
                         cell.playerListLabel.animationDelay = 3
+                        cell.playerListLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
+                        
+                    } else if players.online > 0 {
+                        cell.playerListLabel.text = "The server owner has disabled the player list feature.                 "
+                        cell.playerListLabel.animationDelay = 7
                         cell.playerListLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
                     } else {
                         cell.playerListLabel.text = ""
                     }
-                } else {
-                    cell.statusLabel.text = "OFFLINE"
-                    cell.statusLabel.textColor = UIColor(rgb: 0xCC0000)
-                    cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: "")
-                    cell.playerListLabel.text = ""
                 }
+                
+                break
+            default:
+                break
             }
         }
+       
+
         
+
         cell.nameLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
         cell.playerCountLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
         cell.playerListLabel.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.subheadline)

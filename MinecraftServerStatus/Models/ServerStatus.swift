@@ -13,16 +13,15 @@ enum Status: Int, Codable {
 }
 
 public class ServerStatus: Codable {
-    let description: Description? = nil
-    let players: Players? = nil
-    let version: Version? = nil
-    let favicon: String? = nil
-    var status = Status.Unknown
+    var description: Description? = nil
+    var players: Players? = nil
+    var version: Version? = nil
+    var favicon: String? = nil
+    var status: Status! = Status.Unknown
     
     init(status: Status) {
         self.status = status
     }
-    //init() {}
 }
 
 

@@ -21,6 +21,7 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var showInWidgetSwitch: UISwitch!
     @IBOutlet weak var serverUrlInput: UITextField!
     @IBOutlet weak var serverNameInput: UITextField!
+    @IBOutlet weak var portInput: UITextField!
     
     var delegate: ServerEditProtocol!
     var serverToEdit: SavedServer!
@@ -30,7 +31,11 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
 
         //only if we are editing an existing server not creating as new one
         if (self.serverToEdit != nil) {
-            self.serverUrlInput.text = self.serverToEdit.serverUrl
+            let urlPieces =  self.serverToEdit.serverUrl.splitPort()
+            self.serverUrlInput.text = urlPieces.address
+            if let port = urlPieces.port {
+                self.portInput.text = String(port)
+            }
             self.serverNameInput.text = self.serverToEdit.name
             self.showInWidgetSwitch.setOn(self.serverToEdit.showInWidget, animated: false)
         }
@@ -39,6 +44,11 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLayoutSubviews() {
         serverUrlInput.underline()
         serverNameInput.underline()
+        portInput.underline()
+
+        if #available(iOS 12.0, *) {
+            reloadTheme()
+        }
     }
     
     //handle users pressing next and done on the keyboard
@@ -61,6 +71,8 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
     @IBAction func saveButtonClicked(_ sender: Any) {
         if (serverNameInput.text?.isEmpty)! || (serverUrlInput.text?.isEmpty)! {
             alertBox("Error", message: "One or more fields are empty", controller: self)
+        } else if (serverUrlInput.text!.count > 200) {
+            alertBox("Error", message: "Urls must be less than 200 characters", controller: self)
         } else if (self.delegate.checkForName(serverNameInput.text!) && (serverToEdit == nil || serverToEdit.name != serverNameInput.text!)) {
             alertBox("Error", message: "You already have a server with that name", controller: self)
         } else if (self.serverToEdit == nil) {
@@ -71,6 +83,9 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
             let server = SavedServer()
             server.name = serverNameInput.text!
             server.serverUrl = serverUrlInput.text!
+            if (!(portInput.text?.isEmpty ?? true)) {
+                server.serverUrl += ":" + portInput.text!
+            }
             server.showInWidget = self.showInWidgetSwitch.isOn
             server.order = servers.count + 1
             try! realm.write {
@@ -84,6 +99,9 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
             try! realm.write {
                 serverToEdit.name = serverNameInput.text!
                 serverToEdit.serverUrl = serverUrlInput.text!
+                if (!(portInput.text?.isEmpty ?? true)) {
+                    serverToEdit.serverUrl += ":" + portInput.text!
+                }
                 serverToEdit.showInWidget = self.showInWidgetSwitch.isOn
             }
             delegate.serverEdited(serverToEdit)
@@ -94,4 +112,25 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
     @IBAction func cancelClicked(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @available(iOS 12.0, *)
+       func reloadTheme() {
+           if self.traitCollection.userInterfaceStyle == .dark {
+               //self.tableView.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
+               self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+
+           } else {
+               //self.tableView.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
+               self.view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
+           }
+           //self.tableView.reloadData()
+       }
+       
+      
+       
+       override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+           if #available(iOS 12.0, *) {
+               reloadTheme()
+           }
+       }
 }
