@@ -37,7 +37,7 @@ class AppInfoTableViewController: UITableViewController, SKProductsRequestDelega
        self.products = response.products
     }
 
-    let SwiftShopping = "com.shemeshapps.MinecraftServerStatus.199Donation"
+    let SwiftShopping = "com.shemeshapps.MinecraftServerStatus.199Tip"
     var products:[SKProduct] = []
     
     override func viewDidLoad() {
@@ -56,7 +56,7 @@ class AppInfoTableViewController: UITableViewController, SKProductsRequestDelega
         self.present(alert, animated: true, completion: nil)
     }
     
-    func showDonationPayent() {
+    func showTipPayent() {
         if self.products.count > 0 {
             let payment = SKPayment(product: self.products[0])
             SKPaymentQueue.default().add(payment)
@@ -76,7 +76,7 @@ class AppInfoTableViewController: UITableViewController, SKProductsRequestDelega
         } else if indexPath.section == 1 {
             SwiftRater.rateApp()
         } else if indexPath.section == 2 {
-          showDonationPayent()
+          showTipPayent()
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
