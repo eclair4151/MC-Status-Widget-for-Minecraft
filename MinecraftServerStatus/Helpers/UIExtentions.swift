@@ -31,11 +31,21 @@ extension UIColor {
     }
 }
 
+extension String {
+    func splitPort() -> (address: String, port: Int?) {
+        let parts = components(separatedBy: ":")
+        let address = parts[0]
+        var port: Int? = nil
+        if parts.count > 1 {
+            port = Int(parts[1])
+        }
+        return (address, port)
+    }
+}
 /**
  * Method to underline a textfield
  */
-extension UITextField
-{
+extension UITextField {
     func underline()
     {
         let border = CALayer()

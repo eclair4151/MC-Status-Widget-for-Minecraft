@@ -24,13 +24,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        StatusChecker(addressAndPort: "tomershemesh.me").getStatus { status in
-            print(status)
-        }
-        
-        
         self.tableView.estimatedRowHeight = 257
-
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) { // wait 10 seconds before asking for a review
             SwiftRater.check()
         }
@@ -86,6 +81,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         reloadTableData(initializeData: false)
     }
     
+    @available(iOS 12.0, *)
+    func reloadTheme() {
+        if self.traitCollection.userInterfaceStyle == .dark {
+            self.tableView.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
+            self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+
+        } else {
+            self.tableView.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
+            self.view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
+        }
+        self.tableView.reloadData()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        if #available(iOS 12.0, *) {
+            reloadTheme()
+        }
+    }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        if #available(iOS 12.0, *) {
+            reloadTheme()
+        }
+    }
+    
     func reloadTableData(initializeData: Bool) {
         servers = realm.objects(SavedServer.self).sorted(byKeyPath: "order")
         
@@ -94,26 +114,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.serverStatus[server.id] = ServerStatusViewModel()
             }
             self.serverStatus[server.id]?.loading = true
-            self.serverStatus[server.id]?.error = false
-            getServer(server: server.serverUrl) { response in
-                let serverStatus = self.serverStatus[server.id]
-                serverStatus?.loading = false
-                switch response.result {
-                case .success(let value):
-                    let json = JSON(value)
-                    serverStatus?.serverData = json
-                    
-                    if let imageString = json["icon"].string {
+            StatusChecker(addressAndPort: server.serverUrl).getStatus { status in
+                DispatchQueue.main.async {
+                    let serverStatusVm = self.serverStatus[server.id]
+                    serverStatusVm?.loading = false
+                    serverStatusVm?.serverStatus = status
+                
+                    if let imageString = status.favicon {
                         try! self.realm.write {
                             server.serverIcon = imageString
                         }
                     }
                     
-                case .failure(let error):
-                    print(error)
-                    serverStatus?.error = true
+                    self.tableView.reloadData()
                 }
-                self.tableView.reloadData()
             }
         }
         self.tableView.reloadData()
@@ -157,7 +171,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.statusResultLabel.text = ""
         cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: "")
         cell.playerListLabel.text = ""
-        cell.portLabel.attributedText = BoldPartOfString("Port: ", label: "")
         cell.motdLabel.attributedText = BoldPartOfString("Motd: ", label: "")
         cell.versionLabel.attributedText = BoldPartOfString("Version: ", label: "")
         cell.motdMessageLabel.text = ""
@@ -165,11 +178,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ServerCell", for: indexPath) as! LargeServerTableViewCell
+        
+        if #available(iOS 12.0, *) {
+            if self.traitCollection.userInterfaceStyle == .dark {
+                cell.cardView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+                cell.loadingIndicator.color = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0)
+            } else {
+                cell.cardView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
+                cell.loadingIndicator.color = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1.0)
+            }
+        } 
+        
         let server = servers[indexPath.row]
         let status = self.serverStatus[server.id]!
         //set all saved data
         cell.nameLabel.text = server.name
-        cell.ipLabel.attributedText = BoldPartOfString("Host: ", label: server.serverUrl)
+        let addressParts = server.serverUrl.splitPort()
+        
+        cell.ipLabel.attributedText = BoldPartOfString("Host: ", label: addressParts.address)
+        cell.portLabel.attributedText = BoldPartOfString("Port: ", label: String(addressParts.port ?? 25565))
         cell.showInWidgetLabel.attributedText = BoldPartOfString("Show in Widget: ", label: (server.showInWidget ? "Yes" : "No"))
         
         if server.serverIcon != "" {
@@ -181,69 +208,70 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }else {
             cell.icon.image = UIImage(named: "DefaultIcon");
         }
-        
-        //If cell is loading and we have no saved data show a mostly blank cell
-        if status.loading && status.serverData == JSON.null{
-            resetCellData(cell: cell)
+
+        if status.loading {
             cell.loadingIndicator.startAnimating()
         } else {
-            //other wise we want to show the data we have saved or just recevied
-            
-            //Show or hide the loading symbol based on if a request is mid flight
-            if status.loading {
-                cell.loadingIndicator.startAnimating()
-            } else {
-                cell.loadingIndicator.stopAnimating()
-            }
-            if status.error {
-                //if we get an error response like no internet show unknown text
+            cell.loadingIndicator.stopAnimating()
+        }
+        
+        //If cell is loading and we have no saved data show a mostly blank cell
+        if status.loading && (status.serverStatus?.status ?? Status.Unknown) != .Online {
+            resetCellData(cell: cell)
+            cell.loadingIndicator.startAnimating()
+        } else if let status = status.serverStatus {
+            switch (status.status) {
+            case .Offline:
+                resetCellData(cell: cell)
+                cell.statusResultLabel.text = "OFFLINE"
+                cell.statusResultLabel.textColor = UIColor(rgb: 0xCC0000)
+                break
+            case .Unknown:
                 resetCellData(cell: cell)
                 cell.statusResultLabel.text = "UNKNOWN"
-                cell.statusResultLabel.textColor = UIColor(rgb: 0x000000)
-            } else {
-                //other wise show the online of offline value
-                if status.serverData["online"].boolValue {
-                     cell.statusResultLabel.text = "ONLINE"
-                     cell.statusResultLabel.textColor = UIColor(rgb: 0x009933)
-                     cell.motdLabel.attributedText = BoldPartOfString("Motd: ", label: "")
-                     cell.statusLabel.attributedText = BoldPartOfString("Status:", label: "")
+                cell.statusResultLabel.textColor = UIColor(rgb: 0x777777) // TODO: fix that color
+                break
+            case .Online:
+                cell.statusResultLabel.text = "ONLINE"
+                cell.statusResultLabel.textColor = UIColor(rgb: 0x009933)
 
-                     cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: String(status.serverData["players"]["online"].intValue) + "/" + String(status.serverData["players"]["max"].intValue))
-                     
-                     //we cant trust the query response here. Query may return false even if it is on if udp is blocked on the server.
-                     if (status.serverData["players"]["online"].intValue > 0) {
-                         if let playerArray = status.serverData["players"]["list"].array {
-                             var playerString = Array(playerArray.prefix(20)).map { String($0.stringValue) }.joined(separator: ", ")
-                             if playerArray.count > 20 {
-                                 playerString += ",...       "
-                             }
-                             cell.playerListLabel.text = playerString
-                             cell.playerListLabel.animationDelay = 3
-                             cell.playerListLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
-                         } else {
-                             cell.playerListLabel.text = "Turn on enable-query in server.properties to see the list of players.                 "
-                             cell.playerListLabel.animationDelay = 7
-                             cell.playerListLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
-                         }
-                     } else {
-                         cell.playerListLabel.text = ""
-                     }
-                     
-                     let motdText = status.serverData["motd"]["clean"].arrayValue.map { $0.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)}.joined(separator: "   ") + "         "
-                     
-                     cell.motdMessageLabel.text = motdText
-                     cell.motdMessageLabel.animationDelay = 5
-                     cell.motdMessageLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
-                     
-                     cell.versionLabel.attributedText = BoldPartOfString("Version: ", label: status.serverData["version"].stringValue)
-                     cell.portLabel.attributedText = BoldPartOfString("Port: ", label: status.serverData["port"].stringValue)
-                } else {
-                    resetCellData(cell: cell)
-                    cell.statusResultLabel.text = "OFFLINE"
-                    cell.statusResultLabel.textColor = UIColor(rgb: 0xCC0000)
+                if let players = status.players {
+                    cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: String(players.online) + "/" + String(players.max))
+                    if let playerList = players.sample {
+                        var playerListString = playerList.map{ $0.name }.joined(separator: ", ")
+                        if players.online > playerList.count {
+                            playerListString += ",...       "
+                        }
+                        cell.playerListLabel.text = playerListString
+                        cell.playerListLabel.animationDelay = 3
+                        cell.playerListLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
+                        
+                    } else if players.online > 0 {
+                        cell.playerListLabel.text = "The server owner has disabled the player list feature.                 "
+                        cell.playerListLabel.animationDelay = 7
+                        cell.playerListLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
+                    } else {
+                        cell.playerListLabel.text = ""
+                    }
                 }
+                
+                if let description = status.description {
+                    cell.motdMessageLabel.text = description.text
+                    cell.motdMessageLabel.animationDelay = 5
+                    cell.motdMessageLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
+                }
+                
+                if let version = status.version {
+                    cell.versionLabel.attributedText = BoldPartOfString("Version: ", label: version.name)
+                }
+
+                break
+            default:
+                break
             }
+            
         }
+
         return cell
     }
     
