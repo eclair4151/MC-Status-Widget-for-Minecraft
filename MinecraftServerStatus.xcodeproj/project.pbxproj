@@ -37,7 +37,6 @@
 		F16AF6E0246A163400A4BFDA /* SwiftSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16AF6DF246A163400A4BFDA /* SwiftSocket.framework */; };
 		F16AF6E1246A163400A4BFDA /* SwiftSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F16AF6DF246A163400A4BFDA /* SwiftSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F16AF6E2246A163800A4BFDA /* SwiftSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16AF6DF246A163400A4BFDA /* SwiftSocket.framework */; };
-		F16AF6E3246A163800A4BFDA /* SwiftSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F16AF6DF246A163400A4BFDA /* SwiftSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F1AA752F246A509800869F0C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1AA752E246A509800869F0C /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +79,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F16AF6E3246A163800A4BFDA /* SwiftSocket.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,6 +507,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 211FE1533CEA467F01D5462C /* Pods-MinecraftServerStatusWidget.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_ENTITLEMENTS = MinecraftServerStatusWidget/MinecraftServerStatusWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
@@ -530,6 +529,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B3CDE519FAD44A27FE7224B4 /* Pods-MinecraftServerStatusWidget.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_ENTITLEMENTS = MinecraftServerStatusWidget/MinecraftServerStatusWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
