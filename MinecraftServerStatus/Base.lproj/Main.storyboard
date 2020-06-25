@@ -35,8 +35,8 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kCq-US-QCB">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" red="0.88736641839999997" green="0.88736641839999997" blue="0.88736641839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="q1I-ro-vMO">
-                                    <rect key="frame" x="0.0" y="313" width="375" height="53"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="q1I-ro-vMO">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HD3-5y-izL">
@@ -61,7 +61,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ServerCell" rowHeight="257" id="wQR-Yn-RX7" customClass="LargeServerTableViewCell" customModule="MinecraftServerStatus" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="257"/>
+                                        <rect key="frame" x="0.0" y="81" width="375" height="257"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wQR-Yn-RX7" id="t68-eY-VbH">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="257"/>
@@ -265,12 +265,12 @@
                         <viewLayoutGuide key="safeArea" id="22E-Jf-LVg"/>
                     </view>
                     <navigationItem key="navigationItem" title="Minecraft Servers" id="g6J-R6-6me">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="IW1-p0-kjF">
+                        <barButtonItem key="leftBarButtonItem" title="(info)" style="plain" id="aQr-yq-kPN"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="IW1-p0-kjF">
                             <connections>
                                 <action selector="editClicked:" destination="3Uf-6Z-7aN" id="E2C-3x-Jzu"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="wl6-hv-ubu"/>
                     </navigationItem>
                     <connections>
                         <outlet property="editButton" destination="IW1-p0-kjF" id="yag-NH-ulk"/>
@@ -454,20 +454,6 @@ https://github.com/swiftsocket/SwiftSocket</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w4j-gs-uNP">
-                                <rect key="frame" x="26" y="324" width="323" height="47"/>
-                                <color key="backgroundColor" red="0.19787869604906774" green="0.41858958042949956" blue="0.72243553708872033" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="XZ8-2X-MqX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveButtonClicked:" destination="FZd-5m-Q1M" eventType="touchUpInside" id="gvl-zX-TQN"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Port (Optional - Default 25565)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="szx-Gw-Ikb">
                                 <rect key="frame" x="20" y="196" width="335" height="40"/>
                                 <constraints>
@@ -486,7 +472,6 @@ https://github.com/swiftsocket/SwiftSocket</string>
                         <constraints>
                             <constraint firstItem="FCu-cI-zcT" firstAttribute="leading" secondItem="Zko-RE-srU" secondAttribute="leading" constant="20" id="2mG-s2-UAz"/>
                             <constraint firstItem="Zko-RE-srU" firstAttribute="trailing" secondItem="szx-Gw-Ikb" secondAttribute="trailing" constant="20" id="7ZR-8d-2NS"/>
-                            <constraint firstItem="w4j-gs-uNP" firstAttribute="top" secondItem="XCh-Po-4J2" secondAttribute="bottom" constant="35" id="99P-Lj-OzB"/>
                             <constraint firstItem="XCh-Po-4J2" firstAttribute="top" secondItem="szx-Gw-Ikb" secondAttribute="bottom" constant="20" id="AH9-yX-RyM"/>
                             <constraint firstItem="szx-Gw-Ikb" firstAttribute="top" secondItem="FCu-cI-zcT" secondAttribute="bottom" constant="20" id="Boc-bZ-Gxq"/>
                             <constraint firstItem="Zko-RE-srU" firstAttribute="trailing" secondItem="fxH-tf-eY1" secondAttribute="trailing" constant="20" id="EZm-cF-ytQ"/>
@@ -494,12 +479,10 @@ https://github.com/swiftsocket/SwiftSocket</string>
                             <constraint firstItem="DLD-La-bfV" firstAttribute="top" secondItem="szx-Gw-Ikb" secondAttribute="bottom" constant="21" id="NcJ-kO-ra6"/>
                             <constraint firstItem="Zko-RE-srU" firstAttribute="trailing" secondItem="FCu-cI-zcT" secondAttribute="trailing" constant="20" id="P66-yk-B5d"/>
                             <constraint firstItem="XCh-Po-4J2" firstAttribute="leading" secondItem="Zko-RE-srU" secondAttribute="leading" constant="20" id="VDP-Rs-NGJ"/>
-                            <constraint firstItem="Zko-RE-srU" firstAttribute="trailing" secondItem="w4j-gs-uNP" secondAttribute="trailing" constant="26" id="XVl-vo-aDZ"/>
                             <constraint firstItem="FCu-cI-zcT" firstAttribute="top" secondItem="fxH-tf-eY1" secondAttribute="bottom" constant="20" id="fTW-Vc-U9W"/>
                             <constraint firstItem="Zko-RE-srU" firstAttribute="trailing" secondItem="DLD-La-bfV" secondAttribute="trailing" constant="20" id="fwQ-2K-2GQ"/>
                             <constraint firstItem="szx-Gw-Ikb" firstAttribute="leading" secondItem="Zko-RE-srU" secondAttribute="leading" constant="20" id="iyC-0U-dEl"/>
                             <constraint firstItem="fxH-tf-eY1" firstAttribute="top" secondItem="Zko-RE-srU" secondAttribute="top" constant="20" id="rAh-Qh-PEd"/>
-                            <constraint firstItem="w4j-gs-uNP" firstAttribute="leading" secondItem="Zko-RE-srU" secondAttribute="leading" constant="26" id="ulM-8G-B39"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zko-RE-srU"/>
                     </view>
@@ -509,10 +492,14 @@ https://github.com/swiftsocket/SwiftSocket</string>
                                 <action selector="cancelClicked:" destination="FZd-5m-Q1M" id="735-uS-4b1"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="GfP-Ek-eIs">
+                            <connections>
+                                <action selector="saveButtonClicked:" destination="FZd-5m-Q1M" id="nOL-im-a27"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="portInput" destination="szx-Gw-Ikb" id="4QT-3y-uqX"/>
-                        <outlet property="saveButton" destination="w4j-gs-uNP" id="uVO-1I-HpL"/>
                         <outlet property="serverNameInput" destination="fxH-tf-eY1" id="kZw-aa-AFJ"/>
                         <outlet property="serverUrlInput" destination="FCu-cI-zcT" id="Xvu-sD-Ufm"/>
                         <outlet property="showInWidgetSwitch" destination="DLD-La-bfV" id="MeW-m0-T9b"/>
@@ -540,6 +527,6 @@ https://github.com/swiftsocket/SwiftSocket</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rPX-zb-dwx"/>
+        <segue reference="pyS-tC-FLy"/>
     </inferredMetricsTieBreakers>
 </document>

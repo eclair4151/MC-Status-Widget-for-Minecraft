@@ -16,8 +16,7 @@ protocol ServerEditProtocol: class {
 }
 
 class NewServerViewController: UIViewController, UITextFieldDelegate {
-
-    @IBOutlet weak var saveButton: UIButton!
+    
     @IBOutlet weak var showInWidgetSwitch: UISwitch!
     @IBOutlet weak var serverUrlInput: UITextField!
     @IBOutlet weak var serverNameInput: UITextField!

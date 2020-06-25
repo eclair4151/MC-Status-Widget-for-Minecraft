@@ -208,10 +208,37 @@ class StatusChecker {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
+                
                 if json["online"].boolValue {
-                    StatusChecker(addressAndPort: json["ip"].stringValue + ":" + String(json["port"].intValue)).getStatus(listener: { status in
-                        listener(status)
-                    }, attemptLegacy: false)
+                    let status = ServerStatus(status: .Online)
+                    
+                    //description
+                    let description = Description()
+                    description.text = json["motd"]["clean"].array?.reduce("", { prev, next in
+                        return prev + " " + (next.string ?? "")
+                    })
+                    status.description = description
+                    
+                    //Players
+                    let players = Players()
+                    players.max = json["players"]["max"].int ?? 0
+                    players.online = json["players"]["online"].int ?? 0
+                    players.sample = json["players"]["list"].array?.compactMap { playerStr in
+                        let sample = UserSample()
+                        sample.name = playerStr.string ?? ""
+                        return sample
+                    }
+                    status.players = players
+                    
+                    //version
+                    let version = Version()
+                    version.name = json["version"].string ?? ""
+                    status.version = version
+                    
+                    //icon
+                    status.favicon = json["icon"].string
+                    listener(status)
+                    
                 } else {
                     listener(ServerStatus(status: .Offline))
                 }
