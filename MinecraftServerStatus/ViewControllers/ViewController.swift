@@ -33,7 +33,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let infoButton = UIButton(type: .infoLight)
         infoButton.addTarget(self, action: #selector(infoButtonTapped), for: .touchUpInside)
         let barButton = UIBarButtonItem(customView: infoButton)
-        self.navigationItem.rightBarButtonItem = barButton
+        self.navigationItem.leftBarButtonItem = barButton
         
         let refreshControl = UIRefreshControl()
         self.tableView.refreshControl = refreshControl
@@ -45,21 +45,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     @IBAction func editClicked(_ sender: Any) {
-        if(self.tableView.isEditing == true)
-        {
+        if (self.tableView.isEditing == true) {
             self.tableView.setEditing(false, animated: true)
             self.editButton.title = "Edit"
-            
-            let infoButton = UIButton(type: .infoLight)
-            infoButton.addTarget(self, action: #selector(infoButtonTapped), for: .touchUpInside)
-            let barButton = UIBarButtonItem(customView: infoButton)
-            self.navigationItem.rightBarButtonItem = barButton
         }
-        else
-        {
-            let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-            self.navigationItem.rightBarButtonItem = add
-            
+        else {
             self.tableView.setEditing(true, animated: true)
             self.editButton.title = "Done"
         }
@@ -67,13 +57,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @objc func infoButtonTapped() {
         performSegue(withIdentifier: "ShowInfo", sender: self)
-    }
-    
-    @objc func addTapped() {
-        performSegue(withIdentifier: "NewItem", sender: self)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.editClicked(self)
-        }
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {

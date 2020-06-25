@@ -26,25 +26,24 @@ public class ServerStatus: Codable {
 
 
 class Description: Codable {
-    let text: String?
-    let extra: [DescriptionExtra]?
+    var text: String?
+    var extra: [DescriptionExtra]?
 }
 
 class Players: Codable {
-    let max: Int!
-    let online: Int!
-    let sample: [UserSample]?
+    var max: Int!
+    var online: Int!
+    var sample: [UserSample]?
 }
 
 class Version: Codable {
-    let name: String!
+    var name: String!
 }
 
 class UserSample: Codable {
-    let name: String!
-    let id: String!
+    var name: String!
 }
 
 class DescriptionExtra: Codable {
-    let text: String?
+    var text: String?
 }
