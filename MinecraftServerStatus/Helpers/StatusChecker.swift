@@ -43,8 +43,13 @@ class StatusChecker {
                     case .success:
 
                       guard let serverStatus = self.readAndParseStatusData(client: client) else {
-                          listener(ServerStatus(status: .Unknown))
-                          return
+                            client.close()
+                            if self.attemptLegacy {
+                                self.getLegacyServer(server: "\(self.address)", listener: listener)
+                            } else {
+                                listener(ServerStatus(status: .Unknown))
+                            }
+                            return
                       }
 
                       serverStatus.status = .Online
@@ -115,7 +120,7 @@ class StatusChecker {
         }
         
         //idk wtf these things are
-        let jsonData = response.replacingOccurrences(of: "§.", with: "", options: .regularExpression).data(using: .utf8)!
+        let jsonData = response.data(using: .utf8)!
 
         //attempt to parse it into our json
         return try? JSONDecoder().decode(ServerStatus.self, from: jsonData)
@@ -213,8 +218,7 @@ class StatusChecker {
                     let status = ServerStatus(status: .Online)
                     
                     //description
-                    let description = Description()
-                    description.text = json["motd"]["clean"].array?.reduce("", { prev, next in
+                    let description = json["motd"]["clean"].array?.reduce("", { prev, next in
                         return prev + " " + (next.string ?? "")
                     })
                     status.description = description

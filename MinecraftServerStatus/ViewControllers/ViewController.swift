@@ -240,15 +240,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
                 
                 if let description = status.description {
-                    if let descText = description.text, !descText.isEmpty {
-                        cell.motdMessageLabel.text = descText.replacingOccurrences(of: "\n", with: " ")
-                    } else if let extras = description.extra, extras.count > 0 {
-                        cell.motdMessageLabel.text = extras.reduce("", { previousString, nextExtra in
-                            return previousString + (nextExtra.text?.replacingOccurrences(of: "\n", with: " ") ?? "")
-                        })
-                    } else {
-                        cell.motdMessageLabel.text = ""
-                    }
+                    cell.motdMessageLabel.text = description
                     cell.motdMessageLabel.animationDelay = 5
                     cell.motdMessageLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
                 }
