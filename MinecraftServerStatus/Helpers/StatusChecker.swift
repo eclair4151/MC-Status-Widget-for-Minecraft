@@ -104,11 +104,12 @@ class StatusChecker {
             }
         }
 
-        //drop the packet id (always 0)
+        //confirm we have data
         if data.count == 0 {
             return nil
         }
         
+        //drop the packet id (always 0)
         data.removeFirst()
 
         //then read in the json length which we dont care about since we are reading the rest of the response anyway
@@ -119,10 +120,9 @@ class StatusChecker {
             return nil
         }
         
-        //idk wtf these things are
         let jsonData = response.data(using: .utf8)!
 
-        //attempt to parse it into our json
+        //attempt to parse it into a json using a custom parser defined in the object
         return try? JSONDecoder().decode(ServerStatus.self, from: jsonData)
     }
 
@@ -177,7 +177,7 @@ class StatusChecker {
         //insert the message length at the begining
         data.insert(handshakeLengthByte, at: 0)
 
-        //now prepend the second message which is a hardcoded 0 to ask for the status. since it is tcp we can write both requests in the same call
+        //now append the second message which is a hardcoded 0 to ask for the status. since it is tcp we can write both requests in the same call
         data.append(0x01) //length of following status packet (always 1)
         data.append(0x00) //status packet (always 0)
 
