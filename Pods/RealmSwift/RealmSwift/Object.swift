@@ -44,12 +44,16 @@ import Realm.Private
  - `Bool`
  - `Date`, `NSDate`
  - `Data`, `NSData`
+ - `Decimal128`
+ - `ObjectId`
  - `@objc enum` which has been delcared as conforming to `RealmEnum`.
  - `RealmOptional<Value>` for optional numeric properties
  - `Object` subclasses, to model many-to-one relationships
+ - `EmbeddedObject` subclasses, to model owning one-to-one relationships
  - `List<Element>`, to model many-to-many relationships
 
- `String`, `NSString`, `Date`, `NSDate`, `Data`, `NSData` and `Object` subclass properties can be declared as optional.
+ `String`, `NSString`, `Date`, `NSDate`, `Data`, `NSData`, `Decimal128`, and `ObjectId`  properties
+ can be declared as optional. `Object` and `EmbeddedObject` subclasses *must* be declared as optional.
  `Int`, `Int8`, `Int16`, `Int32`, `Int64`, `Float`, `Double`, `Bool`,  enum, and `List` properties cannot.
  To store an optional number, use `RealmOptional<Int>`, `RealmOptional<Float>`, `RealmOptional<Double>`, or
  `RealmOptional<Bool>` instead, which wraps an optional numeric value. Lists cannot be optional at all.
@@ -67,25 +71,14 @@ import Realm.Private
 
  See our [Cocoa guide](http://realm.io/docs/cocoa) for more details.
  */
-@objc(RealmSwiftObject)
-open class Object: RLMObjectBase, ThreadConfined, RealmCollectionValue {
+public typealias Object = RealmSwiftObject
+extension Object: RealmCollectionValue {
     /// :nodoc:
     public static func _rlmArray() -> RLMArray<AnyObject> {
         return RLMArray(objectClassName: className())
     }
 
     // MARK: Initializers
-
-    /**
-     Creates an unmanaged instance of a Realm object.
-
-     Call `add(_:)` on a `Realm` instance to add an unmanaged object into that Realm.
-
-     - see: `Realm().add(_:)`
-     */
-    public override required init() {
-        super.init()
-    }
 
     /**
      Creates an unmanaged instance of a Realm object.
@@ -126,8 +119,8 @@ open class Object: RLMObjectBase, ThreadConfined, RealmCollectionValue {
     /// Indicates if the object can no longer be accessed because it is now invalid.
     ///
     /// An object can no longer be accessed if the object has been deleted from the Realm that manages it, or if
-    /// `invalidate()` is called on that Realm.
-    public override final var isInvalidated: Bool { return super.isInvalidated }
+    /// `invalidate()` is called on that Realm. This property is key-value observable.
+    @objc dynamic open override var isInvalidated: Bool { return super.isInvalidated }
 
     /// A human-readable description of the object.
     open override var description: String { return super.description }
@@ -137,8 +130,8 @@ open class Object: RLMObjectBase, ThreadConfined, RealmCollectionValue {
      It is not considered part of the public API.
      :nodoc:
      */
-    public override final class func _getProperties(withInstance instance: Any) -> [RLMProperty] {
-        return ObjectUtil.getSwiftProperties(instance as! RLMObjectBase)
+    public override final class func _getProperties() -> [RLMProperty] {
+        return ObjectUtil.getSwiftProperties(self)
     }
 
     // MARK: Object Customization
@@ -219,10 +212,11 @@ open class Object: RLMObjectBase, ThreadConfined, RealmCollectionValue {
      transactions it will be called at some point in the future after the write
      transaction is committed.
 
-     Notifications are delivered via the standard run loop, and so can't be
-     delivered while the run loop is blocked by other activity. When
-     notifications can't be delivered instantly, multiple notifications may be
-     coalesced into a single notification.
+     If no queue is given, notifications are delivered via the standard run
+     loop, and so can't be delivered while the run loop is blocked by other
+     activity. If a queue is given, notifications are delivered to that queue
+     instead. When notifications can't be delivered instantly, multiple
+     notifications may be coalesced into a single notification.
 
      Unlike with `List` and `Results`, there is no "initial" callback made after
      you add a new notification block.
@@ -238,11 +232,15 @@ open class Object: RLMObjectBase, ThreadConfined, RealmCollectionValue {
      - warning: This method cannot be called during a write transaction, or when
                 the containing Realm is read-only.
 
+     - parameter queue: The serial dispatch queue to receive notification on. If
+                        `nil`, notifications are delivered to the current thread.
      - parameter block: The block to call with information about changes to the object.
      - returns: A token which must be held for as long as you want updates to be delivered.
      */
-    public func observe(_ block: @escaping (ObjectChange) -> Void) -> NotificationToken {
-        return RLMObjectAddNotificationBlock(self, { names, oldValues, newValues, error in
+    public func observe<T: Object>(on queue: DispatchQueue? = nil,
+                                   _ block: @escaping (ObjectChange<T>) -> Void) -> NotificationToken {
+        precondition(self as? T != nil)
+        return RLMObjectBaseAddNotificationBlock(self, queue) { object, names, oldValues, newValues, error in
             if let error = error {
                 block(.error(error as NSError))
                 return
@@ -252,10 +250,10 @@ open class Object: RLMObjectBase, ThreadConfined, RealmCollectionValue {
                 return
             }
 
-            block(.change((0..<newValues.count).map { i in
+            block(.change(object as! T, (0..<newValues.count).map { i in
                 PropertyChange(name: names[i], oldValue: oldValues?[i], newValue: newValues[i])
             }))
-        })
+        }
     }
 
     // MARK: Dynamic list
@@ -274,6 +272,9 @@ open class Object: RLMObjectBase, ThreadConfined, RealmCollectionValue {
      :nodoc:
      */
     public func dynamicList(_ propertyName: String) -> List<DynamicObject> {
+        if let dynamic = self as? DynamicObject {
+            return dynamic[propertyName] as! List<DynamicObject>
+        }
         return noWarnUnsafeBitCast(dynamicGet(key: propertyName) as! RLMListBase,
                                    to: List<DynamicObject>.self)
     }
@@ -299,10 +300,37 @@ open class Object: RLMObjectBase, ThreadConfined, RealmCollectionValue {
     }
 }
 
+extension Object: ThreadConfined {
+    /**
+     Indicates if this object is frozen.
+
+     - see: `Object.freeze()`
+     */
+    public var isFrozen: Bool { return realm?.isFrozen ?? false }
+
+    /**
+     Returns a frozen (immutable) snapshot of this object.
+
+     The frozen copy is an immutable object which contains the same data as this
+     object currently contains, but will not update when writes are made to the
+     containing Realm. Unlike live objects, frozen objects can be accessed from any
+     thread.
+
+     - warning: Holding onto a frozen object for an extended period while performing write
+     transaction on the Realm may result in the Realm file growing to large sizes. See
+     `Realm.Configuration.maximumNumberOfActiveVersions` for more information.
+     - warning: This method can only be called on a managed object.
+     */
+    public func freeze() -> Self {
+        return realm!.freeze(self)
+    }
+}
+
+
 /**
  Information about a specific property which changed in an `Object` change notification.
  */
-public struct PropertyChange {
+@frozen public struct PropertyChange {
     /**
      The name of the property which changed.
     */
@@ -332,7 +360,7 @@ public struct PropertyChange {
  Information about the changes made to an object which is passed to `Object`'s
  notification blocks.
  */
-public enum ObjectChange {
+@frozen public enum ObjectChange<T: Object> {
     /**
      If an error occurs, notification blocks are called one time with a `.error`
      result and an `NSError` containing details about the error. Currently the
@@ -340,11 +368,11 @@ public enum ObjectChange {
      worker thread to calculate the change set. The callback will never be
      called again after `.error` is delivered.
      */
-    case error(_: NSError)
+    case error(_ error: NSError)
     /**
      One or more of the properties of the object have been changed.
      */
-    case change(_: [PropertyChange])
+    case change(_: T, _: [PropertyChange])
     /// The object has been deleted from the Realm.
     case deleted
 }
@@ -356,18 +384,13 @@ public final class DynamicObject: Object {
         get {
             let value = RLMDynamicGetByName(self, key)
             if let array = value as? RLMArray<AnyObject> {
-                return List<DynamicObject>(rlmArray: array)
+                return List<DynamicObject>(objc: array)
             }
             return value
         }
         set(value) {
             RLMDynamicValidatedSet(self, key, value)
         }
-    }
-
-    /// :nodoc:
-    public override func dynamicList(_ propertyName: String) -> List<DynamicObject> {
-        return self[propertyName] as! List<DynamicObject>
     }
 
     /// :nodoc:
@@ -548,6 +571,20 @@ extension NSDate: _ManagedPropertyType {
         prop.type = .date
     }
 }
+/// :nodoc:
+extension Decimal128: _ManagedPropertyType {
+    // swiftlint:disable:next identifier_name
+    public static func _rlmProperty(_ prop: RLMProperty) {
+        prop.type = .decimal128
+    }
+}
+/// :nodoc:
+extension ObjectId: _ManagedPropertyType {
+    // swiftlint:disable:next identifier_name
+    public static func _rlmProperty(_ prop: RLMProperty) {
+        prop.type = .objectId
+    }
+}
 
 /// :nodoc:
 extension Object: _ManagedPropertyType {
@@ -565,6 +602,15 @@ extension Object: _ManagedPropertyType {
 }
 
 /// :nodoc:
+extension EmbeddedObject: _ManagedPropertyType {
+    // swiftlint:disable:next identifier_name
+    public static func _rlmProperty(_ prop: RLMProperty) {
+        Object._rlmProperty(prop)
+        prop.objectClassName = className()
+    }
+}
+
+/// :nodoc:
 extension List: _ManagedPropertyType where Element: _ManagedPropertyType {
     // swiftlint:disable:next identifier_name
     public static func _rlmProperty(_ prop: RLMProperty) {
@@ -576,10 +622,10 @@ extension List: _ManagedPropertyType where Element: _ManagedPropertyType {
 }
 
 /// :nodoc:
-class LinkingObjectsAccessor<Element: Object>: RLMManagedPropertyAccessor {
+class LinkingObjectsAccessor<Element: ObjectBase>: RLMManagedPropertyAccessor where Element: RealmCollectionValue {
     @objc override class func initializeObject(_ ptr: UnsafeMutableRawPointer,
                                                parent: RLMObjectBase, property: RLMProperty) {
-        ptr.assumingMemoryBound(to: LinkingObjects.self).pointee.handle = RLMLinkingObjectsHandle(object: parent, property: property)
+        ptr.assumingMemoryBound(to: LinkingObjects<Element>.self).pointee.handle = RLMLinkingObjectsHandle(object: parent, property: property)
     }
     @objc override class func get(_ ptr: UnsafeMutableRawPointer) -> Any {
         return ptr.assumingMemoryBound(to: LinkingObjects<Element>.self).pointee
@@ -687,10 +733,10 @@ internal class ObjectUtil {
         }
     }
 
-    internal class func getSwiftProperties(_ object: RLMObjectBase) -> [RLMProperty] {
+    internal class func getSwiftProperties(_ cls: RLMObjectBase.Type) -> [RLMProperty] {
         _ = ObjectUtil.runOnce
 
-        let cls = type(of: object)
+        let object = cls.init()
 
         var indexedProperties: Set<String>!
         let columnNames = cls._realmColumnNames()

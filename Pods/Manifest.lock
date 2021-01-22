@@ -1,19 +1,19 @@
 PODS:
-  - Alamofire (5.1.0)
-  - MarqueeLabel (4.0.2)
-  - Realm (4.4.1):
-    - Realm/Headers (= 4.4.1)
-  - Realm/Headers (4.4.1)
-  - RealmSwift (4.4.1):
-    - Realm (= 4.4.1)
+  - Alamofire (5.4.1)
+  - MarqueeLabel (4.0.5)
+  - Realm (10.5.1):
+    - Realm/Headers (= 10.5.1)
+  - Realm/Headers (10.5.1)
+  - RealmSwift (10.5.1):
+    - Realm (= 10.5.1)
   - SwiftRater (1.8.0)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.1.0)
-  - MarqueeLabel
-  - RealmSwift
-  - SwiftRater
+  - Alamofire (~> 5.4.1)
+  - MarqueeLabel (~> 4.0.5)
+  - RealmSwift (~> 10.5.1)
+  - SwiftRater (~> 1.8.0)
   - SwiftyJSON (~> 5.0.0)
 
 SPEC REPOS:
@@ -26,13 +26,13 @@ SPEC REPOS:
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
-  MarqueeLabel: f762aa681ae201f66c1d511858b171f75d83013a
-  Realm: 4eb04d7487bd43c0581256f40b424eafb711deff
-  RealmSwift: 3eb8924ff7100df5928c7602f71d0fec51e7c9c5
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  MarqueeLabel: 00cc0bcd087111dca575878b3531af980559707d
+  Realm: 77fcb4e0b9f2963ea06f584749a0d7dc9cab95e1
+  RealmSwift: 6abe6aa6cd8b70cc1a87afcb9232cabea74ff1ac
   SwiftRater: 6094fa6e9b3866ff8beca0a871b4b5f9ab896a6d
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 025b37d1e19102384bebeb6f43e06760c45debb2
+PODFILE CHECKSUM: 01dc25720d84ce03d52900e30cb49ad2b848b0b5
 
-COCOAPODS: 1.9.0
+COCOAPODS: 1.10.1
