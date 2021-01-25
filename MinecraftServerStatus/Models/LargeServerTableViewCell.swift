@@ -23,7 +23,6 @@ class LargeServerTableViewCell: CardTableViewCell {
     @IBOutlet weak var motdLabel: UILabel!
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var showInWidgetLabel: UILabel!
     @IBOutlet weak var statusResultLabel: UILabel!
     
     

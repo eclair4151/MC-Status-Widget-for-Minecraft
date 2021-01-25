@@ -17,7 +17,6 @@ protocol ServerEditProtocol: class {
 
 class NewServerViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var showInWidgetSwitch: UISwitch!
     @IBOutlet weak var serverUrlInput: UITextField!
     @IBOutlet weak var serverNameInput: UITextField!
     @IBOutlet weak var portInput: UITextField!
@@ -36,7 +35,6 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
                 self.portInput.text = String(port)
             }
             self.serverNameInput.text = self.serverToEdit.name
-            self.showInWidgetSwitch.setOn(self.serverToEdit.showInWidget, animated: false)
         }
     }
     
@@ -85,7 +83,6 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
             if (!(portInput.text?.isEmpty ?? true)) {
                 server.serverUrl += ":" + portInput.text!
             }
-            server.showInWidget = self.showInWidgetSwitch.isOn
             server.order = servers.count + 1
             try! realm.write {
                 realm.add(server)
@@ -101,7 +98,6 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
                 if (!(portInput.text?.isEmpty ?? true)) {
                     serverToEdit.serverUrl += ":" + portInput.text!
                 }
-                serverToEdit.showInWidget = self.showInWidgetSwitch.isOn
             }
             delegate.serverEdited(serverToEdit)
             self.dismiss(animated: true, completion: nil)

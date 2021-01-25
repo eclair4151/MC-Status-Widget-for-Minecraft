@@ -15,7 +15,7 @@ public class SavedServer: Object {
     @objc dynamic var name = ""
     @objc dynamic var serverUrl = ""
     @objc dynamic var serverIcon = ""
-    @objc dynamic var showInWidget = false
     @objc dynamic var order = 100
+    @objc dynamic var showInWidget = false
 
 }

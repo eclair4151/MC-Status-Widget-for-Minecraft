@@ -28,6 +28,7 @@
 		F12ADDDE25BDC33B00487E90 /* MinecraftServerStatusHSWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F12ADDDA25BDC33900487E90 /* MinecraftServerStatusHSWidget.intentdefinition */; };
 		F12ADDDF25BDC33B00487E90 /* MinecraftServerStatusHSWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F12ADDDA25BDC33900487E90 /* MinecraftServerStatusHSWidget.intentdefinition */; };
 		F12ADDE225BDC33B00487E90 /* MinecraftServerStatusHSWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F12ADDD225BDC33900487E90 /* MinecraftServerStatusHSWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F12ADE1025BE501100487E90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C92F6E20BE42210072A60C /* Assets.xcassets */; };
 		F16AF6DC2469C6D300A4BFDA /* ServerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16AF6DB2469C6D300A4BFDA /* ServerStatus.swift */; };
 		F16AF6E0246A163400A4BFDA /* SwiftSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16AF6DF246A163400A4BFDA /* SwiftSocket.framework */; };
 		F16AF6E1246A163400A4BFDA /* SwiftSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F16AF6DF246A163400A4BFDA /* SwiftSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -337,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F12ADE1025BE501100487E90 /* Assets.xcassets in Resources */,
 				F12ADDDC25BDC33B00487E90 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
