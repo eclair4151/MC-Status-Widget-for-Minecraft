@@ -12,19 +12,19 @@ import Intents
 
 struct Provider: IntentTimelineProvider {
     
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), configuration: configuration)
+    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (ServerStatusSnapshotEntry) -> ()) {
+        let entry = ServerStatusSnapshotEntry(date: Date(), configuration: configuration, viewModel: WidgetEntryViewModel())
         completion(entry)
     }
 
     func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
+        var entries: [ServerStatusSnapshotEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
+            let entry = ServerStatusSnapshotEntry(date: entryDate, configuration: configuration, viewModel:WidgetEntryViewModel())
             entries.append(entry)
         }
 
@@ -32,8 +32,8 @@ struct Provider: IntentTimelineProvider {
         completion(timeline)
     }
     
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent())
+    func placeholder(in context: Context) -> ServerStatusSnapshotEntry {
+        ServerStatusSnapshotEntry(date: Date(), configuration: ConfigurationIntent(), viewModel: WidgetEntryViewModel())
     }
 }
 
@@ -78,9 +78,10 @@ struct ProgressView: View {
 
 
 
-struct SimpleEntry: TimelineEntry {
+struct ServerStatusSnapshotEntry: TimelineEntry {
     let date: Date
     let configuration: ConfigurationIntent
+    let viewModel: WidgetEntryViewModel
 }
 
 
@@ -88,8 +89,9 @@ struct SimpleEntry: TimelineEntry {
 
 struct MinecraftServerStatusHSWidgetEntryView : View {
     var entry: Provider.Entry
-
+    static let formatter = RelativeDateTimeFormatter()
     
+
     var body: some View {
         
         ZStack {
@@ -98,16 +100,15 @@ struct MinecraftServerStatusHSWidgetEntryView : View {
                 Spacer()
                 Spacer()
                 HStack {
-                    Image(uiImage: UIImage(named: "DefaultIcon")!).resizable()                .scaledToFit().frame(width: 32.0, height: 32.0)
-                    Image(systemName: "checkmark.circle.fill").font(.system(size: 32)).foregroundColor(Color("CheckColor"))
-                    Text("3m ago").fontWeight(.semibold)
+                    Image(uiImage: entry.viewModel.icon).resizable()                .scaledToFit().frame(width: 32.0, height: 32.0)
+                    Image(systemName: entry.viewModel.statusIcon).font(.system(size: 32)).foregroundColor(Color(entry.viewModel.statusColor))
+                    Text(entry.viewModel.lastUpdated).bold()
                 }.frame(height:32)
                 Spacer()
-                Text("Tomer's Server").fontWeight(.bold).frame(height:32)
+                Text(entry.viewModel.serverName).fontWeight(.bold).frame(height:32)
                 HStack {
-                    //Text(entry.date, style: .time)
-                    Text("3/20")
-                    ProgressView(progress: 0.15).frame(height:10)
+                    Text(entry.viewModel.progressString)
+                    ProgressView(progress: CGFloat(entry.viewModel.progressValue)).frame(height:10)
                 }.padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8)).frame(height:32)
                 Spacer()
                 Spacer()
@@ -116,6 +117,21 @@ struct MinecraftServerStatusHSWidgetEntryView : View {
         
     }
 }
+
+
+//struct ContentView: View {
+//    static let formatter = RelativeDateTimeFormatter()
+//
+//    var body: some View {
+//        let unixEpoch = Date(timeIntervalSince1970: 0)
+//        return VStack {
+//            Text("Current date is:")
+//            Text("\(unixEpoch, formatter: Self.formatter)").bold()
+//            Text("since the unix Epoch")
+//            Spacer()
+//        }
+//    }
+//}
 
 @main
 struct MinecraftServerStatusHSWidget: Widget {
@@ -132,7 +148,7 @@ struct MinecraftServerStatusHSWidget: Widget {
 
 struct MinecraftServerStatusHSWidget_Previews: PreviewProvider {
     static var previews: some View {
-        MinecraftServerStatusHSWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
+        MinecraftServerStatusHSWidgetEntryView(entry: ServerStatusSnapshotEntry(date: Date(), configuration: ConfigurationIntent(), viewModel: WidgetEntryViewModel()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
