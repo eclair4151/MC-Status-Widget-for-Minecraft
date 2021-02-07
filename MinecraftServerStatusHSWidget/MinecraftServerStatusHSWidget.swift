@@ -26,7 +26,7 @@ struct Provider: IntentTimelineProvider {
     func getSnapshot(for configuration: ServerSelectIntent, in context: Context, completion: @escaping (ServerStatusSnapshotEntry) -> ()) {
         var vm = WidgetEntryViewModel()
         
-        if let widgetServer = configuration.Server, let identifier = widgetServer.identifier, let savedServer = getServerById(id: identifier), !context.isPreview {
+        if let widgetServer = configuration.Server, let identifier = widgetServer.identifier, let savedServer = getServerById(id: identifier) {
             vm.serverName = savedServer.name
             vm.setServerIcon(base64Data: savedServer.serverIcon)
         }
@@ -42,61 +42,64 @@ struct Provider: IntentTimelineProvider {
         var entries: [ServerStatusSnapshotEntry] = []
 
         guard let widgetServer = configuration.Server, let identifier = widgetServer.identifier, let savedServer = getServerById(id: identifier) else {
-            let timeline = Timeline(entries: entries, policy: .after(futureDate))
+          
+            let entryDate = Date()
+            var vm = WidgetEntryViewModel()
+            vm.serverName = "Select a Server"
+            vm.progressString = "--/--"
+            vm.lastUpdated = "now"
+            let entry = ServerStatusSnapshotEntry(date: entryDate, configuration: configuration, viewModel: vm)
+            entries.append(entry)
+            
+            let timeline = Timeline(entries:entries, policy: .after(futureDate))
             completion(timeline)
             return
         }
         
-        
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        // 720 minutes will give us a 12 hour buffer
-        for minOffset in 0 ..< 720 {
-            
-            var timeStr = ""
-            if (minOffset == 0) {
-                timeStr = "now"
-            } else if (minOffset < 60) {
-                timeStr = "\(minOffset)min ago"
-            } else {
-                let hr = minOffset/60
-                timeStr = "\(hr)hr ago"
-            }
-            
+        guard !context.isPreview else {
             var vm = WidgetEntryViewModel()
             vm.serverName = savedServer.name
-            vm.lastUpdated = timeStr
-            
-            
-            let entryDate = Calendar.current.date(byAdding: .minute, value: minOffset, to: currentDate)!
+            vm.setServerIcon(base64Data: savedServer.serverIcon)
+                
+            let entryDate = Date()
             let entry = ServerStatusSnapshotEntry(date: entryDate, configuration: configuration, viewModel: vm)
             entries.append(entry)
+            
+            let timeline = Timeline(entries:entries, policy: .after(futureDate))
+            completion(timeline)
+            return
         }
+        
+        StatusChecker(addressAndPort: savedServer.serverUrl).getStatus { status in
+            DispatchQueue.main.async {
+                var entries: [ServerStatusSnapshotEntry] = []
 
-        //requet refresh in 15 minutes
-        let timeline = Timeline(entries: entries, policy: .after(futureDate))
-        completion(timeline)
+                // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+                // 720 minutes will give us a 12 hour buffer
+                for minOffset in 0 ..< 720 {
+                    
+                    var timeStr = ""
+                    if (minOffset == 0) {
+                        timeStr = "now"
+                    } else if (minOffset < 60) {
+                        timeStr = "\(minOffset)min ago"
+                    } else {
+                        let hr = minOffset/60
+                        timeStr = "\(hr)hr ago"
+                    }
+                    
+                    let vm = WidgetEntryViewModel(serverName: savedServer.name, status: status, lastUpdated: timeStr)
         
-        
-//        StatusChecker(addressAndPort: savedServer.serverUrl).getStatus { status in
-//            var entries: [ServerStatusSnapshotEntry] = []
-//
-//            // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-//            // 720 minutes will give us a 12 hour buffer
-//            let currentDate = Date()
-//            for minOffset in 0 ..< 720 {
-//
-//                let timeStr = minOffset == 0 ? "Now" : "\(minOffset)min ago"
-//
-//                let entryDate = Calendar.current.date(byAdding: .minute, value: minOffset, to: currentDate)!
-//                let entry = ServerStatusSnapshotEntry(date: entryDate, configuration: configuration, viewModel:WidgetEntryViewModel(serverName: savedServer.name, status: status, lastUpdated: timeStr))
-//                entries.append(entry)
-//            }
-//
-//            let timeline = Timeline(entries: entries, policy: .atEnd)
-//            completion(timeline)
-//        }
-        
-        
+                    let entryDate = Calendar.current.date(byAdding: .minute, value: minOffset, to: currentDate)!
+                    let entry = ServerStatusSnapshotEntry(date: entryDate, configuration: configuration, viewModel: vm)
+                    entries.append(entry)
+                }
+
+                //requet refresh in 15 minutes
+                let timeline = Timeline(entries: entries, policy: .after(futureDate))
+                completion(timeline)
+            }
+        }
     }
     
     func placeholder(in context: Context) -> ServerStatusSnapshotEntry {
