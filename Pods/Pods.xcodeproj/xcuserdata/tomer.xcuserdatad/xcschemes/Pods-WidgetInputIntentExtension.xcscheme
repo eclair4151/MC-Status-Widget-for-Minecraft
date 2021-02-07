@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1230"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "426520BCB4E91FFD209EAEB7AC140536"
-               BuildableName = "Pods_MinecraftServerStatusWidget.framework"
-               BlueprintName = "Pods-MinecraftServerStatusWidget"
+               BlueprintIdentifier = "6E5BB8F1C003230BBC03FE330F77490B"
+               BuildableName = "Pods_WidgetInputIntentExtension.framework"
+               BlueprintName = "Pods-WidgetInputIntentExtension"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

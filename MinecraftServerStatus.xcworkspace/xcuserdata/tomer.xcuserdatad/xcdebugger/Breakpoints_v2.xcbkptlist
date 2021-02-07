@@ -135,16 +135,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C2A6BC39-DF12-4F87-A89A-D25B48DF8D62"
+            uuid = "1FDDA741-5408-4265-95DC-02B9BEB91399"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MinecraftServerStatus/Helpers/StatusChecker.swift"
+            filePath = "WidgetInputIntentExtension/IntentHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "readAndParseStatusData(client:)"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "resolveServer(for:with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -17,5 +17,4 @@ public class SavedServer: Object {
     @objc dynamic var serverIcon = ""
     @objc dynamic var order = 100
     @objc dynamic var showInWidget = false
-
 }

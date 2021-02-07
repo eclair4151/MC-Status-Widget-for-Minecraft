@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_MinecraftServerStatusWidgetVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_MinecraftServerStatusWidgetVersionString[];
+FOUNDATION_EXPORT double Pods_MinecraftServerStatusHSWidgetExtensionVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_MinecraftServerStatusHSWidgetExtensionVersionString[];
 

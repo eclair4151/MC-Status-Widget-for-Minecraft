@@ -9,31 +9,65 @@
 import WidgetKit
 import SwiftUI
 import Intents
+import RealmSwift
 
 struct Provider: IntentTimelineProvider {
     
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (ServerStatusSnapshotEntry) -> ()) {
+    
+    let realm: Realm
+
+    init() {
+        let sharedDirectory: URL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.shemeshapps.MinecraftServerStatus")! as URL
+        let sharedRealmURL = sharedDirectory.appendingPathComponent("db.realm")
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(fileURL: sharedRealmURL)
+        
+        self.realm = try! Realm()
+    }
+    
+    func getServerById(id: String) -> SavedServer? {
+        let servers = self.realm.objects(SavedServer.self).sorted(byKeyPath: "order")
+        return servers.first { server in
+            server.id == id
+        }
+    }
+    
+    func getSnapshot(for configuration: ServerSelectIntent, in context: Context, completion: @escaping (ServerStatusSnapshotEntry) -> ()) {
         let entry = ServerStatusSnapshotEntry(date: Date(), configuration: configuration, viewModel: WidgetEntryViewModel())
+        
         completion(entry)
     }
 
-    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [ServerStatusSnapshotEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = ServerStatusSnapshotEntry(date: entryDate, configuration: configuration, viewModel:WidgetEntryViewModel())
-            entries.append(entry)
+    func getTimeline(for configuration: ServerSelectIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+        
+        guard let widgetServer = configuration.Server, let identifier = widgetServer.identifier, let savedServer = getServerById(id: identifier) else {
+            return
         }
+        
+        
+        StatusChecker(addressAndPort: savedServer.serverUrl).getStatus { status in
+            var entries: [ServerStatusSnapshotEntry] = []
+            
+            // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+            // 720 minutes will give us a 12 hour buffer
+            let currentDate = Date()
+            for minOffset in 0 ..< 720 {
+                
+                let timeStr = minOffset == 0 ? "Now" : "\(minOffset)min ago"
+                
+                let entryDate = Calendar.current.date(byAdding: .minute, value: minOffset, to: currentDate)!
+                let entry = ServerStatusSnapshotEntry(date: entryDate, configuration: configuration, viewModel:WidgetEntryViewModel(serverName: savedServer.name, status: status, lastUpdated: timeStr))
+                entries.append(entry)
+            }
 
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
+            let timeline = Timeline(entries: entries, policy: .atEnd)
+            completion(timeline)
+        }
+        
+        
     }
     
     func placeholder(in context: Context) -> ServerStatusSnapshotEntry {
-        ServerStatusSnapshotEntry(date: Date(), configuration: ConfigurationIntent(), viewModel: WidgetEntryViewModel())
+        ServerStatusSnapshotEntry(date: Date(), configuration: ServerSelectIntent(), viewModel: WidgetEntryViewModel())
     }
 }
 
@@ -80,7 +114,7 @@ struct ProgressView: View {
 
 struct ServerStatusSnapshotEntry: TimelineEntry {
     let date: Date
-    let configuration: ConfigurationIntent
+    let configuration: ServerSelectIntent
     let viewModel: WidgetEntryViewModel
 }
 
@@ -97,21 +131,18 @@ struct MinecraftServerStatusHSWidgetEntryView : View {
         ZStack {
             Color("WidgetBackground")
             VStack {
-                Spacer()
-                Spacer()
                 HStack {
                     Image(uiImage: entry.viewModel.icon).resizable()                .scaledToFit().frame(width: 32.0, height: 32.0)
                     Image(systemName: entry.viewModel.statusIcon).font(.system(size: 32)).foregroundColor(Color(entry.viewModel.statusColor))
                     Text(entry.viewModel.lastUpdated).bold()
-                }.frame(height:32)
+                }.frame(height:32).padding(.top,25).padding(.bottom,6)
+                Text(entry.viewModel.serverName).fontWeight(.bold).frame(height:32).padding(.leading, 6).padding(.trailing, 6)
                 Spacer()
-                Text(entry.viewModel.serverName).fontWeight(.bold).frame(height:32)
                 HStack {
                     Text(entry.viewModel.progressString)
                     ProgressView(progress: CGFloat(entry.viewModel.progressValue)).frame(height:10)
-                }.padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8)).frame(height:32)
-                Spacer()
-                Spacer()
+                }.padding(EdgeInsets(top: 0, leading: 8, bottom: 40, trailing: 8)).frame(height:32)
+               
             }
         }
         
@@ -138,7 +169,7 @@ struct MinecraftServerStatusHSWidget: Widget {
     let kind: String = "MinecraftServerStatusHSWidget"
 
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
+        IntentConfiguration(kind: kind, intent: ServerSelectIntent.self, provider: Provider()) { entry in
             MinecraftServerStatusHSWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("My Widget")
@@ -148,7 +179,7 @@ struct MinecraftServerStatusHSWidget: Widget {
 
 struct MinecraftServerStatusHSWidget_Previews: PreviewProvider {
     static var previews: some View {
-        MinecraftServerStatusHSWidgetEntryView(entry: ServerStatusSnapshotEntry(date: Date(), configuration: ConfigurationIntent(), viewModel: WidgetEntryViewModel()))
+        MinecraftServerStatusHSWidgetEntryView(entry: ServerStatusSnapshotEntry(date: Date(), configuration: ServerSelectIntent(), viewModel: WidgetEntryViewModel()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

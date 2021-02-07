@@ -33,12 +33,12 @@ extension WidgetEntryViewModel {
     init() {
         self.lastUpdated = "3m ago"
         self.icon = UIImage(named: "DefaultIcon")!
-        self.statusIcon = "checkmark.circle.fill"
-        self.statusColor = "CheckColor"
+        self.statusIcon = "multiply.circle.fill"
+        self.statusColor = "CrossColor"
         self.playersString = ""
-        self.serverName = "Tomer's Server woo"
-        self.progressString = "3/20"
-        self.progressValue = 0.15
+        self.serverName = "Tomer's Server"
+        self.progressString = "-/-"
+        self.progressValue = 0.0
     }
 }
 
