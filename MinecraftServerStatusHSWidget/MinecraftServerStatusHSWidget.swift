@@ -13,55 +13,88 @@ import RealmSwift
 
 struct Provider: IntentTimelineProvider {
     
-    
-    let realm: Realm
-
-    init() {
-        let sharedDirectory: URL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.shemeshapps.MinecraftServerStatus")! as URL
-        let sharedRealmURL = sharedDirectory.appendingPathComponent("db.realm")
-        Realm.Configuration.defaultConfiguration = Realm.Configuration(fileURL: sharedRealmURL)
-        
-        self.realm = try! Realm()
-    }
-    
+    // actually fix this at some point lol
     func getServerById(id: String) -> SavedServer? {
-        let servers = self.realm.objects(SavedServer.self).sorted(byKeyPath: "order")
+        let realm = initializeRealmDb()
+
+        let servers = realm.objects(SavedServer.self).sorted(byKeyPath: "order")
         return servers.first { server in
             server.id == id
         }
     }
     
     func getSnapshot(for configuration: ServerSelectIntent, in context: Context, completion: @escaping (ServerStatusSnapshotEntry) -> ()) {
-        let entry = ServerStatusSnapshotEntry(date: Date(), configuration: configuration, viewModel: WidgetEntryViewModel())
+        var vm = WidgetEntryViewModel()
         
+        if let widgetServer = configuration.Server, let identifier = widgetServer.identifier, let savedServer = getServerById(id: identifier), !context.isPreview {
+            vm.serverName = savedServer.name
+            vm.setServerIcon(base64Data: savedServer.serverIcon)
+        }
+        
+        let entry = ServerStatusSnapshotEntry(date: Date(), configuration: configuration, viewModel: vm)
         completion(entry)
     }
 
     func getTimeline(for configuration: ServerSelectIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         
+        let currentDate = Date()
+        let futureDate = Calendar.current.date(byAdding: .minute, value: 10, to: currentDate)!
+        var entries: [ServerStatusSnapshotEntry] = []
+
         guard let widgetServer = configuration.Server, let identifier = widgetServer.identifier, let savedServer = getServerById(id: identifier) else {
+            let timeline = Timeline(entries: entries, policy: .after(futureDate))
+            completion(timeline)
             return
         }
         
         
-        StatusChecker(addressAndPort: savedServer.serverUrl).getStatus { status in
-            var entries: [ServerStatusSnapshotEntry] = []
+        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+        // 720 minutes will give us a 12 hour buffer
+        for minOffset in 0 ..< 720 {
             
-            // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-            // 720 minutes will give us a 12 hour buffer
-            let currentDate = Date()
-            for minOffset in 0 ..< 720 {
-                
-                let timeStr = minOffset == 0 ? "Now" : "\(minOffset)min ago"
-                
-                let entryDate = Calendar.current.date(byAdding: .minute, value: minOffset, to: currentDate)!
-                let entry = ServerStatusSnapshotEntry(date: entryDate, configuration: configuration, viewModel:WidgetEntryViewModel(serverName: savedServer.name, status: status, lastUpdated: timeStr))
-                entries.append(entry)
+            var timeStr = ""
+            if (minOffset == 0) {
+                timeStr = "now"
+            } else if (minOffset < 60) {
+                timeStr = "\(minOffset)min ago"
+            } else {
+                let hr = minOffset/60
+                timeStr = "\(hr)hr ago"
             }
-
-            let timeline = Timeline(entries: entries, policy: .atEnd)
-            completion(timeline)
+            
+            var vm = WidgetEntryViewModel()
+            vm.serverName = savedServer.name
+            vm.lastUpdated = timeStr
+            
+            
+            let entryDate = Calendar.current.date(byAdding: .minute, value: minOffset, to: currentDate)!
+            let entry = ServerStatusSnapshotEntry(date: entryDate, configuration: configuration, viewModel: vm)
+            entries.append(entry)
         }
+
+        //requet refresh in 15 minutes
+        let timeline = Timeline(entries: entries, policy: .after(futureDate))
+        completion(timeline)
+        
+        
+//        StatusChecker(addressAndPort: savedServer.serverUrl).getStatus { status in
+//            var entries: [ServerStatusSnapshotEntry] = []
+//
+//            // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+//            // 720 minutes will give us a 12 hour buffer
+//            let currentDate = Date()
+//            for minOffset in 0 ..< 720 {
+//
+//                let timeStr = minOffset == 0 ? "Now" : "\(minOffset)min ago"
+//
+//                let entryDate = Calendar.current.date(byAdding: .minute, value: minOffset, to: currentDate)!
+//                let entry = ServerStatusSnapshotEntry(date: entryDate, configuration: configuration, viewModel:WidgetEntryViewModel(serverName: savedServer.name, status: status, lastUpdated: timeStr))
+//                entries.append(entry)
+//            }
+//
+//            let timeline = Timeline(entries: entries, policy: .atEnd)
+//            completion(timeline)
+//        }
         
         
     }
@@ -100,24 +133,12 @@ struct ProgressView: View {
     }
 }
 
-//struct ProgressView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProgressView(progress: 12)
-//    }
-//}
-
-
-
-
-
-
 
 struct ServerStatusSnapshotEntry: TimelineEntry {
     let date: Date
     let configuration: ServerSelectIntent
     let viewModel: WidgetEntryViewModel
 }
-
 
 
 
@@ -150,20 +171,6 @@ struct MinecraftServerStatusHSWidgetEntryView : View {
 }
 
 
-//struct ContentView: View {
-//    static let formatter = RelativeDateTimeFormatter()
-//
-//    var body: some View {
-//        let unixEpoch = Date(timeIntervalSince1970: 0)
-//        return VStack {
-//            Text("Current date is:")
-//            Text("\(unixEpoch, formatter: Self.formatter)").bold()
-//            Text("since the unix Epoch")
-//            Spacer()
-//        }
-//    }
-//}
-
 @main
 struct MinecraftServerStatusHSWidget: Widget {
     let kind: String = "MinecraftServerStatusHSWidget"
@@ -172,8 +179,8 @@ struct MinecraftServerStatusHSWidget: Widget {
         IntentConfiguration(kind: kind, intent: ServerSelectIntent.self, provider: Provider()) { entry in
             MinecraftServerStatusHSWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("MC Status Widget")
+        .description("Widget to show the status of Minecraft Server")
     }
 }
 

@@ -31,14 +31,18 @@ extension WidgetEntryViewModel {
     }
 
     init() {
-        self.lastUpdated = "3m ago"
+        self.lastUpdated = "2m ago"
         self.icon = UIImage(named: "DefaultIcon")!
         self.statusIcon = "multiply.circle.fill"
         self.statusColor = "CrossColor"
         self.playersString = ""
-        self.serverName = "Tomer's Server"
-        self.progressString = "-/-"
+        self.serverName = "My Server"
+        self.progressString = "0/20"
         self.progressValue = 0.0
+    }
+    
+    mutating func setServerIcon(base64Data: String) {
+        self.icon = ImageHelper.convertFavIconString(favIcon: base64Data) ?? UIImage(named: "DefaultIcon")!
     }
 }
 

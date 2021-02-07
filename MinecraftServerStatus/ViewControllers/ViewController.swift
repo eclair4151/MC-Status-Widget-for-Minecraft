@@ -19,11 +19,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var servers: Results<SavedServer>!
     @IBOutlet weak var tableView: UITableView!
     var serverStatus:[String:ServerStatusViewModel]!
-    var realm:Realm!
+    var realm: Realm! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.realm = initializeRealmDb()
         self.tableView.estimatedRowHeight = 234
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) { // wait 10 seconds before asking for a review
@@ -39,7 +39,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: UIControl.Event.valueChanged)
 
-        self.realm = try! Realm()
         serverStatus = [:]
         reloadTableData(initializeData: true)
     }

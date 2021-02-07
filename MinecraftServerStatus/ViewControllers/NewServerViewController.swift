@@ -23,9 +23,11 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
     
     var delegate: ServerEditProtocol!
     var serverToEdit: SavedServer!
-    
+    var realm: Realm! = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.realm = initializeRealmDb()
 
         //only if we are editing an existing server not creating as new one
         if (self.serverToEdit != nil) {
@@ -74,8 +76,6 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
             alertBox("Error", message: "You already have a server with that name", controller: self)
         } else if (self.serverToEdit == nil) {
             //creating new server
-            let realm = try! Realm()
-
             let servers = realm.objects(SavedServer.self)
             let server = SavedServer()
             server.name = serverNameInput.text!
@@ -91,7 +91,6 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
             self.dismiss(animated: true, completion: nil)
         } else {
             //saving old server
-            let realm = try! Realm()
             try! realm.write {
                 serverToEdit.name = serverNameInput.text!
                 serverToEdit.serverUrl = serverUrlInput.text!
