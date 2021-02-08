@@ -29,8 +29,15 @@ extension WidgetEntryViewModel {
             self.statusIcon = "questionmark.circle.fill"
             self.statusColor = "UnknownColor"
         }
-
-        self.playersString = ""//status.players?.sample
+        
+        self.playersString = ""
+        if let players = status.players, let playerList = players.sample, playerList.count > 0 {
+            var playerListString = playerList.map{ $0.name }.joined(separator: ", ")
+            if players.online > playerList.count {
+                playerListString += ",...       "
+            }
+            self.playersString = playerListString
+        }
     }
 
     init() {
@@ -38,7 +45,7 @@ extension WidgetEntryViewModel {
         self.icon = UIImage(named: "DefaultIcon")!
         self.statusIcon = "questionmark.circle.fill"
         self.statusColor = "UnknownColor"
-        self.playersString = ""
+        self.playersString = "Player 1, Player 2, Player 3"
         self.serverName = "My Server"
         self.progressString = "0 / 20"
         self.progressValue = 0.0

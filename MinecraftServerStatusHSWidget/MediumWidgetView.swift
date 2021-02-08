@@ -18,17 +18,22 @@ struct MediumWidgetView : View {
         ZStack {
             Color("WidgetBackground")
             VStack {
-                HStack {
-                   
-                    Text("THIS IS A TEST").fontWeight(.bold).frame(height:32).padding(.leading, 6).padding(.trailing, 6)
-                    Spacer()
-                    HStack {
-                        Text(entry.viewModel.progressString)
-                        ProgressView(progress: CGFloat(entry.viewModel.progressValue)).frame(height:10)
-                    }.padding(EdgeInsets(top: 0, leading: 8, bottom: 40, trailing: 8)).frame(height:32)
-                   
-                }
-            }
+                BaseWidgetView(entry: entry)
+                Text(entry.viewModel.playersString)
+                    .fontWeight(.regular)
+                    .foregroundColor(.veryTransparentText)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .lineLimit(1)
+                    .font(.system(size: 13))
+            }.padding()
         }
+    }
+}
+
+
+struct MinecraftServerStatusHSWidget_MediumPreview: PreviewProvider {
+    static var previews: some View {
+        MinecraftServerStatusHSWidgetEntryView(entry: ServerStatusSnapshotEntry(date: Date(), configuration: ServerSelectIntent(), viewModel: WidgetEntryViewModel()))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }
