@@ -35,7 +35,7 @@ struct Provider: IntentTimelineProvider {
         completion(entry)
     }
 
-    func getTimeline(for configuration: ServerSelectIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+    func getTimeline(for configuration: ServerSelectIntent, in context: Context, completion: @escaping (Timeline<ServerStatusSnapshotEntry>) -> ()) {
         
         let currentDate = Date()
         let futureDate = Calendar.current.date(byAdding: .minute, value: 10, to: currentDate)!
@@ -108,35 +108,6 @@ struct Provider: IntentTimelineProvider {
 }
 
 
-
-
-struct ProgressView: View {
-    var progress: CGFloat
-    var bgColor = Color.black.opacity(0.2)
-    var filledColor = Color.blue
-
-    var body: some View {
-        GeometryReader { geometry in
-            let height = geometry.size.height
-            let width = geometry.size.width
-            ZStack(alignment: .leading) {
-                Rectangle()
-                    .foregroundColor(bgColor)
-                    .frame(width: width,
-                           height: height)
-                    .cornerRadius(height / 2.0)
-
-                Rectangle()
-                    .foregroundColor(filledColor)
-                    .frame(width: width * self.progress,
-                           height: height)
-                    .cornerRadius(height / 2.0)
-            }
-        }
-    }
-}
-
-
 struct ServerStatusSnapshotEntry: TimelineEntry {
     let date: Date
     let configuration: ServerSelectIntent
@@ -147,29 +118,17 @@ struct ServerStatusSnapshotEntry: TimelineEntry {
 
 struct MinecraftServerStatusHSWidgetEntryView : View {
     var entry: Provider.Entry
-    static let formatter = RelativeDateTimeFormatter()
     
-
+    @Environment(\.widgetFamily) var family
+    
+    @ViewBuilder
     var body: some View {
-        
-        ZStack {
-            Color("WidgetBackground")
-            VStack {
-                HStack {
-                    Image(uiImage: entry.viewModel.icon).resizable()                .scaledToFit().frame(width: 32.0, height: 32.0)
-                    Image(systemName: entry.viewModel.statusIcon).font(.system(size: 32)).foregroundColor(Color(entry.viewModel.statusColor))
-                    Text(entry.viewModel.lastUpdated).bold()
-                }.frame(height:32).padding(.top,25).padding(.bottom,6)
-                Text(entry.viewModel.serverName).fontWeight(.bold).frame(height:32).padding(.leading, 6).padding(.trailing, 6)
-                Spacer()
-                HStack {
-                    Text(entry.viewModel.progressString)
-                    ProgressView(progress: CGFloat(entry.viewModel.progressValue)).frame(height:10)
-                }.padding(EdgeInsets(top: 0, leading: 8, bottom: 40, trailing: 8)).frame(height:32)
-               
-            }
+        switch family {
+        case .systemSmall:
+            SmallWidgetView(entry: entry)
+        default:
+            MediumWidgetView(entry: entry)
         }
-        
     }
 }
 
@@ -184,12 +143,13 @@ struct MinecraftServerStatusHSWidget: Widget {
         }
         .configurationDisplayName("MC Status Widget")
         .description("Widget to show the status of Minecraft Server")
+        .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
 
 struct MinecraftServerStatusHSWidget_Previews: PreviewProvider {
     static var previews: some View {
         MinecraftServerStatusHSWidgetEntryView(entry: ServerStatusSnapshotEntry(date: Date(), configuration: ServerSelectIntent(), viewModel: WidgetEntryViewModel()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }

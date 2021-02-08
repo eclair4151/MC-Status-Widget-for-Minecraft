@@ -22,9 +22,12 @@ extension WidgetEntryViewModel {
         if(status.status == Status.Online) {
             self.statusIcon = "checkmark.circle.fill"
             self.statusColor = "CheckColor"
-        } else {
+        } else if (status.status == Status.Offline) {
             self.statusIcon = "multiply.circle.fill"
             self.statusColor = "CrossColor"
+        } else {
+            self.statusIcon = "questionmark.circle.fill"
+            self.statusColor = "UnknownColor"
         }
 
         self.playersString = ""//status.players?.sample
@@ -33,8 +36,8 @@ extension WidgetEntryViewModel {
     init() {
         self.lastUpdated = "2m ago"
         self.icon = UIImage(named: "DefaultIcon")!
-        self.statusIcon = "multiply.circle.fill"
-        self.statusColor = "CrossColor"
+        self.statusIcon = "questionmark.circle.fill"
+        self.statusColor = "UnknownColor"
         self.playersString = ""
         self.serverName = "My Server"
         self.progressString = "0/20"

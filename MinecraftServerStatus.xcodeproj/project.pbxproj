@@ -41,6 +41,12 @@
 		F14640FC25D0179200B6B2DC /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14640F925D0179200B6B2DC /* DBHelper.swift */; };
 		F146411925D054AE00B6B2DC /* SwiftSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F146411825D054AE00B6B2DC /* SwiftSocket.framework */; };
 		F146411A25D054AE00B6B2DC /* SwiftSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F146411825D054AE00B6B2DC /* SwiftSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F146413325D0AF3400B6B2DC /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146413225D0AF3400B6B2DC /* ThemeManager.swift */; };
+		F146413425D0AF3400B6B2DC /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146413225D0AF3400B6B2DC /* ThemeManager.swift */; };
+		F146413525D0AF3400B6B2DC /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146413225D0AF3400B6B2DC /* ThemeManager.swift */; };
+		F146414425D0BA2000B6B2DC /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146414325D0BA2000B6B2DC /* ProgressView.swift */; };
+		F146414725D0BA5C00B6B2DC /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146414625D0BA5C00B6B2DC /* SmallWidgetView.swift */; };
+		F146414A25D0BA6800B6B2DC /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146414925D0BA6800B6B2DC /* MediumWidgetView.swift */; };
 		F16AF6DC2469C6D300A4BFDA /* ServerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16AF6DB2469C6D300A4BFDA /* ServerStatus.swift */; };
 		F16AF6E0246A163400A4BFDA /* SwiftSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16AF6DF246A163400A4BFDA /* SwiftSocket.framework */; };
 		F16AF6E1246A163400A4BFDA /* SwiftSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F16AF6DF246A163400A4BFDA /* SwiftSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -151,6 +157,10 @@
 		F12ADDE325BDC33B00487E90 /* MinecraftServerStatusHSWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MinecraftServerStatusHSWidgetExtension.entitlements; sourceTree = "<group>"; };
 		F14640F925D0179200B6B2DC /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		F146411825D054AE00B6B2DC /* SwiftSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F146413225D0AF3400B6B2DC /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		F146414325D0BA2000B6B2DC /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		F146414625D0BA5C00B6B2DC /* SmallWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidgetView.swift; sourceTree = "<group>"; };
+		F146414925D0BA6800B6B2DC /* MediumWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumWidgetView.swift; sourceTree = "<group>"; };
 		F16AF6DB2469C6D300A4BFDA /* ServerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatus.swift; sourceTree = "<group>"; };
 		F16AF6DF246A163400A4BFDA /* SwiftSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F18A843725BFC0A000C6E34E /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
@@ -317,6 +327,10 @@
 				F12ADDDA25BDC33900487E90 /* MinecraftServerStatusHSWidget.intentdefinition */,
 				F12ADDDB25BDC33B00487E90 /* Assets.xcassets */,
 				F12ADDDD25BDC33B00487E90 /* Info.plist */,
+				F146413225D0AF3400B6B2DC /* ThemeManager.swift */,
+				F146414325D0BA2000B6B2DC /* ProgressView.swift */,
+				F146414625D0BA5C00B6B2DC /* SmallWidgetView.swift */,
+				F146414925D0BA6800B6B2DC /* MediumWidgetView.swift */,
 			);
 			path = MinecraftServerStatusHSWidget;
 			sourceTree = "<group>";
@@ -582,6 +596,7 @@
 				F12ADDDF25BDC33B00487E90 /* MinecraftServerStatusHSWidget.intentdefinition in Sources */,
 				24C92F6820BE42210072A60C /* AppDelegate.swift in Sources */,
 				F18A843825BFC0A000C6E34E /* ImageHelper.swift in Sources */,
+				F146413325D0AF3400B6B2DC /* ThemeManager.swift in Sources */,
 				24EB9BBD20C2F85800C9894A /* NewServerViewController.swift in Sources */,
 				243058FF20E4535500ADAECE /* LargeServerTableViewCell.swift in Sources */,
 				F16AF6DC2469C6D300A4BFDA /* ServerStatus.swift in Sources */,
@@ -596,12 +611,16 @@
 				F12ADDDE25BDC33B00487E90 /* MinecraftServerStatusHSWidget.intentdefinition in Sources */,
 				F12ADDD925BDC33900487E90 /* MinecraftServerStatusHSWidget.swift in Sources */,
 				F18A843925BFC0A000C6E34E /* ImageHelper.swift in Sources */,
+				F146414A25D0BA6800B6B2DC /* MediumWidgetView.swift in Sources */,
 				F18A843D25BFC0BB00C6E34E /* WidgetEntryViewModel.swift in Sources */,
+				F146414725D0BA5C00B6B2DC /* SmallWidgetView.swift in Sources */,
 				F14640FB25D0179200B6B2DC /* DBHelper.swift in Sources */,
 				F18A843F25BFC0CC00C6E34E /* ServerStatus.swift in Sources */,
 				F14640F325CF91E400B6B2DC /* UIExtentions.swift in Sources */,
+				F146413425D0AF3400B6B2DC /* ThemeManager.swift in Sources */,
 				F14640F625CF928C00B6B2DC /* SavedServer.swift in Sources */,
 				F14640C525CF90BC00B6B2DC /* StatusChecker.swift in Sources */,
+				F146414425D0BA2000B6B2DC /* ProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +633,7 @@
 				F14640FC25D0179200B6B2DC /* DBHelper.swift in Sources */,
 				F18A848625C218BC00C6E34E /* IntentHandler.swift in Sources */,
 				F14640B025CF8A8000B6B2DC /* SavedServer.swift in Sources */,
+				F146413525D0AF3400B6B2DC /* ThemeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
