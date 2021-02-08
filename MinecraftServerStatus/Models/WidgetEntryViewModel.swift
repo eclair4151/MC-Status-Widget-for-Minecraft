@@ -16,7 +16,7 @@ extension WidgetEntryViewModel {
         self.lastUpdated = lastUpdated
         self.icon = ImageHelper.convertFavIconString(favIcon: status.favicon) ?? UIImage(named: "DefaultIcon")!
         self.serverName = serverName
-        self.progressString = "\(status.players?.online ?? 0)/\(status.players?.max ?? 20)"
+        self.progressString = "\(status.players?.online ?? 0) / \(status.players?.max ?? 20)"
         self.progressValue = Float(status.players?.online ?? 0) / Float(status.players?.max ?? 20)
 
         if(status.status == Status.Online) {
@@ -40,7 +40,7 @@ extension WidgetEntryViewModel {
         self.statusColor = "UnknownColor"
         self.playersString = ""
         self.serverName = "My Server"
-        self.progressString = "0/20"
+        self.progressString = "0 / 20"
         self.progressValue = 0.0
     }
     

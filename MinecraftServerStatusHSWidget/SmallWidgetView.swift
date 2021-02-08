@@ -17,20 +17,48 @@ struct SmallWidgetView : View {
     var body: some View {
         ZStack {
             Color("WidgetBackground")
-            VStack {
-                HStack {
-                    Image(uiImage: entry.viewModel.icon).resizable()                .scaledToFit().frame(width: 32.0, height: 32.0)
-                    Image(systemName: entry.viewModel.statusIcon).font(.system(size: 32)).foregroundColor(Color(entry.viewModel.statusColor))
-                    Text(entry.viewModel.lastUpdated).bold()
-                }.frame(height:32).padding(.top,25).padding(.bottom,6)
-                Text(entry.viewModel.serverName).fontWeight(.bold).frame(height:32).padding(.leading, 6).padding(.trailing, 6)
-                Spacer()
-                HStack {
+            ZStack {
+                VStack(alignment: .trailing, spacing: 4) {
+                    Text(entry.viewModel.serverName)
+                        .fontWeight(.medium)
+                        .foregroundColor(.semiTransparentText)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .lineLimit(1)
+                        .font(.system(size: 16))
+                    Text(entry.viewModel.lastUpdated)
+                        .fontWeight(.regular)
+                        .foregroundColor(.veryTransparentText)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .lineLimit(1)
+                        .font(.system(size: 16))
+                    Spacer()
+                }
+                
+                VStack(alignment: .leading, spacing: 0) {
+                    Spacer()
+                    Image(uiImage: entry.viewModel.icon).resizable()
+                        .scaledToFit().frame(width: 36.0, height: 36.0)
                     Text(entry.viewModel.progressString)
-                    ProgressView(progress: CGFloat(entry.viewModel.progressValue)).frame(height:10)
-                }.padding(EdgeInsets(top: 0, leading: 8, bottom: 40, trailing: 8)).frame(height:32)
-               
-            }
+                        .fontWeight(.bold)
+                        .font(.system(size: 23))
+                        .foregroundColor(.regularText)
+                        .lineLimit(1)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top,3)
+                    ProgressView(progress: CGFloat(entry.viewModel.progressValue))
+                        .frame(height:6)
+                        .padding(.top,8)
+                }
+                
+            }.padding()
         }
+    }
+}
+
+
+struct MinecraftServerStatusHSWidget_SmallPreview: PreviewProvider {
+    static var previews: some View {
+        MinecraftServerStatusHSWidgetEntryView(entry: ServerStatusSnapshotEntry(date: Date(), configuration: ServerSelectIntent(), viewModel: WidgetEntryViewModel()))
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

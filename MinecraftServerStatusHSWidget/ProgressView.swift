@@ -11,8 +11,8 @@ import SwiftUI
 
 struct ProgressView: View {
     var progress: CGFloat
-    var bgColor = Color.black.opacity(0.2)
-    var filledColor = Color.blue
+    var bgColor = Color.black.opacity(0.3)
+    var filledColor = Color.progressBarColor
 
     var body: some View {
         GeometryReader { geometry in

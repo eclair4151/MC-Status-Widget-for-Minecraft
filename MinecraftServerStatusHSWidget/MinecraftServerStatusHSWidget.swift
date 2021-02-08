@@ -82,7 +82,7 @@ struct Provider: IntentTimelineProvider {
                     if (minOffset == 0) {
                         timeStr = "now"
                     } else if (minOffset < 60) {
-                        timeStr = "\(minOffset)min ago"
+                        timeStr = "\(minOffset)m ago"
                     } else {
                         let hr = minOffset/60
                         timeStr = "\(hr)hr ago"
@@ -150,6 +150,6 @@ struct MinecraftServerStatusHSWidget: Widget {
 struct MinecraftServerStatusHSWidget_Previews: PreviewProvider {
     static var previews: some View {
         MinecraftServerStatusHSWidgetEntryView(entry: ServerStatusSnapshotEntry(date: Date(), configuration: ServerSelectIntent(), viewModel: WidgetEntryViewModel()))
-            .previewContext(WidgetPreviewContext(family: .systemMedium))
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
