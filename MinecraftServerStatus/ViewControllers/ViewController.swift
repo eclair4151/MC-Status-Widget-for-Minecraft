@@ -12,6 +12,7 @@ import Alamofire
 import SwiftyJSON
 import MarqueeLabel
 import SwiftRater
+import WidgetKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ServerEditProtocol {
     
@@ -26,9 +27,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.realm = initializeRealmDb()
         self.tableView.estimatedRowHeight = 234
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { // wait 10 seconds before asking for a review
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { // wait 5 seconds before asking for a review
             SwiftRater.check()
         }
+        
+        //tell widgets to refresh because why not
+        WidgetCenter.shared.reloadAllTimelines()
+
         
         let infoButton = UIButton(type: .infoLight)
         infoButton.addTarget(self, action: #selector(infoButtonTapped), for: .touchUpInside)

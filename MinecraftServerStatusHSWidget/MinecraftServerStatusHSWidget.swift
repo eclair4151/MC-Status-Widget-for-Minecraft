@@ -41,13 +41,15 @@ struct Provider: IntentTimelineProvider {
         let futureDate = Calendar.current.date(byAdding: .minute, value: 10, to: currentDate)!
         var entries: [ServerStatusSnapshotEntry] = []
 
-        guard let widgetServer = configuration.Server, let identifier = widgetServer.identifier, let savedServer = getServerById(id: identifier) else {
+        guard let widgetServer = configuration.Server, let identifier = widgetServer.identifier, let savedServer = getServerById(id: identifier), !context.isPreview else {
           
             let entryDate = Date()
             var vm = WidgetEntryViewModel()
             vm.serverName = "Select a Server"
-            vm.progressString = "--/--"
+            vm.progressString = "-- / --"
             vm.lastUpdated = "now"
+            vm.progressValue = 0
+            vm.playersString = ""
             let entry = ServerStatusSnapshotEntry(date: entryDate, configuration: configuration, viewModel: vm)
             entries.append(entry)
             
@@ -56,27 +58,16 @@ struct Provider: IntentTimelineProvider {
             return
         }
         
-        guard !context.isPreview else {
-            var vm = WidgetEntryViewModel()
-            vm.serverName = savedServer.name
-            vm.setServerIcon(base64Data: savedServer.serverIcon)
-                
-            let entryDate = Date()
-            let entry = ServerStatusSnapshotEntry(date: entryDate, configuration: configuration, viewModel: vm)
-            entries.append(entry)
-            
-            let timeline = Timeline(entries:entries, policy: .after(futureDate))
-            completion(timeline)
-            return
-        }
+        let theme = Theme(rawValue: configuration.Theme?.identifier ?? "Auto") ?? Theme.auto
         
         StatusChecker(addressAndPort: savedServer.serverUrl).getStatus { status in
             DispatchQueue.main.async {
                 var entries: [ServerStatusSnapshotEntry] = []
 
+                let serverIcon = ImageHelper.convertFavIconString(favIcon: status.favicon) ?? UIImage(named: "DefaultIcon")!
                 // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-                // 720 minutes will give us a 12 hour buffer
-                for minOffset in 0 ..< 720 {
+                // 720 minutes will give us a 6 hour buffer
+                for minOffset in 0 ..< 360 {
                     
                     var timeStr = ""
                     if (minOffset == 0) {
@@ -88,7 +79,8 @@ struct Provider: IntentTimelineProvider {
                         timeStr = "\(hr)hr ago"
                     }
                     
-                    let vm = WidgetEntryViewModel(serverName: savedServer.name, status: status, lastUpdated: timeStr)
+                    
+                    let vm = WidgetEntryViewModel(serverName: savedServer.name, status: status, lastUpdated: timeStr, serverIcon: serverIcon, theme: theme)
         
                     let entryDate = Calendar.current.date(byAdding: .minute, value: minOffset, to: currentDate)!
                     let entry = ServerStatusSnapshotEntry(date: entryDate, configuration: configuration, viewModel: vm)
@@ -149,7 +141,13 @@ struct MinecraftServerStatusHSWidget: Widget {
 
 struct MinecraftServerStatusHSWidget_Previews: PreviewProvider {
     static var previews: some View {
-        MinecraftServerStatusHSWidgetEntryView(entry: ServerStatusSnapshotEntry(date: Date(), configuration: ServerSelectIntent(), viewModel: WidgetEntryViewModel()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        MinecraftServerStatusHSWidgetEntryView(
+            entry: ServerStatusSnapshotEntry(
+                date: Date(),
+                configuration: ServerSelectIntent(),
+                viewModel: WidgetEntryViewModel()
+            )
+        )
+        .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

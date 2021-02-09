@@ -15,8 +15,25 @@ struct MediumWidgetView : View {
     var entry: Provider.Entry
 
     var body: some View {
+        if(entry.configuration.Theme?.identifier ?? "" == Theme.auto.rawValue) {
+            InnerMediumWidget(entry: entry)
+        } else {
+            InnerMediumWidget(entry: entry)
+                .environment(
+                    \.colorScheme,
+                    (entry.configuration.Theme?.identifier ?? "" == Theme.dark.rawValue)
+                        ? .dark : .light
+                )
+        }
+    }
+}
+
+private struct InnerMediumWidget : View {
+    var entry: Provider.Entry
+
+    var body: some View {
         ZStack {
-            Color("WidgetBackground")
+            entry.viewModel.bgColor
             VStack {
                 BaseWidgetView(entry: entry)
                 Text(entry.viewModel.playersString)

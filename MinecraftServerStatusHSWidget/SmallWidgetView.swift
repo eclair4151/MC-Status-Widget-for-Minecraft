@@ -37,18 +37,36 @@ struct BaseWidgetView: View {
             
             VStack(alignment: .leading, spacing: 0) {
                 Spacer()
-                Image(uiImage: entry.viewModel.icon).resizable()
-                    .scaledToFit().frame(width: 36.0, height: 36.0)
+                ZStack{
+                    Image(uiImage: entry.viewModel.icon).resizable()
+                        .scaledToFit().frame(width: 36.0, height: 36.0, alignment: .leading)
+             
+                    Image(systemName: entry.viewModel.statusIcon ?? "")
+                        .font(.system(size: 24))
+                        .foregroundColor(
+                            Color.unknownColor
+                        )
+                        .background(Color.white.mask(Circle()).padding(4)
+                        )
+                        .offset(x: 18, y: 0)
+                }
+                
                 Text(entry.viewModel.progressString)
                     .fontWeight(.bold)
-                    .font(.system(size: 23))
+                    .font(.system(size: CGFloat(entry.viewModel.progressStringSize)))
                     .foregroundColor(.regularText)
                     .lineLimit(1)
+                    .minimumScaleFactor(0.7)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top,3)
-                ProgressView(progress: CGFloat(entry.viewModel.progressValue))
-                    .frame(height:6)
-                    .padding(.top,6)
+                    .padding(.trailing, 16)
+                    .opacity(entry.viewModel.progressStringAlpha)
+                if(entry.viewModel.statusIcon == nil) {
+                    ProgressView(progress: CGFloat(entry.viewModel.progressValue))
+                        .frame(height:6)
+                        .padding(.top,6)
+                }
+                
             }
         }
     }
@@ -59,8 +77,25 @@ struct SmallWidgetView : View {
     var entry: Provider.Entry
 
     var body: some View {
+        if(entry.configuration.Theme?.identifier ?? "" == Theme.auto.rawValue) {
+            InnerSmallWidget(entry: entry)
+        } else {
+            InnerSmallWidget(entry: entry)
+                .environment(
+                    \.colorScheme,
+                    (entry.configuration.Theme?.identifier ?? "" == Theme.dark.rawValue)
+                        ? .dark : .light
+                )
+        }
+    }
+}
+
+private struct InnerSmallWidget : View {
+    var entry: Provider.Entry
+
+    var body: some View {
         ZStack {
-            Color("WidgetBackground")
+            entry.viewModel.bgColor
             BaseWidgetView(entry: entry).padding().padding(.bottom,3)
         }
     }
