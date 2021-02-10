@@ -31,10 +31,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             SwiftRater.check()
         }
         
-        //tell widgets to refresh because why not
-        WidgetCenter.shared.reloadAllTimelines()
-
-        
         let infoButton = UIButton(type: .infoLight)
         infoButton.addTarget(self, action: #selector(infoButtonTapped), for: .touchUpInside)
         let barButton = UIBarButtonItem(customView: infoButton)
@@ -149,7 +145,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             servers = realm.objects(SavedServer.self).sorted(byKeyPath: "order")
             // Update Table View
             tableView.deleteRows(at: [indexPath], with: .right)
-
+            //tell widgets to refresh
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
     

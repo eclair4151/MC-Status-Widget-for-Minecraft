@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import Realm
 import SwiftRater
+import WidgetKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -39,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        //tell widgets to refresh because why not
+        WidgetCenter.shared.reloadAllTimelines()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
