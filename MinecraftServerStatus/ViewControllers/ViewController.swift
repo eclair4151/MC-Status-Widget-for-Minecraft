@@ -12,6 +12,7 @@ import Alamofire
 import SwiftyJSON
 import MarqueeLabel
 import SwiftRater
+import WidgetKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ServerEditProtocol {
     
@@ -19,14 +20,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var servers: Results<SavedServer>!
     @IBOutlet weak var tableView: UITableView!
     var serverStatus:[String:ServerStatusViewModel]!
-    var realm:Realm!
+    var realm: Realm! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.realm = initializeRealmDb()
+        self.tableView.estimatedRowHeight = 234
         
-        self.tableView.estimatedRowHeight = 257
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { // wait 10 seconds before asking for a review
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { // wait 5 seconds before asking for a review
             SwiftRater.check()
         }
         
@@ -39,7 +40,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: UIControl.Event.valueChanged)
 
-        self.realm = try! Realm()
         serverStatus = [:]
         reloadTableData(initializeData: true)
     }
@@ -127,7 +127,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 257
+        return 234
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -145,7 +145,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             servers = realm.objects(SavedServer.self).sorted(byKeyPath: "order")
             // Update Table View
             tableView.deleteRows(at: [indexPath], with: .right)
-
+            //tell widgets to refresh
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
     
@@ -181,8 +182,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         cell.ipLabel.attributedText = BoldPartOfString("Host: ", label: addressParts.address)
         cell.portLabel.attributedText = BoldPartOfString("Port: ", label: String(addressParts.port ?? 25565))
-        cell.showInWidgetLabel.attributedText = BoldPartOfString("Show in Widget: ", label: (server.showInWidget ? "Yes" : "No"))
-        
         if server.serverIcon != "" {
             let imageString = String(server.serverIcon.split(separator: ",")[1])
             if let decodedData = Data(base64Encoded: imageString, options: .ignoreUnknownCharacters) {
@@ -221,7 +220,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
                 if let players = status.players {
                     cell.playerCountLabel.attributedText = BoldPartOfString("Players:", label: String(players.online) + "/" + String(players.max))
-                    if let playerList = players.sample {
+                    if let playerList = players.sample, playerList.count > 0 {
                         var playerListString = playerList.map{ $0.name }.joined(separator: ", ")
                         if players.online > playerList.count {
                             playerListString += ",...       "
