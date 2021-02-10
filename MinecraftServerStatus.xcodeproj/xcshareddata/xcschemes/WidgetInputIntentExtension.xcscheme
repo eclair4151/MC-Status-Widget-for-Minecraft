@@ -30,8 +30,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "24C92F6320BE42210072A60C"
-               BuildableName = "MinecraftServerStatus.app"
-               BlueprintName = "MinecraftServerStatus"
+               BuildableName = "MC Status.app"
+               BlueprintName = "MC Status"
                ReferencedContainer = "container:MinecraftServerStatus.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "24C92F6320BE42210072A60C"
-            BuildableName = "MinecraftServerStatus.app"
-            BlueprintName = "MinecraftServerStatus"
+            BuildableName = "MC Status.app"
+            BlueprintName = "MC Status"
             ReferencedContainer = "container:MinecraftServerStatus.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -81,8 +81,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "24C92F6320BE42210072A60C"
-            BuildableName = "MinecraftServerStatus.app"
-            BlueprintName = "MinecraftServerStatus"
+            BuildableName = "MC Status.app"
+            BlueprintName = "MC Status"
             ReferencedContainer = "container:MinecraftServerStatus.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

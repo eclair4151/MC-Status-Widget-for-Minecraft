@@ -112,7 +112,7 @@
 		24938B1E20DD18D000B00C9C /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		24A55A0020E9AF5700612C50 /* MinecraftServerStatus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MinecraftServerStatus.entitlements; sourceTree = "<group>"; };
 		24A55A0220E9C57700612C50 /* AppInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoTableViewController.swift; sourceTree = "<group>"; };
-		24C92F6420BE42210072A60C /* MinecraftServerStatus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinecraftServerStatus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24C92F6420BE42210072A60C /* MC Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C92F6720BE42210072A60C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24C92F6920BE42210072A60C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		24C92F6C20BE42210072A60C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 		24C92F6520BE42210072A60C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				24C92F6420BE42210072A60C /* MinecraftServerStatus.app */,
+				24C92F6420BE42210072A60C /* MC Status.app */,
 				F12ADDD225BDC33900487E90 /* MinecraftServerStatusHSWidgetExtension.appex */,
 				F18A848225C218BC00C6E34E /* WidgetInputIntentExtension.appex */,
 			);
@@ -334,9 +334,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		24C92F6320BE42210072A60C /* MinecraftServerStatus */ = {
+		24C92F6320BE42210072A60C /* MC Status */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24C92F7620BE42210072A60C /* Build configuration list for PBXNativeTarget "MinecraftServerStatus" */;
+			buildConfigurationList = 24C92F7620BE42210072A60C /* Build configuration list for PBXNativeTarget "MC Status" */;
 			buildPhases = (
 				5F01F5BFC3081935223E896E /* [CP] Check Pods Manifest.lock */,
 				24C92F6020BE42210072A60C /* Sources */,
@@ -352,9 +352,9 @@
 				F12ADDE125BDC33B00487E90 /* PBXTargetDependency */,
 				F18A848925C218BC00C6E34E /* PBXTargetDependency */,
 			);
-			name = MinecraftServerStatus;
+			name = "MC Status";
 			productName = MinecraftServerStatus;
-			productReference = 24C92F6420BE42210072A60C /* MinecraftServerStatus.app */;
+			productReference = 24C92F6420BE42210072A60C /* MC Status.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F12ADDD125BDC33900487E90 /* MinecraftServerStatusHSWidgetExtension */ = {
@@ -436,7 +436,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				24C92F6320BE42210072A60C /* MinecraftServerStatus */,
+				24C92F6320BE42210072A60C /* MC Status */,
 				F12ADDD125BDC33900487E90 /* MinecraftServerStatusHSWidgetExtension */,
 				F18A848125C218BC00C6E34E /* WidgetInputIntentExtension */,
 			);
@@ -781,7 +781,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MinecraftServerStatus/MinecraftServerStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				INFOPLIST_FILE = MinecraftServerStatus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -809,7 +809,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MinecraftServerStatus/MinecraftServerStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				INFOPLIST_FILE = MinecraftServerStatus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -944,7 +944,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24C92F7620BE42210072A60C /* Build configuration list for PBXNativeTarget "MinecraftServerStatus" */ = {
+		24C92F7620BE42210072A60C /* Build configuration list for PBXNativeTarget "MC Status" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24C92F7720BE42210072A60C /* Debug */,
