@@ -29,18 +29,20 @@ enum ColumnType {
     col_type_Int = 0,
     col_type_Bool = 1,
     col_type_String = 2,
-    col_type_StringEnum = 3, // double refs
     col_type_Binary = 4,
-    col_type_Table = 5,
+    col_type_OldTable = 5,
     col_type_Mixed = 6,
     col_type_OldDateTime = 7,
     col_type_Timestamp = 8,
     col_type_Float = 9,
     col_type_Double = 10,
-    col_type_Reserved4 = 11, // Decimal
+    col_type_Decimal = 11,
     col_type_Link = 12,
     col_type_LinkList = 13,
-    col_type_BackLink = 14
+    col_type_BackLink = 14,
+    col_type_ObjectId = 15,
+    col_type_TypedLink = 16,
+    col_type_UUID = 17
 };
 
 
@@ -61,7 +63,57 @@ enum ColumnAttr {
     col_attr_StrongLinks = 8,
 
     /// Specifies that elements in the column can be null.
-    col_attr_Nullable = 16
+    col_attr_Nullable = 16,
+
+    /// Each element is a list of values
+    col_attr_List = 32,
+
+    /// Each element is a dictionary
+    col_attr_Dictionary = 64,
+
+    /// Each element is a set of values
+    col_attr_Set = 128,
+
+    /// Either list, dictionary, or set
+    col_attr_Collection = 128 + 64 + 32
+};
+
+class ColumnAttrMask {
+public:
+    constexpr ColumnAttrMask()
+        : m_value(0)
+    {
+    }
+    bool test(ColumnAttr prop)
+    {
+        return (m_value & prop) != 0;
+    }
+    void set(ColumnAttr prop)
+    {
+        m_value |= prop;
+    }
+    void reset(ColumnAttr prop)
+    {
+        m_value &= ~prop;
+    }
+    bool operator==(const ColumnAttrMask& other) const
+    {
+        return m_value == other.m_value;
+    }
+    bool operator!=(const ColumnAttrMask& other) const
+    {
+        return m_value != other.m_value;
+    }
+
+private:
+    friend class Spec;
+    friend struct ColKey;
+    friend class Table;
+    int m_value;
+    ColumnAttrMask(int64_t val)
+        : m_value(int(val))
+    {
+    }
 };
 
 

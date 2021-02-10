@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import Realm
 import SwiftRater
+import WidgetKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,12 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    
-        //used for sharing realm data between extention
-        let sharedDirectory: URL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.shemeshapps.MinecraftServerStatus")! as URL
-        let sharedRealmURL = sharedDirectory.appendingPathComponent("db.realm")
-        Realm.Configuration.defaultConfiguration = Realm.Configuration(fileURL: sharedRealmURL)
-
+        
         SwiftRater.usesUntilPrompt = 3
         SwiftRater.daysBeforeReminding = 2
         SwiftRater.showLaterButton = true
@@ -44,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        //tell widgets to refresh because why not
+        WidgetCenter.shared.reloadAllTimelines()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

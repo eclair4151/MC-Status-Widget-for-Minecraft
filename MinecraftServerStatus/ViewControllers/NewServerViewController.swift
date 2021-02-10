@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import WidgetKit
 
 protocol ServerEditProtocol: class {
     func serverAdded(_ newServer:SavedServer)
@@ -17,16 +18,17 @@ protocol ServerEditProtocol: class {
 
 class NewServerViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var showInWidgetSwitch: UISwitch!
     @IBOutlet weak var serverUrlInput: UITextField!
     @IBOutlet weak var serverNameInput: UITextField!
     @IBOutlet weak var portInput: UITextField!
     
     var delegate: ServerEditProtocol!
     var serverToEdit: SavedServer!
-    
+    var realm: Realm! = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.realm = initializeRealmDb()
 
         //only if we are editing an existing server not creating as new one
         if (self.serverToEdit != nil) {
@@ -36,7 +38,6 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
                 self.portInput.text = String(port)
             }
             self.serverNameInput.text = self.serverToEdit.name
-            self.showInWidgetSwitch.setOn(self.serverToEdit.showInWidget, animated: false)
         }
     }
     
@@ -68,24 +69,37 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
     
     //when the save do some verification and maybe throw an error
     @IBAction func saveButtonClicked(_ sender: Any) {
-        if (serverNameInput.text?.isEmpty)! || (serverUrlInput.text?.isEmpty)! {
-            alertBox("Error", message: "One or more fields are empty", controller: self)
-        } else if (serverUrlInput.text!.count > 200) {
+    
+        
+        guard let serverText = serverUrlInput.text, !serverText.isEmpty, serverText.contains(".") else {
+            alertBox("Error", message: "Invalid Server URL", controller: self)
+            return
+        }
+        
+        let parsedText = serverText
+            .deletingPrefix("https://")
+            .deletingPrefix("http://")
+            .deletingPrefix("www.")
+        
+        
+        guard serverText.count < 200 else {
             alertBox("Error", message: "Urls must be less than 200 characters", controller: self)
+            return
+        }
+        
+        if (serverNameInput.text?.isEmpty)! {
+            alertBox("Error", message: "Name field is empty", controller: self)
         } else if (self.delegate.checkForName(serverNameInput.text!) && (serverToEdit == nil || serverToEdit.name != serverNameInput.text!)) {
             alertBox("Error", message: "You already have a server with that name", controller: self)
         } else if (self.serverToEdit == nil) {
             //creating new server
-            let realm = try! Realm()
-
             let servers = realm.objects(SavedServer.self)
             let server = SavedServer()
             server.name = serverNameInput.text!
-            server.serverUrl = serverUrlInput.text!
+            server.serverUrl = parsedText
             if (!(portInput.text?.isEmpty ?? true)) {
                 server.serverUrl += ":" + portInput.text!
             }
-            server.showInWidget = self.showInWidgetSwitch.isOn
             server.order = servers.count + 1
             try! realm.write {
                 realm.add(server)
@@ -94,17 +108,16 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
             self.dismiss(animated: true, completion: nil)
         } else {
             //saving old server
-            let realm = try! Realm()
             try! realm.write {
                 serverToEdit.name = serverNameInput.text!
-                serverToEdit.serverUrl = serverUrlInput.text!
+                serverToEdit.serverUrl = parsedText
                 if (!(portInput.text?.isEmpty ?? true)) {
                     serverToEdit.serverUrl += ":" + portInput.text!
                 }
-                serverToEdit.showInWidget = self.showInWidgetSwitch.isOn
             }
             delegate.serverEdited(serverToEdit)
             self.dismiss(animated: true, completion: nil)
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
     

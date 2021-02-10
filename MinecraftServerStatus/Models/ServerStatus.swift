@@ -48,7 +48,7 @@ public class ServerStatus: Decodable {
         }
         strDesc = strDesc?.replacingOccurrences(of: "\n", with: " ")
         strDesc = strDesc?.replacingOccurrences(of: "§.", with: "", options: .regularExpression)
-        print("test")
+
         self.description = strDesc?.trimmingCharacters(in: .whitespacesAndNewlines)
         
         self.players = try? container.decode(Players.self, forKey: .players)
