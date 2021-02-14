@@ -69,13 +69,13 @@ class AppInfoTableViewController: UITableViewController, SKProductsRequestDelega
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath.section == 0) {
+        if (indexPath.section == 1) {
             UIApplication.shared.open(URL(string : "https://github.com/eclair4151/MinecraftServerStatusWidget")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: { (status) in
                 
             })
-        } else if indexPath.section == 1 {
-            SwiftRater.rateApp()
         } else if indexPath.section == 2 {
+            SwiftRater.rateApp()
+        } else if indexPath.section == 3 {
           showTipPayent()
         }
         
