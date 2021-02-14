@@ -556,7 +556,7 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">The app already requests the minimum refresh rate allowed for widgets from apple as of iOS 14. Adding this options would only allow you to turn down the refresh rate even more that what it is currently.
+                                        <string key="content">The app already requests the minimum refresh rate allowed for widgets from Apple as of iOS 14. Adding this options would only allow you to turn down the refresh rate even more than what it is currently.
 </string>
                                         <attributes>
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
