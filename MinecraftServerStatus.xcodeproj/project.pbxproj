@@ -45,6 +45,7 @@
 		F146414425D0BA2000B6B2DC /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146414325D0BA2000B6B2DC /* ProgressView.swift */; };
 		F146414725D0BA5C00B6B2DC /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146414625D0BA5C00B6B2DC /* SmallWidgetView.swift */; };
 		F146414A25D0BA6800B6B2DC /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146414925D0BA6800B6B2DC /* MediumWidgetView.swift */; };
+		F153AEE425D96E9200DA4195 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F153AEE325D96E9200DA4195 /* FAQViewController.swift */; };
 		F16AF6DC2469C6D300A4BFDA /* ServerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16AF6DB2469C6D300A4BFDA /* ServerStatus.swift */; };
 		F16AF6E0246A163400A4BFDA /* SwiftSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16AF6DF246A163400A4BFDA /* SwiftSocket.framework */; };
 		F16AF6E1246A163400A4BFDA /* SwiftSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F16AF6DF246A163400A4BFDA /* SwiftSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -148,6 +149,7 @@
 		F146414325D0BA2000B6B2DC /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		F146414625D0BA5C00B6B2DC /* SmallWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidgetView.swift; sourceTree = "<group>"; };
 		F146414925D0BA6800B6B2DC /* MediumWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumWidgetView.swift; sourceTree = "<group>"; };
+		F153AEE325D96E9200DA4195 /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		F16AF6DB2469C6D300A4BFDA /* ServerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatus.swift; sourceTree = "<group>"; };
 		F16AF6DF246A163400A4BFDA /* SwiftSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F18A843725BFC0A000C6E34E /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				24C92F6920BE42210072A60C /* ViewController.swift */,
 				24EB9BBC20C2F85800C9894A /* NewServerViewController.swift */,
 				24A55A0220E9C57700612C50 /* AppInfoTableViewController.swift */,
+				F153AEE325D96E9200DA4195 /* FAQViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				24E8287C20BF76A400F2D348 /* StatusChecker.swift in Sources */,
 				F18A843C25BFC0BB00C6E34E /* WidgetEntryViewModel.swift in Sources */,
 				24EB9BB420C1A0DE00C9894A /* UIExtentions.swift in Sources */,
+				F153AEE425D96E9200DA4195 /* FAQViewController.swift in Sources */,
 				F14640FA25D0179200B6B2DC /* DBHelper.swift in Sources */,
 				F12ADDDF25BDC33B00487E90 /* MinecraftServerStatusHSWidget.intentdefinition in Sources */,
 				24C92F6820BE42210072A60C /* AppDelegate.swift in Sources */,
@@ -781,13 +785,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MinecraftServerStatus/MinecraftServerStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				INFOPLIST_FILE = MinecraftServerStatus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.4;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -809,13 +813,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MinecraftServerStatus/MinecraftServerStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				INFOPLIST_FILE = MinecraftServerStatus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -836,13 +840,13 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = MinecraftServerStatusHSWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				INFOPLIST_FILE = MinecraftServerStatusHSWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -865,13 +869,13 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = MinecraftServerStatusHSWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				INFOPLIST_FILE = MinecraftServerStatusHSWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.4;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.MinecraftServerStatusHSWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -889,13 +893,13 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = WidgetInputIntentExtension/WidgetInputIntentExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				INFOPLIST_FILE = WidgetInputIntentExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -915,13 +919,13 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = WidgetInputIntentExtension/WidgetInputIntentExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				INFOPLIST_FILE = WidgetInputIntentExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.1.4;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.WidgetInputIntentExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
