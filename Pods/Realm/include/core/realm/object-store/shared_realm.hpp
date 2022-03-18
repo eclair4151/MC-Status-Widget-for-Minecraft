@@ -22,11 +22,13 @@
 #include <realm/object-store/schema.hpp>
 
 #include <realm/util/optional.hpp>
+#include <realm/util/functional.hpp>
 #include <realm/binary_data.hpp>
 #include <realm/db.hpp>
 #include <realm/version_id.hpp>
 
 #include <memory>
+#include <deque>
 
 namespace realm {
 class AsyncOpenTask;
@@ -42,8 +44,13 @@ class Table;
 class ThreadSafeReference;
 class Transaction;
 struct SyncConfig;
+class SyncSession;
 typedef std::shared_ptr<Realm> SharedRealm;
 typedef std::weak_ptr<Realm> WeakRealm;
+
+namespace sync {
+class SubscriptionSet;
+}
 
 namespace util {
 class Scheduler;
@@ -55,80 +62,6 @@ class CollectionNotifier;
 class RealmCoordinator;
 class RealmFriend;
 } // namespace _impl
-
-// How to handle update_schema() being called on a file which has
-// already been initialized with a different schema
-enum class SchemaMode : uint8_t {
-    // If the schema version has increased, automatically apply all
-    // changes, then call the migration function.
-    //
-    // If the schema version has not changed, verify that the only
-    // changes are to add new tables and add or remove indexes, and then
-    // apply them if so. Does not call the migration function.
-    //
-    // This mode does not automatically remove tables which are not
-    // present in the schema that must be manually done in the migration
-    // function, to support sharing a Realm file between processes using
-    // different class subsets.
-    //
-    // This mode allows using schemata with different subsets of tables
-    // on different threads, but the tables which are shared must be
-    // identical.
-    Automatic,
-
-    // Open the file in immutable mode. Schema version must match the
-    // version in the file, and all tables present in the file must
-    // exactly match the specified schema, except for indexes. Tables
-    // are allowed to be missing from the file.
-    // WARNING: This is the original ReadOnly mode.
-    Immutable,
-
-    // Open the Realm in read-only mode, transactions are not allowed to
-    // be performed on the Realm instance. The schema of the existing Realm
-    // file won't be changed through this Realm instance. Extra tables and
-    // extra properties are allowed in the existing Realm schema. The
-    // difference of indexes is allowed as well. Other schema differences
-    // than those will cause an exception. This is different from Immutable
-    // mode, sync Realm can be opened with ReadOnly mode. Changes
-    // can be made to the Realm file through another writable Realm instance.
-    // Thus, notifications are also allowed in this mode.
-    // FIXME: Rename this to ReadOnly
-    // WARNING: This is not the original ReadOnly mode. The original ReadOnly
-    // has been renamed to Immutable.
-    ReadOnlyAlternative,
-
-    // If the schema version matches and the only schema changes are new
-    // tables and indexes being added or removed, apply the changes to
-    // the existing file.
-    // Otherwise delete the file and recreate it from scratch.
-    // The migration function is not used.
-    //
-    // This mode allows using schemata with different subsets of tables
-    // on different threads, but the tables which are shared must be
-    // identical.
-    ResetFile,
-
-    // The only changes allowed are to add new tables, add columns to
-    // existing tables, and to add or remove indexes from existing
-    // columns. Extra tables not present in the schema are ignored.
-    // Indexes are only added to or removed from existing columns if the
-    // schema version is greater than the existing one (and unlike other
-    // modes, the schema version is allowed to be less than the existing
-    // one).
-    // The migration function is not used.
-    //
-    // This mode allows updating the schema with additive changes even
-    // if the Realm is already open on another thread.
-    Additive,
-
-    // Verify that the schema version has increased, call the migraiton
-    // function, and then verify that the schema now matches.
-    // The migration function is mandatory for this mode.
-    //
-    // This mode requires that all threads and processes which open a
-    // file use identical schemata.
-    Manual
-};
 
 class Realm : public std::enable_shared_from_this<Realm> {
 public:
@@ -178,7 +111,7 @@ public:
         // called with the supplied schema, version and migration function when
         // the Realm is actually opened and not just retrieved from the cache
         util::Optional<Schema> schema;
-        uint64_t schema_version = -1;
+        uint64_t schema_version = uint64_t(-1);
         MigrationFunction migration_function;
 
         DataInitializationFunction initialization_function;
@@ -199,10 +132,9 @@ public:
         {
             return schema_mode == SchemaMode::Immutable;
         }
-        // FIXME: Rename this to read_only().
-        bool read_only_alternative() const
+        bool read_only() const
         {
-            return schema_mode == SchemaMode::ReadOnlyAlternative;
+            return schema_mode == SchemaMode::ReadOnly;
         }
 
         // The following are intended for internal/testing purposes and
@@ -241,6 +173,9 @@ public:
         // Maximum number of active versions in the Realm file allowed before an exception
         // is thrown.
         uint_fast64_t max_number_of_active_versions = std::numeric_limits<uint_fast64_t>::max();
+
+        // Disable automatic backup at file format upgrade by setting to false
+        bool backup_at_file_format_change = true;
     };
 
     // Returns a thread-confined live Realm for the given configuration
@@ -258,7 +193,16 @@ public:
     // using the `AsyncOpenTask` returned. Note that the download doesn't actually
     // start until you call `AsyncOpenTask::start(callback)`
     static std::shared_ptr<AsyncOpenTask> get_synchronized_realm(Config config);
+
+    std::shared_ptr<SyncSession> sync_session() const;
+
+    // Returns the latest/active subscription set for a FLX-sync enabled realm. If FLX sync is not currently
+    // enabled for this realm, calling this will cause future connections to the server to be opened in FLX
+    // sync mode if they aren't already.
+    sync::SubscriptionSet get_latest_subscription_set();
+    sync::SubscriptionSet get_active_subscription_set();
 #endif
+
     // Returns a frozen Realm for the given Realm. This Realm can be accessed from any thread.
     static SharedRealm get_frozen_realm(Config config, VersionID version);
 
@@ -284,17 +228,69 @@ public:
     {
         return m_schema;
     }
-    uint64_t schema_version() const
+    uint64_t schema_version() const noexcept
     {
         return m_schema_version;
     }
+
 
     void begin_transaction();
     void commit_transaction();
     void cancel_transaction();
     bool is_in_transaction() const noexcept;
 
+    // Asynchronous (write)transaction.
+    // * 'the_write_block' is queued for execution on the scheduler
+    //   associated with the current realm. It will run after the write
+    //   mutex has been acquired.
+    // * If 'notify_only' is false, 'the_block' should end by calling commit_transaction(),
+    //   cancel_transaction() or async_commit_transaction().
+    // * If 'notify_only' is false, returning without one of these calls will be equivalent to calling
+    //   cancel_transaction().
+    // * If 'notify_only' is true, 'the_block' should only be used for signalling that
+    //   a write transaction can proceed, but must not itself call async_commit() or cancel_transaction()
+    // * The call returns immediately allowing the caller to proceed
+    //   while the write mutex is held by someone else.
+    // * Write blocks from multiple calls to async_transaction() will be
+    //   executed in order.
+    // * A later call to async_begin_transaction() will wait for any earlier write blocks.
+    using AsyncHandle = unsigned;
+    AsyncHandle async_begin_transaction(util::UniqueFunction<void()>&& the_block, bool notify_only = false);
+
+    // Asynchronous commit.
+    // * 'the_done_block' is queued for execution on the scheduler associated with
+    //   the current realm. It will run after the commit has reached stable storage.
+    // * The call returns immediately allowing the caller to proceed while
+    //   the I/O is performed on a dedicated background thread.
+    // * Callbacks to 'the_done_block' will occur in the order of async_commit()
+    // * If 'allow_grouping' is set, the next async_commit *may* run without an
+    //   intervening synchronization of stable storage.
+    // * Such a sequence of commits form a group. In case of a platform crash,
+    //   either none or all of the commits in a group will reach stable storage.
+    AsyncHandle async_commit_transaction(util::UniqueFunction<void(std::exception_ptr)>&& the_done_block = nullptr,
+                                         bool allow_grouping = false);
+
+    // Cancel a queued code block (either for an async_transaction or for an async_commit)
+    // * Cancelling a commit will not abort the commit, it will only cancel the callback
+    //   informing of commit completion.
+    void async_cancel_transaction(AsyncHandle);
+
+    // Returns true when async transactiona has been created and the result of the last
+    // commit has not yet reached permanent storage.
+    bool is_in_async_transaction() const noexcept;
+
+    void set_async_error_handler(util::UniqueFunction<void(AsyncHandle, std::exception_ptr)>&& hndlr)
+    {
+        m_async_exception_handler = std::move(hndlr);
+    }
+
     // Returns a frozen copy for the current version of this Realm
+    // If called from within a write transaction, the returned Realm will
+    // reflect the state at the beginning of the write transaction. Any
+    // accumulated state changes will not be part of it. To obtain a frozen
+    // transaction reflecting a current write transaction, you need to first
+    // commit the write and then freeze.
+    // possible better name: freeze_at_transaction_start ?
     SharedRealm freeze();
 
     // Returns `true` if the Realm is frozen, `false` otherwise.
@@ -303,7 +299,7 @@ public:
     // Returns true if the Realm is either in a read or frozen transaction
     bool is_in_read_transaction() const
     {
-        return m_group != nullptr;
+        return m_transaction != nullptr;
     }
     uint64_t last_seen_transaction_version()
     {
@@ -330,20 +326,29 @@ public:
         return m_in_migration;
     }
 
+    void notify();
     bool refresh();
     void set_auto_refresh(bool auto_refresh);
     bool auto_refresh() const
     {
         return m_auto_refresh;
     }
-    void notify();
 
     void invalidate();
 
     // WARNING / FIXME: compact() should NOT be exposed publicly on Windows
     // because it's not crash safe! It may corrupt your database if something fails
     bool compact();
+    // For synchronized realms, the file written will have the client file ident removed. Furthermore
+    // it is required that all local changes are synchronized with the server before the copy can
+    // be written. This is to be sure that the file can be used as a stating point for a newly
+    // installed application. The function will throw if there are pending uploads.
     void write_copy(StringData path, BinaryData encryption_key);
+    // Will export data to a file that is supposed to be opened with a sync configuration.
+    // If the file is already existing, data will be copied over object per object. If the file
+    // does not exist, the local realm file will exported to the new location and if the configuration
+    // object contains a sync part, a sync history will be synthesized
+    void export_to(const Config& config);
     OwnedBinaryData write_copy();
 
     void verify_thread() const;
@@ -358,14 +363,38 @@ public:
     }
 
     // Close this Realm. Continuing to use a Realm after closing it will throw ClosedRealmException
+    // Closing a Realm will wait for any asynchronous writes which have been commited but not synced
+    // to sync. Asynchronous writes which have not yet started are canceled.
     void close();
     bool is_closed() const
     {
-        return !m_group && !m_coordinator;
+        return !m_transaction && !m_coordinator;
     }
+
+    /**
+     * Deletes the following files for the given `realm_file_path` if they exist:
+     * - the Realm file itself
+     * - the .management folder
+     * - the .note file
+     * - the .log file
+     *
+     * The .lock file for this Realm cannot and will not be deleted as this is unsafe.
+     * If a different process / thread is accessing the Realm at the same time a corrupt state
+     * could be the result and checking for a single process state is not possible here.
+     *
+     * @param realm_file_path The path to the Realm file. All files will be derived from this.
+     * @param[out] did_delete_realm If non-null, set to true if the primary Realm file was deleted.
+     *
+     * @throws PermissionDenied if the operation was not permitted.
+     * @throws AccessError for any other error while trying to delete the file or folder.
+     * @throws DeleteOnOpenRealmException if the function was called on an open Realm.
+     */
+    static void delete_files(const std::string& realm_file_path, bool* did_delete_realm = nullptr);
 
     // returns the file format version upgraded from if an upgrade took place
     util::Optional<int> file_format_upgraded_from_version() const;
+
+    bool has_pending_async_work() const;
 
     Realm(const Realm&) = delete;
     Realm& operator=(const Realm&) = delete;
@@ -388,8 +417,8 @@ public:
                                        MakeSharedTag{});
     }
 
-    // Expose some internal functionality to other parts of the ObjectStore
-    // without making it public to everyone
+    // Expose some internal functionality which isn't intended to be used directly
+    // by SDKS to other parts of the ObjectStore
     class Internal {
         friend class _impl::CollectionNotifier;
         friend class _impl::RealmCoordinator;
@@ -403,6 +432,11 @@ public:
         static std::shared_ptr<Transaction> get_transaction_ref(Realm& realm)
         {
             return realm.transaction_ref();
+        }
+
+        static void run_writes(Realm& realm)
+        {
+            realm.run_writes();
         }
 
         // CollectionNotifier needs to be able to access the owning
@@ -428,7 +462,7 @@ private:
     std::shared_ptr<util::Scheduler> m_scheduler;
     bool m_auto_refresh = true;
 
-    std::shared_ptr<Group> m_group;
+    TransactionRef m_transaction;
 
     uint64_t m_schema_version;
     Schema m_schema;
@@ -439,17 +473,37 @@ private:
     // that's actually fully working
     bool m_dynamic_schema = true;
 
-    // True while sending the notifications caused by advancing the read
+    // Non-zero while sending the notifications caused by advancing the read
     // transaction version, to avoid recursive notifications where possible
-    bool m_is_sending_notifications = false;
+    size_t m_is_sending_notifications = 0;
 
     // True while we're performing a schema migration via this Realm instance
     // to allow for different behavior (such as allowing modifications to
     // primary key values)
     bool m_in_migration = false;
 
+    struct AsyncWriteDesc {
+        util::UniqueFunction<void()> writer;
+        bool notify_only;
+        unsigned handle;
+    };
+    std::deque<AsyncWriteDesc> m_async_write_q;
+    struct AsyncCommitDesc {
+        util::UniqueFunction<void(std::exception_ptr)> when_completed;
+        unsigned handle;
+    };
+    std::vector<AsyncCommitDesc> m_async_commit_q;
+    unsigned m_async_commit_handle = 0;
+    size_t m_is_running_async_writes = 0;
+    bool m_notify_only = false;
+    size_t m_is_running_async_commit_completions = 0;
+    bool m_async_commit_barrier_requested = false;
+    util::UniqueFunction<void(AsyncHandle, std::exception_ptr)> m_async_exception_handler;
+
     void begin_read(VersionID);
     bool do_refresh();
+    void do_begin_transaction();
+    void do_invalidate();
 
     void set_schema(Schema const& reference, Schema schema);
     bool reset_file(Schema& schema, std::vector<SchemaChange>& changes_required);
@@ -468,6 +522,13 @@ private:
     Transaction& transaction();
     Transaction& transaction() const;
     std::shared_ptr<Transaction> transaction_ref();
+
+    void run_writes_on_proper_thread();
+    void check_pending_write_requests();
+    void end_current_write(bool check_pending = true);
+    void call_completion_callbacks();
+    void run_writes();
+    void run_async_completions();
 
 public:
     std::unique_ptr<BindingContext> m_binding_context;
@@ -554,6 +615,14 @@ class ClosedRealmException : public std::logic_error {
 public:
     ClosedRealmException()
         : std::logic_error("Cannot access realm that has been closed.")
+    {
+    }
+};
+
+class DeleteOnOpenRealmException : public std::logic_error {
+public:
+    DeleteOnOpenRealmException(const std::string& path)
+        : std::logic_error(util::format("Cannot delete files of an open Realm: '%1' is still in use.", path))
     {
     }
 };

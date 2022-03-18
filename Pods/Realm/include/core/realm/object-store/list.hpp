@@ -20,9 +20,6 @@
 #define REALM_OS_LIST_HPP
 
 #include <realm/object-store/collection.hpp>
-#include <realm/object-store/collection_notifications.hpp>
-#include <realm/object-store/impl/collection_notifier.hpp>
-#include <realm/object-store/object.hpp>
 
 #include <realm/decimal128.hpp>
 #include <realm/list.hpp>
@@ -35,21 +32,17 @@
 namespace realm {
 class Obj;
 class Query;
-class SortDescriptor;
 class ThreadSafeReference;
 struct ColKey;
 struct ObjKey;
 
-namespace _impl {
-class ListNotifier;
-}
-
 class List : public object_store::Collection {
 public:
-    List() noexcept;
-    List(std::shared_ptr<Realm> r, const Obj& parent_obj, ColKey col);
-    List(std::shared_ptr<Realm> r, const LstBase& list);
-    ~List() override;
+    using object_store::Collection::Collection;
+    List()
+        : Collection(PropertyType::Array)
+    {
+    }
 
     List(const List&);
     List& operator=(const List&);
@@ -57,6 +50,7 @@ public:
     List& operator=(List&&);
 
     Query get_query() const;
+    ConstTableRef get_table() const;
 
     void move(size_t source_ndx, size_t dest_ndx);
     void remove(size_t list_ndx);
@@ -67,6 +61,7 @@ public:
 
     template <typename T = Obj>
     T get(size_t row_ndx) const;
+
     template <typename T>
     size_t find(T const& value) const;
 
@@ -80,15 +75,16 @@ public:
     template <typename T>
     void set(size_t row_ndx, T value);
 
-    Results sort(SortDescriptor order) const;
-    Results sort(std::vector<std::pair<std::string, bool>> const& keypaths) const;
+    void insert_any(size_t list_ndx, Mixed value);
+    void set_any(size_t list_ndx, Mixed value);
+    Mixed get_any(size_t list_ndx) const final;
+    size_t find_any(Mixed value) const final;
+
     Results filter(Query q) const;
 
-    // Return a Results representing a snapshot of this List.
-    Results snapshot() const;
-
-    // Returns a frozen copy of this result
-    List freeze(std::shared_ptr<Realm> const& realm) const;
+    // Returns a frozen copy of this List.
+    // Equivalent to producing a thread-safe reference and resolving it in the frozen realm.
+    List freeze(std::shared_ptr<Realm> const& frozen_realm) const;
 
     // Get the min/max/average/sum of the given column
     // All but sum() returns none when there are zero matching rows
@@ -101,8 +97,6 @@ public:
     Mixed sum(ColKey column = {}) const;
 
     bool operator==(List const& rgt) const noexcept;
-
-    NotificationToken add_notification_callback(CollectionChangeCallback cb) &;
 
     template <typename Context>
     auto get(Context&, size_t row_ndx) const;
@@ -124,21 +118,12 @@ public:
     template <typename T, typename Context>
     void assign(Context&, T&& value, CreatePolicy = CreatePolicy::SetLink);
 
-    // The object being added to the list is already a managed embedded object
-    struct InvalidEmbeddedOperationException : public std::logic_error {
-        InvalidEmbeddedOperationException()
-            : std::logic_error("Cannot add an existing managed embedded object to a List.")
-        {
-        }
-    };
-
 private:
-    _impl::CollectionNotifier::Handle<_impl::ListNotifier> m_notifier;
-    std::shared_ptr<LstBase> m_list_base;
-    bool m_is_embedded = false;
-
-    template <typename T, typename Context>
-    void validate_embedded(Context& ctx, T&& value, CreatePolicy policy) const;
+    LstBase& list_base() const noexcept
+    {
+        REALM_ASSERT_DEBUG(dynamic_cast<LstBase*>(m_coll_base.get()));
+        return static_cast<LstBase&>(*m_coll_base);
+    }
 
     template <typename Fn>
     auto dispatch(Fn&&) const;
@@ -151,25 +136,28 @@ private:
     friend struct std::hash<List>;
 };
 
+template <>
+Obj List::get(size_t row_ndx) const;
+
 template <typename T>
 auto& List::as() const
 {
-    REALM_ASSERT(dynamic_cast<Lst<T>*>(&*m_list_base));
-    return static_cast<Lst<T>&>(*m_list_base);
+    REALM_ASSERT_DEBUG(dynamic_cast<Lst<T>*>(m_coll_base.get()));
+    return static_cast<Lst<T>&>(*m_coll_base);
 }
 
 template <>
 inline auto& List::as<Obj>() const
 {
-    REALM_ASSERT(dynamic_cast<LnkLst*>(&*m_list_base));
-    return static_cast<LnkLst&>(*m_list_base);
+    REALM_ASSERT_DEBUG(dynamic_cast<LnkLst*>(m_coll_base.get()));
+    return static_cast<LnkLst&>(*m_coll_base);
 }
 
 template <>
 inline auto& List::as<ObjKey>() const
 {
-    REALM_ASSERT(dynamic_cast<LnkLst*>(&*m_list_base));
-    return static_cast<LnkLst&>(*m_list_base);
+    REALM_ASSERT_DEBUG(dynamic_cast<LnkLst*>(m_coll_base.get()));
+    return static_cast<LnkLst&>(*m_coll_base);
 }
 
 template <typename Fn>
@@ -193,13 +181,6 @@ size_t List::find(Context& ctx, T&& value) const
     return dispatch([&](auto t) {
         return this->find(ctx.template unbox<std::decay_t<decltype(*t)>>(value, CreatePolicy::Skip));
     });
-}
-
-template <typename T, typename Context>
-void List::validate_embedded(Context& ctx, T&& value, CreatePolicy policy) const
-{
-    if (!policy.copy && ctx.template unbox<Obj>(value, CreatePolicy::Skip).is_valid())
-        throw InvalidEmbeddedOperationException();
 }
 
 template <typename T, typename Context>

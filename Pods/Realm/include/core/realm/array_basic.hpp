@@ -19,14 +19,16 @@
 #ifndef REALM_ARRAY_BASIC_HPP
 #define REALM_ARRAY_BASIC_HPP
 
-#include <realm/array.hpp>
+#include <realm/node.hpp>
+#include <realm/null.hpp>
+#include <realm/query_conditions.hpp>
 
 namespace realm {
 
 /// A BasicArray can currently only be used for simple unstructured
 /// types like float, double.
 template <class T>
-class BasicArray : public Array, public ArrayPayload {
+class BasicArray : public Node, public ArrayPayload {
 public:
     using value_type = T;
 
@@ -42,12 +44,18 @@ public:
 
     void init_from_ref(ref_type ref) noexcept override
     {
-        Array::init_from_ref(ref);
+        Node::init_from_mem(MemRef(ref, m_alloc));
     }
 
     void set_parent(ArrayParent* parent, size_t ndx_in_parent) noexcept override
     {
-        Array::set_parent(parent, ndx_in_parent);
+        Node::set_parent(parent, ndx_in_parent);
+    }
+
+    void init_from_parent() noexcept
+    {
+        ref_type ref = get_ref_from_parent();
+        init_from_ref(ref);
     }
 
     // Disable copying, this is not allowed.
@@ -77,14 +85,6 @@ public:
     void clear();
 
     size_t find_first(T value, size_t begin = 0, size_t end = npos) const;
-    void find_all(IntegerColumn* result, T value, size_t add_offset = 0, size_t begin = 0, size_t end = npos) const;
-
-    size_t count(T value, size_t begin = 0, size_t end = npos) const;
-    bool maximum(T& result, size_t begin = 0, size_t end = npos) const;
-    bool minimum(T& result, size_t begin = 0, size_t end = npos) const;
-
-    /// Compare two arrays for equality.
-    bool compare(const BasicArray<T>&) const;
 
     /// Get the specified element without the cost of constructing an
     /// array instance. If an array instance is already available, or
@@ -96,15 +96,10 @@ public:
         return Mixed(get(ndx));
     }
 
-    size_t lower_bound(T value) const noexcept;
-    size_t upper_bound(T value) const noexcept;
-
     /// Construct a basic array of the specified size and return just
     /// the reference to the underlying memory. All elements will be
     /// initialized to `T()`.
     static MemRef create_array(size_t size, Allocator&);
-
-    static MemRef create_array(Array::Type leaf_type, bool context_flag, size_t size, T value, Allocator&);
 
     /// Create a new empty array and attach this accessor to it. This
     /// does not modify the parent reference information of this
@@ -112,16 +107,13 @@ public:
     ///
     /// Note that the caller assumes ownership of the allocated
     /// underlying node. It is not owned by the accessor.
-    void create(Array::Type = type_Normal, bool context_flag = false);
+    void create(Node::Type = type_Normal, bool context_flag = false);
+
+    void verify() const {}
 
 private:
-    size_t find(T target, size_t begin, size_t end) const;
-
     size_t calc_byte_len(size_t count, size_t width) const override;
     virtual size_t calc_item_count(size_t bytes, size_t width) const noexcept override;
-
-    template <bool find_max>
-    bool minmax(T& result, size_t begin, size_t end) const;
 
     /// Calculate the total number of bytes needed for a basic array
     /// with the specified number of elements. This includes the size
@@ -191,94 +183,7 @@ public:
             return find_first_null(begin, end);
         }
     }
-    void find_all(IntegerColumn* result, util::Optional<T> value, size_t add_offset = 0, size_t begin = 0,
-                  size_t end = npos) const
-    {
-        if (value) {
-            return BasicArray<T>::find_all(result, *value, add_offset, begin, end);
-        }
-        else {
-            return find_all_null(result, add_offset, begin, end);
-        }
-    }
     size_t find_first_null(size_t begin = 0, size_t end = npos) const;
-    void find_all_null(IntegerColumn* result, size_t add_offset = 0, size_t begin = 0, size_t end = npos) const;
-};
-
-// Used only for Basic-types: currently float and double
-template <class R>
-class QueryState : public QueryStateBase {
-public:
-    R m_state;
-
-    template <Action action>
-    bool uses_val()
-    {
-        return (action == act_Max || action == act_Min || action == act_Sum);
-    }
-
-    QueryState(Action action, Array* = nullptr, size_t limit = -1)
-        : QueryStateBase(limit)
-    {
-        REALM_ASSERT((std::is_same<R, float>::value || std::is_same<R, double>::value));
-        if (action == act_Max)
-            m_state = -std::numeric_limits<R>::infinity();
-        else if (action == act_Min)
-            m_state = std::numeric_limits<R>::infinity();
-        else if (action == act_Sum)
-            m_state = 0.0;
-        else if (action == act_Count)
-            m_state = 0.0;
-        else {
-            REALM_ASSERT_DEBUG(false);
-        }
-    }
-
-    template <Action action, bool pattern, typename resulttype>
-    inline bool match(size_t index, uint64_t /*indexpattern*/, resulttype value)
-    {
-        if (pattern)
-            return false;
-
-        static_assert(action == act_Sum || action == act_Max || action == act_Min || action == act_Count,
-                      "Search action not supported");
-
-        if (action == act_Count) {
-            ++m_match_count;
-        }
-        else if (!null::is_null_float(value)) {
-            ++m_match_count;
-            if (action == act_Max) {
-                if (value > m_state) {
-                    m_state = value;
-                    if (m_key_values) {
-                        m_minmax_index = m_key_values->get(index) + m_key_offset;
-                    }
-                    else {
-                        m_minmax_index = int64_t(index);
-                    }
-                }
-            }
-            else if (action == act_Min) {
-                if (value < m_state) {
-                    m_state = value;
-                    if (m_key_values) {
-                        m_minmax_index = m_key_values->get(index) + m_key_offset;
-                    }
-                    else {
-                        m_minmax_index = int64_t(index);
-                    }
-                }
-            }
-            else if (action == act_Sum)
-                m_state += value;
-            else {
-                REALM_ASSERT_DEBUG(false);
-            }
-        }
-
-        return (m_limit > m_match_count);
-    }
 };
 
 // Class typedefs for BasicArray's: ArrayFloat and ArrayDouble

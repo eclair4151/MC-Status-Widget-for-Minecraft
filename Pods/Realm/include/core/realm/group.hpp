@@ -24,6 +24,7 @@
 #include <vector>
 #include <map>
 #include <stdexcept>
+#include <optional>
 
 #include <realm/util/features.h>
 #include <realm/exceptions.hpp>
@@ -41,9 +42,8 @@ class TableKeys;
 
 namespace _impl {
 class GroupFriend;
-class TransactLogConvenientEncoder;
 class TransactLogParser;
-}
+} // namespace _impl
 
 
 /// A group is a collection of named tables.
@@ -87,7 +87,6 @@ public:
     /// behavior.
     Group(unattached_tag) noexcept;
 
-    // FIXME: Implement a proper copy constructor (fairly trivial).
     Group(const Group&) = delete;
     Group& operator=(const Group&) = delete;
 
@@ -219,12 +218,20 @@ public:
     /// results in undefined behavior.
     bool is_attached() const noexcept;
     /// A group is frozen only if it is actually a frozen transaction.
-    virtual bool is_frozen() const noexcept { return false; }
+    virtual bool is_frozen() const noexcept
+    {
+        return false;
+    }
     /// Returns true if, and only if the number of tables in this
     /// group is zero.
     bool is_empty() const noexcept;
 
     size_t size() const noexcept;
+
+    static int get_current_file_format_version()
+    {
+        return g_current_file_format_version;
+    }
 
     int get_history_schema_version() noexcept;
 
@@ -326,6 +333,20 @@ public:
     bool has_table(StringData name) const noexcept;
     TableKey find_table(StringData name) const noexcept;
     StringData get_table_name(TableKey key) const;
+    bool table_is_public(TableKey key) const;
+    static StringData table_name_to_class_name(StringData table_name)
+    {
+        REALM_ASSERT(table_name.begins_with(g_class_name_prefix));
+        return table_name.substr(g_class_name_prefix_len);
+    }
+    using TableNameBuffer = std::array<char, max_table_name_length>;
+    static StringData class_name_to_table_name(StringData class_name, TableNameBuffer& buffer)
+    {
+        char* p = std::copy_n(g_class_name_prefix, g_class_name_prefix_len, buffer.data());
+        size_t len = std::min(class_name.size(), buffer.size() - g_class_name_prefix_len);
+        std::copy_n(class_name.data(), len, p);
+        return StringData(buffer.data(), g_class_name_prefix_len + len);
+    }
 
     TableRef get_table(TableKey key);
     ConstTableRef get_table(TableKey key) const;
@@ -341,6 +362,8 @@ public:
     TableRef add_embedded_table(StringData name);
     TableRef add_table_with_primary_key(StringData name, DataType pk_type, StringData pk_name, bool nullable = false);
     TableRef get_or_add_table(StringData name, bool* was_added = nullptr);
+    TableRef get_or_add_table_with_primary_key(StringData name, DataType pk_type, StringData pk_name,
+                                               bool nullable = false);
 
     void remove_table(TableKey key);
     void remove_table(StringData name);
@@ -368,7 +391,7 @@ public:
     /// overwriting a database file that is currently open, which
     /// would cause undefined behaviour.
     ///
-    /// \param file A filesystem path.
+    /// \param path A filesystem path to the file you want to write to.
     ///
     /// \param encryption_key 32-byte key used to encrypt the database file,
     /// or nullptr to disable encryption.
@@ -377,12 +400,14 @@ public:
     /// realm file with free list and history info. The version of the commit
     /// will be set to the value given here.
     ///
+    /// \param write_history Indicates if you want the Sync Client History to
+    /// be written to the file (only relevant for synchronized files).
     /// \throw util::File::AccessError If the file could not be
     /// opened. If the reason corresponds to one of the exception
     /// types that are derived from util::File::AccessError, the
     /// derived exception type is thrown. In particular,
     /// util::File::Exists will be thrown if the file exists already.
-    void write(const std::string& file, const char* encryption_key = nullptr, uint64_t version = 0,
+    void write(const std::string& path, const char* encryption_key = nullptr, uint64_t version = 0,
                bool write_history = true) const;
 
     /// Write this database to a memory buffer.
@@ -463,9 +488,9 @@ public:
                 , old_target_key(otk)
             {
             }
-            TableKey origin_table;     ///< A group-level table.
-            ColKey origin_col_key;     ///< Link column being nullified.
-            ObjKey origin_key;         ///< Row in column being nullified.
+            TableKey origin_table; ///< A group-level table.
+            ColKey origin_col_key; ///< Link column being nullified.
+            ObjKey origin_key;     ///< Row in column being nullified.
             /// The target row index which is being removed. Mostly relevant for
             /// LinkList (to know which entries are being removed), but also
             /// valid for Link.
@@ -481,7 +506,8 @@ public:
     };
 
     bool has_cascade_notification_handler() const noexcept;
-    void set_cascade_notification_handler(std::function<void(const CascadeNotification&)> new_handler) noexcept;
+    void
+    set_cascade_notification_handler(util::UniqueFunction<void(const CascadeNotification&)> new_handler) noexcept;
 
     //@}
 
@@ -503,7 +529,7 @@ public:
     /// without registering a new one.
 
     bool has_schema_change_notification_handler() const noexcept;
-    void set_schema_change_notification_handler(std::function<void()> new_handler) noexcept;
+    void set_schema_change_notification_handler(util::UniqueFunction<void()> new_handler) noexcept;
 
     //@}
 
@@ -547,6 +573,10 @@ public:
     /// identical, the numbers will of course be equal.
     size_t get_used_space() const noexcept;
 
+    /// check that an already attached realm file is valid for read only access.
+    /// if not detach the file and throw a FileFormatUpgradeRequired.
+    /// return the file format version.
+    static int read_only_version_check(SlabAlloc& alloc, ref_type top_ref, const std::string& path);
     void verify() const;
     void validate_primary_columns();
 #ifdef REALM_DEBUG
@@ -629,21 +659,12 @@ private:
     bool m_attached = false;
     bool m_is_writable = true;
     const bool m_is_shared;
+    static std::optional<int> fake_target_file_format;
 
-    std::function<void(const CascadeNotification&)> m_notify_handler;
-    std::function<void()> m_schema_change_handler;
+    util::UniqueFunction<void(const CascadeNotification&)> m_notify_handler;
+    util::UniqueFunction<void()> m_schema_change_handler;
     std::shared_ptr<metrics::Metrics> m_metrics;
     size_t m_total_rows;
-
-    class TableRecycler : public std::vector<Table*> {
-    public:
-        ~TableRecycler()
-        {
-            for (auto t : *this) {
-                delete t;
-            }
-        }
-    };
 
     static constexpr size_t s_table_name_ndx = 0;
     static constexpr size_t s_table_refs_ndx = 1;
@@ -658,18 +679,6 @@ private:
     static constexpr size_t s_sync_file_id_ndx = 10;
 
     static constexpr size_t s_group_max_size = 11;
-
-    // We use the classic approach to construct a FIFO from two LIFO's,
-    // insertion is done into recycler_1, removal is done from recycler_2,
-    // and when recycler_2 is empty, recycler_1 is reversed into recycler_2.
-    // this i O(1) for each entry.
-    static TableRecycler g_table_recycler_1;
-    static TableRecycler g_table_recycler_2;
-    // number of tables held back before being recycled. We hold back recycling
-    // the latest to increase the probability of detecting race conditions
-    // without crashing.
-    const static int g_table_recycling_delay = 100;
-    static std::mutex g_table_recycler_mutex;
 
     struct shared_tag {
     };
@@ -743,8 +752,8 @@ private:
 
     void mark_all_table_accessors() noexcept;
 
-    void write(util::File& file, const char* encryption_key, uint_fast64_t version_number, bool write_history) const;
-    void write(std::ostream&, bool pad, uint_fast64_t version_numer, bool write_history) const;
+    void write(util::File& file, const char* encryption_key, uint_fast64_t version_number, TableWriter& writer) const;
+    void write(std::ostream&, bool pad, uint_fast64_t version_numer, TableWriter& writer) const;
 
     std::shared_ptr<metrics::Metrics> get_metrics() const noexcept;
     void set_metrics(std::shared_ptr<metrics::Metrics> other) noexcept;
@@ -823,13 +832,22 @@ private:
     ///
     ///  12 - 19 Room for new file formats in legacy code.
     ///
-    ///  20 New data types: Decimal128 and ObjectId. Embedded tables.
+    ///  20 New data types: Decimal128 and ObjectId. Embedded tables. Search index
+    ///     is removed from primary key columns.
+    ///
+    ///  21 New data types: UUID, Mixed, Set and Dictionary.
+    ///
+    ///  22 Object keys are no longer generated from primary key values. Search index
+    ///     reintroduced.
     ///
     /// IMPORTANT: When introducing a new file format version, be sure to review
     /// the file validity checks in Group::open() and DB::do_open, the file
     /// format selection logic in
     /// Group::get_target_file_format_version_for_session(), and the file format
-    /// upgrade logic in Group::upgrade_file_format().
+    /// upgrade logic in Group::upgrade_file_format(), AND the lists of accepted
+    /// file formats and the version deletion list residing in "backup_restore.cpp"
+
+    static constexpr int g_current_file_format_version = 22;
 
     int get_file_format_version() const noexcept;
     void set_file_format_version(int) noexcept;
@@ -844,6 +862,8 @@ private:
     static void get_version_and_history_info(const Array& top, _impl::History::version_type& version,
                                              int& history_type, int& history_schema_version) noexcept;
     static ref_type get_history_ref(const Array& top) noexcept;
+
+    void clear_history();
     void set_history_schema_version(int version);
     template <class Accessor>
     void set_history_parent(Accessor& history_root) noexcept;
@@ -869,9 +889,7 @@ private:
     friend class GroupWriter;
     friend class DB;
     friend class _impl::GroupFriend;
-    friend class _impl::TransactLogConvenientEncoder;
     friend class _impl::TransactLogParser;
-    friend class TrivialReplication;
     friend class metrics::QueryInfo;
     friend class metrics::Metrics;
     friend class Transaction;
@@ -962,6 +980,11 @@ inline StringData Group::get_table_name(TableKey key) const
     return m_table_names.get(table_ndx);
 }
 
+inline bool Group::table_is_public(TableKey key) const
+{
+    return get_table_name(key).begins_with(g_class_name_prefix);
+}
+
 inline bool Group::has_table(StringData name) const noexcept
 {
     size_t ndx = find_table_index(name);
@@ -1048,6 +1071,22 @@ inline TableRef Group::get_or_add_table(StringData name, bool* was_added)
     return TableRef(table, table->m_alloc.get_instance_version());
 }
 
+inline TableRef Group::get_or_add_table_with_primary_key(StringData name, DataType pk_type, StringData pk_name,
+                                                         bool nullable)
+{
+    if (TableRef table = get_table(name)) {
+        if (!table->get_primary_key_column() || table->get_column_name(table->get_primary_key_column()) != pk_name ||
+            table->is_nullable(table->get_primary_key_column()) != nullable) {
+            throw std::runtime_error("Inconsistent schema");
+        }
+        return table;
+    }
+    else {
+        return add_table_with_primary_key(name, pk_type, pk_name, nullable);
+    }
+}
+
+
 inline void Group::init_array_parents() noexcept
 {
     m_table_names.set_parent(&m_top, 0);
@@ -1070,7 +1109,7 @@ inline bool Group::has_cascade_notification_handler() const noexcept
 }
 
 inline void
-Group::set_cascade_notification_handler(std::function<void(const CascadeNotification&)> new_handler) noexcept
+Group::set_cascade_notification_handler(util::UniqueFunction<void(const CascadeNotification&)> new_handler) noexcept
 {
     m_notify_handler = std::move(new_handler);
 }
@@ -1086,7 +1125,7 @@ inline bool Group::has_schema_change_notification_handler() const noexcept
     return !!m_schema_change_handler;
 }
 
-inline void Group::set_schema_change_notification_handler(std::function<void()> new_handler) noexcept
+inline void Group::set_schema_change_notification_handler(util::UniqueFunction<void()> new_handler) noexcept
 {
     m_schema_change_handler = std::move(new_handler);
 }
@@ -1148,9 +1187,29 @@ public:
     virtual ref_type write_names(_impl::OutputStream&) = 0;
     virtual ref_type write_tables(_impl::OutputStream&) = 0;
     virtual HistoryInfo write_history(_impl::OutputStream&) = 0;
-    virtual ~TableWriter() noexcept
+    virtual ~TableWriter() noexcept {}
+
+    void set_group(const Group* g)
+    {
+        m_group = g;
+    }
+
+protected:
+    const Group* m_group = nullptr;
+};
+
+class Group::DefaultTableWriter : public Group::TableWriter {
+public:
+    DefaultTableWriter(bool should_write_history = true)
+        : m_should_write_history(should_write_history)
     {
     }
+    ref_type write_names(_impl::OutputStream& out) override;
+    ref_type write_tables(_impl::OutputStream& out) override;
+    HistoryInfo write_history(_impl::OutputStream& out) override;
+
+private:
+    bool m_should_write_history;
 };
 
 inline const Table* Group::do_get_table(size_t ndx) const
@@ -1214,8 +1273,7 @@ public:
     }
 
     static void get_version_and_history_info(const Allocator& alloc, ref_type top_ref,
-                                             _impl::History::version_type& version,
-                                             int& history_type,
+                                             _impl::History::version_type& version, int& history_type,
                                              int& history_schema_version) noexcept
     {
         Array top{const_cast<Allocator&>(alloc)};
@@ -1252,6 +1310,8 @@ public:
     {
         return Group::get_target_file_format_version_for_session(current_file_format_version, history_type);
     }
+
+    static void fake_target_file_format(const std::optional<int> format) noexcept;
 };
 
 
@@ -1269,9 +1329,9 @@ public:
     };
 
     struct Link {
-        TableKey origin_table;     ///< A group-level table.
-        ColKey origin_col_key;     ///< Link column being nullified.
-        ObjKey origin_key;         ///< Row in column being nullified.
+        TableKey origin_table; ///< A group-level table.
+        ColKey origin_col_key; ///< Link column being nullified.
+        ObjKey origin_key;     ///< Row in column being nullified.
         /// The target row index which is being removed. Mostly relevant for
         /// LinkList (to know which entries are being removed), but also
         /// valid for Link.

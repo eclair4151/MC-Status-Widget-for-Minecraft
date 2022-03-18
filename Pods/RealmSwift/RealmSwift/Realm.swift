@@ -141,7 +141,7 @@ import Realm.Private
         }))
     }
 
-    #if canImport(Combine)
+    #if !(os(iOS) && (arch(i386) || arch(arm)))
     /**
      Asynchronously open a Realm and deliver it to a block on the given queue.
 
@@ -603,7 +603,20 @@ import Realm.Private
      :nodoc:
      */
     public func delete<Element: ObjectBase>(_ objects: List<Element>) {
-        rlmRealm.deleteObjects(objects._rlmArray)
+        rlmRealm.deleteObjects(objects._rlmCollection)
+    }
+
+    /**
+     Deletes zero or more objects from the Realm.
+
+     - warning: This method may only be called during a write transaction.
+
+     - parameter objects: A map of objects to delete.
+
+     :nodoc:
+     */
+    public func delete<Key: _MapKey, Value: ObjectBase>(_ map: Map<Key, Value?>) {
+        rlmRealm.deleteObjects(map._rlmCollection)
     }
 
     /**
@@ -616,7 +629,7 @@ import Realm.Private
      :nodoc:
      */
     public func delete<Element: ObjectBase>(_ objects: Results<Element>) {
-        rlmRealm.deleteObjects(objects.rlmResults)
+        rlmRealm.deleteObjects(objects.collection)
     }
 
     /**
@@ -637,7 +650,7 @@ import Realm.Private
 
      - returns: A `Results` containing the objects.
      */
-    public func objects<Element: Object>(_ type: Element.Type) -> Results<Element> {
+    public func objects<Element: RealmFetchable>(_ type: Element.Type) -> Results<Element> {
         return Results(RLMGetObjects(rlmRealm, type.className(), nil))
     }
 
@@ -808,6 +821,16 @@ import Realm.Private
     }
 
     /**
+     Returns a live (mutable) reference of this Realm.
+
+     All objects and collections read from the returned Realm reference will no longer be frozen.
+     Will return self if called on a Realm that is not already frozen.
+     */
+    public func thaw() -> Realm {
+        return isFrozen ? Realm(rlmRealm.thaw()) : self
+    }
+
+    /**
      Returns a frozen (immutable) snapshot of the given object.
 
      The frozen copy is an immutable object which contains the same data as the given object
@@ -820,6 +843,16 @@ import Realm.Private
      */
     public func freeze<T: ObjectBase>(_ obj: T) -> T {
         return RLMObjectFreeze(obj) as! T
+    }
+
+    /**
+     Returns a live (mutable) reference of this object.
+
+     This method creates a managed accessor to a live copy of the same frozen object.
+     Will return self if called on an already live object.
+     */
+    public func thaw<T: ObjectBase>(_ obj: T) -> T? {
+        return RLMObjectThaw(obj) as? T
     }
 
     /**
@@ -856,8 +889,7 @@ import Realm.Private
      and a new read transaction is implicitly begun the next time data is read from the Realm.
 
      Calling this method multiple times in a row without reading any data from the
-     Realm, or before ever reading any data from the Realm, is a no-op. This method
-     may not be called on a read-only Realm.
+     Realm, or before ever reading any data from the Realm, is a no-op.
      */
     public func invalidate() {
         rlmRealm.invalidate()
@@ -880,6 +912,22 @@ import Realm.Private
      */
     public func writeCopy(toFile fileURL: URL, encryptionKey: Data? = nil) throws {
         try rlmRealm.writeCopy(to: fileURL, encryptionKey: encryptionKey)
+    }
+
+    /**
+     Writes a copy of the Realm to a given location specified by a given configuration.
+
+     If the configuration supplied is derived from a `User` then this Realm will be copied with
+     sync functionality enabled.
+
+     The destination file cannot already exist.
+
+     - parameter configuration: A Realm Configuration.
+
+     - throws: An `NSError` if the copy could not be written.
+     */
+    public func writeCopy(configuration: Realm.Configuration) throws {
+        try rlmRealm.writeCopy(for: configuration.rlmConfiguration)
     }
 
     /**
@@ -928,6 +976,23 @@ import Realm.Private
     }
 }
 
+// MARK: Sync Subscriptions
+
+extension Realm {
+    /**
+     Returns an instance of `SyncSubscriptionSet`, representing the active subscriptions
+     for this realm, which can be used to add/remove/update and search flexible sync subscriptions.
+     Getting the subscriptions from a local or partition-based configured realm will thrown an exception.
+
+     - returns: A `SyncSubscriptionSet`.
+     - Warning: This feature is currently in beta and its API is subject to change.
+     */
+    @available(*, message: "This feature is currently in beta.")
+    public var subscriptions: SyncSubscriptionSet {
+        return SyncSubscriptionSet(rlmRealm.subscriptions)
+    }
+}
+
 // MARK: Equatable
 
 extension Realm: Equatable {
@@ -968,3 +1033,91 @@ extension Realm {
 
 /// The type of a block to run for notification purposes when the data in a Realm is modified.
 public typealias NotificationBlock = (_ notification: Realm.Notification, _ realm: Realm) -> Void
+
+#if swift(>=5.5.2) && canImport(_Concurrency)
+@available(macOS 12.0, tvOS 15.0, iOS 15.0, watchOS 8.0, *)
+extension Realm {
+    /// Options for when to download all data from the server before opening
+    /// a synchronized Realm.
+    @frozen public enum OpenBehavior {
+        /// Immediately return the Realm as if the synchronous initializer was
+        /// used. If this is the first time that the Realm has been opened on
+        /// this device, the Realm file will initially be empty. Synchronized
+        /// Realms will contact the server and download new data in the
+        /// background.
+        case never
+        /// Always open the Realm asynchronously and download all data from the
+        /// server before returning the Realm. This mode will fail to open the
+        /// Realm if the device is currently offline.
+        case always
+        /// Open the Realm asynchronously the first time it is opened on the
+        /// current device, and then synchronously afterwards. This mode is
+        /// suitable if you wish to wait to download the server-side data the
+        /// first time your app is launched on each device, but afterwards
+        /// support offline launches using the existing local data.
+        ///
+        /// Note that if .once is used multiple times simultaneously then calls
+        /// after the first may see partial local data from the first call and
+        /// not wait for the download.
+        case once
+    }
+    /**
+     Obtains a `Realm` instance with the given configuration, possibly asynchronously.
+     By default this simply returns the Realm instance exactly as if the
+     synchronous initializer was used. It optionally can instead open the Realm
+     asynchronously, performing all work needed to get the Realm to a usable
+     state on a background thread. For local Realms, this means that migrations
+     will be run in the background, and for synchronized Realms all data will
+     be downloaded from the server before the Realm is returned.
+     - parameter configuration: A configuration object to use when opening the Realm.
+     - parameter downloadBeforeOpen: When opening the Realm should first download
+     all data from the server.
+     - throws: An `NSError` if the Realm could not be initialized.
+     - returns: An open Realm.
+     */
+    @MainActor
+    public init(configuration: Realm.Configuration = .defaultConfiguration,
+                downloadBeforeOpen: OpenBehavior = .never) async throws {
+        var rlmRealm: RLMRealm?
+        switch downloadBeforeOpen {
+        case .never:
+            break
+        case .once:
+            if !Realm.fileExists(for: configuration) {
+                fallthrough
+            }
+        case .always:
+            rlmRealm = try await withCheckedThrowingContinuation { continuation in
+                RLMRealm.asyncOpen(with: configuration.rlmConfiguration, callbackQueue: .main) { (realm, error) in
+                    if let error = error {
+                        continuation.resume(with: .failure(error))
+                    } else {
+                        continuation.resume(with: .success(realm!))
+                    }
+                }
+            }
+        }
+        if rlmRealm == nil {
+            rlmRealm = try RLMRealm(configuration: configuration.rlmConfiguration)
+        }
+        self.init(rlmRealm!)
+    }
+}
+#endif // swift(>=5.5)
+
+/**
+ Objects which can be feched from the Realm - Object or Projection
+ */
+public protocol RealmFetchable: RealmCollectionValue {
+    /// :nodoc:
+    static func className() -> String
+}
+/// :nodoc:
+extension Object: RealmFetchable {}
+/// :nodoc:
+extension Projection: RealmFetchable {
+    /// :nodoc:
+    public static func className() -> String {
+        return Root.className()
+    }
+}

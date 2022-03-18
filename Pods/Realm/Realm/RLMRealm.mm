@@ -20,6 +20,7 @@
 
 #import "RLMAnalytics.hpp"
 #import "RLMArray_Private.hpp"
+#import "RLMDictionary_Private.hpp"
 #import "RLMMigration_Private.h"
 #import "RLMObject_Private.h"
 #import "RLMObject_Private.hpp"
@@ -33,6 +34,7 @@
 #import "RLMRealmConfiguration_Private.hpp"
 #import "RLMRealmUtil.hpp"
 #import "RLMSchema_Private.hpp"
+#import "RLMSet_Private.hpp"
 #import "RLMThreadSafeReference_Private.hpp"
 #import "RLMUpdateChecker.hpp"
 #import "RLMUtil.hpp"
@@ -51,6 +53,7 @@
 #import "RLMSyncManager_Private.hpp"
 #import "RLMSyncSession_Private.hpp"
 #import "RLMSyncUtil_Private.hpp"
+#import "RLMSyncSubscription_Private.hpp"
 
 #import <realm/object-store/sync/async_open_task.hpp>
 #import <realm/object-store/sync/sync_session.hpp>
@@ -80,6 +83,17 @@ void RLMSetSkipBackupAttribute(bool value) {
 
 static void RLMAddSkipBackupAttributeToItemAtPath(std::string_view path) {
     [[NSURL fileURLWithPath:@(path.data())] setResourceValue:@YES forKey:NSURLIsExcludedFromBackupKey error:nil];
+}
+
+void RLMWaitForRealmToClose(NSString *path) {
+    NSString *lockfilePath = [path stringByAppendingString:@".lock"];
+    File lockfile(lockfilePath.UTF8String, File::mode_Update);
+    lockfile.set_fifo_path([path stringByAppendingString:@".management"].UTF8String, "lock.fifo");
+    lockfile.lock_exclusive();
+}
+
+BOOL RLMIsRealmCachedAtPath(NSString *path) {
+    return RLMGetAnyCachedRealmForPath([path cStringUsingEncoding:NSUTF8StringEncoding]) != nil;
 }
 
 @implementation RLMRealmNotificationToken
@@ -139,6 +153,7 @@ NSData *RLMRealmValidatedEncryptionKey(NSData *key) {
 }
 
 @implementation RLMRealm {
+    std::mutex _collectionEnumeratorMutex;
     NSHashTable<RLMFastEnumerator *> *_collectionEnumerators;
     bool _sendingNotifications;
 }
@@ -213,37 +228,7 @@ void RLMSetAsyncOpenQueue(dispatch_queue_t queue) {
     s_async_open_queue = queue;
 }
 
-+ (RLMAsyncOpenTask *)asyncOpenWithConfiguration:(RLMRealmConfiguration *)configuration
-                                   callbackQueue:(dispatch_queue_t)callbackQueue
-                                        callback:(RLMAsyncOpenRealmCallback)callback {
-    auto openCompletion = [=](ThreadSafeReference, std::exception_ptr err) {
-        @autoreleasepool {
-            if (err) {
-                try {
-                    std::rethrow_exception(err);
-                }
-                catch (...) {
-                    NSError *error;
-                    RLMRealmTranslateException(&error);
-                    dispatch_async(callbackQueue, ^{
-                        callback(nil, error);
-                    });
-                }
-                return;
-            }
-
-            dispatch_async(callbackQueue, ^{
-                @autoreleasepool {
-                    NSError *error;
-                    RLMRealm *localRealm = [RLMRealm realmWithConfiguration:configuration
-                                                                      queue:callbackQueue
-                                                                      error:&error];
-                    callback(localRealm, error);
-                }
-            });
-        }
-    };
-
+static RLMAsyncOpenTask *openAsync(RLMRealmConfiguration *configuration, void (^openCompletion)(ThreadSafeReference, std::exception_ptr)) {
     RLMAsyncOpenTask *ret = [RLMAsyncOpenTask new];
     dispatch_async(s_async_open_queue, ^{
         @autoreleasepool {
@@ -268,6 +253,65 @@ void RLMSetAsyncOpenQueue(dispatch_queue_t queue) {
         }
     });
     return ret;
+}
+
++ (RLMAsyncOpenTask *)asyncOpenWithConfiguration:(RLMRealmConfiguration *)configuration
+                                   callbackQueue:(dispatch_queue_t)callbackQueue
+                                        callback:(RLMAsyncOpenRealmCallback)callback {
+    return openAsync(configuration, [=](ThreadSafeReference ref, std::exception_ptr err) {
+        @autoreleasepool {
+            if (err) {
+                try {
+                    std::rethrow_exception(err);
+                }
+                catch (...) {
+                    NSError *error;
+                    RLMRealmTranslateException(&error);
+                    dispatch_async(callbackQueue, ^{
+                        callback(nil, error);
+                    });
+                }
+                return;
+            }
+            // Ensure that we keep the Realm open until we've initialized the
+            // RLMRealm on the target queue. This ensures that the existing
+            // RealmCoordinator and DB are reused rather than being reopened.
+            // We can't just capture the ThreadSafeReference as dispatch_async()
+            // requires a copyable block.
+            dispatch_async(callbackQueue, [=, ref = ref.resolve<std::shared_ptr<Realm>>(nullptr)]() mutable {
+                @autoreleasepool {
+                    NSError *error;
+                    RLMRealm *localRealm = [RLMRealm realmWithConfiguration:configuration
+                                                                      queue:callbackQueue
+                                                                      error:&error];
+                    ref.reset();
+                    callback(localRealm, error);
+                }
+            });
+        }
+    });
+}
+
++ (RLMAsyncOpenTask *)asyncOpenWithConfiguration:(RLMRealmConfiguration *)configuration
+                                        callback:(void (^)(NSError *))callback {
+    return openAsync(configuration, [=](ThreadSafeReference, std::exception_ptr err) {
+        @autoreleasepool {
+            if (err) {
+                try {
+                    std::rethrow_exception(err);
+                }
+                catch (...) {
+                    NSError *error;
+                    RLMRealmTranslateException(&error);
+                    callback(error);
+                }
+                return;
+            }
+            @autoreleasepool {
+                callback(nil);
+            }
+        }
+    });
 }
 
 // ARC tries to eliminate calls to autorelease when the value is then immediately
@@ -340,6 +384,9 @@ REALM_NOINLINE void RLMRealmTranslateException(NSError **error) {
     catch (SchemaMismatchException const& ex) {
         RLMSetErrorOrThrow(RLMMakeError(RLMErrorSchemaMismatch, ex), error);
     }
+    catch (DeleteOnOpenRealmException const& ex) {
+        RLMSetErrorOrThrow(RLMMakeError(RLMErrorAlreadyOpen, ex), error);
+    }
     catch (std::system_error const& ex) {
         RLMSetErrorOrThrow(RLMMakeError(ex), error);
     }
@@ -347,16 +394,6 @@ REALM_NOINLINE void RLMRealmTranslateException(NSError **error) {
         RLMSetErrorOrThrow(RLMMakeError(RLMErrorFail, exp), error);
     }
 }
-
-REALM_NOINLINE static void translateSharedGroupOpenException(NSError **error) {
-    try {
-        throw;
-    }
-    catch (...) {
-        RLMRealmTranslateException(error);
-    }
-}
-
 
 + (instancetype)realmWithConfiguration:(RLMRealmConfiguration *)configuration error:(NSError **)error {
     return [self realmWithConfiguration:configuration queue:nil error:error];
@@ -393,7 +430,7 @@ REALM_NOINLINE static void translateSharedGroupOpenException(NSError **error) {
             if (RLMRealm *realm = RLMGetThreadLocalCachedRealmForPath(config.path, cacheKey)) {
                 auto const& old_config = realm->_realm->config();
                 if (old_config.immutable() != config.immutable()
-                    || old_config.read_only_alternative() != config.read_only_alternative()) {
+                    || old_config.read_only() != config.read_only()) {
                     @throw RLMException(@"Realm at path '%s' already opened with different read permissions", config.path.c_str());
                 }
                 if (old_config.in_memory != config.in_memory) {
@@ -406,6 +443,25 @@ REALM_NOINLINE static void translateSharedGroupOpenException(NSError **error) {
                     @throw RLMException(@"Realm at path '%s' already opened with different encryption key", config.path.c_str());
                 }
                 return RLMAutorelease(realm);
+            }
+        }
+    }
+
+    if (configuration.seedFilePath) {
+        @autoreleasepool {
+            bool didCopySeed = false;
+            NSError *copyError;
+            DB::call_with_lock(configuration.config.path,
+                               [&configuration, &error, &copyError, &didCopySeed](auto const&) {
+                if (![RLMRealm fileExistsForConfiguration:configuration]) {
+                    didCopySeed = [[NSFileManager defaultManager] copyItemAtURL:configuration.seedFilePath
+                                                                          toURL:configuration.fileURL
+                                                                          error:&copyError];
+                }
+            });
+            if (!didCopySeed && copyError != nil) {
+                RLMSetErrorOrThrow(copyError, error);
+                return nil;
             }
         }
     }
@@ -440,7 +496,7 @@ REALM_NOINLINE static void translateSharedGroupOpenException(NSError **error) {
         realm->_realm = Realm::get_shared_realm(config);
     }
     catch (...) {
-        translateSharedGroupOpenException(error);
+        RLMRealmTranslateException(error);
         return nil;
     }
 
@@ -750,6 +806,9 @@ REALM_NOINLINE static void translateSharedGroupOpenException(NSError **error) {
 }
 
 - (BOOL)refresh {
+    if (_realm->config().immutable()) {
+        @throw RLMException(@"Read-only Realms do not change and cannot be refreshed.");
+    }
     try {
         return _realm->refresh();
     }
@@ -806,11 +865,28 @@ REALM_NOINLINE static void translateSharedGroupOpenException(NSError **error) {
         [idObjects deleteObjectsFromRealm];
         return;
     }
+
     if (auto array = RLMDynamicCast<RLMArray>(objects)) {
         if (array.type != RLMPropertyTypeObject) {
             @throw RLMException(@"Cannot delete objects from RLMArray<%@>: only RLMObjects can be deleted.",
                                 RLMTypeToString(array.type));
         }
+    }
+    else if (auto set = RLMDynamicCast<RLMSet>(objects)) {
+        if (set.type != RLMPropertyTypeObject) {
+            @throw RLMException(@"Cannot delete objects from RLMSet<%@>: only RLMObjects can be deleted.",
+                                RLMTypeToString(set.type));
+        }
+    }
+    else if (auto dictionary = RLMDynamicCast<RLMDictionary>(objects)) {
+        if (dictionary.type != RLMPropertyTypeObject) {
+            @throw RLMException(@"Cannot delete objects from RLMDictionary of type %@: only RLMObjects can be deleted.",
+                                RLMTypeToString(dictionary.type));
+        }
+        for (RLMObject *obj in dictionary.allValues) {
+            RLMDeleteObjectFromRealm(obj, self);
+        }
+        return;
     }
     for (RLMObject *obj in objects) {
         if (![obj isKindOfClass:RLMObjectBase.class]) {
@@ -862,7 +938,7 @@ REALM_NOINLINE static void translateSharedGroupOpenException(NSError **error) {
         return version;
     }
     catch (...) {
-        translateSharedGroupOpenException(error);
+        RLMRealmTranslateException(error);
         return RLMNotVersioned;
     }
 }
@@ -892,19 +968,52 @@ REALM_NOINLINE static void translateSharedGroupOpenException(NSError **error) {
     NSString *path = fileURL.path;
 
     try {
-        _realm->write_copy(path.UTF8String, {static_cast<const char *>(key.bytes), key.length});
+        _realm->verify_thread();
+        try {
+            _realm->read_group().write(path.UTF8String, static_cast<const char *>(key.bytes));
+        }
+        catch (...) {
+            _impl::translate_file_exception(path.UTF8String);
+        }
         return YES;
     }
     catch (...) {
-        __autoreleasing NSError *dummyError;
-        if (!error) {
-            error = &dummyError;
+        if (error) {
+            RLMRealmTranslateException(error);
         }
-        RLMRealmTranslateException(error);
         return NO;
     }
 
     return NO;
+}
+
+- (BOOL)writeCopyForConfiguration:(RLMRealmConfiguration *)configuration error:(NSError **)error {
+    if ([RLMRealm fileExistsForConfiguration:configuration]) {
+        if (error) {
+            NSString *msg = [NSString stringWithFormat:@"File at path '%@' already exists.", configuration.pathOnDisk];
+            RLMSetErrorOrThrow(RLMMakeError(RLMErrorFileExists, msg), error);
+        }
+        return NO;
+    }
+    try {
+        // If we are handing a sync to sync case use write_copy as `export_to` should be used in the local
+        // to synced realm case.
+        if (configuration.config.sync_config && _realm->config().sync_config) {
+            _realm->write_copy(configuration.config.path,
+                               {static_cast<const char *>(configuration.config.encryption_key.data()), configuration.config.encryption_key.size()});
+        } else if (!configuration.config.sync_config && _realm->config().sync_config) {
+            [self writeCopyToURL:configuration.fileURL encryptionKey:configuration.encryptionKey error:error];
+        } else {
+            _realm->export_to(configuration.config);
+        }
+    }
+    catch (...) {
+        if (error) {
+            RLMRealmTranslateException(error);
+        }
+        return NO;
+    }
+    return YES;
 }
 
 + (BOOL)fileExistsForConfiguration:(RLMRealmConfiguration *)config {
@@ -912,37 +1021,25 @@ REALM_NOINLINE static void translateSharedGroupOpenException(NSError **error) {
 }
 
 + (BOOL)deleteFilesForConfiguration:(RLMRealmConfiguration *)config error:(NSError **)error {
-    auto& path = config.config.path;
-    bool anyDeleted = false;
-    NSError *localError;
-    bool didCall = DB::call_with_lock(path, [&](auto const& path) {
-        NSURL *url = [NSURL fileURLWithPath:@(path.c_str())];
-        NSFileManager *fm = NSFileManager.defaultManager;
-
-        anyDeleted = [fm removeItemAtURL:url error:&localError];
-        if (localError && localError.code != NSFileNoSuchFileError) {
-            return;
-        }
-
-        [fm removeItemAtURL:[url URLByAppendingPathExtension:@"management"] error:&localError];
-        if (localError && localError.code != NSFileNoSuchFileError) {
-            return;
-        }
-
-        [fm removeItemAtURL:[url URLByAppendingPathExtension:@"note"] error:&localError];
-    });
-    if (error && localError && localError.code != NSFileNoSuchFileError) {
-        *error = localError;
+    bool didDeleteAny = false;
+    try {
+        realm::Realm::delete_files(config.config.path, &didDeleteAny);
+        return didDeleteAny;
     }
-    else if (!didCall) {
+    catch (realm::util::File::PermissionDenied const& e) {
         if (error) {
-            NSString *msg = [NSString stringWithFormat:@"Realm file at path %s cannot be deleted because it is currently opened.", path.c_str()];
-            *error = [NSError errorWithDomain:RLMErrorDomain
-                                         code:RLMErrorAlreadyOpen
-                                     userInfo:@{NSLocalizedDescriptionKey: msg}];
+            *error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileWriteNoPermissionError
+                                     userInfo:@{NSLocalizedDescriptionKey: @(e.what()),
+                                                NSFilePathErrorKey: @(e.get_path().c_str())}];
         }
+        return didDeleteAny;
     }
-    return anyDeleted;
+    catch (...) {
+        if (error) {
+            RLMRealmTranslateException(error);
+        }
+        return didDeleteAny;
+    }
 }
 
 - (BOOL)isFrozen {
@@ -954,11 +1051,15 @@ REALM_NOINLINE static void translateSharedGroupOpenException(NSError **error) {
     return self.isFrozen ? self : RLMGetFrozenRealmForSourceRealm(self);
 }
 
+- (RLMRealm *)thaw {
+    [self verifyThread];
+    return self.isFrozen ? [RLMRealm realmWithConfiguration:self.configuration error:nil] : self;
+}
+
 - (RLMRealm *)frozenCopy {
     try {
         RLMRealm *realm = [[RLMRealm alloc] initPrivate];
         realm->_realm = _realm->freeze();
-        realm->_realm->set_schema_subset(_realm->schema());
         realm->_realm->read_group();
         realm->_dynamic = _dynamic;
         realm->_schema = _schema;
@@ -971,6 +1072,7 @@ REALM_NOINLINE static void translateSharedGroupOpenException(NSError **error) {
 }
 
 - (void)registerEnumerator:(RLMFastEnumerator *)enumerator {
+    std::lock_guard lock(_collectionEnumeratorMutex);
     if (!_collectionEnumerators) {
         _collectionEnumerators = [NSHashTable hashTableWithOptions:NSPointerFunctionsWeakMemory];
     }
@@ -978,14 +1080,28 @@ REALM_NOINLINE static void translateSharedGroupOpenException(NSError **error) {
 }
 
 - (void)unregisterEnumerator:(RLMFastEnumerator *)enumerator {
+    std::lock_guard lock(_collectionEnumeratorMutex);
     [_collectionEnumerators removeObject:enumerator];
 }
 
 - (void)detachAllEnumerators {
+    std::lock_guard lock(_collectionEnumeratorMutex);
     for (RLMFastEnumerator *enumerator in _collectionEnumerators) {
         [enumerator detach];
     }
     _collectionEnumerators = nil;
+}
+
+- (RLMSyncSubscriptionSet *)subscriptions {
+#if REALM_ENABLE_SYNC
+    if (_realm->config().sync_config && _realm->config().sync_config->flx_sync_requested) {
+        return [[RLMSyncSubscriptionSet alloc] initWithSubscriptionSet:_realm->get_latest_subscription_set() realm:self];
+    } else {
+        @throw RLMException(@"This Realm was not configured with flexible sync");
+    }
+#else
+    @throw RLMException(@"Realm was not compiled with sync enabled");
+#endif
 }
 
 @end

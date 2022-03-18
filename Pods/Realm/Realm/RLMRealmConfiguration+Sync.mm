@@ -50,19 +50,16 @@
     NSAssert(user.identifier, @"Cannot call this method on a user that doesn't have an identifier.");
     self.config.in_memory = false;
     self.config.sync_config = std::make_shared<realm::SyncConfig>([syncConfiguration rawConfiguration]);
-    self.config.schema_mode = realm::SchemaMode::Additive;
 
     if (syncConfiguration.customFileURL) {
         self.config.path = syncConfiguration.customFileURL.path.UTF8String;
+    } else if (self.config.sync_config->flx_sync_requested) {
+        self.config.path = [user pathForFlexibleSync];
     } else {
         self.config.path = [user pathForPartitionValue:self.config.sync_config->partition_value];
     }
 
-    if (!self.config.encryption_key.empty()) {
-        auto& sync_encryption_key = self.config.sync_config->realm_encryption_key;
-        sync_encryption_key = std::array<char, 64>();
-        std::copy_n(self.config.encryption_key.begin(), 64, sync_encryption_key->begin());
-    }
+    [self updateSchemaMode];
 }
 
 - (RLMSyncConfiguration *)syncConfiguration {

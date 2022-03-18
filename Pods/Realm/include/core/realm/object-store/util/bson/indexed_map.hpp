@@ -48,9 +48,13 @@ public:
         iterator operator++(int);
         iterator operator--(int);
 
-        bool operator!=(const typename IndexedMap<T>::iterator& rhs) noexcept
+        bool operator!=(const typename IndexedMap<T>::iterator& rhs) const noexcept
         {
             return !(m_idx == rhs.m_idx);
+        }
+        bool operator==(const typename IndexedMap<T>::iterator& rhs) const noexcept
+        {
+            return m_idx == rhs.m_idx;
         }
     };
 
@@ -78,7 +82,7 @@ public:
 
     entry back();
 
-    iterator find(const std::string& k);
+    iterator find(const std::string& k) const;
 
     /// Find or add a given key
     T& operator[](const std::string& k);
@@ -98,7 +102,14 @@ public:
     /// Pop the last entry of the map
     void pop_back();
 
-    const std::vector<std::string> keys() const;
+    const std::vector<std::string>& keys() const noexcept
+    {
+        return m_keys;
+    }
+    const std::unordered_map<std::string, T>& entries() const noexcept
+    {
+        return m_map;
+    }
 
 private:
     template <typename V>
@@ -218,7 +229,7 @@ std::pair<std::string, T> IndexedMap<T>::back()
 }
 
 template <typename T>
-typename IndexedMap<T>::iterator IndexedMap<T>::find(const std::string& k)
+typename IndexedMap<T>::iterator IndexedMap<T>::find(const std::string& k) const
 {
     auto it = begin();
     while (it != end()) {
@@ -252,12 +263,6 @@ void IndexedMap<T>::pop_back()
     auto last_key = m_keys.back();
     m_keys.pop_back();
     m_map.erase(last_key);
-}
-
-template <typename T>
-const std::vector<std::string> IndexedMap<T>::keys() const
-{
-    return m_keys;
 }
 
 } // namespace bson

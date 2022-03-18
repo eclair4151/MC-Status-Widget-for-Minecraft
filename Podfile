@@ -1,8 +1,8 @@
 
-target 'MinecraftServerStatus' do
+target 'MC Status' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  #pod 'RealmSwift', '~> 10.5.1'
+  pod 'RealmSwift', '~> 10.24.1'
   pod 'MarqueeLabel', '~> 4.0.5'
   #pod 'SwiftyJSON', '~> 5.0.0'
   #pod 'Alamofire', '~> 5.4.1'
@@ -13,7 +13,7 @@ end
 target 'WidgetInputIntentExtension' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  pod 'RealmSwift', '~> 10.5.1'
+  pod 'RealmSwift', '~> 10.24.1'
   pod 'SwiftyJSON', '~> 5.0.0'
   pod 'Alamofire', '~> 5.4.1'
 end
@@ -22,7 +22,7 @@ end
 target 'MinecraftServerStatusHSWidgetExtension' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  pod 'RealmSwift', '~> 10.5.1'
+  pod 'RealmSwift', '~> 10.24.1'
   pod 'SwiftyJSON', '~> 5.0.0'
   pod 'Alamofire', '~> 5.4.1'
 end

@@ -21,7 +21,6 @@
 
 #include <realm/sync/instructions.hpp>
 #include <realm/sync/changeset.hpp>
-#include <realm/sync/object.hpp>
 #include <realm/util/logger.hpp>
 #include <realm/list.hpp>
 #include <realm/dictionary.hpp>
@@ -64,9 +63,6 @@ protected:
 
     TableRef table_for_class_name(StringData) const; // Throws
 
-    template <class... Params>
-    REALM_NORETURN void bad_transaction_log(const char*, Params&&...) const;
-
     Transaction& m_transaction;
 
     template <class... Args>
@@ -81,12 +77,13 @@ private:
     const Changeset* m_log = nullptr;
     util::Logger* m_logger = nullptr;
 
-    TableNameBuffer m_table_name_buffer;
+    Group::TableNameBuffer m_table_name_buffer;
     InternString m_last_table_name;
     InternString m_last_field_name;
     TableRef m_last_table;
     ColKey m_last_field;
     util::Optional<Instruction::PrimaryKey> m_last_object_key;
+    util::Optional<Instruction::Path> m_current_path;
     util::Optional<Obj> m_last_object;
     std::unique_ptr<LstBase> m_last_list;
 
@@ -122,6 +119,10 @@ private:
 
     template <class F>
     void visit_payload(const Instruction::Payload&, F&& visitor);
+
+    REALM_NORETURN void bad_transaction_log(const std::string& msg) const;
+    template <class... Params>
+    REALM_NORETURN void bad_transaction_log(const char* msg, Params&&... params) const;
 };
 
 
@@ -147,6 +148,7 @@ inline void InstructionApplier::end_apply() noexcept
     m_last_table = TableRef{};
     m_last_field = ColKey{};
     m_last_object.reset();
+    m_last_object_key.reset();
     m_last_list.reset();
 }
 
@@ -180,19 +182,6 @@ inline void InstructionApplier::apply(A& applier, Changeset& changeset, util::Lo
 inline void InstructionApplier::apply(const Changeset& log, util::Logger* logger)
 {
     apply(*this, log, logger); // Throws
-}
-
-template <class... Params>
-REALM_NORETURN void InstructionApplier::bad_transaction_log(const char* msg, Params&&... params) const
-{
-    // FIXME: Provide a way to format strings without going through a logger implementation.
-    std::stringstream ss;
-    util::StreamLogger logger{ss};
-    logger.error(msg, std::forward<Params>(params)...);
-    // FIXME: Avoid throwing in normal program flow (since changesets can come
-    // in over the network, defective changesets are part of normal program
-    // flow).
-    throw BadChangesetError{ss.str()};
 }
 
 } // namespace sync

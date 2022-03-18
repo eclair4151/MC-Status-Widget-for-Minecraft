@@ -1,4 +1,3 @@
-
 ////////////////////////////////////////////////////////////////////////////
 //
 // Copyright 2016 Realm Inc.
@@ -48,6 +47,12 @@ void Object::set_property_value(ContextType& ctx, StringData prop_name, ValueTyp
 }
 
 template <typename ValueType, typename ContextType>
+void Object::set_property_value(ContextType& ctx, const Property& property, ValueType value, CreatePolicy policy)
+{
+    set_property_value_impl(ctx, property, value, policy, false);
+}
+
+template <typename ValueType, typename ContextType>
 ValueType Object::get_property_value(ContextType& ctx, const Property& property) const
 {
     return get_property_value_impl<ValueType>(ctx, property);
@@ -93,10 +98,21 @@ struct ValueUpdater {
     template <typename T>
     void operator()(T*)
     {
-        auto new_val = ctx.template unbox<T>(value);
-        if (!policy.diff || obj.get<T>(col) != new_val) {
-            obj.set(col, new_val, is_default);
+        bool attr_changed = !policy.diff;
+        auto new_val = ctx.template unbox<T>(value, policy);
+
+        if (!attr_changed) {
+            auto old_val = obj.get<T>(col);
+
+            if constexpr (std::is_same<T, realm::Mixed>::value) {
+                attr_changed = !new_val.is_same_type(old_val);
+            }
+
+            attr_changed = attr_changed || new_val != old_val;
         }
+
+        if (attr_changed)
+            obj.set(col, new_val, is_default);
     }
 };
 } // namespace
@@ -108,7 +124,7 @@ void Object::set_property_value_impl(ContextType& ctx, const Property& property,
     ctx.will_change(*this, property);
 
     ColKey col{property.column_key};
-    if (is_nullable(property.type) && ctx.is_null(value)) {
+    if (!is_collection(property.type) && is_nullable(property.type) && ctx.is_null(value)) {
         if (!policy.diff || !m_obj.is_null(col)) {
             if (property.type == PropertyType::Object) {
                 if (!is_default)
@@ -149,14 +165,6 @@ void Object::set_property_value_impl(ContextType& ctx, const Property& property,
         ContextType child_ctx(ctx, m_obj, property);
         object_store::Set set(m_realm, m_obj, col);
         set.assign(child_ctx, value, policy);
-        ctx.did_change();
-        return;
-    }
-
-    if (is_dictionary(property.type)) {
-        ContextType child_ctx(ctx, m_obj, property);
-        object_store::Dictionary dict(m_realm, m_obj, col);
-        dict.assign(child_ctx, value, policy);
         ctx.did_change();
         return;
     }
@@ -337,9 +345,9 @@ Object Object::create(ContextType& ctx, std::shared_ptr<Realm> const& realm, Obj
             is_default = true;
         }
         // We consider null or a missing value to be equivalent to an empty
-        // array for historical reasons; the original implementation did this
+        // array/set for historical reasons; the original implementation did this
         // accidentally and it's not worth changing.
-        if ((!v || ctx.is_null(*v)) && !is_nullable(prop.type) && !is_array(prop.type)) {
+        if ((!v || ctx.is_null(*v)) && !is_nullable(prop.type) && !is_collection(prop.type)) {
             if (prop.is_primary || !ctx.allow_missing(value))
                 throw MissingPropertyValueException(object_schema.name, prop.name);
         }

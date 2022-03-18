@@ -32,7 +32,7 @@ import Realm
 
     /// Convert a `Results` to a `RLMResults`.
     public static func convert<T>(object: Results<T>) -> RLMResults<AnyObject> {
-        return object.rlmResults
+        return object.collection as! RLMResults<AnyObject>
     }
 
     /// Convert a `RLMResults` to a `Results`.
@@ -42,17 +42,37 @@ import Realm
 
     /// Convert a `List` to a `RLMArray`.
     public static func convert<T>(object: List<T>) -> RLMArray<AnyObject> {
-        return object._rlmArray
+        return object.rlmArray
+    }
+
+    /// Convert a `MutableSet` to a `RLMSet`.
+    public static func convert<T>(object: MutableSet<T>) -> RLMSet<AnyObject> {
+        return object.rlmSet
     }
 
     /// Convert a `RLMArray` to a `List`.
     public static func convert(object: RLMArray<AnyObject>) -> List<Object> {
-        return List(objc: object)
+        return List(collection: object)
+    }
+
+    /// Convert a `RLMSet` to a `MutableSet`.
+    public static func convert(object: RLMSet<AnyObject>) -> MutableSet<Object> {
+        return MutableSet(collection: object)
+    }
+
+    /// Convert a `Map` to a `RLMDictionary`.
+    public static func convert<Key, Value>(object: Map<Key, Value>) -> RLMDictionary<AnyObject, AnyObject> {
+        return object.rlmDictionary
+    }
+
+    /// Convert a `RLMDictionary` to a `Map`.
+    public static func convert<Key>(object: RLMDictionary<AnyObject, AnyObject>) -> Map<Key, Object> {
+        return Map(objc: object)
     }
 
     /// Convert a `LinkingObjects` to a `RLMResults`.
     public static func convert<T>(object: LinkingObjects<T>) -> RLMResults<AnyObject> {
-        return object.rlmResults
+        return object.collection as! RLMResults<AnyObject>
     }
 
     /// Convert a `RLMLinkingObjects` to a `Results`.

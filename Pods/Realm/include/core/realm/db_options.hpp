@@ -21,6 +21,7 @@
 
 #include <functional>
 #include <string>
+#include <realm/backup_restore.hpp>
 
 namespace realm {
 
@@ -31,14 +32,17 @@ struct DBOptions {
     enum class Durability : uint16_t {
         Full,
         MemOnly,
-        Async, ///< Not yet supported on windows.
         Unsafe // If you use this, you loose ACID property
     };
 
+    using version_list_t = BackupHandler::version_list_t;
+    using version_time_list_t = BackupHandler::version_time_list_t;
+
     explicit DBOptions(Durability level = Durability::Full, const char* key = nullptr, bool allow_upgrade = true,
-                       std::function<void(int, int)> file_upgrade_callback = std::function<void(int, int)>(),
+                       std::function<void(int, int)> file_upgrade_callback = nullptr,
                        std::string temp_directory = sys_tmp_dir, bool track_metrics = false,
-                       size_t metrics_history_size = 10000)
+                       size_t metrics_history_size = 10000, bool backup_at_file_format_change = true,
+                       bool enable_async = false)
         : durability(level)
         , encryption_key(key)
         , allow_file_format_upgrade(allow_upgrade)
@@ -46,7 +50,10 @@ struct DBOptions {
         , temp_dir(temp_directory)
         , enable_metrics(track_metrics)
         , metrics_buffer_size(metrics_history_size)
-
+        , backup_at_file_format_change(backup_at_file_format_change)
+        , accepted_versions(BackupHandler::accepted_versions_)
+        , to_be_deleted(BackupHandler::delete_versions_)
+        , enable_async_writes(enable_async)
     {
     }
 
@@ -54,10 +61,12 @@ struct DBOptions {
         : durability(Durability::Full)
         , encryption_key(key)
         , allow_file_format_upgrade(true)
-        , upgrade_callback(std::function<void(int, int)>())
         , temp_dir(sys_tmp_dir)
         , enable_metrics(false)
         , metrics_buffer_size(10000)
+        , backup_at_file_format_change(true)
+        , accepted_versions(BackupHandler::accepted_versions_)
+        , to_be_deleted(BackupHandler::delete_versions_)
     {
     }
 
@@ -100,6 +109,25 @@ struct DBOptions {
     /// The maximum number of entries stored by the metrics (if enabled). If this number
     /// is exceeded without being consumed, only the most recent entries will be stored.
     size_t metrics_buffer_size;
+
+    /// is_immutable should be set to true if run from a read-only file system.
+    /// this will prevent the DB from making any writes, also disabling the creation
+    /// of write transactions.
+    bool is_immutable = false;
+
+    /// Disable automatic backup at file format upgrade by setting to false
+    bool backup_at_file_format_change;
+
+    /// List of versions we can upgrade from
+    BackupHandler::version_list_t accepted_versions;
+
+    /// List of versions for which backup files are automatically removed at specified age.
+    BackupHandler::version_time_list_t to_be_deleted;
+
+    /// Must be set for the async writes feature to be used. On some platforms
+    /// this will make *all* writes async and then wait on the result, which has
+    /// a performance impact.
+    bool enable_async_writes = false;
 
     /// sys_tmp_dir will be used if the temp_dir is empty when creating DBOptions.
     /// It must be writable and allowed to create pipe/fifo file on it.

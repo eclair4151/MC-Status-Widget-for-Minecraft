@@ -15,14 +15,19 @@
 // limitations under the License.
 //
 ////////////////////////////////////////////////////////////////////////////
+
 #ifndef AUTH_REQUEST_CLIENT_HPP
 #define AUTH_REQUEST_CLIENT_HPP
 
-#include <realm/object-store/sync/generic_network_transport.hpp>
-#include <realm/object-store/sync/sync_user.hpp>
+#include <realm/util/functional.hpp>
+#include <memory>
+#include <string>
 
 namespace realm {
+class SyncUser;
 namespace app {
+struct Request;
+struct Response;
 
 class AuthRequestClient {
 public:
@@ -30,8 +35,8 @@ public:
 
     virtual std::string url_for_path(const std::string& path) const = 0;
 
-    virtual void do_authenticated_request(Request, std::shared_ptr<SyncUser> sync_user,
-                                          std::function<void(Response)>) = 0;
+    virtual void do_authenticated_request(Request&&, const std::shared_ptr<SyncUser>& sync_user,
+                                          util::UniqueFunction<void(const Response&)>&&) = 0;
 };
 
 } // namespace app

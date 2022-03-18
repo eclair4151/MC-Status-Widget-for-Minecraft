@@ -57,9 +57,7 @@ The `S` bit is at position 22 (float) or 51 (double).
 */
 
 struct null {
-    null()
-    {
-    }
+    constexpr null() = default;
     operator int64_t()
     {
         throw(LogicError::type_mismatch);
@@ -68,43 +66,6 @@ struct null {
     operator util::Optional<T>()
     {
         return util::none;
-    }
-
-    template <class T>
-    bool operator==(const T&) const
-    {
-        REALM_ASSERT(false);
-        return false;
-    }
-    template <class T>
-    bool operator!=(const T&) const
-    {
-        REALM_ASSERT(false);
-        return false;
-    }
-    template <class T>
-    bool operator>(const T&) const
-    {
-        REALM_ASSERT(false);
-        return false;
-    }
-    template <class T>
-    bool operator>=(const T&) const
-    {
-        REALM_ASSERT(false);
-        return false;
-    }
-    template <class T>
-    bool operator<=(const T&) const
-    {
-        REALM_ASSERT(false);
-        return false;
-    }
-    template <class T>
-    bool operator<(const T&) const
-    {
-        REALM_ASSERT(false);
-        return false;
     }
 
     /// Returns whether `v` bitwise equals the null bit-pattern

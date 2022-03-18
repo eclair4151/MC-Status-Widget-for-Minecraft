@@ -45,22 +45,18 @@ import Realm.Private
 
  ```swift
  class Owner: Object {
-     @objc dynamic var name: String = ""
-     let dogs = List<Dog>()
+     @Persisted var name: String
+     @Persisted var dogs: List<Dog>
  }
  class Dog: EmbeddedObject {
-     @objc dynamic var name: String = ""
-     @objc dynamic var adopted: Bool = false
-     let owner = LinkingObjects(fromType: Owner.self, property: "dogs")
+     @Persisted var name: String
+     @Persisted var adopted: Bool
+     @Persisted(originProperty: "dogs") var owner: LinkingObjects<Owner>
  }
  ```
  */
 public typealias EmbeddedObject = RealmSwiftEmbeddedObject
-extension EmbeddedObject: RealmCollectionValue {
-    /// :nodoc:
-    public static func _rlmArray() -> RLMArray<AnyObject> {
-        return RLMArray(objectClassName: className())
-    }
+extension EmbeddedObject: _RealmCollectionValueInsideOptional {
     /// :nodoc:
     public class override final func isEmbedded() -> Bool {
         return true
@@ -128,6 +124,9 @@ extension EmbeddedObject: RealmCollectionValue {
      Override this method to specify the names of properties to ignore. These properties will not be managed by
      the Realm that manages the object.
 
+     - warning: This function is only applicable to legacy property declarations
+                using `@objc`. When using `@Persisted`, any properties not
+                marked with `@Persisted` are automatically ignored.
      - returns: An array of property names to ignore.
      */
     @objc open class func ignoredProperties() -> [String] { return [] }
@@ -137,32 +136,11 @@ extension EmbeddedObject: RealmCollectionValue {
     /// Returns or sets the value of the property with the given name.
     @objc open subscript(key: String) -> Any? {
         get {
-            if realm == nil {
-                return value(forKey: key)
-            }
-            return dynamicGet(key: key)
+            return RLMDynamicGetByName(self, key)
         }
-        set(value) {
-            if realm == nil {
-                setValue(value, forKey: key)
-            } else {
-                RLMDynamicValidatedSet(self, key, value)
-            }
+        set {
+            dynamicSet(object: self, key: key, value: newValue)
         }
-    }
-
-    private func dynamicGet(key: String) -> Any? {
-        let objectSchema = RLMObjectBaseObjectSchema(self)!
-        guard let prop = objectSchema[key] else {
-            throwRealmException("Invalid property name '\(key) for class \(objectSchema.className)")
-        }
-        if let accessor = prop.swiftAccessor {
-            return accessor.get(Unmanaged.passUnretained(self).toOpaque() + ivar_getOffset(prop.swiftIvar!))
-        }
-        if let ivar = prop.swiftIvar, prop.array {
-            return object_getIvar(self, ivar)
-        }
-        return RLMDynamicGet(self, prop)
     }
 
     // MARK: Notifications
@@ -197,28 +175,15 @@ extension EmbeddedObject: RealmCollectionValue {
      retained by the returned token and not by the object itself.
 
      - warning: This method cannot be called during a write transaction, or when
-                the containing Realm is read-only.
+     the containing Realm is read-only.
      - parameter queue: The serial dispatch queue to receive notification on. If
-                        `nil`, notifications are delivered to the current thread.
+     `nil`, notifications are delivered to the current thread.
      - parameter block: The block to call with information about changes to the object.
      - returns: A token which must be held for as long as you want updates to be delivered.
      */
     public func observe<T: RLMObjectBase>(on queue: DispatchQueue? = nil,
                                           _ block: @escaping (ObjectChange<T>) -> Void) -> NotificationToken {
-        return RLMObjectBaseAddNotificationBlock(self, queue, { object, names, oldValues, newValues, error in
-            if let error = error {
-                block(.error(error as NSError))
-                return
-            }
-            guard let names = names, let newValues = newValues else {
-                block(.deleted)
-                return
-            }
-
-            block(.change(object as! T, (0..<newValues.count).map { i in
-                PropertyChange(name: names[i], oldValue: oldValues?[i], newValue: newValues[i])
-            }))
-        })
+        return _observe(on: queue, block)
     }
 
     // MARK: Dynamic list
@@ -237,8 +202,8 @@ extension EmbeddedObject: RealmCollectionValue {
      :nodoc:
      */
     public func dynamicList(_ propertyName: String) -> List<DynamicObject> {
-        return noWarnUnsafeBitCast(dynamicGet(key: propertyName) as! RLMListBase,
-                                   to: List<DynamicObject>.self)
+        let list = RLMDynamicGetByName(self, propertyName) as! RLMSwiftCollectionBase
+        return List<DynamicObject>(collection: list._rlmCollection as! RLMArray<AnyObject>)
     }
 
     // MARK: Comparison
@@ -286,22 +251,14 @@ extension EmbeddedObject: ThreadConfined {
     public func freeze() -> Self {
         return realm!.freeze(self)
     }
-}
 
+    /**
+     Returns a live (mutable) reference of this object.
 
-// MARK: AssistedObjectiveCBridgeable
-
-// FIXME: Remove when `as! Self` can be written
-private func forceCastToInferred<T, V>(_ x: T) -> V {
-    return x as! V
-}
-
-extension EmbeddedObject: AssistedObjectiveCBridgeable {
-    static func bridging(from objectiveCValue: Any, with metadata: Any?) -> Self {
-        return forceCastToInferred(objectiveCValue)
-    }
-
-    var bridged: (objectiveCValue: Any, metadata: Any?) {
-        return (objectiveCValue: unsafeBitCast(self, to: RLMObject.self), metadata: nil)
+     This method creates a managed accessor to a live copy of the same frozen object.
+     Will return self if called on an already live object.
+     */
+    public func thaw() -> Self? {
+        return realm?.thaw(self)
     }
 }

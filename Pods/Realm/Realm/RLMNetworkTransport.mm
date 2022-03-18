@@ -61,8 +61,8 @@ NSString * const RLMHTTPMethodToNSString[] = {
 
 @implementation RLMNetworkTransport
 
-- (void)sendRequestToServer:(RLMRequest *) request
-                 completion:(RLMNetworkTransportCompletionBlock)completionBlock; {
+- (void)sendRequestToServer:(RLMRequest *)request
+                 completion:(RLMNetworkTransportCompletionBlock)completionBlock {
     // Create the request
     NSURL *requestURL = [[NSURL alloc] initWithString: request.url];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:requestURL];
@@ -156,7 +156,8 @@ didCompleteWithError:(NSError *)error
     response.httpStatusCode = httpResponse.statusCode;
 
     if (error) {
-        response.body = [error localizedDescription];
+        response.body = error.localizedDescription;
+        response.customStatusCode = error.code;
         return _completionBlock(response);
     }
 

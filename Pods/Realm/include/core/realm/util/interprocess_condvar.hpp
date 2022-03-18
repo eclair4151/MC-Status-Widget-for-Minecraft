@@ -28,8 +28,12 @@
 #include <sys/stat.h>
 #include <mutex>
 
+#if REALM_PLATFORM_APPLE
+#include <sys/time.h>
+#endif
+
 // Condvar Emulation is required if RobustMutex emulation is enabled
-#if defined(REALM_ROBUST_MUTEX_EMULATION) || defined(_WIN32)
+#if REALM_ROBUST_MUTEX_EMULATION || defined(_WIN32)
 #define REALM_CONDVAR_EMULATION
 #endif
 
@@ -110,6 +114,26 @@ public:
     {
         while (!cond()) {
             wait(m, tp);
+            if (tp) {
+                struct timespec now;
+#ifdef _WIN32
+                timespec_get(&now, TIME_UTC);
+#elif REALM_PLATFORM_APPLE
+                if (__builtin_available(iOS 10, macOS 12, tvOS 10, watchOS 3, *)) {
+                    clock_gettime(CLOCK_REALTIME, &now);
+                }
+                else {
+                    timeval tv;
+                    gettimeofday(&tv, 0);
+                    now.tv_sec = tv.tv_sec;
+                    now.tv_nsec = tv.tv_usec * 1000;
+                }
+#else
+                clock_gettime(CLOCK_REALTIME, &now);
+#endif
+                if (std::tie(now.tv_sec, now.tv_nsec) >= std::tie(tp->tv_sec, tp->tv_nsec))
+                    return;
+            }
         }
     }
 

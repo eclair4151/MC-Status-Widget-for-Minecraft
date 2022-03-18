@@ -19,6 +19,10 @@
 import Realm
 import Realm.Private
 
+#if !(os(iOS) && (arch(i386) || arch(arm)))
+import Combine
+#endif
+
 /**
  An object representing a MongoDB Realm user.
 
@@ -44,7 +48,7 @@ public extension User {
 }
 
 /**
- A singleton which configures and manages MongoDB Realm synchronization-related
+ A manager which configures and manages MongoDB Realm synchronization-related
  functionality.
 
  - see: `RLMSyncManager`
@@ -225,6 +229,11 @@ public typealias Provider = RLMIdentityProvider
     internal let stopPolicy: RLMSyncStopPolicy
 
     /**
+     Determines if the sync configuration is flexible sync or not
+     */
+    internal let isFlexibleSync: Bool
+
+    /**
      By default, Realm.asyncOpen() swallows non-fatal connection errors such as
      a connection attempt timing out and simply retries until it succeeds. If
      this is set to `true`, instead the error will be reported to the callback
@@ -237,20 +246,22 @@ public typealias Provider = RLMIdentityProvider
         self.stopPolicy = config.stopPolicy
         self.partitionValue = ObjectiveCSupport.convert(object: config.partitionValue)
         self.cancelAsyncOpenOnNonFatalErrors = config.cancelAsyncOpenOnNonFatalErrors
+        self.isFlexibleSync = config.enableFlexibleSync
     }
 
     func asConfig() -> RLMSyncConfiguration {
-        let c = RLMSyncConfiguration(user: user,
-                                     partitionValue: ObjectiveCSupport.convert(object: partitionValue),
-                                     stopPolicy: stopPolicy)
-        c.cancelAsyncOpenOnNonFatalErrors = cancelAsyncOpenOnNonFatalErrors
-        return c
+        let syncConfiguration: RLMSyncConfiguration
+        if isFlexibleSync {
+            syncConfiguration = RLMSyncConfiguration(user: user, stopPolicy: stopPolicy, enableFlexibleSync: isFlexibleSync)
+        } else {
+            syncConfiguration = RLMSyncConfiguration(user: user,
+                                                     partitionValue: partitionValue.map(ObjectiveCSupport.convertBson),
+                                                     stopPolicy: stopPolicy)
+        }
+        syncConfiguration.cancelAsyncOpenOnNonFatalErrors = cancelAsyncOpenOnNonFatalErrors
+        return syncConfiguration
     }
 }
-
-#if canImport(Combine)
-import Combine
-#endif
 
 /// Structure providing an interface to call a MongoDB Realm function with the provided name and arguments.
 ///
@@ -268,7 +279,8 @@ import Combine
 /// This handler is executed on a non-main global `DispatchQueue`.
 @dynamicMemberLookup
 @frozen public struct Functions {
-    weak var user: User?
+
+    private let user: User
 
     fileprivate init(user: User) {
         self.user = user
@@ -283,9 +295,9 @@ import Combine
     /// The implementation of @dynamicMemberLookup that allows for dynamic remote function calls.
     public subscript(dynamicMember string: String) -> Function {
         return { (arguments: [AnyBSON], completionHandler: @escaping FunctionCompletionHandler) in
-            let objcArgs = arguments.map(ObjectiveCSupport.convert) as! [RLMBSON]
-            self.user?.__callFunctionNamed(string, arguments: objcArgs) { (bson: RLMBSON?, error: Error?) in
-                completionHandler(ObjectiveCSupport.convert(object: bson), error)
+            let objcArgs = arguments.map(ObjectiveCSupport.convertBson)
+            self.user.__callFunctionNamed(string, arguments: objcArgs) { (bson: RLMBSON?, error: Error?) in
+                completionHandler(bson.map(ObjectiveCSupport.convertBson) ?? .none, error)
             }
         }
     }
@@ -296,12 +308,12 @@ import Combine
     /// A closure type for the dynamic remote function type.
     public typealias ResultFunction = ([AnyBSON], @escaping ResultFunctionCompletionHandler) -> Void
 
-    /// The implementation of @dynamicMemberLookup that allows for dynamic remote function calls.
+    /// The implementation of @dynamicMemberLookup that allows for dynamic remote function calls with a `ResultFunctionCompletionHandler` completion.
     public subscript(dynamicMember string: String) -> ResultFunction {
         return { (arguments: [AnyBSON], completionHandler: @escaping ResultFunctionCompletionHandler) in
-            let objcArgs = arguments.map(ObjectiveCSupport.convert) as! [RLMBSON]
-            self.user?.__callFunctionNamed(string, arguments: objcArgs) { (bson: RLMBSON?, error: Error?) in
-                if let bson = ObjectiveCSupport.convert(object: bson) {
+            let objcArgs = arguments.map(ObjectiveCSupport.convertBson)
+            self.user.__callFunctionNamed(string, arguments: objcArgs) { (bson: RLMBSON?, error: Error?) in
+                if let b = bson.map(ObjectiveCSupport.convertBson), let bson = b {
                     completionHandler(.success(bson))
                 } else {
                     completionHandler(.failure(error ?? Realm.Error.callFailed))
@@ -310,13 +322,51 @@ import Combine
         }
     }
 
-    #if canImport(Combine)
-    /// The implementation of @dynamicMemberLookup that allows for dynamic remote function calls.
+    /// The implementation of @dynamicMemberLookup that allows for dynamic remote function calls with a `callable` return.
+    public subscript(dynamicMember string: String) -> FunctionCallable {
+        FunctionCallable(name: string, user: user)
+    }
+}
+
+/// Structure enabling the following syntactic sugar for user functions:
+///
+///     guard case let .int32(sum) = try await user.functions.sum([1, 2, 3, 4, 5]) else {
+///        return
+///     }
+///
+/// The dynamic member name (`sum` in the above example) is provided by `@dynamicMemberLookup`
+/// which is directly associated with the function name.
+@dynamicCallable
+public struct FunctionCallable {
+    fileprivate let name: String
+    fileprivate let user: User
+
+    #if !(os(iOS) && (arch(i386) || arch(arm)))
+    /// The implementation of @dynamicCallable that allows  for `Future<AnyBSON, Error>` callable return.
+    ///
+    ///     let cancellable = user.functions.sum([1, 2, 3, 4, 5])
+    ///        .sink(receiveCompletion: { result in
+    ///     }, receiveValue: { value in
+    ///        // Returned value from function
+    ///     })
+    ///
     @available(OSX 10.15, watchOS 6.0, iOS 13.0, iOSApplicationExtension 13.0, OSXApplicationExtension 10.15, tvOS 13.0, macCatalyst 13.0, macCatalystApplicationExtension 13.0, *)
-    public subscript(dynamicMember string: String) -> ([AnyBSON]) -> Future<AnyBSON, Error> {
-        return { (arguments: [AnyBSON]) in
-            return Future<AnyBSON, Error> { self[dynamicMember: string](arguments, $0) }
+    public func dynamicallyCall(withArguments args: [[AnyBSON]]) -> Future<AnyBSON, Error> {
+        return Future<AnyBSON, Error> { promise in
+            let objcArgs = args.first!.map(ObjectiveCSupport.convertBson)
+            self.user.__callFunctionNamed(name, arguments: objcArgs) { (bson: RLMBSON?, error: Error?) in
+                if let b = bson.map(ObjectiveCSupport.convertBson), let bson = b {
+                    promise(.success(bson))
+                } else {
+                    promise(.failure(error ?? Realm.Error.callFailed))
+                }
+            }
         }
+    }
+    #else
+    /// :nodoc:
+    public func dynamicallyCall(withArguments args: [Never]) {
+        //   noop
     }
     #endif
 }
@@ -335,7 +385,7 @@ public extension User {
      - warning: NEVER disable SSL validation for a system running in production.
      */
     func configuration<T: BSON>(partitionValue: T) -> Realm.Configuration {
-        let config = self.__configuration(withPartitionValue: ObjectiveCSupport.convert(object: AnyBSON(partitionValue))!)
+        let config = self.__configuration(withPartitionValue: ObjectiveCSupport.convert(object: AnyBSON(partitionValue)))
         return ObjectiveCSupport.convert(object: config)
     }
 
@@ -353,7 +403,7 @@ public extension User {
      */
     func configuration(partitionValue: AnyBSON,
                        cancelAsyncOpenOnNonFatalErrors: Bool = false) -> Realm.Configuration {
-        let config = self.__configuration(withPartitionValue: ObjectiveCSupport.convert(object: AnyBSON(partitionValue)))
+        let config = self.__configuration(withPartitionValue: ObjectiveCSupport.convert(object: partitionValue))
         let syncConfig = config.syncConfiguration!
         syncConfig.cancelAsyncOpenOnNonFatalErrors = cancelAsyncOpenOnNonFatalErrors
         config.syncConfiguration = syncConfig
@@ -374,7 +424,7 @@ public extension User {
      */
     func configuration<T: BSON>(partitionValue: T,
                                 cancelAsyncOpenOnNonFatalErrors: Bool = false) -> Realm.Configuration {
-        let config = self.__configuration(withPartitionValue: ObjectiveCSupport.convert(object: AnyBSON(partitionValue))!)
+        let config = self.__configuration(withPartitionValue: ObjectiveCSupport.convert(object: AnyBSON(partitionValue)))
         let syncConfig = config.syncConfiguration!
         syncConfig.cancelAsyncOpenOnNonFatalErrors = cancelAsyncOpenOnNonFatalErrors
         config.syncConfiguration = syncConfig
@@ -582,7 +632,7 @@ extension Realm {
     }
 }
 
-#if canImport(Combine)
+#if !(os(iOS) && (arch(i386) || arch(arm)))
 @available(OSX 10.15, watchOS 6.0, iOS 13.0, iOSApplicationExtension 13.0, OSXApplicationExtension 10.15, tvOS 13.0, macCatalyst 13.0, macCatalystApplicationExtension 13.0, *)
 public extension User {
     /// Refresh a user's custom data. This will, in effect, refresh the user's auth session.
@@ -623,6 +673,22 @@ public extension User {
     func logOut() -> Future<Void, Error> {
         return Future<Void, Error> { promise in
             self.logOut { error in
+                if let error = error {
+                    promise(.failure(error))
+                } else {
+                    promise(.success(()))
+                }
+            }
+        }
+    }
+
+    /// Permanently deletes this user from your MongoDB Realm app.
+    /// The users state will be set to `Removed` and the session will be destroyed.
+    /// If the delete request fails, the local authentication state will be untouched.
+    /// @returns A publisher that eventually return `Result.success` or `Error`.
+    func delete() -> Future<Void, Error> {
+        return Future<Void, Error> { promise in
+            self.delete { error in
                 if let error = error {
                     promise(.failure(error))
                 } else {
@@ -707,5 +773,61 @@ public extension User {
                 completion(.failure(error ?? Realm.Error.callFailed))
             }
         }
+    }
+}
+
+#if swift(>=5.5.2) && canImport(_Concurrency)
+@available(macOS 12.0, tvOS 15.0, iOS 15.0, watchOS 8.0, *)
+public extension User {
+    /// Links the currently authenticated user with a new identity, where the identity is defined by the credential
+    /// specified as a parameter. This will only be successful if this `User` is the currently authenticated
+    /// with the client from which it was created. On success a new user will be returned with the new linked credentials.
+    /// - Parameters:
+    ///   - credentials: The `Credentials` used to link the user to a new identity.
+    /// - Returns:A `User` after successfully update its identity.
+    func linkUser(credentials: Credentials) async throws -> User {
+        return try await withCheckedThrowingContinuation { continuation in
+            linkUser(credentials: credentials, continuation.resume)
+        }
+    }
+}
+
+@available(macOS 12.0, tvOS 15.0, iOS 15.0, watchOS 8.0, *)
+extension FunctionCallable {
+    /// The implementation of @dynamicMemberLookup that allows  for `async await` callable return.
+    ///
+    ///     guard case let .int32(sum) = try await user.functions.sum([1, 2, 3, 4, 5]) else {
+    ///        return
+    ///     }
+    ///
+    public func dynamicallyCall(withArguments args: [[AnyBSON]]) async throws -> AnyBSON {
+        try await withCheckedThrowingContinuation { continuation in
+            let objcArgs = args.first!.map(ObjectiveCSupport.convertBson)
+            self.user.__callFunctionNamed(name, arguments: objcArgs) { (bson: RLMBSON?, error: Error?) in
+                if let b = bson.map(ObjectiveCSupport.convertBson), let bson = b {
+                    continuation.resume(returning: bson)
+                } else {
+                    continuation.resume(throwing: error ?? Realm.Error.callFailed)
+                }
+            }
+        }
+    }
+}
+#endif // swift(>=5.5)
+
+extension User {
+    /**
+     Create a flexible sync configuration instance, which can be used to open a realm  which
+     supports flexible sync.
+
+     It won't be possible to combine flexible and partition sync in the same app, which means if you open
+     a realm with a flexible sync configuration, you won't be able to open a realm with a PBS configuration
+     and the other way around.
+
+     @return A `Realm.Configuration` instance with a flexible sync configuration.
+     */
+    public func flexibleSyncConfiguration() -> Realm.Configuration {
+        let config = self.__flexibleSyncConfiguration()
+        return ObjectiveCSupport.convert(object: config)
     }
 }
