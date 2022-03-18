@@ -31,10 +31,16 @@ public:
     using ListIndices = util::Optional<std::vector<size_t>>;
     using CollectionNotifier::CollectionNotifier;
 
+    // If this notifier has up-to-date results, populate the TableView with
+    // those results. Results calls this to avoid rerunning the Query on the
+    // source thread when possible. Returns true if it was able to populate the
+    // TableView, and false if the Results will need to update itself instead.
     virtual bool get_tableview(TableView&)
     {
         return false;
     }
+    // Same as get_tableview(), but for a sorted/distinct list of primitives
+    // instead of a Results of objects.
     virtual bool get_list_indices(ListIndices&)
     {
         return false;
@@ -64,13 +70,12 @@ private:
     // rerunning the query when there's no chance of it changing.
     TableVersions m_last_seen_version;
 
-    // The rows from the previous run of the query, for calculating diffs
-    std::vector<int64_t> m_previous_rows;
+    // The objects from the previous run of the query, for calculating diffs
+    ObjKeys m_previous_objs;
 
     TransactionChangeInfo* m_info = nullptr;
     bool m_results_were_used = true;
 
-    bool need_to_run();
     void calculate_changes();
 
     void run() override;

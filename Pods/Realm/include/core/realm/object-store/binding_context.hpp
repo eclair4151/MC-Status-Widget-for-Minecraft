@@ -41,12 +41,13 @@ namespace realm {
 // public:
 //     // A token returned from add_notification that can be used to remove the
 //     // notification later
-//     struct token : private std::list<std::function<void ()>>::iterator {
-//         token(std::list<std::function<void ()>>::iterator it) : std::list<std::function<void ()>>::iterator(it) { }
+//     struct token : private std::list<util::UniqueFunction<void ()>>::iterator {
+//         token(std::list<util::UniqueFunction<void ()>>::iterator it)
+//         : std::list<util::UniqueFunction<void ()>>::iterator(it) { }
 //         friend class DelegateImplementation;
 //     };
 //
-//     token add_notification(std::function<void ()> func)
+//     token add_notification(util::UniqueFunction<void ()> func)
 //     {
 //         m_registered_notifications.push_back(std::move(func));
 //         return token(std::prev(m_registered_notifications.end()));
@@ -68,7 +69,7 @@ namespace realm {
 //     }
 //
 // private:
-//     std::list<std::function<void ()>> m_registered_notifications;
+//     std::list<util::UniqueFunction<void ()>> m_registered_notifications;
 // };
 class Realm;
 class Schema;
@@ -146,7 +147,7 @@ public:
         IndexSet indices;
     };
 
-    // Information about an observed row in a table
+    // Information about an observed object in a table
     //
     // Each object which needs detailed change information should have an
     // ObserverState entry in the vector returned from get_observed_rows(), with
@@ -154,9 +155,9 @@ public:
     // The Realm parses the transaction log, and populates the `changes` vector
     // in each ObserverState with information about what changes were made.
     struct ObserverState {
-        // Table and row which is observed
+        // Table and object which is observed
         realm::TableKey table_key;
-        int64_t obj_key;
+        ObjKey obj_key;
 
         // Opaque userdata for the delegate's use
         void* info;

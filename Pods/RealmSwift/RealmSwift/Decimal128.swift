@@ -59,7 +59,8 @@ public final class Decimal128: RLMDecimal128, Decodable {
 
     /// Parse the given string as a Decimal128.
     ///
-    /// This initializer throws if the string is not a valid Decimal128 or is not a value which can be exactly represented by Decimal128.
+    /// This initializer never throws and is marked as `throws` only because removing it is a breaking
+    /// change. Strings which cannot be parsed as a Decimal128 return a value where `isNaN` is `true`.
     ///
     /// - parameter string: The string to parse.
     public override required init(string: String) throws {
@@ -86,12 +87,12 @@ public final class Decimal128: RLMDecimal128, Decodable {
 
     /// The mininum value for Decimal128
     public static var min: Decimal128 {
-        __minimumDecimalNumber as! Self
+        unsafeDowncast(__minimumDecimalNumber, to: Self.self)
     }
 
     /// The maximum value for Decimal128
     public static var max: Decimal128 {
-        __maximumDecimalNumber as! Self
+        unsafeDowncast(__maximumDecimalNumber, to: Self.self)
     }
 }
 
@@ -180,7 +181,7 @@ extension Decimal128: Comparable {
     }
 }
 
-extension Decimal128 {
+extension Decimal128: Numeric {
     /// Creates a new instance from the given integer, if it can be represented
     /// exactly.
     ///
@@ -200,7 +201,7 @@ extension Decimal128 {
 
     /// The magnitude of this Decimal128.
     public var magnitude: Magnitude {
-        self.__magnitude as! Magnitude
+        unsafeDowncast(self.__magnitude, to: Magnitude.self)
     }
 
     /// Adds two decimal128 values and produces their sum.
@@ -209,7 +210,7 @@ extension Decimal128 {
     ///   - lhs: The first Decimal128 value to add.
     ///   - rhs: The second Decimal128 value to add.
     public static func + (lhs: Decimal128, rhs: Decimal128) -> Decimal128 {
-        lhs.decimalNumber(byAdding: rhs) as! Decimal128
+        unsafeDowncast(lhs.decimalNumber(byAdding: rhs), to: Decimal128.self)
     }
 
     /// Subtracts one Decimal128 value from another and produces their difference.
@@ -218,7 +219,7 @@ extension Decimal128 {
     ///   - lhs: A Decimal128 value.
     ///   - rhs: The Decimal128 value to subtract from `lhs`.
     public static func - (lhs: Decimal128, rhs: Decimal128) -> Decimal128 {
-        lhs.decimalNumber(bySubtracting: rhs) as! Decimal128
+        unsafeDowncast(lhs.decimalNumber(bySubtracting: rhs), to: Decimal128.self)
     }
 
     /// Multiplies two Decimal128 values and produces their product.
@@ -227,7 +228,19 @@ extension Decimal128 {
     ///   - lhs: The first value to multiply.
     ///   - rhs: The second value to multiply.
     public static func * (lhs: Decimal128, rhs: Decimal128) -> Decimal128 {
-        lhs.decimalNumberByMultiplying(by: rhs) as! Decimal128
+        unsafeDowncast(lhs.decimalNumberByMultiplying(by: rhs), to: Decimal128.self)
+    }
+
+    /// Multiplies two values and stores the result in the left-hand-side
+    /// variable.
+    ///
+    /// - Parameters:
+    ///   - lhs: The first value to multiply.
+    ///   - rhs: The second value to multiply.
+    public static func *= (lhs: inout Decimal128, rhs: Decimal128) {
+        // Swiftlint wants us to use *= but this is the definition of *=
+        // swiftlint:disable:next shorthand_operator
+        lhs = lhs * rhs
     }
 
     /// Returns the quotient of dividing the first Decimal128 value by the second.
@@ -236,7 +249,7 @@ extension Decimal128 {
     ///   - lhs: The Decimal128 value to divide.
     ///   - rhs: The Decimal128 value to divide `lhs` by. `rhs` must not be zero.
     public static func / (lhs: Decimal128, rhs: Decimal128) -> Decimal128 {
-        lhs.decimalNumberByDividing(by: rhs) as! Decimal128
+        unsafeDowncast(lhs.decimalNumberByDividing(by: rhs), to: Decimal128.self)
     }
 }
 
@@ -249,8 +262,8 @@ extension Decimal128 {
     ///
     /// - Parameter other: The Decimal128 value to calculate the distance to.
     /// - Returns: The distance from this value to `other`.
-    public func distance(to other: Decimal128) -> Stride {
-        other - self
+    public func distance(to other: Decimal128) -> Decimal128 {
+        unsafeDowncast(other.decimalNumber(bySubtracting: self), to: Decimal128.self)
     }
 
     /// Returns a Decimal128 that is offset the specified distance from this value.
@@ -262,7 +275,7 @@ extension Decimal128 {
     /// - Parameter n: The distance to advance this Decimal128.
     /// - Returns: A Decimal128 that is offset from this value by `n`.
     public func advanced(by n: Decimal128) -> Decimal128 {
-        self + n
+        unsafeDowncast(decimalNumber(byAdding: n), to: Decimal128.self)
     }
 }
 

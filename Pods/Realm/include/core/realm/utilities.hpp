@@ -43,6 +43,7 @@ typedef SSIZE_T ssize_t;
 
 #include <realm/util/features.h>
 #include <realm/util/assert.hpp>
+#include <realm/util/functional.hpp>
 #include <realm/util/safe_int_ops.hpp>
 
 // GCC defines __i386__ and __x86_64__
@@ -74,7 +75,7 @@ typedef SSIZE_T ssize_t;
 
 namespace realm {
 
-using StringCompareCallback = std::function<bool(const char* string1, const char* string2)>;
+using StringCompareCallback = util::UniqueFunction<bool(const char* string1, const char* string2)>;
 
 extern signed char sse_support;
 extern signed char avx_support;
@@ -122,8 +123,8 @@ REALM_FORCEINLINE bool sseavx()
 void cpuid_init();
 void* round_up(void* p, size_t align);
 void* round_down(void* p, size_t align);
-size_t round_up(size_t p, size_t align);
-size_t round_down(size_t p, size_t align);
+constexpr size_t round_up(size_t p, size_t align);
+constexpr size_t round_down(size_t p, size_t align);
 void millisleep(unsigned long milliseconds);
 
 #ifdef _WIN32
@@ -319,6 +320,44 @@ OutputIt safe_copy_n(InputIt first, Size count, OutputIt result)
 #else
     return std::copy_n(first, count, result);
 #endif
+}
+
+// Converts ascii c-locale uppercase characters to lower case,
+// leaves other char values unchanged.
+inline char toLowerAscii(char c)
+{
+    if (isascii(c) && isupper(c)) {
+#if REALM_ANDROID
+        return tolower(c); // _tolower is not supported on all ABI levels
+#else
+        return _tolower(c);
+#endif
+    }
+    return c;
+}
+
+inline void* round_up(void* p, size_t align)
+{
+    size_t r = size_t(p) % align == 0 ? 0 : align - size_t(p) % align;
+    return static_cast<char*>(p) + r;
+}
+
+inline void* round_down(void* p, size_t align)
+{
+    size_t r = size_t(p);
+    return reinterpret_cast<void*>(r & ~(align - 1));
+}
+
+constexpr inline size_t round_up(size_t p, size_t align)
+{
+    size_t r = p % align == 0 ? 0 : align - p % align;
+    return p + r;
+}
+
+constexpr inline size_t round_down(size_t p, size_t align)
+{
+    size_t r = p;
+    return r & (~(align - 1));
 }
 
 

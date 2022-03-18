@@ -19,27 +19,30 @@
 #ifndef PUSH_CLIENT_HPP
 #define PUSH_CLIENT_HPP
 
-#include <realm/object-store/sync/auth_request_client.hpp>
-#include <realm/object-store/sync/app_service_client.hpp>
+#include <realm/util/functional.hpp>
 #include <realm/util/optional.hpp>
+
+#include <memory>
 #include <string>
-#include <map>
 
 namespace realm {
+class SyncUser;
 namespace app {
+class AuthRequestClient;
+struct AppError;
 
 class PushClient {
 public:
-    PushClient(const std::string& service_name, const std::string& app_id, const uint64_t timeout_ms,
-               std::shared_ptr<AuthRequestClient> auth_request_client)
+    PushClient(const std::string& service_name, const std::string& app_id, uint64_t timeout_ms,
+               std::shared_ptr<AuthRequestClient>&& auth_request_client)
         : m_service_name(service_name)
         , m_app_id(app_id)
         , m_timeout_ms(timeout_ms)
-        , m_auth_request_client(auth_request_client)
+        , m_auth_request_client(std::move(auth_request_client))
     {
     }
 
-    ~PushClient() = default;
+    ~PushClient();
     PushClient(const PushClient&) = default;
     PushClient(PushClient&&) = default;
     PushClient& operator=(const PushClient&) = default;
@@ -49,21 +52,19 @@ public:
     /// Register a device for push notifications.
     /// @param registration_token GCM registration token for the device.
     /// @param sync_user The sync user requesting push registration.
-    /// @param completion_block An error will be returned should something go wrong.
-    void register_device(const std::string& registration_token, std::shared_ptr<SyncUser> sync_user,
-                         std::function<void(util::Optional<AppError>)> completion_block);
+    /// @param completion An error will be returned should something go wrong.
+    void register_device(const std::string& registration_token, const std::shared_ptr<SyncUser>& sync_user,
+                         util::UniqueFunction<void(util::Optional<AppError>)>&& completion);
 
 
     /// Deregister a device for push notificatons, no token or device id needs to be passed
     /// as it is linked to the user in MongoDB Realm Cloud.
     /// @param sync_user The sync user requesting push degistration.
-    /// @param completion_block An error will be returned should something go wrong.
-    void deregister_device(std::shared_ptr<SyncUser> sync_user,
-                           std::function<void(util::Optional<AppError>)> completion_block);
+    /// @param completion An error will be returned should something go wrong.
+    void deregister_device(const std::shared_ptr<SyncUser>& sync_user,
+                           util::UniqueFunction<void(util::Optional<AppError>)>&& completion);
 
 private:
-    friend class App;
-
     std::string m_service_name;
     std::string m_app_id;
     uint64_t m_timeout_ms;

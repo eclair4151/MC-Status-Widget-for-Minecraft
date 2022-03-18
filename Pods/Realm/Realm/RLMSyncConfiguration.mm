@@ -115,38 +115,59 @@ RLMSyncSystemErrorKind errorKindForSyncError(SyncError error) {
     _config->cancel_waits_on_nonfatal_error = cancelAsyncOpenOnNonFatalErrors;
 }
 
+- (BOOL)enableFlexibleSync {
+    return _config->flx_sync_requested;
+}
+
 - (instancetype)initWithUser:(RLMUser *)user
               partitionValue:(nullable id<RLMBSON>)partitionValue {
     return [self initWithUser:user
                partitionValue:partitionValue
                 customFileURL:nil
-                   stopPolicy:RLMSyncStopPolicyAfterChangesUploaded];
+                   stopPolicy:RLMSyncStopPolicyAfterChangesUploaded
+           enableFlexibleSync:false];
 }
 
 - (instancetype)initWithUser:(RLMUser *)user
               partitionValue:(nullable id<RLMBSON>)partitionValue
-                  stopPolicy:(RLMSyncStopPolicy)stopPolicy{
+                  stopPolicy:(RLMSyncStopPolicy)stopPolicy {
     auto config = [self initWithUser:user
                       partitionValue:partitionValue
                        customFileURL:nil
-                          stopPolicy:stopPolicy];
+                          stopPolicy:stopPolicy
+                  enableFlexibleSync:false];
     return config;
 }
 
 - (instancetype)initWithUser:(RLMUser *)user
-              partitionValue:(id<RLMBSON>)partitionValue
+                  stopPolicy:(RLMSyncStopPolicy)stopPolicy
+          enableFlexibleSync:(BOOL)enableFlexibleSync {
+    auto config = [self initWithUser:user
+                      partitionValue:nil
+                       customFileURL:nil
+                          stopPolicy:stopPolicy
+                  enableFlexibleSync:enableFlexibleSync];
+    return config;
+}
+
+- (instancetype)initWithUser:(RLMUser *)user
+              partitionValue:(nullable id<RLMBSON>)partitionValue
                customFileURL:(nullable NSURL *)customFileURL
-                  stopPolicy:(RLMSyncStopPolicy)stopPolicy {
+                  stopPolicy:(RLMSyncStopPolicy)stopPolicy
+          enableFlexibleSync:(BOOL)enableFlexibleSync {
     if (self = [super init]) {
-        std::stringstream s;
-        s << RLMConvertRLMBSONToBson(partitionValue);
-        _config = std::make_unique<SyncConfig>(
-            [user _syncUser],
-            s.str()
-        );
+        if (enableFlexibleSync) {
+            _config = std::make_unique<SyncConfig>([user _syncUser], SyncConfig::FLXSyncEnabled{});
+        } else {
+            std::stringstream s;
+            s << RLMConvertRLMBSONToBson(partitionValue);
+            _config = std::make_unique<SyncConfig>([user _syncUser],
+                                                   s.str());
+        }
         _config->stop_policy = translateStopPolicy(stopPolicy);
-        RLMApp *app = user.app;
-        _config->error_handler = [app](std::shared_ptr<SyncSession> errored_session, SyncError error) {
+        RLMSyncManager *manager = [user.app syncManager];
+        __weak RLMSyncManager *weakManager = manager;
+        _config->error_handler = [weakManager](std::shared_ptr<SyncSession> errored_session, SyncError error) {
             NSString *recoveryPath;
             RLMSyncErrorActionToken *token;
             for (auto& pair : error.user_info) {
@@ -169,7 +190,9 @@ RLMSyncSystemErrorKind errorKindForSyncError(SyncError error) {
                     break;
                 }
                 case RLMSyncSystemErrorKindPermissionDenied: {
-                    custom = @{kRLMSyncErrorActionTokenKey: token};
+                    if (token) {
+                        custom = @{kRLMSyncErrorActionTokenKey: token};
+                    }
                     break;
                 }
                 case RLMSyncSystemErrorKindUser:
@@ -183,8 +206,10 @@ RLMSyncSystemErrorKind errorKindForSyncError(SyncError error) {
                     break;
             }
 
-            RLMSyncManager *manager = [app syncManager];
-            auto errorHandler = manager.errorHandler;
+            RLMSyncErrorReportingBlock errorHandler;
+            @autoreleasepool {
+                errorHandler = weakManager.errorHandler;
+            }
             if (!shouldMakeError || !errorHandler) {
                 return;
             }
@@ -196,7 +221,6 @@ RLMSyncSystemErrorKind errorKindForSyncError(SyncError error) {
         };
         _config->client_resync_mode = realm::ClientResyncMode::Manual;
 
-        RLMSyncManager *manager = [user.app syncManager];
         if (NSString *authorizationHeaderName = manager.authorizationHeaderName) {
             _config->authorization_header_name.emplace(authorizationHeaderName.UTF8String);
         }

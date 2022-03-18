@@ -116,9 +116,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 377DAA6E1DCDE40200009697 /* Build configuration list for PBXNativeTarget "SwiftSocket iOS" */;
 			buildPhases = (
+				377DAA661DCDE40200009697 /* Headers */,
 				377DAA641DCDE40200009697 /* Sources */,
 				377DAA651DCDE40200009697 /* Frameworks */,
-				377DAA661DCDE40200009697 /* Headers */,
 				377DAA671DCDE40200009697 /* Resources */,
 			);
 			buildRules = (

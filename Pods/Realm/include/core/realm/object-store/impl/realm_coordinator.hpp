@@ -21,8 +21,7 @@
 
 #include <realm/object-store/shared_realm.hpp>
 
-#include <realm/object-store/util/checked_mutex.hpp>
-
+#include <realm/util/checked_mutex.hpp>
 #include <realm/version_id.hpp>
 
 #include <condition_variable>
@@ -30,7 +29,6 @@
 
 namespace realm {
 class DB;
-class Replication;
 class Schema;
 class StringData;
 class SyncSession;
@@ -74,6 +72,12 @@ public:
     // This is also created as part of opening a Realm, so only use this
     // method if the session needs to exist before the Realm does.
     void create_session(const Realm::Config& config) REQUIRES(!m_realm_mutex, !m_schema_cache_mutex);
+
+    std::shared_ptr<SyncSession> sync_session() REQUIRES(!m_realm_mutex)
+    {
+        util::CheckedLockGuard lock(m_realm_mutex);
+        return m_sync_session;
+    }
 #endif
 
     // Get the existing cached Realm if it exists for the specified scheduler or config.scheduler
@@ -87,8 +91,9 @@ public:
     // be managed by this coordinator.
     void bind_to_context(Realm& realm) REQUIRES(!m_realm_mutex);
 
-    Realm::Config get_config() const
+    Realm::Config get_config() const REQUIRES(!m_realm_mutex)
     {
+        util::CheckedLockGuard lock(m_realm_mutex);
         return m_config;
     }
 
@@ -161,7 +166,7 @@ public:
 
     static void register_notifier(std::shared_ptr<CollectionNotifier> notifier);
 
-    std::shared_ptr<Group> begin_read(VersionID version = {}, bool frozen_transaction = false);
+    TransactionRef begin_read(VersionID version = {}, bool frozen_transaction = false);
 
     // Check if advance_to_ready() would actually advance the Realm's read version
     bool can_advance(Realm& realm);
@@ -178,16 +183,13 @@ public:
     // Deliver any notifications which are ready for the Realm's version
     void process_available_async(Realm& realm) REQUIRES(!m_notifier_mutex);
 
-    // Register a function which is called whenever sync makes a write to the Realm
-    void set_transaction_callback(std::function<void(VersionID, VersionID)>) REQUIRES(!m_transaction_callback_mutex);
-
     // Deliver notifications for the Realm, blocking if some aren't ready yet
     // The calling Realm must be in a write transaction
     void promote_to_write(Realm& realm) REQUIRES(!m_notifier_mutex);
 
     // Commit a Realm's current write transaction and send notifications to all
     // other Realm instances for that path, including in other processes
-    void commit_write(Realm& realm) REQUIRES(!m_notifier_mutex);
+    void commit_write(Realm& realm, bool commit_to_disk = true) REQUIRES(!m_notifier_mutex);
 
     void enable_wait_for_change();
     bool wait_for_change(std::shared_ptr<Transaction> tr);
@@ -195,9 +197,12 @@ public:
 
     void close();
     bool compact();
+    void write_copy(StringData path, BinaryData key, bool allow_overwrite);
 
     template <typename Pred>
     util::CheckedUniqueLock wait_for_notifiers(Pred&& wait_predicate) REQUIRES(!m_notifier_mutex);
+
+    void async_request_write_mutex(Realm& realm);
 
     AuditInterface* audit_context() const noexcept
     {
@@ -207,9 +212,7 @@ public:
 private:
     friend Realm::Internal;
     Realm::Config m_config;
-    std::unique_ptr<Replication> m_history;
     std::shared_ptr<DB> m_db;
-    std::shared_ptr<Group> m_read_only_group;
 
     mutable util::CheckedMutex m_schema_cache_mutex;
     util::Optional<Schema> m_cached_schema GUARDED_BY(m_schema_cache_mutex);
@@ -221,7 +224,7 @@ private:
     std::vector<WeakRealmNotifier> m_weak_realm_notifiers GUARDED_BY(m_realm_mutex);
 
     util::CheckedMutex m_notifier_mutex;
-    std::condition_variable m_notifier_cv;
+    std::condition_variable m_notifier_cv GUARDED_BY(m_notifier_mutex);
     std::vector<std::shared_ptr<_impl::CollectionNotifier>> m_new_notifiers GUARDED_BY(m_notifier_mutex);
     std::vector<std::shared_ptr<_impl::CollectionNotifier>> m_notifiers GUARDED_BY(m_notifier_mutex);
     VersionID m_notifier_skip_version GUARDED_BY(m_notifier_mutex) = {0, 0};
@@ -233,8 +236,6 @@ private:
     std::exception_ptr m_async_error;
 
     std::unique_ptr<_impl::ExternalCommitHelper> m_notifier;
-    util::CheckedMutex m_transaction_callback_mutex;
-    std::function<void(VersionID, VersionID)> m_transaction_callback GUARDED_BY(m_transaction_callback_mutex);
 
 #if REALM_ENABLE_SYNC
     std::shared_ptr<SyncSession> m_sync_session;
@@ -245,7 +246,7 @@ private:
     void open_db();
 
     void set_config(const Realm::Config&) REQUIRES(m_realm_mutex, !m_schema_cache_mutex);
-    void create_sync_session(bool force_client_resync);
+    void create_sync_session();
     std::shared_ptr<Realm> do_get_cached_realm(Realm::Config const& config,
                                                std::shared_ptr<util::Scheduler> scheduler = nullptr)
         REQUIRES(m_realm_mutex);

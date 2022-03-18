@@ -159,9 +159,15 @@ NSString *RLMRealmPathForFile(NSString *fileName) {
         @throw RLMException(@"In-memory identifier must not be empty");
     }
     _config.sync_config = nullptr;
+    _seedFilePath = nil;
 
     RLMNSStringToStdString(_config.path, [NSTemporaryDirectory() stringByAppendingPathComponent:inMemoryIdentifier]);
     _config.in_memory = true;
+}
+
+- (void)setSeedFilePath:(NSURL *)seedFilePath {
+    _seedFilePath = seedFilePath;
+    _config.in_memory = false;
 }
 
 - (NSData *)encryptionKey {
@@ -172,25 +178,14 @@ NSString *RLMRealmPathForFile(NSString *fileName) {
     if (NSData *key = RLMRealmValidatedEncryptionKey(encryptionKey)) {
         auto bytes = static_cast<const char *>(key.bytes);
         _config.encryption_key.assign(bytes, bytes + key.length);
-#if REALM_ENABLE_SYNC
-        if (_config.sync_config) {
-            auto& sync_encryption_key = self.config.sync_config->realm_encryption_key;
-            sync_encryption_key = std::array<char, 64>();
-            std::copy_n(_config.encryption_key.begin(), 64, sync_encryption_key->begin());
-        }
-#endif
     }
     else {
         _config.encryption_key.clear();
-#if REALM_ENABLE_SYNC
-        if (_config.sync_config)
-            _config.sync_config->realm_encryption_key = realm::util::none;
-#endif
     }
 }
 
 - (BOOL)readOnly {
-    return _config.immutable() || _config.read_only_alternative();
+    return _config.immutable() || _config.read_only();
 }
 
 static bool isSync(realm::Realm::Config const& config) {
@@ -200,6 +195,28 @@ static bool isSync(realm::Realm::Config const& config) {
     return false;
 }
 
+- (void)updateSchemaMode {
+    if (self.deleteRealmIfMigrationNeeded) {
+        if (isSync(_config)) {
+            @throw RLMException(@"Cannot set 'deleteRealmIfMigrationNeeded' when sync is enabled ('syncConfig' is set).");
+        }
+    }
+    else if (self.readOnly) {
+        _config.schema_mode = isSync(_config) ? realm::SchemaMode::ReadOnly : realm::SchemaMode::Immutable;
+    }
+    else if (isSync(_config)) {
+        if (_customSchema) {
+            _config.schema_mode = realm::SchemaMode::AdditiveExplicit;
+        }
+        else {
+            _config.schema_mode = realm::SchemaMode::AdditiveDiscovered;
+        }
+    }
+    else {
+        _config.schema_mode = realm::SchemaMode::Automatic;
+    }
+}
+
 - (void)setReadOnly:(BOOL)readOnly {
     if (readOnly) {
         if (self.deleteRealmIfMigrationNeeded) {
@@ -207,10 +224,11 @@ static bool isSync(realm::Realm::Config const& config) {
         } else if (self.shouldCompactOnLaunch) {
             @throw RLMException(@"Cannot set `readOnly` when `shouldCompactOnLaunch` is set.");
         }
-        _config.schema_mode = isSync(_config) ? realm::SchemaMode::ReadOnlyAlternative : realm::SchemaMode::Immutable;
+        _config.schema_mode = isSync(_config) ? realm::SchemaMode::ReadOnly : realm::SchemaMode::Immutable;
     }
     else if (self.readOnly) {
-        _config.schema_mode = isSync(_config) ? realm::SchemaMode::Additive : realm::SchemaMode::Automatic;
+        _config.schema_mode = realm::SchemaMode::Automatic;
+        [self updateSchemaMode];
     }
 }
 
@@ -249,7 +267,8 @@ static bool isSync(realm::Realm::Config const& config) {
 }
 
 - (void)setObjectClasses:(NSArray *)objectClasses {
-    self.customSchema = [RLMSchema schemaWithObjectClasses:objectClasses];
+    self.customSchema = objectClasses ? [RLMSchema schemaWithObjectClasses:objectClasses] : nil;
+    [self updateSchemaMode];
 }
 
 - (NSUInteger)maximumNumberOfActiveVersions {

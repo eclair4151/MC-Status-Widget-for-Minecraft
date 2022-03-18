@@ -57,7 +57,12 @@ public:
         int64_t split_key; // When a node is split, this variable holds the value of the
                            // first key in the new node. (Relative to the key offset)
         MemRef mem;        // MemRef to the Cluster holding the new/found object
-        size_t index;      // The index within the Cluster at which the object is stored.
+        size_t index = realm::npos; // The index within the Cluster at which the object is stored.
+
+        operator bool() const
+        {
+            return index != realm::npos;
+        }
     };
 
     struct IteratorState {
@@ -96,6 +101,8 @@ public:
         return m_keys.get(ndx);
     }
 
+    const Table* get_owning_table() const noexcept;
+
     virtual void update_from_parent() noexcept = 0;
     virtual bool is_leaf() const = 0;
     virtual int get_sub_tree_depth() const = 0;
@@ -111,6 +118,9 @@ public:
     /// Descend the tree from the root and copy-on-write the leaf
     /// This will update all parents accordingly
     virtual MemRef ensure_writeable(ObjKey k) = 0;
+    /// A leaf cluster has got a new ref. Descend the tree from the root,
+    /// find the leaf and update the ref in the parent node
+    virtual void update_ref_in_parent(ObjKey k, ref_type ref) = 0;
 
     /// Init and potentially Insert a column
     virtual void insert_column(ColKey col) = 0;
@@ -128,11 +138,11 @@ public:
     void get(ObjKey key, State& state) const;
     /// Locate object identified by 'key' and update 'state' accordingly
     /// Returns `false` if the object doesn't not exist.
-    virtual bool try_get(ObjKey key, State& state) const = 0;
+    virtual bool try_get(ObjKey key, State& state) const noexcept = 0;
     /// Locate object identified by 'ndx' and update 'state' accordingly
     virtual ObjKey get(size_t ndx, State& state) const = 0;
     /// Return the index at which key is stored
-    virtual size_t get_ndx(ObjKey key, size_t ndx) const = 0;
+    virtual size_t get_ndx(ObjKey key, size_t ndx) const noexcept = 0;
 
     /// Erase element identified by 'key'
     virtual size_t erase(ObjKey key, CascadeState& state) = 0;
@@ -191,11 +201,13 @@ public:
     void create(); // Note: leaf columns - may include holes
     void init(MemRef mem) override;
     void update_from_parent() noexcept override;
+
     bool is_writeable() const
     {
         return !Array::is_read_only();
     }
     MemRef ensure_writeable(ObjKey k) override;
+    void update_ref_in_parent(ObjKey, ref_type ref) override;
 
     bool is_leaf() const override
     {
@@ -243,7 +255,6 @@ public:
         m_keys.adjust(0, m_keys.size(), offset);
     }
 
-    const Table* get_owning_table() const;
     ColKey get_col_key(size_t ndx_in_parent) const;
 
     void ensure_general_form() override;
@@ -254,9 +265,9 @@ public:
         return size() - s_first_col_index;
     }
     ref_type insert(ObjKey k, const FieldValues& init_values, State& state) override;
-    bool try_get(ObjKey k, State& state) const override;
+    bool try_get(ObjKey k, State& state) const noexcept override;
     ObjKey get(size_t, State& state) const override;
-    size_t get_ndx(ObjKey key, size_t ndx) const override;
+    size_t get_ndx(ObjKey key, size_t ndx) const noexcept override;
     size_t erase(ObjKey k, CascadeState& state) override;
     void nullify_incoming_links(ObjKey key, CascadeState& state) override;
     void upgrade_string_to_enum(ColKey col, ArrayString& keys);
@@ -291,9 +302,12 @@ private:
     template <class T>
     void do_erase(size_t ndx, ColKey col);
     void remove_backlinks(ObjKey origin_key, ColKey col, const std::vector<ObjKey>& keys, CascadeState& state) const;
+    void remove_backlinks(ObjKey origin_key, ColKey col, const std::vector<ObjLink>& links,
+                          CascadeState& state) const;
     void do_erase_key(size_t ndx, ColKey col, CascadeState& state);
     void do_insert_key(size_t ndx, ColKey col, Mixed init_val, ObjKey origin_key);
     void do_insert_link(size_t ndx, ColKey col, Mixed init_val, ObjKey origin_key);
+    void do_insert_mixed(size_t ndx, ColKey col_key, Mixed init_value, ObjKey origin_key);
     template <class T>
     void set_spec(T&, ColKey::Idx) const;
     template <class ArrayType>

@@ -1,0 +1,6 @@
+framework module Pods_MC_Status {
+  umbrella header "Pods-MC Status-umbrella.h"
+
+  export *
+  module * { export * }
+}

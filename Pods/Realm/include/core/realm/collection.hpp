@@ -14,6 +14,13 @@ namespace realm {
 template <class L>
 struct CollectionIterator;
 
+/// Base class for all collection accessors.
+///
+/// Collections are bound to particular properties of an object. In a
+/// collection's public interface, the implementation must take care to keep the
+/// object consistent with the persisted state, mindful of the fact that the
+/// state may have changed as a consquence of modifications from other instances
+/// referencing the same persisted state.
 class CollectionBase {
 public:
     virtual ~CollectionBase() {}
@@ -31,18 +38,20 @@ public:
     virtual void clear() = 0;
 
     /// Get the min element, according to whatever comparison function is
-    /// meaningful for the collection.
-    virtual Mixed min(size_t* return_ndx = nullptr) const = 0;
+    /// meaningful for the collection, or none if min is not supported for this type.
+    virtual util::Optional<Mixed> min(size_t* return_ndx = nullptr) const = 0;
 
     /// Get the max element, according to whatever comparison function is
-    /// meaningful for the collection.
-    virtual Mixed max(size_t* return_ndx = nullptr) const = 0;
+    /// meaningful for the collection, or none if max is not supported for this type.
+    virtual util::Optional<Mixed> max(size_t* return_ndx = nullptr) const = 0;
 
     /// For collections of arithmetic types, return the sum of all elements.
-    virtual Mixed sum(size_t* return_cnt = nullptr) const = 0;
+    /// For non arithmetic types, returns none.
+    virtual util::Optional<Mixed> sum(size_t* return_cnt = nullptr) const = 0;
 
     /// For collections of arithmetic types, return the average of all elements.
-    virtual Mixed avg(size_t* return_cnt = nullptr) const = 0;
+    /// For non arithmetic types, returns none.
+    virtual util::Optional<Mixed> avg(size_t* return_cnt = nullptr) const = 0;
 
     /// Produce a clone of the collection accessor referring to the same
     /// underlying memory.
@@ -57,6 +66,9 @@ public:
     /// order, otherwise the indices will be in the same order as they appear in
     /// the collection.
     virtual void distinct(std::vector<size_t>& indices, util::Optional<bool> sort_order = util::none) const = 0;
+
+    // Return index of the first occurrence of 'value'
+    virtual size_t find_any(Mixed value) const = 0;
 
     /// True if `size()` returns 0.
     virtual bool is_empty() const final
@@ -85,7 +97,7 @@ public:
     // Note: virtual..final prevents static override.
 
     /// Get the key of the object that owns this collection.
-    virtual ObjKey get_key() const noexcept final
+    virtual ObjKey get_owner_key() const noexcept final
     {
         return get_obj().get_key();
     }
@@ -102,6 +114,11 @@ public:
         return get_obj().get_target_table(get_col_key());
     }
 
+    virtual size_t translate_index(size_t ndx) const noexcept
+    {
+        return ndx;
+    }
+
 protected:
     friend class Transaction;
     CollectionBase() noexcept = default;
@@ -109,15 +126,6 @@ protected:
     CollectionBase(CollectionBase&&) noexcept = default;
     CollectionBase& operator=(const CollectionBase&) noexcept = default;
     CollectionBase& operator=(CollectionBase&&) noexcept = default;
-
-    /// Unconditionally (re)initialize this accessor from its parent (the owner
-    /// object). May leave the collection detached if the object is no longer
-    /// valid. Return true if the accessor is attached.
-    virtual bool init_from_parent() const = 0;
-
-    /// If the underlying memory has changed, update this accessor to reflect
-    /// the new state. Returns true if the accessor was actually updated.
-    virtual bool update_if_needed() const = 0;
 };
 
 
@@ -159,36 +167,64 @@ inline void check_column_type<ObjKey>(ColKey col)
 template <class T, class = void>
 struct MinHelper {
     template <class U>
-    static Mixed eval(U&, size_t*) noexcept
+    static util::Optional<Mixed> eval(U&, size_t*) noexcept
     {
-        return Mixed{};
+        return util::none;
+    }
+    static util::Optional<Mixed> not_found(size_t*) noexcept
+    {
+        return util::none;
     }
 };
 
 template <class T>
 struct MinHelper<T, std::void_t<ColumnMinMaxType<T>>> {
     template <class U>
-    static Mixed eval(U& tree, size_t* return_ndx)
+    static util::Optional<Mixed> eval(U& tree, size_t* return_ndx)
     {
-        return Mixed(bptree_minimum<T>(tree, return_ndx));
+        auto optional_min = bptree_minimum<T>(tree, return_ndx);
+        if (optional_min) {
+            return Mixed{*optional_min};
+        }
+        return Mixed{};
+    }
+    static util::Optional<Mixed> not_found(size_t* return_ndx) noexcept
+    {
+        if (return_ndx)
+            *return_ndx = realm::not_found;
+        return Mixed{};
     }
 };
 
 template <class T, class Enable = void>
 struct MaxHelper {
     template <class U>
-    static Mixed eval(U&, size_t*) noexcept
+    static util::Optional<Mixed> eval(U&, size_t*) noexcept
     {
-        return Mixed{};
+        return util::none;
+    }
+    static util::Optional<Mixed> not_found(size_t*) noexcept
+    {
+        return util::none;
     }
 };
 
 template <class T>
 struct MaxHelper<T, std::void_t<ColumnMinMaxType<T>>> {
     template <class U>
-    static Mixed eval(U& tree, size_t* return_ndx)
+    static util::Optional<Mixed> eval(U& tree, size_t* return_ndx)
     {
-        return Mixed(bptree_maximum<T>(tree, return_ndx));
+        auto optional_max = bptree_maximum<T>(tree, return_ndx);
+        if (optional_max) {
+            return Mixed{*optional_max};
+        }
+        return Mixed{};
+    }
+    static util::Optional<Mixed> not_found(size_t* return_ndx) noexcept
+    {
+        if (return_ndx)
+            *return_ndx = realm::not_found;
+        return Mixed{};
     }
 };
 
@@ -196,11 +232,15 @@ template <class T, class Enable = void>
 class SumHelper {
 public:
     template <class U>
-    static Mixed eval(U&, size_t* return_cnt) noexcept
+    static util::Optional<Mixed> eval(U&, size_t* return_cnt) noexcept
     {
         if (return_cnt)
             *return_cnt = 0;
-        return Mixed{};
+        return util::none;
+    }
+    static util::Optional<Mixed> not_found(size_t*) noexcept
+    {
+        return util::none;
     }
 };
 
@@ -208,16 +248,47 @@ template <class T>
 class SumHelper<T, std::void_t<ColumnSumType<T>>> {
 public:
     template <class U>
-    static Mixed eval(U& tree, size_t* return_cnt)
+    static util::Optional<Mixed> eval(U& tree, size_t* return_cnt)
     {
-        return Mixed(bptree_sum<T>(tree, return_cnt));
+        return Mixed{bptree_sum<T>(tree, return_cnt)};
+    }
+    static util::Optional<Mixed> not_found(size_t* return_cnt) noexcept
+    {
+        if (return_cnt)
+            *return_cnt = 0;
+        using ResultType = typename aggregate_operations::Sum<typename util::RemoveOptional<T>::type>::ResultType;
+        return Mixed{ResultType{}};
     }
 };
 
 template <class T, class = void>
 struct AverageHelper {
     template <class U>
-    static Mixed eval(U&, size_t* return_cnt) noexcept
+    static util::Optional<Mixed> eval(U&, size_t* return_cnt) noexcept
+    {
+        if (return_cnt)
+            *return_cnt = 0;
+        return util::none;
+    }
+    static util::Optional<Mixed> not_found(size_t*) noexcept
+    {
+        return util::none;
+    }
+};
+
+template <class T>
+struct AverageHelper<T, std::void_t<ColumnSumType<T>>> {
+    template <class U>
+    static util::Optional<Mixed> eval(U& tree, size_t* return_cnt)
+    {
+        size_t count = 0;
+        auto result = Mixed{bptree_average<T>(tree, &count)};
+        if (return_cnt) {
+            *return_cnt = count;
+        }
+        return count == 0 ? util::none : result;
+    }
+    static util::Optional<Mixed> not_found(size_t* return_cnt) noexcept
     {
         if (return_cnt)
             *return_cnt = 0;
@@ -225,19 +296,10 @@ struct AverageHelper {
     }
 };
 
-template <class T>
-struct AverageHelper<T, std::void_t<ColumnSumType<T>>> {
-    template <class U>
-    static Mixed eval(U& tree, size_t* return_cnt)
-    {
-        return Mixed(bptree_average<T>(tree, return_cnt));
-    }
-};
-
 /// Convenience base class for collections, which implements most of the
 /// relevant interfaces for a collection that is bound to an object accessor and
 /// representable as a BPlusTree<T>.
-template <class Interface>
+template <class Interface, class Derived>
 class CollectionBaseImpl : public Interface, protected ArrayParent {
 public:
     static_assert(std::is_base_of_v<CollectionBase, Interface>);
@@ -253,8 +315,20 @@ public:
         return m_obj;
     }
 
+
+    /// Returns true if the accessor has changed since the last time
+    /// `has_changed()` was called.
+    ///
+    /// Note: This method is not idempotent.
+    ///
+    /// Note: This involves a call to `update_if_needed()`.
+    ///
+    /// Note: This function does not return true for an accessor that became
+    /// detached since the last call, even though it may look to the caller as
+    /// if the size of the collection suddenly became zero.
     bool has_changed() const final
     {
+        // `has_changed()` sneakily modifies internal state.
         update_if_needed();
         if (m_last_content_version != m_content_version) {
             m_last_content_version = m_content_version;
@@ -263,7 +337,8 @@ public:
         return false;
     }
 
-    using Interface::get_key;
+    using Interface::get_owner_key;
+    using Interface::get_table;
     using Interface::get_target_table;
 
 protected:
@@ -272,8 +347,9 @@ protected:
     bool m_nullable = false;
 
     mutable uint_fast64_t m_content_version = 0;
+
+    // Content version used by `has_changed()`.
     mutable uint_fast64_t m_last_content_version = 0;
-    mutable bool m_valid = false;
 
     CollectionBaseImpl() = default;
     CollectionBaseImpl(const CollectionBaseImpl& other) = default;
@@ -289,33 +365,67 @@ protected:
     CollectionBaseImpl& operator=(const CollectionBaseImpl& other) = default;
     CollectionBaseImpl& operator=(CollectionBaseImpl&& other) = default;
 
-    bool operator==(const CollectionBaseImpl& other) const noexcept
+    bool operator==(const Derived& other) const noexcept
     {
-        return get_key() == other.get_key() && get_col_key() == other.get_col_key();
+        return get_table() == other.get_table() && get_owner_key() == other.get_owner_key() &&
+               get_col_key() == other.get_col_key();
     }
 
-    bool operator!=(const CollectionBaseImpl& other) const noexcept
+    bool operator!=(const Derived& other) const noexcept
     {
         return !(*this == other);
     }
 
-    // Overriding members of CollectionBase:
-    bool update_if_needed() const final
+    /// Refresh the associated `Obj` (if needed), and update the internal
+    /// content version number. This is meant to be called from a derived class
+    /// before accessing its data.
+    ///
+    /// If the `Obj` changed since the last call, or the content version was
+    /// bumped, this returns `UpdateStatus::Updated`. In response, the caller
+    /// must invoke `init_from_parent()` or similar on its internal state
+    /// accessors to refresh its view of the data.
+    ///
+    /// If the owning object (or parent container) was deleted, this returns
+    /// `UpdateStatus::Detached`, and the caller is allowed to enter a
+    /// degenerate state.
+    ///
+    /// If no change has happened to the data, this function returns
+    /// `UpdateStatus::NoChange`, and the caller is allowed to not do anything.
+    virtual UpdateStatus update_if_needed() const
     {
-        if (!m_obj.is_valid())
-            return false;
+        UpdateStatus status = m_obj.update_if_needed_with_status();
 
-        auto content_version = m_obj.get_alloc().get_content_version();
-        if (m_obj.update_if_needed() || content_version != m_content_version) {
-            this->init_from_parent();
-            return true;
+        if (status != UpdateStatus::Detached) {
+            auto content_version = m_obj.get_alloc().get_content_version();
+            if (content_version != m_content_version) {
+                m_content_version = content_version;
+                status = UpdateStatus::Updated;
+            }
         }
-        return false;
+
+        return status;
     }
 
-    void update_content_version() const noexcept
+    /// Refresh the associated `Obj` (if needed) and ensure that the
+    /// collection is created. Must be used in places where you
+    /// modify a potentially detached collection.
+    ///
+    /// The caller must react to the `UpdateStatus` in the same way as with
+    /// `update_if_needed()`, i.e., eventually end up calling
+    /// `init_from_parent()` or similar.
+    ///
+    /// Throws if the owning object no longer exists. Note: This means that this
+    /// method will never return `UpdateStatus::Detached`.
+    virtual UpdateStatus ensure_created()
     {
-        m_content_version = m_obj.get_alloc().get_content_version();
+        bool changed = m_obj.update_if_needed(); // Throws if the object does not exist.
+        auto content_version = m_obj.get_alloc().get_content_version();
+
+        if (changed || content_version != m_content_version) {
+            m_content_version = content_version;
+            return UpdateStatus::Updated;
+        }
+        return UpdateStatus::NoChange;
     }
 
     void bump_content_version()
@@ -323,14 +433,16 @@ protected:
         m_content_version = m_obj.bump_content_version();
     }
 
-    void ensure_writeable()
+    /// Reset the accessor's tracking of the content version. Derived classes
+    /// may choose to call this to force the accessor to become out of date,
+    /// such that `update_if_needed()` returns `UpdateStatus::Updated` the next
+    /// time it is called (or `UpdateStatus::Detached` if the data vanished in
+    /// the meantime).
+    void reset_content_version()
     {
-        if (m_obj.ensure_writeable()) {
-            this->init_from_parent();
-        }
+        m_content_version = 0;
     }
 
-protected:
     // Overriding ArrayParent interface:
     ref_type get_child_ref(size_t child_ndx) const noexcept final
     {
@@ -354,16 +466,17 @@ namespace _impl {
 /// Translate from condensed index to uncondensed index in collections that hide
 /// tombstones.
 size_t virtual2real(const std::vector<size_t>& vec, size_t ndx) noexcept;
+size_t virtual2real(const BPlusTree<ObjKey>* tree, size_t ndx) noexcept;
 
 /// Translate from uncondensed index to condensed into in collections that hide
 /// tombstones.
 size_t real2virtual(const std::vector<size_t>& vec, size_t ndx) noexcept;
 
 /// Rebuild the list of unresolved keys for tombstone handling.
-void update_unresolved(std::vector<size_t>& vec, const BPlusTree<ObjKey>& tree);
+void update_unresolved(std::vector<size_t>& vec, const BPlusTree<ObjKey>* tree);
 
 /// Clear the context flag on the tree if there are no more unresolved links.
-void check_for_last_unresolved(BPlusTree<ObjKey>& tree);
+void check_for_last_unresolved(BPlusTree<ObjKey>* tree);
 
 /// Proxy class needed because the ObjList interface clobbers method names from
 /// CollectionBase.
@@ -385,6 +498,8 @@ class ObjCollectionBase : public Interface, public _impl::ObjListProxy {
 public:
     static_assert(std::is_base_of_v<CollectionBase, Interface>);
 
+    using Interface::get_col_key;
+    using Interface::get_obj;
     using Interface::get_table;
     using Interface::is_attached;
     using Interface::size;
@@ -401,9 +516,7 @@ public:
 
     void sync_if_needed() const final
     {
-        if (is_attached()) {
-            update_if_needed();
-        }
+        update_if_needed();
     }
 
     bool is_in_sync() const noexcept final
@@ -413,6 +526,7 @@ public:
 
     bool has_unresolved() const noexcept
     {
+        update_if_needed();
         return m_unresolved.size() != 0;
     }
 
@@ -427,35 +541,20 @@ protected:
 
     /// Implementations should call `update_if_needed()` on their inner accessor
     /// (without `update_unresolved()`).
-    virtual bool do_update_if_needed() const = 0;
-
-    /// Implementations should call `init_from_parent()` on their inner accessor
-    /// (without `update_unresolved()`).
-    virtual bool do_init_from_parent() const = 0;
+    virtual UpdateStatus do_update_if_needed() const = 0;
 
     /// Implementations should return a non-const reference to their internal
     /// `BPlusTree<T>`.
-    virtual BPlusTree<ObjKey>& get_mutable_tree() const = 0;
-
-    /// Calls `do_init_from_parent()` and updates the list of unresolved links.
-    bool init_from_parent() const final
-    {
-        clear_unresolved();
-        bool valid = do_init_from_parent();
-        if (valid) {
-            update_unresolved();
-        }
-        return valid;
-    }
+    virtual BPlusTree<ObjKey>* get_mutable_tree() const = 0;
 
     /// Implements update_if_needed() in a way that ensures the consistency of
     /// the unresolved list. Derived classes should call this instead of calling
     /// `update_if_needed()` on their inner accessor.
-    bool update_if_needed() const final
+    UpdateStatus update_if_needed() const
     {
-        bool updated = do_update_if_needed();
-        update_unresolved();
-        return updated;
+        auto status = do_update_if_needed();
+        update_unresolved(status);
+        return status;
     }
 
     /// Translate from condensed index to uncondensed.
@@ -470,22 +569,28 @@ protected:
         return _impl::real2virtual(m_unresolved, ndx);
     }
 
-    /// Rebuild the list of tombstones if there is a chance that it has changed.
-    void update_unresolved() const
+    /// Rebuild the list of tombstones if there is a possibility that it has
+    /// changed.
+    ///
+    /// If the accessor became detached, this clears the unresolved list.
+    void update_unresolved(UpdateStatus status) const
     {
-        const auto& obj = this->get_obj();
-        if (obj.is_valid()) {
-            auto content_version = this->get_obj().get_alloc().get_content_version();
-            if (content_version != m_content_version) {
-                _impl::update_unresolved(m_unresolved, get_mutable_tree());
-                m_content_version = content_version;
+        switch (status) {
+            case UpdateStatus::Detached: {
+                clear_unresolved();
+                break;
             }
-        }
-        else {
-            clear_unresolved();
+            case UpdateStatus::Updated: {
+                _impl::update_unresolved(m_unresolved, get_mutable_tree());
+                break;
+            }
+            case UpdateStatus::NoChange:
+                break;
         }
     }
 
+    /// When a tombstone is removed from a list, call this to update internal
+    /// flags that indicate the presence of tombstones.
     void check_for_last_unresolved()
     {
         _impl::check_for_last_unresolved(get_mutable_tree());
@@ -496,7 +601,6 @@ protected:
     void clear_unresolved() const noexcept
     {
         m_unresolved.clear();
-        m_content_version = uint_fast64_t(-1);
     }
 
     /// Return the number of tombstones.
@@ -509,15 +613,22 @@ private:
     // Sorted set of indices containing unresolved links.
     mutable std::vector<size_t> m_unresolved;
 
-    // We need to track the content version separately to keep the list of
-    // unresolved indices up to date, and can't rely on the return value of
-    // `do_update_if_needed()`, because the inner accessor may have been
-    // refreshed without our knowledge.
-    mutable uint_fast64_t m_content_version = uint_fast64_t(-1);
-
     TableRef proxy_get_target_table() const final
     {
         return Interface::get_target_table();
+    }
+    bool matches(const ObjList& other) const final
+    {
+        return get_owning_obj().get_key() == other.get_owning_obj().get_key() &&
+               get_owning_col_key() == other.get_owning_col_key();
+    }
+    Obj get_owning_obj() const final
+    {
+        return get_obj();
+    }
+    ColKey get_owning_col_key() const final
+    {
+        return get_col_key();
     }
 };
 

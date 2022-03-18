@@ -347,7 +347,7 @@ struct Payload {
                 case Type::Erased:
                     return true;
                 case Type::Dictionary:
-                    return lhs.data.key == rhs.data.key;
+                    return true;
                 case Type::ObjectValue:
                     return true;
                 case Type::GlobalKey:
@@ -829,8 +829,6 @@ inline bool is_valid_key_type(Instruction::Payload::Type type) noexcept
 {
     using Type = Instruction::Payload::Type;
     switch (type) {
-        case Type::Null:
-            [[fallthrough]];
         case Type::Int:
             [[fallthrough]];
         case Type::String:
@@ -841,6 +839,8 @@ inline bool is_valid_key_type(Instruction::Payload::Type type) noexcept
             [[fallthrough]];
         case Type::GlobalKey:
             return true;
+        case Type::Null: // Mixed is not a valid primary key
+            [[fallthrough]];
         default:
             return false;
     }
@@ -872,6 +872,8 @@ inline DataType get_data_type(Instruction::Payload::Type type) noexcept
             return type_ObjectId;
         case Type::UUID:
             return type_UUID;
+        case Type::Null: // Mixed is encoded as null
+            return type_Mixed;
         case Type::Erased:
             [[fallthrough]];
         case Type::Dictionary:
@@ -879,9 +881,7 @@ inline DataType get_data_type(Instruction::Payload::Type type) noexcept
         case Type::ObjectValue:
             [[fallthrough]];
         case Type::GlobalKey:
-            [[fallthrough]];
-        case Type::Null:
-            REALM_TERMINATE("Invalid data type");
+            REALM_TERMINATE(util::format("Invalid data type: %1", int8_t(type)).c_str());
     }
     return type_Int; // Make compiler happy
 }
@@ -1017,7 +1017,7 @@ inline bool Instruction::operator==(const Instruction& other) const noexcept
 }
 
 template <class T>
-inline T* Instruction::get_if() noexcept
+REALM_NOINLINE T* Instruction::get_if() noexcept
 {
     // FIXME: Is there a way to express this without giant switch statements? Note: Putting the
     // base class into a union does not seem to be allowed by the standard.

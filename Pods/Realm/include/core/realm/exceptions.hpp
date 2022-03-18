@@ -125,24 +125,6 @@ public:
     }
 };
 
-/// Thrown when a column can not by found
-class ColumnNotFound : public std::runtime_error {
-public:
-    ColumnNotFound()
-        : std::runtime_error("Column not found")
-    {
-    }
-};
-
-/// Thrown when a column key is already used
-class ColumnAlreadyExists : public std::runtime_error {
-public:
-    ColumnAlreadyExists()
-        : std::runtime_error("Column already exists")
-    {
-    }
-};
-
 /// Thrown when a key is already existing when trying to create a new object
 class KeyAlreadyUsed : public std::runtime_error {
 public:
@@ -219,9 +201,6 @@ private:
 /// exception being thrown. The whole point of properly documenting "Undefined
 /// Behaviour" cases is to help the user know what the limits are, without
 /// constraining the database to handle every and any use-case thrown at it.
-///
-/// FIXME: This exception class should probably be moved to the `_impl`
-/// namespace, in order to avoid some confusion.
 class LogicError : public ExceptionWithBacktrace<std::exception> {
 public:
     enum ErrorKind {

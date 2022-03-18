@@ -38,11 +38,11 @@ class SyncMetadataManager;
 class SyncAppMetadata {
 public:
     struct Schema {
-        ColKey idx_id;
-        ColKey idx_deployment_model;
-        ColKey idx_location;
-        ColKey idx_hostname;
-        ColKey idx_ws_hostname;
+        ColKey id_col;
+        ColKey deployment_model_col;
+        ColKey location_col;
+        ColKey hostname_col;
+        ColKey ws_hostname_col;
     };
 
     std::string deployment_model;
@@ -56,25 +56,27 @@ class SyncUserMetadata {
 public:
     struct Schema {
         // The ROS identity of the user. This, plus the auth server URL, uniquely identifies a user.
-        ColKey idx_identity;
+        ColKey identity_col;
         // A locally issued UUID for the user. This is used to generate the on-disk user directory.
-        ColKey idx_local_uuid;
+        ColKey local_uuid_col;
         // Whether or not this user has been marked for removal.
-        ColKey idx_marked_for_removal;
+        ColKey marked_for_removal_col;
         // The cached refresh token for this user.
-        ColKey idx_refresh_token;
+        ColKey refresh_token_col;
         // The URL of the authentication server this user resides upon.
-        ColKey idx_provider_type;
+        ColKey provider_type_col;
         // The cached access token for this user.
-        ColKey idx_access_token;
+        ColKey access_token_col;
         // The identities for this user.
-        ColKey idx_identities;
-        // The profile for this user.
-        ColKey idx_profile;
+        ColKey identities_col;
         // The current state of this user.
-        ColKey idx_state;
+        ColKey state_col;
         // The device id of this user.
-        ColKey idx_device_id;
+        ColKey device_id_col;
+        // Any additional profile attributes, formatted as a bson string.
+        ColKey profile_dump_col;
+        // The set of absolute file paths to Realms belonging to this user.
+        ColKey realm_file_paths_col;
     };
 
     // Cannot be set after creation.
@@ -86,6 +88,9 @@ public:
     std::vector<realm::SyncUserIdentity> identities() const;
     void set_identities(std::vector<SyncUserIdentity>);
 
+    void set_state_and_tokens(SyncUser::State state, const std::string& access_token,
+                              const std::string& refresh_token);
+
     std::string refresh_token() const;
     void set_refresh_token(const std::string& token);
 
@@ -95,7 +100,11 @@ public:
     std::string device_id() const;
     void set_device_id(const std::string&);
 
+    SyncUserProfile profile() const;
     void set_user_profile(const SyncUserProfile&);
+
+    std::vector<std::string> realm_file_paths() const;
+    void add_realm_file_path(const std::string& path);
 
     void set_state(SyncUser::State);
 
@@ -163,6 +172,7 @@ public:
     Action action() const;
     std::string url() const;
     void remove();
+    void set_action(Action new_action);
 
     // INTERNAL USE ONLY
     SyncFileActionMetadata(Schema schema, SharedRealm realm, const Obj& obj);
@@ -242,12 +252,6 @@ public:
     void make_file_action_metadata(StringData original_name, StringData partition_key_value, StringData local_uuid,
                                    SyncFileActionMetadata::Action action, StringData new_name = {}) const;
 
-    // Get the unique identifier of this client.
-    const std::string& client_uuid() const
-    {
-        return m_client_uuid;
-    }
-
     util::Optional<std::string> get_current_user_identity() const;
     void set_current_user_identity(const std::string& identity);
 
@@ -270,10 +274,7 @@ private:
     SyncFileActionMetadata::Schema m_file_action_schema;
     SyncClientMetadata::Schema m_client_schema;
     SyncClientMetadata::Schema m_current_user_identity_schema;
-    SyncUserMetadata::Schema m_profile_schema;
     SyncAppMetadata::Schema m_app_metadata_schema;
-
-    std::string m_client_uuid;
 
     std::shared_ptr<Realm> get_realm() const;
 

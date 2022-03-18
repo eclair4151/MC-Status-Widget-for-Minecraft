@@ -20,19 +20,27 @@ namespace sync {
 //
 //   2 Restored erase-always-wins OT behavior.
 //
+//   3 Support for Mixed, TypeLinks, Set, and Dictionary columns.
+//
 //  XX Changes:
-//     - Add support for Mixed and TypedLinks columns.
+//     - TBD
 //
 constexpr int get_current_protocol_version() noexcept
 {
-    return 2;
+    return 3;
 }
 
-constexpr const char* get_websocket_protocol_prefix() noexcept
+constexpr std::string_view get_pbs_websocket_protocol_prefix() noexcept
 {
     return "com.mongodb.realm-sync/";
 }
 
+constexpr std::string_view get_flx_websocket_protocol_prefix() noexcept
+{
+    return "com.mongodb.realm-query-sync/";
+}
+
+enum class SyncServerMode { PBS, FLX };
 
 /// Supported protocol envelopes:
 ///
@@ -110,6 +118,11 @@ struct SaltedVersion {
 struct DownloadCursor {
     version_type server_version;
     version_type last_integrated_client_version;
+};
+
+enum class DownloadBatchState {
+    MoreToCome,
+    LastInBatch,
 };
 
 /// Checks that `dc.last_integrated_client_version` is zero if
@@ -198,16 +211,17 @@ enum class ProtocolError {
     bad_decompression            = 110, // Error in decompression (UPLOAD)
     bad_changeset_header_syntax  = 111, // Bad syntax in a changeset header (UPLOAD)
     bad_changeset_size           = 112, // Bad size specified in changeset header (UPLOAD)
-    bad_changesets               = 113, // Bad changesets (UPLOAD)
+    switch_to_flx_sync           = 113, // Connected with wrong wire protocol - should switch to FLX sync
+    switch_to_pbs                = 114, // Connected with wrong wire protocol - should switch to PBS
 
     // Session level errors
     session_closed               = 200, // Session closed (no error)
     other_session_error          = 201, // Other session level error
     token_expired                = 202, // Access token expired
-    bad_authentication           = 203, // Bad user authentication (BIND, REFRESH)
+    bad_authentication           = 203, // Bad user authentication (BIND)
     illegal_realm_path           = 204, // Illegal Realm path (BIND)
     no_such_realm                = 205, // No such Realm (BIND)
-    permission_denied            = 206, // Permission denied (STATE_REQUEST, BIND, REFRESH)
+    permission_denied            = 206, // Permission denied (BIND)
     bad_server_file_ident        = 207, // Bad server file identifier (IDENT) (obsolete!)
     bad_client_file_ident        = 208, // Bad client file identifier (IDENT)
     bad_server_version           = 209, // Bad server version (IDENT, UPLOAD, TRANSACT)
@@ -216,7 +230,7 @@ enum class ProtocolError {
     bad_changeset                = 212, // Bad changeset (UPLOAD)
     superseded                   = 213, // Superseded by new session for same client-side file (deprecated)
     disabled_session             = 213, // Alias for `superseded` (deprecated)
-    partial_sync_disabled        = 214, // Partial sync disabled (BIND, STATE_REQUEST)
+    partial_sync_disabled        = 214, // Partial sync disabled (BIND)
     unsupported_session_feature  = 215, // Unsupported session-level feature
     bad_origin_file_ident        = 216, // Bad origin file identifier (UPLOAD)
     bad_client_file              = 217, // Synchronization no longer possible for client-side file
@@ -228,6 +242,14 @@ enum class ProtocolError {
     user_mismatch                = 223, // User mismatch for client file identifier (IDENT)
     too_many_sessions            = 224, // Too many sessions in connection (BIND)
     invalid_schema_change        = 225, // Invalid schema change (UPLOAD)
+    bad_query                    = 226, // Client query is invalid/malformed (IDENT, QUERY)
+    object_already_exists        = 227, // Client tried to create an object that already exists outside their
+                                        // view (UPLOAD)
+    server_permissions_changed   = 228, // Server permissions for this file ident have changed since the last time it
+                                        // was used (IDENT)
+    initial_sync_not_completed   = 229, // Client tried to open a session before initial sync is complete (BIND)
+    write_not_allowed            = 230, // Client attempted a write that is disallowed by permissions, or modifies an
+                                        // object outside the current query - requires client reset (UPLOAD)
 
     // clang-format on
 };

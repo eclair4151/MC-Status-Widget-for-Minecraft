@@ -38,6 +38,13 @@ public:
         auto state = ClusterTree::get(k);
         return Obj(get_table_ref(), state.mem, k, state.index);
     }
+    Obj try_get_obj(ObjKey k) const noexcept
+    {
+        if (auto state = ClusterTree::try_get(k)) {
+            return Obj(get_table_ref(), state.mem, k, state.index);
+        }
+        return {};
+    }
     Obj get(size_t ndx) const
     {
         ObjKey k;
@@ -49,7 +56,7 @@ public:
     void enumerate_string_column(ColKey col_key);
 
     // Specialization of ClusterTree interface
-    const Table* get_owning_table() const override
+    const Table* get_owning_table() const noexcept override
     {
         return m_owner;
     }
@@ -72,6 +79,7 @@ private:
 class TableClusterTree::Iterator : public ClusterTree::Iterator {
 public:
     typedef std::forward_iterator_tag iterator_category;
+    typedef std::ptrdiff_t difference_type;
     typedef Obj value_type;
     typedef Obj* pointer;
     typedef Obj& reference;
@@ -90,8 +98,6 @@ public:
     // If the object pointed to by the iterator is deleted, you will get an exception if
     // you try to dereference the iterator before advancing it.
 
-    // Random access relative to iterator position.
-    reference operator[](size_t n);
     reference operator*() const
     {
         return *operator->();

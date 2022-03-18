@@ -39,8 +39,6 @@ class SlabAlloc;
 
 /// This class is not supposed to be reused for multiple write sessions. In
 /// particular, do not reuse it in case any of the functions throw.
-///
-/// FIXME: Move this class to namespace realm::_impl and to subdir src/realm/impl.
 class GroupWriter : public _impl::ArrayWriterBase {
 public:
     // For groups in transactional mode (Group::m_is_shared), this constructor
@@ -141,8 +139,8 @@ private:
     // the least recently used and sync'ing it to disk
     MapWindow* get_window(ref_type start_ref, size_t size);
 
-    // Sync all cached memory mappings
-    void sync_all_mappings();
+    // Flush all cached memory mappings
+    void flush_all_mappings();
 
     /// Allocate a chunk of free space of the specified size. The
     /// specified size must be 8-byte aligned. Extend the file if

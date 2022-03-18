@@ -35,6 +35,7 @@ class SimulatedFailure : public std::system_error {
 public:
     enum FailureType {
         generic,
+        group_writer__commit,
         slab_alloc__reset_free_space_tracking,
         slab_alloc__remap,
         shared_group__grow_reader_mapping,
@@ -77,6 +78,18 @@ public:
     /// defined during compilation.
     static constexpr bool is_enabled();
 
+    /// Register a callback which will be invoked whenever mmap is called with
+    /// the size of the mapping. If it returns true, pretend the mmap failed and
+    /// throw std::bad_alloc.
+    static void prime_mmap(bool (*)(size_t));
+    /// Throws std::bad_alloc if a mmap predicate has been set and it returns true.
+    static void trigger_mmap(size_t);
+
+    /// Set whether simulator failures are thread-local. SimulatorFailure does
+    /// not perform any synchronization, so care must be used to avoid races
+    /// when turning this off.
+    static void set_thread_local(bool);
+
     SimulatedFailure(std::error_code);
 
 private:
@@ -85,11 +98,14 @@ private:
     static void do_prime_random(FailureType, int n, int m, uint_fast64_t seed);
     static void do_unprime(FailureType) noexcept;
     static bool do_check_trigger(FailureType) noexcept;
+    static void do_prime_mmap(bool (*)(size_t));
+    static void do_trigger_mmap(size_t);
+    static void do_set_thread_local(bool);
 #endif
 };
 
 std::error_code make_error_code(SimulatedFailure::FailureType) noexcept;
-    
+
 class SimulatedFailure::OneShotPrimeGuard {
 public:
     OneShotPrimeGuard(FailureType);
@@ -194,9 +210,36 @@ inline constexpr bool SimulatedFailure::is_enabled()
 #endif
 }
 
+inline void SimulatedFailure::set_thread_local(bool tl)
+{
+#ifdef REALM_ENABLE_SIMULATED_FAILURE
+    do_set_thread_local(tl);
+#else
+    static_cast<void>(tl);
+#endif
+}
+
 inline SimulatedFailure::SimulatedFailure(std::error_code ec)
     : std::system_error(ec)
 {
+}
+
+inline void SimulatedFailure::prime_mmap(bool (*predicate)(size_t))
+{
+#ifdef REALM_ENABLE_SIMULATED_FAILURE
+    do_prime_mmap(predicate);
+#else
+    static_cast<void>(predicate);
+#endif
+}
+
+inline void SimulatedFailure::trigger_mmap(size_t size)
+{
+#ifdef REALM_ENABLE_SIMULATED_FAILURE
+    do_trigger_mmap(size);
+#else
+    static_cast<void>(size);
+#endif
 }
 
 inline SimulatedFailure::OneShotPrimeGuard::OneShotPrimeGuard(FailureType failure_type)

@@ -20,6 +20,7 @@
 
 #import <Realm/RLMArray.h>
 #import <Realm/RLMDecimal128.h>
+#import <Realm/RLMDictionary.h>
 #import <Realm/RLMEmbeddedObject.h>
 #import <Realm/RLMMigration.h>
 #import <Realm/RLMObject.h>
@@ -34,6 +35,8 @@
 #import <Realm/RLMRealmConfiguration.h>
 #import <Realm/RLMResults.h>
 #import <Realm/RLMSchema.h>
+#import <Realm/RLMSet.h>
+#import <Realm/RLMValue.h>
 
 #import <Realm/RLMApp.h>
 #import <Realm/RLMCredentials.h>
@@ -57,3 +60,4 @@
 #import <Realm/RLMUpdateResult.h>
 #import <Realm/RLMFindOptions.h>
 #import <Realm/RLMFindOneAndModifyOptions.h>
+#import <Realm/RLMSyncSubscription.h>
