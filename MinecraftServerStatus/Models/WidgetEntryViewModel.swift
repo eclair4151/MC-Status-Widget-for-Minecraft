@@ -78,6 +78,7 @@ extension WidgetEntryViewModel {
 }
 
 public struct WidgetEntryViewModel {
+    
     var lastUpdated: String
     var icon: UIImage
     var statusIcon: String?
@@ -88,4 +89,5 @@ public struct WidgetEntryViewModel {
     var progressValue: Float
     var playersString: String
     var bgColor: Color = Color.widgetBackground
+    var isDefaultView = false
 }
