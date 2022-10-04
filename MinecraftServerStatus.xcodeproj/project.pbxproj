@@ -49,6 +49,7 @@
 		F16AF6DC2469C6D300A4BFDA /* ServerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16AF6DB2469C6D300A4BFDA /* ServerStatus.swift */; };
 		F16AF6E0246A163400A4BFDA /* SwiftSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16AF6DF246A163400A4BFDA /* SwiftSocket.framework */; };
 		F16AF6E1246A163400A4BFDA /* SwiftSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F16AF6DF246A163400A4BFDA /* SwiftSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F16BD57928EC415D0055569E /* CircularAccessoryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16BD57828EC415D0055569E /* CircularAccessoryWidgetView.swift */; };
 		F18A843825BFC0A000C6E34E /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18A843725BFC0A000C6E34E /* ImageHelper.swift */; };
 		F18A843925BFC0A000C6E34E /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18A843725BFC0A000C6E34E /* ImageHelper.swift */; };
 		F18A843C25BFC0BB00C6E34E /* WidgetEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18A843B25BFC0BB00C6E34E /* WidgetEntryViewModel.swift */; };
@@ -154,6 +155,7 @@
 		F153AEE325D96E9200DA4195 /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		F16AF6DB2469C6D300A4BFDA /* ServerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatus.swift; sourceTree = "<group>"; };
 		F16AF6DF246A163400A4BFDA /* SwiftSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F16BD57828EC415D0055569E /* CircularAccessoryWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularAccessoryWidgetView.swift; sourceTree = "<group>"; };
 		F18A843725BFC0A000C6E34E /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		F18A843B25BFC0BB00C6E34E /* WidgetEntryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetEntryViewModel.swift; sourceTree = "<group>"; };
 		F18A845025C217B700C6E34E /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
@@ -324,6 +326,7 @@
 				F146414325D0BA2000B6B2DC /* ProgressView.swift */,
 				F146414625D0BA5C00B6B2DC /* SmallWidgetView.swift */,
 				F146414925D0BA6800B6B2DC /* MediumWidgetView.swift */,
+				F16BD57828EC415D0055569E /* CircularAccessoryWidgetView.swift */,
 			);
 			path = MinecraftServerStatusHSWidget;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				F146414725D0BA5C00B6B2DC /* SmallWidgetView.swift in Sources */,
 				F14640FB25D0179200B6B2DC /* DBHelper.swift in Sources */,
 				F18A843F25BFC0CC00C6E34E /* ServerStatus.swift in Sources */,
+				F16BD57928EC415D0055569E /* CircularAccessoryWidgetView.swift in Sources */,
 				F14640F325CF91E400B6B2DC /* UIExtentions.swift in Sources */,
 				F146413425D0AF3400B6B2DC /* ThemeManager.swift in Sources */,
 				F14640F625CF928C00B6B2DC /* SavedServer.swift in Sources */,
