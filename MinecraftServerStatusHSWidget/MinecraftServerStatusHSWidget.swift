@@ -118,8 +118,18 @@ struct MinecraftServerStatusHSWidgetEntryView : View {
         switch family {
         case .systemSmall:
             SmallWidgetView(entry: entry)
-        default:
+        case .systemMedium:
             MediumWidgetView(entry: entry)
+        case .accessoryCircular:
+            if #available(iOSApplicationExtension 16.0, *) {
+                CircularAccessoryWidgetView(entry: entry)
+            } else {
+                Text("Not implemented")
+            }
+            
+     
+        @unknown default:
+            Text("Not implemented")
         }
     }
 }
@@ -129,13 +139,21 @@ struct MinecraftServerStatusHSWidgetEntryView : View {
 struct MinecraftServerStatusHSWidget: Widget {
     let kind: String = "MinecraftServerStatusHSWidget"
 
+    private let supportedFamilies:[WidgetFamily] = {
+           if #available(iOSApplicationExtension 16.0, *) {
+               return [.systemSmall, .systemMedium, .accessoryCircular]
+           } else {
+               return [.systemSmall, .systemMedium]
+           }
+       }()
+    
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ServerSelectIntent.self, provider: Provider()) { entry in
             MinecraftServerStatusHSWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("MC Status Widget")
         .description("Widget to show the status of Minecraft Server")
-        .supportedFamilies([.systemSmall, .systemMedium])
+        .supportedFamilies(supportedFamilies)
     }
 }
 
@@ -149,5 +167,19 @@ struct MinecraftServerStatusHSWidget_Previews: PreviewProvider {
             )
         )
         .previewContext(WidgetPreviewContext(family: .systemSmall))
+        .previewDisplayName("SmallWidget")
+        
+        
+        if #available(iOSApplicationExtension 16.0, *) {
+            MinecraftServerStatusHSWidgetEntryView(
+                entry: ServerStatusSnapshotEntry(
+                    date: Date(),
+                    configuration: ServerSelectIntent(),
+                    viewModel: WidgetEntryViewModel()
+                )
+            )
+            .previewContext(WidgetPreviewContext(family: .accessoryCircular))
+            .previewDisplayName("Circular")
+        }
     }
 }
