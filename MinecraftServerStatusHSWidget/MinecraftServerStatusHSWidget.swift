@@ -45,11 +45,12 @@ struct Provider: IntentTimelineProvider {
           
             let entryDate = Date()
             var vm = WidgetEntryViewModel()
-            vm.serverName = "Select a Server"
+            vm.serverName = "Edit Widget"
             vm.progressString = "-- / --"
             vm.lastUpdated = "now"
             vm.progressValue = 0
             vm.playersString = ""
+            vm.isDefaultView = true
             let entry = ServerStatusSnapshotEntry(date: entryDate, configuration: configuration, viewModel: vm)
             entries.append(entry)
             

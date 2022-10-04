@@ -17,10 +17,28 @@ struct CircularAccessoryWidgetView : View {
 
     var body: some View {
         if #available(iOSApplicationExtension 16.0, *) {
-            Gauge (value: 0.7) {
-                Text(entry.date, format: .dateTime.year())
+        
+           
+            Gauge (value: entry.viewModel.progressValue) {
+                
+                if let statusIcon = entry.viewModel.statusIcon {
+                    Image(systemName: statusIcon)
+                        .font(.system(size: 24))
+                        .foregroundColor(
+                            Color.unknownColor
+                        )
+                        .background(Color.white.mask(Circle()).padding(4)
+                        )
+                     
+                } else if(entry.viewModel.isDefaultView) {
+                    Text("Edit Widget").padding(2) .multilineTextAlignment(.center)
+                } else {
+                    
+                    Image(uiImage: entry.viewModel.icon).resizable()
+                        .scaledToFit().frame(width: 25.0, height: 25.0).padding(0)
+                }
             }
-            .gaugeStyle(.accessoryCircular)
+            .gaugeStyle(.accessoryCircularCapacity)
         } else {
             Text("Not implemented")
         }
