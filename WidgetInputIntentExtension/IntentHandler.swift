@@ -9,7 +9,8 @@
 import Intents
 import RealmSwift
 
-class IntentHandler: INExtension, ServerSelectIntentHandling {
+class IntentHandler: INExtension, ServerSelectIntentHandling, ServerSelectNoThemeIntentHandling {
+
     
     func resolveTheme(for intent: ServerSelectIntent, with completion: @escaping (ThemeIntentTypeResolutionResult) -> Void) {
         if let theme = intent.Theme {
@@ -32,14 +33,9 @@ class IntentHandler: INExtension, ServerSelectIntentHandling {
         return ThemeIntentType(identifier: theme.rawValue, display: theme.rawValue)
     }
         
-    func resolveServer(for intent: ServerSelectIntent, with completion: @escaping (ServerIntentTypeResolutionResult) -> Void) {
-        if let server = intent.Server {
-            completion(ServerIntentTypeResolutionResult.success(with: server))
-        }
-    }
+
     
-    func provideServerOptionsCollection(for intent: ServerSelectIntent, with completion: @escaping (INObjectCollection<ServerIntentType>?, Error?) -> Void) {
-        
+    func getProviderServerOptions() -> INObjectCollection<ServerIntentType> {
         let realm = initializeRealmDb()
         let servers = realm.objects(SavedServer.self).sorted(byKeyPath: "order")
         
@@ -50,11 +46,39 @@ class IntentHandler: INExtension, ServerSelectIntentHandling {
             return serverObj
         }
 
-        let collection = INObjectCollection(items: serverOptions)
-
-        completion(collection, nil)
+       return INObjectCollection(items: serverOptions)
     }
     
+    
+    
+    // for homescreen widgets
+    func resolveServer(for intent: ServerSelectIntent, with completion: @escaping (ServerIntentTypeResolutionResult) -> Void) {
+        if let server = intent.Server {
+            completion(ServerIntentTypeResolutionResult.success(with: server))
+        }
+    }
+    
+    
+    func provideServerOptionsCollection(for intent: ServerSelectIntent, with completion: @escaping (INObjectCollection<ServerIntentType>?, Error?) -> Void) {
+        completion(getProviderServerOptions(), nil)
+    }
+    
+     
+    // for lock screen widgets
+    func resolveServer(for intent: ServerSelectNoThemeIntent, with completion: @escaping (ServerIntentTypeResolutionResult) -> Void) {
+        if let server = intent.Server {
+            completion(ServerIntentTypeResolutionResult.success(with: server))
+        }
+    }
+    
+    func provideServerOptionsCollection(for intent: ServerSelectNoThemeIntent, with completion: @escaping (INObjectCollection<ServerIntentType>?, Error?) -> Void) {
+        completion(getProviderServerOptions(), nil)
+
+    }
+    
+    
+    
+
     
     override func handler(for intent: INIntent) -> Any {
         // This is the default implementation.  If you want different objects to handle different intents,
@@ -63,39 +87,3 @@ class IntentHandler: INExtension, ServerSelectIntentHandling {
     }
     
 }
-
-
-
-//extension IntentHandler: ThemeSelectIntentHandling {
-        
-//    func resolveServer(for intent: ServerSelectIntent, with completion: @escaping (ServerIntentTypeResolutionResult) -> Void) {
-//        if let server = intent.Server {
-//            completion(ServerIntentTypeResolutionResult.success(with: server))
-//        }
-//    }
-//
-//    func provideServerOptionsCollection(for intent: ServerSelectIntent, with completion: @escaping (INObjectCollection<ServerIntentType>?, Error?) -> Void) {
-//
-//        let realm = initializeRealmDb()
-//        let servers = realm.objects(SavedServer.self).sorted(byKeyPath: "order")
-//
-//        let serverOptions: [ServerIntentType] = servers.map { server in
-//            let serverObj = ServerIntentType(
-//                identifier: server.id, display: server.name
-//            )
-//            return serverObj
-//        }
-//
-//        let collection = INObjectCollection(items: serverOptions)
-//
-//        completion(collection, nil)
-//    }
-//
-//
-//    override func handler(for intent: INIntent) -> Any {
-//        // This is the default implementation.  If you want different objects to handle different intents,
-//        // you can override this and return the handler you want for that particular intent.
-//        return self
-//    }
-    
-//}
