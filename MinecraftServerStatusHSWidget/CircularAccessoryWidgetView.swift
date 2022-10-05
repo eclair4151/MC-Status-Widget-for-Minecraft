@@ -13,7 +13,7 @@ import WidgetKit
 
 
 struct CircularAccessoryWidgetView : View {
-    var entry: Provider.Entry
+    var entry: ProviderTest.Entry
 
     var body: some View {
         if #available(iOSApplicationExtension 16.0, *) {
@@ -40,7 +40,7 @@ struct CircularAccessoryWidgetView : View {
             }
             .gaugeStyle(.accessoryCircularCapacity)
         } else {
-            Text("Not implemented")
+            Text("4Not implemented")
         }
     }
 }
@@ -49,7 +49,7 @@ struct CircularAccessoryWidgetView : View {
 @available(iOSApplicationExtension 16.0, *)
 struct MinecraftServerStatusHSWidget_CircularPreview: PreviewProvider {
     static var previews: some View {
-        MinecraftServerStatusHSWidgetEntryView(entry: ServerStatusSnapshotEntry(date: Date(), configuration: ServerSelectIntent(), viewModel: WidgetEntryViewModel()))
+        MinecraftServerStatusLSWidgetEntryView(entry: ServerStatusSnapshotEntry2(date: Date(), configuration: ServerSelectNoThemeIntent(), viewModel: WidgetEntryViewModel()))
             .previewContext(WidgetPreviewContext(family: .accessoryCircular))
     }
 }
