@@ -12,10 +12,11 @@ import Intents
 import WidgetKit
 
 
-struct CircularAccessoryWidgetView : View {
-    var entry: ProviderTest.Entry
+struct CircularAccessoryWidgetView2 : View {
+    var entry: LockscreenProvider.Entry
 
     var body: some View {
+#if !targetEnvironment(macCatalyst)
         if #available(iOSApplicationExtension 16.0, *) {
         
            
@@ -35,21 +36,24 @@ struct CircularAccessoryWidgetView : View {
                 } else {
                     
                     Image(uiImage: entry.viewModel.icon).resizable()
-                        .scaledToFit().frame(width: 25.0, height: 25.0).padding(0)
+                        .scaledToFit().frame(width: 25.0, height: 25.0).padding(0).offset(x: 0,y: -1)
                 }
             }
             .gaugeStyle(.accessoryCircularCapacity)
         } else {
-            Text("4Not implemented")
+            Text("Not implemented")
         }
+    #endif
     }
 }
 
 
+#if !targetEnvironment(macCatalyst)
 @available(iOSApplicationExtension 16.0, *)
-struct MinecraftServerStatusHSWidget_CircularPreview: PreviewProvider {
+struct MinecraftServerStatusLSWidget_CircularPreview2: PreviewProvider {
     static var previews: some View {
-        MinecraftServerStatusLSWidgetEntryView(entry: ServerStatusSnapshotEntry2(date: Date(), configuration: ServerSelectNoThemeIntent(), viewModel: WidgetEntryViewModel()))
+        MinecraftServerStatusLSWidgetEntryView(entry: ServerStatusLSSnapshotEntry(date: Date(), configuration: ServerSelectNoThemeIntent(), viewModel: WidgetEntryViewModel()), widgetType: .OnlyImage)
             .previewContext(WidgetPreviewContext(family: .accessoryCircular))
     }
 }
+#endif

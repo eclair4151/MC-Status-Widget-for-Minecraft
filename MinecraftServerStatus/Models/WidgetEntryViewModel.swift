@@ -14,10 +14,10 @@ import SwiftUI
 extension WidgetEntryViewModel {
     init(serverName:String, status: ServerStatus, lastUpdated: String, serverIcon: UIImage, theme: Theme) {
         self.lastUpdated = lastUpdated
-        print("testwoooo")
+        
         //print(status.favicon)
-       self.icon = serverIcon
-        //self.icon = UIImage(named: "DefaultIcon")!
+        self.icon = serverIcon
+//        self.icon = UIImage()
         self.serverName = serverName
         
         if(status.status == Status.Online) {
@@ -73,6 +73,7 @@ extension WidgetEntryViewModel {
     }
     
     mutating func setServerIcon(base64Data: String) {
+        print("Decoding base64 image")
         self.icon = ImageHelper.convertFavIconString(favIcon: base64Data) ?? UIImage(named: "DefaultIcon")!
     }
 }

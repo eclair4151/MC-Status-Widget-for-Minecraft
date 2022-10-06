@@ -15,7 +15,7 @@ import WidgetKit
 
 
 struct BaseWidgetView: View {
-    var entry: Provider.Entry
+    var entry: HomescreenProvider.Entry
 
     var body: some View {
         ZStack {
@@ -74,7 +74,7 @@ struct BaseWidgetView: View {
 
 
 struct SmallWidgetView : View {
-    var entry: Provider.Entry
+    var entry: HomescreenProvider.Entry
 
     var body: some View {
         if(entry.configuration.Theme?.identifier ?? "" == Theme.auto.rawValue) {
@@ -91,7 +91,7 @@ struct SmallWidgetView : View {
 }
 
 private struct InnerSmallWidget : View {
-    var entry: Provider.Entry
+    var entry: HomescreenProvider.Entry
 
     var body: some View {
         ZStack {
@@ -104,7 +104,7 @@ private struct InnerSmallWidget : View {
 
 struct MinecraftServerStatusHSWidget_SmallPreview: PreviewProvider {
     static var previews: some View {
-        MinecraftServerStatusHSWidgetEntryView(entry: ServerStatusSnapshotEntry(date: Date(), configuration: ServerSelectIntent(), viewModel: WidgetEntryViewModel()))
+        MinecraftServerStatusHSWidgetEntryView(entry: ServerStatusHSSnapshotEntry(date: Date(), configuration: ServerSelectIntent(), viewModel: WidgetEntryViewModel()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

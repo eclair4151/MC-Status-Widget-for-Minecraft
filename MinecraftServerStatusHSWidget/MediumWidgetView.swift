@@ -12,7 +12,7 @@ import Intents
 import WidgetKit
 
 struct MediumWidgetView : View {
-    var entry: Provider.Entry
+    var entry: HomescreenProvider.Entry
 
     var body: some View {
         if(entry.configuration.Theme?.identifier ?? "" == Theme.auto.rawValue) {
@@ -29,7 +29,7 @@ struct MediumWidgetView : View {
 }
 
 private struct InnerMediumWidget : View {
-    var entry: Provider.Entry
+    var entry: HomescreenProvider.Entry
 
     var body: some View {
         ZStack {
@@ -50,7 +50,7 @@ private struct InnerMediumWidget : View {
 
 struct MinecraftServerStatusHSWidget_MediumPreview: PreviewProvider {
     static var previews: some View {
-        MinecraftServerStatusHSWidgetEntryView(entry: ServerStatusSnapshotEntry(date: Date(), configuration: ServerSelectIntent(), viewModel: WidgetEntryViewModel()))
+        MinecraftServerStatusHSWidgetEntryView(entry: ServerStatusHSSnapshotEntry(date: Date(), configuration: ServerSelectIntent(), viewModel: WidgetEntryViewModel()))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }
