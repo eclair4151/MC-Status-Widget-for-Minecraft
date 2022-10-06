@@ -56,7 +56,7 @@ typedef RLM_CLOSED_ENUM(NSUInteger, RLMSyncLogLevel) {
 ///
 /// The log function may be called from multiple threads simultaneously, and is
 /// responsible for performing its own synchronization if any is required.
-typedef void (*RLMSyncLogFunction)(RLMSyncLogLevel level, NSString *message);
+typedef void (^RLMSyncLogFunction)(RLMSyncLogLevel level, NSString *message);
 
 /// A block type representing a block which can be used to report a sync-related error to the application. If the error
 /// pertains to a specific session, that session will also be passed into the block.
@@ -79,7 +79,7 @@ typedef void(^RLMSyncErrorReportingBlock)(NSError *, RLMSyncSession * _Nullable)
 
  @see `RLMSyncError`
  */
-@property (nullable, nonatomic, copy) RLMSyncErrorReportingBlock errorHandler;
+@property (nullable, atomic, copy) RLMSyncErrorReportingBlock errorHandler;
 
 /**
  A reverse-DNS string uniquely identifying this application. In most cases this
@@ -120,13 +120,13 @@ typedef void(^RLMSyncErrorReportingBlock)(NSError *, RLMSyncSession * _Nullable)
 @property (nonatomic, nullable) RLMSyncLogFunction logger;
 
 /**
- The name of the HTTP header to send authorization data in when making requests to MongoDB Realm which has
+ The name of the HTTP header to send authorization data in when making requests to Atlas App Services which has
  been configured to expect a custom authorization header.
  */
 @property (nullable, nonatomic, copy) NSString *authorizationHeaderName;
 
 /**
- Extra HTTP headers to append to every request to MongoDB Realm.
+ Extra HTTP headers to append to every request to Atlas App Services.
 
  Modifying this property while sync sessions are active will result in all
  sessions disconnecting and reconnecting using the new headers.

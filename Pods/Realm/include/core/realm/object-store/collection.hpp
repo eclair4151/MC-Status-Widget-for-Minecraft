@@ -101,6 +101,15 @@ public:
     Results sort(SortDescriptor order) const;
     Results sort(std::vector<std::pair<std::string, bool>> const& keypaths) const;
 
+    // Get the min/max/average/sum of the given column
+    // All but sum() returns none when collection is empty, and sum() returns 0
+    // Throws UnsupportedColumnTypeException for sum/average on timestamp or non-numeric column
+    // Throws OutOfBoundsIndexException for an out-of-bounds column
+    util::Optional<Mixed> max(ColKey column = {}) const;
+    util::Optional<Mixed> min(ColKey column = {}) const;
+    util::Optional<Mixed> average(ColKey column = {}) const;
+    Mixed sum(ColKey column = {}) const;
+
     /**
      * Adds a `CollectionChangeCallback` to this `Collection`. The `CollectionChangeCallback` is exectuted when
      * insertions, modifications or deletions happen on this `Collection`.
@@ -148,6 +157,12 @@ protected:
     void validate_embedded(Context& ctx, T&& value, CreatePolicy policy) const;
 
     size_t hash() const noexcept;
+
+    void record_audit_read(const Obj& obj) const;
+    void record_audit_read(const Mixed& obj) const;
+
+private:
+    Collection(std::shared_ptr<Realm>&& r, CollectionBasePtr&& coll, PropertyType type);
 };
 
 template <typename T, typename Context>

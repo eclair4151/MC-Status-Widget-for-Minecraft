@@ -33,6 +33,9 @@
 
 using namespace realm;
 
+@protocol RLMCustomEventRepresentable
+@end
+
 // private properties
 @interface RLMObjectSchema ()
 @property (nonatomic, readwrite) NSDictionary<id, RLMProperty *> *allPropertiesByName;
@@ -135,7 +138,13 @@ using namespace realm;
     schema.accessorClass = objectClass;
     schema.unmanagedClass = objectClass;
     schema.isSwiftClass = isSwift;
-    schema.isEmbedded = [(id)objectClass isEmbedded];
+    schema.hasCustomEventSerialization = [objectClass conformsToProtocol:@protocol(RLMCustomEventRepresentable)];
+
+    bool isEmbedded = [(id)objectClass isEmbedded];
+    bool isAsymmetric = [(id)objectClass isAsymmetric];
+    REALM_ASSERT(!(isEmbedded && isAsymmetric));
+    schema.isEmbedded = isEmbedded;
+    schema.isAsymmetric = isAsymmetric;
 
     // create array of RLMProperties, inserting properties of superclasses first
     Class cls = objectClass;
@@ -286,11 +295,10 @@ using namespace realm;
     schema->_unmanagedClass = _unmanagedClass;
     schema->_isSwiftClass = _isSwiftClass;
     schema->_isEmbedded = _isEmbedded;
-
-    // call property setter to reset map and primary key
-    schema.properties = [[NSArray allocWithZone:zone] initWithArray:_properties copyItems:YES];
-    schema.computedProperties = [[NSArray allocWithZone:zone] initWithArray:_computedProperties copyItems:YES];
-
+    schema->_isAsymmetric = _isAsymmetric;
+    schema->_properties = [[NSArray allocWithZone:zone] initWithArray:_properties copyItems:YES];
+    schema->_computedProperties = [[NSArray allocWithZone:zone] initWithArray:_computedProperties copyItems:YES];
+    [schema _propertiesDidChange];
     return schema;
 }
 
@@ -333,10 +341,11 @@ using namespace realm;
 }
 
 - (realm::ObjectSchema)objectStoreCopy:(RLMSchema *)schema {
+    using Type = ObjectSchema::ObjectType;
     ObjectSchema objectSchema;
     objectSchema.name = self.objectStoreName;
     objectSchema.primary_key = _primaryKeyProperty ? _primaryKeyProperty.columnName.UTF8String : "";
-    objectSchema.is_embedded = ObjectSchema::IsEmbedded(_isEmbedded);
+    objectSchema.table_type = _isAsymmetric ? Type::TopLevelAsymmetric : _isEmbedded ? Type::Embedded : Type::TopLevel;
     for (RLMProperty *prop in _properties) {
         Property p = [prop objectStoreCopy:schema];
         p.is_primary = (prop == _primaryKeyProperty);
@@ -351,7 +360,8 @@ using namespace realm;
 + (instancetype)objectSchemaForObjectStoreSchema:(realm::ObjectSchema const&)objectSchema {
     RLMObjectSchema *schema = [RLMObjectSchema new];
     schema.className = @(objectSchema.name.c_str());
-    schema.isEmbedded = objectSchema.is_embedded;
+    schema.isEmbedded = objectSchema.table_type == ObjectSchema::ObjectType::Embedded;
+    schema.isAsymmetric = objectSchema.table_type == ObjectSchema::ObjectType::TopLevelAsymmetric;
 
     // create array of RLMProperties
     NSMutableArray *properties = [NSMutableArray arrayWithCapacity:objectSchema.persisted_properties.size()];

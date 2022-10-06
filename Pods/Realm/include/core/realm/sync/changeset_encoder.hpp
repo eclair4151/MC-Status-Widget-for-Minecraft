@@ -3,26 +3,24 @@
 #define REALM_SYNC_CHANGESET_ENCODER_HPP
 
 #include <realm/sync/changeset.hpp>
-#include <realm/util/metered/unordered_map.hpp>
-#include <realm/util/metered/string.hpp>
 
 namespace realm {
 namespace sync {
 
-struct ChangesetEncoder : InstructionHandler {
-    using Buffer = util::AppendBuffer<char, util::MeteredAllocator>;
+struct ChangesetEncoder {
+    using Buffer = util::AppendBuffer<char>;
 
     Buffer release() noexcept;
     void reset() noexcept;
     Buffer& buffer() noexcept;
     InternString intern_string(StringData);
 
-    void set_intern_string(uint32_t index, StringBufferRange) override;
+    void set_intern_string(uint32_t index, StringBufferRange);
     // FIXME: This doesn't copy the input, but the drawback is that there can
     // only be a single StringBufferRange per instruction. Luckily, no
     // instructions exist that require two or more.
-    StringBufferRange add_string_range(StringData) override;
-    void operator()(const Instruction&) override;
+    StringBufferRange add_string_range(StringData);
+    void operator()(const Instruction&);
 
 #define REALM_DEFINE_INSTRUCTION_HANDLER(X) void operator()(const Instruction::X&);
     REALM_FOR_EACH_INSTRUCTION_TYPE(REALM_DEFINE_INSTRUCTION_HANDLER)
@@ -69,7 +67,7 @@ private:
     void append_value(UUID);
 
     Buffer m_buffer;
-    util::metered::map<std::string, uint32_t> m_intern_strings_rev;
+    std::map<std::string, uint32_t, std::less<>> m_intern_strings_rev;
     std::string_view m_string_range;
 };
 

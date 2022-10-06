@@ -30,6 +30,11 @@ static inline realm_string_t to_capi(const std::string& str)
     return to_capi(StringData{str});
 }
 
+static inline realm_string_t to_capi(std::string_view str_view)
+{
+    return realm_string_t{str_view.data(), str_view.size()};
+}
+
 static inline StringData from_capi(realm_string_t str)
 {
     return StringData{str.data, str.size};
@@ -227,8 +232,10 @@ static inline SchemaMode from_capi(realm_schema_mode_e mode)
             return SchemaMode::Immutable;
         case RLM_SCHEMA_MODE_READ_ONLY:
             return SchemaMode::ReadOnly;
-        case RLM_SCHEMA_MODE_RESET_FILE:
-            return SchemaMode::ResetFile;
+        case RLM_SCHEMA_MODE_SOFT_RESET_FILE:
+            return SchemaMode::SoftResetFile;
+        case RLM_SCHEMA_MODE_HARD_RESET_FILE:
+            return SchemaMode::HardResetFile;
         case RLM_SCHEMA_MODE_ADDITIVE_DISCOVERED:
             return SchemaMode::AdditiveDiscovered;
         case RLM_SCHEMA_MODE_ADDITIVE_EXPLICIT:
@@ -248,8 +255,10 @@ static inline realm_schema_mode_e to_capi(SchemaMode mode)
             return RLM_SCHEMA_MODE_IMMUTABLE;
         case SchemaMode::ReadOnly:
             return RLM_SCHEMA_MODE_READ_ONLY;
-        case SchemaMode::ResetFile:
-            return RLM_SCHEMA_MODE_RESET_FILE;
+        case SchemaMode::SoftResetFile:
+            return RLM_SCHEMA_MODE_SOFT_RESET_FILE;
+        case SchemaMode::HardResetFile:
+            return RLM_SCHEMA_MODE_HARD_RESET_FILE;
         case SchemaMode::AdditiveDiscovered:
             return RLM_SCHEMA_MODE_ADDITIVE_DISCOVERED;
         case SchemaMode::AdditiveExplicit:
@@ -414,11 +423,21 @@ static inline realm_class_info_t to_capi(const ObjectSchema& o)
     info.num_properties = o.persisted_properties.size();
     info.num_computed_properties = o.computed_properties.size();
     info.key = o.table_key.value;
-    if (o.is_embedded) {
-        info.flags = RLM_CLASS_EMBEDDED;
-    }
-    else {
-        info.flags = RLM_CLASS_NORMAL;
+    switch (o.table_type) {
+        case ObjectSchema::ObjectType::Embedded: {
+            info.flags = RLM_CLASS_EMBEDDED;
+            break;
+        }
+        case ObjectSchema::ObjectType::TopLevelAsymmetric: {
+            info.flags = RLM_CLASS_ASYMMETRIC;
+            break;
+        }
+        case ObjectSchema::ObjectType::TopLevel: {
+            info.flags = RLM_CLASS_NORMAL;
+            break;
+        }
+        default:
+            REALM_TERMINATE(util::format("Invalid table type: %1", uint8_t(o.table_type)).c_str());
     }
     return info;
 }

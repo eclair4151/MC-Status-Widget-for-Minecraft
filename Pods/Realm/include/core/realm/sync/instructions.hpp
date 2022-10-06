@@ -2,21 +2,20 @@
 #ifndef REALM_IMPL_INSTRUCTIONS_HPP
 #define REALM_IMPL_INSTRUCTIONS_HPP
 
-#include <vector>
-#include <unordered_map>
 #include <iosfwd> // string conversion, debug prints
 #include <memory> // shared_ptr
 #include <type_traits>
+#include <unordered_map>
+#include <vector>
 
 #include <external/mpark/variant.hpp>
-#include <realm/util/string_buffer.hpp>
-#include <realm/string_data.hpp>
 #include <realm/binary_data.hpp>
 #include <realm/data_type.hpp>
-#include <realm/timestamp.hpp>
+#include <realm/string_data.hpp>
 #include <realm/sync/object_id.hpp>
-#include <realm/impl/input_stream.hpp>
 #include <realm/table_ref.hpp>
+#include <realm/timestamp.hpp>
+#include <realm/util/input_stream.hpp>
 #include <realm/util/overload.hpp>
 
 namespace realm {
@@ -434,14 +433,16 @@ protected:
 struct AddTable : TableInstruction {
     // Note: Tables "without" a primary key have a secret primary key of type
     // ObjKey. The field name of such primary keys is assumed to be "_id".
-    struct PrimaryKeySpec {
-        InternString field;
-        Payload::Type type;
-        bool nullable;
+    struct TopLevelTable {
+        InternString pk_field;
+        Payload::Type pk_type;
+        bool pk_nullable;
+        bool is_asymmetric;
 
-        bool operator==(const PrimaryKeySpec& rhs) const noexcept
+        bool operator==(const TopLevelTable& rhs) const noexcept
         {
-            return field == rhs.field && type == rhs.type && nullable == rhs.nullable;
+            return pk_field == rhs.pk_field && pk_type == rhs.pk_type && pk_nullable == rhs.pk_nullable &&
+                   is_asymmetric == rhs.is_asymmetric;
         }
     };
 
@@ -452,7 +453,7 @@ struct AddTable : TableInstruction {
         }
     };
 
-    mpark::variant<PrimaryKeySpec, EmbeddedTable> type;
+    mpark::variant<TopLevelTable, EmbeddedTable> type;
 
     bool operator==(const AddTable& rhs) const noexcept
     {
@@ -551,7 +552,7 @@ struct Update : PathInstruction {
     bool operator==(const Update& rhs) const noexcept
     {
         return PathInstruction::operator==(rhs) && value == rhs.value &&
-               (is_array_update() ? is_default == rhs.is_default : prior_size == rhs.prior_size);
+               (is_array_update() ? prior_size == rhs.prior_size : is_default == rhs.is_default);
     }
 };
 

@@ -4,15 +4,13 @@
 
 #include <realm/sync/instructions.hpp>
 #include <realm/util/optional.hpp>
-#include <realm/util/allocation_metrics.hpp>
-#include <realm/util/metered/vector.hpp>
 
 #include <type_traits>
 
 namespace realm {
 namespace sync {
 
-using InternStrings = util::metered::vector<StringBufferRange>;
+using InternStrings = std::vector<StringBufferRange>;
 
 struct BadChangesetError : ExceptionWithBacktrace<std::runtime_error> {
     using ExceptionWithBacktrace<std::runtime_error>::ExceptionWithBacktrace;
@@ -23,23 +21,13 @@ struct Changeset {
     using timestamp_type = uint_fast64_t;
     using file_ident_type = uint_fast64_t;
     using version_type = uint_fast64_t; // FIXME: Get from `History`.
-    using StringBuffer = util::BasicStringBuffer<util::MeteredAllocator>;
-
-    Changeset();
-    struct share_buffers_tag {
-    };
-    Changeset(const Changeset&, share_buffers_tag);
-    Changeset(Changeset&&) = default;
-    Changeset& operator=(Changeset&&) = default;
-    Changeset(const Changeset&) = delete;
-    Changeset& operator=(const Changeset&) = delete;
 
     InternString intern_string(StringData);              // Slow!
     InternString find_string(StringData) const noexcept; // Slow!
     StringData string_data() const noexcept;
 
-    StringBuffer& string_buffer() noexcept;
-    const StringBuffer& string_buffer() const noexcept;
+    std::string& string_buffer() noexcept;
+    const std::string& string_buffer() const noexcept;
     const InternStrings& interned_strings() const noexcept;
     InternStrings& interned_strings() noexcept;
 
@@ -178,6 +166,22 @@ struct Changeset {
     /// untransformed changeset was produced.
     file_ident_type origin_file_ident = 0;
 
+    /// Must be set before passing this Changeset to Transformer::transform_remote_changesets
+    /// to the index of this changeset within the received changesets.
+    ///
+    /// In FLX sync the server may send multiple idempotent changesets with the same server version
+    /// when bootstrapping data. Internal data structures within the OT Transformer require the
+    /// input changesets to be sortable in the order that they were received. If the version number
+    /// is not increasing, this will be used to determine the correct sort order.
+    ///
+    /// FIXME: This is a hack that we need to figure out a better way of fixing. This can maybe
+    /// be part of refactoring the ChangesetIndex
+    size_t transform_sequence = 0;
+
+    /// If the changeset was compacted during download, the size of the original
+    /// changeset. Only applies to changesets sent by the server.
+    std::size_t original_changeset_size = 0;
+
     /// Compare for exact equality, including that interned strings have the
     /// same integer values, and there is the same number of interned strings,
     /// same topology of tombstones, etc.
@@ -185,9 +189,9 @@ struct Changeset {
     bool operator!=(const Changeset& that) const noexcept;
 
 private:
-    util::metered::vector<Instruction> m_instructions;
-    std::shared_ptr<StringBuffer> m_string_buffer;
-    std::shared_ptr<InternStrings> m_strings;
+    std::vector<Instruction> m_instructions;
+    std::string m_string_buffer;
+    InternStrings m_strings;
     bool m_is_dirty = false;
 
     iterator const_iterator_to_iterator(const_iterator);
@@ -204,7 +208,7 @@ std::ostream& operator<<(std::ostream&, const Changeset& changeset);
 /// empty, and the position is zero, the iterator is pointing to a tombstone.
 template <bool is_const>
 struct Changeset::IteratorImpl {
-    using list_type = util::metered::vector<Instruction>;
+    using list_type = std::vector<Instruction>;
     using inner_iterator_type = std::conditional_t<is_const, list_type::const_iterator, list_type::iterator>;
 
     // reference_type is a pointer because we have no way to create a reference
@@ -462,45 +466,44 @@ inline void Changeset::clear() noexcept
 
 inline util::Optional<StringBufferRange> Changeset::try_get_intern_string(InternString string) const noexcept
 {
-    if (string.value >= m_strings->size())
+    if (string.value >= m_strings.size())
         return util::none;
-    return (*m_strings)[string.value];
+    return m_strings[string.value];
 }
 
 inline StringBufferRange Changeset::get_intern_string(InternString string) const noexcept
 {
-    auto str = try_get_intern_string(string);
-    REALM_ASSERT(str);
-    return *str;
+    REALM_ASSERT(string.value < m_strings.size());
+    return m_strings[string.value];
 }
 
 inline InternStrings& Changeset::interned_strings() noexcept
 {
-    return *m_strings;
+    return m_strings;
 }
 
 inline const InternStrings& Changeset::interned_strings() const noexcept
 {
-    return *m_strings;
+    return m_strings;
 }
 
-inline auto Changeset::string_buffer() noexcept -> StringBuffer&
+inline auto Changeset::string_buffer() noexcept -> std::string&
 {
-    return *m_string_buffer;
+    return m_string_buffer;
 }
 
-inline auto Changeset::string_buffer() const noexcept -> const StringBuffer&
+inline auto Changeset::string_buffer() const noexcept -> const std::string&
 {
-    return *m_string_buffer;
+    return m_string_buffer;
 }
 
 inline util::Optional<StringData> Changeset::try_get_string(StringBufferRange range) const noexcept
 {
-    if (range.offset > m_string_buffer->size())
+    if (range.offset > m_string_buffer.size())
         return util::none;
-    if (range.offset + range.size > m_string_buffer->size())
+    if (range.offset + range.size > m_string_buffer.size())
         return util::none;
-    return StringData{m_string_buffer->data() + range.offset, range.size};
+    return StringData{m_string_buffer.data() + range.offset, range.size};
 }
 
 inline util::Optional<StringData> Changeset::try_get_string(InternString str) const noexcept
@@ -525,14 +528,19 @@ inline StringData Changeset::get_string(InternString string) const noexcept
 
 inline StringData Changeset::string_data() const noexcept
 {
-    return StringData{m_string_buffer->data(), m_string_buffer->size()};
+    return StringData{m_string_buffer.data(), m_string_buffer.size()};
 }
 
 inline StringBufferRange Changeset::append_string(StringData string)
 {
-    m_string_buffer->reserve(1024); // we expect more strings
-    size_t offset = m_string_buffer->size();
-    m_string_buffer->append(string.data(), string.size());
+    // We expect more strings. Only do this at the beginning because until C++20, reserve
+    // will shrink_to_fit if the request is less than the current capacity.
+    constexpr size_t small_string_buffer_size = 1024;
+    if (m_string_buffer.capacity() < small_string_buffer_size) {
+        m_string_buffer.reserve(small_string_buffer_size);
+    }
+    size_t offset = m_string_buffer.size();
+    m_string_buffer.append(string.data(), string.size());
     return StringBufferRange{uint32_t(offset), uint32_t(string.size())};
 }
 

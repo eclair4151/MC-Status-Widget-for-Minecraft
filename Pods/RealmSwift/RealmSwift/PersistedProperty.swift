@@ -69,7 +69,7 @@ import Realm.Private
 ///  to the initializer. Compound primary keys are not supported, and setting
 ///  more than one property as the primary key will throw an exception at
 ///  runtime. Only Int, String, UUID and ObjectID properties can be made the
-///  primary key, and when using MongoDB Realm, the primary key must be named
+///  primary key, and when using Atlas App Services, the primary key must be named
 ///  `_id`. The primary key property can only be mutated on unmanaged objects,
 ///  and mutating it on an object which has been added to a Realm will throw an
 ///  exception.
@@ -313,19 +313,11 @@ extension PersistableEnum {
     }
 }
 
-#if swift(>=5.5)
 /// A type which can be indexed.
 ///
 /// This protocol is merely a tag and declaring additional types as conforming
 /// to it will simply result in runtime errors rather than compile-time errors.
 @_marker public protocol _Indexable {}
-#else
-/// A type which can be indexed.
-///
-/// This protocol is merely a tag and declaring additional types as conforming
-/// to it will simply result in runtime errors rather than compile-time errors.
-public protocol _Indexable {}
-#endif
 
 extension Persisted where Value.PersistedType: _Indexable {
     /// Declares an indexed property which is lazily initialized to the type's default value.
@@ -338,19 +330,11 @@ extension Persisted where Value.PersistedType: _Indexable {
     }
 }
 
-#if swift(>=5.5)
 /// A type which can be made the primary key of an object.
 ///
 /// This protocol is merely a tag and declaring additional types as conforming
 /// to it will simply result in runtime errors rather than compile-time errors.
 @_marker public protocol _PrimaryKey {}
-#else
-/// A type which can be made the primary key of an object.
-///
-/// This protocol is merely a tag and declaring additional types as conforming
-/// to it will simply result in runtime errors rather than compile-time errors.
-public protocol _PrimaryKey {}
-#endif
 
 extension Persisted where Value.PersistedType: _PrimaryKey {
     /// Declares the primary key property which is lazily initialized to the type's default value.

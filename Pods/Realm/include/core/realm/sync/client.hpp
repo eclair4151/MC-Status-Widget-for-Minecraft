@@ -130,7 +130,7 @@ class BadServerUrl; // Exception
 /// their bound state), as long as they are associated with the same client
 /// object, or with two different client objects that do not overlap in
 /// time. This means, in particular, that it is an error to create two bound
-/// session objects for the same local Realm file, it they are associated with
+/// session objects for the same local Realm file, if they are associated with
 /// two different client objects that overlap in time, even if the session
 /// objects do not overlap in time (in their bound state). It is the
 /// responsibility of the application to ensure that these rules are adhered
@@ -312,6 +312,19 @@ public:
         ///
         /// This feature exists exclusively for testing purposes at this time.
         bool simulate_integration_error = false;
+
+        /// Will be called after a download message is received and validated by
+        /// the client but befefore it's been transformed or applied. To be used in
+        /// testing only.
+        std::function<void(const sync::SyncProgress&, int64_t, sync::DownloadBatchState, size_t)>
+            on_download_message_received_hook;
+        /// Will be called after each bootstrap message is added to the pending bootstrap store,
+        /// but before processing a finalized bootstrap. For testing only.
+        std::function<bool(const sync::SyncProgress&, int64_t, sync::DownloadBatchState)>
+            on_bootstrap_message_processed_hook;
+        /// Will be called after a download message is integrated. For testing only.
+        std::function<void(const sync::SyncProgress&, int64_t, sync::DownloadBatchState, size_t)>
+            on_download_message_integrated_hook;
     };
 
     /// \brief Start a new session for the specified client-side Realm.
@@ -459,7 +472,7 @@ public:
     void set_progress_handler(util::UniqueFunction<ProgressHandler>);
 
 
-    using ConnectionStateChangeListener = void(ConnectionState, const SessionErrorInfo*);
+    using ConnectionStateChangeListener = void(ConnectionState, util::Optional<SessionErrorInfo>);
 
     /// \brief Install a connection state change listener.
     ///
@@ -498,7 +511,7 @@ public:
 
     //@{
     /// Deprecated! Use set_connection_state_change_listener() instead.
-    using ErrorHandler = void(std::error_code, bool is_fatal, const std::string& detailed_message);
+    using ErrorHandler = void(const SessionErrorInfo&);
     void set_error_handler(util::UniqueFunction<ErrorHandler>);
     //@}
 
@@ -575,7 +588,7 @@ public:
     ///
     /// \param signed_user_token A cryptographically signed token describing the
     /// identity and access rights of the current user. See ProtocolEnvelope.
-    void refresh(std::string signed_user_token);
+    void refresh(const std::string& signed_user_token);
 
     /// \brief Inform the synchronization agent about changes of local origin.
     ///
@@ -710,6 +723,8 @@ public:
 
     void on_new_flx_sync_subscription(int64_t new_version);
 
+    util::Future<std::string> send_test_command(std::string command_body);
+
 private:
     SessionWrapper* m_impl = nullptr;
 
@@ -761,14 +776,12 @@ inline void Session::detach() noexcept
 
 inline void Session::set_error_handler(util::UniqueFunction<ErrorHandler> handler)
 {
-    auto handler_2 = [handler = std::move(handler)](ConnectionState state, const SessionErrorInfo* error_info) {
+    auto handler_2 = [handler = std::move(handler)](ConnectionState state,
+                                                    const util::Optional<SessionErrorInfo>& error_info) {
         if (state != ConnectionState::disconnected)
             return;
         REALM_ASSERT(error_info);
-        std::error_code ec = error_info->error_code;
-        bool is_fatal = error_info->is_fatal;
-        const std::string& detailed_message = error_info->detailed_message;
-        handler(ec, is_fatal, detailed_message); // Throws
+        handler(*error_info); // Throws
     };
     set_connection_state_change_listener(std::move(handler_2)); // Throws
 }

@@ -191,7 +191,7 @@ class SyncUser : public std::enable_shared_from_this<SyncUser>, public Subscriba
     friend class SyncSession;
 
 public:
-    enum class State : std::size_t {
+    enum class State {
         LoggedOut,
         LoggedIn,
         Removed,
@@ -306,6 +306,12 @@ public:
         m_seconds_to_adjust_time_for_testing.store(seconds);
     }
 
+    /// Check the SyncUsers passed as argument have the same remote identity id.
+    friend bool operator==(const SyncUser& lhs, const SyncUser& rhs)
+    {
+        return lhs.identity() == rhs.identity();
+    }
+
 protected:
     friend class SyncManager;
     void detach_from_sync_manager() REQUIRES(!m_mutex);
@@ -331,7 +337,7 @@ private:
 
     mutable util::CheckedMutex m_mutex;
 
-    // Set by the server. The unique ID of the user account on the Realm Applcication.
+    // Set by the server. The unique ID of the user account on the Realm Application.
     const std::string m_identity;
 
     // Sessions are owned by the SyncManager, but the user keeps a map of weak references

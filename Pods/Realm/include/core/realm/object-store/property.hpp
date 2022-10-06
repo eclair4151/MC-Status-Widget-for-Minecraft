@@ -25,14 +25,11 @@
 #include <realm/util/assert.hpp>
 // FIXME: keys.hpp is currently pretty heavyweight
 #include <realm/keys.hpp>
+#include <realm/util/optional.hpp>
 
 #include <string>
 
 namespace realm {
-namespace util {
-template <typename>
-class Optional;
-}
 class BinaryData;
 class Decimal128;
 class Obj;
@@ -202,6 +199,11 @@ inline constexpr bool is_collection(PropertyType a)
 inline constexpr bool is_nullable(PropertyType a)
 {
     return to_underlying(a & PropertyType::Nullable) == to_underlying(PropertyType::Nullable);
+}
+
+inline constexpr bool is_mixed(PropertyType a)
+{
+    return to_underlying(a & PropertyType::Mixed) == to_underlying(PropertyType::Mixed);
 }
 
 // Some of the places we use switch_on_type() the Obj version isn't instantiatable

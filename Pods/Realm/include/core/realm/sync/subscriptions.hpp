@@ -28,6 +28,7 @@
 #include "realm/util/optional.hpp"
 
 #include <list>
+#include <set>
 #include <string_view>
 
 namespace realm::sync {
@@ -60,6 +61,12 @@ public:
 
     // Returns a stringified version of the query associated with this subscription.
     std::string_view query_string() const;
+
+    // Returns whether the 2 subscriptions passed have the same id.
+    friend bool operator==(const Subscription& lhs, const Subscription& rhs)
+    {
+        return lhs.id() == rhs.id();
+    }
 
 private:
     friend class SubscriptionSet;
@@ -152,6 +159,9 @@ public:
     // The query version number used in the sync wire protocol to identify this subscription set to the server.
     int64_t version() const;
 
+    // The database version that this subscription set was created at or -1 if Uncommitted.
+    DB::version_type snapshot_version() const;
+
     // The current state of this subscription set
     State state() const;
 
@@ -185,9 +195,9 @@ protected:
     };
 
     explicit SubscriptionSet(std::weak_ptr<const SubscriptionStore> mgr, int64_t version, SupersededTag);
-    explicit SubscriptionSet(std::weak_ptr<const SubscriptionStore> mgr, TransactionRef tr, Obj obj);
+    explicit SubscriptionSet(std::weak_ptr<const SubscriptionStore> mgr, const Transaction& tr, Obj obj);
 
-    void load_from_database(TransactionRef tr, Obj obj);
+    void load_from_database(const Transaction& tr, Obj obj);
 
     // Get a reference to the SubscriptionStore. It may briefly extend the lifetime of the store.
     std::shared_ptr<const SubscriptionStore> get_flx_subscription_store() const;
@@ -198,7 +208,7 @@ protected:
     int64_t m_version = 0;
     State m_state = State::Uncommitted;
     std::string m_error_str;
-    DB::version_type m_snapshot_version;
+    DB::version_type m_snapshot_version = -1;
     std::vector<Subscription> m_subs;
 };
 
@@ -231,6 +241,8 @@ public:
     // The inserted subscription will have an empty name - to update this Subscription's query, the caller
     // will have
     std::pair<iterator, bool> insert_or_assign(const Query& query);
+
+    void import(const SubscriptionSet&);
 
     // Erases a subscription pointed to by an iterator. Returns the "next" iterator in the set - to provide
     // STL compatibility. The SubscriptionSet must be in the Uncommitted state to call this - otherwise
@@ -266,6 +278,8 @@ private:
 
     std::pair<iterator, bool> insert_or_assign_impl(iterator it, util::Optional<std::string> name,
                                                     std::string object_class_name, std::string query_str);
+    // Throws is m_tr is in the wrong state.
+    void check_is_mutable() const;
 
     void insert_sub_impl(ObjectId id, Timestamp created_at, Timestamp updated_at, StringData name,
                          StringData object_class_name, StringData query_str);
@@ -310,6 +324,16 @@ public:
     // version ID. If there is no SubscriptionSet with that version ID, this throws KeyNotFound.
     SubscriptionSet get_by_version(int64_t version_id) const;
 
+    // Fulfill all previous subscriptions by superceding them. This does not
+    // affect the mutable subscription identified by the parameter.
+    void supercede_all_except(MutableSubscriptionSet& mut_sub) const;
+
+    // Returns true if there have been commits to the DB since the given version
+    bool would_refresh(DB::version_type version) const noexcept;
+
+    using TableSet = std::set<std::string, std::less<>>;
+    TableSet get_tables_for_latest(const Transaction& tr) const;
+
     struct PendingSubscription {
         int64_t query_version;
         DB::version_type snapshot_version;
@@ -317,6 +341,7 @@ public:
 
     util::Optional<PendingSubscription> get_next_pending_version(int64_t last_query_version,
                                                                  DB::version_type after_client_version) const;
+    std::vector<SubscriptionSet> get_pending_subscriptions() const;
 
 private:
     using std::enable_shared_from_this<SubscriptionStore>::weak_from_this;
@@ -324,24 +349,6 @@ private:
 
 protected:
     explicit SubscriptionStore(DBRef db, util::UniqueFunction<void(int64_t)> on_new_subscription_set);
-
-    struct SubscriptionKeys {
-        TableKey table;
-        ColKey id;
-        ColKey created_at;
-        ColKey updated_at;
-        ColKey name;
-        ColKey object_class_name;
-        ColKey query_str;
-    };
-
-    struct SubscriptionSetKeys {
-        TableKey table;
-        ColKey snapshot_version;
-        ColKey state;
-        ColKey error_str;
-        ColKey subscriptions;
-    };
 
     struct NotificationRequest {
         NotificationRequest(int64_t version, util::Promise<SubscriptionSet::State> promise,
@@ -366,9 +373,22 @@ protected:
     friend class Subscription;
     friend class SubscriptionSet;
 
+    TableKey m_sub_table;
+    ColKey m_sub_id;
+    ColKey m_sub_created_at;
+    ColKey m_sub_updated_at;
+    ColKey m_sub_name;
+    ColKey m_sub_object_class_name;
+    ColKey m_sub_query_str;
+
+    TableKey m_sub_set_table;
+    ColKey m_sub_set_version_num;
+    ColKey m_sub_set_snapshot_version;
+    ColKey m_sub_set_state;
+    ColKey m_sub_set_error_str;
+    ColKey m_sub_set_subscriptions;
+
     util::UniqueFunction<void(int64_t)> m_on_new_subscription_set;
-    std::unique_ptr<SubscriptionSetKeys> m_sub_set_keys;
-    std::unique_ptr<SubscriptionKeys> m_sub_keys;
 
     mutable std::mutex m_pending_notifications_mutex;
     mutable std::condition_variable m_pending_notifications_cv;

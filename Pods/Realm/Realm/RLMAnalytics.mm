@@ -122,7 +122,7 @@ static NSString *RLMHashData(const void *bytes, size_t length) {
 
     char formatted[CC_SHA256_DIGEST_LENGTH * 2 + 1];
     for (int i = 0; i < CC_SHA256_DIGEST_LENGTH; ++i) {
-        sprintf(formatted + i * 2, "%02x", buffer[i]);
+        snprintf(formatted + i * 2, sizeof(formatted) - i * 2, "%02x", buffer[i]);
     }
 
     return [[NSString alloc] initWithBytes:formatted
@@ -236,7 +236,7 @@ void RLMSendAnalytics() {
     if (getenv("REALM_DISABLE_ANALYTICS") || !RLMIsDebuggerAttached() || RLMIsRunningInPlayground()) {
         return;
     }
-    NSArray *urlStrings = @[@"https://webhooks.mongodb-realm.com/api/client/v2.0/app/realmsdkmetrics-zmhtm/service/metric_webhook/incoming_webhook/metric?data=%@"];
+    NSArray *urlStrings = @[@"https://data.mongodb-api.com/app/realmsdkmetrics-zmhtm/endpoint/metric_webhook/metric?data=%@"];
     NSData *payload = [NSJSONSerialization dataWithJSONObject:RLMAnalyticsPayload() options:0 error:nil];
 
     for (NSString *urlString in urlStrings) {

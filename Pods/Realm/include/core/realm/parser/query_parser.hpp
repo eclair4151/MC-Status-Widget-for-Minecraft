@@ -26,35 +26,18 @@
 #include <realm/object_id.hpp>
 #include <realm/decimal128.hpp>
 #include <realm/uuid.hpp>
-#include <realm/util/string_buffer.hpp>
 #include <realm/util/any.hpp>
 #include <realm/mixed.hpp>
 
 namespace realm::query_parser {
 
-/// Exception thrown when parsing fails due to invalid syntax.
-struct SyntaxError : std::runtime_error {
-    using std::runtime_error::runtime_error;
-};
-
-/// Exception thrown when binding a syntactically valid query string in a
-/// context where it does not make sense.
-struct InvalidQueryError : std::runtime_error {
-    using std::runtime_error::runtime_error;
-};
-
-/// Exception thrown when there is a problem accessing the arguments in a query string
-struct InvalidQueryArgError : std::invalid_argument {
-    using std::invalid_argument::invalid_argument;
-};
-
 struct AnyContext {
     template <typename T>
-    T unbox(const util::Any& wrapper)
+    T unbox(const std::any& wrapper)
     {
         return util::any_cast<T>(wrapper);
     }
-    bool is_null(const util::Any& wrapper)
+    bool is_null(const std::any& wrapper)
     {
         if (!wrapper.has_value()) {
             return true;
@@ -64,7 +47,17 @@ struct AnyContext {
         }
         return false;
     }
-    DataType get_type_of(const util::Any& wrapper)
+    bool is_list(const std::any& wrapper)
+    {
+        if (!wrapper.has_value()) {
+            return false;
+        }
+        if (wrapper.type() == typeid(std::vector<Mixed>)) {
+            return true;
+        }
+        return false;
+    }
+    DataType get_type_of(const std::any& wrapper)
     {
         const std::type_info& type{wrapper.type()};
         if (type == typeid(int64_t)) {
@@ -129,17 +122,14 @@ public:
     virtual Decimal128 decimal128_for_argument(size_t argument_index) = 0;
     virtual UUID uuid_for_argument(size_t argument_index) = 0;
     virtual ObjLink objlink_for_argument(size_t argument_index) = 0;
+    virtual std::vector<Mixed> list_for_argument(size_t argument_index) = 0;
     virtual bool is_argument_null(size_t argument_index) = 0;
+    virtual bool is_argument_list(size_t argument_index) = 0;
     virtual DataType type_for_argument(size_t argument_index) = 0;
     size_t get_num_args() const
     {
         return m_count;
     }
-
-    // dynamic conversion space with lifetime tied to this
-    // it is used for storing literal binary/string data
-    std::vector<util::StringBuffer> buffer_space;
-
 protected:
     void verify_ndx(size_t ndx) const
     {
@@ -216,6 +206,14 @@ public:
     ObjLink objlink_for_argument(size_t i) override
     {
         return get<ObjLink>(i);
+    }
+    std::vector<Mixed> list_for_argument(size_t i) override
+    {
+        return get<std::vector<Mixed>>(i);
+    }
+    bool is_argument_list(size_t i) override
+    {
+        return m_ctx.is_list(at(i));
     }
     bool is_argument_null(size_t i) override
     {
@@ -303,6 +301,14 @@ public:
         throw NoArgsError();
     }
     ObjLink objlink_for_argument(size_t)
+    {
+        throw NoArgsError();
+    }
+    bool is_argument_list(size_t)
+    {
+        throw NoArgsError();
+    }
+    std::vector<Mixed> list_for_argument(size_t)
     {
         throw NoArgsError();
     }

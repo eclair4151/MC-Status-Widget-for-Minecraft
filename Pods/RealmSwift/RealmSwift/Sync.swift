@@ -24,7 +24,7 @@ import Combine
 #endif
 
 /**
- An object representing a MongoDB Realm user.
+ An object representing an Atlas App Services user.
 
  - see: `RLMUser`
  */
@@ -48,7 +48,7 @@ public extension User {
 }
 
 /**
- A manager which configures and manages MongoDB Realm synchronization-related
+ A manager which configures and manages Atlas App Services synchronization-related
  functionality.
 
  - see: `RLMSyncManager`
@@ -169,7 +169,7 @@ public typealias SyncLogLevel = RLMSyncLogLevel
 
 /**
  A data type whose values represent different authentication providers that can be used with
- MongoDB Realm.
+ Atlas App Services.
 
  - see: `RLMIdentityProvider`
  */
@@ -178,7 +178,7 @@ public typealias Provider = RLMIdentityProvider
 /**
  * How the Realm client should validate the identity of the server for secure connections.
  *
- * By default, when connecting to MongoDB Realm over HTTPS, Realm will
+ * By default, when connecting to Atlas App Services over HTTPS, Realm will
  * validate the server's HTTPS certificate using the system trust store and root
  * certificates. For additional protection against man-in-the-middle (MITM)
  * attacks and similar vulnerabilities, you can pin a certificate or public key,
@@ -208,30 +208,90 @@ public typealias Provider = RLMIdentityProvider
 }
 
 /**
+ An enum used to determines file recovery behavior in the event of a client reset.
+
+ - see: `RLMClientResetMode`
+ - see: https://docs.mongodb.com/realm/sync/error-handling/client-resets/
+*/
+public enum ClientResetMode {
+    /// - see: `RLMClientResetModeManual`
+    case manual
+    /// - see: `RLMClientResetModeDiscardLocal` for more details on `.discardLocal` behavior
+    ///
+    /// The first `.discardLocal` function argument notifies prior to a client reset occurring.
+    /// The `Realm` argument contains a frozen copy of the Realm state prior to client reset.
+    /// ```
+    /// user.configuration(partitionValue: "myPartition", clientResetMode: .discardLocal({ beforeRealm in
+    ///    var recoveryConfig = Realm.Configuration()
+    ///    recoveryConfig.fileURL = myRecoveryPath
+    ///    do {
+    ///        beforeRealm.writeCopy(configuration: recoveryConfig)
+    ///        // The copied realm could be used later for recovery, debugging, reporting, etc.
+    ///    } catch {
+    ///        // handle error
+    ///    }
+    /// }, nil))
+    /// ```
+    ///  For more details on ((Realm) -> Void)? = nil,
+    /// - see: `RLMClientResetBeforeBlock`
+    ///
+    /// The second `.discardLocal` function argument notifies after a client reset has occurred.
+    /// - Within this function, the first `Realm` argument contains a frozen copy of the local Realm state prior to client reset.
+    /// - Within this function, the second `Realm` argument contains the Realm state after client reset.
+    /// ```
+    /// user.configuration(partitionValue: "myPartition", clientResetMode: .discardLocal( nil, { beforeRealm, afterRealm in
+    /// // This block could be used to add custom recovery logic, back-up a realm file, send reporting, etc.
+    /// for object in before.objects(myClass.self) {
+    ///     let res = after.objects(myClass.self)
+    ///     if (res.filter("primaryKey == %@", object.primaryKey).first != nil) {
+    ///         // ...custom recovery logic...
+    ///     } else {
+    ///         // ...custom recovery logic...
+    ///     }
+    /// }
+    /// }))
+    /// ```
+    ///  For more details on the second block: ((Realm, Realm) -> Void)? = nil,
+    /// - see: `RLMClientResetAfterBlock`
+    case discardLocal(((Realm) -> Void)? = nil, ((Realm, Realm) -> Void)? = nil)
+}
+
+/**
  A `SyncConfiguration` represents configuration parameters for Realms intended to sync with
- MongoDB Realm.
+ Atlas App Services.
  */
 @frozen public struct SyncConfiguration {
     /// The `SyncUser` who owns the Realm that this configuration should open.
-    public let user: User
+    public var user: User {
+        config.user
+    }
 
     /**
      The value this Realm is partitioned on. The partition key is a property defined in
-     MongoDB Realm. All classes with a property with this value will be synchronized to the
+     Atlas App Services. All classes with a property with this value will be synchronized to the
      Realm.
      */
-    public let partitionValue: AnyBSON?
+    public var partitionValue: AnyBSON? {
+        ObjectiveCSupport.convert(object: config.partitionValue)
+    }
 
     /**
-     A policy that determines what should happen when all references to Realms opened by this
-     configuration go out of scope.
-     */
-    internal let stopPolicy: RLMSyncStopPolicy
+     An enum which determines file recovery behvaior in the event of a client reset.
+     - note: Defaults to `.manual`
 
-    /**
-     Determines if the sync configuration is flexible sync or not
-     */
-    internal let isFlexibleSync: Bool
+     - see: `ClientResetMode` and `RLMClientResetMode`
+     - see: https://docs.mongodb.com/realm/sync/error-handling/client-resets/
+    */
+    public var clientResetMode: ClientResetMode {
+        switch config.clientResetMode {
+        case .manual:
+            return .manual
+        case .discardLocal:
+            return .discardLocal(ObjectiveCSupport.convert(object: config.beforeClientReset), ObjectiveCSupport.convert(object: config.afterClientReset))
+        @unknown default:
+            fatalError()
+        }
+    }
 
     /**
      By default, Realm.asyncOpen() swallows non-fatal connection errors such as
@@ -239,31 +299,17 @@ public typealias Provider = RLMIdentityProvider
      this is set to `true`, instead the error will be reported to the callback
      and the async open will be cancelled.
      */
-    public let cancelAsyncOpenOnNonFatalErrors: Bool
-
-    internal init(config: RLMSyncConfiguration) {
-        self.user = config.user
-        self.stopPolicy = config.stopPolicy
-        self.partitionValue = ObjectiveCSupport.convert(object: config.partitionValue)
-        self.cancelAsyncOpenOnNonFatalErrors = config.cancelAsyncOpenOnNonFatalErrors
-        self.isFlexibleSync = config.enableFlexibleSync
+    public var cancelAsyncOpenOnNonFatalErrors: Bool {
+        config.cancelAsyncOpenOnNonFatalErrors
     }
 
-    func asConfig() -> RLMSyncConfiguration {
-        let syncConfiguration: RLMSyncConfiguration
-        if isFlexibleSync {
-            syncConfiguration = RLMSyncConfiguration(user: user, stopPolicy: stopPolicy, enableFlexibleSync: isFlexibleSync)
-        } else {
-            syncConfiguration = RLMSyncConfiguration(user: user,
-                                                     partitionValue: partitionValue.map(ObjectiveCSupport.convertBson),
-                                                     stopPolicy: stopPolicy)
-        }
-        syncConfiguration.cancelAsyncOpenOnNonFatalErrors = cancelAsyncOpenOnNonFatalErrors
-        return syncConfiguration
+    internal let config: RLMSyncConfiguration
+    internal init(config: RLMSyncConfiguration) {
+        self.config = config
     }
 }
 
-/// Structure providing an interface to call a MongoDB Realm function with the provided name and arguments.
+/// Structure providing an interface to call an Atlas App Services function with the provided name and arguments.
 ///
 ///     user.functions.sum([1, 2, 3, 4, 5]) { sum, error in
 ///         guard case let .int64(value) = sum else {
@@ -379,13 +425,36 @@ public extension User {
      Additional settings can be optionally specified. Descriptions of these
      settings follow.
 
-     `enableSSLValidation` is true by default. It can be disabled for debugging
-     purposes.
+     `ClientResetMode` is `.manual` by default.
 
      - warning: NEVER disable SSL validation for a system running in production.
      */
     func configuration<T: BSON>(partitionValue: T) -> Realm.Configuration {
         let config = self.__configuration(withPartitionValue: ObjectiveCSupport.convert(object: AnyBSON(partitionValue)))
+        return ObjectiveCSupport.convert(object: config)
+    }
+
+    /**
+     Create a sync configuration instance.
+
+     - parameter partitionValue: The `BSON` value the Realm is partitioned on.
+     - parameter clientResetMode: Determines file recovery behavior during a client reset.
+     - parameter notifyBeforeClientReset: A callback which notifies prior to a client reset occurring. See: `notifyBeforeClientReset`.
+     - parameter notifyAfterClientReset: A callback which notifies after a client reset has occurred. See: `notifyAfterClientReset`.
+     */
+    func configuration<T: BSON>(partitionValue: T,
+                                clientResetMode: ClientResetMode) -> Realm.Configuration {
+        var config: RLMRealmConfiguration
+        switch clientResetMode {
+        case .manual:
+            config = self.__configuration(withPartitionValue: ObjectiveCSupport.convert(object: AnyBSON(partitionValue)),
+                                              clientResetMode: .manual)
+        case .discardLocal(let beforeClientReset, let afterClientReset):
+            config = self.__configuration(withPartitionValue: ObjectiveCSupport.convert(object: AnyBSON(partitionValue)),
+                                              clientResetMode: .discardLocal,
+                                              notifyBeforeReset: ObjectiveCSupport.convert(object: beforeClientReset),
+                                              notifyAfterReset: ObjectiveCSupport.convert(object: afterClientReset))
+        }
         return ObjectiveCSupport.convert(object: config)
     }
 
@@ -433,7 +502,7 @@ public extension User {
 
     /**
      The custom data of the user.
-     This is configured in your MongoDB Realm App.
+     This is configured in your Atlas App Services app.
     */
     var customData: Document {
         guard let rlmCustomData = self.__customData as RLMBSON?,
@@ -452,7 +521,7 @@ public extension User {
         return self.__mongoClient(withServiceName: serviceName)
     }
 
-    /// Call a MongoDB Realm function with the provided name and arguments.
+    /// Call an Atlas App Services function with the provided name and arguments.
     ///
     ///     user.functions.sum([1, 2, 3, 4, 5]) { sum, error in
     ///         guard case let .int64(value) = sum else {
@@ -682,7 +751,7 @@ public extension User {
         }
     }
 
-    /// Permanently deletes this user from your MongoDB Realm app.
+    /// Permanently deletes this user from your Atlas App Services app.
     /// The users state will be set to `Removed` and the session will be destroyed.
     /// If the delete request fails, the local authentication state will be untouched.
     /// @returns A publisher that eventually return `Result.success` or `Error`.
@@ -776,8 +845,8 @@ public extension User {
     }
 }
 
-#if swift(>=5.5.2) && canImport(_Concurrency)
-@available(macOS 12.0, tvOS 15.0, iOS 15.0, watchOS 8.0, *)
+#if swift(>=5.6) && canImport(_Concurrency)
+@available(macOS 10.15, tvOS 13.0, iOS 13.0, watchOS 6.0, *)
 public extension User {
     /// Links the currently authenticated user with a new identity, where the identity is defined by the credential
     /// specified as a parameter. This will only be successful if this `User` is the currently authenticated
@@ -792,7 +861,7 @@ public extension User {
     }
 }
 
-@available(macOS 12.0, tvOS 15.0, iOS 15.0, watchOS 8.0, *)
+@available(macOS 10.15, tvOS 13.0, iOS 13.0, watchOS 6.0, *)
 extension FunctionCallable {
     /// The implementation of @dynamicMemberLookup that allows  for `async await` callable return.
     ///
@@ -813,7 +882,7 @@ extension FunctionCallable {
         }
     }
 }
-#endif // swift(>=5.5)
+#endif // swift(>=5.6)
 
 extension User {
     /**
@@ -828,6 +897,37 @@ extension User {
      */
     public func flexibleSyncConfiguration() -> Realm.Configuration {
         let config = self.__flexibleSyncConfiguration()
+        return ObjectiveCSupport.convert(object: config)
+    }
+
+    /**
+     Create a flexible sync configuration instance, which can be used to open a realm  which
+     supports flexible sync.
+
+     It won't be possible to combine flexible and partition sync in the same app, which means if you open
+     a realm with a flexible sync configuration, you won't be able to open a realm with a PBS configuration
+     and the other way around.
+
+     Using `rerunOnOpen` covers the cases where you want to re-run dynamic queries, for example time ranges.
+     ```
+     var config = user.flexibleSyncConfiguration(initialSubscriptions: { subscriptions in
+         subscriptions.append(QuerySubscription<User>() {
+             $0.birthdate < Date() && $0.birthdate > Calendar.current.date(byAdding: .year, value: 21)!
+         })
+     }, rerunOnOpen: true)
+     ```
+
+     - parameter initialSubscriptions: A block which receives a subscription set instance, that can be used to add an
+                                       initial set of subscriptions which will be executed when the Realm is first opened.
+     - parameter rerunOnOpen:          If true, allows to run the initial set of subscriptions specified, on every app startup.
+                                       This can be used to re-run dynamic time ranges and other queries that require a
+                                       re-computation of a static variable.
+
+
+     @return A `Realm.Configuration` instance with a flexible sync configuration.
+     */
+    public func flexibleSyncConfiguration(initialSubscriptions: @escaping ((SyncSubscriptionSet) -> Void), rerunOnOpen: Bool = false) -> Realm.Configuration {
+        let config = self.__flexibleSyncConfiguration(initialSubscriptions: ObjectiveCSupport.convert(block: initialSubscriptions), rerunOnOpen: rerunOnOpen)
         return ObjectiveCSupport.convert(object: config)
     }
 }

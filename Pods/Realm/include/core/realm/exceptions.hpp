@@ -171,6 +171,30 @@ private:
     std::string m_property;
 };
 
+class NoSubscriptionForWrite : public std::runtime_error {
+public:
+    NoSubscriptionForWrite(const std::string& msg);
+};
+
+namespace query_parser {
+
+/// Exception thrown when parsing fails due to invalid syntax.
+struct SyntaxError : std::runtime_error {
+    using std::runtime_error::runtime_error;
+};
+
+/// Exception thrown when binding a syntactically valid query string in a
+/// context where it does not make sense.
+struct InvalidQueryError : std::runtime_error {
+    using std::runtime_error::runtime_error;
+};
+
+/// Exception thrown when there is a problem accessing the arguments in a query string
+struct InvalidQueryArgError : std::invalid_argument {
+    using std::invalid_argument::invalid_argument;
+};
+
+} // namespace query_parser
 
 /// The \c LogicError exception class is intended to be thrown only when
 /// applications (or bindings) violate rules that are stated (or ought to have
@@ -369,6 +393,11 @@ inline SerialisationError::SerialisationError(const std::string& msg)
 
 inline InvalidPathError::InvalidPathError(const std::string& msg)
     : runtime_error(msg)
+{
+}
+
+inline NoSubscriptionForWrite::NoSubscriptionForWrite(const std::string& msg)
+    : std::runtime_error(msg)
 {
 }
 

@@ -94,7 +94,7 @@ enum class UpdateStatus {
 // 'Object' would have been a better name, but it clashes with a class in ObjectStore
 class Obj {
 public:
-    Obj()
+    constexpr Obj()
         : m_table(nullptr)
         , m_row_ndx(size_t(-1))
         , m_storage_version(-1)
@@ -159,6 +159,7 @@ public:
     bool is_unresolved(ColKey col_key) const;
 
     size_t get_link_count(ColKey col_key) const;
+    TableRef get_target_table(ColKey col_key) const;
 
     bool is_null(ColKey col_key) const;
     bool is_null(StringData col_name) const
@@ -259,7 +260,13 @@ public:
     template <class Head, class... Tail>
     Obj& set_all(Head v, Tail... tail);
 
-    void assign(const Obj& other);
+    // The main algorithm for handling schema migrations if we try to convert
+    // from TopLevel* to Embedded, in this case all the orphan objects are deleted
+    // and all the objects with multiple backlinks are cloned in order to avoid to
+    // get schema violations during the migration.
+    // By default this alogirithm is disabled. RealmConfig contains a boolean flag
+    // to enable it.
+    void handle_multiple_backlinks_during_schema_migration();
 
     Obj get_linked_object(ColKey link_col_key) const
     {
@@ -269,6 +276,7 @@ public:
     {
         return get_linked_object(get_column_key(link_col_name));
     }
+    Obj get_parent_object() const;
 
     template <typename U>
     Lst<U> get_list(ColKey col_key) const;
@@ -369,7 +377,6 @@ private:
     ColKey get_column_key(StringData col_name) const;
     ColKey get_primary_key_column() const;
     TableKey get_table_key() const;
-    TableRef get_target_table(ColKey col_key) const;
     TableRef get_target_table(ObjLink link) const;
     const Spec& get_spec() const;
 
@@ -411,7 +418,7 @@ private:
     void set_int(ColKey col_key, int64_t value);
     void add_backlink(ColKey backlink_col, ObjKey origin_key);
     bool remove_one_backlink(ColKey backlink_col, ObjKey origin_key);
-    void nullify_link(ColKey origin_col, ObjLink target_key);
+    void nullify_link(ColKey origin_col, ObjLink target_key) &&;
     // Used when inserting a new link. You will not remove existing links in this process
     void set_backlink(ColKey col_key, ObjLink new_link) const;
     // Used when replacing a link, return true if CascadeState contains objects to remove
@@ -420,12 +427,27 @@ private:
     bool remove_backlink(ColKey col_key, ObjLink old_link, CascadeState& state) const;
     template <class T>
     inline void set_spec(T&, ColKey);
+    template <class ValueType>
+    inline void nullify_single_link(ColKey col, ValueType target);
+
+    void fix_linking_object_during_schema_migration(Obj linking_obj, Obj obj, ColKey opposite_col_key) const;
 };
 
 std::ostream& operator<<(std::ostream&, const Obj& obj);
 
 template <>
+int64_t Obj::get(ColKey) const;
+template <>
+bool Obj::get(ColKey) const;
+
+template <>
 int64_t Obj::_get(ColKey::Idx col_ndx) const;
+template <>
+StringData Obj::_get(ColKey::Idx col_ndx) const;
+template <>
+BinaryData Obj::_get(ColKey::Idx col_ndx) const;
+template <>
+ObjKey Obj::_get(ColKey::Idx col_ndx) const;
 
 struct Obj::FatPathElement {
     Obj obj;        // Object which embeds...
