@@ -112,9 +112,10 @@ static id validatedObjectForProperty(__unsafe_unretained id const obj,
     }
     if (prop.type == RLMPropertyTypeObject) {
         Class objectClass = schema[prop.objectClassName].objectClass;
+        id enumerable = RLMAsFastEnumeration(obj);
         if (prop.dictionary) {
             NSMutableDictionary *ret = [[NSMutableDictionary alloc] init];
-            for (id key in obj) {
+            for (id key in enumerable) {
                 id val = RLMCoerceToNil(obj[key]);
                 if (val) {
                     val = coerceToObjectType(obj[key], objectClass, schema);
@@ -125,7 +126,7 @@ static id validatedObjectForProperty(__unsafe_unretained id const obj,
         }
         else if (prop.collection) {
             NSMutableArray *ret = [[NSMutableArray alloc] init];
-            for (id el in obj) {
+            for (id el in enumerable) {
                 [ret addObject:coerceToObjectType(el, objectClass, schema)];
             }
             return ret;
@@ -353,6 +354,10 @@ id RLMCreateManagedAccessor(Class cls, RLMClassInfo *info) {
 }
 
 + (bool)isEmbedded {
+    return false;
+}
+
++ (bool)isAsymmetric {
     return false;
 }
 
@@ -787,5 +792,15 @@ uint64_t RLMObjectBaseGetCombineId(__unsafe_unretained RLMObjectBase *const obj)
 @implementation RealmSwiftEmbeddedObject
 + (BOOL)accessInstanceVariablesDirectly {
     return NO;
+}
+@end
+
+@implementation RealmSwiftAsymmetricObject
++ (BOOL)accessInstanceVariablesDirectly {
+    return NO;
+}
+
++ (bool)isAsymmetric {
+    return YES;
 }
 @end

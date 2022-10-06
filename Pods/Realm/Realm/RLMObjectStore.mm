@@ -42,25 +42,6 @@
 
 using namespace realm;
 
-void RLMRealmCreateAccessors(RLMSchema *schema) {
-    const size_t bufferSize = sizeof("RLM:Managed  ") // includes null terminator
-                            + std::numeric_limits<unsigned long long>::digits10
-                            + realm::Group::max_table_name_length;
-
-    char className[bufferSize] = "RLM:Managed ";
-    char *const start = className + strlen(className);
-
-    for (RLMObjectSchema *objectSchema in schema.objectSchema) {
-        if (objectSchema.accessorClass != objectSchema.objectClass) {
-            continue;
-        }
-
-        static unsigned long long count = 0;
-        sprintf(start, "%llu %s", count++, objectSchema.className.UTF8String);
-        objectSchema.accessorClass = RLMManagedAccessorClassForObjectClass(objectSchema.objectClass, objectSchema, className);
-    }
-}
-
 static inline void RLMVerifyRealmRead(__unsafe_unretained RLMRealm *const realm) {
     if (!realm) {
         @throw RLMException(@"Realm must not be nil");
@@ -155,6 +136,16 @@ RLMObjectBase *RLMCreateObjectInRealmWithValue(RLMRealm *realm, NSString *classN
     object->_row = std::move(obj);
     RLMInitializeSwiftAccessor(object, false);
     return object;
+}
+
+void RLMCreateAsymmetricObjectInRealm(RLMRealm *realm, NSString *className, id value) {
+    RLMVerifyInWriteTransaction(realm);
+
+    CreatePolicy createPolicy = {.create = true, .copy = true, .diff = false, .update = false};
+
+    auto& info = realm->_info[className];
+    RLMAccessorContext c{info};
+    c.createObject(value, createPolicy);
 }
 
 RLMObjectBase *RLMObjectFromObjLink(RLMRealm *realm, realm::ObjLink&& objLink, bool parentIsSwiftObject) {

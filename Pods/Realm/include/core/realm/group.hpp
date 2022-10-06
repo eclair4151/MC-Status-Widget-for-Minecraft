@@ -20,20 +20,21 @@
 #define REALM_GROUP_HPP
 
 #include <functional>
+#include <map>
+#include <optional>
+#include <stdexcept>
 #include <string>
 #include <vector>
-#include <map>
-#include <stdexcept>
-#include <optional>
+#include <chrono>
 
-#include <realm/util/features.h>
+#include <realm/alloc_slab.hpp>
 #include <realm/exceptions.hpp>
-#include <realm/impl/input_stream.hpp>
-#include <realm/impl/output_stream.hpp>
 #include <realm/impl/cont_transact_hist.hpp>
+#include <realm/impl/output_stream.hpp>
 #include <realm/metrics/metrics.hpp>
 #include <realm/table.hpp>
-#include <realm/alloc_slab.hpp>
+#include <realm/util/features.h>
+#include <realm/util/input_stream.hpp>
 
 namespace realm {
 
@@ -55,72 +56,19 @@ public:
     /// with an external memory buffer.
     Group();
 
-    enum OpenMode {
-        /// Open in read-only mode. Fail if the file does not already exist.
-        mode_ReadOnly,
-        /// Open in read/write mode. Create the file if it doesn't exist.
-        mode_ReadWrite,
-        /// Open in read/write mode. Fail if the file does not already exist.
-        mode_ReadWriteNoCreate
-    };
-
-    /// Equivalent to calling open(const std::string&, const char*, OpenMode)
-    /// on an unattached group accessor.
-    explicit Group(const std::string& file, const char* encryption_key = nullptr, OpenMode = mode_ReadOnly);
-
-    /// Equivalent to calling open(BinaryData, bool) on an unattached
-    /// group accessor. Note that if this constructor throws, the
-    /// ownership of the memory buffer will remain with the caller,
-    /// regardless of whether \a take_ownership is set to `true` or
-    /// `false`.
-    explicit Group(BinaryData, bool take_ownership = true);
-
-    struct unattached_tag {
-    };
-
-    /// Create a Group instance in its unattached state. It may then
-    /// be attached to a database file later by calling one of the
-    /// open() methods. You may test whether this instance is
-    /// currently in its attached state by calling
-    /// is_attached(). Calling any other method (except the
-    /// destructor) while in the unattached state has undefined
-    /// behavior.
-    Group(unattached_tag) noexcept;
-
-    Group(const Group&) = delete;
-    Group& operator=(const Group&) = delete;
-
-    ~Group() noexcept override;
-
     /// Attach this Group instance to the specified database file.
     ///
-    /// By default, the specified file is opened in read-only mode
-    /// (mode_ReadOnly). This allows opening a file even when the
-    /// caller lacks permission to write to that file. The opened
-    /// group may still be modified freely, but the changes cannot be
-    /// written back to the same file using the commit() function. An
-    /// attempt to do that, will cause an exception to be thrown. When
-    /// opening in read-only mode, it is an error if the specified
+    /// The specified file is opened in read-only mode. This allows opening
+    /// a file even when the caller lacks permission to write to that file.
+    /// The opened group may still be modified freely, but the changes cannot be
+    /// written back to the same file. Tt is an error if the specified
     /// file does not already exist in the file system.
     ///
-    /// Alternatively, the file can be opened in read/write mode
-    /// (mode_ReadWrite). This allows use of the commit() function,
-    /// but, of course, it also requires that the caller has
-    /// permission to write to the specified file. When opening in
-    /// read-write mode, an attempt to create the specified file will
-    /// be made, if it does not already exist in the file system.
-    ///
-    /// In any case, if the file already exists, it must contain a
-    /// valid Realm database. In many cases invalidity will be
-    /// detected and cause the InvalidDatabase exception to be thrown,
+    /// The file must contain a valid Realm database. In many cases invalidity
+    /// will be detected and cause the InvalidDatabase exception to be thrown,
     /// but you should not rely on it.
     ///
-    /// Note that changes made to the database via a Group instance
-    /// are not automatically committed to the specified file. You
-    /// may, however, at any time, explicitly commit your changes by
-    /// calling the commit() method, provided that the specified
-    /// open-mode is not mode_ReadOnly. Alternatively, you may call
-    /// write() to write the entire database to a new file. Writing
+    /// You may call write() to write the entire database to a new file. Writing
     /// the database to a new file does not end, or in any other way
     /// change the association between the Group instance and the file
     /// that was specified in the call to open().
@@ -128,11 +76,7 @@ public:
     /// A Realm file that contains a history (see Replication::HistoryType) may
     /// be opened via Group::open(), as long as the application can ensure that
     /// there is no concurrent access to the file (see below for more on
-    /// concurrency), but if the file is modified via Group::commit() the
-    /// history will be discarded. To retain the history, the application must
-    /// instead access the file in shared mode, i.e., via DB, and
-    /// supply the right kind of replication plugin (see
-    /// Replication::get_history_type()).
+    /// concurrency).
     ///
     /// A file that is passed to Group::open(), may not be modified by
     /// a third party until after the Group object is
@@ -169,18 +113,12 @@ public:
     /// \param encryption_key 32-byte key used to encrypt and decrypt
     /// the database file, or nullptr to disable encryption.
     ///
-    /// \param mode Specifying a mode that is not mode_ReadOnly
-    /// requires that the specified file can be opened in read/write
-    /// mode. In general there is no reason to open a group in
-    /// read/write mode unless you want to be able to call
-    /// Group::commit().
-    ///
     /// \throw util::File::AccessError If the file could not be
     /// opened. If the reason corresponds to one of the exception
     /// types that are derived from util::File::AccessError, the
     /// derived exception type is thrown. Note that InvalidDatabase is
     /// among these derived exception types.
-    void open(const std::string& file, const char* encryption_key = nullptr, OpenMode mode = mode_ReadOnly);
+    explicit Group(const std::string& file, const char* encryption_key = nullptr);
 
     /// Attach this Group instance to the specified memory buffer.
     ///
@@ -210,7 +148,16 @@ public:
     ///
     /// \throw InvalidDatabase If the specified buffer does not appear
     /// to contain a valid database.
-    void open(BinaryData, bool take_ownership = true);
+    /// Note that if this constructor throws, the
+    /// ownership of the memory buffer will remain with the caller,
+    /// regardless of whether \a take_ownership is set to `true` or
+    /// `false`.
+    explicit Group(BinaryData, bool take_ownership = true);
+
+    Group(const Group&) = delete;
+    Group& operator=(const Group&) = delete;
+
+    ~Group() noexcept override;
 
     /// A group may be created in the unattached state, and then later
     /// attached to a file with a call to open(). Calling any method
@@ -336,9 +283,10 @@ public:
     bool table_is_public(TableKey key) const;
     static StringData table_name_to_class_name(StringData table_name)
     {
-        REALM_ASSERT(table_name.begins_with(g_class_name_prefix));
+        REALM_ASSERT(table_name.begins_with(StringData(g_class_name_prefix, g_class_name_prefix_len)));
         return table_name.substr(g_class_name_prefix_len);
     }
+
     using TableNameBuffer = std::array<char, max_table_name_length>;
     static StringData class_name_to_table_name(StringData class_name, TableNameBuffer& buffer)
     {
@@ -358,12 +306,13 @@ public:
     TableRef get_table(StringData name);
     ConstTableRef get_table(StringData name) const;
 
-    TableRef add_table(StringData name);
-    TableRef add_embedded_table(StringData name);
-    TableRef add_table_with_primary_key(StringData name, DataType pk_type, StringData pk_name, bool nullable = false);
-    TableRef get_or_add_table(StringData name, bool* was_added = nullptr);
+    TableRef add_table(StringData name, Table::Type table_type = Table::Type::TopLevel);
+    TableRef add_table_with_primary_key(StringData name, DataType pk_type, StringData pk_name, bool nullable = false,
+                                        Table::Type table_type = Table::Type::TopLevel);
+    TableRef get_or_add_table(StringData name, Table::Type table_type = Table::Type::TopLevel,
+                              bool* was_added = nullptr);
     TableRef get_or_add_table_with_primary_key(StringData name, DataType pk_type, StringData pk_name,
-                                               bool nullable = false);
+                                               bool nullable = false, Table::Type table_type = Table::Type::TopLevel);
 
     void remove_table(TableKey key);
     void remove_table(StringData name);
@@ -416,19 +365,6 @@ public:
     /// caller. The memory will have been allocated using
     /// std::malloc().
     BinaryData write_to_mem() const;
-
-    /// Commit changes to the attached file. This requires that the
-    /// attached file is opened in read/write mode.
-    ///
-    /// Calling this function on an unattached group, a free-standing
-    /// group, a group whose attached file is opened in read-only
-    /// mode, a group that is attached to a memory buffer, or a group
-    /// that is managed by a shared group, is an error and will result
-    /// in undefined behavior.
-    ///
-    /// Table accesors will remain valid across the commit. Note that
-    /// this is not the case when working with proper transactions.
-    void commit();
 
     //@{
     /// Some operations on Tables in a Group can cause indirect changes to other
@@ -599,6 +535,18 @@ private:
     static constexpr char g_class_name_prefix[] = "class_";
     static constexpr size_t g_class_name_prefix_len = 6;
 
+    struct ToDeleteRef {
+        ToDeleteRef(TableKey tk, ObjKey k)
+            : table_key(tk)
+            , obj_key(k)
+            , ttl(std::chrono::steady_clock::now())
+        {
+        }
+        TableKey table_key;
+        ObjKey obj_key;
+        std::chrono::steady_clock::time_point ttl;
+    };
+
     // nullptr, if we're sharing an allocator provided during initialization
     std::unique_ptr<SlabAlloc> m_local_alloc;
     // in-use allocator. If local, then equal to m_local_alloc.
@@ -658,12 +606,12 @@ private:
     mutable int m_num_tables = 0;
     bool m_attached = false;
     bool m_is_writable = true;
-    const bool m_is_shared;
     static std::optional<int> fake_target_file_format;
 
     util::UniqueFunction<void(const CascadeNotification&)> m_notify_handler;
     util::UniqueFunction<void()> m_schema_change_handler;
     std::shared_ptr<metrics::Metrics> m_metrics;
+    std::vector<ToDeleteRef> m_objects_to_delete;
     size_t m_total_rows;
 
     static constexpr size_t s_table_name_ndx = 0;
@@ -679,10 +627,6 @@ private:
     static constexpr size_t s_sync_file_id_ndx = 10;
 
     static constexpr size_t s_group_max_size = 11;
-
-    struct shared_tag {
-    };
-    Group(shared_tag) noexcept;
 
     Group(SlabAlloc* alloc) noexcept;
     void init_array_parents() noexcept;
@@ -721,7 +665,7 @@ private:
     /// accessors. This includes cached array accessors in any
     /// currently attached table accessors. This ensures that the
     /// group instance itself, as well as any attached table accessor
-    /// that exists across Group::commit() will remain valid. This
+    /// that exists across Transaction::commit() will remain valid. This
     /// function is not appropriate for use in conjunction with
     /// commits via shared group.
     void update_refs(ref_type top_ref) noexcept;
@@ -742,7 +686,7 @@ private:
     const Table* do_get_table(size_t ndx) const;
     Table* do_get_table(StringData name);
     const Table* do_get_table(StringData name) const;
-    Table* do_add_table(StringData name, bool is_embedded, bool do_repl = true);
+    Table* do_add_table(StringData name, Table::Type table_type, bool do_repl = true);
 
     void create_and_insert_table(TableKey key, StringData name);
     Table* create_table_accessor(size_t table_ndx);
@@ -761,7 +705,7 @@ private:
     class TransactAdvancer;
     /// Memory mappings must have been updated to reflect any growth in filesize before
     /// calling advance_transact()
-    void advance_transact(ref_type new_top_ref, _impl::NoCopyInputStream&, bool writable);
+    void advance_transact(ref_type new_top_ref, util::NoCopyInputStream&, bool writable);
     void refresh_dirty_accessors();
     void flush_accessors_for_commit();
 
@@ -982,7 +926,7 @@ inline StringData Group::get_table_name(TableKey key) const
 
 inline bool Group::table_is_public(TableKey key) const
 {
-    return get_table_name(key).begins_with(g_class_name_prefix);
+    return get_table_name(key).begins_with(StringData(g_class_name_prefix, g_class_name_prefix_len));
 }
 
 inline bool Group::has_table(StringData name) const noexcept
@@ -1040,49 +984,43 @@ inline ConstTableRef Group::get_table(StringData name) const
     return ConstTableRef(table, table ? table->m_alloc.get_instance_version() : 0);
 }
 
-inline TableRef Group::add_table(StringData name)
+inline TableRef Group::add_table(StringData name, Table::Type table_type)
 {
     if (!is_attached())
         throw LogicError(LogicError::detached_accessor);
     check_table_name_uniqueness(name);
-    Table* table = do_add_table(name, false); // Throws
+    Table* table = do_add_table(name, table_type); // Throws
     return TableRef(table, table->m_alloc.get_instance_version());
 }
 
-inline TableRef Group::add_embedded_table(StringData name)
+inline TableRef Group::get_or_add_table(StringData name, Table::Type table_type, bool* was_added)
 {
-    if (!is_attached())
-        throw LogicError(LogicError::detached_accessor);
-    check_table_name_uniqueness(name);
-    Table* table = do_add_table(name, true); // Throws
-    return TableRef(table, table->m_alloc.get_instance_version());
-}
-
-inline TableRef Group::get_or_add_table(StringData name, bool* was_added)
-{
+    REALM_ASSERT(table_type != Table::Type::Embedded);
     if (!is_attached())
         throw LogicError(LogicError::detached_accessor);
     auto table = do_get_table(name);
     if (was_added)
         *was_added = !table;
     if (!table) {
-        table = do_add_table(name, false);
+        table = do_add_table(name, table_type);
     }
     return TableRef(table, table->m_alloc.get_instance_version());
 }
 
 inline TableRef Group::get_or_add_table_with_primary_key(StringData name, DataType pk_type, StringData pk_name,
-                                                         bool nullable)
+                                                         bool nullable, Table::Type table_type)
 {
+    REALM_ASSERT(table_type != Table::Type::Embedded);
     if (TableRef table = get_table(name)) {
         if (!table->get_primary_key_column() || table->get_column_name(table->get_primary_key_column()) != pk_name ||
-            table->is_nullable(table->get_primary_key_column()) != nullable) {
+            table->is_nullable(table->get_primary_key_column()) != nullable ||
+            table->get_table_type() != table_type) {
             throw std::runtime_error("Inconsistent schema");
         }
         return table;
     }
     else {
-        return add_table_with_primary_key(name, pk_type, pk_name, nullable);
+        return add_table_with_primary_key(name, pk_type, pk_name, nullable, table_type);
     }
 }
 
@@ -1383,8 +1321,7 @@ public:
     {
         // Nullify immediately if we don't need to send cascade notifications
         if (!notification_handler()) {
-            Obj obj = src_table.get_object(origin_key);
-            obj.nullify_link(src_col_key, target_link);
+            src_table.get_object(origin_key).nullify_link(src_col_key, target_link);
             return;
         }
 

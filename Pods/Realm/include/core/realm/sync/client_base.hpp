@@ -1,7 +1,7 @@
 #ifndef REALM_SYNC_CLIENT_BASE_HPP
 #define REALM_SYNC_CLIENT_BASE_HPP
 
-#include <realm/db.hpp>
+#include <realm/transaction.hpp>
 #include <realm/sync/config.hpp>
 #include <realm/sync/protocol.hpp>
 #include <realm/util/functional.hpp>
@@ -58,10 +58,12 @@ class SessionWrapper;
 /// either void async_wait_for_download_completion(WaitOperCompletionHandler) or
 /// bool wait_for_download_complete_or_client_stopped().
 struct ClientReset {
-    bool discard_local = false;
+    realm::ClientResyncMode mode;
     DBRef fresh_copy;
+    bool recovery_is_allowed = true;
     util::UniqueFunction<void(std::string path)> notify_before_client_reset;
-    util::UniqueFunction<void(std::string path, VersionID before_version)> notify_after_client_reset;
+    util::UniqueFunction<void(std::string path, VersionID before_version, bool did_recover)>
+        notify_after_client_reset;
 };
 
 /// \brief Protocol errors discovered by the client.
@@ -289,6 +291,14 @@ struct ClientConfig {
     ///
     /// Testing/debugging feature. Should never be enabled in production.
     bool disable_sync_to_disk = false;
+
+    /// The sync client supports tables without primary keys by synthesizing a
+    /// pk using the client file ident, which means that all changesets waiting
+    /// to be uploaded need to be rewritten with the correct ident the first time
+    /// we connect to the server. The modern server doesn't support this and
+    /// requires pks for all tables, so this is now only applicable to old sync
+    /// tests and so is disabled by default.
+    bool fix_up_object_ids = false;
 };
 
 /// \brief Information about an error causing a session to be temporarily
@@ -317,10 +327,23 @@ struct ClientConfig {
 /// sufficient.
 ///
 /// \sa set_connection_state_change_listener().
-struct SessionErrorInfo {
+struct SessionErrorInfo : public ProtocolErrorInfo {
+    SessionErrorInfo(const ProtocolErrorInfo& info, const std::error_code& ec)
+        : ProtocolErrorInfo(info)
+        , error_code(ec)
+    {
+    }
+    SessionErrorInfo(const std::error_code& ec, bool try_again)
+        : ProtocolErrorInfo(ec.value(), ec.message(), try_again)
+        , error_code(ec)
+    {
+    }
+    SessionErrorInfo(const std::error_code& ec, const std::string& msg, bool try_again)
+        : ProtocolErrorInfo(ec.value(), msg, try_again)
+        , error_code(ec)
+    {
+    }
     std::error_code error_code;
-    bool is_fatal;
-    const std::string& detailed_message;
 };
 
 enum class ConnectionState { disconnected, connecting, connected };

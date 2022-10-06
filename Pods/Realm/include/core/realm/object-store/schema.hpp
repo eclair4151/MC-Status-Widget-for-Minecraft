@@ -22,16 +22,14 @@
 #include <string>
 #include <vector>
 
+#include <realm/object-store/object_schema.hpp>
 #include <realm/util/features.h>
 
 namespace realm {
-class ObjectSchema;
 class SchemaChange;
 class StringData;
 struct TableKey;
 struct Property;
-
-enum SchemaValidationMode : uint64_t { Basic = 0, Sync = 1, RejectEmbeddedOrphans = 2 };
 
 // How to handle update_schema() being called on a file which has
 // already been initialized with a different schema
@@ -79,7 +77,11 @@ enum class SchemaMode : uint8_t {
     // This mode allows using schemata with different subsets of tables
     // on different threads, but the tables which are shared must be
     // identical.
-    ResetFile,
+    SoftResetFile,
+
+    // Delete the file and recreate it from scratch.
+    // The migration function is not used.
+    HardResetFile,
 
     // The only changes allowed are to add new tables, add columns to
     // existing tables, and to add or remove indexes from existing
@@ -103,7 +105,7 @@ enum class SchemaMode : uint8_t {
     // is not linked from any top level object types is included.
     AdditiveExplicit,
 
-    // Verify that the schema version has increased, call the migraiton
+    // Verify that the schema version has increased, call the migration
     // function, and then verify that the schema now matches.
     // The migration function is mandatory for this mode.
     //
@@ -143,7 +145,7 @@ public:
 
     // Verify that this schema is internally consistent (i.e. all properties are
     // valid, links link to types that actually exist, etc.)
-    void validate(uint64_t validation_mode = SchemaValidationMode::Basic) const;
+    void validate(SchemaValidationMode validation_mode = SchemaValidationMode::Basic) const;
 
     // Get the changes which must be applied to this schema to produce the passed-in schema
     std::vector<SchemaChange> compare(Schema const&, SchemaMode = SchemaMode::Automatic,
@@ -180,6 +182,8 @@ struct RemoveTable {
 
 struct ChangeTableType {
     const ObjectSchema* object;
+    const ObjectSchema::ObjectType* old_table_type;
+    const ObjectSchema::ObjectType* new_table_type;
 };
 
 struct AddInitialProperties {

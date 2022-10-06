@@ -33,6 +33,7 @@
 #include <realm/object-store/shared_realm.hpp>
 
 #include <realm/util/assert.hpp>
+#include <realm/util/optional.hpp>
 #include <realm/table_view.hpp>
 
 #include <string>
@@ -210,7 +211,6 @@ ValueType Object::get_property_value_impl(ContextType& ctx, const Property& prop
                                               : ctx.box(m_obj.get<ObjectId>(column));
         case PropertyType::Decimal:
             return ctx.box(m_obj.get<Decimal>(column));
-            //        case PropertyType::Any:    return ctx.box(m_obj.get<Mixed>(column));
         case PropertyType::UUID:
             return is_nullable(property.type) ? ctx.box(m_obj.get<util::Optional<UUID>>(column))
                                               : ctx.box(m_obj.get<UUID>(column));
@@ -218,7 +218,8 @@ ValueType Object::get_property_value_impl(ContextType& ctx, const Property& prop
             return ctx.box(m_obj.get<Mixed>(column));
         case PropertyType::Object: {
             auto linkObjectSchema = m_realm->schema().find(property.object_type);
-            return ctx.box(Object(m_realm, *linkObjectSchema, const_cast<Obj&>(m_obj).get_linked_object(column)));
+            auto linked = const_cast<Obj&>(m_obj).get_linked_object(column);
+            return ctx.box(Object(m_realm, *linkObjectSchema, linked, m_obj, column));
         }
         case PropertyType::LinkingObjects: {
             auto target_object_schema = m_realm->schema().find(property.object_type);
@@ -270,6 +271,13 @@ Object Object::create(ContextType& ctx, std::shared_ptr<Realm> const& realm, Obj
     Obj obj;
     auto table = realm->read_group().get_table(object_schema.table_key);
 
+    // Asymmetric objects cannot be updated through Object::create.
+    if (object_schema.table_type == ObjectSchema::ObjectType::TopLevelAsymmetric) {
+        REALM_ASSERT(!policy.update);
+        REALM_ASSERT(!current_obj);
+        REALM_ASSERT(object_schema.primary_key_property());
+    }
+
     // If there's a primary key, we need to first check if an object with the
     // same primary key already exists. If it does, we either update that object
     // or throw an exception if updating is disabled.
@@ -316,7 +324,7 @@ Object Object::create(ContextType& ctx, std::shared_ptr<Realm> const& realm, Obj
     if (!obj) {
         if (current_obj)
             obj = table->get_object(current_obj);
-        else if (object_schema.is_embedded)
+        else if (object_schema.table_type == ObjectSchema::ObjectType::Embedded)
             obj = ctx.create_embedded_object();
         else
             obj = table->create_object();
@@ -327,7 +335,7 @@ Object Object::create(ContextType& ctx, std::shared_ptr<Realm> const& realm, Obj
     // KVO in Cocoa requires that the obj ivar on the wrapper object be set
     // *before* we start setting the properties, so it passes in a pointer to
     // that.
-    if (out_row)
+    if (out_row && object_schema.table_type != ObjectSchema::ObjectType::TopLevelAsymmetric)
         *out_row = obj;
     for (size_t i = 0; i < object_schema.persisted_properties.size(); ++i) {
         auto& prop = object_schema.persisted_properties[i];
@@ -353,6 +361,9 @@ Object Object::create(ContextType& ctx, std::shared_ptr<Realm> const& realm, Obj
         }
         if (v)
             object.set_property_value_impl(ctx, prop, *v, policy, is_default);
+    }
+    if (object_schema.table_type == ObjectSchema::ObjectType::TopLevelAsymmetric) {
+        return Object{};
     }
     return object;
 }

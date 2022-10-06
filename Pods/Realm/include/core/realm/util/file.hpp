@@ -71,8 +71,12 @@ void make_dir(const std::string& path);
 
 /// Same as make_dir() except that this one returns false, rather than throwing
 /// an exception, if the specified directory already existed. If the directory
-// did not already exist and was newly created, this returns true.
+/// did not already exist and was newly created, this returns true.
 bool try_make_dir(const std::string& path);
+
+/// Recursively create each of the directories in the given absolute path. Existing directories are ignored, and
+/// File::AccessError is thrown for any other errors that occur.
+void make_dir_recursive(std::string path);
 
 /// Remove the specified empty directory path from the file system. It is an
 /// error if the specified path is not a directory, or if it is a nonempty
@@ -323,6 +327,11 @@ public:
     /// calls `fsync()`. On Apple platforms if calls `fcntl()` with command
     /// `F_FULLFSYNC`.
     void sync();
+
+    /// Issue a write barrier which forbids ordering writes after this call
+    /// before writes performed before this call. Equivalent to `sync()` on
+    /// non-Apple platforms.
+    void barrier();
 
     /// Place an exclusive lock on this file. This blocks the caller
     /// until all other locks have been released.
@@ -637,8 +646,10 @@ private:
     struct MapBase {
         void* m_addr = nullptr;
         mutable size_t m_size = 0;
+        size_t m_reservation_size = 0;
         size_t m_offset = 0;
         FileDesc m_fd;
+        AccessMode m_access_mode = access_ReadOnly;
 
         MapBase() noexcept;
         ~MapBase() noexcept;
@@ -650,12 +661,18 @@ private:
 
         // Use
         void map(const File&, AccessMode, size_t size, int map_flags, size_t offset = 0);
+        // reserve address space for later mapping operations.
+        // returns false if reservation can't be done.
+        bool try_reserve(const File&, AccessMode, size_t size, size_t offset = 0);
         void remap(const File&, AccessMode, size_t size, int map_flags);
         void unmap() noexcept;
         // fully update any process shared representation (e.g. buffer cache).
         // other processes will be able to see changes, but a full platform crash
         // may loose data
         void flush();
+        // try to extend the mapping in-place. Virtual address space must have
+        // been set aside earlier by a call to reserve()
+        bool try_extend_to(size_t size) noexcept;
         // fully synchronize any underlying storage. After completion, a full platform
         // crash will *not* have lost data.
         void sync();
@@ -755,11 +772,13 @@ public:
             unmap();
         m_addr = other.get_addr();
         m_size = other.m_size;
+        m_access_mode = other.m_access_mode;
+        m_reservation_size = other.m_reservation_size;
         m_offset = other.m_offset;
         m_fd = other.m_fd;
         other.m_offset = 0;
         other.m_addr = nullptr;
-        other.m_size = 0;
+        other.m_size = other.m_reservation_size = 0;
 #if REALM_ENABLE_ENCRYPTION
         m_encrypted_mapping = other.m_encrypted_mapping;
         other.m_encrypted_mapping = nullptr;
@@ -784,6 +803,8 @@ public:
     /// currently attached to a memory mapped file.
     void unmap() noexcept;
 
+    bool try_reserve(const File&, AccessMode a = access_ReadOnly, size_t size = sizeof(T), size_t offset = 0);
+
     /// See File::remap().
     ///
     /// Calling this function on a Map instance that is not currently
@@ -791,6 +812,9 @@ public:
     /// returned pointer is the same as what will subsequently be
     /// returned by get_addr().
     T* remap(const File&, AccessMode = access_ReadOnly, size_t size = sizeof(T), int map_flags = 0);
+
+    /// Try to extend the existing mapping to a given size
+    bool try_extend_to(size_t size) noexcept;
 
     /// See File::sync_map().
     ///
@@ -1179,6 +1203,12 @@ inline T* File::Map<T>::map(const File& f, AccessMode a, size_t size, int map_fl
 }
 
 template <class T>
+inline bool File::Map<T>::try_reserve(const File& f, AccessMode a, size_t size, size_t offset)
+{
+    return MapBase::try_reserve(f, a, size, offset);
+}
+
+template <class T>
 inline void File::Map<T>::unmap() noexcept
 {
     MapBase::unmap();
@@ -1193,6 +1223,12 @@ inline T* File::Map<T>::remap(const File& f, AccessMode a, size_t size, int map_
     map(f, a, size, map_flags);
 
     return static_cast<T*>(m_addr);
+}
+
+template <class T>
+inline bool File::Map<T>::try_extend_to(size_t size) noexcept
+{
+    return MapBase::try_extend_to(sizeof(T) * size);
 }
 
 template <class T>

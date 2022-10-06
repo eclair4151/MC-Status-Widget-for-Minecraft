@@ -27,7 +27,7 @@ import Realm
 /**
  `PropertyType` is an enum describing all property types supported in Realm models.
 
- For more information, see [Realm Models](https://realm.io/docs/swift/latest/#models).
+ For more information, see [Object Models and Schemas](https://www.mongodb.com/docs/realm/sdk/swift/fundamentals/object-models-and-schemas/).
 
  ### Primitive types
 
@@ -142,10 +142,7 @@ extension ObjectBase {
                                           on queue: DispatchQueue? = nil,
                                           _ block: @escaping (ObjectChange<T>) -> Void) -> NotificationToken {
         return RLMObjectBaseAddNotificationBlock(self, keyPaths, queue) { object, names, oldValues, newValues, error in
-            if let error = error {
-                block(.error(error as NSError))
-                return
-            }
+            assert(error == nil)
             guard let names = names, let newValues = newValues else {
                 block(.deleted)
                 return

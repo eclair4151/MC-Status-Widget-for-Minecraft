@@ -19,18 +19,15 @@
 #ifndef REALM_IMPL_TRANSACT_LOG_HPP
 #define REALM_IMPL_TRANSACT_LOG_HPP
 
-#include <stdexcept>
-
-#include <realm/string_data.hpp>
-#include <realm/data_type.hpp>
 #include <realm/binary_data.hpp>
-#include <realm/util/buffer.hpp>
-#include <realm/util/string_buffer.hpp>
-#include <realm/impl/input_stream.hpp>
-
-#include <realm/group.hpp>
 #include <realm/collection.hpp>
+#include <realm/data_type.hpp>
+#include <realm/group.hpp>
+#include <realm/string_data.hpp>
+#include <realm/util/buffer.hpp>
+#include <realm/util/input_stream.hpp>
 
+#include <stdexcept>
 #include <tuple>
 
 namespace realm {
@@ -379,17 +376,17 @@ public:
 
     /// See `TransactLogEncoder` for a list of methods that the `InstructionHandler` must define.
     template <class InstructionHandler>
-    void parse(InputStream&, InstructionHandler&);
+    void parse(util::InputStream&, InstructionHandler&);
 
     template <class InstructionHandler>
-    void parse(NoCopyInputStream&, InstructionHandler&);
+    void parse(util::NoCopyInputStream&, InstructionHandler&);
 
 private:
     util::Buffer<char> m_input_buffer;
 
     // The input stream is assumed to consist of chunks of memory organised such that
     // every instruction resides in a single chunk only.
-    NoCopyInputStream* m_input;
+    util::NoCopyInputStream* m_input;
     // pointer into transaction log, each instruction is parsed from m_input_begin and onwards.
     // Each instruction are assumed to be contiguous in memory.
     const char* m_input_begin;
@@ -398,7 +395,7 @@ private:
     // memory. Setting m_input_end to 0 disables this check, and is used if it is already known
     // that all of the instructions are in memory.
     const char* m_input_end;
-    util::StringBuffer m_string_buffer;
+    std::string m_string_buffer;
 
     REALM_NORETURN void parser_error() const;
 
@@ -410,9 +407,9 @@ private:
     T read_int();
 
     void read_bytes(char* data, size_t size);
-    BinaryData read_buffer(util::StringBuffer&, size_t size);
+    BinaryData read_buffer(std::string&, size_t size);
 
-    StringData read_string(util::StringBuffer&);
+    StringData read_string(std::string&);
 
     // Advance m_input_begin and m_input_end to reflect the next block of instructions
     // Returns false if no more input was available
@@ -721,8 +718,10 @@ inline bool TransactLogEncoder::set_clear(size_t set_size)
 
 inline bool TransactLogEncoder::list_move(size_t from_link_ndx, size_t to_link_ndx)
 {
-    REALM_ASSERT(from_link_ndx != to_link_ndx);
-    append_simple_instr(instr_ListMove, from_link_ndx, to_link_ndx); // Throws
+    // This test is to prevent some fuzzy testing on the server to crash
+    if (from_link_ndx != to_link_ndx) {
+        append_simple_instr(instr_ListMove, from_link_ndx, to_link_ndx); // Throws
+    }
     return true;
 }
 
@@ -756,7 +755,7 @@ inline TransactLogParser::~TransactLogParser() noexcept {}
 
 
 template <class InstructionHandler>
-void TransactLogParser::parse(NoCopyInputStream& in, InstructionHandler& handler)
+void TransactLogParser::parse(util::NoCopyInputStream& in, InstructionHandler& handler)
 {
     m_input = &in;
     m_input_begin = m_input_end = nullptr;
@@ -766,9 +765,9 @@ void TransactLogParser::parse(NoCopyInputStream& in, InstructionHandler& handler
 }
 
 template <class InstructionHandler>
-void TransactLogParser::parse(InputStream& in, InstructionHandler& handler)
+void TransactLogParser::parse(util::InputStream& in, InstructionHandler& handler)
 {
-    NoCopyInputStreamAdaptor in_2(in, m_input_buffer.data(), m_input_buffer.size());
+    util::NoCopyInputStreamAdaptor in_2(in, m_input_buffer);
     parse(in_2, handler); // Throws
 }
 
@@ -1006,7 +1005,7 @@ inline void TransactLogParser::read_bytes(char* data, size_t size)
     m_input_begin = to;
 }
 
-inline BinaryData TransactLogParser::read_buffer(util::StringBuffer& buf, size_t size)
+inline BinaryData TransactLogParser::read_buffer(std::string& buf, size_t size)
 {
     const size_t avail = m_input_end - m_input_begin;
     if (avail >= size) {
@@ -1020,7 +1019,7 @@ inline BinaryData TransactLogParser::read_buffer(util::StringBuffer& buf, size_t
     return BinaryData(buf.data(), size);
 }
 
-inline StringData TransactLogParser::read_string(util::StringBuffer& buf)
+inline StringData TransactLogParser::read_string(std::string& buf)
 {
     size_t size = read_int<size_t>(); // Throws
 
@@ -1033,7 +1032,10 @@ inline StringData TransactLogParser::read_string(util::StringBuffer& buf)
 
 inline bool TransactLogParser::next_input_buffer()
 {
-    return m_input->next_block(m_input_begin, m_input_end);
+    auto buffer = m_input->next_block();
+    m_input_begin = buffer.begin();
+    m_input_end = buffer.end();
+    return m_input_begin != m_input_end;
 }
 
 
@@ -1281,7 +1283,7 @@ private:
 };
 
 
-class ReversedNoCopyInputStream : public NoCopyInputStream {
+class ReversedNoCopyInputStream : public util::NoCopyInputStream {
 public:
     ReversedNoCopyInputStream(TransactReverser& reverser)
         : m_instr_order(reverser.m_instructions)
@@ -1293,15 +1295,13 @@ public:
         m_current = m_instr_order.size();
     }
 
-    bool next_block(const char*& begin, const char*& end) override
+    util::Span<const char> next_block() override
     {
         if (m_current != 0) {
             m_current--;
-            begin = m_buffer + m_instr_order[m_current].begin;
-            end = m_buffer + m_instr_order[m_current].end;
-            return (end > begin);
+            return {m_buffer + m_instr_order[m_current].begin, m_buffer + m_instr_order[m_current].end};
         }
-        return false;
+        return {m_buffer, m_buffer};
     }
 
 private:

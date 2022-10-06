@@ -105,5 +105,5 @@ install_xcframework() {
   echo "Copied $source to $destination"
 }
 
-install_xcframework "${PODS_ROOT}/Realm/core/realm-monorepo.xcframework" "Realm" "library" "ios-armv7_arm64" "ios-arm64_x86_64_i386-simulator" "ios-x86_64_arm64-maccatalyst"
+install_xcframework "${PODS_ROOT}/Realm/core/realm-monorepo.xcframework" "Realm" "library" "ios-arm64_armv7" "ios-arm64_x86_64_i386-simulator" "ios-arm64_x86_64-maccatalyst"
 

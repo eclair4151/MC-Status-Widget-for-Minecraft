@@ -19,6 +19,8 @@
 #import <Foundation/Foundation.h>
 #import <Realm/RLMRealm.h>
 
+@class RLMEventConfiguration, RLMSyncConfiguration;
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -31,6 +33,12 @@ NS_ASSUME_NONNULL_BEGIN
  The compaction will be skipped if another process is accessing it.
  */
 typedef BOOL (^RLMShouldCompactOnLaunchBlock)(NSUInteger totalBytes, NSUInteger bytesUsed);
+
+/**
+ A block which receives a subscription set instance, that can be used to add an initial set of subscriptions which will be executed
+ when the Realm is first opened.
+ */
+typedef void(^RLMFlexibleSyncInitialSubscriptionsBlock)(RLMSyncSubscriptionSet * _Nonnull subscriptions);
 
 /**
  An `RLMRealmConfiguration` instance describes the different options used to
@@ -170,7 +178,18 @@ typedef BOOL (^RLMShouldCompactOnLaunchBlock)(NSUInteger totalBytes, NSUInteger 
  This option is mutually exclusive with `inMemoryIdentifier`. Setting a `seedFilePath`
  will nil out the `inMemoryIdentifier`.
  */
-@property (nonatomic, copy, nullable) NSURL* seedFilePath;
+@property (nonatomic, copy, nullable) NSURL *seedFilePath;
+
+/**
+ A configuration object representing configuration state for Realms intended
+ to sync with Atlas Device Sync.
+
+ This property is mutually exclusive with both `inMemoryIdentifier` and `fileURL`;
+ setting any one of the three properties will automatically nil out the other two.
+
+ @see `RLMSyncConfiguration`
+ */
+@property (nullable, nonatomic) RLMSyncConfiguration *syncConfiguration;
 
 @end
 

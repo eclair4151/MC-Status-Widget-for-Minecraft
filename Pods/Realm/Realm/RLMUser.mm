@@ -23,7 +23,7 @@
 #import "RLMBSON_Private.hpp"
 #import "RLMCredentials_Private.hpp"
 #import "RLMMongoClient_Private.hpp"
-#import "RLMRealmConfiguration+Sync.h"
+#import "RLMRealmConfiguration_Private.h"
 #import "RLMSyncConfiguration_Private.hpp"
 #import "RLMSyncSession_Private.hpp"
 #import "RLMUtil.hpp"
@@ -82,19 +82,45 @@ using namespace realm;
 }
 
 - (RLMRealmConfiguration *)configurationWithPartitionValue:(nullable id<RLMBSON>)partitionValue {
+    return [self configurationWithPartitionValue:partitionValue clientResetMode:RLMClientResetModeManual];
+}
+
+- (RLMRealmConfiguration *)configurationWithPartitionValue:(nullable id<RLMBSON>)partitionValue
+                                           clientResetMode:(RLMClientResetMode)clientResetMode {
     auto syncConfig = [[RLMSyncConfiguration alloc] initWithUser:self
-                                                  partitionValue:partitionValue
-                                                      stopPolicy:RLMSyncStopPolicyAfterChangesUploaded];
+                                                  partitionValue:partitionValue];
+    syncConfig.clientResetMode = clientResetMode;
+    RLMRealmConfiguration *config = [[RLMRealmConfiguration alloc] init];
+    config.syncConfiguration = syncConfig;
+    return config;
+}
+
+- (RLMRealmConfiguration *)configurationWithPartitionValue:(nullable id<RLMBSON>)partitionValue
+                                           clientResetMode:(RLMClientResetMode)clientResetMode
+                                         notifyBeforeReset:(nullable RLMClientResetBeforeBlock)beforeResetBlock
+                                          notifyAfterReset:(nullable RLMClientResetAfterBlock)afterResetBlock {
+    auto syncConfig = [[RLMSyncConfiguration alloc] initWithUser:self
+                                                  partitionValue:partitionValue];
+    syncConfig.clientResetMode = clientResetMode;
+    syncConfig.beforeClientReset = beforeResetBlock;
+    syncConfig.afterClientReset = afterResetBlock;
     RLMRealmConfiguration *config = [[RLMRealmConfiguration alloc] init];
     config.syncConfiguration = syncConfig;
     return config;
 }
 
 - (RLMRealmConfiguration *)flexibleSyncConfiguration {
-    auto syncConfig = [[RLMSyncConfiguration alloc] initWithUser:self
-                                                      stopPolicy:RLMSyncStopPolicyAfterChangesUploaded
-                                              enableFlexibleSync:true];
     RLMRealmConfiguration *config = [[RLMRealmConfiguration alloc] init];
+    config.syncConfiguration = [[RLMSyncConfiguration alloc] initWithUser:self];
+    return config;
+}
+
+- (RLMRealmConfiguration *)flexibleSyncConfigurationWithInitialSubscriptions:(RLMFlexibleSyncInitialSubscriptionsBlock)initialSubscriptions
+                                                                 rerunOnOpen:(BOOL)rerunOnOpen {
+    auto syncConfig = [[RLMSyncConfiguration alloc] initWithUser:self];
+    RLMRealmConfiguration *config = [[RLMRealmConfiguration alloc] init];
+    config.initialSubscriptions = initialSubscriptions;
+    config.rerunOnOpen = rerunOnOpen;
     config.syncConfiguration = syncConfig;
     return config;
 }
@@ -122,7 +148,7 @@ using namespace realm;
         return "";
     }
 
-    SyncConfig config(_user, "");
+    SyncConfig config(_user, value);
     auto path = _user->sync_manager()->path_for_realm(config, value);
     if ([NSFileManager.defaultManager fileExistsAtPath:@(path.c_str())]) {
         return path;
@@ -212,7 +238,7 @@ using namespace realm;
 }
 
 - (void)refreshCustomDataWithCompletion:(RLMUserCustomDataBlock)completion {
-    _user->refresh_custom_data([completion, self](util::Optional<app::AppError> error) {
+    _user->refresh_custom_data([completion, self](std::optional<app::AppError> error) {
         if (!error) {
             return completion([self customData], nil);
         }
@@ -224,7 +250,7 @@ using namespace realm;
 - (void)linkUserWithCredentials:(RLMCredentials *)credentials
                      completion:(RLMOptionalUserBlock)completion {
     _app._realmApp->link_user(_user, credentials.appCredentials,
-                   ^(std::shared_ptr<SyncUser> user, util::Optional<app::AppError> error) {
+                   ^(std::shared_ptr<SyncUser> user, std::optional<app::AppError> error) {
         if (error && error->error_code) {
             return completion(nil, RLMAppErrorToNSError(*error));
         }
@@ -234,19 +260,19 @@ using namespace realm;
 }
 
 - (void)removeWithCompletion:(RLMOptionalErrorBlock)completion {
-    _app._realmApp->remove_user(_user, ^(realm::util::Optional<app::AppError> error) {
+    _app._realmApp->remove_user(_user, ^(std::optional<app::AppError> error) {
         [self handleResponse:error completion:completion];
     });
 }
 
 - (void)deleteWithCompletion:(RLMUserOptionalErrorBlock)completion {
-    _app._realmApp->delete_user(_user, ^(realm::util::Optional<app::AppError> error) {
+    _app._realmApp->delete_user(_user, ^(std::optional<app::AppError> error) {
         [self handleResponse:error completion:completion];
     });
 }
 
 - (void)logOutWithCompletion:(RLMOptionalErrorBlock)completion {
-    _app._realmApp->log_out(_user, ^(realm::util::Optional<app::AppError> error) {
+    _app._realmApp->log_out(_user, ^(std::optional<app::AppError> error) {
         [self handleResponse:error completion:completion];
     });
 }
@@ -269,8 +295,8 @@ using namespace realm;
     }
 
     _app._realmApp->call_function(_user, name.UTF8String, args,
-                                  [completionBlock](util::Optional<bson::Bson>&& response,
-                                                    util::Optional<app::AppError> error) {
+                                  [completionBlock](std::optional<bson::Bson>&& response,
+                                                    std::optional<app::AppError> error) {
         if (error) {
             return completionBlock(nil, RLMAppErrorToNSError(*error));
         }
@@ -279,7 +305,7 @@ using namespace realm;
     });
 }
 
-- (void)handleResponse:(realm::util::Optional<realm::app::AppError>)error
+- (void)handleResponse:(std::optional<realm::app::AppError>)error
             completion:(RLMOptionalErrorBlock)completion {
     if (error && error->error_code) {
         return completion(RLMAppErrorToNSError(*error));
@@ -362,7 +388,7 @@ using namespace realm;
 }
 @end
 
-static NSString* userProfileMemberToNSString(const util::Optional<std::string>& member) {
+static NSString* userProfileMemberToNSString(const std::optional<std::string>& member) {
     if (member == util::none) {
         return nil;
     }
@@ -371,7 +397,7 @@ static NSString* userProfileMemberToNSString(const util::Optional<std::string>& 
 
 @implementation RLMUserProfile
 
-using UserProfileMember = util::Optional<std::string> (SyncUserProfile::*)() const;
+using UserProfileMember = std::optional<std::string> (SyncUserProfile::*)() const;
 
 - (instancetype)initWithUserProfile:(SyncUserProfile)userProfile {
     if (self = [super init]) {
