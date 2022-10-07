@@ -100,7 +100,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.serverStatus[server.id] = ServerStatusViewModel()
             }
             self.serverStatus[server.id]?.loading = true
-            StatusChecker(addressAndPort: server.serverUrl).getStatus { status in
+            StatusChecker(addressAndPort: server.serverUrl, serverType: server.serverType).getStatus { status in
                 DispatchQueue.main.async {
                     self.initialized = true
                     
@@ -185,7 +185,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let addressParts = server.serverUrl.splitPort()
         
         cell.ipLabel.attributedText = BoldPartOfString("Host: ", label: addressParts.address)
-        cell.portLabel.attributedText = BoldPartOfString("Port: ", label: String(addressParts.port ?? 25565))
+        
+        var serverPortVal = 0
+        if let serverPort = addressParts.port {
+            serverPortVal = serverPort
+        } else {
+            if (server.serverType == ServerType.SERVER_TYPE_JAVA) {
+                serverPortVal = 25565
+            } else {
+                serverPortVal = 19132
+            }
+        }
+        cell.portLabel.attributedText = BoldPartOfString("Port: ", label: String(serverPortVal))
         if server.serverIcon != "" {
             let imageString = String(server.serverIcon.split(separator: ",")[1])
             if let decodedData = Data(base64Encoded: imageString, options: .ignoreUnknownCharacters) {
@@ -233,7 +244,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         cell.playerListLabel.animationDelay = 3
                         cell.playerListLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
                         
-                    } else if players.online > 0 {
+                    } else if players.online > 0 && server.serverType == ServerType.SERVER_TYPE_JAVA {
                         // disabled for debrock servers
                         cell.playerListLabel.text = "The server owner has disabled the player list feature.                 "
                         cell.playerListLabel.animationDelay = 7

@@ -16,15 +16,27 @@ class StatusChecker {
     var address: String
     var port: Int
     var attemptLegacy = true
+    var serverType: Int
     
-    init(addressAndPort: String) {
+    
+    init(addressAndPort: String, serverType: Int) {
         let addressPieces = addressAndPort.splitPort()
         self.address = addressPieces.address
-        self.port = addressPieces.port ?? 25565
+        self.serverType = serverType
+
+        if let serverPort = addressPieces.port {
+            self.port = serverPort
+        } else {
+            if (self.serverType == ServerType.SERVER_TYPE_JAVA) {
+                self.port = 25565
+            } else {
+                self.port = 19132
+            }
+        }
     }
     
 
-    private func getStatusBg(listener: @escaping (ServerStatus) -> Void) {
+    private func getJavaStatusBg(listener: @escaping (ServerStatus) -> Void) {
         DispatchQueue.global(qos: .background).async {
             guard self.isConnectedToInternet() else {
                   listener(ServerStatus(status: .Unknown))
@@ -73,7 +85,7 @@ class StatusChecker {
     }
     
     
-    private func getStatusBg2(listener: @escaping (ServerStatus) -> Void) {
+    private func getBedrockStatusBg(listener: @escaping (ServerStatus) -> Void) {
         DispatchQueue.global(qos: .background).async {
             guard self.isConnectedToInternet() else {
                   listener(ServerStatus(status: .Unknown))
@@ -111,9 +123,11 @@ class StatusChecker {
     }
     
     public func getStatus(listener: @escaping (ServerStatus) -> Void, attemptLegacy: Bool = true) {
-        self.address = "play.hyperlandsmc.net"
-        self.port = 19132
-        getStatusBg2(listener: listener)
+        if (self.serverType == ServerType.SERVER_TYPE_JAVA) {
+            getJavaStatusBg(listener: listener)
+        } else {
+            getBedrockStatusBg(listener: listener)
+        }
     }
 
 
