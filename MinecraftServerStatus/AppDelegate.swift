@@ -42,6 +42,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         //tell widgets to refresh because why not
         WidgetCenter.shared.reloadAllTimelines()
+        
+        guard let rnc = self.window?.rootViewController as? UINavigationController, let rvc = rnc.viewControllers.first as? ViewController, rvc.initialized else { return }
+        
+        rvc.reloadTableData(initializeData: false)
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
