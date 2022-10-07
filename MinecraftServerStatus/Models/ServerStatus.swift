@@ -46,16 +46,26 @@ public class ServerStatus: Decodable {
                 }
             }
         }
-        strDesc = strDesc?.replacingOccurrences(of: "\n", with: " ")
-        strDesc = strDesc?.replacingOccurrences(of: "§.", with: "", options: .regularExpression)
-
-        self.description = strDesc?.trimmingCharacters(in: .whitespacesAndNewlines)
+        setDescriptionString(description: strDesc)
         
         self.players = try? container.decode(Players.self, forKey: .players)
         self.version = try? container.decode(Version.self, forKey: .version)
         self.favicon = try? container.decode(String.self, forKey: .favicon)
 
         self.status = .Unknown
+    }
+    
+    public func setDescriptionString(description: String?) {
+        guard description != nil else {
+            self.description = ""
+            return
+        }
+        
+        var strDesc = description!
+        strDesc = strDesc.replacingOccurrences(of: "\n", with: " ")
+        strDesc = strDesc.replacingOccurrences(of: "§.", with: "", options: .regularExpression)
+
+        self.description = strDesc.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
 
