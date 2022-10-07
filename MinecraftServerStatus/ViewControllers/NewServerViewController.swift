@@ -101,6 +101,7 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
                 server.serverUrl += ":" + portInput.text!
             }
             server.order = servers.count + 1
+            server.serverType = ServerType.SERVER_TYPE_BEDROCK
             try! realm.write {
                 realm.add(server)
             }

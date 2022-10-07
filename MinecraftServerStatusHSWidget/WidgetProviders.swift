@@ -55,7 +55,7 @@ func calculateTimeline(timelineFactory: TimelineProviderFactoryProtocol) {
         return
     }
             
-    StatusChecker(addressAndPort: savedServer.serverUrl).getStatus { status in
+    StatusChecker(addressAndPort: savedServer.serverUrl, serverType: savedServer.serverType).getStatus { status in
         DispatchQueue.main.async {
             let serverIcon = ImageHelper.convertFavIconString(favIcon: status.favicon) ?? UIImage(named: "DefaultIcon")!
 

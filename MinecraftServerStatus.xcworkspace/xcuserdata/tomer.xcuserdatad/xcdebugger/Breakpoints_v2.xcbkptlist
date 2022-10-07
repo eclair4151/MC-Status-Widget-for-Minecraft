@@ -142,9 +142,9 @@
             filePath = "MinecraftServerStatus/Helpers/StatusChecker.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "getStatusBg(listener:)"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "getJavaStatusBg(listener:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -158,9 +158,9 @@
             filePath = "MinecraftServerStatus/Helpers/StatusChecker.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "getStatusBg(listener:)"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "getJavaStatusBg(listener:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -576,6 +576,22 @@
             startingLineNumber = "48"
             endingLineNumber = "48"
             landmarkName = "applicationWillEnterForeground(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "00EC6511-173E-434E-BEED-170AD4CAE15D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MinecraftServerStatus/Helpers/StatusChecker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "278"
+            endingLineNumber = "278"
+            landmarkName = "readAndParseBedrockStatusData(client:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
