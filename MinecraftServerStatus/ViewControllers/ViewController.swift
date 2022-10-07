@@ -234,6 +234,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         cell.playerListLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
                         
                     } else if players.online > 0 {
+                        // disabled for debrock servers
                         cell.playerListLabel.text = "The server owner has disabled the player list feature.                 "
                         cell.playerListLabel.animationDelay = 7
                         cell.playerListLabel.speed =  MarqueeLabel.SpeedLimit.rate(20)
