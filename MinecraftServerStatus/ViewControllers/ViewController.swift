@@ -21,6 +21,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     var serverStatus:[String:ServerStatusViewModel]!
     var realm: Realm! = nil
+    var initialized = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,6 +102,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.serverStatus[server.id]?.loading = true
             StatusChecker(addressAndPort: server.serverUrl).getStatus { status in
                 DispatchQueue.main.async {
+                    self.initialized = true
+                    
                     let serverStatusVm = self.serverStatus[server.id]
                     serverStatusVm?.loading = false
                     serverStatusVm?.serverStatus = status

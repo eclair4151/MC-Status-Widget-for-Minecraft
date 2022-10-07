@@ -121,14 +121,14 @@ struct MinecraftServerStatusLSWidget1: Widget {
 }
 
 struct MinecraftServerStatusLSWidget2: Widget {
-    let kind: String = "Lockscreen Widget 2"
+    let kind: String = "MinecraftServerStatusLSWidget2"
 
     private let supportedFamilies:[WidgetFamily] = {
         #if targetEnvironment(macCatalyst)
             return []
         #else
         if #available(iOSApplicationExtension 16.0, *) {
-            return [.accessoryCircular, .accessoryRectangular]
+            return [.accessoryCircular]
         } else {
             return []
         }
@@ -139,7 +139,7 @@ struct MinecraftServerStatusLSWidget2: Widget {
         IntentConfiguration(kind: kind, intent: ServerSelectNoThemeIntent.self, provider: LockscreenProvider()) { entry in
             MinecraftServerStatusLSWidgetEntryView(entry: entry, widgetType: .OnlyImage)
         }
-        .configurationDisplayName("MC Status Lock2 Widget")
+        .configurationDisplayName("Lockscreen Widget 2")
         .description("Widget to show the status of Minecraft Server")
         .supportedFamilies(supportedFamilies)
     }

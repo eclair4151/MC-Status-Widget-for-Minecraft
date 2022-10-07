@@ -180,12 +180,12 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "3E69D8AA-29F2-4860-972F-8FDFB51CCAD2 - 7896e3b5d14a86e"
+                  uuid = "3E69D8AA-29F2-4860-972F-8FDFB51CCAD2 - d20008be485ee1c0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static MinecraftServerStatusHSWidgetExtension.ImageHelper.convertFavIconString(favIcon: Swift.Optional&lt;Swift.String&gt;) -&gt; Swift.Optional&lt;__C.UIImage&gt;"
-                  moduleName = "MinecraftServerStatusHSWidgetExtension"
+                  symbolName = "static MC_Status.ImageHelper.convertFavIconString(favIcon: Swift.Optional&lt;Swift.String&gt;) -&gt; Swift.Optional&lt;__C.UIImage&gt;"
+                  moduleName = "MC Status"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tomer/Documents/Xcode/MC-Status-Widget-for-Minecraft/MinecraftServerStatus/Helpers/ImageHelper.swift"
                   startingColumnNumber = "9223372036854775807"
@@ -195,12 +195,12 @@
                   offsetFromSymbolStart = "104">
                </Location>
                <Location
-                  uuid = "3E69D8AA-29F2-4860-972F-8FDFB51CCAD2 - 7896e3b5d14a86e"
+                  uuid = "3E69D8AA-29F2-4860-972F-8FDFB51CCAD2 - d20008be485ee1c0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static MinecraftServerStatusHSWidgetExtension.ImageHelper.convertFavIconString(favIcon: Swift.Optional&lt;Swift.String&gt;) -&gt; Swift.Optional&lt;__C.UIImage&gt;"
-                  moduleName = "MinecraftServerStatusHSWidgetExtension"
+                  symbolName = "static MC_Status.ImageHelper.convertFavIconString(favIcon: Swift.Optional&lt;Swift.String&gt;) -&gt; Swift.Optional&lt;__C.UIImage&gt;"
+                  moduleName = "MC Status"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tomer/Documents/Xcode/MC-Status-Widget-for-Minecraft/MinecraftServerStatus/Helpers/ImageHelper.swift"
                   startingColumnNumber = "9223372036854775807"
@@ -497,6 +497,85 @@
             startingLineNumber = "15"
             endingLineNumber = "15"
             landmarkName = "convertFavIconString(favIcon:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "876020A3-495C-45C9-AF37-72679C8D6A7F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MinecraftServerStatus/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "applicationWillEnterForeground(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "876020A3-495C-45C9-AF37-72679C8D6A7F - 58e56b7d3e8345e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MC_Status.AppDelegate.applicationWillEnterForeground(__C.UIApplication) -&gt; ()"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MC-Status-Widget-for-Minecraft/MinecraftServerStatus/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "876020A3-495C-45C9-AF37-72679C8D6A7F - 58e56b7d3e8345e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MC_Status.AppDelegate.applicationWillEnterForeground(__C.UIApplication) -&gt; ()"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MC-Status-Widget-for-Minecraft/MinecraftServerStatus/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "372">
+               </Location>
+               <Location
+                  uuid = "876020A3-495C-45C9-AF37-72679C8D6A7F - 58e56b7d3e8345e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MC_Status.AppDelegate.applicationWillEnterForeground(__C.UIApplication) -&gt; ()"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MC-Status-Widget-for-Minecraft/MinecraftServerStatus/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "672">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7708B5C5-8745-4ECA-BAA6-825E7DBA263F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MinecraftServerStatus/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "applicationWillEnterForeground(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
