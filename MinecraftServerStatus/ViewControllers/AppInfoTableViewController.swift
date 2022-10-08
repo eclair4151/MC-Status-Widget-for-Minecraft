@@ -74,8 +74,11 @@ class AppInfoTableViewController: UITableViewController, SKProductsRequestDelega
                 
             })
         } else if indexPath.section == 2 {
-            SwiftRater.rateApp()
+            UIApplication.shared.open(URL(string : "https://testflight.apple.com/join/k9RmbbJI")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: { (status) in
+            })
         } else if indexPath.section == 3 {
+            SwiftRater.rateApp()
+        } else if indexPath.section == 4 {
           showTipPayent()
         }
         
