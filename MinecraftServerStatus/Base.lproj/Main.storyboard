@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Sh-fR-yD6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Sh-fR-yD6">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="600"/>
                                 <color key="backgroundColor" red="0.88736641839999997" green="0.88736641839999997" blue="0.88736641839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="q1I-ro-vMO">
-                                    <rect key="frame" x="0.0" y="290" width="375" height="53"/>
+                                    <rect key="frame" x="0.0" y="312" width="375" height="53"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HD3-5y-izL">
@@ -61,7 +62,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ServerCell" rowHeight="234" id="wQR-Yn-RX7" customClass="LargeServerTableViewCell" customModule="MC_Status" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="234"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="234"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wQR-Yn-RX7" id="t68-eY-VbH">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="234"/>
@@ -284,14 +285,14 @@
                             <tableViewSection headerTitle="Common feature requests and why they arent in the app" id="yjd-bb-13U">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="z9T-QK-5UQ" style="IBUITableViewCellStyleDefault" id="in2-aV-ll7">
-                                        <rect key="frame" x="0.0" y="73.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="73.5" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="in2-aV-ll7" id="cDm-td-0ch">
-                                            <rect key="frame" x="0.0" y="0.0" width="348" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="FAQ &amp; Common Feature Requests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z9T-QK-5UQ">
-                                                    <rect key="frame" x="16" y="0.0" width="324" height="44"/>
+                                                    <rect key="frame" x="16" y="0.0" width="324.5" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -308,10 +309,10 @@
                             <tableViewSection headerTitle="For all bugs and feature requests please use the github issues page" id="Lpg-AH-Nes">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="t1W-kW-6r0">
-                                        <rect key="frame" x="0.0" y="191.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="191" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t1W-kW-6r0" id="QY4-wL-7WM">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View the source code on Github" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2PV-j7-1kA">
@@ -332,10 +333,10 @@
                             <tableViewSection headerTitle="Rate the App" id="BBu-wa-jHN">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Qgs-VX-HIs">
-                                        <rect key="frame" x="0.0" y="291.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="290.5" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qgs-VX-HIs" id="SwN-l3-Cbu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leave an App Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAJ-Q9-TYR">
@@ -356,10 +357,10 @@
                             <tableViewSection headerTitle="Help support my development of free, adless, open source apps" id="xBW-Ue-Qta">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="8j4-oP-NyV">
-                                        <rect key="frame" x="0.0" y="409.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="408" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8j4-oP-NyV" id="IdN-Yo-G4j">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip Developer $1.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pj5-mN-aTT">
@@ -380,7 +381,7 @@
                             <tableViewSection headerTitle="Resources used in this app" id="TtP-kh-S8A">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="130" id="yN5-gr-vI6">
-                                        <rect key="frame" x="0.0" y="509.5" width="375" height="130"/>
+                                        <rect key="frame" x="0.0" y="507.5" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yN5-gr-vI6" id="BpA-e5-AnF">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
@@ -450,7 +451,7 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">Unfortunately app code for the widget etc, can only run in the background while the device is active, and only every 15 minutes at max (as of iOS 14). This means most things that happen while the device has been locked for a bit, or if the device is in low power mode would be missed. This seems like it would defeat most of the purpose of this feature, so to make it properly this would require a cloud server that could check constantly and send push notifications to the devices as soon as it happens. This would cost money though meaning I would have to charge a monthly fee for this service, which i feel most people do not want to pay.</mutableString>
+                                        <string key="content">Unfortunately app code for the widget etc, can only run in the background while the device is active, and only every 15 minutes at max (as of iOS 14). This means most things that happen while the device has been locked for a bit, or if the device is in low power mode would be missed. This seems like it would defeat most of the purpose of this feature, so to make it properly this would require a cloud server that could check constantly and send push notifications to the devices as soon as it happens. This would cost money though meaning I would have to charge a monthly fee for this service, which i feel most people do not want to pay.</string>
                                         <attributes>
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" size="15" name="HelveticaNeue"/>
@@ -605,7 +606,7 @@ Cgo
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Server Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fxH-tf-eY1">
-                                <rect key="frame" x="20" y="76" width="335" height="40"/>
+                                <rect key="frame" x="20" y="150" width="335" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="rgj-w1-0l6"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="tBQ-ml-YRU"/>
@@ -617,7 +618,7 @@ Cgo
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Server Address/IP" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="FCu-cI-zcT">
-                                <rect key="frame" x="20" y="136" width="335" height="40"/>
+                                <rect key="frame" x="20" y="210" width="335" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="9ua-Zp-5v2"/>
                                     <constraint firstAttribute="height" constant="40" id="NDk-Hm-qDM"/>
@@ -630,7 +631,7 @@ Cgo
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Port (Optional - Default 25565)" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="szx-Gw-Ikb">
-                                <rect key="frame" x="20" y="196" width="335" height="40"/>
+                                <rect key="frame" x="20" y="270" width="335" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="6Cq-gd-ljb"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Xuc-eu-4hH"/>
@@ -642,6 +643,28 @@ Cgo
                                     <outlet property="delegate" destination="FZd-5m-Q1M" id="AkE-mV-e4h"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Server Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuU-EC-0VM">
+                                <rect key="frame" x="20" y="56" width="92" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Specific player lists are not available for bedrock/mcpe " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6u-hl-JFy">
+                                <rect key="frame" x="20" y="124" width="296" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aWT-OC-0Iw">
+                                <rect key="frame" x="20" y="85" width="223" height="32"/>
+                                <segments>
+                                    <segment title="Java Edition"/>
+                                    <segment title="Bedrock/MCPE"/>
+                                </segments>
+                                <connections>
+                                    <action selector="serverTypeChanged:" destination="FZd-5m-Q1M" eventType="valueChanged" id="fiR-YT-fsE"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zko-RE-srU"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -650,11 +673,17 @@ Cgo
                             <constraint firstItem="Zko-RE-srU" firstAttribute="trailing" secondItem="szx-Gw-Ikb" secondAttribute="trailing" constant="20" id="7ZR-8d-2NS"/>
                             <constraint firstItem="szx-Gw-Ikb" firstAttribute="top" secondItem="FCu-cI-zcT" secondAttribute="bottom" constant="20" id="Boc-bZ-Gxq"/>
                             <constraint firstItem="Zko-RE-srU" firstAttribute="trailing" secondItem="fxH-tf-eY1" secondAttribute="trailing" constant="20" id="EZm-cF-ytQ"/>
+                            <constraint firstItem="m6u-hl-JFy" firstAttribute="leading" secondItem="Zko-RE-srU" secondAttribute="leading" constant="20" id="FYo-1a-TWt"/>
+                            <constraint firstItem="ZuU-EC-0VM" firstAttribute="top" secondItem="Zko-RE-srU" secondAttribute="top" id="GIp-Iv-C4m"/>
                             <constraint firstItem="fxH-tf-eY1" firstAttribute="leading" secondItem="Zko-RE-srU" secondAttribute="leading" constant="20" id="GqJ-Sp-hmI"/>
+                            <constraint firstItem="m6u-hl-JFy" firstAttribute="top" secondItem="aWT-OC-0Iw" secondAttribute="bottom" constant="8" symbolic="YES" id="Nb4-V6-BhB"/>
                             <constraint firstItem="Zko-RE-srU" firstAttribute="trailing" secondItem="FCu-cI-zcT" secondAttribute="trailing" constant="20" id="P66-yk-B5d"/>
+                            <constraint firstItem="aWT-OC-0Iw" firstAttribute="top" secondItem="ZuU-EC-0VM" secondAttribute="bottom" constant="8" symbolic="YES" id="Rfv-cp-7A2"/>
+                            <constraint firstItem="aWT-OC-0Iw" firstAttribute="leading" secondItem="Zko-RE-srU" secondAttribute="leading" constant="20" id="UIA-Am-9rt"/>
                             <constraint firstItem="FCu-cI-zcT" firstAttribute="top" secondItem="fxH-tf-eY1" secondAttribute="bottom" constant="20" id="fTW-Vc-U9W"/>
                             <constraint firstItem="szx-Gw-Ikb" firstAttribute="leading" secondItem="Zko-RE-srU" secondAttribute="leading" constant="20" id="iyC-0U-dEl"/>
-                            <constraint firstItem="fxH-tf-eY1" firstAttribute="top" secondItem="Zko-RE-srU" secondAttribute="top" constant="20" id="rAh-Qh-PEd"/>
+                            <constraint firstItem="ZuU-EC-0VM" firstAttribute="leading" secondItem="Zko-RE-srU" secondAttribute="leading" constant="20" id="jbi-kA-lv4"/>
+                            <constraint firstItem="fxH-tf-eY1" firstAttribute="top" secondItem="m6u-hl-JFy" secondAttribute="bottom" constant="12" id="psw-8X-uRz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pHu-Lz-ffR">
@@ -670,8 +699,10 @@ Cgo
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="playerListWarningLabel" destination="m6u-hl-JFy" id="co0-Kn-ees"/>
                         <outlet property="portInput" destination="szx-Gw-Ikb" id="4QT-3y-uqX"/>
                         <outlet property="serverNameInput" destination="fxH-tf-eY1" id="kZw-aa-AFJ"/>
+                        <outlet property="serverTypeSegmentControler" destination="aWT-OC-0Iw" id="B3G-cG-hem"/>
                         <outlet property="serverUrlInput" destination="FCu-cI-zcT" id="Xvu-sD-Ufm"/>
                     </connections>
                 </viewController>
