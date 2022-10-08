@@ -23,3 +23,29 @@ func initializeRealmDb() -> Realm {
     
     return try! Realm()
 }
+
+
+func dumpDBtoPrefs() {
+    
+    let realm = initializeRealmDb()
+    let servers = Array(realm.objects(SavedServer.self).sorted(byKeyPath: "order") as Results<SavedServer>)
+    let jsonEncoder = JSONEncoder()
+    let jsonDataOpt = try? jsonEncoder.encode(servers)
+    
+    if let jsonData = jsonDataOpt {
+        let json = String(data: jsonData, encoding: String.Encoding.utf8)
+        let defaults = UserDefaults.standard
+        defaults.set(json, forKey: "serverDump")
+
+    }
+}
+
+
+func loadServerDump() {
+    let defaults = UserDefaults.standard
+    let jsonString = defaults.string(forKey: "serverDump") ?? ""
+    
+    let jsonDecoder = JSONDecoder()
+    let servers = try? jsonDecoder.decode([SavedServer].self, from: jsonString.data(using: .utf8)!)
+    print(jsonString)
+}

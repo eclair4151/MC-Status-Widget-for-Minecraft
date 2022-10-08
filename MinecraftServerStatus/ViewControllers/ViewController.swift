@@ -31,6 +31,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) { // wait 5 seconds before asking for a review
             SwiftRater.check()
+            //loadServerDump()
         }
         
         let infoButton = UIButton(type: .infoLight)
@@ -44,6 +45,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         serverStatus = [:]
         reloadTableData(initializeData: true)
+        
+        
+        // backup servers
+        dumpDBtoPrefs()
     }
 
     @IBAction func editClicked(_ sender: Any) {

@@ -115,7 +115,7 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
             let servers = realm.objects(SavedServer.self)
             let server = SavedServer()
             server.name = serverNameInput.text!
-            server.serverUrl = parsedText
+            server.serverUrl = parsedText.trimmingCharacters(in: .whitespacesAndNewlines)
             if (!(portInput.text?.isEmpty ?? true)) {
                 server.serverUrl += ":" + portInput.text!
             }
@@ -125,18 +125,22 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
                 realm.add(server)
             }
             delegate.serverAdded(server)
+            // backup servers
+            dumpDBtoPrefs()
             self.dismiss(animated: true, completion: nil)
         } else {
             //saving old server
             try! realm.write {
                 serverToEdit.name = serverNameInput.text!
-                serverToEdit.serverUrl = parsedText
+                serverToEdit.serverUrl = parsedText.trimmingCharacters(in: .whitespacesAndNewlines)
                 serverToEdit.serverType = self.serverTypeSegmentControler.selectedSegmentIndex
                 if (!(portInput.text?.isEmpty ?? true)) {
                     serverToEdit.serverUrl += ":" + portInput.text!
                 }
             }
             delegate.serverEdited(serverToEdit)
+            // backup servers
+            dumpDBtoPrefs()
             self.dismiss(animated: true, completion: nil)
             WidgetCenter.shared.reloadAllTimelines()
         }

@@ -18,7 +18,7 @@ public class ServerType {
 
 
 //server model for the database
-public class SavedServer: Object {
+public class SavedServer: Object, Codable {
     
     
     @objc dynamic var id = UUID().uuidString
