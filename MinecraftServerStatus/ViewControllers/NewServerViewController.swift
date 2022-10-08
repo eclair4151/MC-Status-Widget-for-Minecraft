@@ -18,6 +18,8 @@ protocol ServerEditProtocol: class {
 
 class NewServerViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var playerListWarningLabel: UILabel!
+    @IBOutlet weak var serverTypeSegmentControler: UISegmentedControl!
     @IBOutlet weak var serverUrlInput: UITextField!
     @IBOutlet weak var serverNameInput: UITextField!
     @IBOutlet weak var portInput: UITextField!
@@ -38,6 +40,10 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
                 self.portInput.text = String(port)
             }
             self.serverNameInput.text = self.serverToEdit.name
+            self.serverTypeSegmentControler.selectedSegmentIndex = self.serverToEdit.serverType
+            if self.serverToEdit.serverType == ServerType.SERVER_TYPE_BEDROCK {
+                self.playerListWarningLabel.isHidden = false
+            }
         }
     }
     
@@ -66,6 +72,19 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         controller.present(alert, animated: true, completion: nil)
     }
+    
+    
+    @IBAction func serverTypeChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            portInput.placeholder = "Port (Optional - Default 25565)"
+            playerListWarningLabel.isHidden = true
+        } else {
+            portInput.placeholder = "Port (Optional - Default 19132)"
+            playerListWarningLabel.isHidden = false
+        }
+    }
+    
+    
     
     //when the save do some verification and maybe throw an error
     @IBAction func saveButtonClicked(_ sender: Any) {
@@ -101,7 +120,7 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
                 server.serverUrl += ":" + portInput.text!
             }
             server.order = servers.count + 1
-            server.serverType = ServerType.SERVER_TYPE_BEDROCK
+            server.serverType = self.serverTypeSegmentControler.selectedSegmentIndex
             try! realm.write {
                 realm.add(server)
             }
@@ -112,6 +131,7 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
             try! realm.write {
                 serverToEdit.name = serverNameInput.text!
                 serverToEdit.serverUrl = parsedText
+                serverToEdit.serverType = self.serverTypeSegmentControler.selectedSegmentIndex
                 if (!(portInput.text?.isEmpty ?? true)) {
                     serverToEdit.serverUrl += ":" + portInput.text!
                 }

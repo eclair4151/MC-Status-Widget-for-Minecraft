@@ -65,7 +65,7 @@ public class ServerStatus: Decodable {
         strDesc = strDesc.replacingOccurrences(of: "\n", with: " ")
         strDesc = strDesc.replacingOccurrences(of: "§.", with: "", options: .regularExpression)
 
-        self.description = strDesc.trimmingCharacters(in: .whitespacesAndNewlines)
+        self.description = strDesc.trimmingCharacters(in: .whitespacesAndNewlines) + "    "
     }
 }
 

@@ -13,9 +13,10 @@ import SwiftyJSON
 
 
 class StatusChecker {
+    
+    
     var address: String
     var port: Int
-    var attemptLegacy = true
     var serverType: Int
     
     
@@ -36,6 +37,27 @@ class StatusChecker {
     }
     
 
+  
+    
+    public func getStatus(listener: @escaping (ServerStatus) -> Void, attemptLegacy: Bool = true) {
+        if (self.serverType == ServerType.SERVER_TYPE_JAVA) {
+            getJavaStatusBg(listener: listener)
+        } else {
+            getBedrockStatusBg(listener: listener)
+        }
+    }
+
+
+    private func isConnectedToInternet() -> Bool {
+        return NetworkReachabilityManager()?.isReachable ?? false
+    }
+    
+
+    
+    
+    
+    
+    
     private func getJavaStatusBg(listener: @escaping (ServerStatus) -> Void) {
         DispatchQueue.global(qos: .background).async {
             guard self.isConnectedToInternet() else {
@@ -54,32 +76,31 @@ class StatusChecker {
 
                       guard let serverStatus = self.readAndParseJavaStatusData(client: client) else {
                             client.close()
-                            if self.attemptLegacy {
-                                self.getLegacyServer(server: "\(self.address)", listener: listener)
-                            } else {
-                                listener(ServerStatus(status: .Unknown))
-                            }
+                            // unable to parse response try third party backup
+                            self.getLegacyJavaServer(server: "\(self.address)", listener: listener)
                             return
                       }
 
+                      // we were able to connect and read to response. Server is online
                       serverStatus.status = .Online
                       listener(serverStatus)
 
                       client.close()
                     case .failure(let error):
                         print(error)
-                        listener(ServerStatus(status: .Offline))
+                        // unable to send data to server. try third party backup
+                        self.getLegacyJavaServer(server: "\(self.address)", listener: listener)
                         client.close()
                   }
 
 
                 case .failure(let error):
                     print(error)
-                    //listener(ServerStatus(status: .Offline))
                     client.close()
-                    if self.attemptLegacy {
-                        self.getLegacyServer(server: "\(self.address)", listener: listener)
-                    }
+                
+                    // unable to access server. try third party backup
+                    self.getLegacyJavaServer(server: "\(self.address)", listener: listener)
+                    
             }
         }
     }
@@ -92,50 +113,37 @@ class StatusChecker {
                   return
             }
             
+            // create UDP connection directly to minecraft server
+            let commandClient = UDPClient(address: self.address, port: Int32(self.port)) { responseType, udpClient, data in
+                udpClient?.connection.cancel()
 
-            //create UDP connection directly to minecraft server
-            let client = UDPClient(address: self.address, port: Int32(self.port))
-              // we connected, lets send the status request
-              let sendData = self.getBedrockStatusQueryData()
-              switch client.send(data: sendData) {
-                case .success:
+                guard responseType == .SUCCESS, let responseData = data else {
 
-                  guard let serverStatus = self.readAndParseBedrockStatusData(client: client) else {
-                        client.close()
-                        if self.attemptLegacy {
-                            self.getLegacyServer(server: "\(self.address)", listener: listener)
-                        } else {
-                            listener(ServerStatus(status: .Unknown))
-                        }
-                        return
-                  }
-
-                  serverStatus.status = .Online
-                  listener(serverStatus)
-
-                  client.close()
-                case .failure(let error):
-                    print(error)
-                    listener(ServerStatus(status: .Offline))
-                    client.close()
-              }
+                    //Unable to connect. try third party backup
+                    self.getLegacyBeckrockServer(listener: listener)
+                    return
+                }
+                
+                guard let serverStatus = self.parseBedrockStatusData(data: responseData) else {
+                    //Unable to parse response data. Try third party backuop
+                    self.getLegacyBeckrockServer(listener: listener)
+                    return
+                }
+                
+                //we were able to connect and parse the response. server is online
+                serverStatus.status = .Online
+                listener(serverStatus)
+                
+                
+            }
+            commandClient?.send(self.getBedrockStatusQueryData())
         }
     }
     
-    public func getStatus(listener: @escaping (ServerStatus) -> Void, attemptLegacy: Bool = true) {
-        if (self.serverType == ServerType.SERVER_TYPE_JAVA) {
-            getJavaStatusBg(listener: listener)
-        } else {
-            getBedrockStatusBg(listener: listener)
-        }
-    }
-
-
-    private func isConnectedToInternet() -> Bool {
-        return NetworkReachabilityManager()?.isReachable ?? false
-    }
     
-
+    
+    
+    
     
     
     
@@ -258,7 +266,7 @@ class StatusChecker {
        
        EX: MCPE;HL NEW MAPS;554;1.19.30;274;284;-6441182470932281358;WaterdogPE Proxy;Survival;1;19
      */
-    private func getBedrockStatusQueryData() -> [Byte] {
+    private func getBedrockStatusQueryData() -> Data {
         var data: [Byte] = []
         
         let magicData: [Byte] = [0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00, 0x00, 0xff, 0xff, 0x00, 0xfe, 0xfe, 0xfe, 0xfe,
@@ -266,49 +274,49 @@ class StatusChecker {
         data.append(0x01) //packet id (always 1)
         data.append(contentsOf: magicData)
 
-        return data
+        return Data(bytes: data, count: data.count)
     }
     
-    private func readAndParseBedrockStatusData(client: UDPClient) -> ServerStatus? {
+    private func parseBedrockStatusData(data: Data) -> ServerStatus? {
         // read data.
         // 1 byte packet id, 8 byte timestamp, 8 byte server id, 16 byte magic data
         // then  2 bytes for the length of the following server data message
         // 1 + 8 + 8 + 16 + 2 = 35
         // everything after byte 35 is the string response
-        var (dataOpt,_,_) = client.recv(2048)
-        
+     
         //confirm we recived the correct packet id and all the expected data
-        guard let data = dataOpt, data[0] == 0x1c else {
+        guard data[0] == 0x1c else {
             return nil
         }
-        
-        // this is a hack and assumes the response fits in 2048 bytes, and then nothing will be sent after the server status
+
+        // this is a hack and assumes the response fits in 1 response, and no data will be sent after the server status string. Oh well.
         let serverDataBytes = data.dropFirst(35)
-       
+
         guard let serverDataString = String(bytes: serverDataBytes, encoding: .utf8) else {
             return nil
         }
-        
+
         let dataParts = serverDataString.split(separator: ";")
-        
+
         guard dataParts.count > 7 else {
             return nil
         }
-        
+
         //convert data
         let serverStatus = ServerStatus(status: .Online)
-        serverStatus.setDescriptionString(description: dataParts[1] + " | " + dataParts[7] + "          ")
+        serverStatus.setDescriptionString(description: dataParts[1] + "  |  " + dataParts[7])
         let players = Players()
         players.max = Int(dataParts[5]) ?? 0
         players.online = Int(dataParts[4]) ?? 0
         players.sample = []
-        
+
         serverStatus.players = players
-        
+
         let version = Version()
         version.name = String(dataParts[3])
         serverStatus.version = version
         return serverStatus
+        
     }
     
     
@@ -336,10 +344,70 @@ class StatusChecker {
     }
 
     
+    private func getLegacyBeckrockServer(listener: @escaping (ServerStatus) -> Void) {
+        
+        var request = URLRequest(url: URL(string: "https://minecraftpinger.com/api/ping")!)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json;charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.setValue("*/*", forHTTPHeaderField: "accept")
+        request.setValue("no-cache", forHTTPHeaderField: "cache-control")
+        request.setValue("en-US,en;q=0.9", forHTTPHeaderField: "accept-language")
+        
+        request.httpBody = Data(("\"" + self.address + ":" + String(self.port) + "\"").utf8)
+
+        AF.request(request).responseJSON{ response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+
+                if json["message"].exists() && json["message"].stringValue.lowercased().contains("offline") {
+                    listener(ServerStatus(status: .Offline))
+                    return
+                }
+                
+                
+                if !json["host"].exists() {
+                    listener(ServerStatus(status: .Unknown))
+                    return
+                }
+                
+                
+                let status = ServerStatus(status: .Online)
+                    
+                //description
+                let description = json["motd"]["clean"].stringValue.replacingOccurrences(of: "\n", with: "  |  ")
+                status.description = description
+
+                //Players
+                let players = Players()
+                players.max = json["players"]["max"].int ?? 0
+                players.online = json["players"]["online"].int ?? 0
+                players.sample = []
+                status.players = players
+
+                //version
+                let version = Version()
+                version.name = json["version"]["name"].string ?? ""
+                status.version = version
+
+                //icon
+                status.favicon = nil
+                listener(status)
+
+                
+
+            case .failure(let error):
+                if let _ = error.responseCode {
+                    listener(ServerStatus(status: .Offline))
+                } else {
+                    listener(ServerStatus(status: .Unknown))
+                }
+            }
+        }
+    }
     
     
-    //add bedrock support
-    private func getLegacyServer(server:String, listener: @escaping (ServerStatus) -> Void) {
+    private func getLegacyJavaServer(server:String, listener: @escaping (ServerStatus) -> Void) {
         AF.request("https:/api.mcsrvstat.us/2/" + server).responseJSON { response in
             switch response.result {
             case .success(let value):

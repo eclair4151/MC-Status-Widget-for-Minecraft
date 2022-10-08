@@ -28,4 +28,6 @@ public class SavedServer: Object {
     @objc dynamic var order = 100
     @objc dynamic var showInWidget = false
     @objc dynamic var serverType = ServerType.SERVER_TYPE_JAVA
+    
+    
 }

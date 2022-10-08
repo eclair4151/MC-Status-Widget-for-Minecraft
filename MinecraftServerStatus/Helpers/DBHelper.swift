@@ -13,7 +13,6 @@ import RealmSwift
 func initializeRealmDb() -> Realm {
     let sharedDirectory: URL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.shemeshapps.MinecraftServerStatus")! as URL
     let sharedRealmURL = sharedDirectory.appendingPathComponent("db.realm")
-    //Realm.Configuration.defaultConfiguration = Realm.Configuration(fileURL: sharedRealmURL)
     
     Realm.Configuration.defaultConfiguration = Realm.Configuration (
         fileURL: sharedRealmURL,
