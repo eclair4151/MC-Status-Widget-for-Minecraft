@@ -126,7 +126,7 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
             }
             delegate.serverAdded(server)
             // backup servers
-            dumpDBtoPrefs()
+            DBHelper.shared.dumpDBtoPrefs()
             self.dismiss(animated: true, completion: nil)
         } else {
             //saving old server
@@ -140,7 +140,7 @@ class NewServerViewController: UIViewController, UITextFieldDelegate {
             }
             delegate.serverEdited(serverToEdit)
             // backup servers
-            dumpDBtoPrefs()
+            DBHelper.shared.dumpDBtoPrefs()
             self.dismiss(animated: true, completion: nil)
             WidgetCenter.shared.reloadAllTimelines()
         }

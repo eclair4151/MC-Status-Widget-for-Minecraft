@@ -48,7 +48,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
         // backup servers
-        dumpDBtoPrefs()
+        DBHelper.shared.dumpDBtoPrefs()
     }
 
     @IBAction func editClicked(_ sender: Any) {

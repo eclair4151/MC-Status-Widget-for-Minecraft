@@ -67,6 +67,12 @@
 		F18A848A25C218BC00C6E34E /* WidgetInputIntentExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F18A848225C218BC00C6E34E /* WidgetInputIntentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F18A849325C218E600C6E34E /* MinecraftServerStatusWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F12ADDDA25BDC33900487E90 /* MinecraftServerStatusWidget.intentdefinition */; };
 		F1AA752F246A509800869F0C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1AA752E246A509800869F0C /* StoreKit.framework */; };
+		F1C4AE5B28F84FFA00BD3452 /* MC_Status_WatchAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C4AE5A28F84FFA00BD3452 /* MC_Status_WatchAppApp.swift */; };
+		F1C4AE5D28F84FFA00BD3452 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C4AE5C28F84FFA00BD3452 /* ContentView.swift */; };
+		F1C4AE5F28F84FFB00BD3452 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1C4AE5E28F84FFB00BD3452 /* Assets.xcassets */; };
+		F1C4AE6228F84FFB00BD3452 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1C4AE6128F84FFB00BD3452 /* Preview Assets.xcassets */; };
+		F1C4AE6728F85EDA00BD3452 /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C4AE6628F85ED900BD3452 /* WatchSessionManager.swift */; };
+		F1C4AE6828F8709300BD3452 /* MC Status WatchApp Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F1C4AE5828F84FFA00BD3452 /* MC Status WatchApp Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +89,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = F18A848125C218BC00C6E34E;
 			remoteInfo = WidgetInputIntentExtension;
+		};
+		F1C4AE6928F8709300BD3452 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24C92F5C20BE42210072A60C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1C4AE5728F84FFA00BD3452;
+			remoteInfo = "MC Status WatchApp Watch App";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -108,6 +121,17 @@
 				F16AF6E1246A163400A4BFDA /* SwiftSocket.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1C4AE6B28F8709300BD3452 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				F1C4AE6828F8709300BD3452 /* MC Status WatchApp Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -179,6 +203,12 @@
 		F18A849A25C21BD700C6E34E /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F18A849B25C21BD700C6E34E /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1AA752E246A509800869F0C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		F1C4AE5828F84FFA00BD3452 /* MC Status WatchApp Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC Status WatchApp Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1C4AE5A28F84FFA00BD3452 /* MC_Status_WatchAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC_Status_WatchAppApp.swift; sourceTree = "<group>"; };
+		F1C4AE5C28F84FFA00BD3452 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F1C4AE5E28F84FFB00BD3452 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F1C4AE6128F84FFB00BD3452 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F1C4AE6628F85ED900BD3452 /* WatchSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSessionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +241,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F1C4AE5528F84FFA00BD3452 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -221,6 +258,7 @@
 				24C92F6620BE42210072A60C /* MinecraftServerStatus */,
 				F12ADDD725BDC33900487E90 /* MinecraftServerStatusHSWidget */,
 				F18A848425C218BC00C6E34E /* WidgetInputIntentExtension */,
+				F1C4AE5928F84FFA00BD3452 /* MC Status WatchApp Watch App */,
 				24C92F6520BE42210072A60C /* Products */,
 				AE925480F83E678CD9D8AAF7 /* Pods */,
 				A13350A4735884291F0C6394 /* Frameworks */,
@@ -233,6 +271,7 @@
 				24C92F6420BE42210072A60C /* MC Status.app */,
 				F12ADDD225BDC33900487E90 /* MinecraftServerStatusHSWidgetExtension.appex */,
 				F18A848225C218BC00C6E34E /* WidgetInputIntentExtension.appex */,
+				F1C4AE5828F84FFA00BD3452 /* MC Status WatchApp Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -358,6 +397,26 @@
 			path = WidgetInputIntentExtension;
 			sourceTree = "<group>";
 		};
+		F1C4AE5928F84FFA00BD3452 /* MC Status WatchApp Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				F1C4AE5A28F84FFA00BD3452 /* MC_Status_WatchAppApp.swift */,
+				F1C4AE5C28F84FFA00BD3452 /* ContentView.swift */,
+				F1C4AE5E28F84FFB00BD3452 /* Assets.xcassets */,
+				F1C4AE6028F84FFB00BD3452 /* Preview Content */,
+				F1C4AE6628F85ED900BD3452 /* WatchSessionManager.swift */,
+			);
+			path = "MC Status WatchApp Watch App";
+			sourceTree = "<group>";
+		};
+		F1C4AE6028F84FFB00BD3452 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F1C4AE6128F84FFB00BD3452 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -372,12 +431,14 @@
 				DFFF9997212A97257AA692FC /* [CP] Embed Pods Frameworks */,
 				242815CE20BE4754001D11FD /* Embed App Extensions */,
 				F16AF6C42469B2B300A4BFDA /* Embed Frameworks */,
+				F1C4AE6B28F8709300BD3452 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				F12ADDE125BDC33B00487E90 /* PBXTargetDependency */,
 				F18A848925C218BC00C6E34E /* PBXTargetDependency */,
+				F1C4AE6A28F8709300BD3452 /* PBXTargetDependency */,
 			);
 			name = "MC Status";
 			productName = MinecraftServerStatus;
@@ -420,13 +481,30 @@
 			productReference = F18A848225C218BC00C6E34E /* WidgetInputIntentExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		F1C4AE5728F84FFA00BD3452 /* MC Status WatchApp Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1C4AE6528F84FFB00BD3452 /* Build configuration list for PBXNativeTarget "MC Status WatchApp Watch App" */;
+			buildPhases = (
+				F1C4AE5428F84FFA00BD3452 /* Sources */,
+				F1C4AE5528F84FFA00BD3452 /* Frameworks */,
+				F1C4AE5628F84FFA00BD3452 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MC Status WatchApp Watch App";
+			productName = "MC Status WatchApp Watch App";
+			productReference = F1C4AE5828F84FFA00BD3452 /* MC Status WatchApp Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		24C92F5C20BE42210072A60C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = ShemeshApps;
 				TargetAttributes = {
@@ -448,6 +526,10 @@
 						CreatedOnToolsVersion = 12.3;
 						ProvisioningStyle = Automatic;
 					};
+					F1C4AE5728F84FFA00BD3452 = {
+						CreatedOnToolsVersion = 14.0.1;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 24C92F5F20BE42210072A60C /* Build configuration list for PBXProject "MinecraftServerStatus" */;
@@ -466,6 +548,7 @@
 				24C92F6320BE42210072A60C /* MC Status */,
 				F12ADDD125BDC33900487E90 /* MinecraftServerStatusHSWidgetExtension */,
 				F18A848125C218BC00C6E34E /* WidgetInputIntentExtension */,
+				F1C4AE5728F84FFA00BD3452 /* MC Status WatchApp Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -494,6 +577,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1C4AE5628F84FFA00BD3452 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1C4AE6228F84FFB00BD3452 /* Preview Assets.xcassets in Resources */,
+				F1C4AE5F28F84FFB00BD3452 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,6 +750,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F1C4AE5428F84FFA00BD3452 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1C4AE6728F85EDA00BD3452 /* WatchSessionManager.swift in Sources */,
+				F1C4AE5D28F84FFA00BD3452 /* ContentView.swift in Sources */,
+				F1C4AE5B28F84FFA00BD3452 /* MC_Status_WatchAppApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -670,6 +772,11 @@
 			isa = PBXTargetDependency;
 			target = F18A848125C218BC00C6E34E /* WidgetInputIntentExtension */;
 			targetProxy = F18A848825C218BC00C6E34E /* PBXContainerItemProxy */;
+		};
+		F1C4AE6A28F8709300BD3452 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1C4AE5728F84FFA00BD3452 /* MC Status WatchApp Watch App */;
+			targetProxy = F1C4AE6928F8709300BD3452 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -971,6 +1078,67 @@
 			};
 			name = Release;
 		};
+		F1C4AE6328F84FFB00BD3452 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MC Status WatchApp Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = FDYR7V7AH4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "MC Status WatchApp";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.shemeshapps.MinecraftServerStatus;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Debug;
+		};
+		F1C4AE6428F84FFB00BD3452 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MC Status WatchApp Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = FDYR7V7AH4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "MC Status WatchApp";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.shemeshapps.MinecraftServerStatus;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1006,6 +1174,15 @@
 			buildConfigurations = (
 				F18A848D25C218BC00C6E34E /* Debug */,
 				F18A848E25C218BC00C6E34E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1C4AE6528F84FFB00BD3452 /* Build configuration list for PBXNativeTarget "MC Status WatchApp Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1C4AE6328F84FFB00BD3452 /* Debug */,
+				F1C4AE6428F84FFB00BD3452 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
