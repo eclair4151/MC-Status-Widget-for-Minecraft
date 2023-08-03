@@ -10,6 +10,7 @@ import Foundation
 class BedrockServerStatusParser: ServerStatusParserProtocol {
     static func parseServerResponse(stringInput: String) throws -> ServerStatus {
         let dataParts = stringInput.split(separator: ";")
+        //[edition, motdLine1, protocolVersion, version, onlinePlayers, maxPlayers, serverID, motdLine2, gameMode, gameModeID, portIPv4, portIPv6]
 
 //        guard dataParts.count > 7 else {
 //            // throw error

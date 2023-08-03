@@ -33,21 +33,25 @@ class BedrockServerStatusChecker: ServerStatusCheckerProtocol {
             // 1 + 8 + 8 + 16 + 2 = 35
             // everything after byte 35 is the string response
          
-            //confirm we recived the correct packet id and all the expected data
+            // this is an assumption that the response fits in 65kb since we are assuming the message length value fits in 2 bytes.
+            // this will fail if it response is larger. Never seen anything even 10% that size so will deal with that issue later if it comes up.
+            
+            //confirm we recived the correct packet id before continuing
             guard responseData[0] == 0x1c else {
                 // throw error
                 return
             }
 
-            // this is an assumption that the response fits in 65kb since we are assuming the message length value fits in 2 bytes.
-            // this will fail if it response is larger. Never seen anything even 10% that size so will deal with that issue later if it comes up.
+            // get rid of all the data explained earlier that we dont care about.
             let serverDataBytes = responseData.dropFirst(35)
 
-            guard let serverDataString = String(bytes: serverDataBytes, encoding: .utf8) else {
+            //the remaining data is the reseponse string
+            guard let responseString = String(bytes: serverDataBytes, encoding: .utf8) else {
                 // throw error
                 return
             }
             
+            print(responseString)
             // return result string
             
         }
@@ -66,7 +70,7 @@ class BedrockServerStatusChecker: ServerStatusCheckerProtocol {
     /** Minecraft protocol can be found here: https://wiki.vg/Raknet_Protocol#Unconnected_Ping
      * sends a request directly to the minecraft server for a ping request.
      1. Client sends:
-       1a. \x01 , unsigned 64bit long timestamp, 16 bytes of magic data predefined by the API
+       1a. \x01 , unsigned 64bit long timestamp, 16 bytes of magic data predefined by the API, followed by a "2" formated as a Big Endian 64bit integer
      2. Server responds with:
        2a.  packet id (0x1c), timestamp (uint64), serverid (uint64), 16 bytes of the same magic data, the following string length (uint16), and then the string of length defined in the previous uint16
        2b. the string of bytes representing the server like the following
@@ -78,8 +82,9 @@ class BedrockServerStatusChecker: ServerStatusCheckerProtocol {
     private func getBedrockStatusQueryData() -> Data {
         var data: [UInt8] = []
         
+        // your are supposed to send the current timestamp here in the begining instead of all 0's but in practie it doesnt seem to matter and i am too lazy to implement timestamp -> bit conversion. will fix later if it seems to cause any issues.
         let magicData: [UInt8] = [0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00, 0x00, 0xff, 0xff, 0x00, 0xfe, 0xfe, 0xfe, 0xfe,
-                         0xfd, 0xfd, 0xfd, 0xfd, 0x12, 0x34, 0x56, 0x78]
+                         0xfd, 0xfd, 0xfd, 0xfd, 0x12, 0x34, 0x56, 0x78, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x02]
         data.append(0x01) //packet id (always 1)
         data.append(contentsOf: magicData)
 

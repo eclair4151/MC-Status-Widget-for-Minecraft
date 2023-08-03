@@ -29,6 +29,8 @@ class UDPClient {
             print("ERROR! Error when data (Type: Data) sending. NWError: \n \(NWError!)")
             return
         }
+        
+        print("data sent successfully?")
     }
 
     init?(address newAddress: String, port newPort: Int32, listener: @escaping (_ responseType: UDPResponseType, _ client: UDPClient?, _ data: Data?) -> Void) {
@@ -70,21 +72,28 @@ class UDPClient {
     }
     
     func send(_ data: Data) {
-        self.connection.send(content: data, completion: self.resultHandler)
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             if (!self.didRecieveData) {
                 self.listener(.ERROR, self, nil)
             }
         }
+        print("Sending Data")
+        self.connection.send(content: data, completion: self.resultHandler)
+
+
         self.connection.receiveMessage { data, context, isComplete, error in
             self.didRecieveData = true
-
             guard let data = data else {
                 print("Error: Received nil Data")
                 self.listener(.ERROR, self, nil)
                 return
             }
+            
+            print("Received valid Data")
+
             self.listener(.SUCCESS,self,data)
         }
+        
+        
     }
 }

@@ -18,13 +18,15 @@ func testCall() {
     
     
     
-//    let statusCheckerTask = Task {
-//        let server = SavedMinecraftServer()
-//        server.serverUrl = "hub.manacube.com"
-//        server.serverPort = 25565
-//        let serverStatus = await ServerStatusChecker.checkServer(server: server)
-//        print(serverStatus)
-//    }
+    let statusCheckerTask = Task {
+        let server = SavedMinecraftServer()
+        server.serverType = .Bedrock
+//        server.serverUrl = "play.craftersmc.net"
+        server.serverUrl = "bedrock.akumamc.net"
+        server.serverPort = 19132
+        let serverStatus = await ServerStatusChecker.checkServer(server: server)
+        print(serverStatus)
+    }
 }
 
 
