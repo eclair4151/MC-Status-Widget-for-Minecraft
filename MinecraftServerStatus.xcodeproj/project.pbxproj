@@ -3,245 +3,44 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		243058FF20E4535500ADAECE /* LargeServerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243058FE20E4535500ADAECE /* LargeServerTableViewCell.swift */; };
-		24938B1F20DD18D000B00C9C /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24938B1E20DD18D000B00C9C /* CardTableViewCell.swift */; };
-		24A55A0320E9C57700612C50 /* AppInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A55A0220E9C57700612C50 /* AppInfoTableViewController.swift */; };
-		24C92F6820BE42210072A60C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C92F6720BE42210072A60C /* AppDelegate.swift */; };
-		24C92F6A20BE42210072A60C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C92F6920BE42210072A60C /* ViewController.swift */; };
-		24C92F6D20BE42210072A60C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C92F6B20BE42210072A60C /* Main.storyboard */; };
-		24C92F6F20BE42210072A60C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C92F6E20BE42210072A60C /* Assets.xcassets */; };
-		24C92F7220BE42210072A60C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C92F7020BE42210072A60C /* LaunchScreen.storyboard */; };
-		24E8287C20BF76A400F2D348 /* StatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8287B20BF76A400F2D348 /* StatusChecker.swift */; };
-		24EB9BB120C1944400C9894A /* ServerStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EB9BB020C1944400C9894A /* ServerStatusViewModel.swift */; };
-		24EB9BB420C1A0DE00C9894A /* UIExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EB9BB320C1A0DE00C9894A /* UIExtentions.swift */; };
-		24EB9BBA20C2F30600C9894A /* SavedServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EB9BB920C2F30600C9894A /* SavedServer.swift */; };
-		24EB9BBD20C2F85800C9894A /* NewServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EB9BBC20C2F85800C9894A /* NewServerViewController.swift */; };
-		6164FE7D527FA2B76F5CAAB8 /* Pods_MinecraftServerStatusHSWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DC515504564AA8D46A6D2A /* Pods_MinecraftServerStatusHSWidgetExtension.framework */; };
-		675076F12B719CA97DEFCB67 /* Pods_WidgetInputIntentExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 760D5B22C74425FB07682E03 /* Pods_WidgetInputIntentExtension.framework */; };
-		CBC0918AEFFF47DCC10A7E74 /* Pods_MC_Status.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC0843B80743CE845B7D3B3 /* Pods_MC_Status.framework */; };
-		F12ADDD425BDC33900487E90 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F12ADDD325BDC33900487E90 /* WidgetKit.framework */; };
-		F12ADDD625BDC33900487E90 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F12ADDD525BDC33900487E90 /* SwiftUI.framework */; };
-		F12ADDD925BDC33900487E90 /* MinecraftServerStatusWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12ADDD825BDC33900487E90 /* MinecraftServerStatusWidget.swift */; };
-		F12ADDDC25BDC33B00487E90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F12ADDDB25BDC33B00487E90 /* Assets.xcassets */; };
-		F12ADDDE25BDC33B00487E90 /* MinecraftServerStatusWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F12ADDDA25BDC33900487E90 /* MinecraftServerStatusWidget.intentdefinition */; };
-		F12ADDDF25BDC33B00487E90 /* MinecraftServerStatusWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F12ADDDA25BDC33900487E90 /* MinecraftServerStatusWidget.intentdefinition */; };
-		F12ADDE225BDC33B00487E90 /* MinecraftServerStatusHSWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F12ADDD225BDC33900487E90 /* MinecraftServerStatusHSWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F12ADE1025BE501100487E90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C92F6E20BE42210072A60C /* Assets.xcassets */; };
-		F14640B025CF8A8000B6B2DC /* SavedServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EB9BB920C2F30600C9894A /* SavedServer.swift */; };
-		F14640C525CF90BC00B6B2DC /* StatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E8287B20BF76A400F2D348 /* StatusChecker.swift */; };
-		F14640F025CF91E300B6B2DC /* UIExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EB9BB320C1A0DE00C9894A /* UIExtentions.swift */; };
-		F14640F325CF91E400B6B2DC /* UIExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EB9BB320C1A0DE00C9894A /* UIExtentions.swift */; };
-		F14640F625CF928C00B6B2DC /* SavedServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EB9BB920C2F30600C9894A /* SavedServer.swift */; };
-		F14640FA25D0179200B6B2DC /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14640F925D0179200B6B2DC /* DBHelper.swift */; };
-		F14640FB25D0179200B6B2DC /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14640F925D0179200B6B2DC /* DBHelper.swift */; };
-		F14640FC25D0179200B6B2DC /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14640F925D0179200B6B2DC /* DBHelper.swift */; };
-		F146413325D0AF3400B6B2DC /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146413225D0AF3400B6B2DC /* ThemeManager.swift */; };
-		F146413425D0AF3400B6B2DC /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146413225D0AF3400B6B2DC /* ThemeManager.swift */; };
-		F146413525D0AF3400B6B2DC /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146413225D0AF3400B6B2DC /* ThemeManager.swift */; };
-		F146414425D0BA2000B6B2DC /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146414325D0BA2000B6B2DC /* ProgressView.swift */; };
-		F146414725D0BA5C00B6B2DC /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146414625D0BA5C00B6B2DC /* SmallWidgetView.swift */; };
-		F146414A25D0BA6800B6B2DC /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F146414925D0BA6800B6B2DC /* MediumWidgetView.swift */; };
-		F153AEE425D96E9200DA4195 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F153AEE325D96E9200DA4195 /* FAQViewController.swift */; };
-		F16AF6DC2469C6D300A4BFDA /* ServerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16AF6DB2469C6D300A4BFDA /* ServerStatus.swift */; };
-		F16AF6E0246A163400A4BFDA /* SwiftSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16AF6DF246A163400A4BFDA /* SwiftSocket.framework */; };
-		F16AF6E1246A163400A4BFDA /* SwiftSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F16AF6DF246A163400A4BFDA /* SwiftSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F16BD57928EC415D0055569E /* CircularAccessoryWidgetView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16BD57828EC415D0055569E /* CircularAccessoryWidgetView1.swift */; };
-		F16BD57F28EE0A410055569E /* WidgetProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16BD57E28EE0A410055569E /* WidgetProviders.swift */; };
-		F16BD58128EEDAF20055569E /* TimelineFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16BD58028EEDAF20055569E /* TimelineFactory.swift */; };
-		F16BD58328EEE8640055569E /* CircularAccessoryWidgetView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16BD58228EEE8640055569E /* CircularAccessoryWidgetView2.swift */; };
-		F16BD58528EF0B9D0055569E /* RectangularAccessoryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16BD58428EF0B9D0055569E /* RectangularAccessoryWidgetView.swift */; };
-		F16BD58728F1B8C30055569E /* UDPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16BD58628F1B8C30055569E /* UDPClient.swift */; };
-		F16BD58828F1B8C30055569E /* UDPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16BD58628F1B8C30055569E /* UDPClient.swift */; };
-		F16BD58928F1B8C30055569E /* UDPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16BD58628F1B8C30055569E /* UDPClient.swift */; };
-		F18A843825BFC0A000C6E34E /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18A843725BFC0A000C6E34E /* ImageHelper.swift */; };
-		F18A843925BFC0A000C6E34E /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18A843725BFC0A000C6E34E /* ImageHelper.swift */; };
-		F18A843C25BFC0BB00C6E34E /* WidgetEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18A843B25BFC0BB00C6E34E /* WidgetEntryViewModel.swift */; };
-		F18A843D25BFC0BB00C6E34E /* WidgetEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18A843B25BFC0BB00C6E34E /* WidgetEntryViewModel.swift */; };
-		F18A843F25BFC0CC00C6E34E /* ServerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16AF6DB2469C6D300A4BFDA /* ServerStatus.swift */; };
-		F18A848325C218BC00C6E34E /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F18A845025C217B700C6E34E /* Intents.framework */; };
-		F18A848625C218BC00C6E34E /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18A848525C218BC00C6E34E /* IntentHandler.swift */; };
-		F18A848A25C218BC00C6E34E /* WidgetInputIntentExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F18A848225C218BC00C6E34E /* WidgetInputIntentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F18A849325C218E600C6E34E /* MinecraftServerStatusWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = F12ADDDA25BDC33900487E90 /* MinecraftServerStatusWidget.intentdefinition */; };
-		F1AA752F246A509800869F0C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1AA752E246A509800869F0C /* StoreKit.framework */; };
-		F1C4AE5B28F84FFA00BD3452 /* MC_Status_WatchAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C4AE5A28F84FFA00BD3452 /* MC_Status_WatchAppApp.swift */; };
-		F1C4AE5D28F84FFA00BD3452 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C4AE5C28F84FFA00BD3452 /* ContentView.swift */; };
-		F1C4AE5F28F84FFB00BD3452 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1C4AE5E28F84FFB00BD3452 /* Assets.xcassets */; };
-		F1C4AE6228F84FFB00BD3452 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1C4AE6128F84FFB00BD3452 /* Preview Assets.xcassets */; };
-		F1C4AE6728F85EDA00BD3452 /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C4AE6628F85ED900BD3452 /* WatchSessionManager.swift */; };
-		F1C4AE6828F8709300BD3452 /* MC Status WatchApp Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F1C4AE5828F84FFA00BD3452 /* MC Status WatchApp Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F1340D1F2A7352BE00E288C4 /* JavaServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1340D1E2A7352BE00E288C4 /* JavaServerStatusChecker.swift */; };
+		F13E5FFD2A4BD614005BE9B2 /* MinecraftServerStatusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFC2A4BD614005BE9B2 /* MinecraftServerStatusApp.swift */; };
+		F13E5FFF2A4BD614005BE9B2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFE2A4BD614005BE9B2 /* Item.swift */; };
+		F13E60012A4BD614005BE9B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E60002A4BD614005BE9B2 /* ContentView.swift */; };
+		F13E60032A4BD615005BE9B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
+		F13E60072A4BD615005BE9B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */; };
+		F1BF5D702A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D6F2A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift */; };
+		F1BF5D732A75F26500966D56 /* ServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D722A75F26500966D56 /* ServerStatusChecker.swift */; };
+		F1BF5D752A769A1400966D56 /* JavaServerStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D742A769A1400966D56 /* JavaServerStatusResponse.swift */; };
+		F1BF5D772A76ACAC00966D56 /* ServerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D762A76ACAC00966D56 /* ServerStatus.swift */; };
+		F1BF5D7A2A77412000966D56 /* JavaServerStatusParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D792A77412000966D56 /* JavaServerStatusParser.swift */; };
+		F1BF5D7C2A7746ED00966D56 /* SavedMinecraftServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D7B2A7746ED00966D56 /* SavedMinecraftServer.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		F12ADDE025BDC33B00487E90 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 24C92F5C20BE42210072A60C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F12ADDD125BDC33900487E90;
-			remoteInfo = MinecraftServerStatusHSWidgetExtension;
-		};
-		F18A848825C218BC00C6E34E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 24C92F5C20BE42210072A60C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F18A848125C218BC00C6E34E;
-			remoteInfo = WidgetInputIntentExtension;
-		};
-		F1C4AE6928F8709300BD3452 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 24C92F5C20BE42210072A60C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F1C4AE5728F84FFA00BD3452;
-			remoteInfo = "MC Status WatchApp Watch App";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		242815CE20BE4754001D11FD /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				F18A848A25C218BC00C6E34E /* WidgetInputIntentExtension.appex in Embed App Extensions */,
-				F12ADDE225BDC33B00487E90 /* MinecraftServerStatusHSWidgetExtension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F16AF6C42469B2B300A4BFDA /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				F16AF6E1246A163400A4BFDA /* SwiftSocket.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F1C4AE6B28F8709300BD3452 /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-				F1C4AE6828F8709300BD3452 /* MC Status WatchApp Watch App.app in Embed Watch Content */,
-			);
-			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		01D15037AE98DDB6C38F693E /* Pods-MC Status.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MC Status.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MC Status/Pods-MC Status.debug.xcconfig"; sourceTree = "<group>"; };
-		079D8F892A68CFC72E9D974A /* Pods-MinecraftServerStatus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinecraftServerStatus.release.xcconfig"; path = "Pods/Target Support Files/Pods-MinecraftServerStatus/Pods-MinecraftServerStatus.release.xcconfig"; sourceTree = "<group>"; };
-		0BF0908BEB4EA8927B99D9D3 /* Pods-WidgetInputIntentExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetInputIntentExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-WidgetInputIntentExtension/Pods-WidgetInputIntentExtension.release.xcconfig"; sourceTree = "<group>"; };
-		1460035E46192A3A67317369 /* Pods-MC Status.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MC Status.release.xcconfig"; path = "Pods/Target Support Files/Pods-MC Status/Pods-MC Status.release.xcconfig"; sourceTree = "<group>"; };
-		211FE1533CEA467F01D5462C /* Pods-MinecraftServerStatusWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinecraftServerStatusWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MinecraftServerStatusWidget/Pods-MinecraftServerStatusWidget.debug.xcconfig"; sourceTree = "<group>"; };
-		242815BF20BE4754001D11FD /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		243058FE20E4535500ADAECE /* LargeServerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeServerTableViewCell.swift; sourceTree = "<group>"; };
-		24938B1E20DD18D000B00C9C /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
-		24A55A0020E9AF5700612C50 /* MinecraftServerStatus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MinecraftServerStatus.entitlements; sourceTree = "<group>"; };
-		24A55A0220E9C57700612C50 /* AppInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoTableViewController.swift; sourceTree = "<group>"; };
-		24C92F6420BE42210072A60C /* MC Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		24C92F6720BE42210072A60C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		24C92F6920BE42210072A60C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		24C92F6C20BE42210072A60C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		24C92F6E20BE42210072A60C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		24C92F7120BE42210072A60C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		24C92F7320BE42210072A60C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24E8287B20BF76A400F2D348 /* StatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusChecker.swift; sourceTree = "<group>"; };
-		24EB9BAF20C01D6700C9894A /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		24EB9BB020C1944400C9894A /* ServerStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusViewModel.swift; sourceTree = "<group>"; };
-		24EB9BB320C1A0DE00C9894A /* UIExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtentions.swift; sourceTree = "<group>"; };
-		24EB9BB920C2F30600C9894A /* SavedServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedServer.swift; sourceTree = "<group>"; };
-		24EB9BBC20C2F85800C9894A /* NewServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewServerViewController.swift; sourceTree = "<group>"; };
-		32DC515504564AA8D46A6D2A /* Pods_MinecraftServerStatusHSWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MinecraftServerStatusHSWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3FB8402D48FDE342CBF3079A /* Pods_MinecraftServerStatusWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MinecraftServerStatusWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6CC0843B80743CE845B7D3B3 /* Pods_MC_Status.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MC_Status.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		760D5B22C74425FB07682E03 /* Pods_WidgetInputIntentExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WidgetInputIntentExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7D7785BFC0F0C1906D13891D /* Pods-MinecraftServerStatusHSWidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinecraftServerStatusHSWidgetExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MinecraftServerStatusHSWidgetExtension/Pods-MinecraftServerStatusHSWidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
-		8D4363AA045012FE6881535A /* Pods-MinecraftServerStatusHSWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinecraftServerStatusHSWidgetExtension.release.xcconfig"; path = "Pods/Target Support Files/Pods-MinecraftServerStatusHSWidgetExtension/Pods-MinecraftServerStatusHSWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
-		905D5C170F17F79499594A4E /* Pods-WidgetInputIntentExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetInputIntentExtension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WidgetInputIntentExtension/Pods-WidgetInputIntentExtension.debug.xcconfig"; sourceTree = "<group>"; };
-		B3CDE519FAD44A27FE7224B4 /* Pods-MinecraftServerStatusWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinecraftServerStatusWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-MinecraftServerStatusWidget/Pods-MinecraftServerStatusWidget.release.xcconfig"; sourceTree = "<group>"; };
-		C3421CEB02B4330B430985A0 /* Pods-MinecraftServerStatus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinecraftServerStatus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MinecraftServerStatus/Pods-MinecraftServerStatus.debug.xcconfig"; sourceTree = "<group>"; };
-		F12ADDD225BDC33900487E90 /* MinecraftServerStatusHSWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MinecraftServerStatusHSWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		F12ADDD325BDC33900487E90 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
-		F12ADDD525BDC33900487E90 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		F12ADDD825BDC33900487E90 /* MinecraftServerStatusWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinecraftServerStatusWidget.swift; sourceTree = "<group>"; };
-		F12ADDDA25BDC33900487E90 /* MinecraftServerStatusWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = MinecraftServerStatusWidget.intentdefinition; sourceTree = "<group>"; };
-		F12ADDDB25BDC33B00487E90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F12ADDDD25BDC33B00487E90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F12ADDE325BDC33B00487E90 /* MinecraftServerStatusHSWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MinecraftServerStatusHSWidgetExtension.entitlements; sourceTree = "<group>"; };
-		F14640F925D0179200B6B2DC /* DBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
-		F146411825D054AE00B6B2DC /* SwiftSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F146413225D0AF3400B6B2DC /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
-		F146414325D0BA2000B6B2DC /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
-		F146414625D0BA5C00B6B2DC /* SmallWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidgetView.swift; sourceTree = "<group>"; };
-		F146414925D0BA6800B6B2DC /* MediumWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumWidgetView.swift; sourceTree = "<group>"; };
-		F153AEE325D96E9200DA4195 /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
-		F16AF6DB2469C6D300A4BFDA /* ServerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatus.swift; sourceTree = "<group>"; };
-		F16AF6DF246A163400A4BFDA /* SwiftSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F16BD57828EC415D0055569E /* CircularAccessoryWidgetView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularAccessoryWidgetView1.swift; sourceTree = "<group>"; };
-		F16BD57E28EE0A410055569E /* WidgetProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetProviders.swift; sourceTree = "<group>"; };
-		F16BD58028EEDAF20055569E /* TimelineFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineFactory.swift; sourceTree = "<group>"; };
-		F16BD58228EEE8640055569E /* CircularAccessoryWidgetView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularAccessoryWidgetView2.swift; sourceTree = "<group>"; };
-		F16BD58428EF0B9D0055569E /* RectangularAccessoryWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularAccessoryWidgetView.swift; sourceTree = "<group>"; };
-		F16BD58628F1B8C30055569E /* UDPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDPClient.swift; sourceTree = "<group>"; };
-		F18A843725BFC0A000C6E34E /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
-		F18A843B25BFC0BB00C6E34E /* WidgetEntryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetEntryViewModel.swift; sourceTree = "<group>"; };
-		F18A845025C217B700C6E34E /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
-		F18A845B25C217B700C6E34E /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
-		F18A848225C218BC00C6E34E /* WidgetInputIntentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetInputIntentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		F18A848525C218BC00C6E34E /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
-		F18A848725C218BC00C6E34E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F18A848B25C218BC00C6E34E /* WidgetInputIntentExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetInputIntentExtension.entitlements; sourceTree = "<group>"; };
-		F18A849A25C21BD700C6E34E /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F18A849B25C21BD700C6E34E /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1AA752E246A509800869F0C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		F1C4AE5828F84FFA00BD3452 /* MC Status WatchApp Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC Status WatchApp Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1C4AE5A28F84FFA00BD3452 /* MC_Status_WatchAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC_Status_WatchAppApp.swift; sourceTree = "<group>"; };
-		F1C4AE5C28F84FFA00BD3452 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		F1C4AE5E28F84FFB00BD3452 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F1C4AE6128F84FFB00BD3452 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		F1C4AE6628F85ED900BD3452 /* WatchSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSessionManager.swift; sourceTree = "<group>"; };
+		F1340D1E2A7352BE00E288C4 /* JavaServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaServerStatusChecker.swift; sourceTree = "<group>"; };
+		F13E5FF92A4BD614005BE9B2 /* MinecraftServerStatus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinecraftServerStatus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F13E5FFC2A4BD614005BE9B2 /* MinecraftServerStatusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinecraftServerStatusApp.swift; sourceTree = "<group>"; };
+		F13E5FFE2A4BD614005BE9B2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		F13E60002A4BD614005BE9B2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F13E60022A4BD615005BE9B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F13E60042A4BD615005BE9B2 /* MinecraftServerStatus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MinecraftServerStatus.entitlements; sourceTree = "<group>"; };
+		F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F13E60082A4BD615005BE9B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1BF5D6F2A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusCheckerProtocol.swift; sourceTree = "<group>"; };
+		F1BF5D722A75F26500966D56 /* ServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusChecker.swift; sourceTree = "<group>"; };
+		F1BF5D742A769A1400966D56 /* JavaServerStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaServerStatusResponse.swift; sourceTree = "<group>"; };
+		F1BF5D762A76ACAC00966D56 /* ServerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatus.swift; sourceTree = "<group>"; };
+		F1BF5D792A77412000966D56 /* JavaServerStatusParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaServerStatusParser.swift; sourceTree = "<group>"; };
+		F1BF5D7B2A7746ED00966D56 /* SavedMinecraftServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMinecraftServer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		24C92F6120BE42210072A60C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F1AA752F246A509800869F0C /* StoreKit.framework in Frameworks */,
-				F16AF6E0246A163400A4BFDA /* SwiftSocket.framework in Frameworks */,
-				CBC0918AEFFF47DCC10A7E74 /* Pods_MC_Status.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F12ADDCF25BDC33900487E90 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F12ADDD625BDC33900487E90 /* SwiftUI.framework in Frameworks */,
-				F12ADDD425BDC33900487E90 /* WidgetKit.framework in Frameworks */,
-				6164FE7D527FA2B76F5CAAB8 /* Pods_MinecraftServerStatusHSWidgetExtension.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F18A847F25C218BC00C6E34E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F18A848325C218BC00C6E34E /* Intents.framework in Frameworks */,
-				675076F12B719CA97DEFCB67 /* Pods_WidgetInputIntentExtension.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F1C4AE5528F84FFA00BD3452 /* Frameworks */ = {
+		F13E5FF62A4BD614005BE9B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -251,565 +50,172 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		24C92F5B20BE42210072A60C = {
+		F13E5FF02A4BD614005BE9B2 = {
 			isa = PBXGroup;
 			children = (
-				F12ADDE325BDC33B00487E90 /* MinecraftServerStatusHSWidgetExtension.entitlements */,
-				24C92F6620BE42210072A60C /* MinecraftServerStatus */,
-				F12ADDD725BDC33900487E90 /* MinecraftServerStatusHSWidget */,
-				F18A848425C218BC00C6E34E /* WidgetInputIntentExtension */,
-				F1C4AE5928F84FFA00BD3452 /* MC Status WatchApp Watch App */,
-				24C92F6520BE42210072A60C /* Products */,
-				AE925480F83E678CD9D8AAF7 /* Pods */,
-				A13350A4735884291F0C6394 /* Frameworks */,
+				F13E5FFB2A4BD614005BE9B2 /* MinecraftServerStatus */,
+				F13E5FFA2A4BD614005BE9B2 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		24C92F6520BE42210072A60C /* Products */ = {
+		F13E5FFA2A4BD614005BE9B2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				24C92F6420BE42210072A60C /* MC Status.app */,
-				F12ADDD225BDC33900487E90 /* MinecraftServerStatusHSWidgetExtension.appex */,
-				F18A848225C218BC00C6E34E /* WidgetInputIntentExtension.appex */,
-				F1C4AE5828F84FFA00BD3452 /* MC Status WatchApp Watch App.app */,
+				F13E5FF92A4BD614005BE9B2 /* MinecraftServerStatus.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		24C92F6620BE42210072A60C /* MinecraftServerStatus */ = {
+		F13E5FFB2A4BD614005BE9B2 /* MinecraftServerStatus */ = {
 			isa = PBXGroup;
 			children = (
-				24A55A0020E9AF5700612C50 /* MinecraftServerStatus.entitlements */,
-				24EB9BB820C2F2C100C9894A /* Helpers */,
-				24EB9BB720C2F2B700C9894A /* ViewControllers */,
-				24EB9BB620C2F2A800C9894A /* Models */,
-				24C92F6720BE42210072A60C /* AppDelegate.swift */,
-				24C92F6B20BE42210072A60C /* Main.storyboard */,
-				24C92F6E20BE42210072A60C /* Assets.xcassets */,
-				24C92F7020BE42210072A60C /* LaunchScreen.storyboard */,
-				24C92F7320BE42210072A60C /* Info.plist */,
+				F13E5FFC2A4BD614005BE9B2 /* MinecraftServerStatusApp.swift */,
+				F13E5FFE2A4BD614005BE9B2 /* Item.swift */,
+				F13E60002A4BD614005BE9B2 /* ContentView.swift */,
+				F13E60022A4BD615005BE9B2 /* Assets.xcassets */,
+				F13E60042A4BD615005BE9B2 /* MinecraftServerStatus.entitlements */,
+				F13E60082A4BD615005BE9B2 /* Info.plist */,
+				F13E60052A4BD615005BE9B2 /* Preview Content */,
+				F1BF5D762A76ACAC00966D56 /* ServerStatus.swift */,
+				F1BF5D7B2A7746ED00966D56 /* SavedMinecraftServer.swift */,
+				F1BF5D712A75F19F00966D56 /* Networking */,
 			);
 			path = MinecraftServerStatus;
 			sourceTree = "<group>";
 		};
-		24EB9BB620C2F2A800C9894A /* Models */ = {
+		F13E60052A4BD615005BE9B2 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				24EB9BB020C1944400C9894A /* ServerStatusViewModel.swift */,
-				F16AF6DB2469C6D300A4BFDA /* ServerStatus.swift */,
-				24EB9BB920C2F30600C9894A /* SavedServer.swift */,
-				243058FE20E4535500ADAECE /* LargeServerTableViewCell.swift */,
-				F18A843B25BFC0BB00C6E34E /* WidgetEntryViewModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		24EB9BB720C2F2B700C9894A /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				24C92F6920BE42210072A60C /* ViewController.swift */,
-				24EB9BBC20C2F85800C9894A /* NewServerViewController.swift */,
-				24A55A0220E9C57700612C50 /* AppInfoTableViewController.swift */,
-				F153AEE325D96E9200DA4195 /* FAQViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		24EB9BB820C2F2C100C9894A /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				24938B1E20DD18D000B00C9C /* CardTableViewCell.swift */,
-				24E8287B20BF76A400F2D348 /* StatusChecker.swift */,
-				F18A843725BFC0A000C6E34E /* ImageHelper.swift */,
-				24EB9BB320C1A0DE00C9894A /* UIExtentions.swift */,
-				F14640F925D0179200B6B2DC /* DBHelper.swift */,
-				F16BD58628F1B8C30055569E /* UDPClient.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		A13350A4735884291F0C6394 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F146411825D054AE00B6B2DC /* SwiftSocket.framework */,
-				F18A849A25C21BD700C6E34E /* Realm.framework */,
-				F18A849B25C21BD700C6E34E /* RealmSwift.framework */,
-				F1AA752E246A509800869F0C /* StoreKit.framework */,
-				F16AF6DF246A163400A4BFDA /* SwiftSocket.framework */,
-				24EB9BAF20C01D6700C9894A /* Alamofire.framework */,
-				242815BF20BE4754001D11FD /* NotificationCenter.framework */,
-				3FB8402D48FDE342CBF3079A /* Pods_MinecraftServerStatusWidget.framework */,
-				F12ADDD325BDC33900487E90 /* WidgetKit.framework */,
-				F12ADDD525BDC33900487E90 /* SwiftUI.framework */,
-				F18A845025C217B700C6E34E /* Intents.framework */,
-				F18A845B25C217B700C6E34E /* IntentsUI.framework */,
-				760D5B22C74425FB07682E03 /* Pods_WidgetInputIntentExtension.framework */,
-				32DC515504564AA8D46A6D2A /* Pods_MinecraftServerStatusHSWidgetExtension.framework */,
-				6CC0843B80743CE845B7D3B3 /* Pods_MC_Status.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		AE925480F83E678CD9D8AAF7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C3421CEB02B4330B430985A0 /* Pods-MinecraftServerStatus.debug.xcconfig */,
-				079D8F892A68CFC72E9D974A /* Pods-MinecraftServerStatus.release.xcconfig */,
-				211FE1533CEA467F01D5462C /* Pods-MinecraftServerStatusWidget.debug.xcconfig */,
-				B3CDE519FAD44A27FE7224B4 /* Pods-MinecraftServerStatusWidget.release.xcconfig */,
-				905D5C170F17F79499594A4E /* Pods-WidgetInputIntentExtension.debug.xcconfig */,
-				0BF0908BEB4EA8927B99D9D3 /* Pods-WidgetInputIntentExtension.release.xcconfig */,
-				7D7785BFC0F0C1906D13891D /* Pods-MinecraftServerStatusHSWidgetExtension.debug.xcconfig */,
-				8D4363AA045012FE6881535A /* Pods-MinecraftServerStatusHSWidgetExtension.release.xcconfig */,
-				01D15037AE98DDB6C38F693E /* Pods-MC Status.debug.xcconfig */,
-				1460035E46192A3A67317369 /* Pods-MC Status.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		F12ADDD725BDC33900487E90 /* MinecraftServerStatusHSWidget */ = {
-			isa = PBXGroup;
-			children = (
-				F12ADDD825BDC33900487E90 /* MinecraftServerStatusWidget.swift */,
-				F12ADDDA25BDC33900487E90 /* MinecraftServerStatusWidget.intentdefinition */,
-				F12ADDDB25BDC33B00487E90 /* Assets.xcassets */,
-				F12ADDDD25BDC33B00487E90 /* Info.plist */,
-				F146413225D0AF3400B6B2DC /* ThemeManager.swift */,
-				F146414325D0BA2000B6B2DC /* ProgressView.swift */,
-				F146414625D0BA5C00B6B2DC /* SmallWidgetView.swift */,
-				F146414925D0BA6800B6B2DC /* MediumWidgetView.swift */,
-				F16BD58228EEE8640055569E /* CircularAccessoryWidgetView2.swift */,
-				F16BD58428EF0B9D0055569E /* RectangularAccessoryWidgetView.swift */,
-				F16BD57828EC415D0055569E /* CircularAccessoryWidgetView1.swift */,
-				F16BD57E28EE0A410055569E /* WidgetProviders.swift */,
-				F16BD58028EEDAF20055569E /* TimelineFactory.swift */,
-			);
-			path = MinecraftServerStatusHSWidget;
-			sourceTree = "<group>";
-		};
-		F18A848425C218BC00C6E34E /* WidgetInputIntentExtension */ = {
-			isa = PBXGroup;
-			children = (
-				F18A848B25C218BC00C6E34E /* WidgetInputIntentExtension.entitlements */,
-				F18A848525C218BC00C6E34E /* IntentHandler.swift */,
-				F18A848725C218BC00C6E34E /* Info.plist */,
-			);
-			path = WidgetInputIntentExtension;
-			sourceTree = "<group>";
-		};
-		F1C4AE5928F84FFA00BD3452 /* MC Status WatchApp Watch App */ = {
-			isa = PBXGroup;
-			children = (
-				F1C4AE5A28F84FFA00BD3452 /* MC_Status_WatchAppApp.swift */,
-				F1C4AE5C28F84FFA00BD3452 /* ContentView.swift */,
-				F1C4AE5E28F84FFB00BD3452 /* Assets.xcassets */,
-				F1C4AE6028F84FFB00BD3452 /* Preview Content */,
-				F1C4AE6628F85ED900BD3452 /* WatchSessionManager.swift */,
-			);
-			path = "MC Status WatchApp Watch App";
-			sourceTree = "<group>";
-		};
-		F1C4AE6028F84FFB00BD3452 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				F1C4AE6128F84FFB00BD3452 /* Preview Assets.xcassets */,
+				F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F1BF5D712A75F19F00966D56 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F1BF5D7D2A7751B500966D56 /* BedrockServer */,
+				F1BF5D782A77410700966D56 /* JavaServer */,
+				F1BF5D6F2A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift */,
+				F1BF5D722A75F26500966D56 /* ServerStatusChecker.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F1BF5D782A77410700966D56 /* JavaServer */ = {
+			isa = PBXGroup;
+			children = (
+				F1340D1E2A7352BE00E288C4 /* JavaServerStatusChecker.swift */,
+				F1BF5D742A769A1400966D56 /* JavaServerStatusResponse.swift */,
+				F1BF5D792A77412000966D56 /* JavaServerStatusParser.swift */,
+			);
+			path = JavaServer;
+			sourceTree = "<group>";
+		};
+		F1BF5D7D2A7751B500966D56 /* BedrockServer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BedrockServer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		24C92F6320BE42210072A60C /* MC Status */ = {
+		F13E5FF82A4BD614005BE9B2 /* MinecraftServerStatus */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24C92F7620BE42210072A60C /* Build configuration list for PBXNativeTarget "MC Status" */;
+			buildConfigurationList = F13E600B2A4BD615005BE9B2 /* Build configuration list for PBXNativeTarget "MinecraftServerStatus" */;
 			buildPhases = (
-				5F01F5BFC3081935223E896E /* [CP] Check Pods Manifest.lock */,
-				24C92F6020BE42210072A60C /* Sources */,
-				24C92F6120BE42210072A60C /* Frameworks */,
-				24C92F6220BE42210072A60C /* Resources */,
-				DFFF9997212A97257AA692FC /* [CP] Embed Pods Frameworks */,
-				242815CE20BE4754001D11FD /* Embed App Extensions */,
-				F16AF6C42469B2B300A4BFDA /* Embed Frameworks */,
-				F1C4AE6B28F8709300BD3452 /* Embed Watch Content */,
+				F13E5FF52A4BD614005BE9B2 /* Sources */,
+				F13E5FF62A4BD614005BE9B2 /* Frameworks */,
+				F13E5FF72A4BD614005BE9B2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F12ADDE125BDC33B00487E90 /* PBXTargetDependency */,
-				F18A848925C218BC00C6E34E /* PBXTargetDependency */,
-				F1C4AE6A28F8709300BD3452 /* PBXTargetDependency */,
 			);
-			name = "MC Status";
+			name = MinecraftServerStatus;
 			productName = MinecraftServerStatus;
-			productReference = 24C92F6420BE42210072A60C /* MC Status.app */;
-			productType = "com.apple.product-type.application";
-		};
-		F12ADDD125BDC33900487E90 /* MinecraftServerStatusHSWidgetExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F12ADDE425BDC33B00487E90 /* Build configuration list for PBXNativeTarget "MinecraftServerStatusHSWidgetExtension" */;
-			buildPhases = (
-				E44F3F6A4C8402A101058B0B /* [CP] Check Pods Manifest.lock */,
-				F12ADDCE25BDC33900487E90 /* Sources */,
-				F12ADDCF25BDC33900487E90 /* Frameworks */,
-				F12ADDD025BDC33900487E90 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MinecraftServerStatusHSWidgetExtension;
-			productName = MinecraftServerStatusHSWidgetExtension;
-			productReference = F12ADDD225BDC33900487E90 /* MinecraftServerStatusHSWidgetExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		F18A848125C218BC00C6E34E /* WidgetInputIntentExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F18A848C25C218BC00C6E34E /* Build configuration list for PBXNativeTarget "WidgetInputIntentExtension" */;
-			buildPhases = (
-				894B4F9F11BD63FCE9FF337B /* [CP] Check Pods Manifest.lock */,
-				F18A847E25C218BC00C6E34E /* Sources */,
-				F18A847F25C218BC00C6E34E /* Frameworks */,
-				F18A848025C218BC00C6E34E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = WidgetInputIntentExtension;
-			productName = WidgetInputIntentExtension;
-			productReference = F18A848225C218BC00C6E34E /* WidgetInputIntentExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		F1C4AE5728F84FFA00BD3452 /* MC Status WatchApp Watch App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F1C4AE6528F84FFB00BD3452 /* Build configuration list for PBXNativeTarget "MC Status WatchApp Watch App" */;
-			buildPhases = (
-				F1C4AE5428F84FFA00BD3452 /* Sources */,
-				F1C4AE5528F84FFA00BD3452 /* Frameworks */,
-				F1C4AE5628F84FFA00BD3452 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "MC Status WatchApp Watch App";
-			productName = "MC Status WatchApp Watch App";
-			productReference = F1C4AE5828F84FFA00BD3452 /* MC Status WatchApp Watch App.app */;
+			productReference = F13E5FF92A4BD614005BE9B2 /* MinecraftServerStatus.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		24C92F5C20BE42210072A60C /* Project object */ = {
+		F13E5FF12A4BD614005BE9B2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1240;
-				ORGANIZATIONNAME = ShemeshApps;
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					24C92F6320BE42210072A60C = {
-						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1140;
-						ProvisioningStyle = Automatic;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
-							};
-						};
-					};
-					F12ADDD125BDC33900487E90 = {
-						CreatedOnToolsVersion = 12.3;
-						ProvisioningStyle = Automatic;
-					};
-					F18A848125C218BC00C6E34E = {
-						CreatedOnToolsVersion = 12.3;
-						ProvisioningStyle = Automatic;
-					};
-					F1C4AE5728F84FFA00BD3452 = {
-						CreatedOnToolsVersion = 14.0.1;
-						ProvisioningStyle = Automatic;
+					F13E5FF82A4BD614005BE9B2 = {
+						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
-			buildConfigurationList = 24C92F5F20BE42210072A60C /* Build configuration list for PBXProject "MinecraftServerStatus" */;
-			compatibilityVersion = "Xcode 8.0";
+			buildConfigurationList = F13E5FF42A4BD614005BE9B2 /* Build configuration list for PBXProject "MinecraftServerStatus" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 24C92F5B20BE42210072A60C;
-			productRefGroup = 24C92F6520BE42210072A60C /* Products */;
+			mainGroup = F13E5FF02A4BD614005BE9B2;
+			productRefGroup = F13E5FFA2A4BD614005BE9B2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				24C92F6320BE42210072A60C /* MC Status */,
-				F12ADDD125BDC33900487E90 /* MinecraftServerStatusHSWidgetExtension */,
-				F18A848125C218BC00C6E34E /* WidgetInputIntentExtension */,
-				F1C4AE5728F84FFA00BD3452 /* MC Status WatchApp Watch App */,
+				F13E5FF82A4BD614005BE9B2 /* MinecraftServerStatus */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		24C92F6220BE42210072A60C /* Resources */ = {
+		F13E5FF72A4BD614005BE9B2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24C92F7220BE42210072A60C /* LaunchScreen.storyboard in Resources */,
-				24C92F6F20BE42210072A60C /* Assets.xcassets in Resources */,
-				24C92F6D20BE42210072A60C /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F12ADDD025BDC33900487E90 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F12ADE1025BE501100487E90 /* Assets.xcassets in Resources */,
-				F12ADDDC25BDC33B00487E90 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F18A848025C218BC00C6E34E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F1C4AE5628F84FFA00BD3452 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F1C4AE6228F84FFB00BD3452 /* Preview Assets.xcassets in Resources */,
-				F1C4AE5F28F84FFB00BD3452 /* Assets.xcassets in Resources */,
+				F13E60072A4BD615005BE9B2 /* Preview Assets.xcassets in Resources */,
+				F13E60032A4BD615005BE9B2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		5F01F5BFC3081935223E896E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MC Status-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		894B4F9F11BD63FCE9FF337B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WidgetInputIntentExtension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DFFF9997212A97257AA692FC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MC Status/Pods-MC Status-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftRater/SwiftRater.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftRater.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MC Status/Pods-MC Status-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E44F3F6A4C8402A101058B0B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MinecraftServerStatusHSWidgetExtension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		24C92F6020BE42210072A60C /* Sources */ = {
+		F13E5FF52A4BD614005BE9B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24C92F6A20BE42210072A60C /* ViewController.swift in Sources */,
-				24EB9BB120C1944400C9894A /* ServerStatusViewModel.swift in Sources */,
-				24A55A0320E9C57700612C50 /* AppInfoTableViewController.swift in Sources */,
-				24EB9BBA20C2F30600C9894A /* SavedServer.swift in Sources */,
-				24E8287C20BF76A400F2D348 /* StatusChecker.swift in Sources */,
-				F18A843C25BFC0BB00C6E34E /* WidgetEntryViewModel.swift in Sources */,
-				F16BD58728F1B8C30055569E /* UDPClient.swift in Sources */,
-				24EB9BB420C1A0DE00C9894A /* UIExtentions.swift in Sources */,
-				F153AEE425D96E9200DA4195 /* FAQViewController.swift in Sources */,
-				F14640FA25D0179200B6B2DC /* DBHelper.swift in Sources */,
-				F12ADDDF25BDC33B00487E90 /* MinecraftServerStatusWidget.intentdefinition in Sources */,
-				24C92F6820BE42210072A60C /* AppDelegate.swift in Sources */,
-				F18A843825BFC0A000C6E34E /* ImageHelper.swift in Sources */,
-				F146413325D0AF3400B6B2DC /* ThemeManager.swift in Sources */,
-				24EB9BBD20C2F85800C9894A /* NewServerViewController.swift in Sources */,
-				243058FF20E4535500ADAECE /* LargeServerTableViewCell.swift in Sources */,
-				F16AF6DC2469C6D300A4BFDA /* ServerStatus.swift in Sources */,
-				24938B1F20DD18D000B00C9C /* CardTableViewCell.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F12ADDCE25BDC33900487E90 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F12ADDDE25BDC33B00487E90 /* MinecraftServerStatusWidget.intentdefinition in Sources */,
-				F12ADDD925BDC33900487E90 /* MinecraftServerStatusWidget.swift in Sources */,
-				F18A843925BFC0A000C6E34E /* ImageHelper.swift in Sources */,
-				F146414A25D0BA6800B6B2DC /* MediumWidgetView.swift in Sources */,
-				F18A843D25BFC0BB00C6E34E /* WidgetEntryViewModel.swift in Sources */,
-				F146414725D0BA5C00B6B2DC /* SmallWidgetView.swift in Sources */,
-				F14640FB25D0179200B6B2DC /* DBHelper.swift in Sources */,
-				F18A843F25BFC0CC00C6E34E /* ServerStatus.swift in Sources */,
-				F16BD57928EC415D0055569E /* CircularAccessoryWidgetView1.swift in Sources */,
-				F16BD58328EEE8640055569E /* CircularAccessoryWidgetView2.swift in Sources */,
-				F16BD58528EF0B9D0055569E /* RectangularAccessoryWidgetView.swift in Sources */,
-				F14640F325CF91E400B6B2DC /* UIExtentions.swift in Sources */,
-				F146413425D0AF3400B6B2DC /* ThemeManager.swift in Sources */,
-				F16BD58828F1B8C30055569E /* UDPClient.swift in Sources */,
-				F14640F625CF928C00B6B2DC /* SavedServer.swift in Sources */,
-				F14640C525CF90BC00B6B2DC /* StatusChecker.swift in Sources */,
-				F16BD57F28EE0A410055569E /* WidgetProviders.swift in Sources */,
-				F146414425D0BA2000B6B2DC /* ProgressView.swift in Sources */,
-				F16BD58128EEDAF20055569E /* TimelineFactory.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F18A847E25C218BC00C6E34E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F14640F025CF91E300B6B2DC /* UIExtentions.swift in Sources */,
-				F18A849325C218E600C6E34E /* MinecraftServerStatusWidget.intentdefinition in Sources */,
-				F14640FC25D0179200B6B2DC /* DBHelper.swift in Sources */,
-				F18A848625C218BC00C6E34E /* IntentHandler.swift in Sources */,
-				F16BD58928F1B8C30055569E /* UDPClient.swift in Sources */,
-				F14640B025CF8A8000B6B2DC /* SavedServer.swift in Sources */,
-				F146413525D0AF3400B6B2DC /* ThemeManager.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F1C4AE5428F84FFA00BD3452 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F1C4AE6728F85EDA00BD3452 /* WatchSessionManager.swift in Sources */,
-				F1C4AE5D28F84FFA00BD3452 /* ContentView.swift in Sources */,
-				F1C4AE5B28F84FFA00BD3452 /* MC_Status_WatchAppApp.swift in Sources */,
+				F1BF5D772A76ACAC00966D56 /* ServerStatus.swift in Sources */,
+				F1BF5D732A75F26500966D56 /* ServerStatusChecker.swift in Sources */,
+				F13E5FFF2A4BD614005BE9B2 /* Item.swift in Sources */,
+				F13E5FFD2A4BD614005BE9B2 /* MinecraftServerStatusApp.swift in Sources */,
+				F1BF5D7C2A7746ED00966D56 /* SavedMinecraftServer.swift in Sources */,
+				F1BF5D752A769A1400966D56 /* JavaServerStatusResponse.swift in Sources */,
+				F1BF5D702A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift in Sources */,
+				F1BF5D7A2A77412000966D56 /* JavaServerStatusParser.swift in Sources */,
+				F1340D1F2A7352BE00E288C4 /* JavaServerStatusChecker.swift in Sources */,
+				F13E60012A4BD614005BE9B2 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		F12ADDE125BDC33B00487E90 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F12ADDD125BDC33900487E90 /* MinecraftServerStatusHSWidgetExtension */;
-			targetProxy = F12ADDE025BDC33B00487E90 /* PBXContainerItemProxy */;
-		};
-		F18A848925C218BC00C6E34E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F18A848125C218BC00C6E34E /* WidgetInputIntentExtension */;
-			targetProxy = F18A848825C218BC00C6E34E /* PBXContainerItemProxy */;
-		};
-		F1C4AE6A28F8709300BD3452 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F1C4AE5728F84FFA00BD3452 /* MC Status WatchApp Watch App */;
-			targetProxy = F1C4AE6928F8709300BD3452 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		24C92F6B20BE42210072A60C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				24C92F6C20BE42210072A60C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		24C92F7020BE42210072A60C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				24C92F7120BE42210072A60C /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		24C92F7420BE42210072A60C /* Debug */ = {
+		F13E60092A4BD615005BE9B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -832,12 +238,12 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -851,26 +257,26 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		24C92F7520BE42210072A60C /* Release */ = {
+		F13E600A2A4BD615005BE9B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -893,12 +299,12 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -906,288 +312,121 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 5.0;
-				VALIDATE_PRODUCT = YES;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
 		};
-		24C92F7720BE42210072A60C /* Debug */ = {
+		F13E600C2A4BD615005BE9B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01D15037AE98DDB6C38F693E /* Pods-MC Status.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MinecraftServerStatus/MinecraftServerStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MinecraftServerStatus/Preview Content\"";
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MinecraftServerStatus/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.2;
-				ONLY_ACTIVE_ARCH = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		24C92F7820BE42210072A60C /* Release */ = {
+		F13E600D2A4BD615005BE9B2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1460035E46192A3A67317369 /* Pods-MC Status.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MinecraftServerStatus/MinecraftServerStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MinecraftServerStatus/Preview Content\"";
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MinecraftServerStatus/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.2;
-				ONLY_ACTIVE_ARCH = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		F12ADDE525BDC33B00487E90 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D7785BFC0F0C1906D13891D /* Pods-MinecraftServerStatusHSWidgetExtension.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_ENTITLEMENTS = MinecraftServerStatusHSWidgetExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = FDYR7V7AH4;
-				INFOPLIST_FILE = MinecraftServerStatusHSWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.2;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.MinecraftServerStatusHSWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		F12ADDE625BDC33B00487E90 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D4363AA045012FE6881535A /* Pods-MinecraftServerStatusHSWidgetExtension.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_ENTITLEMENTS = MinecraftServerStatusHSWidgetExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = FDYR7V7AH4;
-				INFOPLIST_FILE = MinecraftServerStatusHSWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.2;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.MinecraftServerStatusHSWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		F18A848D25C218BC00C6E34E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 905D5C170F17F79499594A4E /* Pods-WidgetInputIntentExtension.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_ENTITLEMENTS = WidgetInputIntentExtension/WidgetInputIntentExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = FDYR7V7AH4;
-				INFOPLIST_FILE = WidgetInputIntentExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.2;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.WidgetInputIntentExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		F18A848E25C218BC00C6E34E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0BF0908BEB4EA8927B99D9D3 /* Pods-WidgetInputIntentExtension.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_ENTITLEMENTS = WidgetInputIntentExtension/WidgetInputIntentExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = FDYR7V7AH4;
-				INFOPLIST_FILE = WidgetInputIntentExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.2;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.WidgetInputIntentExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		F1C4AE6328F84FFB00BD3452 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MC Status WatchApp Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = FDYR7V7AH4;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "MC Status WatchApp";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.shemeshapps.MinecraftServerStatus;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
-			};
-			name = Debug;
-		};
-		F1C4AE6428F84FFB00BD3452 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MC Status WatchApp Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = FDYR7V7AH4;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "MC Status WatchApp";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.shemeshapps.MinecraftServerStatus;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		24C92F5F20BE42210072A60C /* Build configuration list for PBXProject "MinecraftServerStatus" */ = {
+		F13E5FF42A4BD614005BE9B2 /* Build configuration list for PBXProject "MinecraftServerStatus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				24C92F7420BE42210072A60C /* Debug */,
-				24C92F7520BE42210072A60C /* Release */,
+				F13E60092A4BD615005BE9B2 /* Debug */,
+				F13E600A2A4BD615005BE9B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24C92F7620BE42210072A60C /* Build configuration list for PBXNativeTarget "MC Status" */ = {
+		F13E600B2A4BD615005BE9B2 /* Build configuration list for PBXNativeTarget "MinecraftServerStatus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				24C92F7720BE42210072A60C /* Debug */,
-				24C92F7820BE42210072A60C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F12ADDE425BDC33B00487E90 /* Build configuration list for PBXNativeTarget "MinecraftServerStatusHSWidgetExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F12ADDE525BDC33B00487E90 /* Debug */,
-				F12ADDE625BDC33B00487E90 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F18A848C25C218BC00C6E34E /* Build configuration list for PBXNativeTarget "WidgetInputIntentExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F18A848D25C218BC00C6E34E /* Debug */,
-				F18A848E25C218BC00C6E34E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F1C4AE6528F84FFB00BD3452 /* Build configuration list for PBXNativeTarget "MC Status WatchApp Watch App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F1C4AE6328F84FFB00BD3452 /* Debug */,
-				F1C4AE6428F84FFB00BD3452 /* Release */,
+				F13E600C2A4BD615005BE9B2 /* Debug */,
+				F13E600D2A4BD615005BE9B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 24C92F5C20BE42210072A60C /* Project object */;
+	rootObject = F13E5FF12A4BD614005BE9B2 /* Project object */;
 }
