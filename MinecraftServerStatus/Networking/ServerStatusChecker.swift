@@ -28,16 +28,21 @@ func testCall() {
 }
 
 
-func parseMOTD(input: String) -> 
+func parseMOTD(input: String) {
+    
+}
 
 class ServerStatusChecker {
     static func checkServer(server: SavedMinecraftServer) async -> ServerStatus {
         do {
+            //check if connected to internet?
             let statusChecker = ServerStatusCheckerFactory().getStatusChecker(server: server)
             let stringResult = try await statusChecker.checkServer()
             return try statusChecker.getParser().parseServerResponse(stringInput: stringResult)
         } catch {
            // handle the error here in some way
+            // call backup! 
+            return ServerStatus()
         }
     }
 }
@@ -49,7 +54,7 @@ class ServerStatusCheckerFactory {
         case .Java:
             JavaServerStatusChecker(serverAddress: server.serverUrl, port: server.serverPort)
         case .Bedrock:
-            <#code#>
+            BedrockServerStatusChecker(serverAddress: server.serverUrl, port: server.serverPort)
         }
     }
 }
