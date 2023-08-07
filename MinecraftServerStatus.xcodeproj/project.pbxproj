@@ -14,7 +14,7 @@
 		F13E60032A4BD615005BE9B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
 		F13E60072A4BD615005BE9B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */; };
 		F1BF5D702A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D6F2A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift */; };
-		F1BF5D732A75F26500966D56 /* ServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D722A75F26500966D56 /* ServerStatusChecker.swift */; };
+		F1BF5D732A75F26500966D56 /* DirectServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D722A75F26500966D56 /* DirectServerStatusChecker.swift */; };
 		F1BF5D752A769A1400966D56 /* JavaServerStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D742A769A1400966D56 /* JavaServerStatusResponse.swift */; };
 		F1BF5D772A76ACAC00966D56 /* ServerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D762A76ACAC00966D56 /* ServerStatus.swift */; };
 		F1BF5D7A2A77412000966D56 /* JavaServerStatusParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D792A77412000966D56 /* JavaServerStatusParser.swift */; };
@@ -22,6 +22,15 @@
 		F1BF5D7F2A7B4A0700966D56 /* BedrockServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D7E2A7B4A0700966D56 /* BedrockServerStatusChecker.swift */; };
 		F1BF5D812A7B4A6800966D56 /* BedrockServerStatusParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D802A7B4A6800966D56 /* BedrockServerStatusParser.swift */; };
 		F1BF5D832A7B4B9100966D56 /* UDPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D822A7B4B9100966D56 /* UDPClient.swift */; };
+		F1BF5D8B2A7EDD7300966D56 /* SRVRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D8A2A7EDD7300966D56 /* SRVRecord.swift */; };
+		F1BF5D8D2A7EDD9400966D56 /* SRVResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D8C2A7EDD9400966D56 /* SRVResolver.swift */; };
+		F1BF5D912A7FC75700966D56 /* SwiftyPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D902A7FC75700966D56 /* SwiftyPing.swift */; };
+		F1BF5D942A80012E00966D56 /* WebServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D932A80012E00966D56 /* WebServerStatusChecker.swift */; };
+		F1BF5D962A80018B00966D56 /* WebJavaServerStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D952A80018B00966D56 /* WebJavaServerStatusResponse.swift */; };
+		F1BF5D982A8001A200966D56 /* WebServerStatusParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D972A8001A200966D56 /* WebServerStatusParser.swift */; };
+		F1BF5D9A2A80193600966D56 /* WebBedrockServerStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D992A80193600966D56 /* WebBedrockServerStatusResponse.swift */; };
+		F1BF5D9C2A8023FD00966D56 /* ServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9B2A8023FD00966D56 /* ServerStatusChecker.swift */; };
+		F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +44,7 @@
 		F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F13E60082A4BD615005BE9B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1BF5D6F2A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusCheckerProtocol.swift; sourceTree = "<group>"; };
-		F1BF5D722A75F26500966D56 /* ServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusChecker.swift; sourceTree = "<group>"; };
+		F1BF5D722A75F26500966D56 /* DirectServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectServerStatusChecker.swift; sourceTree = "<group>"; };
 		F1BF5D742A769A1400966D56 /* JavaServerStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaServerStatusResponse.swift; sourceTree = "<group>"; };
 		F1BF5D762A76ACAC00966D56 /* ServerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatus.swift; sourceTree = "<group>"; };
 		F1BF5D792A77412000966D56 /* JavaServerStatusParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaServerStatusParser.swift; sourceTree = "<group>"; };
@@ -43,6 +52,15 @@
 		F1BF5D7E2A7B4A0700966D56 /* BedrockServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedrockServerStatusChecker.swift; sourceTree = "<group>"; };
 		F1BF5D802A7B4A6800966D56 /* BedrockServerStatusParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedrockServerStatusParser.swift; sourceTree = "<group>"; };
 		F1BF5D822A7B4B9100966D56 /* UDPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDPClient.swift; sourceTree = "<group>"; };
+		F1BF5D8A2A7EDD7300966D56 /* SRVRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRVRecord.swift; sourceTree = "<group>"; };
+		F1BF5D8C2A7EDD9400966D56 /* SRVResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRVResolver.swift; sourceTree = "<group>"; };
+		F1BF5D902A7FC75700966D56 /* SwiftyPing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyPing.swift; sourceTree = "<group>"; };
+		F1BF5D932A80012E00966D56 /* WebServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServerStatusChecker.swift; sourceTree = "<group>"; };
+		F1BF5D952A80018B00966D56 /* WebJavaServerStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebJavaServerStatusResponse.swift; sourceTree = "<group>"; };
+		F1BF5D972A8001A200966D56 /* WebServerStatusParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServerStatusParser.swift; sourceTree = "<group>"; };
+		F1BF5D992A80193600966D56 /* WebBedrockServerStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBedrockServerStatusResponse.swift; sourceTree = "<group>"; };
+		F1BF5D9B2A8023FD00966D56 /* ServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusChecker.swift; sourceTree = "<group>"; };
+		F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +102,7 @@
 				F13E60052A4BD615005BE9B2 /* Preview Content */,
 				F1BF5D762A76ACAC00966D56 /* ServerStatus.swift */,
 				F1BF5D7B2A7746ED00966D56 /* SavedMinecraftServer.swift */,
+				F1BF5D9D2A8025EE00966D56 /* Helpers */,
 				F1BF5D712A75F19F00966D56 /* Networking */,
 			);
 			path = MinecraftServerStatus;
@@ -100,10 +119,12 @@
 		F1BF5D712A75F19F00966D56 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				F1BF5D8F2A7EE6B000966D56 /* Protocols */,
+				F1BF5D8E2A7EE11400966D56 /* Helpers */,
+				F1BF5D922A7FFF2300966D56 /* WebServer */,
 				F1BF5D7D2A7751B500966D56 /* BedrockServer */,
 				F1BF5D782A77410700966D56 /* JavaServer */,
-				F1BF5D6F2A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift */,
-				F1BF5D722A75F26500966D56 /* ServerStatusChecker.swift */,
+				F1BF5D9B2A8023FD00966D56 /* ServerStatusChecker.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -123,9 +144,47 @@
 			children = (
 				F1BF5D7E2A7B4A0700966D56 /* BedrockServerStatusChecker.swift */,
 				F1BF5D802A7B4A6800966D56 /* BedrockServerStatusParser.swift */,
-				F1BF5D822A7B4B9100966D56 /* UDPClient.swift */,
 			);
 			path = BedrockServer;
+			sourceTree = "<group>";
+		};
+		F1BF5D8E2A7EE11400966D56 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F1BF5D722A75F26500966D56 /* DirectServerStatusChecker.swift */,
+				F1BF5D822A7B4B9100966D56 /* UDPClient.swift */,
+				F1BF5D8A2A7EDD7300966D56 /* SRVRecord.swift */,
+				F1BF5D8C2A7EDD9400966D56 /* SRVResolver.swift */,
+				F1BF5D902A7FC75700966D56 /* SwiftyPing.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F1BF5D8F2A7EE6B000966D56 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F1BF5D6F2A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F1BF5D922A7FFF2300966D56 /* WebServer */ = {
+			isa = PBXGroup;
+			children = (
+				F1BF5D932A80012E00966D56 /* WebServerStatusChecker.swift */,
+				F1BF5D952A80018B00966D56 /* WebJavaServerStatusResponse.swift */,
+				F1BF5D972A8001A200966D56 /* WebServerStatusParser.swift */,
+				F1BF5D992A80193600966D56 /* WebBedrockServerStatusResponse.swift */,
+			);
+			path = WebServer;
+			sourceTree = "<group>";
+		};
+		F1BF5D9D2A8025EE00966D56 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,18 +258,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1BF5D772A76ACAC00966D56 /* ServerStatus.swift in Sources */,
-				F1BF5D732A75F26500966D56 /* ServerStatusChecker.swift in Sources */,
+				F1BF5D982A8001A200966D56 /* WebServerStatusParser.swift in Sources */,
+				F1BF5D732A75F26500966D56 /* DirectServerStatusChecker.swift in Sources */,
+				F1BF5D9C2A8023FD00966D56 /* ServerStatusChecker.swift in Sources */,
+				F1BF5D962A80018B00966D56 /* WebJavaServerStatusResponse.swift in Sources */,
 				F13E5FFF2A4BD614005BE9B2 /* Item.swift in Sources */,
+				F1BF5D8B2A7EDD7300966D56 /* SRVRecord.swift in Sources */,
+				F1BF5D8D2A7EDD9400966D56 /* SRVResolver.swift in Sources */,
+				F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */,
 				F13E5FFD2A4BD614005BE9B2 /* MinecraftServerStatusApp.swift in Sources */,
 				F1BF5D7C2A7746ED00966D56 /* SavedMinecraftServer.swift in Sources */,
 				F1BF5D7F2A7B4A0700966D56 /* BedrockServerStatusChecker.swift in Sources */,
 				F1BF5D752A769A1400966D56 /* JavaServerStatusResponse.swift in Sources */,
 				F1BF5D702A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift in Sources */,
 				F1BF5D812A7B4A6800966D56 /* BedrockServerStatusParser.swift in Sources */,
+				F1BF5D9A2A80193600966D56 /* WebBedrockServerStatusResponse.swift in Sources */,
+				F1BF5D942A80012E00966D56 /* WebServerStatusChecker.swift in Sources */,
 				F1BF5D7A2A77412000966D56 /* JavaServerStatusParser.swift in Sources */,
 				F1340D1F2A7352BE00E288C4 /* JavaServerStatusChecker.swift in Sources */,
 				F13E60012A4BD614005BE9B2 /* ContentView.swift in Sources */,
 				F1BF5D832A7B4B9100966D56 /* UDPClient.swift in Sources */,
+				F1BF5D912A7FC75700966D56 /* SwiftyPing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

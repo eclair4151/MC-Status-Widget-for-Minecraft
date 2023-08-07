@@ -12,18 +12,58 @@ class BedrockServerStatusChecker: ServerStatusCheckerProtocol {
     let serverAddress: String
     let port: Int
     
+    var continuation: CheckedContinuation<String, Error>?
+    var continuationHasBeenCalled = false
+    let continuationQueue = DispatchQueue(label: "continuationCallerQueue")
+    let queue = DispatchQueue(label: "continuationCallerQueue")
+
+    func callContinuationResume(result: String) {
+        queue.sync {
+            guard !continuationHasBeenCalled else {
+                return
+            }
+            continuationHasBeenCalled = true
+            continuation?.resume(returning: result)
+        }
+    }
+    
+    func callContinuationError(error: ServerStatusCheckerError) {
+        queue.sync {
+            guard !continuationHasBeenCalled else {
+                return
+            }
+            continuationHasBeenCalled = true
+            continuation?.resume(throwing: error)
+        }
+    }
+    
+    
     required init(serverAddress: String, port: Int) {
         self.serverAddress = serverAddress
         self.port = port
     }
     
     func checkServer() async throws -> String {
+        return try await withCheckedThrowingContinuation { continuation in
+            self.continuation = continuation
+            self.startConnection()
+        }
+    }
+    
+    func getParser() -> ServerStatusParserProtocol.Type {
+        return BedrockServerStatusParser.self
+    }
+    
+    
+    
+    func startConnection() {
         // create UDP connection directly to minecraft server
         let commandClient = UDPClient(address: self.serverAddress, port: Int32(self.port)) { responseType, udpClient, data in
             udpClient?.connection.cancel()
 
             guard responseType == .SUCCESS, let responseData = data else {
                 // throw error
+                self.callContinuationError(error: .ServerUnreachable)
                 return
             }
             
@@ -39,6 +79,7 @@ class BedrockServerStatusChecker: ServerStatusCheckerProtocol {
             //confirm we recived the correct packet id before continuing
             guard responseData[0] == 0x1c else {
                 // throw error
+                self.callContinuationError(error: .StatusUnparsable)
                 return
             }
 
@@ -48,21 +89,15 @@ class BedrockServerStatusChecker: ServerStatusCheckerProtocol {
             //the remaining data is the reseponse string
             guard let responseString = String(bytes: serverDataBytes, encoding: .utf8) else {
                 // throw error
+                self.callContinuationError(error: .StatusUnparsable)
                 return
             }
             
-            print(responseString)
             // return result string
+            self.callContinuationResume(result: responseString)
             
         }
         commandClient?.send(self.getBedrockStatusQueryData())
-        
-        
-        return ""
-    }
-    
-    func getParser() -> ServerStatusParserProtocol.Type {
-        return BedrockServerStatusParser.self
     }
     
     

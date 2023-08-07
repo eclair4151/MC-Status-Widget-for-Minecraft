@@ -30,7 +30,7 @@ class UDPClient {
             return
         }
         
-        print("data sent successfully?")
+        print("data sent successfully")
     }
 
     init?(address newAddress: String, port newPort: Int32, listener: @escaping (_ responseType: UDPResponseType, _ client: UDPClient?, _ data: Data?) -> Void) {
@@ -71,6 +71,7 @@ class UDPClient {
         connection.cancel()
     }
     
+    // SETUP WITH A 3 SECOND TIMEOUT
     func send(_ data: Data) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             if (!self.didRecieveData) {

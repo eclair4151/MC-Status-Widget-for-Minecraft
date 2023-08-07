@@ -23,7 +23,6 @@ protocol ServerStatusParserProtocol {
 enum ServerStatusCheckerError: Error {
     case DeviceNotConnected
     case ServerUnreachable
-    case ServerOffline
     case StatusUnparsable
 }
 

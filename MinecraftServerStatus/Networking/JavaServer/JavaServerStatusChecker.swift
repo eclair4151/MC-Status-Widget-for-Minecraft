@@ -17,9 +17,12 @@ class JavaServerStatusChecker: ServerStatusCheckerProtocol {
     // calling a contination twice will cause the app to crash. This ensures incase an error is called twice, ect that nothing happens.
     // This feels like a hack, but i cant think of a better way due to the enherint unknowns of how the error system works in iOS,
     // i dont think there is a way to ensure that any part of these errors are not called twice.
+    // we also need to use a task dispatch queue since the response are being called from many threads, so cant ensure atomic operations on the continuationHasBeenCalled variable
     var continuationHasBeenCalled = false
+    let queue = DispatchQueue(label: "continuationCallerQueue")
     var continuation: CheckedContinuation<String, Error>?
     var timeoutTask: Task<(), Error>?
+    var recievedData = false
     
     required init(serverAddress: String, port: Int) {
         self.serverAddress = serverAddress
@@ -28,6 +31,7 @@ class JavaServerStatusChecker: ServerStatusCheckerProtocol {
     
     func checkServer() async throws -> String {
         continuationHasBeenCalled = false
+        recievedData = false
         return try await withCheckedThrowingContinuation { continuation in
             self.continuation = continuation
             let dataToSend = getJavaStatusQueryData(address: self.serverAddress, port: self.port)
@@ -40,32 +44,41 @@ class JavaServerStatusChecker: ServerStatusCheckerProtocol {
     }
     
     func callContinuationResume(result: String) {
-        guard !continuationHasBeenCalled else {
-            return
+        queue.sync {
+            guard !continuationHasBeenCalled else {
+                return
+            }
+            timeoutTask?.cancel()
+            continuationHasBeenCalled = true
+            continuation?.resume(returning: result)
         }
-        timeoutTask?.cancel()
-        continuationHasBeenCalled = true
-        continuation?.resume(returning: result)
     }
     
     func callContinuationError(error: ServerStatusCheckerError) {
-        guard !continuationHasBeenCalled else {
-            return
+        queue.sync {
+            guard !continuationHasBeenCalled else {
+                return
+            }
+            timeoutTask?.cancel()
+            continuationHasBeenCalled = true
+            continuation?.resume(throwing: error)
         }
-        timeoutTask?.cancel()
-        continuationHasBeenCalled = true
-        continuation?.resume(throwing: error)
     }
     
     func startTCPConnection(dataToSend: Data) {
         let connection = NWConnection(host: NWEndpoint.Host(self.serverAddress), port: NWEndpoint.Port(rawValue: UInt16(self.port))!, using: .tcp)
         
-        // set a 5 second timeout to receive the data.
+        // set a 3 second timeout to receive the data.
         self.timeoutTask = Task {
-                try await Task.sleep(nanoseconds: UInt64(5) * NSEC_PER_SEC)
-                self.callContinuationError(error: ServerStatusCheckerError.ServerUnreachable)
-                connection.cancel()
+            try await Task.sleep(nanoseconds: UInt64(3) * NSEC_PER_SEC)
+            //see if we got any data so far, if we did wait 3 more seconds.
+            if self.recievedData {
+                try await Task.sleep(nanoseconds: UInt64(3) * NSEC_PER_SEC)
             }
+            // ok now it took too long. timeout! 
+            self.callContinuationError(error: ServerStatusCheckerError.ServerUnreachable)
+            connection.cancel()
+        }
         
         connection.stateUpdateHandler = { newState in
             switch newState {
@@ -83,7 +96,7 @@ class JavaServerStatusChecker: ServerStatusCheckerProtocol {
                     })
                     
                 case .failed(let error):
-                    print("Connection failed with error: \(error)")
+                print("Connection failed with error: \(error)" + "   -   server: " + self.serverAddress)
                     self.callContinuationError(error: ServerStatusCheckerError.ServerUnreachable)
                     connection.cancel()
                 default:
@@ -107,7 +120,7 @@ class JavaServerStatusChecker: ServerStatusCheckerProtocol {
         // i would prefer to use connection.receiveMessage like in UDP for the bedrock server, but in my testing, java minecraft servers do not automatically close the connection after the message is finished sending, so you need to manually keep track of the incoming data packets and close the connection once you have received all the expected data
         connection.receive(minimumIncompleteLength: 1, maximumLength: 65536) { [self] data, _, isComplete, error in
             if let error = error {
-                print("Error receiving data: \(error)")
+                print("Error receiving data: \(error)" + "  -  address: " + self.serverAddress)
                 self.callContinuationError(error: ServerStatusCheckerError.ServerUnreachable)
                 connection.cancel()
             } else if let data = data {
@@ -115,21 +128,37 @@ class JavaServerStatusChecker: ServerStatusCheckerProtocol {
                 
                 // when we get here, the server has returned a chunk of data. we need to dynamaically store the chunks of data in an array to we can reconstruct it whole once we are finished downloading.
                 var dataArr = dataParts + convertDataToUInt8Array(data: data)
+                var messageComplete = false
+                var expectedMessageSize = -1
                 
-                // here we are checking if this is the first check of data we are requesting, and if so, the first bit of data we need to read is the expected length of the message which is sent first. But once we have that size, we need to continue passing it recursivly so the child calls know when to stop asking for data
-                let expectedMessageSize = if (expectedSize == -1) {
-                    readVariableSizedInt(bytes: &dataArr)
-                } else {
-                    expectedSize
+                // set car so timeout knows to wait longer if we got any data
+                if (dataArr.count > 0) {
+                    self.recievedData = true
                 }
                 
-                //this should be exactly equal, and is in testing, but i'm using >= just to be extra safe we arent left hanging
-                let messageComplete = dataArr.count >= expectedMessageSize
+                // we need to make sure we have enough data downloaded from the server to read the expected message length.
+                // We actually don't have any idea how much mean to read so I just guess that it won't be more than 64 bites.
+                if (dataArr.count >= 64) {
+                    // here we are checking if this is the first check of data we are requesting, and if so, the first bit of data we need to read is the expected length of the message which is sent first. But once we have that size, we need to continue passing it recursivly so the child calls know when to stop asking for data
+                    expectedMessageSize = if (expectedSize == -1) {
+                        readVariableSizedInt(bytes: &dataArr)
+                    } else {
+                        expectedSize
+                    }
+                    
+                    //this should be exactly equal, and is in testing, but i'm using >= just to be extra safe we arent left hanging
+                    messageComplete = expectedMessageSize > 0 && dataArr.count >= expectedMessageSize
+                }
+                
                 
                 // if we have the expected message length already, we can continue with parsing, if not, recursivly call this function to download the next chunk of data
                 if messageComplete {
                     print("Data received successfully.")
-                    
+                    // just in case...
+                    guard dataArr.count > 0 else {
+                        self.callContinuationError(error: ServerStatusCheckerError.StatusUnparsable)
+                        return
+                    }
                     // remove session id we dont care about
                     dataArr.removeFirst()
                     

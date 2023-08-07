@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-
-enum Status: Codable {
+enum Status: String, Codable {
     case Online, Offline, Unknown
 }
 
@@ -17,26 +15,53 @@ enum Status: Codable {
 class ServerStatus {
     var description: FormattedMOTD?
     var status = Status.Unknown
-    
+    var maxPlayerCount = 0
+    var onlinePlayerCount = 0
+    var playerSample:[Player] = []
+    var version = ""
+    var favIcon = ""
 }
 
 
+class Player {
+    init(name: String) {
+        self.name = name
+    }
+    var name = ""
+}
 
 class FormattedMOTD {
+    init(messageSections: [FormattedMOTDSection]) {
+        self.messageSections = messageSections
+    }
     var messageSections:[FormattedMOTDSection] = []
 }
 
 
 class FormattedMOTDSection {
+    
+    init () {
+        
+    }
+    
+    init (text: String) {
+        self.text = text
+    }
+    
     var text = ""
-    var color = MOTDColor.White
-    var bold = false
-    var italic = false
-    var underline = false
-    var strikethrough = false
-    var obfuscated = false
+    var color = ""
+    var formatters:Set<MOTDFormatter> = []
 }
 
+
+enum MOTDFormatter {
+    case Bold
+    case Italic
+    case Underline
+    case Strikethrough
+    case Obfuscated
+    case Reset
+}
 
 enum MOTDColor: String {
     case Black = "#000000"

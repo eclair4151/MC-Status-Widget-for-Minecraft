@@ -16,6 +16,8 @@ public class SavedMinecraftServer: Codable {
     var name = ""
     var serverUrl = ""
     var serverPort = -1
+    var srvServerUrl = ""
+    var srvServerPort = -1
     var serverIcon = ""
     var order = 9999999
     var serverType = ServerType.Java
