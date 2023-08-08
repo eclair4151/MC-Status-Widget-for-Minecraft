@@ -1,0 +1,512 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F1340D1F2A7352BE00E288C4 /* JavaServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1340D1E2A7352BE00E288C4 /* JavaServerStatusChecker.swift */; };
+		F13E5FFD2A4BD614005BE9B2 /* MCStatusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFC2A4BD614005BE9B2 /* MCStatusApp.swift */; };
+		F13E5FFF2A4BD614005BE9B2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFE2A4BD614005BE9B2 /* Item.swift */; };
+		F13E60012A4BD614005BE9B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E60002A4BD614005BE9B2 /* ContentView.swift */; };
+		F13E60032A4BD615005BE9B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
+		F13E60072A4BD615005BE9B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */; };
+		F1BF5D702A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D6F2A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift */; };
+		F1BF5D732A75F26500966D56 /* DirectServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D722A75F26500966D56 /* DirectServerStatusChecker.swift */; };
+		F1BF5D752A769A1400966D56 /* JavaServerStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D742A769A1400966D56 /* JavaServerStatusResponse.swift */; };
+		F1BF5D772A76ACAC00966D56 /* ServerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D762A76ACAC00966D56 /* ServerStatus.swift */; };
+		F1BF5D7A2A77412000966D56 /* JavaServerStatusParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D792A77412000966D56 /* JavaServerStatusParser.swift */; };
+		F1BF5D7C2A7746ED00966D56 /* SavedMinecraftServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D7B2A7746ED00966D56 /* SavedMinecraftServer.swift */; };
+		F1BF5D7F2A7B4A0700966D56 /* BedrockServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D7E2A7B4A0700966D56 /* BedrockServerStatusChecker.swift */; };
+		F1BF5D812A7B4A6800966D56 /* BedrockServerStatusParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D802A7B4A6800966D56 /* BedrockServerStatusParser.swift */; };
+		F1BF5D832A7B4B9100966D56 /* UDPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D822A7B4B9100966D56 /* UDPClient.swift */; };
+		F1BF5D8B2A7EDD7300966D56 /* SRVRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D8A2A7EDD7300966D56 /* SRVRecord.swift */; };
+		F1BF5D8D2A7EDD9400966D56 /* SRVResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D8C2A7EDD9400966D56 /* SRVResolver.swift */; };
+		F1BF5D912A7FC75700966D56 /* SwiftyPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D902A7FC75700966D56 /* SwiftyPing.swift */; };
+		F1BF5D942A80012E00966D56 /* WebServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D932A80012E00966D56 /* WebServerStatusChecker.swift */; };
+		F1BF5D962A80018B00966D56 /* WebJavaServerStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D952A80018B00966D56 /* WebJavaServerStatusResponse.swift */; };
+		F1BF5D982A8001A200966D56 /* WebServerStatusParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D972A8001A200966D56 /* WebServerStatusParser.swift */; };
+		F1BF5D9A2A80193600966D56 /* WebBedrockServerStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D992A80193600966D56 /* WebBedrockServerStatusResponse.swift */; };
+		F1BF5D9C2A8023FD00966D56 /* ServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9B2A8023FD00966D56 /* ServerStatusChecker.swift */; };
+		F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F1340D1E2A7352BE00E288C4 /* JavaServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaServerStatusChecker.swift; sourceTree = "<group>"; };
+		F13E5FF92A4BD614005BE9B2 /* MC Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F13E5FFC2A4BD614005BE9B2 /* MCStatusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusApp.swift; sourceTree = "<group>"; };
+		F13E5FFE2A4BD614005BE9B2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		F13E60002A4BD614005BE9B2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F13E60022A4BD615005BE9B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F13E60042A4BD615005BE9B2 /* MCStatus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatus.entitlements; sourceTree = "<group>"; };
+		F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F13E60082A4BD615005BE9B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1BF5D6F2A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusCheckerProtocol.swift; sourceTree = "<group>"; };
+		F1BF5D722A75F26500966D56 /* DirectServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectServerStatusChecker.swift; sourceTree = "<group>"; };
+		F1BF5D742A769A1400966D56 /* JavaServerStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaServerStatusResponse.swift; sourceTree = "<group>"; };
+		F1BF5D762A76ACAC00966D56 /* ServerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatus.swift; sourceTree = "<group>"; };
+		F1BF5D792A77412000966D56 /* JavaServerStatusParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaServerStatusParser.swift; sourceTree = "<group>"; };
+		F1BF5D7B2A7746ED00966D56 /* SavedMinecraftServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMinecraftServer.swift; sourceTree = "<group>"; };
+		F1BF5D7E2A7B4A0700966D56 /* BedrockServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedrockServerStatusChecker.swift; sourceTree = "<group>"; };
+		F1BF5D802A7B4A6800966D56 /* BedrockServerStatusParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedrockServerStatusParser.swift; sourceTree = "<group>"; };
+		F1BF5D822A7B4B9100966D56 /* UDPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDPClient.swift; sourceTree = "<group>"; };
+		F1BF5D8A2A7EDD7300966D56 /* SRVRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRVRecord.swift; sourceTree = "<group>"; };
+		F1BF5D8C2A7EDD9400966D56 /* SRVResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRVResolver.swift; sourceTree = "<group>"; };
+		F1BF5D902A7FC75700966D56 /* SwiftyPing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyPing.swift; sourceTree = "<group>"; };
+		F1BF5D932A80012E00966D56 /* WebServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServerStatusChecker.swift; sourceTree = "<group>"; };
+		F1BF5D952A80018B00966D56 /* WebJavaServerStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebJavaServerStatusResponse.swift; sourceTree = "<group>"; };
+		F1BF5D972A8001A200966D56 /* WebServerStatusParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServerStatusParser.swift; sourceTree = "<group>"; };
+		F1BF5D992A80193600966D56 /* WebBedrockServerStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBedrockServerStatusResponse.swift; sourceTree = "<group>"; };
+		F1BF5D9B2A8023FD00966D56 /* ServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusChecker.swift; sourceTree = "<group>"; };
+		F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F13E5FF62A4BD614005BE9B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F13E5FF02A4BD614005BE9B2 = {
+			isa = PBXGroup;
+			children = (
+				F13E5FFB2A4BD614005BE9B2 /* MCStatus */,
+				F13E5FFA2A4BD614005BE9B2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F13E5FFA2A4BD614005BE9B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F13E5FF92A4BD614005BE9B2 /* MC Status.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F13E5FFB2A4BD614005BE9B2 /* MCStatus */ = {
+			isa = PBXGroup;
+			children = (
+				F13E5FFC2A4BD614005BE9B2 /* MCStatusApp.swift */,
+				F13E5FFE2A4BD614005BE9B2 /* Item.swift */,
+				F13E60002A4BD614005BE9B2 /* ContentView.swift */,
+				F13E60022A4BD615005BE9B2 /* Assets.xcassets */,
+				F13E60042A4BD615005BE9B2 /* MCStatus.entitlements */,
+				F13E60082A4BD615005BE9B2 /* Info.plist */,
+				F13E60052A4BD615005BE9B2 /* Preview Content */,
+				F1BF5D762A76ACAC00966D56 /* ServerStatus.swift */,
+				F1BF5D7B2A7746ED00966D56 /* SavedMinecraftServer.swift */,
+				F1BF5D9D2A8025EE00966D56 /* Helpers */,
+				F1BF5D712A75F19F00966D56 /* Networking */,
+			);
+			path = MCStatus;
+			sourceTree = "<group>";
+		};
+		F13E60052A4BD615005BE9B2 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F1BF5D712A75F19F00966D56 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F1BF5D8F2A7EE6B000966D56 /* Protocols */,
+				F1BF5D8E2A7EE11400966D56 /* Helpers */,
+				F1BF5D922A7FFF2300966D56 /* WebServer */,
+				F1BF5D7D2A7751B500966D56 /* BedrockServer */,
+				F1BF5D782A77410700966D56 /* JavaServer */,
+				F1BF5D9B2A8023FD00966D56 /* ServerStatusChecker.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F1BF5D782A77410700966D56 /* JavaServer */ = {
+			isa = PBXGroup;
+			children = (
+				F1340D1E2A7352BE00E288C4 /* JavaServerStatusChecker.swift */,
+				F1BF5D742A769A1400966D56 /* JavaServerStatusResponse.swift */,
+				F1BF5D792A77412000966D56 /* JavaServerStatusParser.swift */,
+			);
+			path = JavaServer;
+			sourceTree = "<group>";
+		};
+		F1BF5D7D2A7751B500966D56 /* BedrockServer */ = {
+			isa = PBXGroup;
+			children = (
+				F1BF5D7E2A7B4A0700966D56 /* BedrockServerStatusChecker.swift */,
+				F1BF5D802A7B4A6800966D56 /* BedrockServerStatusParser.swift */,
+			);
+			path = BedrockServer;
+			sourceTree = "<group>";
+		};
+		F1BF5D8E2A7EE11400966D56 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F1BF5D722A75F26500966D56 /* DirectServerStatusChecker.swift */,
+				F1BF5D822A7B4B9100966D56 /* UDPClient.swift */,
+				F1BF5D8A2A7EDD7300966D56 /* SRVRecord.swift */,
+				F1BF5D8C2A7EDD9400966D56 /* SRVResolver.swift */,
+				F1BF5D902A7FC75700966D56 /* SwiftyPing.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F1BF5D8F2A7EE6B000966D56 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F1BF5D6F2A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F1BF5D922A7FFF2300966D56 /* WebServer */ = {
+			isa = PBXGroup;
+			children = (
+				F1BF5D932A80012E00966D56 /* WebServerStatusChecker.swift */,
+				F1BF5D952A80018B00966D56 /* WebJavaServerStatusResponse.swift */,
+				F1BF5D972A8001A200966D56 /* WebServerStatusParser.swift */,
+				F1BF5D992A80193600966D56 /* WebBedrockServerStatusResponse.swift */,
+			);
+			path = WebServer;
+			sourceTree = "<group>";
+		};
+		F1BF5D9D2A8025EE00966D56 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F13E5FF82A4BD614005BE9B2 /* MC Status */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F13E600B2A4BD615005BE9B2 /* Build configuration list for PBXNativeTarget "MC Status" */;
+			buildPhases = (
+				F13E5FF52A4BD614005BE9B2 /* Sources */,
+				F13E5FF62A4BD614005BE9B2 /* Frameworks */,
+				F13E5FF72A4BD614005BE9B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MC Status";
+			productName = MinecraftServerStatus;
+			productReference = F13E5FF92A4BD614005BE9B2 /* MC Status.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F13E5FF12A4BD614005BE9B2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					F13E5FF82A4BD614005BE9B2 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = F13E5FF42A4BD614005BE9B2 /* Build configuration list for PBXProject "MCStatus" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F13E5FF02A4BD614005BE9B2;
+			productRefGroup = F13E5FFA2A4BD614005BE9B2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F13E5FF82A4BD614005BE9B2 /* MC Status */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F13E5FF72A4BD614005BE9B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F13E60072A4BD615005BE9B2 /* Preview Assets.xcassets in Resources */,
+				F13E60032A4BD615005BE9B2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F13E5FF52A4BD614005BE9B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1BF5D772A76ACAC00966D56 /* ServerStatus.swift in Sources */,
+				F1BF5D982A8001A200966D56 /* WebServerStatusParser.swift in Sources */,
+				F1BF5D732A75F26500966D56 /* DirectServerStatusChecker.swift in Sources */,
+				F1BF5D9C2A8023FD00966D56 /* ServerStatusChecker.swift in Sources */,
+				F1BF5D962A80018B00966D56 /* WebJavaServerStatusResponse.swift in Sources */,
+				F13E5FFF2A4BD614005BE9B2 /* Item.swift in Sources */,
+				F1BF5D8B2A7EDD7300966D56 /* SRVRecord.swift in Sources */,
+				F1BF5D8D2A7EDD9400966D56 /* SRVResolver.swift in Sources */,
+				F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */,
+				F13E5FFD2A4BD614005BE9B2 /* MCStatusApp.swift in Sources */,
+				F1BF5D7C2A7746ED00966D56 /* SavedMinecraftServer.swift in Sources */,
+				F1BF5D7F2A7B4A0700966D56 /* BedrockServerStatusChecker.swift in Sources */,
+				F1BF5D752A769A1400966D56 /* JavaServerStatusResponse.swift in Sources */,
+				F1BF5D702A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift in Sources */,
+				F1BF5D812A7B4A6800966D56 /* BedrockServerStatusParser.swift in Sources */,
+				F1BF5D9A2A80193600966D56 /* WebBedrockServerStatusResponse.swift in Sources */,
+				F1BF5D942A80012E00966D56 /* WebServerStatusChecker.swift in Sources */,
+				F1BF5D7A2A77412000966D56 /* JavaServerStatusParser.swift in Sources */,
+				F1340D1F2A7352BE00E288C4 /* JavaServerStatusChecker.swift in Sources */,
+				F13E60012A4BD614005BE9B2 /* ContentView.swift in Sources */,
+				F1BF5D832A7B4B9100966D56 /* UDPClient.swift in Sources */,
+				F1BF5D912A7FC75700966D56 /* SwiftyPing.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F13E60092A4BD615005BE9B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F13E600A2A4BD615005BE9B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		F13E600C2A4BD615005BE9B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MCStatus/MCStatus.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MCStatus/Preview Content\"";
+				DEVELOPMENT_TEAM = FDYR7V7AH4;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MCStatus/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F13E600D2A4BD615005BE9B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MCStatus/MCStatus.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MCStatus/Preview Content\"";
+				DEVELOPMENT_TEAM = FDYR7V7AH4;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MCStatus/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F13E5FF42A4BD614005BE9B2 /* Build configuration list for PBXProject "MCStatus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F13E60092A4BD615005BE9B2 /* Debug */,
+				F13E600A2A4BD615005BE9B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F13E600B2A4BD615005BE9B2 /* Build configuration list for PBXNativeTarget "MC Status" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F13E600C2A4BD615005BE9B2 /* Debug */,
+				F13E600D2A4BD615005BE9B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F13E5FF12A4BD614005BE9B2 /* Project object */;
+}
