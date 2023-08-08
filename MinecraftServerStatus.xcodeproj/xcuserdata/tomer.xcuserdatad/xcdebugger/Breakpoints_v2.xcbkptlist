@@ -651,8 +651,8 @@
             filePath = "MinecraftServerStatus/Networking/ServerStatusChecker.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "unknown"
             landmarkType = "0">
             <Locations>
@@ -822,10 +822,10 @@
             filePath = "MinecraftServerStatus/Networking/ServerStatusChecker.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "ServerStatusChecker"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "8AABD538-A893-4483-921D-06C77FCFF8AD - ba771c0b0a76765c"
@@ -975,8 +975,8 @@
             filePath = "MinecraftServerStatus/Networking/WebServer/WebServerStatusChecker.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "checkServer(serverUrl:serverPort:serverType:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1169,102 +1169,6 @@
                   startingLineNumber = "72"
                   endingLineNumber = "72"
                   offsetFromSymbolStart = "2004">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A6E04EF8-1D2E-4B2E-9519-26607544524F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MinecraftServerStatus/Networking/Helpers/SRVResolver.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "queryCallback"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "A6E04EF8-1D2E-4B2E-9519-26607544524F - 9f6e2f8756d06360"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.OpaquePointer&gt;, Swift.UInt32, Swift.UInt32, Swift.Int32, Swift.Optional&lt;Swift.UnsafePointer&lt;Swift.Int8&gt;&gt;, Swift.UInt16, Swift.UInt16, Swift.UInt16, Swift.Optional&lt;Swift.UnsafeRawPointer&gt;, Swift.UInt32, Swift.Optional&lt;Swift.UnsafeMutableRawPointer&gt;) -&gt; () in variable initialization expression of MinecraftServerStatus.SRVResolver.queryCallback : @convention(c) (Swift.Optional&lt;Swift.OpaquePointer&gt;, Swift.UInt32, Swift.UInt32, Swift.Int32, Swift.Optional&lt;Swift.UnsafePointer&lt;Swift.Int8&gt;&gt;, Swift.UInt16, Swift.UInt16, Swift.UInt16, Swift.Optional&lt;Swift.UnsafeRawPointer&gt;, Swift.UInt32, Swift.Optional&lt;Swift.UnsafeMutableRawPointer&gt;) -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/Helpers/SRVResolver.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "192">
-               </Location>
-               <Location
-                  uuid = "A6E04EF8-1D2E-4B2E-9519-26607544524F - 9f6e2f8756d06360"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.OpaquePointer&gt;, Swift.UInt32, Swift.UInt32, Swift.Int32, Swift.Optional&lt;Swift.UnsafePointer&lt;Swift.Int8&gt;&gt;, Swift.UInt16, Swift.UInt16, Swift.UInt16, Swift.Optional&lt;Swift.UnsafeRawPointer&gt;, Swift.UInt32, Swift.Optional&lt;Swift.UnsafeMutableRawPointer&gt;) -&gt; () in variable initialization expression of MinecraftServerStatus.SRVResolver.queryCallback : @convention(c) (Swift.Optional&lt;Swift.OpaquePointer&gt;, Swift.UInt32, Swift.UInt32, Swift.Int32, Swift.Optional&lt;Swift.UnsafePointer&lt;Swift.Int8&gt;&gt;, Swift.UInt16, Swift.UInt16, Swift.UInt16, Swift.Optional&lt;Swift.UnsafeRawPointer&gt;, Swift.UInt32, Swift.Optional&lt;Swift.UnsafeMutableRawPointer&gt;) -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/Helpers/SRVResolver.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "1600">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F95724B2-DA88-4F11-B887-B63F4D81E406"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MinecraftServerStatus/Networking/Helpers/SRVResolver.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "queryCallback"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "F95724B2-DA88-4F11-B887-B63F4D81E406 - 9f6e2f8756d06360"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.OpaquePointer&gt;, Swift.UInt32, Swift.UInt32, Swift.Int32, Swift.Optional&lt;Swift.UnsafePointer&lt;Swift.Int8&gt;&gt;, Swift.UInt16, Swift.UInt16, Swift.UInt16, Swift.Optional&lt;Swift.UnsafeRawPointer&gt;, Swift.UInt32, Swift.Optional&lt;Swift.UnsafeMutableRawPointer&gt;) -&gt; () in variable initialization expression of MinecraftServerStatus.SRVResolver.queryCallback : @convention(c) (Swift.Optional&lt;Swift.OpaquePointer&gt;, Swift.UInt32, Swift.UInt32, Swift.Int32, Swift.Optional&lt;Swift.UnsafePointer&lt;Swift.Int8&gt;&gt;, Swift.UInt16, Swift.UInt16, Swift.UInt16, Swift.Optional&lt;Swift.UnsafeRawPointer&gt;, Swift.UInt32, Swift.Optional&lt;Swift.UnsafeMutableRawPointer&gt;) -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/Helpers/SRVResolver.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "192">
-               </Location>
-               <Location
-                  uuid = "F95724B2-DA88-4F11-B887-B63F4D81E406 - 9f6e2f8756d0638f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.OpaquePointer&gt;, Swift.UInt32, Swift.UInt32, Swift.Int32, Swift.Optional&lt;Swift.UnsafePointer&lt;Swift.Int8&gt;&gt;, Swift.UInt16, Swift.UInt16, Swift.UInt16, Swift.Optional&lt;Swift.UnsafeRawPointer&gt;, Swift.UInt32, Swift.Optional&lt;Swift.UnsafeMutableRawPointer&gt;) -&gt; () in variable initialization expression of MinecraftServerStatus.SRVResolver.queryCallback : @convention(c) (Swift.Optional&lt;Swift.OpaquePointer&gt;, Swift.UInt32, Swift.UInt32, Swift.Int32, Swift.Optional&lt;Swift.UnsafePointer&lt;Swift.Int8&gt;&gt;, Swift.UInt16, Swift.UInt16, Swift.UInt16, Swift.Optional&lt;Swift.UnsafeRawPointer&gt;, Swift.UInt32, Swift.Optional&lt;Swift.UnsafeMutableRawPointer&gt;) -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/Helpers/SRVResolver.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
-                  offsetFromSymbolStart = "180">
                </Location>
             </Locations>
          </BreakpointContent>

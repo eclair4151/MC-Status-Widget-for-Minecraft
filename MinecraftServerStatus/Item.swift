@@ -8,7 +8,7 @@
 import Foundation
 import SwiftData
 
-//@Model
+@Model
 final class Item: Identifiable {
     var timestamp: Date
     

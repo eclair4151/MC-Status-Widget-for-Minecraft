@@ -10,4 +10,8 @@ import Foundation
 class UserDefaultHelper {
     
     
+    static func SRVEnabled() -> Bool {
+        return true
+    }
+    
 }

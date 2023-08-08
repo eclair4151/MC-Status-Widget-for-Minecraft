@@ -35,7 +35,7 @@
 
 /* Begin PBXFileReference section */
 		F1340D1E2A7352BE00E288C4 /* JavaServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaServerStatusChecker.swift; sourceTree = "<group>"; };
-		F13E5FF92A4BD614005BE9B2 /* MinecraftServerStatus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinecraftServerStatus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F13E5FF92A4BD614005BE9B2 /* MC Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F13E5FFC2A4BD614005BE9B2 /* MinecraftServerStatusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinecraftServerStatusApp.swift; sourceTree = "<group>"; };
 		F13E5FFE2A4BD614005BE9B2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		F13E60002A4BD614005BE9B2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		F13E5FFA2A4BD614005BE9B2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F13E5FF92A4BD614005BE9B2 /* MinecraftServerStatus.app */,
+				F13E5FF92A4BD614005BE9B2 /* MC Status.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -190,9 +190,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F13E5FF82A4BD614005BE9B2 /* MinecraftServerStatus */ = {
+		F13E5FF82A4BD614005BE9B2 /* MC Status */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F13E600B2A4BD615005BE9B2 /* Build configuration list for PBXNativeTarget "MinecraftServerStatus" */;
+			buildConfigurationList = F13E600B2A4BD615005BE9B2 /* Build configuration list for PBXNativeTarget "MC Status" */;
 			buildPhases = (
 				F13E5FF52A4BD614005BE9B2 /* Sources */,
 				F13E5FF62A4BD614005BE9B2 /* Frameworks */,
@@ -202,9 +202,9 @@
 			);
 			dependencies = (
 			);
-			name = MinecraftServerStatus;
+			name = "MC Status";
 			productName = MinecraftServerStatus;
-			productReference = F13E5FF92A4BD614005BE9B2 /* MinecraftServerStatus.app */;
+			productReference = F13E5FF92A4BD614005BE9B2 /* MC Status.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -235,7 +235,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F13E5FF82A4BD614005BE9B2 /* MinecraftServerStatus */,
+				F13E5FF82A4BD614005BE9B2 /* MC Status */,
 			);
 		};
 /* End PBXProject section */
@@ -497,7 +497,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F13E600B2A4BD615005BE9B2 /* Build configuration list for PBXNativeTarget "MinecraftServerStatus" */ = {
+		F13E600B2A4BD615005BE9B2 /* Build configuration list for PBXNativeTarget "MC Status" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F13E600C2A4BD615005BE9B2 /* Debug */,

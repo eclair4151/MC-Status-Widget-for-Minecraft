@@ -25,7 +25,16 @@ class WebServerStatusChecker {
         let urlSession = URLSession.shared
 
         let (data, response) = try await urlSession.data(from: url)
-        guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw ServerStatusCheckerError.DeviceNotConnected }
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+            if (response as? HTTPURLResponse)?.statusCode == 400 {
+                // if the backup server returns a 400, then we address we supplied is invalid, so the server is offline.
+                let status = ServerStatus()
+                status.status = .Offline
+                return status
+            } else {
+                throw ServerStatusCheckerError.DeviceNotConnected
+            }
+        }
 
         if serverType == .Java {
             let decodedObj = try JSONDecoder().decode(WebJavaServerStatusResponse.self, from: data)
