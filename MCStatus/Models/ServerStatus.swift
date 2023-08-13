@@ -7,12 +7,17 @@
 
 import Foundation
 
-enum Status: String, Codable {
+enum Status: String {
     case Online, Offline, Unknown
 }
 
+enum Source: Codable {
+    case Direct, CachedSRV, UpdatedSRV, ThirdParty
+}
 
-class ServerStatus {
+@Observable
+class ServerStatus: Identifiable {
+    var source: Source?
     var description: FormattedMOTD?
     var status = Status.Unknown
     var maxPlayerCount = 0

@@ -11,7 +11,9 @@ class DirectServerStatusChecker {
     static func checkServer(serverUrl: String, serverPort: Int, serverType: ServerType) async throws -> ServerStatus {
         let statusChecker = ServerStatusCheckerFactory().getStatusChecker(serverUrl: serverUrl, serverPort: serverPort, serverType: serverType)
         let stringResult = try await statusChecker.checkServer()
-        return try statusChecker.getParser().parseServerResponse(stringInput: stringResult)
+        let result = try statusChecker.getParser().parseServerResponse(stringInput: stringResult)
+        print("Successful connection and parsing. returning result.")
+        return result
     }
 }
 

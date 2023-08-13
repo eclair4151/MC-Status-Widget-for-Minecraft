@@ -14,10 +14,11 @@
 		F11F63582A81E51000D47187 /* MCStatusWatchApp Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F11F634B2A81E50E00D47187 /* MCStatusWatchApp Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F1340D1F2A7352BE00E288C4 /* JavaServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1340D1E2A7352BE00E288C4 /* JavaServerStatusChecker.swift */; };
 		F13E5FFD2A4BD614005BE9B2 /* MCStatusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFC2A4BD614005BE9B2 /* MCStatusApp.swift */; };
-		F13E5FFF2A4BD614005BE9B2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFE2A4BD614005BE9B2 /* Item.swift */; };
-		F13E60012A4BD614005BE9B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E60002A4BD614005BE9B2 /* ContentView.swift */; };
+		F13E60012A4BD614005BE9B2 /* MainAppContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */; };
 		F13E60032A4BD615005BE9B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
 		F13E60072A4BD615005BE9B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */; };
+		F1A43C822A8472B20081A24C /* ServerStatusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */; };
+		F1A43C842A8476740081A24C /* ServerStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C832A8476740081A24C /* ServerStatusViewModel.swift */; };
 		F1BF5D702A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D6F2A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift */; };
 		F1BF5D732A75F26500966D56 /* DirectServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D722A75F26500966D56 /* DirectServerStatusChecker.swift */; };
 		F1BF5D752A769A1400966D56 /* JavaServerStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D742A769A1400966D56 /* JavaServerStatusResponse.swift */; };
@@ -36,6 +37,7 @@
 		F1BF5D9A2A80193600966D56 /* WebBedrockServerStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D992A80193600966D56 /* WebBedrockServerStatusResponse.swift */; };
 		F1BF5D9C2A8023FD00966D56 /* ServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9B2A8023FD00966D56 /* ServerStatusChecker.swift */; };
 		F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
+		F1C9A9AD2A8687C900C058C7 /* StatusCheckerCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C9A9AC2A8687C900C058C7 /* StatusCheckerCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,12 +73,13 @@
 		F1340D1E2A7352BE00E288C4 /* JavaServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaServerStatusChecker.swift; sourceTree = "<group>"; };
 		F13E5FF92A4BD614005BE9B2 /* MC Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F13E5FFC2A4BD614005BE9B2 /* MCStatusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusApp.swift; sourceTree = "<group>"; };
-		F13E5FFE2A4BD614005BE9B2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		F13E60002A4BD614005BE9B2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppContentView.swift; sourceTree = "<group>"; };
 		F13E60022A4BD615005BE9B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F13E60042A4BD615005BE9B2 /* MCStatus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatus.entitlements; sourceTree = "<group>"; };
 		F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F13E60082A4BD615005BE9B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusDetailView.swift; sourceTree = "<group>"; };
+		F1A43C832A8476740081A24C /* ServerStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusViewModel.swift; sourceTree = "<group>"; };
 		F1BF5D6F2A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusCheckerProtocol.swift; sourceTree = "<group>"; };
 		F1BF5D722A75F26500966D56 /* DirectServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectServerStatusChecker.swift; sourceTree = "<group>"; };
 		F1BF5D742A769A1400966D56 /* JavaServerStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaServerStatusResponse.swift; sourceTree = "<group>"; };
@@ -95,6 +98,9 @@
 		F1BF5D992A80193600966D56 /* WebBedrockServerStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBedrockServerStatusResponse.swift; sourceTree = "<group>"; };
 		F1BF5D9B2A8023FD00966D56 /* ServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusChecker.swift; sourceTree = "<group>"; };
 		F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
+		F1C9A9AC2A8687C900C058C7 /* StatusCheckerCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCheckerCache.swift; sourceTree = "<group>"; };
+		F1C9A9AE2A879A4800C058C7 /* MCStatusWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusWatchApp.entitlements; sourceTree = "<group>"; };
+		F1C9A9AF2A879FBC00C058C7 /* MCStatusWatchApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MCStatusWatchApp-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +124,8 @@
 		F11F634C2A81E50E00D47187 /* MCStatusWatchApp */ = {
 			isa = PBXGroup;
 			children = (
+				F1C9A9AF2A879FBC00C058C7 /* MCStatusWatchApp-Info.plist */,
+				F1C9A9AE2A879A4800C058C7 /* MCStatusWatchApp.entitlements */,
 				F11F634D2A81E50E00D47187 /* MCStatusWatchApp.swift */,
 				F11F634F2A81E50E00D47187 /* ContentView.swift */,
 				F11F63512A81E51000D47187 /* Assets.xcassets */,
@@ -156,26 +164,43 @@
 			isa = PBXGroup;
 			children = (
 				F13E5FFC2A4BD614005BE9B2 /* MCStatusApp.swift */,
-				F13E5FFE2A4BD614005BE9B2 /* Item.swift */,
-				F13E60002A4BD614005BE9B2 /* ContentView.swift */,
-				F13E60022A4BD615005BE9B2 /* Assets.xcassets */,
-				F13E60042A4BD615005BE9B2 /* MCStatus.entitlements */,
-				F13E60082A4BD615005BE9B2 /* Info.plist */,
-				F13E60052A4BD615005BE9B2 /* Preview Content */,
-				F1BF5D762A76ACAC00966D56 /* ServerStatus.swift */,
-				F1BF5D7B2A7746ED00966D56 /* SavedMinecraftServer.swift */,
+				F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */,
+				F1A43C802A84726F0081A24C /* Views */,
+				F1A43C7F2A8472620081A24C /* Models */,
 				F1BF5D9D2A8025EE00966D56 /* Helpers */,
 				F1BF5D712A75F19F00966D56 /* Networking */,
+				F1A43C7E2A8472420081A24C /* Other */,
 			);
 			path = MCStatus;
 			sourceTree = "<group>";
 		};
-		F13E60052A4BD615005BE9B2 /* Preview Content */ = {
+		F1A43C7E2A8472420081A24C /* Other */ = {
 			isa = PBXGroup;
 			children = (
 				F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */,
+				F13E60022A4BD615005BE9B2 /* Assets.xcassets */,
+				F13E60042A4BD615005BE9B2 /* MCStatus.entitlements */,
+				F13E60082A4BD615005BE9B2 /* Info.plist */,
 			);
-			path = "Preview Content";
+			path = Other;
+			sourceTree = "<group>";
+		};
+		F1A43C7F2A8472620081A24C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F1BF5D762A76ACAC00966D56 /* ServerStatus.swift */,
+				F1BF5D7B2A7746ED00966D56 /* SavedMinecraftServer.swift */,
+				F1A43C832A8476740081A24C /* ServerStatusViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F1A43C802A84726F0081A24C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F1BF5D712A75F19F00966D56 /* Networking */ = {
@@ -245,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */,
+				F1C9A9AC2A8687C900C058C7 /* StatusCheckerCache.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -362,10 +388,10 @@
 			files = (
 				F1BF5D772A76ACAC00966D56 /* ServerStatus.swift in Sources */,
 				F1BF5D982A8001A200966D56 /* WebServerStatusParser.swift in Sources */,
+				F1A43C822A8472B20081A24C /* ServerStatusDetailView.swift in Sources */,
 				F1BF5D732A75F26500966D56 /* DirectServerStatusChecker.swift in Sources */,
 				F1BF5D9C2A8023FD00966D56 /* ServerStatusChecker.swift in Sources */,
 				F1BF5D962A80018B00966D56 /* WebJavaServerStatusResponse.swift in Sources */,
-				F13E5FFF2A4BD614005BE9B2 /* Item.swift in Sources */,
 				F1BF5D8B2A7EDD7300966D56 /* SRVRecord.swift in Sources */,
 				F1BF5D8D2A7EDD9400966D56 /* SRVResolver.swift in Sources */,
 				F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */,
@@ -376,10 +402,12 @@
 				F1BF5D702A75BEDC00966D56 /* ServerStatusCheckerProtocol.swift in Sources */,
 				F1BF5D812A7B4A6800966D56 /* BedrockServerStatusParser.swift in Sources */,
 				F1BF5D9A2A80193600966D56 /* WebBedrockServerStatusResponse.swift in Sources */,
+				F1C9A9AD2A8687C900C058C7 /* StatusCheckerCache.swift in Sources */,
+				F1A43C842A8476740081A24C /* ServerStatusViewModel.swift in Sources */,
 				F1BF5D942A80012E00966D56 /* WebServerStatusChecker.swift in Sources */,
 				F1BF5D7A2A77412000966D56 /* JavaServerStatusParser.swift in Sources */,
 				F1340D1F2A7352BE00E288C4 /* JavaServerStatusChecker.swift in Sources */,
-				F13E60012A4BD614005BE9B2 /* ContentView.swift in Sources */,
+				F13E60012A4BD614005BE9B2 /* MainAppContentView.swift in Sources */,
 				F1BF5D832A7B4B9100966D56 /* UDPClient.swift in Sources */,
 				F1BF5D912A7FC75700966D56 /* SwiftyPing.swift in Sources */,
 			);
@@ -401,12 +429,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MCStatusWatchApp/MCStatusWatchApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MCStatusWatchApp/Preview Content\"";
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MCStatusWatchApp/MCStatusWatchApp-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MCStatusWatchApp;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.shemeshapps.MinecraftServerStatus;
@@ -431,12 +461,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MCStatusWatchApp/MCStatusWatchApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MCStatusWatchApp/Preview Content\"";
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MCStatusWatchApp/MCStatusWatchApp-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MCStatusWatchApp;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.shemeshapps.MinecraftServerStatus;
@@ -577,15 +609,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MCStatus/MCStatus.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MCStatus/Other/MCStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MCStatus/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MCStatus/Other\"";
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MCStatus/Info.plist;
+				INFOPLIST_FILE = MCStatus/Other/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -621,15 +653,15 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MCStatus/MCStatus.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MCStatus/Other/MCStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MCStatus/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MCStatus/Other\"";
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MCStatus/Info.plist;
+				INFOPLIST_FILE = MCStatus/Other/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
