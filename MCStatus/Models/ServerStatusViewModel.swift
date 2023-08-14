@@ -6,7 +6,7 @@
 //
 import Foundation
 
-enum LoadingStatus {
+enum LoadingStatus: String {
     case Loading, Finished
 }
 

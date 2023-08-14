@@ -25,6 +25,11 @@ class ServerStatus: Identifiable {
     var playerSample:[Player] = []
     var version = ""
     var favIcon = ""
+    
+    
+    func getDisplayText() -> String {
+        return status.rawValue + " " + String(onlinePlayerCount) + "/" + String(maxPlayerCount)
+    }
 }
 
 
