@@ -24,6 +24,7 @@ struct MainAppContentView: View {
                     NavigationLink {
                         ServerStatusDetailView(serverStatusViewModel: viewModel) {
                             reloadData()
+                            refreshDisplayOrders()
                         }
                     }
                     label: {
@@ -41,6 +42,19 @@ struct MainAppContentView: View {
                 }//.onDelete(perform: deleteItems)
             }.refreshable {
                 reloadData(forceRefresh: true)
+            }.overlay {
+                if serverViewModels.isEmpty {
+                    ContentUnavailableView {
+                        Label("Add Your First Server", systemImage: "server.rack")
+                    } description: {
+                        Text("Let's get started! Add a server using the button below or the \"+\" button in the top right corner.")
+                    } actions: {
+                        Button("Add Server") {
+                            showingAddSheet = true
+                        }
+                        .buttonStyle(.borderedProminent)
+                    }
+                }
             }.toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationLink(destination: SettingsRootView()) {
@@ -50,7 +64,7 @@ struct MainAppContentView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         showingAddSheet.toggle()
-                        addItem()
+//                        addItem()
                     } label: {
                         Label("Add Item", systemImage: "plus")
                     }
@@ -71,28 +85,16 @@ struct MainAppContentView: View {
             }
         }.sheet(isPresented: $showingAddSheet) {
             // create new binding server to add
-            let newServer = SavedMinecraftServer(id: UUID(), serverType: .Java, name: "", serverUrl: "", serverPort: 0, srvServerUrl: "", srvServerPort: 0, serverIcon: "", displayOrder: serverViewModels.count + 1)
-            EditServerView(server: newServer, isPresented: $showingAddSheet)
+            let newServer = SavedMinecraftServer(id: UUID(), serverType: .Java, name: "", serverUrl: "", serverPort: 0, srvServerUrl: "", srvServerPort: 0, serverIcon: "", displayOrder: 0)
+            NavigationView {
+                EditServerView(server: newServer, isPresented: $showingAddSheet) {
+                    reloadData()
+                    refreshDisplayOrders()
+                }
+            }
         }
     }
 
-    private func addItem() {
-        withAnimation {
-            let newItem = SavedMinecraftServer(id:UUID(), serverType: .Java, name: "tomer's Server", serverUrl: "192.168.4.72", serverPort: 25565)
-            newItem.displayOrder = serverViewModels.count + 1
-            modelContext.insert(newItem)
-            do {
-                // Try to save
-                try modelContext.save()
-            } catch {
-                // We couldn't save :(
-                // Failures include issues such as an invalid unique constraint
-                print(error.localizedDescription)
-            }
-            reloadData()
-            print("added server")
-        }
-    }
 
     
     

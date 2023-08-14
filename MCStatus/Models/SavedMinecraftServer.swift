@@ -26,7 +26,7 @@ class SavedMinecraftServer: Identifiable {
     var displayOrder:Int?
     var serverType: ServerType?
     
-    init(id:UUID, serverType: ServerType, name: String, serverUrl: String, serverPort: Int, srvServerUrl: String = "", srvServerPort: Int = 1, serverIcon: String = "", displayOrder: Int = 9999999) {
+    init(id:UUID, serverType: ServerType, name: String, serverUrl: String, serverPort: Int, srvServerUrl: String = "", srvServerPort: Int = 1, serverIcon: String = "", displayOrder: Int = 0) {
         self.id = id
         self.name = name
         self.serverUrl = serverUrl
