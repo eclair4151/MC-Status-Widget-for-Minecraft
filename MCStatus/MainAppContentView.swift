@@ -39,7 +39,8 @@ struct MainAppContentView: View {
                     serverViewModels.move(fromOffsets: $0, toOffset: $1)
                     //update underlying display order
                     refreshDisplayOrders()
-                }//.onDelete(perform: deleteItems)
+                }
+                //.onDelete(perform: deleteItems) // uncomment to enable swipe to delete. You can also use a custom Swipe Action instead of this to block full swipes and require partial swipe + tap
             }.refreshable {
                 reloadData(forceRefresh: true)
             }.overlay {
@@ -64,14 +65,11 @@ struct MainAppContentView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         showingAddSheet.toggle()
-//                        addItem()
                     } label: {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
-                
             }
-//            Text("Select an item")
         }.onAppear {
             reloadData()
         }.onReceive(NotificationCenter.default.publisher(for: NSPersistentCloudKitContainer.eventChangedNotification)) { notification in
@@ -85,13 +83,13 @@ struct MainAppContentView: View {
             }
         }.sheet(isPresented: $showingAddSheet) {
             // create new binding server to add
-            let newServer = SavedMinecraftServer(id: UUID(), serverType: .Java, name: "", serverUrl: "", serverPort: 0, srvServerUrl: "", srvServerPort: 0, serverIcon: "", displayOrder: 0)
+            let newServer = SavedMinecraftServer(id: UUID(), serverType: .Java, name: "", serverUrl: "", serverPort: 25565, srvServerUrl: "", srvServerPort: 0, serverIcon: "", displayOrder: 0)
             NavigationView {
                 EditServerView(server: newServer, isPresented: $showingAddSheet) {
                     reloadData()
                     refreshDisplayOrders()
                 }
-            }
+            }.interactiveDismissDisabled()
         }
     }
 

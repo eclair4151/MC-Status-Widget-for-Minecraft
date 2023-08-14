@@ -76,6 +76,7 @@ class ServerStatusChecker {
             print("CALLING BACKUP SERVER")
             let res = try await WebServerStatusChecker.checkServer(serverUrl: server.serverUrl!, serverPort: server.serverPort!, serverType: server.serverType!)
             res.source = .ThirdParty
+            print("Got result from third part. Returning...")
             return res
         } catch {
             // if we arent able to connect to the minecraft server directly, nor are we able to connect to the 3rd party server

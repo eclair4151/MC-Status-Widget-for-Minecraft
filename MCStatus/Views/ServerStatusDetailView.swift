@@ -10,9 +10,11 @@ import SwiftUI
 struct ServerStatusDetailView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
+    @State private var showingEditSheet = false
     @State private var showingDeleteAlert = false
     @State var serverStatusViewModel: ServerStatusViewModel
+
     var parentViewRefreshCallBack: () -> Void
     
     
@@ -28,7 +30,7 @@ struct ServerStatusDetailView: View {
             ToolbarItem(placement: .topBarTrailing) {
                 HStack {
                     Button {
-                        
+                        showingEditSheet = true
                     } label: {
                         Text("Edit")
                     }
@@ -44,6 +46,13 @@ struct ServerStatusDetailView: View {
                 deleteServer()
             }
             Button("Cancel", role: .cancel) { }
+        }.sheet(isPresented: $showingEditSheet) {
+            NavigationView {
+                EditServerView(server: serverStatusViewModel.server, isPresented: $showingEditSheet) {
+                    serverStatusViewModel.reloadData()
+                    parentViewRefreshCallBack()
+                }
+            }.interactiveDismissDisabled()
         }
     }
     
@@ -65,6 +74,4 @@ struct ServerStatusDetailView: View {
 //#Preview {
 //    ServerStatusDetailView(serverStatusViewModel: ServerStatusViewModel(server: SavedMinecraftServer(id:UUID() ,serverType: .Java, name: "Hodor", serverUrl: "zero.minr.org", serverPort: 255)))
 //}
-
-
 
