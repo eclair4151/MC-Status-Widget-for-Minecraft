@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F10E94B12A8C61B60039DD2B /* ConnectivityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E94B02A8C61B60039DD2B /* ConnectivityProvider.swift */; };
 		F11F634E2A81E50E00D47187 /* MCStatusWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F634D2A81E50E00D47187 /* MCStatusWatchApp.swift */; };
 		F11F63502A81E50E00D47187 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F634F2A81E50E00D47187 /* ContentView.swift */; };
 		F11F63522A81E51000D47187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F11F63512A81E51000D47187 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F10E94B02A8C61B60039DD2B /* ConnectivityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityProvider.swift; sourceTree = "<group>"; };
 		F11F634B2A81E50E00D47187 /* MCStatusWatchApp Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MCStatusWatchApp Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F11F634D2A81E50E00D47187 /* MCStatusWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusWatchApp.swift; sourceTree = "<group>"; };
 		F11F634F2A81E50E00D47187 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				F11F634F2A81E50E00D47187 /* ContentView.swift */,
 				F11F63512A81E51000D47187 /* Assets.xcassets */,
 				F11F63532A81E51000D47187 /* Preview Content */,
+				F10E94B02A8C61B60039DD2B /* ConnectivityProvider.swift */,
 			);
 			path = MCStatusWatchApp;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 			files = (
 				F11F63502A81E50E00D47187 /* ContentView.swift in Sources */,
 				F11F634E2A81E50E00D47187 /* MCStatusWatchApp.swift in Sources */,
+				F10E94B12A8C61B60039DD2B /* ConnectivityProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

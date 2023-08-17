@@ -48,7 +48,7 @@ struct MainAppContentView: View {
                     ContentUnavailableView {
                         Label("Add Your First Server", systemImage: "server.rack")
                     } description: {
-                        Text("Let's get started! Add a server using the button below or the \"+\" button in the top right corner.")
+                        Text("Let's get started! Add a server using the button below or the \"+\" in the top right corner.")
                     } actions: {
                         Button("Add Server") {
                             showingAddSheet = true
@@ -89,7 +89,7 @@ struct MainAppContentView: View {
                     reloadData()
                     refreshDisplayOrders()
                 }
-            }.interactiveDismissDisabled()
+            }
         }
     }
 

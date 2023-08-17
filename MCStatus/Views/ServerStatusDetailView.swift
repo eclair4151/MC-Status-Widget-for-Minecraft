@@ -52,7 +52,7 @@ struct ServerStatusDetailView: View {
                     serverStatusViewModel.reloadData()
                     parentViewRefreshCallBack()
                 }
-            }.interactiveDismissDisabled()
+            }
         }
     }
     

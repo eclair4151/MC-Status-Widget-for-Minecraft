@@ -25,11 +25,9 @@ struct EditServerView: View {
     @State var tempNameInput: String = ""
     @State var tempServerInput: String = ""
     @State var tempPortInput: Int = 25565
-
-    
     var body: some View {
         Form {
-            Section(header: Text("Start tracking a new server")) {
+            Section(header: Text("Start monitoring a server"), footer: Text("*MCStatus is used for checking the status an existing server. It will not create, setup, or host a new server.").padding(EdgeInsets(top: 10,leading: 0,bottom: 0,trailing: 0))) {
                 HStack {
                     Image(systemName: "tag.fill")
                         .foregroundColor(.gray)
@@ -50,8 +48,9 @@ struct EditServerView: View {
                         .font(.headline)
                     TextField("Server Port", value: $tempPortInput, formatter: NumberFormatter(), prompt: Text("Server Port")).keyboardType(.numberPad)
                 }
-            }
-        }.toolbar {
+            }.headerProminence(.increased)
+        }
+            .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
                     isPresented = false
@@ -67,15 +66,22 @@ struct EditServerView: View {
                 }.disabled(saveDisabled())
             }
             
-        }.onAppear {
+        }
+            .onAppear {
             tempServerInput = server.serverUrl!
             tempPortInput = server.serverPort!
             tempNameInput = server.name!
-        }
+        }.interactiveDismissDisabled(inputHasChanged())
     }
     
     private func saveDisabled() -> Bool {
         return tempNameInput.isEmpty || tempServerInput.isEmpty
+    }
+    
+    private func inputHasChanged() -> Bool {
+        tempNameInput != server.name! ||
+        tempServerInput != server.serverUrl! ||
+        tempPortInput != server.serverPort
     }
     
     private func addItem() {

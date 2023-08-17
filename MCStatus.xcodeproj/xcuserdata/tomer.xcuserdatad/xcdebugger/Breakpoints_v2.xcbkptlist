@@ -1349,7 +1349,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "31BD191E-71E8-4419-B8B4-7B8279E6DCA0"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCStatus/MainAppContentView.swift"
@@ -1375,6 +1375,228 @@
             endingLineNumber = "80"
             landmarkName = "checkServer(server:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9668018B-5046-4F0A-BF63-468E311E33C1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCStatus/Views/EditServerView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "9668018B-5046-4F0A-BF63-468E311E33C1 - 19619f1b61556fda"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 () -&gt; () in MC_Status.EditServerView.body.getter : some"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Views/EditServerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "252">
+               </Location>
+               <Location
+                  uuid = "9668018B-5046-4F0A-BF63-468E311E33C1 - 19619f1b61556fda"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 () -&gt; () in MC_Status.EditServerView.body.getter : some"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Views/EditServerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "57EDAC51-1A64-49EA-9796-ADFB30279380"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCStatus/Views/EditServerView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "57EDAC51-1A64-49EA-9796-ADFB30279380 - e41128edd138ed4b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MC_Status.EditServerView.body.getter : some"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Views/EditServerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "1364">
+               </Location>
+               <Location
+                  uuid = "57EDAC51-1A64-49EA-9796-ADFB30279380 - e41128edd138ed4b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MC_Status.EditServerView.body.getter : some"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Views/EditServerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "1052">
+               </Location>
+               <Location
+                  uuid = "57EDAC51-1A64-49EA-9796-ADFB30279380 - 19619f1b61556065"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 () -&gt; () in MC_Status.EditServerView.body.getter : some"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Views/EditServerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "588">
+               </Location>
+               <Location
+                  uuid = "57EDAC51-1A64-49EA-9796-ADFB30279380 - e41128edd138ed4b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MC_Status.EditServerView.body.getter : some"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Views/EditServerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "1152">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8840D66C-D6F8-435C-8FA9-C9D71D20A571"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCStatus/Helpers/SwiftUIHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "getModelContainter()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8840D66C-D6F8-435C-8FA9-C9D71D20A571 - cc35996b6d9fd16d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static MC_Status.SwiftUIHelper.getModelContainter() -&gt; SwiftData.ModelContainer"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Helpers/SwiftUIHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "304">
+               </Location>
+               <Location
+                  uuid = "8840D66C-D6F8-435C-8FA9-C9D71D20A571 - cc35996b6d9fd16d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static MC_Status.SwiftUIHelper.getModelContainter() -&gt; SwiftData.ModelContainer"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Helpers/SwiftUIHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "240">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E0FFBA09-6205-4F2F-AAFF-6F6693B526AE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCStatus/Views/EditServerView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "E0FFBA09-6205-4F2F-AAFF-6F6693B526AE - e41128edd138e2d7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MC_Status.EditServerView.body.getter : some"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Views/EditServerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "952">
+               </Location>
+               <Location
+                  uuid = "E0FFBA09-6205-4F2F-AAFF-6F6693B526AE - 19619f1b61556fda"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 () -&gt; () in MC_Status.EditServerView.body.getter : some"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Views/EditServerView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
