@@ -11,6 +11,8 @@ import CloudKit
 import CoreData
 
 struct MainAppContentView: View {
+    let watchHelper = WatchHelper()
+    
     @Environment(\.modelContext) private var modelContext
     @State private var serverViewModels: [ServerStatusViewModel] = []
     // i cant think of a better way to do this since i dont want to regenerate the view model every time

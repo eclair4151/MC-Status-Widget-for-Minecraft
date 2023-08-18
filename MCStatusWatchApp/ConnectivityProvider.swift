@@ -9,38 +9,37 @@ import Foundation
 import WatchConnectivity
 
 class ConnectivityProvider: NSObject, WCSessionDelegate {
-    
-    private let session: WCSession
-    
+        
     override init() {
-        self.session = WCSession.default
         super.init()
-        self.session.delegate = self
+        connect()
     }
     
     func send(message: [String:Any]) -> Void {
-        session.sendMessage(message) { response in
-            
-        } errorHandler: { error in
-            
+        guard WCSession.default.isReachable else {
+            // Phone not connected. Try to directly call web api...
+            return
         }
-
+        
+        // We are connectted to phone. Attempt to ask it to connect to the server on our behalf.
+        // Doing this is recommended by apple to save battery life on the watch,
+        // in addition to the fact that the NWConnection API is blocked on Apple watch anyway, so only a web api connection can be made directly.
+        // if we fail to hear back from the phone, still try the web api anyway as a backup
+        WCSession.default.sendMessage(message) { response in
+            print("got response! " + response.description)
+        } errorHandler: { error in
+            print("Get error trying to talk to watch! ")
+        }
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         // code
     }
     
-//    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-//        
-//    }
-    
     func connect() {
-        guard WCSession.isSupported() else {
-            print("WCSession is not supported")
-            return
-        }
-       
-        session.activate()
+        if WCSession.isSupported() {
+           WCSession.default.delegate = self
+           WCSession.default.activate()
+       }
     }
 }

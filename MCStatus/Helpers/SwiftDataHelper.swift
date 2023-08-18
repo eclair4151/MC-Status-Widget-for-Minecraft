@@ -9,9 +9,12 @@ import Foundation
 import SwiftData
 
 // random helper function
-class SwiftUIHelper {
+class SwiftDataHelper {
     static func getModelContainter() -> ModelContainer {
-        let config = ModelConfiguration(nil, schema: Schema ([SavedMinecraftServer.self]), inMemory: false, readOnly: false, groupContainer: ModelConfiguration.GroupContainer.identifier("group.shemeshapps.MinecraftServerStatus"), cloudKitDatabase: ModelConfiguration.CloudKitDatabase.private("com.shemeshapps.mcstatus"))
+        let config = ModelConfiguration(nil, schema: Schema ([SavedMinecraftServer.self]), inMemory: false, readOnly: false, 
+            groupContainer: ModelConfiguration.GroupContainer.identifier("group.shemeshapps.MinecraftServerStatus"),
+            cloudKitDatabase: ModelConfiguration.CloudKitDatabase.private("com.shemeshapps.mcstatus")
+        )
 
         
         if (UserDefaultHelper.iCloudEnabled()) {

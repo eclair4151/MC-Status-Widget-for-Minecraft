@@ -18,7 +18,11 @@
 		F13E60012A4BD614005BE9B2 /* MainAppContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */; };
 		F13E60032A4BD615005BE9B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
 		F13E60072A4BD615005BE9B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */; };
-		F17A16B92A89055600F8FF2F /* SwiftUIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16B82A89055600F8FF2F /* SwiftUIHelper.swift */; };
+		F174A2FC2A8F7FFA0051DA5B /* WatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174A2FB2A8F7FFA0051DA5B /* WatchHelper.swift */; };
+		F174A2FD2A8F8D530051DA5B /* SwiftDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16B82A89055600F8FF2F /* SwiftDataHelper.swift */; };
+		F174A2FE2A8F8ED70051DA5B /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
+		F174A2FF2A8F8F170051DA5B /* SavedMinecraftServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D7B2A7746ED00966D56 /* SavedMinecraftServer.swift */; };
+		F17A16B92A89055600F8FF2F /* SwiftDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16B82A89055600F8FF2F /* SwiftDataHelper.swift */; };
 		F17A16BB2A893DD700F8FF2F /* SettingsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */; };
 		F17A16BD2A8956DE00F8FF2F /* EditServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */; };
 		F1A43C822A8472B20081A24C /* ServerStatusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */; };
@@ -82,7 +86,8 @@
 		F13E60042A4BD615005BE9B2 /* MCStatus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatus.entitlements; sourceTree = "<group>"; };
 		F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F13E60082A4BD615005BE9B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F17A16B82A89055600F8FF2F /* SwiftUIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIHelper.swift; sourceTree = "<group>"; };
+		F174A2FB2A8F7FFA0051DA5B /* WatchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHelper.swift; sourceTree = "<group>"; };
+		F17A16B82A89055600F8FF2F /* SwiftDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataHelper.swift; sourceTree = "<group>"; };
 		F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRootView.swift; sourceTree = "<group>"; };
 		F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditServerView.swift; sourceTree = "<group>"; };
 		F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusDetailView.swift; sourceTree = "<group>"; };
@@ -279,7 +284,8 @@
 			isa = PBXGroup;
 			children = (
 				F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */,
-				F17A16B82A89055600F8FF2F /* SwiftUIHelper.swift */,
+				F17A16B82A89055600F8FF2F /* SwiftDataHelper.swift */,
+				F174A2FB2A8F7FFA0051DA5B /* WatchHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -386,9 +392,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F174A2FF2A8F8F170051DA5B /* SavedMinecraftServer.swift in Sources */,
 				F11F63502A81E50E00D47187 /* ContentView.swift in Sources */,
+				F174A2FE2A8F8ED70051DA5B /* UserDefaultHelper.swift in Sources */,
 				F11F634E2A81E50E00D47187 /* MCStatusWatchApp.swift in Sources */,
 				F10E94B12A8C61B60039DD2B /* ConnectivityProvider.swift in Sources */,
+				F174A2FD2A8F8D530051DA5B /* SwiftDataHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +410,7 @@
 				F1A43C822A8472B20081A24C /* ServerStatusDetailView.swift in Sources */,
 				F1BF5D732A75F26500966D56 /* DirectServerStatusChecker.swift in Sources */,
 				F1BF5D9C2A8023FD00966D56 /* ServerStatusChecker.swift in Sources */,
+				F174A2FC2A8F7FFA0051DA5B /* WatchHelper.swift in Sources */,
 				F17A16BD2A8956DE00F8FF2F /* EditServerView.swift in Sources */,
 				F1BF5D962A80018B00966D56 /* WebJavaServerStatusResponse.swift in Sources */,
 				F1BF5D8B2A7EDD7300966D56 /* SRVRecord.swift in Sources */,
@@ -415,7 +425,7 @@
 				F1BF5D9A2A80193600966D56 /* WebBedrockServerStatusResponse.swift in Sources */,
 				F1A43C842A8476740081A24C /* ServerStatusViewModel.swift in Sources */,
 				F17A16BB2A893DD700F8FF2F /* SettingsRootView.swift in Sources */,
-				F17A16B92A89055600F8FF2F /* SwiftUIHelper.swift in Sources */,
+				F17A16B92A89055600F8FF2F /* SwiftDataHelper.swift in Sources */,
 				F1BF5D942A80012E00966D56 /* WebServerStatusChecker.swift in Sources */,
 				F1BF5D7A2A77412000966D56 /* JavaServerStatusParser.swift in Sources */,
 				F1340D1F2A7352BE00E288C4 /* JavaServerStatusChecker.swift in Sources */,

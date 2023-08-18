@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct MCStatusWatchApp_App: App {
@@ -13,5 +14,6 @@ struct MCStatusWatchApp_App: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(SwiftDataHelper.getModelContainter())
     }
 }

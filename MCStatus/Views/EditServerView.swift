@@ -22,9 +22,10 @@ struct EditServerView: View {
     
     @FocusState private var focusedField: FocusedField?
 
-    @State var tempNameInput: String = ""
-    @State var tempServerInput: String = ""
-    @State var tempPortInput: Int = 25565
+    @State var tempNameInput = ""
+    @State var tempServerInput = ""
+    @State var tempPortInput = 25565
+    
     var body: some View {
         Form {
             Section(header: Text("Start monitoring a server"), footer: Text("*MCStatus is used for checking the status an existing server. It will not create, setup, or host a new server.").padding(EdgeInsets(top: 10,leading: 0,bottom: 0,trailing: 0))) {

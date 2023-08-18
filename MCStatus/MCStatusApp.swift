@@ -14,7 +14,7 @@ struct MCStatusApp: App {
         WindowGroup {
             MainAppContentView()
         }
-        .modelContainer(SwiftUIHelper.getModelContainter())
+        .modelContainer(SwiftDataHelper.getModelContainter())
     }
 }
 
