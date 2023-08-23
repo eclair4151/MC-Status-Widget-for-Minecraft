@@ -11,15 +11,12 @@ import SwiftData
 // random helper function
 class SwiftDataHelper {
     static func getModelContainter() -> ModelContainer {
-        let config = ModelConfiguration(nil, schema: Schema ([SavedMinecraftServer.self]), inMemory: false, readOnly: false, 
-            groupContainer: ModelConfiguration.GroupContainer.identifier("group.shemeshapps.MinecraftServerStatus"),
-            cloudKitDatabase: ModelConfiguration.CloudKitDatabase.private("com.shemeshapps.mcstatus")
-        )
+        let config = ModelConfiguration(nil, schema: Schema ([SavedMinecraftServer.self]), isStoredInMemoryOnly: false, allowsSave: true, groupContainer: ModelConfiguration.GroupContainer.identifier("group.shemeshapps.MinecraftServerStatus"), cloudKitDatabase: ModelConfiguration.CloudKitDatabase.private("com.shemeshapps.mcstatus"))
 
         
         if (UserDefaultHelper.iCloudEnabled()) {
             do {
-                return try ModelContainer(for: SavedMinecraftServer.self, config)
+                return try ModelContainer(for: SavedMinecraftServer.self, configurations: config)
             } catch {
                 // something broken with icloud? continue with local container without config.
                 print("ERROR LOADING ICLOUD MODEL CONTAINTER: " + error.localizedDescription)

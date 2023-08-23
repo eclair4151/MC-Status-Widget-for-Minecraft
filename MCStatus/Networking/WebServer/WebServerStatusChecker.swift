@@ -10,6 +10,7 @@ import Foundation
 // this class is used to call the 3rd party web api, and ask them for information, in the case we are unable to connect directly.
 class WebServerStatusChecker {
     static let API_URL = "https://api.mcstatus.io/v2/status/"
+    static let timeout = 5
     
     static func checkServer(serverUrl: String, serverPort: Int, serverType: ServerType) async throws -> ServerStatus {
         var urlString = WebServerStatusChecker.API_URL
@@ -19,7 +20,7 @@ class WebServerStatusChecker {
             urlString += "bedrock/"
         }
         
-        urlString += serverUrl + ":" + String(serverPort)
+        urlString += serverUrl + ":" + String(serverPort) + "?timeout=" + String(timeout)
         
         let url = URL(string: urlString)!
         let urlSession = URLSession.shared

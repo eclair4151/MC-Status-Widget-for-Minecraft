@@ -10,23 +10,62 @@ import SwiftData
 import CloudKit
 import CoreData
 
+
+func testServer() -> SavedMinecraftServer {
+    return SavedMinecraftServer(id: UUID(), serverType: .Java, name: "Hodor", serverUrl: "zero.minr.org", serverPort: 25565)
+}
+
 struct ContentView: View {
     
     @Environment(\.modelContext) private var modelContext
-
-    let connectivityProvider = ConnectivityProvider()
+    @State private var serverViewModels: [ServerStatusViewModel] = []
+    @State private var serverViewModelCache: [UUID:ServerStatusViewModel] = [:]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, hodor!")
-            Button("Send") {
-//                connectivityProvider.send(message: [:])
-                reloadData()
+        NavigationView {
+            List {
+                ForEach(serverViewModels) { viewModel in
+                    NavigationLink {
+                        // add detail screen here
+                    }
+                    label: {
+                        if let status = viewModel.status {
+                            Text(viewModel.server.name + " - " + status.getDisplayText())
+                        } else {
+                            Text(viewModel.server.name + " - " + viewModel.loadingStatus.rawValue)
+                        }
+                    }
+                }
+
+            }
+            .toolbar {
+                if !serverViewModels.isEmpty {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+    //                        reloadData(forceRefrfesh)
+                        } label: {
+                            Label("Refresh", systemImage: "arrow.clockwise")
+                        }
+                    }
+                }
             }
         }
-        .padding()
+        .overlay {
+            if serverViewModels.isEmpty {
+                VStack {
+                    Spacer()
+                    Image (systemName: "server.rack")
+                    .font (.system(size: 30))
+                    .foregroundStyle(.gray)
+                    ContentUnavailableView("Add a Server", systemImage: "",
+                       description: Text ("Let's get started! Add a server using your phone."))
+                    .scrollDisabled(true)
+                    Spacer()
+                }.padding()
+               
+            }
+        }
+
         .onReceive(NotificationCenter.default.publisher(for: NSPersistentCloudKitContainer.eventChangedNotification)) { notification in
             guard let event = notification.userInfo?[NSPersistentCloudKitContainer.eventNotificationUserInfoKey] as? NSPersistentCloudKitContainer.Event else {
                 return
@@ -36,6 +75,9 @@ struct ContentView: View {
             if event.endDate != nil && event.type == .import {
                 reloadData()
             }
+        }.onAppear {
+            let vm = ServerStatusViewModel(server: testServer())
+//            serverViewModels.append(vm)
         }
     }
     

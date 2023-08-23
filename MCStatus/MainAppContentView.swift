@@ -31,9 +31,9 @@ struct MainAppContentView: View {
                     }
                     label: {
                         if let status = viewModel.status {
-                            Text(viewModel.server.name! + " - " + status.getDisplayText())
+                            Text(viewModel.server.name + " - " + status.getDisplayText())
                         } else {
-                            Text(viewModel.server.name! + " - " + viewModel.loadingStatus.rawValue)
+                            Text(viewModel.server.name + " - " + viewModel.loadingStatus.rawValue)
                         }
                     }
                 }
@@ -67,6 +67,7 @@ struct MainAppContentView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         showingAddSheet.toggle()
+//                        testCall()
                     } label: {
                         Label("Add Item", systemImage: "plus")
                     }
@@ -114,12 +115,12 @@ struct MainAppContentView: View {
         }
         
         self.serverViewModels = results.map {
-            if let cachedVm = serverViewModelCache[$0.id!] {
+            if let cachedVm = serverViewModelCache[$0.id] {
                 return cachedVm
             }
             
             let vm = ServerStatusViewModel(server: $0)
-            serverViewModelCache[$0.id!] = vm
+            serverViewModelCache[$0.id] = vm
             if !forceRefresh {
                 vm.reloadData()
             }

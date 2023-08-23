@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Status: String {
+enum Status: String, Codable {
     case Online, Offline, Unknown
 }
 
@@ -16,7 +16,7 @@ enum Source: Codable {
 }
 
 @Observable
-class ServerStatus: Identifiable {
+class ServerStatus: Identifiable, Codable {
     var source: Source?
     var description: FormattedMOTD?
     var status = Status.Unknown
@@ -33,14 +33,14 @@ class ServerStatus: Identifiable {
 }
 
 
-class Player {
+class Player: Codable {
     init(name: String) {
         self.name = name
     }
     var name = ""
 }
 
-class FormattedMOTD {
+class FormattedMOTD: Codable {
     init(messageSections: [FormattedMOTDSection]) {
         self.messageSections = messageSections
     }
@@ -48,7 +48,7 @@ class FormattedMOTD {
 }
 
 
-class FormattedMOTDSection {
+class FormattedMOTDSection: Codable {
     
     init () {
         
@@ -64,7 +64,7 @@ class FormattedMOTDSection {
 }
 
 
-enum MOTDFormatter {
+enum MOTDFormatter: Codable {
     case Bold
     case Italic
     case Underline

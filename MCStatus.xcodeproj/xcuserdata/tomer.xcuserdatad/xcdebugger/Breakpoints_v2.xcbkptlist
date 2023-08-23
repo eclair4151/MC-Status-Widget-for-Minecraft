@@ -1323,8 +1323,8 @@
             filePath = "MCStatus/MainAppContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -1339,8 +1339,8 @@
             filePath = "MCStatus/MainAppContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -1349,14 +1349,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "31BD191E-71E8-4419-B8B4-7B8279E6DCA0"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCStatus/MainAppContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -1602,49 +1602,94 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DA62E40E-488C-459F-80C1-7102308C902F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MCStatusWatchApp/ConnectivityProvider.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "send(message:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "56A1407E-4471-42DC-BCD6-FCBFB0102BA5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MCStatusWatchApp/ConnectivityProvider.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "send(message:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "0E7959AA-CF98-42C1-9BC0-6619AC0E5E76"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCStatusWatchApp/ConnectivityProvider.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "send(message:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0E7959AA-CF98-42C1-9BC0-6619AC0E5E76 - b710ec1e1ae87829"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for MCStatusWatchApp_Watch_App.ConnectivityProvider.send(message: Swift.Dictionary&lt;Swift.String, Any&gt;) async throws -&gt; ()"
+                  moduleName = "MCStatusWatchApp Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ConnectivityProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "376">
+               </Location>
+               <Location
+                  uuid = "0E7959AA-CF98-42C1-9BC0-6619AC0E5E76 - b710ec1e1ae878ca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for MCStatusWatchApp_Watch_App.ConnectivityProvider.send(message: Swift.Dictionary&lt;Swift.String, Any&gt;) async throws -&gt; ()"
+                  moduleName = "MCStatusWatchApp Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ConnectivityProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "268">
+               </Location>
+               <Location
+                  uuid = "0E7959AA-CF98-42C1-9BC0-6619AC0E5E76 - 9d4bcbd125459bd5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for MCStatusWatchApp_Watch_App.ConnectivityProvider.send(message: Swift.Dictionary&lt;Swift.String, Any&gt;) async throws -&gt; ()"
+                  moduleName = "MCStatusWatchApp Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ConnectivityProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "0E7959AA-CF98-42C1-9BC0-6619AC0E5E76 - 238e9841b081bcc4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for MCStatusWatchApp_Watch_App.ConnectivityProvider.send(message: Swift.Dictionary&lt;Swift.String, Any&gt;) async throws -&gt; ()"
+                  moduleName = "MCStatusWatchApp Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ConnectivityProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "0E7959AA-CF98-42C1-9BC0-6619AC0E5E76 - e9c7b393fdb25ec7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for MCStatusWatchApp_Watch_App.ConnectivityProvider.send(message: Swift.Dictionary&lt;Swift.String, Any&gt;) async throws -&gt; ()"
+                  moduleName = "MCStatusWatchApp Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ConnectivityProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1657,8 +1702,8 @@
             filePath = "MCStatusWatchApp/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "reloadData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1673,42 +1718,10 @@
             filePath = "MCStatusWatchApp/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "body"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "5953A1E0-1B0D-4794-B35D-15D680787EF1 - 739c9e606cd6e0b0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MCStatusWatchApp_Watch_App.ContentView.reloadData() -&gt; ()"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "848">
-               </Location>
-               <Location
-                  uuid = "5953A1E0-1B0D-4794-B35D-15D680787EF1 - 7f2d22192256d7ee"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Foundation.Notification) -&gt; () in MCStatusWatchApp_Watch_App.ContentView.body.getter : some"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "1548">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1721,10 +1734,138 @@
             filePath = "MCStatusWatchApp/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "FC3A9565-F706-4E4D-8EAF-6FD69637184D - 25803b09001b09fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MCStatusWatchApp_Watch_App.ContentView.body.getter : some"
+                  moduleName = "MCStatusWatchApp Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "1124">
+               </Location>
+               <Location
+                  uuid = "FC3A9565-F706-4E4D-8EAF-6FD69637184D - 8fdce662346b2dc3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (Foundation.Notification) -&gt; () in MCStatusWatchApp_Watch_App.ContentView.body.getter : some"
+                  moduleName = "MCStatusWatchApp Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "264">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3FB527C0-E719-4DB6-9726-C94C715C1BF5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCStatusWatchApp/ConnectivityProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "init(withListener:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3FB527C0-E719-4DB6-9726-C94C715C1BF5 - 24192d2decb6f50b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MCStatusWatchApp_Watch_App.ConnectivityProvider.init(withListener: (MCStatusWatchApp_Watch_App.SavedMinecraftServer, MCStatusWatchApp_Watch_App.ServerStatus) -&gt; ()) -&gt; MCStatusWatchApp_Watch_App.ConnectivityProvider"
+                  moduleName = "MCStatusWatchApp Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ConnectivityProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "3FB527C0-E719-4DB6-9726-C94C715C1BF5 - 24192d2decb6f524"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MCStatusWatchApp_Watch_App.ConnectivityProvider.init(withListener: (MCStatusWatchApp_Watch_App.SavedMinecraftServer, MCStatusWatchApp_Watch_App.ServerStatus) -&gt; ()) -&gt; MCStatusWatchApp_Watch_App.ConnectivityProvider"
+                  moduleName = "MCStatusWatchApp Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ConnectivityProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "284">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "59624F53-4DC8-48A5-BA7A-8167AF7256A9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCStatusWatchApp/ConnectivityProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "init()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "59624F53-4DC8-48A5-BA7A-8167AF7256A9 - 3e3836f7c04ba198"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MCStatusWatchApp_Watch_App.ConnectivityProvider.init() -&gt; MCStatusWatchApp_Watch_App.ConnectivityProvider"
+                  moduleName = "MCStatusWatchApp Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ConnectivityProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "59624F53-4DC8-48A5-BA7A-8167AF7256A9 - 3e3836f7c04ba198"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MCStatusWatchApp_Watch_App.ConnectivityProvider.init() -&gt; MCStatusWatchApp_Watch_App.ConnectivityProvider"
+                  moduleName = "MCStatusWatchApp Watch App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ConnectivityProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "152">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

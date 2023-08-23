@@ -20,8 +20,8 @@ struct ServerStatusDetailView: View {
     
     var body: some View {
         ScrollView {
-            Text("\(serverStatusViewModel.server.name!)")
-            Text("\(serverStatusViewModel.server.serverUrl! + ":" + String(serverStatusViewModel.server.serverPort!))")
+            Text("\(serverStatusViewModel.server.name)")
+            Text("\(serverStatusViewModel.server.serverUrl + ":" + String(serverStatusViewModel.server.serverPort))")
             Text("\("Version: " + (serverStatusViewModel.status?.version ?? "Loading"))")
             Text("Online Players: " + String(serverStatusViewModel.status?.onlinePlayerCount ?? 0))
         }.refreshable {

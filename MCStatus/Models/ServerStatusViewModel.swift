@@ -26,7 +26,6 @@ class ServerStatusViewModel: Identifiable {
             loadingStatus = .Loading
             let statusResult = await ServerStatusChecker.checkServer(server: server)
             self.status = statusResult
-//            StatusCheckerCache.addStatusToCache(server: server, status: statusResult)
             loadingStatus = .Finished
         }
     }

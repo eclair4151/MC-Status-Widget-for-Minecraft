@@ -69,9 +69,9 @@ struct EditServerView: View {
             
         }
             .onAppear {
-            tempServerInput = server.serverUrl!
-            tempPortInput = server.serverPort!
-            tempNameInput = server.name!
+            tempServerInput = server.serverUrl
+            tempPortInput = server.serverPort
+            tempNameInput = server.name
         }.interactiveDismissDisabled(inputHasChanged())
     }
     
@@ -80,8 +80,8 @@ struct EditServerView: View {
     }
     
     private func inputHasChanged() -> Bool {
-        tempNameInput != server.name! ||
-        tempServerInput != server.serverUrl! ||
+        tempNameInput != server.name ||
+        tempServerInput != server.serverUrl ||
         tempPortInput != server.serverPort
     }
     
