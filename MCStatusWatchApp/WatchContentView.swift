@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  WatchContentView.swift
 //  MCStatusWatchApp Watch App
 //
 //  Created by Tomer Shemesh on 8/7/23.
@@ -15,11 +15,13 @@ func testServer() -> SavedMinecraftServer {
     return SavedMinecraftServer(id: UUID(), serverType: .Java, name: "Hodor", serverUrl: "zero.minr.org", serverPort: 25565)
 }
 
-struct ContentView: View {
+struct WatchContentView: View {
     
     @Environment(\.modelContext) private var modelContext
     @State private var serverViewModels: [ServerStatusViewModel] = []
     @State private var serverViewModelCache: [UUID:ServerStatusViewModel] = [:]
+    
+    var statusChecker = WatchServerStatusChecker()
     
     var body: some View {
         NavigationView {
@@ -42,7 +44,7 @@ struct ContentView: View {
                 if !serverViewModels.isEmpty {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-    //                        reloadData(forceRefrfesh)
+                            reloadData(forceRefresh: true)
                         } label: {
                             Label("Refresh", systemImage: "arrow.clockwise")
                         }
@@ -62,10 +64,8 @@ struct ContentView: View {
                     .scrollDisabled(true)
                     Spacer()
                 }.padding()
-               
             }
         }
-
         .onReceive(NotificationCenter.default.publisher(for: NSPersistentCloudKitContainer.eventChangedNotification)) { notification in
             guard let event = notification.userInfo?[NSPersistentCloudKitContainer.eventNotificationUserInfoKey] as? NSPersistentCloudKitContainer.Event else {
                 return
@@ -76,21 +76,51 @@ struct ContentView: View {
                 reloadData()
             }
         }.onAppear {
-            let vm = ServerStatusViewModel(server: testServer())
-//            serverViewModels.append(vm)
+            statusChecker.responseListener = { id, status in
+                guard let servervVM = self.serverViewModelCache[id] else {
+                    return
+                }
+                
+                servervVM.status = status
+            }
+            reloadData()
         }
     }
     
-    private func reloadData() {
+    private func reloadData(forceRefresh:Bool = false) {
         let fetch = FetchDescriptor<SavedMinecraftServer>(
             predicate: nil,
             sortBy: [.init(\.displayOrder)]
         )
-        guard let results = try? modelContext.fetch(fetch) else {
+        guard let servers = try? modelContext.fetch(fetch) else {
+            self.serverViewModels = []
             return
         }
         
-        print(results.count)
+        var serversToCheck:[SavedMinecraftServer] = []
+        
+        self.serverViewModels = servers.map {
+            if let cachedVm = serverViewModelCache[$0.id] {
+                return cachedVm
+            }
+            
+            let vm = ServerStatusViewModel(server: $0)
+            serverViewModelCache[$0.id] = vm
+            if !forceRefresh {
+                serversToCheck.append($0)
+            }
+            return vm
+        }
+        
+        if forceRefresh {
+            serversToCheck = servers
+        }
+        
+        guard !serversToCheck.isEmpty else {
+            return
+        }
+        
+        statusChecker.checkServers(servers: serversToCheck)
     }
 }
 

@@ -16,14 +16,14 @@ enum WatchConnectivityError: Error {
 
 class ConnectivityProvider: NSObject, WCSessionDelegate {
         
-    var statusListener: ((SavedMinecraftServer,ServerStatus) -> Void)?
+    var responseListener: (([String:Any]) -> Void)?
     
     override init() {
         super.init()
     }
     
-    init(withListener listener: @escaping (SavedMinecraftServer,ServerStatus) -> Void) {
-        self.statusListener = listener
+    init(withListener listener: @escaping ([String:Any]) -> Void) {
+        self.responseListener = listener
         super.init()
         self.connect()
     }
@@ -50,13 +50,7 @@ class ConnectivityProvider: NSObject, WCSessionDelegate {
     
     // this should be where we recived the status from the iPhone after requesting it
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        guard let status = message["response"] as? (SavedMinecraftServer,ServerStatus) else {
-            return
-        }
-        
-        // do something with status?
-        print("got status!")
-        self.statusListener?(status.0,status.1)
+        responseListener?(message)
     }
     
     

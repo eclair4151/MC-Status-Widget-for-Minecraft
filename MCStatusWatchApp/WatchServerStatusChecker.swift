@@ -7,8 +7,78 @@
 
 import Foundation
 class WatchServerStatusChecker {
-    static func checkServersViaPhone(servers:[SavedMinecraftServer], connectivityProvider: ConnectivityProvider) async throws -> [(SavedMinecraftServer, ServerStatus)] {
+    
+    var responseListener: ((UUID, ServerStatus) -> Void)?
+    let connectivityProvider = ConnectivityProvider()
+    var expectedResponseBatches: Set<ExpectedResultBatch> = Set()
+    
+    init() {
+        self.connectivityProvider.responseListener = { message in
+            //recevied message from phone. Parse and remove from expected results, before passing on to listener.
+            guard let (serverID, status) = self.parseWatchResponse(message: message) else {
+                return
+            }
+            
+            for batch in self.expectedResponseBatches {
+                batch.expectedResults.removeValue(forKey: serverID)
+            }
+            
+            self.responseListener?(serverID, status)
+        }
+    }
+    
+
+    
+
+    func checkServers(servers:[SavedMinecraftServer]) {
+        let serverBatch = servers.reduce(into: [UUID: SavedMinecraftServer]()) {
+            $0[$1.id] = $1
+        }
         
+        let expectedBatch = ExpectedResultBatch(expectedResults: serverBatch)
+        
+        expectedResponseBatches.insert(expectedBatch)
+        Task {
+            do {
+                try await checkServersViaPhone(servers: servers)
+                // wait 12 seconds, and check if we need to backup for any of the pending servers.
+                try await Task.sleep(nanoseconds: UInt64(12) * NSEC_PER_SEC)
+            } catch {
+                
+            }
+            
+            // after 12 seconds, anything left in the batch needs to be checked via the backup.
+            expectedBatch.expectedResults.forEach { id, server in
+                // start a new async task for each request to go in parrallel
+                Task {
+                    let status = await checkServerViaWeb(server: server)
+                    self.responseListener?(id, status)
+                }
+            }
+            
+            
+            expectedResponseBatches.remove(expectedBatch)
+        }
+    }
+    
+    
+    private func parseWatchResponse(message: [String:Any]) -> (UUID, ServerStatus)? {
+        guard let responseString = message["response"] as? String, let jsonData = responseString.data(using: .utf8) else {
+            return nil
+        }
+        
+        let decoder = JSONDecoder()
+        do {
+            let response = try decoder.decode(WatchResponseMessage.self, from: jsonData)
+            return (response.id, response.status)
+        } catch {
+            print("Error decoding: \(error)")
+            return nil
+        }
+    }
+    
+    
+    private func checkServersViaPhone(servers:[SavedMinecraftServer]) async throws {
         let messageRequest = WatchRequestMessage()
         messageRequest.servers = servers
         let encoder = JSONEncoder()
@@ -23,13 +93,11 @@ class WatchServerStatusChecker {
         
         let payload = ["request":jsonString]
        
-        try await connectivityProvider.send(message: payload)
-
-        return []
+        try await self.connectivityProvider.send(message: payload)
     }
     
     // if we are calling third party do it individually so we can show the responses as they come in
-    static func checkServerViaWeb(server: SavedMinecraftServer) async -> ServerStatus {
+    private func checkServerViaWeb(server: SavedMinecraftServer) async -> ServerStatus {
         do {
             print("CALLING BACKUP SERVER")
             let res = try await WebServerStatusChecker.checkServer(serverUrl: server.serverUrl, serverPort: server.serverPort, serverType: server.serverType)
@@ -43,4 +111,20 @@ class WatchServerStatusChecker {
             return ServerStatus()
         }
     }
+}
+
+
+class ExpectedResultBatch: Hashable {
+    static func == (lhs: ExpectedResultBatch, rhs: ExpectedResultBatch) -> Bool {
+        return lhs.expectedResults == rhs.expectedResults
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        return hasher.combine(expectedResults)
+    }
+    
+    init(expectedResults: [UUID : SavedMinecraftServer]) {
+        self.expectedResults = expectedResults
+    }
+    var expectedResults: [UUID: SavedMinecraftServer] = [:]
 }

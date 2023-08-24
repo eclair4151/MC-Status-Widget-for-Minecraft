@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F10E94B12A8C61B60039DD2B /* ConnectivityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E94B02A8C61B60039DD2B /* ConnectivityProvider.swift */; };
 		F11F634E2A81E50E00D47187 /* MCStatusWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F634D2A81E50E00D47187 /* MCStatusWatchApp.swift */; };
-		F11F63502A81E50E00D47187 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F634F2A81E50E00D47187 /* ContentView.swift */; };
+		F11F63502A81E50E00D47187 /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F634F2A81E50E00D47187 /* WatchContentView.swift */; };
 		F11F63522A81E51000D47187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F11F63512A81E51000D47187 /* Assets.xcassets */; };
 		F11F63552A81E51000D47187 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F11F63542A81E51000D47187 /* Preview Assets.xcassets */; };
 		F11F63582A81E51000D47187 /* MCStatusWatchApp Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F11F634B2A81E50E00D47187 /* MCStatusWatchApp Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -97,7 +97,7 @@
 		F10E94B02A8C61B60039DD2B /* ConnectivityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityProvider.swift; sourceTree = "<group>"; };
 		F11F634B2A81E50E00D47187 /* MCStatusWatchApp Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MCStatusWatchApp Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F11F634D2A81E50E00D47187 /* MCStatusWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusWatchApp.swift; sourceTree = "<group>"; };
-		F11F634F2A81E50E00D47187 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F11F634F2A81E50E00D47187 /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
 		F11F63512A81E51000D47187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F11F63542A81E51000D47187 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F1340D1E2A7352BE00E288C4 /* JavaServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JavaServerStatusChecker.swift; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 				F1C9A9AF2A879FBC00C058C7 /* MCStatusWatchApp-Info.plist */,
 				F1C9A9AE2A879A4800C058C7 /* MCStatusWatchApp.entitlements */,
 				F11F634D2A81E50E00D47187 /* MCStatusWatchApp.swift */,
-				F11F634F2A81E50E00D47187 /* ContentView.swift */,
+				F11F634F2A81E50E00D47187 /* WatchContentView.swift */,
 				F11F63512A81E51000D47187 /* Assets.xcassets */,
 				F11F63532A81E51000D47187 /* Preview Content */,
 				F10E94B02A8C61B60039DD2B /* ConnectivityProvider.swift */,
@@ -433,7 +433,7 @@
 				F174A3072A91671C0051DA5B /* WebServerStatusParser.swift in Sources */,
 				F174A3082A9167270051DA5B /* JavaServerStatusParser.swift in Sources */,
 				F144E0A02A95710C00E9623F /* ServerStatusChecker.swift in Sources */,
-				F11F63502A81E50E00D47187 /* ContentView.swift in Sources */,
+				F11F63502A81E50E00D47187 /* WatchContentView.swift in Sources */,
 				F174A2FE2A8F8ED70051DA5B /* UserDefaultHelper.swift in Sources */,
 				F174A3032A9160CA0051DA5B /* WebServerStatusChecker.swift in Sources */,
 				F11F634E2A81E50E00D47187 /* MCStatusWatchApp.swift in Sources */,
