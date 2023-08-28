@@ -184,11 +184,12 @@ let servers2 = [
     "msl.serb-craft.com"
 ]
 func testCall() {
-    for serverURL in servers {
-    let statusCheckerTask = Task {
-        let server = SavedMinecraftServer(id: UUID(), serverType: .Java, name: "", serverUrl: serverURL, serverPort: 25565)
-            let status = await ServerStatusChecker.checkServer(server: server)
-            print("👉: " + serverURL + "   -   " + status.version + "  -   " + status.status.rawValue)
-        }
-    }
+//    for serverURL in servers {
+//    let statusCheckerTask = Task {
+//        let server = SavedMinecraftServer(id: UUID(), serverType: .Java, name: "", serverUrl: serverURL, serverPort: 25565)
+//            let status = await ServerStatusChecker.checkServer(server: server)
+//            print("👉: " + serverURL + "   -   " + status.version + "  -   " + status.status.rawValue)
+//        }
+//    }
+    
 }

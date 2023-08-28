@@ -13,16 +13,17 @@ import CoreData
 struct MainAppContentView: View {
     let watchHelper = WatchHelper()
     
+    @Environment(\.scenePhase) var scenePhase
     @Environment(\.modelContext) private var modelContext
-    @State private var serverViewModels: [ServerStatusViewModel] = []
+    @State private var serverViewModels: [ServerStatusViewModel]?
     // i cant think of a better way to do this since i dont want to regenerate the view model every time
     @State private var serverViewModelCache: [UUID:ServerStatusViewModel] = [:]
     @State private var showingAddSheet = false
-
+    
     var body: some View {
         NavigationView {
             List {
-                ForEach(serverViewModels) { viewModel in
+                ForEach(serverViewModels ?? []) { viewModel in
                     NavigationLink {
                         ServerStatusDetailView(serverStatusViewModel: viewModel) {
                             reloadData()
@@ -38,7 +39,7 @@ struct MainAppContentView: View {
                     }
                 }
                 .onMove {
-                    serverViewModels.move(fromOffsets: $0, toOffset: $1)
+                    serverViewModels?.move(fromOffsets: $0, toOffset: $1)
                     //update underlying display order
                     refreshDisplayOrders()
                 }
@@ -46,7 +47,8 @@ struct MainAppContentView: View {
             }.refreshable {
                 reloadData(forceRefresh: true)
             }.overlay {
-                if serverViewModels.isEmpty {
+                //hack to avoid showing overlay for a split second before we have had a chance to check the database
+                if  let viewModels = self.serverViewModels,  viewModels.isEmpty {
                     ContentUnavailableView {
                         Label("Add Your First Server", systemImage: "server.rack")
                     } description: {
@@ -73,7 +75,19 @@ struct MainAppContentView: View {
                     }
                 }
             }
-        }.onAppear {
+        }
+        .onChange(of: scenePhase, initial: true) { old,newPhase in
+            // this is some code to investigate an apple watch bug
+            if newPhase == .active {
+                print("Active")
+                reloadData()
+            } else if newPhase == .inactive {
+                print("Inactive")
+            } else if newPhase == .background {
+                print("Background")
+            }
+        }
+        .onAppear {
             reloadData()
         }.onReceive(NotificationCenter.default.publisher(for: NSPersistentCloudKitContainer.eventChangedNotification)) { notification in
             guard let event = notification.userInfo?[NSPersistentCloudKitContainer.eventNotificationUserInfoKey] as? NSPersistentCloudKitContainer.Event else {
@@ -95,16 +109,21 @@ struct MainAppContentView: View {
             }
         }
     }
-
-
     
     
     private func refreshDisplayOrders() {
-        serverViewModels.enumerated().forEach { index, vm in
+        serverViewModels?.enumerated().forEach { index, vm in
             vm.server.displayOrder = index + 1
         }
     }
     private func reloadData(forceRefresh:Bool = false) {
+        
+        // crashes when run in background from apple watch??
+        // FB13069019
+        guard scenePhase != .background else {
+            return
+        }
+            
         let fetch = FetchDescriptor<SavedMinecraftServer>(
             predicate: nil,
             sortBy: [.init(\.displayOrder)]
@@ -126,9 +145,9 @@ struct MainAppContentView: View {
             }
             return vm
         }
-        
+                
         if forceRefresh {
-            self.serverViewModels.forEach { vm in
+            self.serverViewModels?.forEach { vm in
                 vm.reloadData()
             }
         }

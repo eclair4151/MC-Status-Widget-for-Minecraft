@@ -90,6 +90,7 @@ struct EditServerView: View {
             server.serverUrl = tempServerInput
             server.serverPort = tempPortInput
             server.name = tempNameInput
+//            server.serverType = .Bedrock
             modelContext.insert(server)
             do {
                 // Try to save

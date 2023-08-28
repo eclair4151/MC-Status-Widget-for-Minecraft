@@ -14,10 +14,13 @@ class WatchServerStatusChecker {
     
     init() {
         self.connectivityProvider.responseListener = { message in
+            
             //recevied message from phone. Parse and remove from expected results, before passing on to listener.
             guard let (serverID, status) = self.parseWatchResponse(message: message) else {
                 return
             }
+            
+            print("Received response from phone!")
             
             for batch in self.expectedResponseBatches {
                 batch.expectedResults.removeValue(forKey: serverID)
@@ -31,6 +34,7 @@ class WatchServerStatusChecker {
     
 
     func checkServers(servers:[SavedMinecraftServer]) {
+        print("Watch is going to ask for server status from phone")
         let serverBatch = servers.reduce(into: [UUID: SavedMinecraftServer]()) {
             $0[$1.id] = $1
         }
@@ -40,14 +44,14 @@ class WatchServerStatusChecker {
         expectedResponseBatches.insert(expectedBatch)
         Task {
             do {
-                try await checkServersViaPhone(servers: servers)
+                try checkServersViaPhone(servers: servers)
                 // wait 12 seconds, and check if we need to backup for any of the pending servers.
-                try await Task.sleep(nanoseconds: UInt64(12) * NSEC_PER_SEC)
+                try await Task.sleep(nanoseconds: UInt64(11) * NSEC_PER_SEC)
             } catch {
                 
             }
             
-            // after 12 seconds, anything left in the batch needs to be checked via the backup.
+//            // after 12 seconds, anything left in the batch needs to be checked via the backup.
             expectedBatch.expectedResults.forEach { id, server in
                 // start a new async task for each request to go in parrallel
                 Task {
@@ -55,7 +59,6 @@ class WatchServerStatusChecker {
                     self.responseListener?(id, status)
                 }
             }
-            
             
             expectedResponseBatches.remove(expectedBatch)
         }
@@ -78,7 +81,7 @@ class WatchServerStatusChecker {
     }
     
     
-    private func checkServersViaPhone(servers:[SavedMinecraftServer]) async throws {
+    private func checkServersViaPhone(servers:[SavedMinecraftServer]) throws {
         let messageRequest = WatchRequestMessage()
         messageRequest.servers = servers
         let encoder = JSONEncoder()
@@ -93,7 +96,8 @@ class WatchServerStatusChecker {
         
         let payload = ["request":jsonString]
        
-        try await self.connectivityProvider.send(message: payload)
+        print("sending request...")
+        try self.connectivityProvider.send(message: payload)
     }
     
     // if we are calling third party do it individually so we can show the responses as they come in

@@ -20,31 +20,19 @@ class ConnectivityProvider: NSObject, WCSessionDelegate {
     
     override init() {
         super.init()
-    }
-    
-    init(withListener listener: @escaping ([String:Any]) -> Void) {
-        self.responseListener = listener
-        super.init()
         self.connect()
     }
     
     // converted code to comminucate with iPhone as async/Await
     // send a message to the phone. error throw if one is encountered
-    func send(message: [String:Any]) async throws {
+    func send(message: [String:Any]) throws {
         guard WCSession.default.isReachable else {
             // Phone not connected. throw error
             throw WatchConnectivityError.DeviceNotConnected
         }
         
-        return try await withCheckedThrowingContinuation { continuation in
-            WCSession.default.sendMessage(message) { response in
-                print("watch got response: " + response.description)
-                continuation.resume(returning: ())
-            } errorHandler: { error in
-                print("Get error trying to talk to watch: " + error.localizedDescription)
-                // throw error
-                continuation.resume(throwing: error)
-            }
+        WCSession.default.sendMessage(message, replyHandler: nil) { error in
+            print("Get error trying to talk to phone: " + error.localizedDescription)
         }
     }
     
@@ -52,7 +40,6 @@ class ConnectivityProvider: NSObject, WCSessionDelegate {
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         responseListener?(message)
     }
-    
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         print("Watch session activationState: " + String(activationState.rawValue))
