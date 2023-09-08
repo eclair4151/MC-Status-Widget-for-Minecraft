@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MCStatusDataLayer
 
 struct ServerStatusDetailView: View {
     @Environment(\.modelContext) private var modelContext
@@ -70,8 +71,4 @@ struct ServerStatusDetailView: View {
         self.presentationMode.wrappedValue.dismiss()
     }
 }
-
-//#Preview {
-//    ServerStatusDetailView(serverStatusViewModel: ServerStatusViewModel(server: SavedMinecraftServer(id:UUID() ,serverType: .Java, name: "Hodor", serverUrl: "zero.minr.org", serverPort: 255)))
-//}
 

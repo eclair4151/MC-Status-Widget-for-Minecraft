@@ -9,8 +9,10 @@ import SwiftUI
 import SwiftData
 import CloudKit
 import CoreData
+import MCStatusDataLayer
 
 struct MainAppContentView: View {
+    
     let watchHelper = WatchHelper()
     
     @Environment(\.scenePhase) var scenePhase
@@ -96,11 +98,12 @@ struct MainAppContentView: View {
             
             // may have gotten new/changed data refresh models from database
             if event.endDate != nil && event.type == .import {
+                print("refresh triggered via eventChangedNotification")
                 reloadData()
             }
         }.sheet(isPresented: $showingAddSheet) {
             // create new binding server to add
-            let newServer = SavedMinecraftServer(id: UUID(), serverType: .Java, name: "", serverUrl: "", serverPort: 25565, srvServerUrl: "", srvServerPort: 0, serverIcon: "", displayOrder: 0)
+            let newServer = SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "", serverUrl: "", serverPort: 25565, srvServerUrl: "", srvServerPort: 0, serverIcon: "", displayOrder: 0)
             NavigationView {
                 EditServerView(server: newServer, isPresented: $showingAddSheet) {
                     reloadData()

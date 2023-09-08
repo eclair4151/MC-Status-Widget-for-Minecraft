@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import MCStatusDataLayer
 
 // random helper function
 class SwiftDataHelper {
@@ -25,6 +26,41 @@ class SwiftDataHelper {
         // if this is broken then something is f'ed up. just crash
         return try! ModelContainer(for: SavedMinecraftServer.self)
     }
+    
+    @MainActor static func getSavedServers(container: ModelContainer) -> [SavedMinecraftServer] {
+        let modelContext = container.mainContext
+        
+        let fetch = FetchDescriptor<SavedMinecraftServer>(
+            predicate: nil,
+            sortBy: [.init(\.displayOrder)]
+        )
+        guard let results = try? modelContext.fetch(fetch) else {
+            return []
+        }
+        
+        return results
+    }
+    
+    @MainActor static func getSavedServerById(container: ModelContainer, server_id: UUID) -> SavedMinecraftServer? {
+        let modelContext = container.mainContext
+
+        let serverPredicate = #Predicate<SavedMinecraftServer> {
+            $0.id == server_id
+        }
+        
+        var fetch = FetchDescriptor<SavedMinecraftServer>(
+            predicate: serverPredicate,
+            sortBy: [.init(\.displayOrder)]
+        )
+        fetch.fetchLimit = 1
+        
+        guard let results = try? modelContext.fetch(fetch) else {
+            return nil
+        }
+        
+        return results.first
+    }
+    
 }
 
 

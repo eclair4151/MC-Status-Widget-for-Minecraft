@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import MCStatusDataLayer
+
 class WatchServerStatusChecker {
     
     var responseListener: ((UUID, ServerStatus) -> Void)?

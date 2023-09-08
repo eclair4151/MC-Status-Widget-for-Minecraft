@@ -9,11 +9,11 @@ import SwiftUI
 import SwiftData
 import CloudKit
 import CoreData
+import MCStatusDataLayer
 
-
-func testServer() -> SavedMinecraftServer {
-    return SavedMinecraftServer(id: UUID(), serverType: .Java, name: "Hodor", serverUrl: "zero.minr.org", serverPort: 25565)
-}
+//func testServer() -> SavedMinecraftServer {
+//    return SavedMinecraftServer(id: UUID(), serverType: .Java, name: "Hodor", serverUrl: "zero.minr.org", serverPort: 25565)
+//}
 
 struct WatchContentView: View {
     

@@ -1323,8 +1323,8 @@
             filePath = "MCStatus/MainAppContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -1339,8 +1339,8 @@
             filePath = "MCStatus/MainAppContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -1355,8 +1355,8 @@
             filePath = "MCStatus/Networking/ServerStatusChecker.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "checkServer(server:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1371,8 +1371,8 @@
             filePath = "MCStatus/Views/EditServerView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -1419,8 +1419,8 @@
             filePath = "MCStatus/Views/EditServerView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -1545,8 +1545,8 @@
             filePath = "MCStatus/Views/EditServerView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -1829,8 +1829,8 @@
             filePath = "MCStatusWatchApp/WatchServerStatusChecker.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "checkServersViaPhone(servers:)"
             landmarkType = "7">
             <Locations>
@@ -1892,8 +1892,8 @@
             filePath = "MCStatusWatchApp/WatchServerStatusChecker.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "checkServersViaPhone(servers:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2004,8 +2004,8 @@
             filePath = "MCStatus/Helpers/WatchHelper.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
             landmarkName = "init()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2020,8 +2020,8 @@
             filePath = "MCStatus/Helpers/WatchHelper.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "session(_:didReceiveMessage:)"
             landmarkType = "7">
             <Locations>
@@ -2098,8 +2098,8 @@
             filePath = "MCStatus/Helpers/WatchHelper.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "session(_:activationDidCompleteWith:error:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2114,8 +2114,8 @@
             filePath = "MCStatus/Helpers/WatchHelper.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "handleWatchMessage(message:session:)"
             landmarkType = "7">
             <Locations>
@@ -2162,8 +2162,8 @@
             filePath = "MCStatus/Helpers/WatchHelper.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "handleWatchMessage(message:session:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2178,8 +2178,8 @@
             filePath = "MCStatus/Helpers/WatchHelper.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "handleWatchMessage(message:session:)"
             landmarkType = "7">
             <Locations>
@@ -2226,8 +2226,8 @@
             filePath = "MCStatusWatchApp/WatchServerStatusChecker.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "init()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2274,8 +2274,8 @@
             filePath = "MCStatusWatchApp/WatchServerStatusChecker.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "checkServers(servers:)"
             landmarkType = "7">
             <Locations>
@@ -2352,8 +2352,8 @@
             filePath = "MCStatus/MainAppContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -2419,6 +2419,276 @@
             endingLineNumber = "80"
             landmarkName = "body"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9EB437EE-339A-4F52-AAEC-B83005B23E50"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Intents/Entities/SavedServerEntity.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "suggestedEntities()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9EB437EE-339A-4F52-AAEC-B83005B23E50 - 70bc629823ddf441"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for MC_Status.SavedServerQuery.suggestedEntities() async throws -&gt; Swift.Array&lt;MC_Status.SavedServerEntity&gt;"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/Intents/Entities/SavedServerEntity.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "9EB437EE-339A-4F52-AAEC-B83005B23E50 - 70bc629823ddf5cd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for MC_Status.SavedServerQuery.suggestedEntities() async throws -&gt; Swift.Array&lt;MC_Status.SavedServerEntity&gt;"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/Intents/Entities/SavedServerEntity.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "005DFD61-83D9-4B7A-9582-E26BEFED79D4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Intents/Entities/SavedServerEntity.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "entities(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "005DFD61-83D9-4B7A-9582-E26BEFED79D4 - ab87fe29c21f70a4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for MC_Status.SavedServerQuery.entities(for: Swift.Array&lt;Foundation.UUID&gt;) async throws -&gt; Swift.Array&lt;MC_Status.SavedServerEntity&gt;"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/Intents/Entities/SavedServerEntity.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "005DFD61-83D9-4B7A-9582-E26BEFED79D4 - 46ca61665bba189d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Foundation.UUID) -&gt; Swift.Optional&lt;MC_Status.SavedServerEntity&gt; in MC_Status.SavedServerQuery.entities(for: Swift.Array&lt;Foundation.UUID&gt;) async throws -&gt; Swift.Array&lt;MC_Status.SavedServerEntity&gt;"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/Intents/Entities/SavedServerEntity.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "116">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6F307EF8-C079-44E8-B410-9BFF306495A9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCStatus/Helpers/SwiftDataHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "getModelContainter()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "530AF363-C86B-4392-B61C-345043927564"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Intents/Entities/SavedServerEntity.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "suggestedEntities()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "530AF363-C86B-4392-B61C-345043927564 - d5dce88141a834e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MC_Status.SavedMinecraftServer) -&gt; MC_Status.SavedServerEntity in MC_Status.SavedServerQuery.suggestedEntities() async throws -&gt; Swift.Array&lt;MC_Status.SavedServerEntity&gt;"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/Intents/Entities/SavedServerEntity.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  uuid = "530AF363-C86B-4392-B61C-345043927564 - d9173bd6ebf5b14f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for MC_Status.SavedServerQuery.suggestedEntities() async throws -&gt; Swift.Array&lt;MC_Status.SavedServerEntity&gt;"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/Intents/Entities/SavedServerEntity.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "530AF363-C86B-4392-B61C-345043927564 - d5dce88141a834d8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (MC_Status.SavedMinecraftServer) -&gt; MC_Status.SavedServerEntity in MC_Status.SavedServerQuery.suggestedEntities() async throws -&gt; Swift.Array&lt;MC_Status.SavedServerEntity&gt;"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/Intents/Entities/SavedServerEntity.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "902BCC29-D0B1-47C7-A568-1D2AAB25E4C0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCStatus/Networking/ServerStatusChecker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "checkServer(server:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1FB72403-6AFC-40AF-B925-33FDD8BF647F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCStatusIntentsFramework/SavedServerStatusOnlineCheckIntent.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "perform()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "44A05F15-C6EB-4CC9-87B5-3042CEC8F8AC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCStatus/Helpers/UserDefaultHelper.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "UserDefaultHelper"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "44A05F15-C6EB-4CC9-87B5-3042CEC8F8AC - e2bd977ec530cf58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static MC_Status.UserDefaultHelper.logLine(ident: Swift.String) -&gt; ()"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Helpers/UserDefaultHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "1016">
+               </Location>
+               <Location
+                  uuid = "44A05F15-C6EB-4CC9-87B5-3042CEC8F8AC - e2bd977ec530cf58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static MC_Status.UserDefaultHelper.logLine(ident: Swift.String) -&gt; ()"
+                  moduleName = "MC Status"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Helpers/UserDefaultHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "1044">
+               </Location>
+               <Location
+                  uuid = "44A05F15-C6EB-4CC9-87B5-3042CEC8F8AC - a5c3c58806567cb7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static MCStatusIntentsFramework.UserDefaultHelper.logLine(ident: Swift.String) -&gt; ()"
+                  moduleName = "MCStatusIntentsFramework"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Helpers/UserDefaultHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "1044">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

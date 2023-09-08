@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import MCStatusDataLayer
 
 @main
 struct MCStatusWatchApp_App: App {

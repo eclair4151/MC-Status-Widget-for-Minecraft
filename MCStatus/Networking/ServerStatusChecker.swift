@@ -16,6 +16,7 @@ class ServerStatusChecker {
 //        } catch {
 //            
 //        }
+        
 
         print("starting server check for: " + server.serverUrl)
         // STEP 1 if we have SRV values, check that server.

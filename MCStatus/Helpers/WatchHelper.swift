@@ -7,6 +7,7 @@
 import WatchConnectivity
 import Foundation
 import SwiftData
+import MCStatusDataLayer
 
 class WatchHelper: NSObject, WCSessionDelegate {
     override init() {

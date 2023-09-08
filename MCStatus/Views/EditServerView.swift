@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import MCStatusDataLayer
 
 struct EditServerView: View {
     
