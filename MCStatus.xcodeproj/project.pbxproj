@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F10C42102AABE5E0000107D6 /* SavedServerStatusPlayerCountIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C420F2AABE5E0000107D6 /* SavedServerStatusPlayerCountIntent.swift */; };
+		F10C42122AABEB08000107D6 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42112AABEB08000107D6 /* ArbitraryServerStatusOnlineCheckIntent.swift */; };
+		F10C42142AAD4736000107D6 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42132AAD4736000107D6 /* ServerStatusEntity.swift */; };
+		F10C42172AAD55BF000107D6 /* MCStatusShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MCStatusShortcutsProvider.swift */; };
 		F10E94B12A8C61B60039DD2B /* ConnectivityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E94B02A8C61B60039DD2B /* ConnectivityProvider.swift */; };
 		F11F634E2A81E50E00D47187 /* MCStatusWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F634D2A81E50E00D47187 /* MCStatusWatchApp.swift */; };
 		F11F63502A81E50E00D47187 /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F634F2A81E50E00D47187 /* WatchContentView.swift */; };
@@ -83,7 +85,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F10C420F2AABE5E0000107D6 /* SavedServerStatusPlayerCountIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedServerStatusPlayerCountIntent.swift; sourceTree = "<group>"; };
+		F10C42112AABEB08000107D6 /* ArbitraryServerStatusOnlineCheckIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArbitraryServerStatusOnlineCheckIntent.swift; sourceTree = "<group>"; };
+		F10C42132AAD4736000107D6 /* ServerStatusEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusEntity.swift; sourceTree = "<group>"; };
+		F10C42162AAD55BF000107D6 /* MCStatusShortcutsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusShortcutsProvider.swift; sourceTree = "<group>"; };
 		F10E94B02A8C61B60039DD2B /* ConnectivityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityProvider.swift; sourceTree = "<group>"; };
 		F11F634B2A81E50E00D47187 /* MCStatusWatchApp Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MCStatusWatchApp Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F11F634D2A81E50E00D47187 /* MCStatusWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusWatchApp.swift; sourceTree = "<group>"; };
@@ -147,6 +151,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F10C42152AAD55A6000107D6 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				F10C42162AAD55BF000107D6 /* MCStatusShortcutsProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
 		F11F634C2A81E50E00D47187 /* MCStatusWatchApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,7 +189,7 @@
 				F13E5FFB2A4BD614005BE9B2 /* MCStatus */,
 				F11F634C2A81E50E00D47187 /* MCStatusWatchApp */,
 				F1322FE32AAAB3FC005EAF56 /* MCStatusDataLayer */,
-				F1406BB92AA392DF00815BE8 /* Frameworks */,
+				F1406BAA2AA391B800815BE8 /* MCStatusIntentsFramework */,
 				F13E5FFA2A4BD614005BE9B2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -210,6 +222,7 @@
 			children = (
 				F1406BA12AA2CC4800815BE8 /* SavedServerEntity.swift */,
 				F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */,
+				F10C42132AAD4736000107D6 /* ServerStatusEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -217,6 +230,7 @@
 		F1406BAA2AA391B800815BE8 /* MCStatusIntentsFramework */ = {
 			isa = PBXGroup;
 			children = (
+				F10C42152AAD55A6000107D6 /* Providers */,
 				F149FEC32AA9696F00A269A3 /* Intents */,
 				F1406BA02AA2CC2F00815BE8 /* Entities */,
 				F1406BB72AA391F400815BE8 /* MCStatusIntentsFramework.entitlements */,
@@ -224,14 +238,6 @@
 				F1406BAF2AA391B800815BE8 /* Info.plist */,
 			);
 			path = MCStatusIntentsFramework;
-			sourceTree = "<group>";
-		};
-		F1406BB92AA392DF00815BE8 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F1406BAA2AA391B800815BE8 /* MCStatusIntentsFramework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F144E0E02A9D833A00E9623F /* Intents */ = {
@@ -248,7 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				F13083552A9ECC580024A6EE /* SavedServerStatusOnlineCheckIntent.swift */,
-				F10C420F2AABE5E0000107D6 /* SavedServerStatusPlayerCountIntent.swift */,
+				F10C42112AABEB08000107D6 /* ArbitraryServerStatusOnlineCheckIntent.swift */,
 			);
 			path = Intents;
 			sourceTree = "<group>";
@@ -502,8 +508,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F10C42172AAD55BF000107D6 /* MCStatusShortcutsProvider.swift in Sources */,
 				F1406BB82AA3928500815BE8 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
-				F10C42102AABE5E0000107D6 /* SavedServerStatusPlayerCountIntent.swift in Sources */,
+				F10C42122AABEB08000107D6 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */,
+				F10C42142AAD4736000107D6 /* ServerStatusEntity.swift in Sources */,
 				F1406BBE2AA3933000815BE8 /* SavedServerEntity.swift in Sources */,
 				F1406BAC2AA391B800815BE8 /* MCStatusIntentsFrameworkExtension.swift in Sources */,
 				F1406BBF2AA3933400815BE8 /* IntentErrors.swift in Sources */,

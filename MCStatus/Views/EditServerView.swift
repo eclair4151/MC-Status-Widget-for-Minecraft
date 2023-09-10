@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 import MCStatusDataLayer
+//import MCStatusIntentsFramework
 
 struct EditServerView: View {
     
@@ -101,6 +102,7 @@ struct EditServerView: View {
                 print(error.localizedDescription)
             }
             print("added server")
+//            MCStatusShortcutsProvider.updateAppShortcutParameters()
             parentViewRefreshCallBack()
             isPresented = false
         }

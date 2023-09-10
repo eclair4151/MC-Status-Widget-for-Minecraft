@@ -8,5 +8,16 @@
 	</array>
 	<key>WKBackgroundModes</key>
 	<array/>
+    <key>INAlternativeAppNames</key>
+    <array>
+        <dict>
+            <key>INAlternativeAppName</key>
+            <string>Status</string>
+        </dict>
+        <dict>
+            <key>INAlternativeAppName</key>
+            <string>Server Status</string>
+        </dict>
+    </array>
 </dict>
 </plist>

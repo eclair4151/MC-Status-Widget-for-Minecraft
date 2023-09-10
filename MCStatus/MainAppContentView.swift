@@ -10,6 +10,7 @@ import SwiftData
 import CloudKit
 import CoreData
 import MCStatusDataLayer
+//import MCStatusIntentsFramework
 
 struct MainAppContentView: View {
     
@@ -97,8 +98,10 @@ struct MainAppContentView: View {
             }
             
             // may have gotten new/changed data refresh models from database
+            // can we somehow check if anything actually changed? this is spam called on every open.
             if event.endDate != nil && event.type == .import {
                 print("refresh triggered via eventChangedNotification")
+//                MCStatusShortcutsProvider.updateAppShortcutParameters()
                 reloadData()
             }
         }.sheet(isPresented: $showingAddSheet) {
