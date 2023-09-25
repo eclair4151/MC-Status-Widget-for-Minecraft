@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 import MCStatusDataLayer
+import AppIntents
 
 @main
 struct MCStatusApp: App {
@@ -21,5 +22,3 @@ struct MCStatusApp: App {
         .modelContainer(SwiftDataHelper.getModelContainter())
     }
 }
-
-

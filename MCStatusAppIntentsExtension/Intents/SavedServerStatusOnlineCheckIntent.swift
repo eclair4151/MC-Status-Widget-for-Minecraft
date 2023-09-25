@@ -21,6 +21,9 @@ struct SavedServerStatusOnlineCheckIntent: AppIntent {
     
     func perform() async throws -> some ProvidesDialog & IntentResult & ReturnsValue<ServerStatusEntity>{
         
+        //Temporary hack?? it wont let me call this from the main app. FB13202979
+        MCStatusShortcutsProvider.updateAppShortcutParameters()
+        
         let container = SwiftDataHelper.getModelContainter()
         
         let serverEntityObj = if let serverEnt = self.serverEntity {

@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  MCStatusIntentsFramework
+//  MCStatusAppIntentsExtension
 //
 //  Created by Tomer Shemesh on 9/8/23.
 //

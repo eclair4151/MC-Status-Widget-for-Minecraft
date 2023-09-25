@@ -83,11 +83,11 @@ struct WatchContentView: View {
                 
                 servervVM.status = status
             }
-//            let server = SavedMinecraftServer(id: UUID(), serverType: .Java, name: "Zero", serverUrl: "zero.minr.org", serverPort: 25565)
+//            let server = SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Zero", serverUrl: "zero.minr.org", serverPort: 25565)
 //            modelContext.insert(server)
 //            print(server.name)
-            
-//            modelContext.insert(testServer())
+//            
+//            modelContext.insert(server)
             reloadData()
         }
     }

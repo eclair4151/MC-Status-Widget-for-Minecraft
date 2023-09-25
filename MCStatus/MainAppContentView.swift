@@ -10,7 +10,11 @@ import SwiftData
 import CloudKit
 import CoreData
 import MCStatusDataLayer
-//import MCStatusIntentsFramework
+
+//import MCStatusAppIntentsExtension
+
+
+
 
 struct MainAppContentView: View {
     
@@ -122,7 +126,11 @@ struct MainAppContentView: View {
             vm.server.displayOrder = index + 1
         }
     }
+    
+    
     private func reloadData(forceRefresh:Bool = false) {
+//        MCStatusShortcutsProvider.updateAppShortcutParameters()
+
         
         // crashes when run in background from apple watch??
         // FB13069019

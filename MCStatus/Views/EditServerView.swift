@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 import MCStatusDataLayer
-//import MCStatusIntentsFramework
+//import MCStatusAppIntentsExtension
 
 struct EditServerView: View {
     

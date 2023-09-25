@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F1406BA82AA391B800815BE8"
-               BuildableName = "MCStatusIntentsFramework.appex"
-               BlueprintName = "MCStatusIntentsFramework"
+               BuildableName = "MCStatusAppIntentsExtension.appex"
+               BlueprintName = "MCStatusAppIntentsExtension"
                ReferencedContainer = "container:MCStatus.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

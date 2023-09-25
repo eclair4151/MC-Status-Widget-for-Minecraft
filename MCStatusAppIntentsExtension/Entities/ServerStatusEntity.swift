@@ -1,6 +1,6 @@
 //
 //  ServerStatusEntity.swift
-//  MCStatusIntentsFramework
+//  MCStatusAppIntentsExtension
 //
 //  Created by Tomer Shemesh on 9/9/23.
 //
