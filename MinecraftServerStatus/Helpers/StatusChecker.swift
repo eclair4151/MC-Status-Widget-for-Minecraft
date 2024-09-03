@@ -257,7 +257,7 @@ class StatusChecker {
     /** Minecraft protocol can be found here: https://wiki.vg/Raknet_Protocol#Unconnected_Ping
      * sends a request directly to the minecraft server for a ping request.
      1. Client sends:
-       1a. \x01 , unsigned 64bit long timestamp, 16 bytes of magic data predefined by the API
+       1a. \x01 , unsigned 64bit long timestamp, 16 bytes of magic data predefined by the API, 64bit int client ID
      2. Server responds with:
        2a.  packet id (0x1c), timestamp (uint64), serverid (uint64), 16 bytes of the same magic data, the following string length (uint16), and then the string of length defined in the previous uint16
        2b. the string of bytes representing the server like the following
@@ -270,7 +270,7 @@ class StatusChecker {
         var data: [Byte] = []
         
         let magicData: [Byte] = [0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00, 0x00, 0xff, 0xff, 0x00, 0xfe, 0xfe, 0xfe, 0xfe,
-                         0xfd, 0xfd, 0xfd, 0xfd, 0x12, 0x34, 0x56, 0x78]
+                         0xfd, 0xfd, 0xfd, 0xfd, 0x12, 0x34, 0x56, 0x78, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00]
         data.append(0x01) //packet id (always 1)
         data.append(contentsOf: magicData)
 
