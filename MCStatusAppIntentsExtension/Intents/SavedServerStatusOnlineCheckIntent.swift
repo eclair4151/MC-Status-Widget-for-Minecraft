@@ -21,31 +21,47 @@ struct SavedServerStatusOnlineCheckIntent: AppIntent {
     
     func perform() async throws -> some ProvidesDialog & IntentResult & ReturnsValue<ServerStatusEntity>{
         
-        //Temporary hack?? it wont let me call this from the main app. FB13202979
-        MCStatusShortcutsProvider.updateAppShortcutParameters()
-        
         let container = SwiftDataHelper.getModelContainter()
+              
+        let refrencedServer: SavedMinecraftServer
+
         
-        let serverEntityObj = if let serverEnt = self.serverEntity {
-            serverEnt
+        if let serverEnt = self.serverEntity {
+            // case 
+            guard let serverLookup = await SwiftDataHelper.getSavedServerById(container: container, server_id: serverEnt.id) else {
+                throw MCIntentError.DB_ID_MISSING
+            }
+            refrencedServer = serverLookup
         } else {
-            try await $serverEntity.requestDisambiguation(
-                among: await SwiftDataHelper.getSavedServers(container: container).map {
-                    SavedServerEntity(id: $0.id, serverName: $0.name)
-                },
-                dialog: IntentDialog("Which server would you like to check the status of?")
-            )
+            let savedServers = await SwiftDataHelper.getSavedServers(container: container)
+            
+            if savedServers.isEmpty {
+                throw MCIntentError.NO_SERVERS
+            }
+            
+            else if savedServers.count == 1, let serverLookup = savedServers.first {
+                refrencedServer = serverLookup
+            } else {
+                let serverEnt = try await $serverEntity.requestDisambiguation(
+                    among: savedServers.map {
+                        SavedServerEntity(id: $0.id, serverName: $0.name)
+                    },
+                    dialog: IntentDialog("Which server would you like to check the status of?")
+                )
+                guard let serverLookup = await SwiftDataHelper.getSavedServerById(container: container, server_id: serverEnt.id) else {
+                    throw MCIntentError.DB_ID_MISSING
+                }
+                refrencedServer = serverLookup
+            }
         }
         
-        guard let server = await SwiftDataHelper.getSavedServerById(container: container, server_id: serverEntityObj.id) else {
-            throw MCIntentError.DB_ID_MISSING
-        }
+       
         
         // need to change this if we are on watch!!
-        let status = await ServerStatusChecker.checkServer(server: server)
+        let status = await ServerStatusChecker.checkServer(server: refrencedServer)
         
         print("container:" + container.schema.debugDescription)
-        let res = ServerStatusEntity(serverName: server.name, id: UUID())
+        let res = ServerStatusEntity(serverName: refrencedServer.name, id: UUID())
         res.playerCount = status.onlinePlayerCount
         res.onlineStatus = status.status.rawValue
 

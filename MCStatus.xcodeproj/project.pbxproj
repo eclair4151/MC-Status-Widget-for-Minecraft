@@ -29,6 +29,12 @@
 		F144E0DD2A9D82CC00E9623F /* ServerSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144E0DA2A9D82CC00E9623F /* ServerSelect.swift */; };
 		F144E0DE2A9D82CC00E9623F /* ThemeIntentTypeAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144E0DB2A9D82CC00E9623F /* ThemeIntentTypeAppEntity.swift */; };
 		F144E0DF2A9D82CC00E9623F /* ServerIntentTypeAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144E0DC2A9D82CC00E9623F /* ServerIntentTypeAppEntity.swift */; };
+		F16990822CA5DDE500F41232 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
+		F16990832CA5DDE500F41232 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42112AABEB08000107D6 /* ArbitraryServerStatusOnlineCheckIntent.swift */; };
+		F16990842CA5DDE500F41232 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42132AAD4736000107D6 /* ServerStatusEntity.swift */; };
+		F16990852CA5DDE500F41232 /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA12AA2CC4800815BE8 /* SavedServerEntity.swift */; };
+		F16990862CA5DDE500F41232 /* SavedServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13083552A9ECC580024A6EE /* SavedServerStatusOnlineCheckIntent.swift */; };
+		F16990872CA5DDE500F41232 /* MCStatusShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MCStatusShortcutsProvider.swift */; };
 		F174A2FC2A8F7FFA0051DA5B /* WatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174A2FB2A8F7FFA0051DA5B /* WatchHelper.swift */; };
 		F174A2FE2A8F8ED70051DA5B /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
 		F174A3012A915E450051DA5B /* WatchServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174A3002A915E450051DA5B /* WatchServerStatusChecker.swift */; };
@@ -507,6 +513,12 @@
 				F1C010492AAAB9B60017B9A9 /* SwiftyPing.swift in Sources */,
 				F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */,
 				F13E5FFD2A4BD614005BE9B2 /* MCStatusApp.swift in Sources */,
+				F16990822CA5DDE500F41232 /* IntentErrors.swift in Sources */,
+				F16990832CA5DDE500F41232 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */,
+				F16990842CA5DDE500F41232 /* ServerStatusEntity.swift in Sources */,
+				F16990852CA5DDE500F41232 /* SavedServerEntity.swift in Sources */,
+				F16990862CA5DDE500F41232 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
+				F16990872CA5DDE500F41232 /* MCStatusShortcutsProvider.swift in Sources */,
 				F17A16BB2A893DD700F8FF2F /* SettingsRootView.swift in Sources */,
 				F1AE29162CA48577009D0D14 /* ServerRowView.swift in Sources */,
 				F144E0DF2A9D82CC00E9623F /* ServerIntentTypeAppEntity.swift in Sources */,

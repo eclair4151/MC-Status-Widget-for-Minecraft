@@ -108,7 +108,7 @@ struct MainAppContentView: View {
             // can we somehow check if anything actually changed? this is spam called on every open.
             if event.endDate != nil && event.type == .import {
                 print("refresh triggered via eventChangedNotification")
-//                MCStatusShortcutsProvider.updateAppShortcutParameters()
+                MCStatusShortcutsProvider.updateAppShortcutParameters()
                 reloadData()
             }
         }.sheet(isPresented: $showingAddSheet) {
@@ -131,10 +131,7 @@ struct MainAppContentView: View {
     }
     
     
-    private func reloadData(forceRefresh:Bool = false) {
-//        MCStatusShortcutsProvider.updateAppShortcutParameters()
-
-        
+    private func reloadData(forceRefresh:Bool = false) {        
         // crashes when run in background from apple watch??
         // FB13069019
         guard scenePhase != .background else {

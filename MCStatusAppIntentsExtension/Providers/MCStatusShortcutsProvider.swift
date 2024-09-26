@@ -18,6 +18,7 @@ public struct MCStatusShortcutsProvider: AppShortcutsProvider {
                 "Check the \(.applicationName) of my server",
                 "What's the \(.applicationName) of my server",
                 "What's the \(.applicationName) of \(\.$serverEntity)",
+                "Check the \(.applicationName) of \(\.$serverEntity)",
                 "Can you check the \(.applicationName) of \(\.$serverEntity)",
                 "Can you check the server \(.applicationName) of \(\.$serverEntity)",
                 "What's the current \(.applicationName) of \(\.$serverEntity)",

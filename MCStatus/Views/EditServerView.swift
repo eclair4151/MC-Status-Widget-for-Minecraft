@@ -136,7 +136,7 @@ struct EditServerView: View {
                 print(error.localizedDescription)
             }
             print("added server")
-//            MCStatusShortcutsProvider.updateAppShortcutParameters()
+            MCStatusShortcutsProvider.updateAppShortcutParameters()
             parentViewRefreshCallBack()
             isPresented = false
         }
