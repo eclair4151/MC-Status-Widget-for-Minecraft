@@ -18,38 +18,6 @@
             endingLineNumber = "112"
             landmarkName = "reci(connection:dataParts:expectedSize:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "1C4EBDB6-A631-48B1-B72A-2D78142524EB - d48f48d16ac2a8b7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Network.NWConnection.ContentContext&gt;, Swift.Bool, Swift.Optional&lt;Network.NWError&gt;) -&gt; () in MinecraftServerStatus.reci(connection: Network.NWConnection) -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networktest.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "560">
-               </Location>
-               <Location
-                  uuid = "1C4EBDB6-A631-48B1-B72A-2D78142524EB - d48f48d16ac2a8b7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Network.NWConnection.ContentContext&gt;, Swift.Bool, Swift.Optional&lt;Network.NWError&gt;) -&gt; () in MinecraftServerStatus.reci(connection: Network.NWConnection) -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networktest.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "600">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -66,38 +34,6 @@
             endingLineNumber = "110"
             landmarkName = "reci(connection:dataParts:expectedSize:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CFBD7850-6C92-48CF-804B-0E17C90FE187 - 1461ccb3332ba8af"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MinecraftServerStatus.reci(connection: Network.NWConnection) -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networktest.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "52">
-               </Location>
-               <Location
-                  uuid = "CFBD7850-6C92-48CF-804B-0E17C90FE187 - d48f48d16ac2a896"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Network.NWConnection.ContentContext&gt;, Swift.Bool, Swift.Optional&lt;Network.NWError&gt;) -&gt; () in MinecraftServerStatus.reci(connection: Network.NWConnection) -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networktest.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "46"
-                  endingLineNumber = "46"
-                  offsetFromSymbolStart = "376">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -162,53 +98,6 @@
             endingLineNumber = "31"
             landmarkName = "parseServerResponse(stringInput:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FFBBA2C5-5FC6-4ED5-95FD-F48115A00F11 - 9ff1e8cdacc0645c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static MinecraftServerStatus.BedrockServerStatusParser.parseServerResponse(stringInput: Swift.String) throws -&gt; MinecraftServerStatus.ServerStatus"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/BedrockServer/BedrockServerStatusParser.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "268">
-               </Location>
-               <Location
-                  uuid = "FFBBA2C5-5FC6-4ED5-95FD-F48115A00F11 - 9ff1e8cdacc0641e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static MinecraftServerStatus.BedrockServerStatusParser.parseServerResponse(stringInput: Swift.String) throws -&gt; MinecraftServerStatus.ServerStatus"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/BedrockServer/BedrockServerStatusParser.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "1260">
-               </Location>
-               <Location
-                  uuid = "FFBBA2C5-5FC6-4ED5-95FD-F48115A00F11 - 9ff1e8cdacc0647d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static MinecraftServerStatus.BedrockServerStatusParser.parseServerResponse(stringInput: Swift.String) throws -&gt; MinecraftServerStatus.ServerStatus"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/BedrockServer/BedrockServerStatusParser.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "1280">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -257,38 +146,6 @@
             endingLineNumber = "13"
             landmarkName = "parseServerResponse(stringInput:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C73C0230-F299-41DA-A1E4-D2A830F2F484 - 24f8e55afddca71e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static MinecraftServerStatus.JavaServerStatusParser.parseServerResponse(stringInput: Swift.String) throws -&gt; MinecraftServerStatus.ServerStatus"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/JavaServer/JavaServerStatusParser.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "196">
-               </Location>
-               <Location
-                  uuid = "C73C0230-F299-41DA-A1E4-D2A830F2F484 - 24f8e55afddca71e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static MinecraftServerStatus.JavaServerStatusParser.parseServerResponse(stringInput: Swift.String) throws -&gt; MinecraftServerStatus.ServerStatus"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/JavaServer/JavaServerStatusParser.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "200">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -321,38 +178,6 @@
             endingLineNumber = "40"
             landmarkName = "init(from:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C1D750D8-0C47-4AC2-8248-59BB57D031C5 - bd728981a669e45a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MinecraftServerStatus.JavaServerStatusResponse.init(from: Swift.Decoder) throws -&gt; MinecraftServerStatus.JavaServerStatusResponse"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/JavaServer/JavaServerStatusResponse.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "1164">
-               </Location>
-               <Location
-                  uuid = "C1D750D8-0C47-4AC2-8248-59BB57D031C5 - bd728981a669e45a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MinecraftServerStatus.JavaServerStatusResponse.init(from: Swift.Decoder) throws -&gt; MinecraftServerStatus.JavaServerStatusResponse"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/JavaServer/JavaServerStatusResponse.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "1312">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -369,38 +194,6 @@
             endingLineNumber = "45"
             landmarkName = "init(from:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "648EA6AB-4FBC-483E-9B91-7544AF96E896 - bd728981a669e7ff"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MinecraftServerStatus.JavaServerStatusResponse.init(from: Swift.Decoder) throws -&gt; MinecraftServerStatus.JavaServerStatusResponse"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/JavaServer/JavaServerStatusResponse.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "1280">
-               </Location>
-               <Location
-                  uuid = "648EA6AB-4FBC-483E-9B91-7544AF96E896 - bd728981a669e73d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MinecraftServerStatus.JavaServerStatusResponse.init(from: Swift.Decoder) throws -&gt; MinecraftServerStatus.JavaServerStatusResponse"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/JavaServer/JavaServerStatusResponse.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "1700">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -433,38 +226,6 @@
             endingLineNumber = "123"
             landmarkName = "receiveConnectionData(connection:dataParts:expectedSize:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "AEC45C4B-FC83-4A7F-907B-3F94EDEE2062 - f7ba5b75bb2d3db3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Network.NWConnection.ContentContext&gt;, Swift.Bool, Swift.Optional&lt;Network.NWError&gt;) -&gt; () in MinecraftServerStatus.JavaServerStatusChecker.receiveConnectionData(connection: Network.NWConnection, dataParts: Swift.Array&lt;Swift.UInt8&gt;, expectedSize: Swift.Int) -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/JavaServer/JavaServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "114"
-                  endingLineNumber = "114"
-                  offsetFromSymbolStart = "1572">
-               </Location>
-               <Location
-                  uuid = "AEC45C4B-FC83-4A7F-907B-3F94EDEE2062 - f7ba5b75bb2d3db3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Network.NWConnection.ContentContext&gt;, Swift.Bool, Swift.Optional&lt;Network.NWError&gt;) -&gt; () in MinecraftServerStatus.JavaServerStatusChecker.receiveConnectionData(connection: Network.NWConnection, dataParts: Swift.Array&lt;Swift.UInt8&gt;, expectedSize: Swift.Int) -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/JavaServer/JavaServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "114"
-                  endingLineNumber = "114"
-                  offsetFromSymbolStart = "744">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -497,68 +258,6 @@
             endingLineNumber = "9"
             landmarkName = "querySRVRecord(forDomain:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "9CD27E5F-D506-4499-8E13-2F3E4395A081 - b1d984f0b8429cfe"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.OpaquePointer&gt;, Swift.UInt32, Swift.UInt32, Swift.Int32, Swift.Optional&lt;Swift.UnsafePointer&lt;Swift.Int8&gt;&gt;, Swift.UInt16, Swift.UInt16, Swift.UInt16, Swift.Optional&lt;Swift.UnsafeRawPointer&gt;, Swift.UInt32, Swift.Optional&lt;Swift.UnsafeMutableRawPointer&gt;) -&gt; () in MinecraftServerStatus.SRVQuery.querySRVRecord(forDomain: Swift.String) -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/SRVLookup.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "9"
-                  endingLineNumber = "9"
-                  offsetFromSymbolStart = "172">
-               </Location>
-               <Location
-                  uuid = "9CD27E5F-D506-4499-8E13-2F3E4395A081 - b1d984f0b8429cfe"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.OpaquePointer&gt;, Swift.UInt32, Swift.UInt32, Swift.Int32, Swift.Optional&lt;Swift.UnsafePointer&lt;Swift.Int8&gt;&gt;, Swift.UInt16, Swift.UInt16, Swift.UInt16, Swift.Optional&lt;Swift.UnsafeRawPointer&gt;, Swift.UInt32, Swift.Optional&lt;Swift.UnsafeMutableRawPointer&gt;) -&gt; () in MinecraftServerStatus.SRVQuery.querySRVRecord(forDomain: Swift.String) -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/SRVLookup.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "9"
-                  endingLineNumber = "9"
-                  offsetFromSymbolStart = "192">
-               </Location>
-               <Location
-                  uuid = "9CD27E5F-D506-4499-8E13-2F3E4395A081 - b1d984f0b8429cfe"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.OpaquePointer&gt;, Swift.UInt32, Swift.UInt32, Swift.Int32, Swift.Optional&lt;Swift.UnsafePointer&lt;Swift.Int8&gt;&gt;, Swift.UInt16, Swift.UInt16, Swift.UInt16, Swift.Optional&lt;Swift.UnsafeRawPointer&gt;, Swift.UInt32, Swift.Optional&lt;Swift.UnsafeMutableRawPointer&gt;) -&gt; () in MinecraftServerStatus.SRVQuery.querySRVRecord(forDomain: Swift.String) -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/SRVLookup.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "9"
-                  endingLineNumber = "9"
-                  offsetFromSymbolStart = "232">
-               </Location>
-               <Location
-                  uuid = "9CD27E5F-D506-4499-8E13-2F3E4395A081 - b1d984f0b8429cfe"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.OpaquePointer&gt;, Swift.UInt32, Swift.UInt32, Swift.Int32, Swift.Optional&lt;Swift.UnsafePointer&lt;Swift.Int8&gt;&gt;, Swift.UInt16, Swift.UInt16, Swift.UInt16, Swift.Optional&lt;Swift.UnsafeRawPointer&gt;, Swift.UInt32, Swift.Optional&lt;Swift.UnsafeMutableRawPointer&gt;) -&gt; () in MinecraftServerStatus.SRVQuery.querySRVRecord(forDomain: Swift.String) -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/SRVLookup.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "9"
-                  endingLineNumber = "9"
-                  offsetFromSymbolStart = "184">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -607,38 +306,6 @@
             endingLineNumber = "64"
             landmarkName = "callContinuationError(error:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "5E4B1522-7223-419A-95BC-C3329BC324D9 - 32cfa00cabbed83e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MinecraftServerStatus.JavaServerStatusChecker.startTCPConnection(dataToSend: Foundation.Data) -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/JavaServer/JavaServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "324">
-               </Location>
-               <Location
-                  uuid = "5E4B1522-7223-419A-95BC-C3329BC324D9 - 28942dcad7d0dbcc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MinecraftServerStatus.JavaServerStatusChecker.callContinuationError(error: MinecraftServerStatus.ServerStatusCheckerError) -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/JavaServer/JavaServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
-                  offsetFromSymbolStart = "692">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -655,113 +322,6 @@
             endingLineNumber = "74"
             landmarkName = "unknown"
             landmarkType = "0">
-            <Locations>
-               <Location
-                  uuid = "1E802C0D-B6D4-4C79-81C0-19BBA82606AC - ba771c0b0a76767b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in MinecraftServerStatus.testCall() -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/ServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "228">
-               </Location>
-               <Location
-                  uuid = "1E802C0D-B6D4-4C79-81C0-19BBA82606AC - 493bdf31d00f0a75"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in MinecraftServerStatus.testCall() -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/ServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "240">
-               </Location>
-               <Location
-                  uuid = "1E802C0D-B6D4-4C79-81C0-19BBA82606AC - d81cc84d4e9b927e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in MinecraftServerStatus.testCall() -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/ServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "248">
-               </Location>
-               <Location
-                  uuid = "1E802C0D-B6D4-4C79-81C0-19BBA82606AC - 493bdf31d00f05ce"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in MinecraftServerStatus.testCall() -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/ServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "712">
-               </Location>
-               <Location
-                  uuid = "1E802C0D-B6D4-4C79-81C0-19BBA82606AC - ba771c0b0a767754"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in MinecraftServerStatus.testCall() -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/ServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "220">
-               </Location>
-               <Location
-                  uuid = "1E802C0D-B6D4-4C79-81C0-19BBA82606AC - 493bdf31d00f0b5a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in MinecraftServerStatus.testCall() -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/ServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "416">
-               </Location>
-               <Location
-                  uuid = "1E802C0D-B6D4-4C79-81C0-19BBA82606AC - 3f81feb343d06d5b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in MinecraftServerStatus.testCall() -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/ServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "264">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -826,143 +386,6 @@
             endingLineNumber = "71"
             landmarkName = "ServerStatusChecker"
             landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "8AABD538-A893-4483-921D-06C77FCFF8AD - ba771c0b0a76765c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in MinecraftServerStatus.testCall() -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/ServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "224">
-               </Location>
-               <Location
-                  uuid = "8AABD538-A893-4483-921D-06C77FCFF8AD - 2e417783805becb1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in MinecraftServerStatus.testCall() -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/ServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "8AABD538-A893-4483-921D-06C77FCFF8AD - 493bdf31d00f0a52"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in MinecraftServerStatus.testCall() -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/ServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "76">
-               </Location>
-               <Location
-                  uuid = "8AABD538-A893-4483-921D-06C77FCFF8AD - e5ef9e3ebea4ce50"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(5) suspend resume partial function for closure #1 @Sendable () async -&gt; () in MinecraftServerStatus.testCall() -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/ServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "244">
-               </Location>
-               <Location
-                  uuid = "8AABD538-A893-4483-921D-06C77FCFF8AD - ca35b1b828692051"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(6) suspend resume partial function for closure #1 @Sendable () async -&gt; () in MinecraftServerStatus.testCall() -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/ServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "88">
-               </Location>
-               <Location
-                  uuid = "8AABD538-A893-4483-921D-06C77FCFF8AD - 493bdf31d00f0a33"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in MinecraftServerStatus.testCall() -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/ServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "144">
-               </Location>
-               <Location
-                  uuid = "8AABD538-A893-4483-921D-06C77FCFF8AD - ba771c0b0a767754"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in MinecraftServerStatus.testCall() -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/ServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "220">
-               </Location>
-               <Location
-                  uuid = "8AABD538-A893-4483-921D-06C77FCFF8AD - 493bdf31d00f0b5a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in MinecraftServerStatus.testCall() -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/ServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "416">
-               </Location>
-               <Location
-                  uuid = "8AABD538-A893-4483-921D-06C77FCFF8AD - 3f81feb343d06d5b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in MinecraftServerStatus.testCall() -&gt; ()"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/ServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "264">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -995,38 +418,6 @@
             endingLineNumber = "119"
             landmarkName = "lookupMinecraftSRVRecord(serverURL:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8FD7E568-F9E6-47E5-BF7D-F8D3B673A100 - 89efee99e69d989b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for static MinecraftServerStatus.SRVResolver.lookupMinecraftSRVRecord(serverURL: Swift.String) async -&gt; Swift.Optional&lt;(Swift.String, Swift.Int)&gt;"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/Helpers/SRVResolver.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "114"
-                  endingLineNumber = "114"
-                  offsetFromSymbolStart = "180">
-               </Location>
-               <Location
-                  uuid = "8FD7E568-F9E6-47E5-BF7D-F8D3B673A100 - 3a9209f7affca040"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (MinecraftServerStatus.SRVRecord, MinecraftServerStatus.SRVRecord) -&gt; Swift.Bool in static MinecraftServerStatus.SRVResolver.lookupMinecraftSRVRecord(serverURL: Swift.String) async -&gt; Swift.Optional&lt;(Swift.String, Swift.Int)&gt;"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/Helpers/SRVResolver.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "115"
-                  endingLineNumber = "115"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1139,38 +530,6 @@
             endingLineNumber = "72"
             landmarkName = "init?(data:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CFD2D927-A28A-4E88-9868-078648F25088 - 4af0154c54417f71"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MinecraftServerStatus.SRVRecord.init(data: Foundation.Data) -&gt; Swift.Optional&lt;MinecraftServerStatus.SRVRecord&gt;"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/Helpers/SRVRecord.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72"
-                  offsetFromSymbolStart = "1780">
-               </Location>
-               <Location
-                  uuid = "CFD2D927-A28A-4E88-9868-078648F25088 - 4af0154c54417f71"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MinecraftServerStatus.SRVRecord.init(data: Foundation.Data) -&gt; Swift.Optional&lt;MinecraftServerStatus.SRVRecord&gt;"
-                  moduleName = "MinecraftServerStatus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MinecraftServerStatus/Networking/Helpers/SRVRecord.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72"
-                  offsetFromSymbolStart = "2004">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1219,98 +578,6 @@
             endingLineNumber = "28"
             landmarkName = "body"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "8E01EBF8-301A-4EF2-A215-2B3D2D2D3219 - 999c3d48adfc1b11"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text, SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0)&gt; in closure #1 (MC_Status.SavedMinecraftServer) -&gt; SwiftUI.NavigationLink&lt;SwiftUI.Text, SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text, SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0)&gt;&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.DynamicViewContent.onDelete(perform: Swift.Optional&lt;(Foundation.IndexSet) -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.sheet&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(isPresented: SwiftUI.Binding&lt;Swift.Bool&gt;, onDismiss: Swift.Optional&lt;() -&gt; ()&gt;, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0, SwiftUI.Text)&gt; in MC_Status.ContentView.body.getter : some"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MCStatus/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "112">
-               </Location>
-               <Location
-                  uuid = "8E01EBF8-301A-4EF2-A215-2B3D2D2D3219 - 62bcfede6d8e279"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text, SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0)&gt; in closure #1 (MC_Status.SavedMinecraftServer) -&gt; SwiftUI.NavigationLink&lt;SwiftUI.Text, SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text, SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0)&gt;&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.DynamicViewContent.onDelete(perform: Swift.Optional&lt;(Foundation.IndexSet) -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.sheet&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(isPresented: SwiftUI.Binding&lt;Swift.Bool&gt;, onDismiss: Swift.Optional&lt;() -&gt; ()&gt;, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0, SwiftUI.Text)&gt; in MC_Status.ContentView.body.getter : some"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MCStatus/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  uuid = "8E01EBF8-301A-4EF2-A215-2B3D2D2D3219 - 5e5efe9f055d5b17"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text, SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0)&gt; in closure #1 (MC_Status.SavedMinecraftServer) -&gt; SwiftUI.NavigationLink&lt;SwiftUI.Text, SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text, SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0)&gt;&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.DynamicViewContent.onDelete(perform: Swift.Optional&lt;(Foundation.IndexSet) -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.sheet&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(isPresented: SwiftUI.Binding&lt;Swift.Bool&gt;, onDismiss: Swift.Optional&lt;() -&gt; ()&gt;, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0, SwiftUI.Text)&gt; in MC_Status.ContentView.body.getter : some"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MCStatus/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "8E01EBF8-301A-4EF2-A215-2B3D2D2D3219 - 8f632836dda342c2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable () async -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text, SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0)&gt; in closure #1 (MC_Status.SavedMinecraftServer) -&gt; SwiftUI.NavigationLink&lt;SwiftUI.Text, SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text, SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0)&gt;&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.DynamicViewContent.onDelete(perform: Swift.Optional&lt;(Foundation.IndexSet) -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.sheet&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(isPresented: SwiftUI.Binding&lt;Swift.Bool&gt;, onDismiss: Swift.Optional&lt;() -&gt; ()&gt;, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0, SwiftUI.Text)&gt; in MC_Status.ContentView.body.getter : some"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MCStatus/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "116">
-               </Location>
-               <Location
-                  uuid = "8E01EBF8-301A-4EF2-A215-2B3D2D2D3219 - 3c4746f41c1e40f8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) await resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text, SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0)&gt; in closure #1 (MC_Status.SavedMinecraftServer) -&gt; SwiftUI.NavigationLink&lt;SwiftUI.Text, SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text, SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0)&gt;&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.DynamicViewContent.onDelete(perform: Swift.Optional&lt;(Foundation.IndexSet) -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.sheet&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(isPresented: SwiftUI.Binding&lt;Swift.Bool&gt;, onDismiss: Swift.Optional&lt;() -&gt; ()&gt;, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0, SwiftUI.Text)&gt; in MC_Status.ContentView.body.getter : some"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MCStatus/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  uuid = "8E01EBF8-301A-4EF2-A215-2B3D2D2D3219 - 3cbf5c24d1adbb16"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text, SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0)&gt; in closure #1 (MC_Status.SavedMinecraftServer) -&gt; SwiftUI.NavigationLink&lt;SwiftUI.Text, SwiftUI.TupleView&lt;(SwiftUI.Text, SwiftUI.Text, SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0)&gt;&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.DynamicViewContent.onDelete(perform: Swift.Optional&lt;(Foundation.IndexSet) -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.sheet&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(isPresented: SwiftUI.Binding&lt;Swift.Bool&gt;, onDismiss: Swift.Optional&lt;() -&gt; ()&gt;, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0, SwiftUI.Text)&gt; in MC_Status.ContentView.body.getter : some"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MinecraftServerStatus/MCStatus/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "36">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1323,8 +590,8 @@
             filePath = "MCStatus/MainAppContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -1355,42 +622,10 @@
             filePath = "MCStatus/Views/EditServerView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "body"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "9668018B-5046-4F0A-BF63-468E311E33C1 - 19619f1b61556fda"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 () -&gt; () in MC_Status.EditServerView.body.getter : some"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Views/EditServerView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "252">
-               </Location>
-               <Location
-                  uuid = "9668018B-5046-4F0A-BF63-468E311E33C1 - 19619f1b61556fda"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 () -&gt; () in MC_Status.EditServerView.body.getter : some"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Views/EditServerView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "72">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1403,72 +638,10 @@
             filePath = "MCStatus/Views/EditServerView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "body"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "57EDAC51-1A64-49EA-9796-ADFB30279380 - e41128edd138ed4b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MC_Status.EditServerView.body.getter : some"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Views/EditServerView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "1364">
-               </Location>
-               <Location
-                  uuid = "57EDAC51-1A64-49EA-9796-ADFB30279380 - e41128edd138ed4b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MC_Status.EditServerView.body.getter : some"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Views/EditServerView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "1052">
-               </Location>
-               <Location
-                  uuid = "57EDAC51-1A64-49EA-9796-ADFB30279380 - 19619f1b61556065"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 () -&gt; () in MC_Status.EditServerView.body.getter : some"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Views/EditServerView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "588">
-               </Location>
-               <Location
-                  uuid = "57EDAC51-1A64-49EA-9796-ADFB30279380 - e41128edd138ed4b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MC_Status.EditServerView.body.getter : some"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Views/EditServerView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "1152">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1485,38 +658,6 @@
             endingLineNumber = "14"
             landmarkName = "getModelContainter()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8840D66C-D6F8-435C-8FA9-C9D71D20A571 - cc35996b6d9fd16d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static MC_Status.SwiftUIHelper.getModelContainter() -&gt; SwiftData.ModelContainer"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Helpers/SwiftUIHelper.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "304">
-               </Location>
-               <Location
-                  uuid = "8840D66C-D6F8-435C-8FA9-C9D71D20A571 - cc35996b6d9fd16d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static MC_Status.SwiftUIHelper.getModelContainter() -&gt; SwiftData.ModelContainer"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Helpers/SwiftUIHelper.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "240">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1529,42 +670,10 @@
             filePath = "MCStatus/Views/EditServerView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "body"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "E0FFBA09-6205-4F2F-AAFF-6F6693B526AE - e41128edd138e2d7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MC_Status.EditServerView.body.getter : some"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Views/EditServerView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "70"
-                  endingLineNumber = "70"
-                  offsetFromSymbolStart = "952">
-               </Location>
-               <Location
-                  uuid = "E0FFBA09-6205-4F2F-AAFF-6F6693B526AE - 19619f1b61556fda"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 () -&gt; () in MC_Status.EditServerView.body.getter : some"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Views/EditServerView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "72">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1581,83 +690,6 @@
             endingLineNumber = "32"
             landmarkName = "send(message:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "0E7959AA-CF98-42C1-9BC0-6619AC0E5E76 - b710ec1e1ae87829"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for MCStatusWatchApp_Watch_App.ConnectivityProvider.send(message: Swift.Dictionary&lt;Swift.String, Any&gt;) async throws -&gt; ()"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ConnectivityProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "376">
-               </Location>
-               <Location
-                  uuid = "0E7959AA-CF98-42C1-9BC0-6619AC0E5E76 - b710ec1e1ae878ca"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for MCStatusWatchApp_Watch_App.ConnectivityProvider.send(message: Swift.Dictionary&lt;Swift.String, Any&gt;) async throws -&gt; ()"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ConnectivityProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "268">
-               </Location>
-               <Location
-                  uuid = "0E7959AA-CF98-42C1-9BC0-6619AC0E5E76 - 9d4bcbd125459bd5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for MCStatusWatchApp_Watch_App.ConnectivityProvider.send(message: Swift.Dictionary&lt;Swift.String, Any&gt;) async throws -&gt; ()"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ConnectivityProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "0E7959AA-CF98-42C1-9BC0-6619AC0E5E76 - 238e9841b081bcc4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for MCStatusWatchApp_Watch_App.ConnectivityProvider.send(message: Swift.Dictionary&lt;Swift.String, Any&gt;) async throws -&gt; ()"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ConnectivityProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "0E7959AA-CF98-42C1-9BC0-6619AC0E5E76 - e9c7b393fdb25ec7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for MCStatusWatchApp_Watch_App.ConnectivityProvider.send(message: Swift.Dictionary&lt;Swift.String, Any&gt;) async throws -&gt; ()"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ConnectivityProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
-                  offsetFromSymbolStart = "36">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1690,38 +722,6 @@
             endingLineNumber = "69"
             landmarkName = "body"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "FC3A9565-F706-4E4D-8EAF-6FD69637184D - 25803b09001b09fb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MCStatusWatchApp_Watch_App.ContentView.body.getter : some"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72"
-                  offsetFromSymbolStart = "1124">
-               </Location>
-               <Location
-                  uuid = "FC3A9565-F706-4E4D-8EAF-6FD69637184D - 8fdce662346b2dc3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 (Foundation.Notification) -&gt; () in MCStatusWatchApp_Watch_App.ContentView.body.getter : some"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "264">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1754,53 +754,6 @@
             endingLineNumber = "29"
             landmarkName = "send(message:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "5DC7E43B-6100-46B2-8BD2-475B7D41D1BF - d8d0b9743b5b1d93"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MCStatusWatchApp_Watch_App.ConnectivityProvider.init(withListener: (Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()) -&gt; MCStatusWatchApp_Watch_App.ConnectivityProvider"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ConnectivityProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "316">
-               </Location>
-               <Location
-                  uuid = "5DC7E43B-6100-46B2-8BD2-475B7D41D1BF - b710ec1e1ae87930"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for MCStatusWatchApp_Watch_App.ConnectivityProvider.send(message: Swift.Dictionary&lt;Swift.String, Any&gt;) async throws -&gt; ()"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ConnectivityProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "72">
-               </Location>
-               <Location
-                  uuid = "5DC7E43B-6100-46B2-8BD2-475B7D41D1BF - 23fca995b7c81f70"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MCStatusWatchApp_Watch_App.ConnectivityProvider.send(message: Swift.Dictionary&lt;Swift.String, Any&gt;) throws -&gt; ()"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ConnectivityProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1817,53 +770,6 @@
             endingLineNumber = "94"
             landmarkName = "checkServersViaPhone(servers:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DA379217-823C-4AD5-97C2-02C74388AF37 - 16d3ca7194ef38cd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for MCStatusWatchApp_Watch_App.WatchServerStatusChecker.checkServersViaPhone(servers: Swift.Array&lt;MCStatusWatchApp_Watch_App.SavedMinecraftServer&gt;) async throws -&gt; ()"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/WatchServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "89"
-                  endingLineNumber = "89"
-                  offsetFromSymbolStart = "372">
-               </Location>
-               <Location
-                  uuid = "DA379217-823C-4AD5-97C2-02C74388AF37 - da9534c58f85fccf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for MCStatusWatchApp_Watch_App.WatchServerStatusChecker.checkServersViaPhone(servers: Swift.Array&lt;MCStatusWatchApp_Watch_App.SavedMinecraftServer&gt;) async throws -&gt; ()"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/WatchServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "89"
-                  endingLineNumber = "89"
-                  offsetFromSymbolStart = "76">
-               </Location>
-               <Location
-                  uuid = "DA379217-823C-4AD5-97C2-02C74388AF37 - 20aa7b8385095ec0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for MCStatusWatchApp_Watch_App.WatchServerStatusChecker.checkServersViaPhone(servers: Swift.Array&lt;MCStatusWatchApp_Watch_App.SavedMinecraftServer&gt;) async throws -&gt; ()"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/WatchServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "89"
-                  endingLineNumber = "89"
-                  offsetFromSymbolStart = "76">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1928,38 +834,6 @@
             endingLineNumber = "49"
             landmarkName = "connect()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C1143D03-2727-496A-8F1E-23ABDCADF5D5 - 29d619493640d617"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MCStatusWatchApp_Watch_App.ConnectivityProvider.session(_: __C.WCSession, activationDidCompleteWith: __C.WCSessionActivationState, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ConnectivityProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "108">
-               </Location>
-               <Location
-                  uuid = "C1143D03-2727-496A-8F1E-23ABDCADF5D5 - b3c4d1cc9ae0c26d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MCStatusWatchApp_Watch_App.ConnectivityProvider.connect() -&gt; ()"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/ConnectivityProvider.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2008,68 +882,6 @@
             endingLineNumber = "68"
             landmarkName = "session(_:didReceiveMessage:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "35992ACD-A8D5-4E29-8762-D0E86E5E75C3 - dfe78b9adaf546b3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MC_Status.WatchHelper.session(_: __C.WCSession, didReceiveMessage: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Helpers/WatchHelper.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "240">
-               </Location>
-               <Location
-                  uuid = "35992ACD-A8D5-4E29-8762-D0E86E5E75C3 - dfe78b9adaf546b3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MC_Status.WatchHelper.session(_: __C.WCSession, didReceiveMessage: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Helpers/WatchHelper.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "204">
-               </Location>
-               <Location
-                  uuid = "35992ACD-A8D5-4E29-8762-D0E86E5E75C3 - dfe78b9adaf54752"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MC_Status.WatchHelper.session(_: __C.WCSession, didReceiveMessage: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Helpers/WatchHelper.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "93"
-                  endingLineNumber = "93"
-                  offsetFromSymbolStart = "188">
-               </Location>
-               <Location
-                  uuid = "35992ACD-A8D5-4E29-8762-D0E86E5E75C3 - dfe78b9adaf54752"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MC_Status.WatchHelper.session(_: __C.WCSession, didReceiveMessage: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Helpers/WatchHelper.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "93"
-                  endingLineNumber = "93"
-                  offsetFromSymbolStart = "128">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2102,38 +914,6 @@
             endingLineNumber = "34"
             landmarkName = "handleWatchMessage(message:session:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3E7349AC-87F5-42D0-B296-BABCC46455F5 - 806b8fb277df37c6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MC_Status.WatchHelper.handleWatchMessage(message: Swift.Dictionary&lt;Swift.String, Any&gt;, session: __C.WCSession) -&gt; ()"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Helpers/WatchHelper.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "160">
-               </Location>
-               <Location
-                  uuid = "3E7349AC-87F5-42D0-B296-BABCC46455F5 - 806b8fb277df362b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MC_Status.WatchHelper.handleWatchMessage(message: Swift.Dictionary&lt;Swift.String, Any&gt;, session: __C.WCSession) -&gt; ()"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Helpers/WatchHelper.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "328">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2166,38 +946,6 @@
             endingLineNumber = "59"
             landmarkName = "handleWatchMessage(message:session:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B249FD92-30AD-40D7-9F38-053BEEDFD9DF - 3ec6e2b70f32295b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in MC_Status.WatchHelper.handleWatchMessage(message: Swift.Dictionary&lt;Swift.String, Any&gt;, session: __C.WCSession) -&gt; ()"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Helpers/WatchHelper.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
-                  offsetFromSymbolStart = "676">
-               </Location>
-               <Location
-                  uuid = "B249FD92-30AD-40D7-9F38-053BEEDFD9DF - 35529d5c52ade7c9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Error) -&gt; () in closure #1 @Sendable () async throws -&gt; () in MC_Status.WatchHelper.handleWatchMessage(message: Swift.Dictionary&lt;Swift.String, Any&gt;, session: __C.WCSession) -&gt; ()"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/Helpers/WatchHelper.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "84">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2262,68 +1010,6 @@
             endingLineNumber = "51"
             landmarkName = "checkServers(servers:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BFB271B1-A5B3-43AF-B147-9E279CA9387B - 6d3ea989572f63d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #2 @Sendable () async -&gt; () in MCStatusWatchApp_Watch_App.WatchServerStatusChecker.checkServers(servers: Swift.Array&lt;MCStatusWatchApp_Watch_App.SavedMinecraftServer&gt;) -&gt; ()"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/WatchServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "176">
-               </Location>
-               <Location
-                  uuid = "BFB271B1-A5B3-43AF-B147-9E279CA9387B - 3035665e00bf6413"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for closure #2 @Sendable () async -&gt; () in MCStatusWatchApp_Watch_App.WatchServerStatusChecker.checkServers(servers: Swift.Array&lt;MCStatusWatchApp_Watch_App.SavedMinecraftServer&gt;) -&gt; ()"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/WatchServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "BFB271B1-A5B3-43AF-B147-9E279CA9387B - a4c772b50b192a3f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #2 @Sendable () async -&gt; () in MCStatusWatchApp_Watch_App.WatchServerStatusChecker.checkServers(servers: Swift.Array&lt;MCStatusWatchApp_Watch_App.SavedMinecraftServer&gt;) -&gt; ()"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/WatchServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "68">
-               </Location>
-               <Location
-                  uuid = "BFB271B1-A5B3-43AF-B147-9E279CA9387B - 753cc6a74e34c838"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #2 @Sendable () async -&gt; () in MCStatusWatchApp_Watch_App.WatchServerStatusChecker.checkServers(servers: Swift.Array&lt;MCStatusWatchApp_Watch_App.SavedMinecraftServer&gt;) -&gt; ()"
-                  moduleName = "MCStatusWatchApp Watch App"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatusWatchApp/WatchServerStatusChecker.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "76">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2336,57 +1022,10 @@
             filePath = "MCStatus/MainAppContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "body"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "5F570FDA-139D-401B-9AE3-249694E32E72 - a0dece8657fd6c11"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MC_Status.MainAppContentView.body.getter : some"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/MainAppContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "87"
-                  endingLineNumber = "87"
-                  offsetFromSymbolStart = "1164">
-               </Location>
-               <Location
-                  uuid = "5F570FDA-139D-401B-9AE3-249694E32E72 - a0dece8657fd6c11"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MC_Status.MainAppContentView.body.getter : some"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/MainAppContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "87"
-                  endingLineNumber = "87"
-                  offsetFromSymbolStart = "1312">
-               </Location>
-               <Location
-                  uuid = "5F570FDA-139D-401B-9AE3-249694E32E72 - ca7943cc30056564"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 () -&gt; () in MC_Status.MainAppContentView.body.getter : some"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/MCStatus/MainAppContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "172">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2419,38 +1058,6 @@
             endingLineNumber = "42"
             landmarkName = "suggestedEntities()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "9EB437EE-339A-4F52-AAEC-B83005B23E50 - 70bc629823ddf441"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for MC_Status.SavedServerQuery.suggestedEntities() async throws -&gt; Swift.Array&lt;MC_Status.SavedServerEntity&gt;"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/Intents/Entities/SavedServerEntity.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  uuid = "9EB437EE-339A-4F52-AAEC-B83005B23E50 - 70bc629823ddf5cd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for MC_Status.SavedServerQuery.suggestedEntities() async throws -&gt; Swift.Array&lt;MC_Status.SavedServerEntity&gt;"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/Intents/Entities/SavedServerEntity.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "64">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2467,38 +1074,6 @@
             endingLineNumber = "29"
             landmarkName = "entities(for:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "005DFD61-83D9-4B7A-9582-E26BEFED79D4 - ab87fe29c21f70a4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for MC_Status.SavedServerQuery.entities(for: Swift.Array&lt;Foundation.UUID&gt;) async throws -&gt; Swift.Array&lt;MC_Status.SavedServerEntity&gt;"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/Intents/Entities/SavedServerEntity.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "108">
-               </Location>
-               <Location
-                  uuid = "005DFD61-83D9-4B7A-9582-E26BEFED79D4 - 46ca61665bba189d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Foundation.UUID) -&gt; Swift.Optional&lt;MC_Status.SavedServerEntity&gt; in MC_Status.SavedServerQuery.entities(for: Swift.Array&lt;Foundation.UUID&gt;) async throws -&gt; Swift.Array&lt;MC_Status.SavedServerEntity&gt;"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/Intents/Entities/SavedServerEntity.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "116">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2531,53 +1106,6 @@
             endingLineNumber = "44"
             landmarkName = "suggestedEntities()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "530AF363-C86B-4392-B61C-345043927564 - d5dce88141a834e7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (MC_Status.SavedMinecraftServer) -&gt; MC_Status.SavedServerEntity in MC_Status.SavedServerQuery.suggestedEntities() async throws -&gt; Swift.Array&lt;MC_Status.SavedServerEntity&gt;"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/Intents/Entities/SavedServerEntity.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44"
-                  offsetFromSymbolStart = "160">
-               </Location>
-               <Location
-                  uuid = "530AF363-C86B-4392-B61C-345043927564 - d9173bd6ebf5b14f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for MC_Status.SavedServerQuery.suggestedEntities() async throws -&gt; Swift.Array&lt;MC_Status.SavedServerEntity&gt;"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/Intents/Entities/SavedServerEntity.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44"
-                  offsetFromSymbolStart = "108">
-               </Location>
-               <Location
-                  uuid = "530AF363-C86B-4392-B61C-345043927564 - d5dce88141a834d8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (MC_Status.SavedMinecraftServer) -&gt; MC_Status.SavedServerEntity in MC_Status.SavedServerQuery.suggestedEntities() async throws -&gt; Swift.Array&lt;MC_Status.SavedServerEntity&gt;"
-                  moduleName = "MC Status"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomer/Documents/Xcode/MCStatus/Intents/Entities/SavedServerEntity.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "45"
-                  endingLineNumber = "45"
-                  offsetFromSymbolStart = "100">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2625,6 +1153,38 @@
             startingLineNumber = "25"
             endingLineNumber = "25"
             landmarkName = "perform()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1982CE8F-9EDE-4A85-8121-A368B2FE9BE8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCStatusDataLayer/Sources/MCStatusDataLayer/Networking/JavaServer/JavaServerStatusResponse.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "init(from:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1FBB64D7-6CDD-458E-8BE1-C65227AA7C0C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCStatusDataLayer/Sources/MCStatusDataLayer/Networking/JavaServer/JavaServerStatusResponse.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "init(from:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

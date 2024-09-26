@@ -14,9 +14,16 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
         guard let jsonData = jsonData else {
             throw ServerStatusCheckerError.StatusUnparsable
         }
-
-        //attempt to parse it into a json using a custom parser defined in the object
-        let responseObject = try JSONDecoder().decode(JavaServerStatusResponse.self, from: jsonData)
+        
+        var responseObject: JavaServerStatusResponse
+        do {
+            //attempt to parse it into a json using a custom parser defined in the object
+            responseObject = try JSONDecoder().decode(JavaServerStatusResponse.self, from: jsonData)
+        } catch let error {
+            print("Unable to parse response from input: " + stringInput)
+            throw error
+        }
+        
         
         let formattedMOTDSections = if let desc = responseObject.description, let extras = desc.extra, !extras.isEmpty {
             parseJavaMOTD(input: desc)

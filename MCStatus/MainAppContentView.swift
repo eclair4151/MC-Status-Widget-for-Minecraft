@@ -39,9 +39,12 @@ struct MainAppContentView: View {
                     }
                     label: {
                         if let status = viewModel.status {
-                            Text(viewModel.server.name + " - " + status.getDisplayText())
+//                            Text(viewModel.server.name + " - " + status.getDisplayText())
+                            ServerRowView(title: viewModel.server.name, subtitle: status.getDisplayText())
                         } else {
-                            Text(viewModel.server.name + " - " + viewModel.loadingStatus.rawValue)
+//                            Text(viewModel.server.name + " - " + viewModel.loadingStatus.rawValue)
+                            ServerRowView(title: viewModel.server.name, subtitle: viewModel.loadingStatus.rawValue)
+
                         }
                     }
                 }
@@ -110,7 +113,7 @@ struct MainAppContentView: View {
             }
         }.sheet(isPresented: $showingAddSheet) {
             // create new binding server to add
-            let newServer = SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "", serverUrl: "", serverPort: 25565, srvServerUrl: "", srvServerPort: 0, serverIcon: "", displayOrder: 0)
+            let newServer = SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "", serverUrl: "", serverPort: 0, srvServerUrl: "", srvServerPort: 0, serverIcon: "", displayOrder: 0)
             NavigationView {
                 EditServerView(server: newServer, isPresented: $showingAddSheet) {
                     reloadData()

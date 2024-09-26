@@ -59,8 +59,11 @@ public class BedrockServerStatusChecker: ServerStatusCheckerProtocol {
     func startConnection() {
         // create UDP connection directly to minecraft server
         let commandClient = UDPClient(address: self.serverAddress, port: Int32(self.port)) { responseType, udpClient, data in
-            udpClient?.connection.cancel()
 
+            if udpClient?.connection.state != .cancelled {
+                udpClient?.connection.cancel()
+            }
+            
             guard responseType == .SUCCESS, let responseData = data else {
                 // throw error
                 self.callContinuationError(error: .ServerUnreachable)

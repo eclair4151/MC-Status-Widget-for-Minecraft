@@ -68,7 +68,9 @@ public class UDPClient {
     }
     
     deinit {
-        connection.cancel()
+        if connection.state != .cancelled {
+            connection.cancel()
+        }
     }
     
     // SETUP WITH A 3 SECOND TIMEOUT

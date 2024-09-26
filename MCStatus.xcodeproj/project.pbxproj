@@ -35,6 +35,7 @@
 		F17A16BB2A893DD700F8FF2F /* SettingsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */; };
 		F17A16BD2A8956DE00F8FF2F /* EditServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */; };
 		F1A43C822A8472B20081A24C /* ServerStatusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */; };
+		F1AE29162CA48577009D0D14 /* ServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* ServerRowView.swift */; };
 		F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
 		F1C010412AAAB6DE0017B9A9 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F1C010402AAAB6DE0017B9A9 /* MCStatusDataLayer */; };
 		F1C010432AAAB6E50017B9A9 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F1C010422AAAB6E50017B9A9 /* MCStatusDataLayer */; };
@@ -117,6 +118,7 @@
 		F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRootView.swift; sourceTree = "<group>"; };
 		F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditServerView.swift; sourceTree = "<group>"; };
 		F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusDetailView.swift; sourceTree = "<group>"; };
+		F1AE29152CA48577009D0D14 /* ServerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRowView.swift; sourceTree = "<group>"; };
 		F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
 		F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyPing.swift; sourceTree = "<group>"; };
 		F1C9A9AE2A879A4800C058C7 /* MCStatusWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusWatchApp.entitlements; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */,
 				F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */,
 				F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */,
+				F1AE29152CA48577009D0D14 /* ServerRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */,
 				F13E5FFD2A4BD614005BE9B2 /* MCStatusApp.swift in Sources */,
 				F17A16BB2A893DD700F8FF2F /* SettingsRootView.swift in Sources */,
+				F1AE29162CA48577009D0D14 /* ServerRowView.swift in Sources */,
 				F144E0DF2A9D82CC00E9623F /* ServerIntentTypeAppEntity.swift in Sources */,
 				F144E0DD2A9D82CC00E9623F /* ServerSelect.swift in Sources */,
 				F13E60012A4BD614005BE9B2 /* MainAppContentView.swift in Sources */,

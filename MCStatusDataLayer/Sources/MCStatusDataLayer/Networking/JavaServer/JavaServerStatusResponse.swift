@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 public class JavaServerStatusResponse: Decodable {
     var description: JavaMOTDDescriptionSection? = nil
     var players: Players? = nil
@@ -39,8 +38,10 @@ public class JavaServerStatusResponse: Decodable {
         } else if let objDesc = try? container.decode(JavaMOTDDescriptionSection.self, forKey: .description) { //finally anything remaining should be the description object
             self.description = objDesc
         } else {
-            print("FAILED TO PARSE: " + (try! decoder.singleValueContainer().decode(String.self)))
+            print("FAILED TO PARSE INCOMING SERVER JSON")
+            throw ServerStatusCheckerError.StatusUnparsable
         }
+        
         
         self.players = try? container.decode(Players.self, forKey: .players)
         self.version = try? container.decode(Version.self, forKey: .version)
@@ -50,7 +51,20 @@ public class JavaServerStatusResponse: Decodable {
 
 // this needs to be refactored, as this currently does not support regular string string array's nested inside the extra instead of being a description object, which is techinically valid, although i've never seen it. Should be handled either way.
 // IE dynmic decoding of the extra to check the same as above. is it a string, string array, or a desc object?
-class JavaMOTDDescriptionSection: Codable {
+class JavaMOTDDescriptionSection: Decodable {
+    
+    enum CodingKeys: String, CodingKey {
+        case text = "text"
+        case color = "color"
+        case extra = "extra"
+        case bold = "bold"
+        case italic = "italic"
+        case underlined = "underlined"
+        case strikethrough = "strikethrough"
+        case obfuscated = "obfuscated"
+
+    }
+    
     var text: String?
     var color: String?
     var extra: [JavaMOTDDescriptionSection]?
@@ -59,19 +73,60 @@ class JavaMOTDDescriptionSection: Codable {
     var underlined:Bool?
     var strikethrough:Bool?
     var obfuscated:Bool?
+    
+    public init() {
+        
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        // first check if this object is a string itself
+        let strContainer = try decoder.singleValueContainer()
+        
+        if let rawText = try? strContainer.decode(String.self) {
+            self.text = rawText
+            return
+        }
+
+
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        // first check extra it its a regular string, if so, load it into the text object to keep everything consistent
+        if let strExtra = try? container.decode(String.self, forKey: .extra) {
+            let extra = JavaMOTDDescriptionSection()
+            extra.text = strExtra
+            self.extra = [extra]
+        } else if let strArr = try? container.decode([String].self, forKey: .extra) { //then check if it is a regular string array (very rare but valid)
+            let extra = JavaMOTDDescriptionSection()
+            extra.text = strArr.joined(separator: " ")
+            self.extra = [extra]
+            
+        } else if let objDesc = try? container.decode([JavaMOTDDescriptionSection].self, forKey: .extra) { //finally anything remaining should be the description object
+            self.extra = objDesc
+        }
+        // otherwise there is no extra, just the regular properties, continue parsing as normal.
+
+        
+        self.text = try? container.decode(String.self, forKey: .text)
+        self.color = try? container.decode(String.self, forKey: .color)
+        self.bold = try? container.decode(Bool.self, forKey: .bold)
+        self.italic = try? container.decode(Bool.self, forKey: .italic)
+        self.underlined = try? container.decode(Bool.self, forKey: .underlined)
+        self.strikethrough = try? container.decode(Bool.self, forKey: .strikethrough)
+        self.obfuscated = try? container.decode(Bool.self, forKey: .obfuscated)
+    }
 }
 
-class Players: Codable {
+class Players: Decodable {
     var max: Int!
     var online: Int!
     var sample: [UserSample]?
 }
 
-class Version: Codable {
+class Version: Decodable {
     var name: String!
 }
 
-class UserSample: Codable {
+class UserSample: Decodable {
     var name: String!
 }
 
