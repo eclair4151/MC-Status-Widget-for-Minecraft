@@ -8,7 +8,6 @@
 import SwiftUI
 import SwiftData
 import MCStatusDataLayer
-//import MCStatusAppIntentsExtension
 
 struct EditServerView: View {
     
@@ -19,6 +18,7 @@ struct EditServerView: View {
     @Environment(\.modelContext) private var modelContext
 
     @State var server: SavedMinecraftServer
+    
     @Binding var isPresented: Bool
     var parentViewRefreshCallBack: () -> Void
     
@@ -30,6 +30,8 @@ struct EditServerView: View {
     @State var tempServerType = ServerType.Java
 
     @State var portLabelPromptText = "Port (Optional - Default 25565)"
+
+    @State private var showingInvalidURLAlert = false
 
     
     var body: some View {
@@ -102,6 +104,14 @@ struct EditServerView: View {
             tempNameInput = server.name
             tempServerType = server.serverType
         }.interactiveDismissDisabled(inputHasChanged())
+        
+        .alert("Invalid Server URL/IP Address", isPresented: $showingInvalidURLAlert) {
+            Button("OK") {
+                
+            }
+        } message: {
+            Text("Minecraft Server domains/ip addresses must be the root domain, and not contain any '/' or ':'")
+        }
     }
     
     private func saveDisabled() -> Bool {
@@ -114,7 +124,20 @@ struct EditServerView: View {
         (tempPortInput ?? 0) != server.serverPort
     }
     
+    // server domains cannot have / or :
+    private func isUrlValid(url: String) -> Bool {
+        return !url.contains(":") && !url.contains("/")
+    }
+    
     private func addItem() {
+        // first validate url doesnt contains any / or :
+        tempServerInput = tempServerInput.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !isUrlValid(url: tempServerInput) {
+            showingInvalidURLAlert = true
+            return
+        }
+        
+        
         withAnimation {
             server.serverUrl = tempServerInput
             if let tempPortInput {

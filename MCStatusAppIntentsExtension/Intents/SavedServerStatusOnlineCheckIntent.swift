@@ -14,7 +14,7 @@ struct SavedServerStatusOnlineCheckIntent: AppIntent {
     static var title: LocalizedStringResource = "Saved Minecraft Server Status Check"
     
     static var description =
-    IntentDescription("Checks the status of a server saved in the app, and returns either \"Online\",\"Offline\", or \"Unknown\" if the device if not connected to the internet or another error occurs", searchKeywords: ["Minecraft","server","status","check","query","lookup","MC"], resultValueName: "Minecraft Server Status")
+    IntentDescription("Checks the status of a server saved in the app, and returns the server status which contains the player count, player sample, MOTD and Online Status, which can be either \"Online\",\"Offline\", or \"Unknown\" if the device if not connected to the internet or another error occurs", searchKeywords: ["Minecraft","server","status","check","query","lookup","MC"], resultValueName: "Minecraft Server Status")
     
     @Parameter(title: "Server")
     var serverEntity: SavedServerEntity?
@@ -27,7 +27,6 @@ struct SavedServerStatusOnlineCheckIntent: AppIntent {
 
         
         if let serverEnt = self.serverEntity {
-            // case 
             guard let serverLookup = await SwiftDataHelper.getSavedServerById(container: container, server_id: serverEnt.id) else {
                 throw MCIntentError.DB_ID_MISSING
             }
@@ -61,10 +60,7 @@ struct SavedServerStatusOnlineCheckIntent: AppIntent {
         let status = await ServerStatusChecker.checkServer(server: refrencedServer)
         
         print("container:" + container.schema.debugDescription)
-        let res = ServerStatusEntity(serverName: refrencedServer.name, id: UUID())
-        res.playerCount = status.onlinePlayerCount
-        res.onlineStatus = status.status.rawValue
-
+        let res = ServerStatusEntity(serverId: UUID(), serversName: refrencedServer.name, serverStatus: status)
         return .result(value: res, dialog: "\(String(localized: res.displayRepresentation.title))")
     }
     

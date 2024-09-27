@@ -28,7 +28,7 @@ public class ServerStatus: Identifiable, Codable {
     
     
     public func getDisplayText() -> String {
-        return status.rawValue + " " + String(onlinePlayerCount) + "/" + String(maxPlayerCount)
+        return status.rawValue + " - " + String(onlinePlayerCount) + "/" + String(maxPlayerCount)
     }
     
     public init() {
@@ -49,6 +49,9 @@ public class FormattedMOTD: Codable {
         self.messageSections = messageSections
     }
     public var messageSections:[FormattedMOTDSection] = []
+    public func getRawText() -> String {
+        return messageSections.map { $0.text }.joined()
+    }
 }
 
 

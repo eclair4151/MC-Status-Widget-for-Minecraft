@@ -47,6 +47,8 @@
 		F1C010432AAAB6E50017B9A9 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F1C010422AAAB6E50017B9A9 /* MCStatusDataLayer */; };
 		F1C010452AAAB6EA0017B9A9 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F1C010442AAAB6EA0017B9A9 /* MCStatusDataLayer */; };
 		F1C010492AAAB9B60017B9A9 /* SwiftyPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */; };
+		F1E671742CA72E66002BDFC0 /* ServerRowView 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671732CA72E66002BDFC0 /* ServerRowView 2.swift */; };
+		F1E671762CA73A86002BDFC0 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* ProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +131,8 @@
 		F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyPing.swift; sourceTree = "<group>"; };
 		F1C9A9AE2A879A4800C058C7 /* MCStatusWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusWatchApp.entitlements; sourceTree = "<group>"; };
 		F1C9A9AF2A879FBC00C058C7 /* MCStatusWatchApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MCStatusWatchApp-Info.plist"; sourceTree = "<group>"; };
+		F1E671732CA72E66002BDFC0 /* ServerRowView 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServerRowView 2.swift"; sourceTree = "<group>"; };
+		F1E671752CA73A86002BDFC0 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,10 +293,12 @@
 		F1A43C802A84726F0081A24C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F1E671752CA73A86002BDFC0 /* ProgressView.swift */,
 				F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */,
 				F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */,
 				F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */,
 				F1AE29152CA48577009D0D14 /* ServerRowView.swift */,
+				F1E671732CA72E66002BDFC0 /* ServerRowView 2.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -524,6 +530,8 @@
 				F144E0DF2A9D82CC00E9623F /* ServerIntentTypeAppEntity.swift in Sources */,
 				F144E0DD2A9D82CC00E9623F /* ServerSelect.swift in Sources */,
 				F13E60012A4BD614005BE9B2 /* MainAppContentView.swift in Sources */,
+				F1E671762CA73A86002BDFC0 /* ProgressView.swift in Sources */,
+				F1E671742CA72E66002BDFC0 /* ServerRowView 2.swift in Sources */,
 				F144E0DE2A9D82CC00E9623F /* ThemeIntentTypeAppEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

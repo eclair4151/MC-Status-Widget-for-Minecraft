@@ -109,7 +109,7 @@ struct WatchContentView: View {
                 return cachedVm
             }
             
-            let vm = ServerStatusViewModel(server: $0)
+            let vm = ServerStatusViewModel(modelContext: self.modelContext, server: $0)
             serverViewModelCache[$0.id] = vm
             if !forceRefresh {
                 serversToCheck.append($0)

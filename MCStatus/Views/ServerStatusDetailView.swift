@@ -7,7 +7,6 @@
 
 import SwiftUI
 import MCStatusDataLayer
-import MCStatusAppIntentsExtension
 import AppIntents
 
 //Show tip view

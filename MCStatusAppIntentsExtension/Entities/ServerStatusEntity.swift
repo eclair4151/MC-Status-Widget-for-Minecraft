@@ -7,6 +7,7 @@
 
 import Foundation
 import AppIntents
+import MCStatusDataLayer
 struct ServerStatusEntity: AppEntity {
     
     var serverName: String
@@ -17,8 +18,12 @@ struct ServerStatusEntity: AppEntity {
     @Property(title: "Player Count")
     var playerCount: Int
     
-    @Property(title: "Server Status Json")
-    var statusDict: String
+    @Property(title: "MOTD")
+    var motd: String
+    
+    @Property(title: "Player Sample")
+    var playerSample: String
+
     
     var id: UUID
 
@@ -28,6 +33,15 @@ struct ServerStatusEntity: AppEntity {
 
     var displayRepresentation: DisplayRepresentation {
         DisplayRepresentation(title: "\(serverName) is \(onlineStatus.lowercased()) with \(playerCount) players.")
+    }
+    
+    init(serverId: UUID, serversName: String, serverStatus: ServerStatus) {
+        id = serverId
+        serverName = serversName
+        playerCount = serverStatus.onlinePlayerCount
+        onlineStatus = serverStatus.status.rawValue
+        motd = serverStatus.description?.getRawText() ?? ""
+        playerSample = serverStatus.playerSample.map{ $0.name }.joined(separator: ",")
     }
 }
 

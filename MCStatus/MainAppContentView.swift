@@ -11,10 +11,6 @@ import CloudKit
 import CoreData
 import MCStatusDataLayer
 
-//import MCStatusAppIntentsExtension
-
-
-
 
 struct MainAppContentView: View {
     
@@ -38,15 +34,8 @@ struct MainAppContentView: View {
                         }
                     }
                     label: {
-                        if let status = viewModel.status {
-//                            Text(viewModel.server.name + " - " + status.getDisplayText())
-                            ServerRowView(title: viewModel.server.name, subtitle: status.getDisplayText())
-                        } else {
-//                            Text(viewModel.server.name + " - " + viewModel.loadingStatus.rawValue)
-                            ServerRowView(title: viewModel.server.name, subtitle: viewModel.loadingStatus.rawValue)
-
-                        }
-                    }
+                        ServerRowView(viewModel: viewModel)
+                    }.listRowInsets(EdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15))
                 }
                 .onMove {
                     serverViewModels?.move(fromOffsets: $0, toOffset: $1)
@@ -84,7 +73,7 @@ struct MainAppContentView: View {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
-            }
+            }.navigationTitle("Servers")
         }
         .onChange(of: scenePhase, initial: true) { old,newPhase in
             // this is some code to investigate an apple watch bug
@@ -152,7 +141,7 @@ struct MainAppContentView: View {
                 return cachedVm
             }
             
-            let vm = ServerStatusViewModel(server: $0)
+            let vm = ServerStatusViewModel(modelContext: self.modelContext, server: $0)
             serverViewModelCache[$0.id] = vm
             if !forceRefresh {
                 vm.reloadData()
