@@ -69,6 +69,9 @@ struct EditServerView: View {
                         .font(.headline)
                         .frame(width: 25, height: 25)
                     TextField("Server Address/IP", text: $tempServerInput, prompt: Text("Server Address/IP")).autocapitalization(.none).keyboardType(.URL).autocorrectionDisabled(true).submitLabel(.done).focused($focusedField, equals: .serverAddress)
+                        .onChange(of: tempServerInput, initial: false) { oldValue, newValue  in
+                            extractPort(from: newValue)
+                        }
                 }
                 HStack {
                     Image(systemName: "number")
@@ -103,6 +106,7 @@ struct EditServerView: View {
             }
             tempNameInput = server.name
             tempServerType = server.serverType
+            focusedField = .serverName
         }.interactiveDismissDisabled(inputHasChanged())
         
         .alert("Invalid Server URL/IP Address", isPresented: $showingInvalidURLAlert) {
@@ -113,6 +117,20 @@ struct EditServerView: View {
             Text("Minecraft Server domains/ip addresses must be the root domain, and not contain any '/' or ':'")
         }
     }
+    
+    private func extractPort(from text: String) {
+            // Check if the text contains a colon
+            if let colonIndex = text.firstIndex(of: ":") {
+                // Extract the port number after the colon
+                let portValue = text[text.index(after: colonIndex)...]
+                let port = String(portValue)
+                // Remove the port from serverIP if necessary
+                let serverIP = String(text[..<colonIndex])
+                tempServerInput = serverIP
+                tempPortInput = Int(port)
+            }
+        }
+    
     
     private func saveDisabled() -> Bool {
         return tempNameInput.isEmpty || tempServerInput.isEmpty
@@ -150,6 +168,8 @@ struct EditServerView: View {
             
             server.name = tempNameInput
             server.serverType = tempServerType
+            server.srvServerUrl = ""
+            server.srvServerPort = 0
             modelContext.insert(server)
             do {
                 // Try to save

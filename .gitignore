@@ -1,1 +1,21 @@
 Pods/Realm/core/realm-monorepo.xcframework/*
+
+# Xcode specific files to ignore
+
+# User-specific files
+*.xcuserdata/
+*.xcuserstate
+
+# Breakpoints
+*.xcdebugger/
+*.xcbkptlist
+
+# Derived data
+DerivedData/
+build/
+
+# Other common Xcode files to ignore
+*.DS_Store
+*.swp
+*.xcworkspace/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/

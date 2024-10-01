@@ -9,13 +9,16 @@ import Foundation
 
 public class ServerStatusChecker {
     public static func checkServer(server:SavedMinecraftServer) async -> ServerStatus {
-//        do {
-//            //aritifical delay for testing
-//            try await Task.sleep(nanoseconds: UInt64(3) * NSEC_PER_SEC)
+//        if server.serverType == .Bedrock {
+//            do {
+//                //aritifical delay for testing
+//                try await Task.sleep(nanoseconds: UInt64(1) * NSEC_PER_SEC)
 //
-//        } catch {
-//            
+//            } catch {
+//                
+//            }
 //        }
+        
         
 
         print("starting server check for: " + server.serverUrl)

@@ -128,6 +128,7 @@ class Version: Decodable {
 
 class UserSample: Decodable {
     var name: String!
+    var id: String!
 }
 
 

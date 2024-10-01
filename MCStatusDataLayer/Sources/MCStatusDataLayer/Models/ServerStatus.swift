@@ -37,11 +37,13 @@ public class ServerStatus: Identifiable, Codable {
 }
 
 
-public class Player: Codable {
-    public init(name: String) {
+public class Player: Codable, Identifiable {
+    public init(name: String, id: String) {
         self.name = name
+        self.id = id
     }
     public var name = ""
+    public var id = ""
 }
 
 public class FormattedMOTD: Codable {

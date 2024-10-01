@@ -58,7 +58,12 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
         }
         
         status.playerSample = (responseObject.players?.sample ?? []).map { userSample in
-            return Player(name: userSample.name)
+            return Player(name: userSample.name.removingMinecraftFormatCodes(), id: userSample.id)
+        }
+        
+        // filter out empty values
+        status.playerSample.removeAll { player in
+            player.name.isEmpty
         }
         status.status = .Online
         return status
@@ -245,6 +250,13 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
     ]
 
 
+}
+
+extension String {
+    func removingMinecraftFormatCodes() -> String {
+        let pattern = "§."
+        return self.replacingOccurrences(of: pattern, with: "", options: .regularExpression)
+    }
 }
 
 

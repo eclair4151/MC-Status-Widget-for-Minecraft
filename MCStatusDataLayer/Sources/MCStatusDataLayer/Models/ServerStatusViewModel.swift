@@ -16,7 +16,9 @@ public enum LoadingStatus: String {
 @Observable
 public class ServerStatusViewModel: Identifiable {
     public let server: SavedMinecraftServer
+    
     public var status: ServerStatus?
+    
     public var loadingStatus = LoadingStatus.Loading
     public var serverIcon = UIImage()
     private var modelContext: ModelContext
@@ -33,32 +35,49 @@ public class ServerStatusViewModel: Identifiable {
             loadingStatus = .Loading
             // DONT DO THIS, LET USER PASS IN FUNCTION WHICH WILL RELOAD DATA TO ALLOW REUSE IN WATCH
             let statusResult = await ServerStatusChecker.checkServer(server: server)
+            print("Got result from status checker")
+
             self.status = statusResult
-            if !statusResult.favIcon.isEmpty {
-                server.serverIcon = statusResult.favIcon
-                
-                Task { @MainActor in
-                    print("Going to insert updated model")
-                    modelContext.insert(server)
-                    print("inserted updated model")
-
-                    do {
-                        // Try to save
-                        print("Going to save updated model")
-
-                        try modelContext.save()
-                    } catch {
-                        // We couldn't save :(
-                        print(error.localizedDescription)
-                    }
-                    print("saved updated model")
-                }
-                
-
-            }
+            // i need this but it crashes everything
+//            if !statusResult.favIcon.isEmpty {
+//                server.serverIcon = statusResult.favIcon
+//                
+//                Task { @MainActor in
+//                    print("Going to insert updated model")
+//                    modelContext.insert(server)
+////                    print("inserted updated model")
+//
+//                    do {
+//                        // Try to save
+////                        print("Going to save updated model")
+//
+//                        try modelContext.save()
+//                    } catch {
+//                        // We couldn't save :(
+//                        print(error.localizedDescription)
+//                    }
+//                    print("Saved server icon to DB")
+//                }
+//                
+//
+//            }
             loadIcon()
             loadingStatus = .Finished
         }
+    }
+    
+    public func getUserSampleText() -> String {
+        guard let status else { return "" }
+        return status.playerSample.map {
+            $0.name
+        }.joined(separator: ", ")
+    }
+    
+    public func getPlayerCountPercentage() -> CGFloat {
+        guard let status, status.maxPlayerCount > 0 else { return 0 }
+        
+        let playerCount = status.onlinePlayerCount
+        return CGFloat(playerCount) / CGFloat(status.maxPlayerCount)
     }
     
     public func loadIcon() {
@@ -70,6 +89,9 @@ public class ServerStatusViewModel: Identifiable {
         }
         
         guard !base64Icon.isEmpty else {
+            if let defaultIcon = UIImage(named: "DefaultIcon") {
+                self.serverIcon =  defaultIcon
+            }
             return
         }
         

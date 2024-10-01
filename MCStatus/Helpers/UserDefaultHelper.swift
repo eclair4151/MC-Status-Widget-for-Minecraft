@@ -36,6 +36,10 @@ class UserDefaultHelper {
         return true
     }
     
+    static func showUsersOnHomesreen() -> Bool {
+        return true
+    }
+    
 }
 
 

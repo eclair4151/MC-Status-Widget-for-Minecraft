@@ -38,6 +38,7 @@ struct CustomProgressView: View {
                     .frame(width: width * self.progress,
                            height: height)
                     .cornerRadius(height / 2.0)
+                    .animation(.easeInOut(duration: 0.5), value: progress)
             }
         }
     }

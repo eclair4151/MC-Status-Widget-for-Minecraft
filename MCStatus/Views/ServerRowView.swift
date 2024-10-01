@@ -11,6 +11,7 @@ import MCStatusDataLayer
 struct ServerRowView: View {
     var viewModel: ServerStatusViewModel
     
+    @State var isLoading = false
     var body: some View {
         
         
@@ -19,7 +20,7 @@ struct ServerRowView: View {
             Image(uiImage: viewModel.serverIcon)
                 .resizable()
                 .frame(width: 50.0, height: 50.0)
-                .background(Color(red: 0.5, green: 0.5, blue: 0.5, opacity: 0.2))
+//                .background(Color(red: 0.5, green: 0.5, blue: 0.5, opacity: 0.05))
                 .aspectRatio(contentMode: .fit)
                 .padding([.trailing], 5)
             
@@ -30,10 +31,18 @@ struct ServerRowView: View {
                             .font(.headline)
                             .foregroundColor(.primary)
                         if let status = viewModel.status {
-                            Text(status.getDisplayText())
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
-                        } else {
+                            if (status.status == .Offline) {
+                                Text(status.status.rawValue.capitalized)
+                                    .font(.subheadline)
+                                    .foregroundColor(.red)
+                                    .bold()
+                            } else {
+                                Text(status.getDisplayText())
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
+                            }
+                            
+                        } else if isLoading{
                             Text(viewModel.loadingStatus.rawValue)
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
@@ -42,19 +51,39 @@ struct ServerRowView: View {
                         
                     }
                     Spacer()
-                    if viewModel.loadingStatus == .Loading {
+                    if isLoading {
                         ProgressView().padding([.trailing], 5)
                     }
                 }
-                CustomProgressView(progress: CGFloat(0.5))
-                                        .frame(height:8)
+                    CustomProgressView(progress: CGFloat(viewModel.getPlayerCountPercentage()))
+                        .frame(height:8)
+                
+                
+                
+                if UserDefaultHelper.showUsersOnHomesreen() {
+                    let sampletext = viewModel.getUserSampleText()
+//                    if !sampletext.isEmpty {
+                        Text(sampletext)
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+                            .padding(0)
+                            .frame(height:8)
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+//                    }
+                    
+                }
             }
 
+        }.onChange(of: viewModel.loadingStatus, initial: true) { oldValue, newValue in
+            // Update isLoading whenever loadingStatus changes
+            isLoading = (newValue == .Loading)
         }
 //                .background(Color(.systemBackground))
 //                .cornerRadius(8)
 //                .shadow(radius: 2)
     }
+    
 }
 
 //#Preview {

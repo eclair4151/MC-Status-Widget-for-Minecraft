@@ -30,6 +30,7 @@ class WebJavaResponsePlayers: Decodable {
 
 class WebJavaResponsePlayer: Decodable {
     let name_clean: String
+    let uuid: String
 }
 
 class WebJavaResponseMOTD: Decodable {

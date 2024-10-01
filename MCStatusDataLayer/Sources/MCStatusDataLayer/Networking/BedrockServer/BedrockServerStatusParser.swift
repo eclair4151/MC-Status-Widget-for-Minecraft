@@ -82,6 +82,10 @@ public class BedrockServerStatusParser: ServerStatusParserProtocol {
             currentIndex = input.index(after: currentIndex)
         }
         
+        if !currentSection.text.isEmpty {
+            motdSections.append(currentSection)
+        }
+        
         return motdSections
     }
     

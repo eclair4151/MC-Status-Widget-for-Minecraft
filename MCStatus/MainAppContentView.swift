@@ -42,7 +42,7 @@ struct MainAppContentView: View {
                     //update underlying display order
                     refreshDisplayOrders()
                 }
-                //.onDelete(perform: deleteItems) // uncomment to enable swipe to delete. You can also use a custom Swipe Action instead of this to block full swipes and require partial swipe + tap
+                .onDelete(perform: deleteItems) // uncomment to enable swipe to delete. You can also use a custom Swipe Action instead of this to block full swipes and require partial swipe + tap
             }.refreshable {
                 reloadData(forceRefresh: true)
             }.overlay {
@@ -112,10 +112,35 @@ struct MainAppContentView: View {
         }
     }
     
+    private func deleteItems(at offsets: IndexSet) {
+        offsets.makeIterator().forEach { pos in
+            if let serverViewModel = serverViewModels?[pos] {
+                modelContext.delete(serverViewModel.server)
+            }
+        }
+        
+        do {
+            try modelContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        serverViewModels?.remove(atOffsets: offsets)
+    }
+    
     
     private func refreshDisplayOrders() {
         serverViewModels?.enumerated().forEach { index, vm in
             vm.server.displayOrder = index + 1
+            modelContext.insert(vm.server)
+        }
+        
+        do {
+            // Try to save
+            try modelContext.save()
+        } catch {
+            // We couldn't save :(
+            print(error.localizedDescription)
         }
     }
     

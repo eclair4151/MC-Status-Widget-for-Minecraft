@@ -9,16 +9,7 @@ import SwiftUI
 import MCStatusDataLayer
 import AppIntents
 
-//Show tip view
-//Use SiriTipView
-//
-//SiriTipView(intent: ReorderIntent(), isVisible: $isVisible)
-//    .siriTipViewStyle(.black)
-//Show link to open Shortcuts app
-//Use ShortcutsLink
-//
-//ShortcutsLink()
-//     .shortcutsLinkStyle(.whiteOutline)
+
 
 
 struct ServerStatusDetailView: View {
