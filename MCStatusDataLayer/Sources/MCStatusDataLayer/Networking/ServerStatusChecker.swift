@@ -25,7 +25,7 @@ public class ServerStatusChecker {
         // STEP 1 if we have SRV values, check that server.
         // only Java servers support SRV records
         // add UserDefaultHelper.SRVEnabled() &&
-        if  server.serverType == .Java && !server.srvServerUrl.isEmpty && server.srvServerPort != -1 {
+        if  server.serverType == .Java && !server.srvServerUrl.isEmpty && server.srvServerPort != 0 {
             do {
                 print("CHECKING SERVER FROM CACHED SRV: " + server.srvServerUrl)
                 let res = try await DirectServerStatusChecker.checkServer(serverUrl: server.srvServerUrl, serverPort: server.srvServerPort, serverType: server.serverType)

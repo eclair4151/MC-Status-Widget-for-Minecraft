@@ -48,6 +48,9 @@
 		F1C010452AAAB6EA0017B9A9 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F1C010442AAAB6EA0017B9A9 /* MCStatusDataLayer */; };
 		F1C010492AAAB9B60017B9A9 /* SwiftyPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */; };
 		F1CFCD492CAB0FF7001A9E69 /* MinecraftServerStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD482CAB0FF7001A9E69 /* MinecraftServerStatusView.swift */; };
+		F1CFCD512CABB567001A9E69 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
+		F1CFCD522CABB567001A9E69 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
+		F1CFCD532CABB567001A9E69 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
 		F1E671742CA72E66002BDFC0 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671732CA72E66002BDFC0 /* TestView.swift */; };
 		F1E671762CA73A86002BDFC0 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
 /* End PBXBuildFile section */
@@ -133,6 +136,7 @@
 		F1C9A9AE2A879A4800C058C7 /* MCStatusWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusWatchApp.entitlements; sourceTree = "<group>"; };
 		F1C9A9AF2A879FBC00C058C7 /* MCStatusWatchApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MCStatusWatchApp-Info.plist"; sourceTree = "<group>"; };
 		F1CFCD482CAB0FF7001A9E69 /* MinecraftServerStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinecraftServerStatusView.swift; sourceTree = "<group>"; };
+		F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExtentions.swift; sourceTree = "<group>"; };
 		F1E671732CA72E66002BDFC0 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -357,6 +361,7 @@
 		F1BF5D9D2A8025EE00966D56 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */,
 				F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */,
 				F174A2FB2A8F7FFA0051DA5B /* WatchHelper.swift */,
 			);
@@ -505,6 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F174A3012A915E450051DA5B /* WatchServerStatusChecker.swift in Sources */,
+				F1CFCD532CABB567001A9E69 /* CustomExtentions.swift in Sources */,
 				F11F63502A81E50E00D47187 /* WatchContentView.swift in Sources */,
 				F174A2FE2A8F8ED70051DA5B /* UserDefaultHelper.swift in Sources */,
 				F11F634E2A81E50E00D47187 /* MCStatusWatchApp.swift in Sources */,
@@ -527,6 +533,7 @@
 				F16990842CA5DDE500F41232 /* ServerStatusEntity.swift in Sources */,
 				F16990852CA5DDE500F41232 /* SavedServerEntity.swift in Sources */,
 				F16990862CA5DDE500F41232 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
+				F1CFCD512CABB567001A9E69 /* CustomExtentions.swift in Sources */,
 				F16990872CA5DDE500F41232 /* MCStatusShortcutsProvider.swift in Sources */,
 				F17A16BB2A893DD700F8FF2F /* SettingsRootView.swift in Sources */,
 				F1AE29162CA48577009D0D14 /* ServerRowView.swift in Sources */,
@@ -548,6 +555,7 @@
 				F1406BB82AA3928500815BE8 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
 				F10C42122AABEB08000107D6 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */,
 				F10C42142AAD4736000107D6 /* ServerStatusEntity.swift in Sources */,
+				F1CFCD522CABB567001A9E69 /* CustomExtentions.swift in Sources */,
 				F1406BBE2AA3933000815BE8 /* SavedServerEntity.swift in Sources */,
 				F1406BAC2AA391B800815BE8 /* MCStatusAppIntentsExtension.swift in Sources */,
 				F1406BBF2AA3933400815BE8 /* IntentErrors.swift in Sources */,

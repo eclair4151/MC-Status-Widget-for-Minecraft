@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 
-public enum ServerType: Codable {
+public enum ServerType: String, Codable {
     case Java
     case Bedrock
 }

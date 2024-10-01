@@ -80,6 +80,18 @@ public class ServerStatusViewModel: Identifiable {
         return CGFloat(playerCount) / CGFloat(status.maxPlayerCount)
     }
     
+    public func hasSRVRecord() -> Bool {
+        guard !server.srvServerUrl.isEmpty && server.srvServerPort != 0 else {
+            return false
+        }
+        
+        if server.srvServerUrl == server.serverUrl && server.srvServerPort == server.serverPort {
+            return false
+        }
+        
+        return true
+    }
+    
     public func loadIcon() {
         var base64Icon = ""
         if let status, status.favIcon != "" {

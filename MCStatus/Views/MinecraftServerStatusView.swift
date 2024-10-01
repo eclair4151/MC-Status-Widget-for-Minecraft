@@ -32,8 +32,9 @@ struct MinecraftServerStatusView: View {
                             .resizable()
                             .scaledToFit()
                             .cornerRadius(15)
-                            .overlay(RoundedRectangle(cornerRadius: 15)
-                                .stroke(Color.gray, lineWidth: 2))
+                            .background(Color.serverIconBackground)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))                              .overlay(RoundedRectangle(cornerRadius: 15)
+                                .stroke(Color(hex: "6e6e6e"), lineWidth: 2))
                             .frame(width: proxy.size.width * 0.3)
                             .padding([.trailing], 16)
                             .shadow(color: .black.opacity(0.25), radius: 10, x: 5, y: 5) // Drop shadow
@@ -47,11 +48,11 @@ struct MinecraftServerStatusView: View {
                             
                             Text(serverAddress)
                                 .font(.subheadline)
-                                .foregroundColor(.gray)
+                                .foregroundColor(.secondaryTextColor)
                                 .lineLimit(1)
                             Text(srvRecordValue)
                                 .font(.subheadline)
-                                .foregroundColor(.gray)
+                                .foregroundColor(.secondaryTextColor)
                                 .lineLimit(1)
                             // Status pill
                                 Text(isOnline ? "Online" : "Offline")
@@ -68,22 +69,22 @@ struct MinecraftServerStatusView: View {
                     HStack {
                         Text(serverType)
                             .font(.subheadline)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.tertiaryTextColor)
                             .bold()
                         Text("-")
                         Text(serverVersion)
                             .font(.subheadline)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.secondaryTextColor)
                     }
                     Text(pingValue)
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.secondaryTextColor)
                     Text("This is a MOTD from a server!\nNew stuff coming soon!")
                                 .font(.custom("Avenir", size: 20)) // Use a Minecraft-like font
                                 .padding(10)
                                 .frame(maxWidth: .infinity, alignment: .leading) // Make the Text view full width
                                 .foregroundColor(.white) // Set text color to white for contrast
-                                .background(Color.black.opacity(0.75)) // Darker background
+                                .background(Color.MOTDBackground) // Darker background
                                 .cornerRadius(15) // Rounded corners
                                 .padding([.top,.bottom],10) // Additional padding around the view
                                 .shadow(color: Color.black.opacity(0.5), radius: 5) // Optional shadow for depth
@@ -122,8 +123,7 @@ struct MinecraftServerStatusView: View {
                 }.listStyle(.insetGrouped).padding(.top, -10).zIndex(-1)
             }
 
-        }.background(Color(UIColor.secondarySystemBackground))
-        .navigationTitle("Server Status")
+        }.background(Color.appBackgroundColor)
     }
 }
 
