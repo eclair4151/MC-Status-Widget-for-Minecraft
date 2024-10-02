@@ -23,7 +23,7 @@ class WebServerStatusParser {
             status.maxPlayerCount = players.max
             status.onlinePlayerCount = players.online
             status.playerSample = players.list.map {
-                return Player(name: $0.name_clean, id: $0.uuid)
+                return Player(name: $0.name_clean, uuid: $0.uuid)
             }
         }
         

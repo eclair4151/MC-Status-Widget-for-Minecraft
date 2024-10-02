@@ -62,7 +62,6 @@ struct ServerRowView: View {
                 
                 if UserDefaultHelper.showUsersOnHomesreen() {
                     let sampletext = viewModel.getUserSampleText()
-//                    if !sampletext.isEmpty {
                         Text(sampletext)
                             .font(.footnote)
                             .foregroundColor(.secondary)
@@ -70,8 +69,6 @@ struct ServerRowView: View {
                             .frame(height:8)
                             .lineLimit(1)
                             .truncationMode(.tail)
-//                    }
-                    
                 }
             }
 
@@ -79,9 +76,6 @@ struct ServerRowView: View {
             // Update isLoading whenever loadingStatus changes
             isLoading = (newValue == .Loading)
         }
-//                .background(Color(.systemBackground))
-//                .cornerRadius(8)
-//                .shadow(radius: 2)
     }
     
 }

@@ -80,6 +80,14 @@ public class ServerStatusViewModel: Identifiable {
         return CGFloat(playerCount) / CGFloat(status.maxPlayerCount)
     }
     
+    public func getServerAddressToPing() -> String {
+        if !server.srvServerUrl.isEmpty {
+            return server.srvServerUrl
+        } else {
+            return server.serverUrl
+        }
+    }
+    
     public func hasSRVRecord() -> Bool {
         guard !server.srvServerUrl.isEmpty && server.srvServerPort != 0 else {
             return false

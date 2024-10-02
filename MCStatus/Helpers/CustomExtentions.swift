@@ -41,7 +41,7 @@ extension Color {
     static let MOTDBackground = Color("MOTDBackground")
     static let secondaryTextColor = Color("SecondaryTextColor")
     static let tertiaryTextColor = Color("TertiaryTextColor")
-
+//    static let placeholderGrey = Color("PlaceholderGrey")
     
 //    static let serverIconBackground = Color("ServerIconBackground")
 

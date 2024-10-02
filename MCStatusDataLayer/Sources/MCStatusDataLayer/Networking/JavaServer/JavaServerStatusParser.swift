@@ -50,7 +50,7 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
         }
         
         if let version = responseObject.version?.name {
-            status.version = version
+            status.version = version.removingMinecraftFormatCodes()
         }
         
         if let favIcon = responseObject.favicon {
@@ -58,7 +58,7 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
         }
         
         status.playerSample = (responseObject.players?.sample ?? []).map { userSample in
-            return Player(name: userSample.name.removingMinecraftFormatCodes(), id: userSample.id)
+            return Player(name: userSample.name.removingMinecraftFormatCodes(), uuid: userSample.id)
         }
         
         // filter out empty values

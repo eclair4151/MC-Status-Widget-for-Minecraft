@@ -29,6 +29,8 @@
 		F144E0DD2A9D82CC00E9623F /* ServerSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144E0DA2A9D82CC00E9623F /* ServerSelect.swift */; };
 		F144E0DE2A9D82CC00E9623F /* ThemeIntentTypeAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144E0DB2A9D82CC00E9623F /* ThemeIntentTypeAppEntity.swift */; };
 		F144E0DF2A9D82CC00E9623F /* ServerIntentTypeAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144E0DC2A9D82CC00E9623F /* ServerIntentTypeAppEntity.swift */; };
+		F1612CC82CACC37300E602DC /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F1612CC72CACC37300E602DC /* Nuke */; };
+		F1612CCA2CACC37300E602DC /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F1612CC92CACC37300E602DC /* NukeUI */; };
 		F16990822CA5DDE500F41232 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
 		F16990832CA5DDE500F41232 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42112AABEB08000107D6 /* ArbitraryServerStatusOnlineCheckIntent.swift */; };
 		F16990842CA5DDE500F41232 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42132AAD4736000107D6 /* ServerStatusEntity.swift */; };
@@ -154,7 +156,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1612CCA2CACC37300E602DC /* NukeUI in Frameworks */,
 				F1C010412AAAB6DE0017B9A9 /* MCStatusDataLayer in Frameworks */,
+				F1612CC82CACC37300E602DC /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +414,8 @@
 			name = "MC Status";
 			packageProductDependencies = (
 				F1C010402AAAB6DE0017B9A9 /* MCStatusDataLayer */,
+				F1612CC72CACC37300E602DC /* Nuke */,
+				F1612CC92CACC37300E602DC /* NukeUI */,
 			);
 			productName = MinecraftServerStatus;
 			productReference = F13E5FF92A4BD614005BE9B2 /* MC Status.app */;
@@ -465,6 +471,9 @@
 				Base,
 			);
 			mainGroup = F13E5FF02A4BD614005BE9B2;
+			packageReferences = (
+				F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */,
+			);
 			productRefGroup = F13E5FFA2A4BD614005BE9B2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -951,7 +960,28 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		F1612CC72CACC37300E602DC /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+		F1612CC92CACC37300E602DC /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
+		};
 		F1C010402AAAB6DE0017B9A9 /* MCStatusDataLayer */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MCStatusDataLayer;
