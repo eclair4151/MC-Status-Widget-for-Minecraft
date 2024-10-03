@@ -8,7 +8,7 @@
 import Foundation
 
 class WebServerStatusParser {
-    static func parseServerResponse(input: WebJavaServerStatusResponse) throws -> ServerStatus {
+    static func parseServerResponse(input: WebJavaServerStatusResponse, config: ServerCheckerConfig?) throws -> ServerStatus {
         let status = ServerStatus()
         
         if let motdString = input.motd?.raw {
@@ -27,6 +27,11 @@ class WebServerStatusParser {
             }
         }
         
+        // sort users if needed
+        if config?.sortUsers ?? false {
+            status.sortUsers()
+        }
+        
         if let versionString = input.version?.name_clean {
             status.version = versionString
         }
@@ -39,7 +44,7 @@ class WebServerStatusParser {
         return status
     }
     
-    static func parseServerResponse(input: WebBedrockServerStatusResponse) throws -> ServerStatus {
+    static func parseServerResponse(input: WebBedrockServerStatusResponse, config: ServerCheckerConfig?) throws -> ServerStatus {
         let status = ServerStatus()
         
         if let motdString = input.motd?.raw {

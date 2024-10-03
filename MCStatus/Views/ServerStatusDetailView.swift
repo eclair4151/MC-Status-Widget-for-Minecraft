@@ -57,21 +57,36 @@ struct ServerStatusDetailView: View {
         return text
     }
     
+    private func pingColor(for strength: Int) -> Color {
+            switch strength {
+            case 1 ... 75:
+                return .green
+            case 76 ... 200:
+                return .yellow
+            case 200 ... Int.max:
+                return .red
+            default:
+                return .gray
+            }
+        }
+    
     @State
     private var pingText = " "
     
-
+    @State
+    private var pingDuration = 0
+    
+    
     var body: some View {
         GeometryReader { proxy in
             List {
                 Section(header: Spacer(minLength: 0)) {
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 0) {
                         HStack(alignment: .top, spacing: 0) {
-                            
                             Image(uiImage: serverStatusViewModel.serverIcon)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: proxy.size.width * 0.3, height: proxy.size.width * 0.3)
+                                .frame(width: proxy.size.width * 0.25, height: proxy.size.width * 0.25)
                                 .cornerRadius(15)
                                 .background(Color.serverIconBackground)
                                 .overlay(RoundedRectangle(cornerRadius: 15)
@@ -79,7 +94,7 @@ struct ServerStatusDetailView: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 15))
 
                                 .padding([.trailing], 16)
-                                .shadow(color: .black.opacity(0.25), radius: 10, x: 3, y: 3) // Drop shadow
+                                .shadow(color: .black.opacity(0.2), radius: 5, x: 3, y: 3) // Drop shadow
                             
                             
                             
@@ -90,14 +105,17 @@ struct ServerStatusDetailView: View {
                                 
                                 let serverAddressString = serverStatusViewModel.server.serverUrl + ":" + String(serverStatusViewModel.server.serverPort)
                                 Text(serverAddressString)
-                                    .font(.subheadline)
+                                    .font(.footnote)
                                     .foregroundColor(.secondaryTextColor)
                                     .lineLimit(1)
                                 
-                                Text(srvAddressText)
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondaryTextColor)
-                                    .lineLimit(1)
+                                if !srvAddressText.isEmpty {
+                                    Text(srvAddressText)
+                                        .font(.footnote)
+                                        .foregroundColor(.secondaryTextColor)
+                                        .lineLimit(1)
+                                }
+                                
                                 
                                 // Status pill
                                 HStack {
@@ -116,46 +134,61 @@ struct ServerStatusDetailView: View {
                                 
                             }
                             
-                        }
+                        }.padding(.bottom, 6)
                         HStack(alignment: .top) {
                             Text(serverStatusViewModel.server.serverType.rawValue)
                                 .font(.subheadline)
+                                .padding([.trailing, .leading], 6)
+                                .padding([.bottom, .top], 3)
+                                .background(Color.standoutPillGrey)
+                                .cornerRadius(6)
                                 .foregroundColor(.tertiaryTextColor)
                                 .bold()
-                            
                             if let version = serverStatusViewModel.status?.version, !version.isEmpty {
-                                Text("-")
                                 Text(version)
                                     .font(.subheadline)
+                                    .padding(.top, 3)
                                     .foregroundColor(.secondaryTextColor)
                             }
                             
+                        }.padding(.bottom, 6)
+                        HStack(alignment: .center, spacing: 5) {
+                            Text(pingText)
+                                .font(.footnote)
+                                .foregroundColor(.secondaryTextColor)
+                            
+                            if pingDuration > 0 {
+                                Image(systemName: "wifi")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .foregroundColor(pingColor(for: pingDuration))
+                                            .frame(width: 14, height: 14)
+                            }
+                            
                         }
-                        Text(pingText)
-                            .font(.subheadline)
-                            .foregroundColor(.secondaryTextColor)
+                        
                         if let status = serverStatusViewModel.status, let motdText = status.description?.getRawText() {
                             Text(motdText)
-                                .font(.custom("Avenir", size: 15)) // Use a Minecraft-like font
+                                .font(Font.minecraftFont) // Use a Minecraft-like font
                                 .padding(10)
                                 .frame(maxWidth: .infinity, alignment: .leading) // Make the Text view full width
                                 .foregroundColor(.white) // Set text color to white for contrast
                                 .background(Color.MOTDBackground) // Darker background
                                 .cornerRadius(15) // Rounded corners
-                                .padding(.top,5) // Additional padding around the view
+                                .padding(.top,10) // Additional padding around the view
                                 .padding(.bottom, 15)
                         }
                         
                         
                         Text(playersText)
                             .font(.headline)
-                        
+                            .padding(.bottom, 10)
                         CustomProgressView(progress: serverStatusViewModel.getPlayerCountPercentage())
                             .frame(height:10).padding(.bottom, 10)
                         
                         
                     }
-                }.listRowInsets(EdgeInsets())
+                }.padding([.top, .trailing, .leading],10).listRowInsets(EdgeInsets())
                     .listRowBackground(Color.appBackgroundColor)
                 
                 Section {
@@ -176,11 +209,11 @@ struct ServerStatusDetailView: View {
                                 }
                             }
                             .cornerRadius(3)
-                                .frame(width: 40, height: 40)
+                                .frame(width: 30, height: 30)
                                 .padding([.trailing], 16)
                                 Text(player.name)
                             
-                       }.listRowInsets(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15))
+                        }.padding(.vertical, 10).listRowInsets(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
                     }
                 } footer: {
                     let playerSampleCount = serverStatusViewModel.status?.playerSample.count ?? 0
@@ -190,9 +223,9 @@ struct ServerStatusDetailView: View {
                         Text("*Player list limited to 12 users by server").frame(maxWidth: .infinity, alignment: .center)
                     }
                 }
-            }.listStyle(.insetGrouped).listSectionSpacing(10).environment(\.defaultMinListHeaderHeight, 5)
+            }.listStyle(.insetGrouped).listSectionSpacing(10).environment(\.defaultMinListHeaderHeight, 15)
         }.refreshable {
-            serverStatusViewModel.reloadData()
+            serverStatusViewModel.reloadData(config: UserDefaultHelper.getServerCheckerConfig())
             refreshPing()
         }.toolbar {
             ToolbarItem(placement: .topBarTrailing) {
@@ -219,7 +252,7 @@ struct ServerStatusDetailView: View {
         }.sheet(isPresented: $showingEditSheet) {
             NavigationView {
                 EditServerView(server: serverStatusViewModel.server, isPresented: $showingEditSheet) {
-                    serverStatusViewModel.reloadData()
+                    serverStatusViewModel.reloadData(config: UserDefaultHelper.getServerCheckerConfig())
                     parentViewRefreshCallBack()
                 }
             }
@@ -234,6 +267,7 @@ struct ServerStatusDetailView: View {
             }
             let pingDuration = Int(round(pingResult.duration * 1000))
             self.pingText = "Ping: " + String(pingDuration) + "ms"
+            self.pingDuration = pingDuration
         }
     }
     private func deleteServer() {

@@ -31,6 +31,11 @@ public class ServerStatus: Identifiable, Codable {
         return status.rawValue + " - " + String(onlinePlayerCount) + "/" + String(maxPlayerCount)
     }
     
+    public func sortUsers() {
+        playerSample.sort {
+            $0.name.lowercased() < $1.name.lowercased()
+        }
+    }
     public init() {
         
     }
@@ -41,11 +46,9 @@ public class Player: Codable, Identifiable {
     public init(name: String, uuid: String) {
         self.name = name
         self.uuid = uuid
-        self.id = UUID()
     }
     public var name = ""
     public var uuid = ""
-    public var id: UUID
 }
 
 public class FormattedMOTD: Codable {

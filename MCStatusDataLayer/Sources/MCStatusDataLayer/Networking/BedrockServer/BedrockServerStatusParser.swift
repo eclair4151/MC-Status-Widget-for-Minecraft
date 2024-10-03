@@ -8,7 +8,7 @@
 import Foundation
 
 public class BedrockServerStatusParser: ServerStatusParserProtocol {
-    public static func parseServerResponse(stringInput: String) throws -> ServerStatus {
+    public static func parseServerResponse(stringInput: String, config: ServerCheckerConfig?) throws -> ServerStatus {
         let dataParts = stringInput.split(separator: ";", omittingEmptySubsequences: false)
         //[edition, motdLine1, protocolVersion, version, onlinePlayers, maxPlayers, serverID, motdLine2, gameMode, gameModeID, portIPv4, portIPv6]
 

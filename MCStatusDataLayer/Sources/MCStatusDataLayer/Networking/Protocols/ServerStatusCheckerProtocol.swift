@@ -16,7 +16,7 @@ public protocol ServerStatusCheckerProtocol {
 
 
 public protocol ServerStatusParserProtocol {
-    static func parseServerResponse(stringInput: String) throws -> ServerStatus
+    static func parseServerResponse(stringInput: String, config: ServerCheckerConfig?) throws -> ServerStatus
 }
 
 

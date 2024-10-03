@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -142,6 +142,10 @@
 		F1E671732CA72E66002BDFC0 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F12E264D2CADA38C00986787 /* Fonts */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Fonts; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F11F63482A81E50E00D47187 /* Frameworks */ = {
@@ -292,6 +296,7 @@
 		F1A43C7E2A8472420081A24C /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				F12E264D2CADA38C00986787 /* Fonts */,
 				F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */,
 				F13E60022A4BD615005BE9B2 /* Assets.xcassets */,
 				F13E60042A4BD615005BE9B2 /* MCStatus.entitlements */,
@@ -410,6 +415,9 @@
 			dependencies = (
 				F11F63572A81E51000D47187 /* PBXTargetDependency */,
 				F10C421E2AAE40BC000107D6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F12E264D2CADA38C00986787 /* Fonts */,
 			);
 			name = "MC Status";
 			packageProductDependencies = (

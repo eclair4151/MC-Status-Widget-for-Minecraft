@@ -8,10 +8,10 @@
 import Foundation
 
 public class DirectServerStatusChecker {
-    public static func checkServer(serverUrl: String, serverPort: Int, serverType: ServerType) async throws -> ServerStatus {
+    public static func checkServer(serverUrl: String, serverPort: Int, serverType: ServerType, config: ServerCheckerConfig?) async throws -> ServerStatus {
         let statusChecker = ServerStatusCheckerFactory().getStatusChecker(serverUrl: serverUrl, serverPort: serverPort, serverType: serverType)
         let stringResult = try await statusChecker.checkServer()
-        let result = try statusChecker.getParser().parseServerResponse(stringInput: stringResult)
+        let result = try statusChecker.getParser().parseServerResponse(stringInput: stringResult, config: config)
         print("Successful connection and parsing. returning result.")
         return result
     }

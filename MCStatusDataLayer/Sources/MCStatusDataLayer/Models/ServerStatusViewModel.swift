@@ -30,39 +30,40 @@ public class ServerStatusViewModel: Identifiable {
         loadIcon()
     }
     
-    public func reloadData() {
+    public func reloadData(config: ServerCheckerConfig) {
+        loadingStatus = .Loading
+
         Task {
-            loadingStatus = .Loading
             // DONT DO THIS, LET USER PASS IN FUNCTION WHICH WILL RELOAD DATA TO ALLOW REUSE IN WATCH
-            let statusResult = await ServerStatusChecker.checkServer(server: server)
+            let statusResult = await ServerStatusChecker.checkServer(server: server, config: config)
             print("Got result from status checker")
 
             self.status = statusResult
             // i need this but it crashes everything
-//            if !statusResult.favIcon.isEmpty {
-//                server.serverIcon = statusResult.favIcon
-//                
-//                Task { @MainActor in
-//                    print("Going to insert updated model")
-//                    modelContext.insert(server)
-////                    print("inserted updated model")
-//
-//                    do {
-//                        // Try to save
-////                        print("Going to save updated model")
-//
-//                        try modelContext.save()
-//                    } catch {
-//                        // We couldn't save :(
-//                        print(error.localizedDescription)
-//                    }
-//                    print("Saved server icon to DB")
-//                }
-//                
-//
-//            }
+
             loadIcon()
-            loadingStatus = .Finished
+            Task.detached { @MainActor in
+                self.loadingStatus = .Finished
+                
+                if !statusResult.favIcon.isEmpty {
+                    self.server.serverIcon = statusResult.favIcon
+    
+                    print("Going to insert updated model")
+                    self.modelContext.insert(self.server)
+//                    print("inserted updated model")
+
+                    do {
+                        // Try to save
+//                        print("Going to save updated model")
+
+                        try self.modelContext.save()
+                    } catch {
+                        // We couldn't save :(
+                        print(error.localizedDescription)
+                    }
+                    print("Saved server icon to DB")
+                }
+            }
         }
     }
     

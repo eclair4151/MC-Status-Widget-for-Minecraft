@@ -12,7 +12,7 @@ struct MinecraftServerStatusView: View {
     // Sample data for the server status
     var serverName: String = "Zero's Server"
     var serverType: String = "Java"
-    var serverVersion: String = "Paper 1.21, Paper 1.21, Paper 1.21, Paper 1.21, Paper 1.21, Paper 1.21Paper 1.21Paper 1.21,Paper 1.21,Paper 1.21,Paper 1.21,Paper 1.21,Paper 1.21Paper 1.21"
+    var serverVersion: String = "Paper 1.21"
     var serverAddress: String = "myserver.com:25565"
     var srvRecordValue: String = "srv: otherserver.com:25565"
 
@@ -70,19 +70,33 @@ struct MinecraftServerStatusView: View {
                             }
                             
                         }
-                        HStack(alignment: .top) {
+                        HStack(alignment: .center) {
                             Text(serverType)
                                 .font(.subheadline)
+                                .padding([.trailing, .leading], 6)
+                                .padding([.bottom, .top], 3)
+                                .background(Color.standoutPillGrey)
+                                .cornerRadius(6)
                                 .foregroundColor(.tertiaryTextColor)
                                 .bold()
-                            Text("-")
                             Text(serverVersion)
                                 .font(.subheadline)
+                                .lineLimit(1)
                                 .foregroundColor(.secondaryTextColor)
                         }
-                        Text(pingValue)
-                            .font(.subheadline)
-                            .foregroundColor(.secondaryTextColor)
+                        
+                        HStack {
+                            Text(pingValue)
+                                                        .font(.subheadline)
+                                                        .foregroundColor(.secondaryTextColor)
+                            
+                            Image(systemName: "wifi")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .foregroundColor(Color.red)
+                                        .frame(width: 15, height: 15)
+                        }
+                        
                         Text("This is a MOTD from a server!\nNew stuff coming soon!")
                                     .font(.custom("Avenir", size: 20)) // Use a Minecraft-like font
                                     .padding(10)

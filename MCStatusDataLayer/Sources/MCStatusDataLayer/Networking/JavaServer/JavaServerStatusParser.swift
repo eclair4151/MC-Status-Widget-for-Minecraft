@@ -8,7 +8,7 @@
 import Foundation
 
 public class JavaServerStatusParser: ServerStatusParserProtocol {
-    public static func parseServerResponse(stringInput: String) throws -> ServerStatus {
+    public static func parseServerResponse(stringInput: String, config: ServerCheckerConfig?) throws -> ServerStatus {
         
         let jsonData = stringInput.data(using: .utf8)
         guard let jsonData = jsonData else {
@@ -64,6 +64,11 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
         // filter out empty values
         status.playerSample.removeAll { player in
             player.name.isEmpty
+        }
+                
+        // sort users if needed
+        if config?.sortUsers ?? false {
+            status.sortUsers()
         }
         status.status = .Online
         return status

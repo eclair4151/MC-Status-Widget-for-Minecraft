@@ -41,10 +41,16 @@ extension Color {
     static let MOTDBackground = Color("MOTDBackground")
     static let secondaryTextColor = Color("SecondaryTextColor")
     static let tertiaryTextColor = Color("TertiaryTextColor")
+//    static let standoutPillGrey = Color("StandoutPillGrey")
+
 //    static let placeholderGrey = Color("PlaceholderGrey")
     
 //    static let serverIconBackground = Color("ServerIconBackground")
 
-    
-    
+}
+
+
+
+extension Font {
+    static let minecraftFont = Font.custom("Minecraft-Regular", size: 13)
 }

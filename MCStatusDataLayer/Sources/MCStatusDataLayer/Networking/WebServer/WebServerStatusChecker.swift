@@ -12,7 +12,7 @@ public class WebServerStatusChecker {
     static let API_URL = "https://api.mcstatus.io/v2/status/"
     static let timeout = 4
     
-    public static func checkServer(serverUrl: String, serverPort: Int, serverType: ServerType) async throws -> ServerStatus {
+    public static func checkServer(serverUrl: String, serverPort: Int, serverType: ServerType, config: ServerCheckerConfig?) async throws -> ServerStatus {
         var urlString = WebServerStatusChecker.API_URL
         if serverType == .Java {
             urlString += "java/"
@@ -39,10 +39,10 @@ public class WebServerStatusChecker {
 
         if serverType == .Java {
             let decodedObj = try JSONDecoder().decode(WebJavaServerStatusResponse.self, from: data)
-            return try WebServerStatusParser.parseServerResponse(input: decodedObj)
+            return try WebServerStatusParser.parseServerResponse(input: decodedObj, config: config)
         } else {
             let decodedObj = try JSONDecoder().decode(WebBedrockServerStatusResponse.self, from: data)
-            return try WebServerStatusParser.parseServerResponse(input: decodedObj)
+            return try WebServerStatusParser.parseServerResponse(input: decodedObj, config: config)
         }
         
     }

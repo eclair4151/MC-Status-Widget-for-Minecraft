@@ -106,7 +106,7 @@ class WatchServerStatusChecker {
     private func checkServerViaWeb(server: SavedMinecraftServer) async -> ServerStatus {
         do {
             print("CALLING BACKUP SERVER")
-            let res = try await WebServerStatusChecker.checkServer(serverUrl: server.serverUrl, serverPort: server.serverPort, serverType: server.serverType)
+            let res = try await WebServerStatusChecker.checkServer(serverUrl: server.serverUrl, serverPort: server.serverPort, serverType: server.serverType, config: nil)
             res.source = Source.ThirdParty
             print("Got result from third part. Returning...")
             return res

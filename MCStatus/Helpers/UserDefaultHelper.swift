@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MCStatusDataLayer
 
 class UserDefaultHelper {
 //    static var logLines: [String] = []
@@ -38,6 +39,18 @@ class UserDefaultHelper {
     
     static func showUsersOnHomesreen() -> Bool {
         return true
+    }
+    
+    static func allowSwipeToDelete() -> Bool {
+        return true
+    }
+    
+    static func sortUsersByName() -> Bool {
+        return true
+    }
+    
+    static func getServerCheckerConfig() -> ServerCheckerConfig {
+        return ServerCheckerConfig(sortUsers: UserDefaultHelper.sortUsersByName())
     }
     
 }

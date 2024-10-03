@@ -8,7 +8,7 @@
 import Foundation
 
 public class ServerStatusChecker {
-    public static func checkServer(server:SavedMinecraftServer) async -> ServerStatus {
+    public static func checkServer(server:SavedMinecraftServer, config: ServerCheckerConfig? = nil) async -> ServerStatus {
 //        if server.serverType == .Bedrock {
 //            do {
 //                //aritifical delay for testing
@@ -28,7 +28,7 @@ public class ServerStatusChecker {
         if  server.serverType == .Java && !server.srvServerUrl.isEmpty && server.srvServerPort != 0 {
             do {
                 print("CHECKING SERVER FROM CACHED SRV: " + server.srvServerUrl)
-                let res = try await DirectServerStatusChecker.checkServer(serverUrl: server.srvServerUrl, serverPort: server.srvServerPort, serverType: server.serverType)
+                let res = try await DirectServerStatusChecker.checkServer(serverUrl: server.srvServerUrl, serverPort: server.srvServerPort, serverType: server.serverType, config: config)
                 res.source = .CachedSRV
                 return res
             } catch {
@@ -43,7 +43,7 @@ public class ServerStatusChecker {
         if server.serverType == .Bedrock || server.serverUrl != server.srvServerUrl || server.serverPort != server.srvServerPort {
             do {
                 print("CONNECTING TO SERVER DIRECTLY (IGNORING SRV)")
-                let res = try await DirectServerStatusChecker.checkServer(serverUrl: server.serverUrl, serverPort: server.serverPort, serverType: server.serverType)
+                let res = try await DirectServerStatusChecker.checkServer(serverUrl: server.serverUrl, serverPort: server.serverPort, serverType: server.serverType, config: config)
                 res.source = .Direct
                 return res
             } catch {
@@ -59,13 +59,17 @@ public class ServerStatusChecker {
         if server.serverType == .Java {
             if let srvRecord = await SRVResolver.lookupMinecraftSRVRecord(serverURL: server.serverUrl), (srvRecord.0 != server.srvServerUrl || srvRecord.1 != server.srvServerPort) {
                 //got updated SRV info, updated it and try to connect.
-                server.srvServerUrl = srvRecord.0
-                server.srvServerPort = srvRecord.1
+                // update on main thread to avoid crashing?
+                await MainActor.run {
+                    server.srvServerUrl = srvRecord.0
+                    server.srvServerPort = srvRecord.1
+                }
+                
                 // we need to save it in swift data here.
                 print("FOUND NEW SRV RECORD FROM DNS! CHECKING SERVER AT: " + server.srvServerUrl)
 
                 do {
-                    let res = try await DirectServerStatusChecker.checkServer(serverUrl: server.srvServerUrl, serverPort: server.srvServerPort, serverType: server.serverType)
+                    let res = try await DirectServerStatusChecker.checkServer(serverUrl: server.srvServerUrl, serverPort: server.srvServerPort, serverType: server.serverType, config: config)
                     res.source = .UpdatedSRV
                     return res
                 } catch {
@@ -80,7 +84,7 @@ public class ServerStatusChecker {
         // if we hear back from the 3rd party server, and they also say the server is offline, we can agree its offline
         do {
             print("CALLING BACKUP SERVER")
-            let res = try await WebServerStatusChecker.checkServer(serverUrl: server.serverUrl, serverPort: server.serverPort, serverType: server.serverType)
+            let res = try await WebServerStatusChecker.checkServer(serverUrl: server.serverUrl, serverPort: server.serverPort, serverType: server.serverType, config: config)
             res.source = .ThirdParty
             print("Got result from third part. Returning...")
             return res
@@ -91,6 +95,16 @@ public class ServerStatusChecker {
             return ServerStatus()
         }
     }
+}
+
+
+public struct ServerCheckerConfig {
+    let sortUsers: Bool
+    
+    public init(sortUsers: Bool) {
+        self.sortUsers = sortUsers
+    }
+
 }
 
 

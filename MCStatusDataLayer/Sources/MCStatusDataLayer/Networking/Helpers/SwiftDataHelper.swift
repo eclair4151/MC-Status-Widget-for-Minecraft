@@ -14,7 +14,7 @@ public class SwiftDataHelper {
         //reenable :D
        // if (UserDefaultHelper.iCloudEnabled()) {
             do {
-                let config = ModelConfiguration(nil, schema: Schema ([SavedMinecraftServer.self]), isStoredInMemoryOnly: false, allowsSave: true, groupContainer: ModelConfiguration.GroupContainer.identifier("group.shemeshapps.MinecraftServerStatus"), cloudKitDatabase: ModelConfiguration.CloudKitDatabase.private("com.shemeshapps.mcstatus"))
+                let config = ModelConfiguration(nil, schema: Schema ([SavedMinecraftServer.self]), isStoredInMemoryOnly: false, allowsSave: true, groupContainer: ModelConfiguration.GroupContainer.identifier("group.shemeshapps.MinecraftServerStatus"), cloudKitDatabase: ModelConfiguration.CloudKitDatabase.private("iCloud.com.shemeshapps.MinecraftServerStatus"))
                 return try ModelContainer(for: SavedMinecraftServer.self, configurations: config)
             } catch {
                 // something broken with icloud? continue with local container without config.
