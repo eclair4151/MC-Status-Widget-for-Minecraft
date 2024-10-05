@@ -24,16 +24,10 @@ struct MainAppContentView: View {
     @State private var showingAddSheet = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(serverViewModels ?? []) { viewModel in
-                    NavigationLink {
-                        ServerStatusDetailView(serverStatusViewModel: viewModel) {
-                            reloadData()
-                            refreshDisplayOrders()
-                        }
-                    }
-                    label: {
+                    NavigationLink(value: viewModel) {
                         ServerRowView(viewModel: viewModel)
                     }.listRowInsets(EdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15))
                 }
@@ -43,6 +37,11 @@ struct MainAppContentView: View {
                     refreshDisplayOrders()
                 }
                 .onDelete(perform: deleteItems) // uncomment to enable swipe to delete. You can also use a custom Swipe Action instead of this to block full swipes and require partial swipe + tap
+            }.navigationDestination(for: ServerStatusViewModel.self) { viewModel in
+                ServerStatusDetailView(serverStatusViewModel: viewModel) {
+                    reloadData()
+                    refreshDisplayOrders()
+                }
             }.refreshable {
                 reloadData(forceRefresh: true)
             }.overlay {
@@ -65,10 +64,18 @@ struct MainAppContentView: View {
                         Label("Settings", systemImage: "gearshape")
                     }
                 }
+                #if targetEnvironment(macCatalyst) // Gross (show refresh button only on mac status bar since they can't pull to refresh)
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-//                        showingAddSheet.toggle()
-//                        testCall()
+                        reloadData(forceRefresh: true)
+                    } label: {
+                        Label("Refresh Servers", systemImage: "arrow.clockwise")
+                    }
+                }
+                #endif
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showingAddSheet.toggle()
                     } label: {
                         Label("Add Item", systemImage: "plus")
                     }
@@ -105,7 +112,8 @@ struct MainAppContentView: View {
             let newServer = SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "", serverUrl: "", serverPort: 0, srvServerUrl: "", srvServerPort: 0, serverIcon: "", displayOrder: 0)
             NavigationView {
                 EditServerView(server: newServer, isPresented: $showingAddSheet) {
-                    reloadData()
+                    // callback when server is edited or added
+                    reloadData(forceSRVRefreh: true)
                     refreshDisplayOrders()
                 }
             }
@@ -145,7 +153,7 @@ struct MainAppContentView: View {
     }
     
     
-    private func reloadData(forceRefresh:Bool = false) {        
+    private func reloadData(forceRefresh:Bool = false, forceSRVRefreh:Bool = false) {        
         // crashes when run in background from apple watch??
         // FB13069019
         guard scenePhase != .background else {
@@ -161,12 +169,14 @@ struct MainAppContentView: View {
             return
         }
         
-        let config = UserDefaultHelper.getServerCheckerConfig()
+        var config = UserDefaultHelper.getServerCheckerConfig()
         self.serverViewModels = results.map {
             if let cachedVm = serverViewModelCache[$0.id] {
                 return cachedVm
             }
             
+            //first time we are seeing this server. force srv refresh if needed.
+            config.forceSRVRefresh = forceSRVRefreh
             let vm = ServerStatusViewModel(modelContext: self.modelContext, server: $0)
             serverViewModelCache[$0.id] = vm
             if !forceRefresh {

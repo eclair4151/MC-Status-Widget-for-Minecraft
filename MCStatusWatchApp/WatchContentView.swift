@@ -32,7 +32,11 @@ struct WatchContentView: View {
                     }
                     label: {
                         if let status = viewModel.status {
-                            Text(viewModel.server.name + " - " + status.getDisplayText())
+                            if viewModel.status?.source == .ThirdParty{
+                                Text(viewModel.server.name + " - " + "Web")
+                            } else {
+                                Text(viewModel.server.name + " - " + status.getDisplayText())
+                            }
                         } else {
                             Text(viewModel.server.name + " - " + viewModel.loadingStatus.rawValue)
                         }
@@ -53,7 +57,18 @@ struct WatchContentView: View {
             }
         }
         .overlay {
-            if serverViewModels.isEmpty {
+            if !isICloudEnabled() && serverViewModels.isEmpty {
+                VStack {
+                    Spacer()
+                    Image (systemName: "icloud.slash")
+                    .font (.system(size: 30))
+                    .foregroundStyle(.gray)
+                    ContentUnavailableView("Enable iCloud", systemImage: "",
+                       description: Text ("iCloud is required to sync servers to your watch."))
+                    .scrollDisabled(true)
+                    Spacer()
+                }
+            } else if serverViewModels.isEmpty {
                 VStack {
                     Spacer()
                     Image (systemName: "server.rack")
@@ -63,7 +78,7 @@ struct WatchContentView: View {
                        description: Text ("Let's get started! Add a server using your phone."))
                     .scrollDisabled(true)
                     Spacer()
-                }.padding()
+                }
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: NSPersistentCloudKitContainer.eventChangedNotification)) { notification in
@@ -86,7 +101,7 @@ struct WatchContentView: View {
 //            let server = SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Zero", serverUrl: "zero.minr.org", serverPort: 25565)
 //            modelContext.insert(server)
 //            print(server.name)
-//            
+            
 //            modelContext.insert(server)
             reloadData()
         }
@@ -127,8 +142,12 @@ struct WatchContentView: View {
         
         statusChecker.checkServers(servers: serversToCheck)
     }
+    
+    private func isICloudEnabled() -> Bool {
+        return FileManager.default.ubiquityIdentityToken != nil
+    }
 }
-
+//
 //#Preview {
-//    ContentView()
+//    WatchContentView()
 //}

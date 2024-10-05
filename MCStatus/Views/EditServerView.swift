@@ -32,6 +32,7 @@ struct EditServerView: View {
     @State var portLabelPromptText = "Port (Optional - Default 25565)"
 
     @State private var showingInvalidURLAlert = false
+    @State private var showingInvalidNameAlert = false
 
     
     var body: some View {
@@ -116,6 +117,13 @@ struct EditServerView: View {
         } message: {
             Text("Minecraft Server domains/ip addresses must be the root domain, and not contain any '/' or ':'")
         }
+        .alert("Invalid Server Name", isPresented: $showingInvalidNameAlert) {
+            Button("OK") {
+                
+            }
+        } message: {
+            Text("Server name must not be empty")
+        }
     }
     
     private func extractPort(from text: String) {
@@ -152,6 +160,12 @@ struct EditServerView: View {
         tempServerInput = tempServerInput.trimmingCharacters(in: .whitespacesAndNewlines)
         if !isUrlValid(url: tempServerInput) {
             showingInvalidURLAlert = true
+            return
+        }
+        
+        tempNameInput = tempNameInput.trimmingCharacters(in: .whitespacesAndNewlines)
+        if tempNameInput.isEmpty {
+            showingInvalidNameAlert = true
             return
         }
         

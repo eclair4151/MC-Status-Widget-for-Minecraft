@@ -16,7 +16,7 @@ struct MinecraftServerStatusView: View {
     var serverAddress: String = "myserver.com:25565"
     var srvRecordValue: String = "srv: otherserver.com:25565"
 
-    var pingValue: String = "Ping: 100ms"
+    var pingValue: String = "100ms"
     var isOnline: Bool = true
     var currentPlayers: Int = 12
     var maxPlayers: Int = 20
@@ -39,7 +39,7 @@ struct MinecraftServerStatusView: View {
                                 .background(Color.serverIconBackground)
                                 .clipShape(RoundedRectangle(cornerRadius: 15))                              .overlay(RoundedRectangle(cornerRadius: 15)
                                     .stroke(Color(hex: "6e6e6e"), lineWidth: 2))
-                                .frame(width: proxy.size.width * 0.3)
+                                .frame(width: 120)
                                 .padding([.trailing], 16)
                                 .shadow(color: .black.opacity(0.25), radius: 10, x: 5, y: 5) // Drop shadow
      
@@ -59,13 +59,35 @@ struct MinecraftServerStatusView: View {
                                     .foregroundColor(.secondaryTextColor)
                                     .lineLimit(1)
                                 // Status pill
+                                
+                                HStack {
                                     Text(isOnline ? "Online" : "Offline")
-                                        .padding([.trailing, .leading], 18)
-                                        .padding([.bottom, .top], 8)
+                                    .frame(minWidth: 45)
+                                        .padding([.trailing, .leading], 14)
+                                        .padding([.bottom, .top], 7)
+//                                        .background(Color.statusBackgroundGreen)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(16)
+                                        .font(.subheadline)
+                                    
+                                    HStack {
+                                        Image(systemName: "wifi")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 15, height: 15)
+                                        Text("100ms")
+                                            
+                                            .font(.subheadline)
+                                        
+                                        
+                                    }.padding([.trailing, .leading], 14)
+                                        .padding([.bottom, .top], 7)
                                         .background(isOnline ? Color.green : Color.red)
                                         .foregroundColor(.white)
                                         .cornerRadius(16)
-                                        .padding(.top, 10)
+                                }.padding(.top, 10)
+
+                                    
                              
                             }
                             
@@ -85,17 +107,7 @@ struct MinecraftServerStatusView: View {
                                 .foregroundColor(.secondaryTextColor)
                         }
                         
-                        HStack {
-                            Text(pingValue)
-                                                        .font(.subheadline)
-                                                        .foregroundColor(.secondaryTextColor)
-                            
-                            Image(systemName: "wifi")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .foregroundColor(Color.red)
-                                        .frame(width: 15, height: 15)
-                        }
+                        
                         
                         Text("This is a MOTD from a server!\nNew stuff coming soon!")
                                     .font(.custom("Avenir", size: 20)) // Use a Minecraft-like font

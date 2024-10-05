@@ -9,7 +9,7 @@ import SwiftUI
 import MCStatusDataLayer
 import AppIntents
 import NukeUI
-
+import Nuke
 
 struct ServerStatusDetailView: View {
     @Environment(\.modelContext) private var modelContext
@@ -21,8 +21,10 @@ struct ServerStatusDetailView: View {
 
     var parentViewRefreshCallBack: () -> Void
     
+    var prefetcher = ImagePrefetcher()
+
     private var pillText: String {
-            var text = "Loading"
+            var text = " "
             if let status = serverStatusViewModel.status, serverStatusViewModel.loadingStatus != .Loading {
                 text = status.status.rawValue
             }
@@ -30,10 +32,10 @@ struct ServerStatusDetailView: View {
         }
     
     private var pillColor: Color {
-            var color = Color.gray
+            var color = Color.standoutPillGrey
             if let status = serverStatusViewModel.status, serverStatusViewModel.loadingStatus != .Loading {
                 if status.status == .Online {
-                    color = Color.green
+                    color = Color.statusBackgroundGreen
                 } else if status.status == .Offline {
                     color = Color.red
                 }
@@ -60,9 +62,9 @@ struct ServerStatusDetailView: View {
     private func pingColor(for strength: Int) -> Color {
             switch strength {
             case 1 ... 75:
-                return .green
+                return Color.statusBackgroundGreen
             case 76 ... 200:
-                return .yellow
+                return Color.statusBackgroundYellow
             case 200 ... Int.max:
                 return .red
             default:
@@ -70,15 +72,12 @@ struct ServerStatusDetailView: View {
             }
         }
     
-    @State
-    private var pingText = " "
     
     @State
     private var pingDuration = 0
     
     
     var body: some View {
-        GeometryReader { proxy in
             List {
                 Section(header: Spacer(minLength: 0)) {
                     VStack(alignment: .leading, spacing: 0) {
@@ -86,16 +85,14 @@ struct ServerStatusDetailView: View {
                             Image(uiImage: serverStatusViewModel.serverIcon)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: proxy.size.width * 0.25, height: proxy.size.width * 0.25)
+                                .frame(width: 100, height: 100)
                                 .cornerRadius(15)
                                 .background(Color.serverIconBackground)
                                 .overlay(RoundedRectangle(cornerRadius: 15)
                                     .stroke(Color(hex: "6e6e6e"), lineWidth: 4))
                                 .clipShape(RoundedRectangle(cornerRadius: 15))
-
                                 .padding([.trailing], 16)
                                 .shadow(color: .black.opacity(0.2), radius: 5, x: 3, y: 3) // Drop shadow
-                            
                             
                             
                             VStack(alignment: .leading, spacing: 0) {
@@ -116,25 +113,46 @@ struct ServerStatusDetailView: View {
                                         .lineLimit(1)
                                 }
                                 
-                                
                                 // Status pill
-                                HStack {
-                                    Text(pillText)
-                                        .padding([.trailing, .leading], 18)
-                                        .padding([.bottom, .top], 8)
-                                        .background(pillColor)
-                                        .foregroundColor(.white)
-                                        .cornerRadius(16)
-                                    
-                                    if (serverStatusViewModel.loadingStatus == .Loading) {
-                                        ProgressView()
+                                HStack(alignment: .center) {
+                                    ZStack(alignment: .center) {
+                                        Text(pillText)
+                                            .frame(minWidth: 45)
+                                            .padding([.trailing, .leading], 14)
+                                            .padding([.bottom, .top], 7)
+                                            .background(pillColor)
+                                            .foregroundColor(.white)
+                                            .font(.subheadline)
+                                            .cornerRadius(16)
+                                            
+                                        
+                                        if (serverStatusViewModel.loadingStatus == .Loading) {
+                                            ProgressView()
+                                        }
                                     }
-                                }.padding(.top, 10)
-                                
-                                
+                                    
+                                    if self.pingDuration > 0 {
+                                        HStack {
+                                            
+                                            Text("\(self.pingDuration)ms")
+                                                .font(.subheadline)
+                                            Image(systemName: "wifi")
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                        .foregroundColor(pingColor(for: self.pingDuration))
+                                                        .frame(width: 15, height: 15)
+                                        }.padding([.trailing, .leading], 14)
+                                            .padding([.bottom, .top], 7)
+                                            .background(Color.standoutPillGrey)
+                                            .foregroundColor(.tertiaryTextColor)
+                                            .cornerRadius(16)
+                                            
+                                    }
+                                    
+                                }.padding(.top, 8)
                             }
-                            
-                        }.padding(.bottom, 6)
+                        }.padding(.bottom, 8)
+                        
                         HStack(alignment: .top) {
                             Text(serverStatusViewModel.server.serverType.rawValue)
                                 .font(.subheadline)
@@ -150,21 +168,6 @@ struct ServerStatusDetailView: View {
                                     .padding(.top, 3)
                                     .foregroundColor(.secondaryTextColor)
                             }
-                            
-                        }.padding(.bottom, 6)
-                        HStack(alignment: .center, spacing: 5) {
-                            Text(pingText)
-                                .font(.footnote)
-                                .foregroundColor(.secondaryTextColor)
-                            
-                            if pingDuration > 0 {
-                                Image(systemName: "wifi")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .foregroundColor(pingColor(for: pingDuration))
-                                            .frame(width: 14, height: 14)
-                            }
-                            
                         }
                         
                         if let status = serverStatusViewModel.status, let motdText = status.description?.getRawText() {
@@ -178,7 +181,6 @@ struct ServerStatusDetailView: View {
                                 .padding(.top,10) // Additional padding around the view
                                 .padding(.bottom, 15)
                         }
-                        
                         
                         Text(playersText)
                             .font(.headline)
@@ -194,7 +196,7 @@ struct ServerStatusDetailView: View {
                 Section {
                     ForEach(serverStatusViewModel.status?.playerSample ?? []) { player in
                         HStack(spacing: 0) {
-                            let imageUrl = URL(string: "https://mc-heads.net/avatar/" + player.uuid)
+                            let imageUrl = URL(string: getMcHeadsUrl(uuid: player.uuid))
 //                            let imageUrl = URL(string: "https://httpbin.org/delay/10")
                             LazyImage(url: imageUrl) { state in
                                 if let image = state.image {
@@ -224,7 +226,8 @@ struct ServerStatusDetailView: View {
                     }
                 }
             }.listStyle(.insetGrouped).listSectionSpacing(10).environment(\.defaultMinListHeaderHeight, 15)
-        }.refreshable {
+            .navigationBarTitleDisplayMode(.inline)
+        .refreshable {
             serverStatusViewModel.reloadData(config: UserDefaultHelper.getServerCheckerConfig())
             refreshPing()
         }.toolbar {
@@ -244,6 +247,7 @@ struct ServerStatusDetailView: View {
             }
         }.onAppear {
             refreshPing()
+            startPrefetchingUserImages(viewModel: serverStatusViewModel)
         }.alert("Delete Server?", isPresented: $showingDeleteAlert) {
             Button("Delete", role: .destructive) {
                 deleteServer()
@@ -266,10 +270,10 @@ struct ServerStatusDetailView: View {
                 return
             }
             let pingDuration = Int(round(pingResult.duration * 1000))
-            self.pingText = "Ping: " + String(pingDuration) + "ms"
             self.pingDuration = pingDuration
         }
     }
+    
     private func deleteServer() {
         modelContext.delete(serverStatusViewModel.server)
         do {
@@ -282,6 +286,22 @@ struct ServerStatusDetailView: View {
         }
         parentViewRefreshCallBack()
         self.presentationMode.wrappedValue.dismiss()
+    }
+    
+    func startPrefetchingUserImages(viewModel: ServerStatusViewModel) {
+        let imageURLStrings = (viewModel.status?.playerSample ?? []).map {
+            getMcHeadsUrl(uuid: $0.uuid)
+        }
+        let imageURLs:[URL] = imageURLStrings.compactMap {
+                URL(string: $0)
+        }
+
+        // Initialize and start prefetching all the image URLs
+        prefetcher.startPrefetching(with: imageURLs)
+    }
+    
+    func getMcHeadsUrl(uuid: String) -> String{
+        return "https://mc-heads.net/avatar/" + uuid + "/90"
     }
 }
 

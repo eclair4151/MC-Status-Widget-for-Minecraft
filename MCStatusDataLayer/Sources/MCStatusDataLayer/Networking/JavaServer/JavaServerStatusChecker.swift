@@ -66,16 +66,21 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
     }
     
     func startTCPConnection(dataToSend: Data) {
+        
+        print("Going to start TCP Connection to \(self.serverAddress):\(self.port)")
         let connection = NWConnection(host: NWEndpoint.Host(self.serverAddress), port: NWEndpoint.Port(rawValue: UInt16(self.port))!, using: .tcp)
         
-        // set a 3 second timeout to receive the data.
+        // set a 5 second timeout to receive the data.
         self.timeoutTask = Task {
-            try await Task.sleep(nanoseconds: UInt64(3) * NSEC_PER_SEC)
+
+            try await Task.sleep(nanoseconds: UInt64(5) * NSEC_PER_SEC)
             //see if we got any data so far, if we did wait 3 more seconds.
             if self.recievedData {
+                print("Waited 3 seconds but got data so waiting 3 more")
                 try await Task.sleep(nanoseconds: UInt64(3) * NSEC_PER_SEC)
             }
-            // ok now it took too long. timeout! 
+            print("Timed out after connecting to \(self.serverAddress):\(self.port)")
+            // ok now it took too long. timeout!
             self.callContinuationError(error: ServerStatusCheckerError.ServerUnreachable)
             connection.cancel()
         }
@@ -99,6 +104,14 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
                 print("Connection failed with error: \(error)" + "   -   server: " + self.serverAddress)
                     self.callContinuationError(error: ServerStatusCheckerError.ServerUnreachable)
                     connection.cancel()
+            
+//                case .preparing, .setup:
+//                    print("Connection preparing or setup.")
+//
+//                case .waiting(let error):
+//                    print("Connection waiting with error: \(error)" + "   -   server: " + self.serverAddress)
+                
+                
                 default:
                     break
             }

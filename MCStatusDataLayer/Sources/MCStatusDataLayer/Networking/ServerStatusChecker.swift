@@ -19,12 +19,23 @@ public class ServerStatusChecker {
 //            }
 //        }
         
+        let forceRefeshSrv = config?.forceSRVRefresh ?? false
+        // first check if we need to refresh the srv
+        if (forceRefeshSrv) {
+            if let srvRecord = await SRVResolver.lookupMinecraftSRVRecord(serverURL: server.serverUrl), (srvRecord.0 != server.srvServerUrl || srvRecord.1 != server.srvServerPort) {
+                //got updated SRV info, updated it and try to connect.
+                // update on main thread to avoid crashing?
+                await MainActor.run {
+                    server.srvServerUrl = srvRecord.0
+                    server.srvServerPort = srvRecord.1
+                }
+            }
+        }
         
 
         print("starting server check for: " + server.serverUrl)
         // STEP 1 if we have SRV values, check that server.
         // only Java servers support SRV records
-        // add UserDefaultHelper.SRVEnabled() &&
         if  server.serverType == .Java && !server.srvServerUrl.isEmpty && server.srvServerPort != 0 {
             do {
                 print("CHECKING SERVER FROM CACHED SRV: " + server.srvServerUrl)
@@ -53,10 +64,10 @@ public class ServerStatusChecker {
         }
         
         
-        // STEP 3 if we still could not connect, refresh the SRV if its a java server, maybe there is an update
+        // STEP 3 first check if we already tried ot refresh the SRV based on previous forcing.
+        // if not, and we still could not connect, refresh the SRV if its a java server, maybe there is an update
         // if we recevied updated values from previous SRV, attempt ot connect using that
-        // add UserDefaultHelper.SRVEnabled()
-        if server.serverType == .Java {
+        if !forceRefeshSrv && server.serverType == .Java {
             if let srvRecord = await SRVResolver.lookupMinecraftSRVRecord(serverURL: server.serverUrl), (srvRecord.0 != server.srvServerUrl || srvRecord.1 != server.srvServerPort) {
                 //got updated SRV info, updated it and try to connect.
                 // update on main thread to avoid crashing?
@@ -99,12 +110,12 @@ public class ServerStatusChecker {
 
 
 public struct ServerCheckerConfig {
-    let sortUsers: Bool
-    
-    public init(sortUsers: Bool) {
+    public var sortUsers: Bool = false
+    public var forceSRVRefresh: Bool = false
+    public init(sortUsers: Bool = false, forceSRVRefresh: Bool = false) {
+        self.forceSRVRefresh = forceSRVRefresh
         self.sortUsers = sortUsers
     }
-
 }
 
 

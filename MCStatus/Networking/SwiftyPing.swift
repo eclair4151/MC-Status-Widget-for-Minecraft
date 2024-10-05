@@ -229,7 +229,6 @@ public class SwiftyPing: NSObject {
                 continuation.resume(returning: res)
                 print("ERROR PINGING: " + error.localizedDescription)
             }
-            
         }
     }
     

@@ -14,7 +14,15 @@ public enum LoadingStatus: String {
 }
 
 @Observable
-public class ServerStatusViewModel: Identifiable {
+public class ServerStatusViewModel: Identifiable, Hashable {
+    public static func == (lhs: ServerStatusViewModel, rhs: ServerStatusViewModel) -> Bool {
+        ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(ObjectIdentifier(self))
+    }
+    
     public let server: SavedMinecraftServer
     
     public var status: ServerStatus?

@@ -241,6 +241,8 @@
 		F13E5FFB2A4BD614005BE9B2 /* MCStatus */ = {
 			isa = PBXGroup;
 			children = (
+				F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */,
+				F13E60022A4BD615005BE9B2 /* Assets.xcassets */,
 				F13E5FFC2A4BD614005BE9B2 /* MCStatusApp.swift */,
 				F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */,
 				F1A43C802A84726F0081A24C /* Views */,
@@ -297,8 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				F12E264D2CADA38C00986787 /* Fonts */,
-				F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */,
-				F13E60022A4BD615005BE9B2 /* Assets.xcassets */,
 				F13E60042A4BD615005BE9B2 /* MCStatus.entitlements */,
 				F13E60082A4BD615005BE9B2 /* Info.plist */,
 			);

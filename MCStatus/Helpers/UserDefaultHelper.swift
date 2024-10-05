@@ -29,9 +29,6 @@ class UserDefaultHelper {
 //        return defaults.stringArray(forKey: "appLog") ?? []
 //    }
     
-    static func SRVEnabled() -> Bool {
-        return true
-    }
     
     static func iCloudEnabled() -> Bool {
         return true
@@ -50,7 +47,7 @@ class UserDefaultHelper {
     }
     
     static func getServerCheckerConfig() -> ServerCheckerConfig {
-        return ServerCheckerConfig(sortUsers: UserDefaultHelper.sortUsersByName())
+        return ServerCheckerConfig(sortUsers: sortUsersByName())
     }
     
 }

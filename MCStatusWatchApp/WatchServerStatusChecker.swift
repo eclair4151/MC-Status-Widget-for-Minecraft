@@ -49,8 +49,8 @@ class WatchServerStatusChecker {
                 try checkServersViaPhone(servers: servers)
                 // wait 12 seconds, and check if we need to backup for any of the pending servers.
                 try await Task.sleep(nanoseconds: UInt64(11) * NSEC_PER_SEC)
-            } catch {
-                
+            } catch let error {
+                print("Failed to check servers via phone: \(error.localizedDescription)")
             }
             
 //            // after 12 seconds, anything left in the batch needs to be checked via the backup.
@@ -100,6 +100,7 @@ class WatchServerStatusChecker {
        
         print("sending request...")
         try self.connectivityProvider.send(message: payload)
+        print("try to send request...")
     }
     
     // if we are calling third party do it individually so we can show the responses as they come in
