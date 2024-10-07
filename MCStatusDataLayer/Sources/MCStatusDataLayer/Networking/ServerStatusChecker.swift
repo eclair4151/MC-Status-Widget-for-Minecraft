@@ -13,10 +13,7 @@ public class ServerStatusChecker {
 //            do {
 //                //aritifical delay for testing
 //                try await Task.sleep(nanoseconds: UInt64(1) * NSEC_PER_SEC)
-//
-//            } catch {
-//                
-//            }
+//            } catch {}
 //        }
         
         let forceRefeshSrv = config?.forceSRVRefresh ?? false

@@ -22,7 +22,7 @@ class WatchServerStatusChecker {
                 return
             }
             
-            print("Received response from phone!")        
+            print("Received response from phone!")
             
             for batch in self.expectedResponseBatches {
                 batch.expectedResults.removeValue(forKey: serverID)
@@ -33,7 +33,18 @@ class WatchServerStatusChecker {
     }
     
 
-    
+    func checkServerAsync(server: SavedMinecraftServer) async -> ServerStatus {
+        var didCallContinuation = false
+        return await withCheckedContinuation { continuation in
+            responseListener = {
+                if !didCallContinuation {
+                    didCallContinuation = true
+                    continuation.resume(returning: $1)
+                }
+            }
+            checkServers(servers: [server])
+        }
+    }
 
     func checkServers(servers:[SavedMinecraftServer]) {
         print("Watch is going to ask for server status from phone")
@@ -53,7 +64,7 @@ class WatchServerStatusChecker {
                 print("Failed to check servers via phone: \(error.localizedDescription)")
             }
             
-//            // after 12 seconds, anything left in the batch needs to be checked via the backup.
+            // after 12 seconds, anything left in the batch needs to be checked via the backup.
             expectedBatch.expectedResults.forEach { id, server in
                 // start a new async task for each request to go in parrallel
                 Task {

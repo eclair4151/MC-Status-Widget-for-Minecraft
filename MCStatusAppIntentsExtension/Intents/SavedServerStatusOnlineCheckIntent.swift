@@ -42,8 +42,12 @@ private func runServerStatusIntentCheck(serverEntity: SavedServerEntity?, dismab
     
     let checkerConfig = ServerCheckerConfig(sortUsers: UserDefaultHelper.sortUsersByName())
 
-    // need to change this if we are on watch!!
+    //horrible hack to handle watch vs phone
+    #if os(watchOS)
+    let status = await WatchServerStatusChecker().checkServerAsync(server: refrencedServer)
+    #else
     let status = await ServerStatusChecker.checkServer(server: refrencedServer, config: checkerConfig)
+    #endif
     
     print("container:" + container.schema.debugDescription)
     return ServerStatusEntity(serverId: UUID(), serversName: refrencedServer.name, serverStatus: status)

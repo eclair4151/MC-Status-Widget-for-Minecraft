@@ -15,11 +15,18 @@ import MCStatusDataLayer
 //    return SavedMinecraftServer(id: UUID(), serverType: .Java, name: "Hodor", serverUrl: "zero.minr.org", serverPort: 25565)
 //}
 
+
 struct WatchContentView: View {
+    private enum iCloudStatus {
+        case available, unavailable, unknown
+    }
+    
+    
     
     @Environment(\.modelContext) private var modelContext
     @State private var serverViewModels: [ServerStatusViewModel] = []
     @State private var serverViewModelCache: [UUID:ServerStatusViewModel] = [:]
+    @State private var iCloudStatus: iCloudStatus = .unknown
     
     var statusChecker = WatchServerStatusChecker()
     
@@ -48,7 +55,7 @@ struct WatchContentView: View {
             }
         }
         .overlay {
-            if !isICloudEnabled() && serverViewModels.isEmpty {
+            if self.iCloudStatus == .unavailable && serverViewModels.isEmpty {
                 VStack {
                     Spacer()
                     Image (systemName: "icloud.slash")
@@ -88,9 +95,29 @@ struct WatchContentView: View {
                     return
                 }
                 
+                status.sortUsers()
                 servervVM.status = status
                 servervVM.loadIcon()
             }
+            
+            let container = CKContainer.default()
+            container.accountStatus { accountStatus, error in
+                switch accountStatus {
+                case .available:
+                    self.iCloudStatus = .available
+                case .noAccount, .restricted:
+                    self.iCloudStatus = .unavailable
+                case .couldNotDetermine, .temporarilyUnavailable:
+                    self.iCloudStatus = .unknown
+                @unknown default:
+                    self.iCloudStatus = .unknown
+                }
+                
+                if let error = error {
+                    print("Error checking iCloud account status: \(error.localizedDescription)")
+                }
+            }
+            
 //            let server = SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Harmony Server", serverUrl: "join.harmonyfallssmp.world", serverPort: 25565)
 //            modelContext.insert(server)
 //            print(server.name)
@@ -135,10 +162,6 @@ struct WatchContentView: View {
         }
         
         statusChecker.checkServers(servers: serversToCheck)
-    }
-    
-    private func isICloudEnabled() -> Bool {
-        return FileManager.default.ubiquityIdentityToken != nil
     }
 }
 //
