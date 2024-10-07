@@ -62,6 +62,12 @@
 		F1EF76C62CB4216F00EFFB20 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F1EF76C52CB4216F00EFFB20 /* Nuke */; };
 		F1EF76C82CB4216F00EFFB20 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F1EF76C72CB4216F00EFFB20 /* NukeUI */; };
 		F1EF76CA2CB422D400EFFB20 /* WatchServerDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF76C92CB422D400EFFB20 /* WatchServerDetailScreen.swift */; };
+		F1EF76D12CB449E700EFFB20 /* SavedServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13083552A9ECC580024A6EE /* SavedServerStatusOnlineCheckIntent.swift */; };
+		F1EF76D22CB449E700EFFB20 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
+		F1EF76D32CB449E700EFFB20 /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA12AA2CC4800815BE8 /* SavedServerEntity.swift */; };
+		F1EF76D42CB449E700EFFB20 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42112AABEB08000107D6 /* ArbitraryServerStatusOnlineCheckIntent.swift */; };
+		F1EF76D52CB449E700EFFB20 /* MCStatusShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MCStatusShortcutsProvider.swift */; };
+		F1EF76D62CB449E700EFFB20 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42132AAD4736000107D6 /* ServerStatusEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +84,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = F11F634A2A81E50E00D47187;
 			remoteInfo = "MCStatusWatchApp Watch App";
+		};
+		F1EF76CF2CB4496F00EFFB20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F13E5FF12A4BD614005BE9B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1406BA82AA391B800815BE8;
+			remoteInfo = MCStatusAppIntentsExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -420,6 +433,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				F1EF76D02CB4496F00EFFB20 /* PBXTargetDependency */,
 			);
 			name = "MCStatusWatchApp Watch App";
 			packageProductDependencies = (
@@ -563,6 +577,12 @@
 				F1EF76CA2CB422D400EFFB20 /* WatchServerDetailScreen.swift in Sources */,
 				F174A3012A915E450051DA5B /* WatchServerStatusChecker.swift in Sources */,
 				F1CFCD532CABB567001A9E69 /* CustomExtentions.swift in Sources */,
+				F1EF76D12CB449E700EFFB20 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
+				F1EF76D22CB449E700EFFB20 /* IntentErrors.swift in Sources */,
+				F1EF76D32CB449E700EFFB20 /* SavedServerEntity.swift in Sources */,
+				F1EF76D42CB449E700EFFB20 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */,
+				F1EF76D52CB449E700EFFB20 /* MCStatusShortcutsProvider.swift in Sources */,
+				F1EF76D62CB449E700EFFB20 /* ServerStatusEntity.swift in Sources */,
 				F1EF76C22CB4204E00EFFB20 /* WatchContentView.swift in Sources */,
 				F1EF76C32CB4204E00EFFB20 /* WatchServerRowView.swift in Sources */,
 				F174A2FE2A8F8ED70051DA5B /* UserDefaultHelper.swift in Sources */,
@@ -629,6 +649,11 @@
 			isa = PBXTargetDependency;
 			target = F11F634A2A81E50E00D47187 /* MCStatusWatchApp Watch App */;
 			targetProxy = F11F63562A81E51000D47187 /* PBXContainerItemProxy */;
+		};
+		F1EF76D02CB4496F00EFFB20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1406BA82AA391B800815BE8 /* MCStatusAppIntentsExtension */;
+			targetProxy = F1EF76CF2CB4496F00EFFB20 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

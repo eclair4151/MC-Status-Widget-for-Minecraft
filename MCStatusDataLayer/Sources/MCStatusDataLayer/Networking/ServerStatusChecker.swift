@@ -112,6 +112,7 @@ public class ServerStatusChecker {
 public struct ServerCheckerConfig {
     public var sortUsers: Bool = false
     public var forceSRVRefresh: Bool = false
+    
     public init(sortUsers: Bool = false, forceSRVRefresh: Bool = false) {
         self.forceSRVRefresh = forceSRVRefresh
         self.sortUsers = sortUsers

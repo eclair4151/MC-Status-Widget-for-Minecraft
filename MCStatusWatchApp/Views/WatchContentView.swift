@@ -80,6 +80,7 @@ struct WatchContentView: View {
             // may have gotten new/changed data refresh models from database
             if event.endDate != nil && event.type == .import {
                 reloadData()
+                MCStatusShortcutsProvider.updateAppShortcutParameters()
             }
         }.onAppear {
             statusChecker.responseListener = { id, status in
@@ -96,6 +97,7 @@ struct WatchContentView: View {
 //            
 //            modelContext.insert(server)
             reloadData()
+            MCStatusShortcutsProvider.updateAppShortcutParameters()
         }
     }
     
