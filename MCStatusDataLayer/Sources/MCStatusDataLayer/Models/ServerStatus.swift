@@ -31,6 +31,14 @@ public class ServerStatus: Identifiable, Codable {
         return status.rawValue + " - " + String(onlinePlayerCount) + "/" + String(maxPlayerCount)
     }
     
+    public func getWatchDisplayText() -> String {
+        if status == .Online {
+            return String(onlinePlayerCount) + "/" + String(maxPlayerCount)
+        } else {
+            return status.rawValue
+        }
+    }
+    
     public func sortUsers() {
         playerSample.sort {
             $0.name.lowercased() < $1.name.lowercased()

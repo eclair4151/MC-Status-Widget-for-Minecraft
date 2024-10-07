@@ -20,20 +20,14 @@ struct ServerRowView: View {
             Image(uiImage: viewModel.serverIcon)
                 .resizable()
                 .scaledToFit()
-
                 .frame(width: 65.0, height: 65.0)
                 .cornerRadius(8)
                 .background(Color.serverIconBackground)
                 .overlay(RoundedRectangle(cornerRadius: 8)
                     .stroke(Color(hex: "6e6e6e"), lineWidth: 3))
                 .clipShape(RoundedRectangle(cornerRadius: 8))
-//                .background(Color(red: 0.5, green: 0.5, blue: 0.5, opacity: 0.05))
                 .padding([.trailing], 5)
-            
-//            Image(uiImage: serverStatusViewModel.serverIcon)
-//                .resizable()
-//                .frame(width: proxy.size.width * 0.25, height: proxy.size.width * 0.25)
-//                
+              
             
             VStack(alignment: .leading, spacing: 5) {
                 HStack {

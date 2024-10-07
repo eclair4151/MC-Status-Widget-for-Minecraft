@@ -31,15 +31,29 @@ struct WatchContentView: View {
                         // add detail screen here
                     }
                     label: {
-                        if let status = viewModel.status {
-                            if viewModel.status?.source == .ThirdParty{
-                                Text(viewModel.server.name + " - " + "Web")
+                        HStack() {
+                            Image(uiImage: viewModel.serverIcon)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 35.0, height: 35.0)
+                                .cornerRadius(5)
+                                .background(Color.serverIconBackground)
+                                .overlay(RoundedRectangle(cornerRadius: 5)
+                                    .stroke(Color(hex: "6e6e6e"), lineWidth: 2))
+                                .clipShape(RoundedRectangle(cornerRadius: 5))
+                                .padding([.trailing], 5)
+                            
+                            if let status = viewModel.status {
+                                VStack(alignment: .leading) {
+                                    Text(viewModel.server.name)
+                                    Text(status.getWatchDisplayText())
+                                }
                             } else {
-                                Text(viewModel.server.name + " - " + status.getDisplayText())
+                                Text(viewModel.server.name)
+                                ProgressView()
                             }
-                        } else {
-                            Text(viewModel.server.name + " - " + viewModel.loadingStatus.rawValue)
                         }
+                        
                     }
                 }
 

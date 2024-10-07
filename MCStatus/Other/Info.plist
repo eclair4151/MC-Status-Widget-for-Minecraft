@@ -20,6 +20,11 @@
 		<string>MinecraftBoldItalic.otf</string>
 		<string>MinecraftBold.otf</string>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIImageName</key>
+		<string>LaunchImage</string>
+	</dict>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

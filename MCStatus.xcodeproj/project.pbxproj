@@ -604,15 +604,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MCStatusWatchApp/MCStatusWatchApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"MCStatusWatchApp/Preview Content\"";
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MCStatusWatchApp/MCStatusWatchApp-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = MCStatusWatchApp;
+				INFOPLIST_KEY_CFBundleDisplayName = "MCStatus Watch App";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.shemeshapps.MinecraftServerStatus;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -636,15 +637,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MCStatusWatchApp/MCStatusWatchApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"MCStatusWatchApp/Preview Content\"";
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MCStatusWatchApp/MCStatusWatchApp-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = MCStatusWatchApp;
+				INFOPLIST_KEY_CFBundleDisplayName = "MCStatus Watch App";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.shemeshapps.MinecraftServerStatus;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -784,7 +786,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MCStatus/Other/MCStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"MCStatus/Other\"";
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -829,7 +831,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MCStatus/Other/MCStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"MCStatus/Other\"";
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -871,7 +873,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = MCStatusAppIntentsExtension/MCStatusAppIntentsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusAppIntentsExtension/Info.plist;
@@ -901,7 +903,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = MCStatusAppIntentsExtension/MCStatusAppIntentsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusAppIntentsExtension/Info.plist;
