@@ -131,4 +131,8 @@ public class ServerStatusViewModel: Identifiable, Hashable {
             
         }
     }
+    
+    public func getMcHeadsUrl(uuid: String) -> String{
+        return "https://mc-heads.net/avatar/" + uuid + "/90"
+    }
 }

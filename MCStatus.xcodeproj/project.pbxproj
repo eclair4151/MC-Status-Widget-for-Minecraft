@@ -13,7 +13,6 @@
 		F10C421C2AAE40BC000107D6 /* MCStatusAppIntentsExtension.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = F1406BA92AA391B800815BE8 /* MCStatusAppIntentsExtension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F10E94B12A8C61B60039DD2B /* ConnectivityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E94B02A8C61B60039DD2B /* ConnectivityProvider.swift */; };
 		F11F634E2A81E50E00D47187 /* MCStatusWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F634D2A81E50E00D47187 /* MCStatusWatchApp.swift */; };
-		F11F63502A81E50E00D47187 /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F634F2A81E50E00D47187 /* WatchContentView.swift */; };
 		F11F63522A81E51000D47187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F11F63512A81E51000D47187 /* Assets.xcassets */; };
 		F11F63552A81E51000D47187 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F11F63542A81E51000D47187 /* Preview Assets.xcassets */; };
 		F11F63582A81E51000D47187 /* MCStatusWatchApp Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F11F634B2A81E50E00D47187 /* MCStatusWatchApp Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -53,8 +52,16 @@
 		F1CFCD512CABB567001A9E69 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
 		F1CFCD522CABB567001A9E69 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
 		F1CFCD532CABB567001A9E69 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
-		F1E671742CA72E66002BDFC0 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671732CA72E66002BDFC0 /* TestView.swift */; };
 		F1E671762CA73A86002BDFC0 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
+		F1EF76B72CB419AF00EFFB20 /* MigrationHelper.swift in Resources */ = {isa = PBXBuildFile; fileRef = F1EF76B62CB419AF00EFFB20 /* MigrationHelper.swift */; };
+		F1EF76B82CB419AF00EFFB20 /* MigrationHelper.swift in Resources */ = {isa = PBXBuildFile; fileRef = F1EF76B62CB419AF00EFFB20 /* MigrationHelper.swift */; };
+		F1EF76B92CB419AF00EFFB20 /* MigrationHelper.swift in Resources */ = {isa = PBXBuildFile; fileRef = F1EF76B62CB419AF00EFFB20 /* MigrationHelper.swift */; };
+		F1EF76BA2CB41A2700EFFB20 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
+		F1EF76C22CB4204E00EFFB20 /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF76BF2CB4204E00EFFB20 /* WatchContentView.swift */; };
+		F1EF76C32CB4204E00EFFB20 /* WatchServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF76C02CB4204E00EFFB20 /* WatchServerRowView.swift */; };
+		F1EF76C62CB4216F00EFFB20 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F1EF76C52CB4216F00EFFB20 /* Nuke */; };
+		F1EF76C82CB4216F00EFFB20 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F1EF76C72CB4216F00EFFB20 /* NukeUI */; };
+		F1EF76CA2CB422D400EFFB20 /* WatchServerDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF76C92CB422D400EFFB20 /* WatchServerDetailScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,7 +113,6 @@
 		F10E94B02A8C61B60039DD2B /* ConnectivityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityProvider.swift; sourceTree = "<group>"; };
 		F11F634B2A81E50E00D47187 /* MCStatusWatchApp Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MCStatusWatchApp Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F11F634D2A81E50E00D47187 /* MCStatusWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusWatchApp.swift; sourceTree = "<group>"; };
-		F11F634F2A81E50E00D47187 /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
 		F11F63512A81E51000D47187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F11F63542A81E51000D47187 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F13083552A9ECC580024A6EE /* SavedServerStatusOnlineCheckIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedServerStatusOnlineCheckIntent.swift; sourceTree = "<group>"; };
@@ -139,8 +145,11 @@
 		F1C9A9AF2A879FBC00C058C7 /* MCStatusWatchApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MCStatusWatchApp-Info.plist"; sourceTree = "<group>"; };
 		F1CFCD482CAB0FF7001A9E69 /* MinecraftServerStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinecraftServerStatusView.swift; sourceTree = "<group>"; };
 		F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExtentions.swift; sourceTree = "<group>"; };
-		F1E671732CA72E66002BDFC0 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
+		F1EF76B62CB419AF00EFFB20 /* MigrationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationHelper.swift; sourceTree = "<group>"; };
+		F1EF76BF2CB4204E00EFFB20 /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
+		F1EF76C02CB4204E00EFFB20 /* WatchServerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServerRowView.swift; sourceTree = "<group>"; };
+		F1EF76C92CB422D400EFFB20 /* WatchServerDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServerDetailScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -152,7 +161,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1EF76C82CB4216F00EFFB20 /* NukeUI in Frameworks */,
 				F1C010432AAAB6E50017B9A9 /* MCStatusDataLayer in Frameworks */,
+				F1EF76C62CB4216F00EFFB20 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,11 +209,10 @@
 				F1C9A9AF2A879FBC00C058C7 /* MCStatusWatchApp-Info.plist */,
 				F1C9A9AE2A879A4800C058C7 /* MCStatusWatchApp.entitlements */,
 				F11F634D2A81E50E00D47187 /* MCStatusWatchApp.swift */,
-				F11F634F2A81E50E00D47187 /* WatchContentView.swift */,
 				F11F63512A81E51000D47187 /* Assets.xcassets */,
+				F1EF76C42CB4205200EFFB20 /* Helpers */,
+				F1EF76C12CB4204E00EFFB20 /* Views */,
 				F11F63532A81E51000D47187 /* Preview Content */,
-				F10E94B02A8C61B60039DD2B /* ConnectivityProvider.swift */,
-				F174A3002A915E450051DA5B /* WatchServerStatusChecker.swift */,
 			);
 			path = MCStatusWatchApp;
 			sourceTree = "<group>";
@@ -244,7 +254,6 @@
 				F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */,
 				F13E60022A4BD615005BE9B2 /* Assets.xcassets */,
 				F13E5FFC2A4BD614005BE9B2 /* MCStatusApp.swift */,
-				F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */,
 				F1A43C802A84726F0081A24C /* Views */,
 				F1BF5D9D2A8025EE00966D56 /* Helpers */,
 				F1BF5D712A75F19F00966D56 /* Networking */,
@@ -314,7 +323,7 @@
 				F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */,
 				F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */,
 				F1AE29152CA48577009D0D14 /* ServerRowView.swift */,
-				F1E671732CA72E66002BDFC0 /* TestView.swift */,
+				F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -370,9 +379,29 @@
 		F1BF5D9D2A8025EE00966D56 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F1EF76B62CB419AF00EFFB20 /* MigrationHelper.swift */,
 				F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */,
 				F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */,
 				F174A2FB2A8F7FFA0051DA5B /* WatchHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F1EF76C12CB4204E00EFFB20 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F1EF76BF2CB4204E00EFFB20 /* WatchContentView.swift */,
+				F1EF76C02CB4204E00EFFB20 /* WatchServerRowView.swift */,
+				F1EF76C92CB422D400EFFB20 /* WatchServerDetailScreen.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F1EF76C42CB4205200EFFB20 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F10E94B02A8C61B60039DD2B /* ConnectivityProvider.swift */,
+				F174A3002A915E450051DA5B /* WatchServerStatusChecker.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -395,6 +424,8 @@
 			name = "MCStatusWatchApp Watch App";
 			packageProductDependencies = (
 				F1C010422AAAB6E50017B9A9 /* MCStatusDataLayer */,
+				F1EF76C52CB4216F00EFFB20 /* Nuke */,
+				F1EF76C72CB4216F00EFFB20 /* NukeUI */,
 			);
 			productName = "MCStatusWatchApp Watch App";
 			productReference = F11F634B2A81E50E00D47187 /* MCStatusWatchApp Watch App.app */;
@@ -500,6 +531,7 @@
 			files = (
 				F11F63552A81E51000D47187 /* Preview Assets.xcassets in Resources */,
 				F11F63522A81E51000D47187 /* Assets.xcassets in Resources */,
+				F1EF76B82CB419AF00EFFB20 /* MigrationHelper.swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +541,7 @@
 			files = (
 				F13E60072A4BD615005BE9B2 /* Preview Assets.xcassets in Resources */,
 				F13E60032A4BD615005BE9B2 /* Assets.xcassets in Resources */,
+				F1EF76B92CB419AF00EFFB20 /* MigrationHelper.swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +549,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1EF76B72CB419AF00EFFB20 /* MigrationHelper.swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,11 +560,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1EF76CA2CB422D400EFFB20 /* WatchServerDetailScreen.swift in Sources */,
 				F174A3012A915E450051DA5B /* WatchServerStatusChecker.swift in Sources */,
 				F1CFCD532CABB567001A9E69 /* CustomExtentions.swift in Sources */,
-				F11F63502A81E50E00D47187 /* WatchContentView.swift in Sources */,
+				F1EF76C22CB4204E00EFFB20 /* WatchContentView.swift in Sources */,
+				F1EF76C32CB4204E00EFFB20 /* WatchServerRowView.swift in Sources */,
 				F174A2FE2A8F8ED70051DA5B /* UserDefaultHelper.swift in Sources */,
 				F11F634E2A81E50E00D47187 /* MCStatusWatchApp.swift in Sources */,
+				F1EF76BA2CB41A2700EFFB20 /* CustomProgressView.swift in Sources */,
 				F10E94B12A8C61B60039DD2B /* ConnectivityProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -558,7 +595,6 @@
 				F144E0DD2A9D82CC00E9623F /* ServerSelect.swift in Sources */,
 				F13E60012A4BD614005BE9B2 /* MainAppContentView.swift in Sources */,
 				F1E671762CA73A86002BDFC0 /* CustomProgressView.swift in Sources */,
-				F1E671742CA72E66002BDFC0 /* TestView.swift in Sources */,
 				F1CFCD492CAB0FF7001A9E69 /* MinecraftServerStatusView.swift in Sources */,
 				F144E0DE2A9D82CC00E9623F /* ThemeIntentTypeAppEntity.swift in Sources */,
 			);
@@ -610,7 +646,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MCStatusWatchApp/MCStatusWatchApp-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "MCStatus Watch App";
+				INFOPLIST_KEY_CFBundleDisplayName = MCStatus;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.shemeshapps.MinecraftServerStatus;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
@@ -643,7 +679,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MCStatusWatchApp/MCStatusWatchApp-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "MCStatus Watch App";
+				INFOPLIST_KEY_CFBundleDisplayName = MCStatus;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.shemeshapps.MinecraftServerStatus;
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
@@ -1003,6 +1039,16 @@
 		F1C010442AAAB6EA0017B9A9 /* MCStatusDataLayer */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MCStatusDataLayer;
+		};
+		F1EF76C52CB4216F00EFFB20 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+		F1EF76C72CB4216F00EFFB20 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

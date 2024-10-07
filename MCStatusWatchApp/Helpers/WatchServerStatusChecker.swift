@@ -22,7 +22,7 @@ class WatchServerStatusChecker {
                 return
             }
             
-            print("Received response from phone!")
+            print("Received response from phone!")        
             
             for batch in self.expectedResponseBatches {
                 batch.expectedResults.removeValue(forKey: serverID)
@@ -47,7 +47,7 @@ class WatchServerStatusChecker {
         Task {
             do {
                 try checkServersViaPhone(servers: servers)
-                // wait 12 seconds, and check if we need to backup for any of the pending servers.
+                // wait 11 seconds, and check if we need to backup for any of the pending servers.
                 try await Task.sleep(nanoseconds: UInt64(11) * NSEC_PER_SEC)
             } catch let error {
                 print("Failed to check servers via phone: \(error.localizedDescription)")

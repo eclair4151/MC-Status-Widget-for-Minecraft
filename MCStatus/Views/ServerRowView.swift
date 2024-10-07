@@ -11,7 +11,6 @@ import MCStatusDataLayer
 struct ServerRowView: View {
     var viewModel: ServerStatusViewModel
     
-    @State var isLoading = false
     var body: some View {
         
         
@@ -47,7 +46,7 @@ struct ServerRowView: View {
                                     .foregroundColor(.secondary)
                             }
                             
-                        } else if isLoading{
+                        } else if viewModel.loadingStatus == .Loading {
                             Text(viewModel.loadingStatus.rawValue)
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
@@ -56,7 +55,7 @@ struct ServerRowView: View {
                         
                     }
                     Spacer()
-                    if isLoading {
+                    if viewModel.loadingStatus == .Loading {
                         ProgressView().padding([.trailing], 5)
                     }
                 }
@@ -77,9 +76,6 @@ struct ServerRowView: View {
                 }
             }
 
-        }.onChange(of: viewModel.loadingStatus, initial: true) { oldValue, newValue in
-            // Update isLoading whenever loadingStatus changes
-            isLoading = (newValue == .Loading)
         }
     }
     

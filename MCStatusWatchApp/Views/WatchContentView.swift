@@ -24,39 +24,16 @@ struct WatchContentView: View {
     var statusChecker = WatchServerStatusChecker()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(serverViewModels) { viewModel in
-                    NavigationLink {
-                        // add detail screen here
-                    }
-                    label: {
-                        HStack() {
-                            Image(uiImage: viewModel.serverIcon)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 35.0, height: 35.0)
-                                .cornerRadius(5)
-                                .background(Color.serverIconBackground)
-                                .overlay(RoundedRectangle(cornerRadius: 5)
-                                    .stroke(Color(hex: "6e6e6e"), lineWidth: 2))
-                                .clipShape(RoundedRectangle(cornerRadius: 5))
-                                .padding([.trailing], 5)
-                            
-                            if let status = viewModel.status {
-                                VStack(alignment: .leading) {
-                                    Text(viewModel.server.name)
-                                    Text(status.getWatchDisplayText())
-                                }
-                            } else {
-                                Text(viewModel.server.name)
-                                ProgressView()
-                            }
-                        }
-                        
+                    NavigationLink(value: viewModel) {
+                        WatchServerRowView(viewModel: viewModel)
                     }
                 }
 
+            }.navigationDestination(for: ServerStatusViewModel.self) { viewModel in
+                WatchServerDetailScreen(serverStatusViewModel: viewModel)
             }
             .toolbar {
                 if !serverViewModels.isEmpty {
@@ -111,11 +88,12 @@ struct WatchContentView: View {
                 }
                 
                 servervVM.status = status
+                servervVM.loadIcon()
             }
-//            let server = SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Zero", serverUrl: "zero.minr.org", serverPort: 25565)
+//            let server = SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Harmony Server", serverUrl: "join.harmonyfallssmp.world", serverPort: 25565)
 //            modelContext.insert(server)
 //            print(server.name)
-            
+//            
 //            modelContext.insert(server)
             reloadData()
         }
