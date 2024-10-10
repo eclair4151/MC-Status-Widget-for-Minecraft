@@ -27,6 +27,12 @@ struct ThemeIntentTypeAppEntity: AppEntity {
                 ThemeIntentTypeAppEntity(id: id, displayString: id)
             }
         }
+        
+        func suggestedEntities() async throws -> [ThemeIntentTypeAppEntity] {
+            return Theme.allCases.map { themeEnum in
+                ThemeIntentTypeAppEntity(id: themeEnum.rawValue, displayString: themeEnum.rawValue)
+            }
+        }
     }
     static var defaultQuery = ThemeIntentTypeAppEntityQuery()
 

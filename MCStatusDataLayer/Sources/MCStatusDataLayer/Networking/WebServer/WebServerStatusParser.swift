@@ -37,9 +37,9 @@ class WebServerStatusParser {
         }
         
         status.status = if (input.online) {
-            Status.Online
+            OnlineStatus.Online
         } else {
-            Status.Offline
+            OnlineStatus.Offline
         }
         return status
     }
@@ -61,9 +61,9 @@ class WebServerStatusParser {
         }
         
         status.status = if (input.online) {
-            Status.Online
+            OnlineStatus.Online
         } else {
-            Status.Offline
+            OnlineStatus.Offline
         }
         return status
     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum Status: String, Codable {
+public enum OnlineStatus: String, Codable {
     case Online, Offline, Unknown
 }
 
@@ -19,7 +19,7 @@ public enum Source: Codable {
 public class ServerStatus: Identifiable, Codable {
     public var source: Source?
     public var description: FormattedMOTD?
-    public var status = Status.Unknown
+    public var status = OnlineStatus.Unknown
     public var maxPlayerCount = 0
     public var onlinePlayerCount = 0
     public var playerSample:[Player] = []
