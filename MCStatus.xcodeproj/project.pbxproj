@@ -69,6 +69,8 @@
 		F1EF76F02CB7873F00EFFB20 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EF76EF2CB7873F00EFFB20 /* SwiftUI.framework */; };
 		F1EF76FF2CB7874000EFFB20 /* MCStatusWidgetExtensionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F1EF76EC2CB7873F00EFFB20 /* MCStatusWidgetExtensionExtension.appex */; platformFilters = (ios, maccatalyst, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F1EF77382CB818AC00EFFB20 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F1EF77372CB818AC00EFFB20 /* MCStatusDataLayer */; };
+		F1EF77472CB858AA00EFFB20 /* ServerSelectWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144E0DA2A9D82CC00E9623F /* ServerSelectWidgetIntent.swift */; };
+		F1EF77532CB858E800EFFB20 /* ServerSelectWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144E0DA2A9D82CC00E9623F /* ServerSelectWidgetIntent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +164,7 @@
 		F1406BAB2AA391B800815BE8 /* MCStatusAppIntentsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusAppIntentsExtension.swift; sourceTree = "<group>"; };
 		F1406BAF2AA391B800815BE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1406BB72AA391F400815BE8 /* MCStatusAppIntentsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusAppIntentsExtension.entitlements; sourceTree = "<group>"; };
+		F144E0DA2A9D82CC00E9623F /* ServerSelectWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSelectWidgetIntent.swift; sourceTree = "<group>"; };
 		F174A2FB2A8F7FFA0051DA5B /* WatchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHelper.swift; sourceTree = "<group>"; };
 		F174A3002A915E450051DA5B /* WatchServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServerStatusChecker.swift; sourceTree = "<group>"; };
 		F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRootView.swift; sourceTree = "<group>"; };
@@ -182,7 +185,6 @@
 		F1EF76EC2CB7873F00EFFB20 /* MCStatusWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MCStatusWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1EF76ED2CB7873F00EFFB20 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		F1EF76EF2CB7873F00EFFB20 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		F1EF77002CB7874000EFFB20 /* MCStatusWidgetExtensionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusWidgetExtensionExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -193,11 +195,20 @@
 			);
 			target = F1EF76EB2CB7873F00EFFB20 /* MCStatusWidgetExtensionExtension */;
 		};
+		F1EF77502CB858CD00EFFB20 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ServerIntentTypeAppEntity.swift,
+				ThemeIntentTypeAppEntity.swift,
+			);
+			target = F1406BA82AA391B800815BE8 /* MCStatusAppIntentsExtension */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F12E264D2CADA38C00986787 /* Fonts */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Fonts; sourceTree = "<group>"; };
 		F1EF76F12CB7873F00EFFB20 /* MCStatusWidgetExtension */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F1EF77012CB7874100EFFB20 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = MCStatusWidgetExtension; sourceTree = "<group>"; };
+		F1EF774A2CB858C300EFFB20 /* Widget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F1EF77502CB858CD00EFFB20 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Widget; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,7 +295,6 @@
 		F13E5FF02A4BD614005BE9B2 = {
 			isa = PBXGroup;
 			children = (
-				F1EF77002CB7874000EFFB20 /* MCStatusWidgetExtensionExtension.entitlements */,
 				F13E5FFB2A4BD614005BE9B2 /* MCStatus */,
 				F11F634C2A81E50E00D47187 /* MCStatusWatchApp */,
 				F1322FE32AAAB3FC005EAF56 /* MCStatusDataLayer */,
@@ -323,6 +333,7 @@
 		F1406BA02AA2CC2F00815BE8 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				F1EF774A2CB858C300EFFB20 /* Widget */,
 				F1406BA12AA2CC4800815BE8 /* SavedServerEntity.swift */,
 				F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */,
 				F10C42132AAD4736000107D6 /* ServerStatusEntity.swift */,
@@ -346,6 +357,7 @@
 		F149FEC32AA9696F00A269A3 /* Intents */ = {
 			isa = PBXGroup;
 			children = (
+				F144E0DA2A9D82CC00E9623F /* ServerSelectWidgetIntent.swift */,
 				F13083552A9ECC580024A6EE /* SavedServerStatusOnlineCheckIntent.swift */,
 				F10C42112AABEB08000107D6 /* ArbitraryServerStatusOnlineCheckIntent.swift */,
 			);
@@ -505,6 +517,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				F1EF76F12CB7873F00EFFB20 /* MCStatusWidgetExtension */,
+				F1EF774A2CB858C300EFFB20 /* Widget */,
 			);
 			name = MCStatusWidgetExtensionExtension;
 			packageProductDependencies = (
@@ -652,6 +665,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1EF77472CB858AA00EFFB20 /* ServerSelectWidgetIntent.swift in Sources */,
 				F10C42172AAD55BF000107D6 /* MCStatusShortcutsProvider.swift in Sources */,
 				F1406BB82AA3928500815BE8 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
 				F10C42122AABEB08000107D6 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */,
@@ -668,6 +682,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1EF77532CB858E800EFFB20 /* ServerSelectWidgetIntent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1037,7 +1052,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = MCStatusWidgetExtensionExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MCStatusWidgetExtension/MCStatusWidgetExtensionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
@@ -1068,7 +1083,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = MCStatusWidgetExtensionExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MCStatusWidgetExtension/MCStatusWidgetExtensionExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
