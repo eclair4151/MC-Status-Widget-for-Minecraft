@@ -22,6 +22,7 @@ struct MainAppContentView: View {
     // i cant think of a better way to do this since i dont want to regenerate the view model every time
     @State private var serverViewModelCache: [UUID:ServerStatusViewModel] = [:]
     @State private var showingAddSheet = false
+    @State private var lastRefreshTime = Date()
     
     var body: some View {
         NavigationStack {
@@ -87,14 +88,12 @@ struct MainAppContentView: View {
             if newPhase == .active {
                 print("Active")
                 reloadData()
+                checkForAutoReload()
             } else if newPhase == .inactive {
                 print("Inactive")
             } else if newPhase == .background {
                 print("Background")
             }
-        }
-        .onAppear {
-            reloadData()
         }.onReceive(NotificationCenter.default.publisher(for: NSPersistentCloudKitContainer.eventChangedNotification)) { notification in
             guard let event = notification.userInfo?[NSPersistentCloudKitContainer.eventNotificationUserInfoKey] as? NSPersistentCloudKitContainer.Event else {
                 return
@@ -186,11 +185,26 @@ struct MainAppContentView: View {
         }
                 
         if forceRefresh {
+            self.lastRefreshTime = Date()
             self.serverViewModels?.forEach { vm in
                 vm.reloadData(config: config)
             }
         }
     }
+    
+    private func checkForAutoReload() {
+        let currentTime = Date()
+
+        let timeInterval = currentTime.timeIntervalSince(lastRefreshTime)
+
+        guard timeInterval > 60 else {
+            return
+        }
+        
+        // More than 60 seconds have passed, call the desired method
+        reloadData(forceRefresh: true)
+    }
+
     
 }
 

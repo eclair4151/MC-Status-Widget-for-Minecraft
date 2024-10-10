@@ -222,7 +222,7 @@ struct ServerStatusDetailView: View {
                     let onlinePlayersCount = serverStatusViewModel.status?.onlinePlayerCount ?? 0
                     
                     if (playerSampleCount > 0 && playerSampleCount < onlinePlayersCount) {
-                        Text("*Player list limited to 12 users by server").frame(maxWidth: .infinity, alignment: .center)
+                        Text("*Player list limited to \(playerSampleCount) users by server").frame(maxWidth: .infinity, alignment: .center)
                     }
                 }
             }.listStyle(.insetGrouped).listSectionSpacing(10).environment(\.defaultMinListHeaderHeight, 15)
@@ -231,6 +231,15 @@ struct ServerStatusDetailView: View {
             serverStatusViewModel.reloadData(config: UserDefaultHelper.getServerCheckerConfig())
             refreshPing()
         }.toolbar {
+            #if targetEnvironment(macCatalyst) // Gross (show refresh button only on mac status bar since they can't pull to refresh)
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    serverStatusViewModel.reloadData(config: UserDefaultHelper.getServerCheckerConfig())
+                } label: {
+                    Label("Refresh Servers", systemImage: "arrow.clockwise")
+                }
+            }
+            #endif
             ToolbarItem(placement: .topBarTrailing) {
                 HStack {
                     Button {

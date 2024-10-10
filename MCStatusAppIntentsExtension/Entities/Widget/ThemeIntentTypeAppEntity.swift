@@ -8,19 +8,24 @@
 import Foundation
 import AppIntents
 
+enum Theme:String, CaseIterable {
+    case dark = "Dark"
+    case light = "Light"
+    case blue = "Blue"
+    case green = "Green"
+    case red = "Red"
+    case auto = "Auto"
+}
+
+
 struct ThemeIntentTypeAppEntity: AppEntity {
     static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "Theme Intent Type")
 
     struct ThemeIntentTypeAppEntityQuery: EntityQuery {
         func entities(for identifiers: [ThemeIntentTypeAppEntity.ID]) async throws -> [ThemeIntentTypeAppEntity] {
-            // TODO: return ThemeIntentTypeAppEntity entities with the specified identifiers here.
-            return []
-        }
-
-        func suggestedEntities() async throws -> [ThemeIntentTypeAppEntity] {
-            // TODO: return likely ThemeIntentTypeAppEntity entities here.
-            // This method is optional; the default implementation returns an empty array.
-            return []
+            return identifiers.map { id in
+                ThemeIntentTypeAppEntity(id: id, displayString: id)
+            }
         }
     }
     static var defaultQuery = ThemeIntentTypeAppEntityQuery()

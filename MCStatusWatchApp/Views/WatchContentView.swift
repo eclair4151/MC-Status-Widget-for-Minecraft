@@ -21,13 +21,17 @@ struct WatchContentView: View {
         case available, unavailable, unknown
     }
     
-    
-    
+    @Environment(\.scenePhase) var scenePhase
     @Environment(\.modelContext) private var modelContext
     @State private var serverViewModels: [ServerStatusViewModel] = []
     @State private var serverViewModelCache: [UUID:ServerStatusViewModel] = [:]
     @State private var iCloudStatus: iCloudStatus = .unknown
-    
+    @State private var lastRefreshTime = Date()
+    private var minSinceLastRefresh: Int {
+        let currentTime = Date()
+        let timeInterval = currentTime.timeIntervalSince(lastRefreshTime)
+        return Int(timeInterval / 60)
+    }
     var statusChecker = WatchServerStatusChecker()
     
     var body: some View {
@@ -38,22 +42,27 @@ struct WatchContentView: View {
                         WatchServerRowView(viewModel: viewModel)
                     }
                 }
-
+//                Text("Updated \(minSinceLastRefresh)m ago").frame(maxWidth: .infinity, alignment: .center).listRowBackground(Color.clear) // this is ugly so removing it
             }.navigationDestination(for: ServerStatusViewModel.self) { viewModel in
                 WatchServerDetailScreen(serverStatusViewModel: viewModel)
             }
             .toolbar {
                 if !serverViewModels.isEmpty {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Text("Servers").font(.system(size: 25)).bold()
+                    }
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
                             reloadData(forceRefresh: true)
                         } label: {
                             Label("Refresh", systemImage: "arrow.clockwise")
+                                .foregroundColor(.white)
                         }
                     }
                 }
             }
         }
+        
         .overlay {
             if self.iCloudStatus == .unavailable && serverViewModels.isEmpty {
                 VStack {
@@ -79,6 +88,18 @@ struct WatchContentView: View {
                 }
             }
         }
+        .onChange(of: scenePhase, initial: true) { old,newPhase in
+            // this is some code to investigate an apple watch bug
+            if newPhase == .active {
+                print("Active")
+                reloadData()
+                checkForAutoReload()
+            } else if newPhase == .inactive {
+                print("Inactive")
+            } else if newPhase == .background {
+                print("Background")
+            }
+        }
         .onReceive(NotificationCenter.default.publisher(for: NSPersistentCloudKitContainer.eventChangedNotification)) { notification in
             guard let event = notification.userInfo?[NSPersistentCloudKitContainer.eventNotificationUserInfoKey] as? NSPersistentCloudKitContainer.Event else {
                 return
@@ -96,8 +117,11 @@ struct WatchContentView: View {
                 }
                 
                 status.sortUsers()
-                servervVM.status = status
-                servervVM.loadIcon()
+                Task.detached { @MainActor in
+                    servervVM.loadingStatus = .Finished
+                    servervVM.status = status
+                    servervVM.loadIcon()
+                }
             }
             
             let container = CKContainer.default()
@@ -118,14 +142,26 @@ struct WatchContentView: View {
                 }
             }
             
-//            let server = SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Harmony Server", serverUrl: "join.harmonyfallssmp.world", serverPort: 25565)
+//            let server = SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "OPBlocks", serverUrl: "hub.opblocks.com", serverPort: 25565)
 //            modelContext.insert(server)
 //            print(server.name)
 //            
 //            modelContext.insert(server)
-            reloadData()
             MCStatusShortcutsProvider.updateAppShortcutParameters()
         }
+    }
+    
+    private func checkForAutoReload() {
+        let currentTime = Date()
+
+        let timeInterval = currentTime.timeIntervalSince(lastRefreshTime)
+
+        guard timeInterval > 60 else {
+            return
+        }
+        
+        // More than 60 seconds have passed, call the desired method
+        reloadData(forceRefresh: true)
     }
     
     private func reloadData(forceRefresh:Bool = false) {
@@ -154,6 +190,10 @@ struct WatchContentView: View {
         }
         
         if forceRefresh {
+            lastRefreshTime = Date()
+            for vm in self.serverViewModels {
+                vm.loadingStatus = .Loading
+            }
             serversToCheck = servers
         }
         
