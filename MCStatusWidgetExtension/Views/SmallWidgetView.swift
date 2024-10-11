@@ -48,13 +48,16 @@ struct BaseWidgetView: View {
                 ZStack{
                     Image(uiImage: entry.viewModel.icon).resizable()
                         .scaledToFit().frame(width: 36.0, height: 36.0, alignment: .leading)
-             
-                    Image(systemName: entry.viewModel.statusIcon ?? "")
-                        .font(.system(size: 24))
-                        .foregroundColor( Color.unknownColor )
-                        .background(Color.white.mask(Circle()).padding(4)
-                        )
-                        .offset(x: 18, y: 0)
+                    
+                    if let statusIcon = entry.viewModel.statusIcon, !statusIcon.isEmpty {
+                        Image(systemName: statusIcon)
+                            .font(.system(size: 24))
+                            .foregroundColor( Color.unknownColor )
+                            .background(Color.white.mask(Circle()).padding(4)
+                            )
+                            .offset(x: 18, y: 0)
+                    }
+                    
                 }
                 
                 Text(entry.viewModel.progressString)

@@ -12,6 +12,6 @@ import SwiftUI
 struct MCStatusWidgetExtensionBundle: WidgetBundle {
     var body: some Widget {
         MinecraftServerStatusHSWidget()
-//        MCStatusWidgetExtensionControl()
+
     }
 }

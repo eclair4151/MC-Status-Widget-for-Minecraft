@@ -24,9 +24,7 @@ extension WidgetEntryViewModel {
     init(serverName:String, status: ServerStatus, lastUpdated: String, serverIcon: UIImage, theme: Theme) {
         self.lastUpdated = lastUpdated
         
-        //print(status.favicon)
         self.icon = serverIcon
-//        self.icon = UIImage()
         self.serverName = serverName
         
         if(status.status == OnlineStatus.Online) {
