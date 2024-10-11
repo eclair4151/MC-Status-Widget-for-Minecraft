@@ -30,9 +30,5 @@ struct ServerSelectWidgetIntent: AppIntent, WidgetConfigurationIntent, CustomInt
             \.$Theme
         }
     }
-    func perform() async throws -> some IntentResult {
-        // TODO: Place your refactored intent handler code here.
-        return .result()
-    }
 }
 

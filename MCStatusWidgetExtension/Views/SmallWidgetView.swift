@@ -86,7 +86,7 @@ struct SmallWidgetView : View {
     var entry: HomescreenProvider.Entry
 
     var body: some View {
-        if(entry.configuration.Theme?.id ?? "" == Theme.auto.rawValue) {
+        if(entry.configuration.Theme == nil || entry.configuration.Theme?.id ?? "" == Theme.auto.rawValue) {
             InnerSmallWidget(entry: entry)
         } else {
             InnerSmallWidget(entry: entry)

@@ -19,8 +19,6 @@ enum WidgetViewType {
 
 extension WidgetEntryViewModel {
     
-    
-    
     init(serverName:String, status: ServerStatus, lastUpdated: String, serverIcon: UIImage, theme: Theme) {
         self.lastUpdated = lastUpdated
         
@@ -89,8 +87,16 @@ extension WidgetEntryViewModel {
         
         self.icon = ImageHelper.convertFavIconString(favIcon: base64Data) ?? UIImage(named: "DefaultIcon")!
     }
+    
+    mutating func setForUnconfiguredView() {
+        self.serverName = "Edit Widget"
+        self.progressString = "-- / --"
+        self.lastUpdated = "now"
+        self.progressValue = 0
+        self.playersString = ""
+        self.viewType = .Unconfigured
+    }
 }
-
 
 
 public struct WidgetEntryViewModel {
