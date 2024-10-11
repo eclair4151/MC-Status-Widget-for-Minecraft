@@ -30,34 +30,9 @@ struct ServerSelectWidgetIntent: AppIntent, WidgetConfigurationIntent, CustomInt
             \.$Theme
         }
     }
-
-//    static var predictionConfiguration: some IntentPredictionConfiguration {
-//        IntentPrediction(parameters: (\.$Server, \.$Theme)) { Server, Theme in
-//            DisplayRepresentation(
-//                title: "",
-//                subtitle: ""
-//            )
-//        }
-//    }
-
     func perform() async throws -> some IntentResult {
         // TODO: Place your refactored intent handler code here.
         return .result()
     }
 }
-
-//fileprivate extension IntentDialog {
-//    static func ServerParameterDisambiguationIntro(count: Int, Server: ServerIntentTypeAppEntity) -> Self {
-//        "There are \(count) options matching ‘\(Server)’."
-//    }
-//    static func ServerParameterConfirmation(Server: ServerIntentTypeAppEntity) -> Self {
-//        "Just to confirm, you wanted ‘\(Server)’?"
-//    }
-//    static func ThemeParameterDisambiguationIntro(count: Int, Theme: ThemeIntentTypeAppEntity) -> Self {
-//        "There are \(count) options matching ‘\(Theme)’."
-//    }
-//    static func ThemeParameterConfirmation(Theme: ThemeIntentTypeAppEntity) -> Self {
-//        "Just to confirm, you wanted ‘\(Theme)’?"
-//    }
-//}
 

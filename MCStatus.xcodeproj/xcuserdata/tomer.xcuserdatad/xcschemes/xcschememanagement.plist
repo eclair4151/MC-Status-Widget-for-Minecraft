@@ -19,7 +19,7 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>MCStatusWidgetExtensionExtension.xcscheme_^#shared#^_</key>
+		<key>MCStatusWidgetExtension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>3</integer>
@@ -43,6 +43,11 @@
 			<true/>
 		</dict>
 		<key>F1406BA82AA391B800815BE8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F1EF76EB2CB7873F00EFFB20</key>
 		<dict>
 			<key>primary</key>
 			<true/>
