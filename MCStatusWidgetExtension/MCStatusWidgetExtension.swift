@@ -40,7 +40,9 @@ struct MinecraftServerStatusHSWidgetEntryView : View {
         switch family {
         case .systemSmall:
             SmallWidgetView(entry: entry)
-     
+        case .systemMedium:
+            MediumWidgetView(entry: entry)
+            
         @unknown default:
             Text("Not implemented")
         }
