@@ -42,7 +42,7 @@ extension Color {
     static let secondaryTextColor = Color("SecondaryTextColor")
     static let tertiaryTextColor = Color("TertiaryTextColor")
     static let unknownColor = Color("UnknownColor")
-    static let widgetBackground = Color("WidgetBackground")
+//    static let widgetBackground = Color("WidgetBackground")
 
 //    static let statusBackgroundYellow = Color("StatusBackgroundYellow")
 //    static let statusBackgroundGreen = Color("StatusBackgroundGreen")

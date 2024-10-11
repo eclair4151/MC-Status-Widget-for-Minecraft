@@ -18,6 +18,9 @@ enum WidgetViewType {
 
 
 extension WidgetEntryViewModel {
+    
+    
+    
     init(serverName:String, status: ServerStatus, lastUpdated: String, serverIcon: UIImage, theme: Theme) {
         self.lastUpdated = lastUpdated
         
@@ -26,56 +29,49 @@ extension WidgetEntryViewModel {
 //        self.icon = UIImage()
         self.serverName = serverName
         
-//        if(status.status == OnlineStatus.Online) {
-//            self.statusIcon = nil
-//            self.progressString = "\(status.onlinePlayerCount) / \(status.maxPlayerCount)"
-//            self.progressValue = Float(status.players?.online ?? 0) / Float(status.players?.max ?? 20)
-//            self.progressStringAlpha = 1.0
-//            self.progressStringSize = 23
-//        } else if (status.status == OnlineStatus.Offline) {
-//            self.statusIcon = "multiply.circle.fill"
-//            self.progressString = "-- / --"
-//            self.progressValue = 0
-//            self.progressStringAlpha = 0.5
-//            self.progressStringSize = 23
-//        } else {
-//            self.statusIcon = "questionmark.circle.fill"
-//            self.progressString = "No Connection"
-//            self.progressValue = 0
-//            self.progressStringAlpha = 0.65
-//            self.progressStringSize = 15
-//        }
-//        
-//        self.playersString = ""
-//        if let players = status.players, let playerList = players.sample, playerList.count > 0 {
-//            var playerListString = playerList.map{ $0.name }.joined(separator: ", ")
-//            if players.online > playerList.count {
-//                playerListString += ",..."
-//            }
-//            self.playersString = playerListString
-//        }
-//        
-//        switch theme {
-//            case .blue:
-//                self.bgColor = Color.widgetBackgroundBlue
-//            case .green:
-//                self.bgColor = Color.widgetBackgroundGreen
-//            case .red:
-//                self.bgColor = Color.widgetBackgroundRed
-//            default: break
-//        }
+        if(status.status == OnlineStatus.Online) {
+            self.statusIcon = nil
+            self.progressString = "\(status.onlinePlayerCount) / \(status.maxPlayerCount)"
+            if status.maxPlayerCount == 0 { //avoid potential for divide by 0
+                self.progressValue = 0
+            } else {
+                self.progressValue = Float(status.onlinePlayerCount) / Float(status.maxPlayerCount)
+            }
+            
+            self.progressStringAlpha = 1.0
+            self.progressStringSize = 23
+        } else if (status.status == OnlineStatus.Offline) {
+            self.statusIcon = "multiply.circle.fill"
+            self.progressString = "-- / --"
+            self.progressValue = 0
+            self.progressStringAlpha = 0.5
+            self.progressStringSize = 23
+        } else {
+            self.statusIcon = "questionmark.circle.fill"
+            self.progressString = "No Connection"
+            self.progressValue = 0
+            self.progressStringAlpha = 0.65
+            self.progressStringSize = 15
+        }
         
+        self.playersString = ""
+        if status.playerSample.count > 0 {
+            var playerListString = status.playerSample.map{ $0.name }.joined(separator: ", ")
+            if status.onlinePlayerCount > status.playerSample.count {
+                playerListString += ",..."
+            }
+            self.playersString = playerListString
+        }
         
-        // TEMP HACK
-        self.lastUpdated = "2m ago"
-        self.icon = UIImage(named: "DefaultIcon")!
-        self.statusIcon = nil
-        self.playersString = "Player 1, Player 2, Player 3"
-        self.serverName = "My Server"
-        self.progressString = "3 / 20"
-        self.progressValue = 0.15
-        self.progressStringAlpha = 1.0
-        self.progressStringSize = 23
+        switch theme {
+            case .blue:
+                self.bgColor = Color.widgetBackgroundBlue
+            case .green:
+                self.bgColor = Color.widgetBackgroundGreen
+            case .red:
+                self.bgColor = Color.widgetBackgroundRed
+            default: break
+        }
     }
 
     init() {
