@@ -48,6 +48,16 @@ extension Color {
 //    static let placeholderGrey = Color("PlaceholderGrey")
 //    static let serverIconBackground = Color("ServerIconBackground")
     
+//    static let semiTransparentText = Color("SemiTransparentText")
+//    static let veryTransparentText = Color("VeryTransparentText")
+//    static let regularText = Color("RegularText")
+//    static let progressBarColor = Color("ProgressBarColor")
+    static let unknownColor = Color("UnknownColor")
+//    static let progressBarBgColor = Color("ProgressBarBgColor")
+//    static let widgetBackground = Color("WidgetBackground")
+//    static let widgetBackgroundGreen = Color("WidgetBackgroundGreen")
+//    static let widgetBackgroundBlue = Color("WidgetBackgroundBlue")
+//    static let widgetBackgroundRed = Color("WidgetBackgroundRed")
 }
 
 

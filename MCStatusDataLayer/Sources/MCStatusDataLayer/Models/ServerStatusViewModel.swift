@@ -124,11 +124,8 @@ public class ServerStatusViewModel: Identifiable, Hashable {
             return
         }
         
-        let imageString = String(base64Icon.split(separator: ",")[1])
-        if let decodedData = Data(base64Encoded: imageString, options: .ignoreUnknownCharacters),
-           let decodedImage = UIImage(data: decodedData) {
-                self.serverIcon =  decodedImage
-            
+        if let decodedImage = ImageHelper.convertFavIconString(favIcon: base64Icon) {
+            self.serverIcon =  decodedImage
         }
     }
     

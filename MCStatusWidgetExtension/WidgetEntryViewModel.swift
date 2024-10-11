@@ -16,16 +16,16 @@ enum WidgetViewType {
 }
 
 
-//
-//extension WidgetEntryViewModel {
-//    init(serverName:String, status: ServerStatus, lastUpdated: String, serverIcon: UIImage, theme: Theme) {
-//        self.lastUpdated = lastUpdated
-//        
-//        //print(status.favicon)
-//        self.icon = serverIcon
-////        self.icon = UIImage()
-//        self.serverName = serverName
-//        
+
+extension WidgetEntryViewModel {
+    init(serverName:String, status: ServerStatus, lastUpdated: String, serverIcon: UIImage, theme: Theme) {
+        self.lastUpdated = lastUpdated
+        
+        //print(status.favicon)
+        self.icon = serverIcon
+//        self.icon = UIImage()
+        self.serverName = serverName
+        
 //        if(status.status == OnlineStatus.Online) {
 //            self.statusIcon = nil
 //            self.progressString = "\(status.onlinePlayerCount) / \(status.maxPlayerCount)"
@@ -64,37 +64,52 @@ enum WidgetViewType {
 //                self.bgColor = Color.widgetBackgroundRed
 //            default: break
 //        }
-//    }
-//
-//    init() {
-//        self.lastUpdated = "2m ago"
-//        self.icon = UIImage(named: "DefaultIcon")!
-//        self.statusIcon = nil
-//        self.playersString = "Player 1, Player 2, Player 3"
-//        self.serverName = "My Server"
-//        self.progressString = "3 / 20"
-//        self.progressValue = 0.15
-//        self.progressStringAlpha = 1.0
-//        self.progressStringSize = 23
-//    }
-//    
-//    mutating func setServerIcon(base64Data: String) {
-//        print("Decoding base64 image")
-//        self.icon = ImageHelper.convertFavIconString(favIcon: base64Data) ?? UIImage(named: "DefaultIcon")!
-//    }
-//}
+        
+        
+        // TEMP HACK
+        self.lastUpdated = "2m ago"
+        self.icon = UIImage(named: "DefaultIcon")!
+        self.statusIcon = nil
+        self.playersString = "Player 1, Player 2, Player 3"
+        self.serverName = "My Server"
+        self.progressString = "3 / 20"
+        self.progressValue = 0.15
+        self.progressStringAlpha = 1.0
+        self.progressStringSize = 23
+    }
+
+    init() {
+        self.lastUpdated = "2m ago"
+        self.icon = UIImage(named: "DefaultIcon")!
+        self.statusIcon = nil
+        self.playersString = "Player 1, Player 2, Player 3"
+        self.serverName = "My Server"
+        self.progressString = "3 / 20"
+        self.progressValue = 0.15
+        self.progressStringAlpha = 1.0
+        self.progressStringSize = 23
+    }
+    
+    mutating func setServerIcon(base64Data: String) {
+        print("Decoding base64 image")
+        
+        self.icon = ImageHelper.convertFavIconString(favIcon: base64Data) ?? UIImage(named: "DefaultIcon")!
+    }
+}
+
+
 
 public struct WidgetEntryViewModel {
     
-//    var lastUpdated: String
-//    var icon: UIImage
-//    var statusIcon: String?
-//    var serverName: String
-//    var progressString: String
-//    var progressStringAlpha: Double
-//    var progressStringSize: Int
-//    var progressValue: Float
-//    var playersString: String
-//    var bgColor: Color = Color.brown
-//    var viewType = WidgetViewType.Default
+    var lastUpdated: String
+    var icon: UIImage
+    var statusIcon: String?
+    var serverName: String
+    var progressString: String
+    var progressStringAlpha: Double
+    var progressStringSize: Int
+    var progressValue: Float
+    var playersString: String
+    var bgColor: Color = Color.brown
+    var viewType = WidgetViewType.Default
 }

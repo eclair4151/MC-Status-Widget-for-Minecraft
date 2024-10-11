@@ -24,6 +24,7 @@ struct MinecraftServerStatusHSWidget: Widget {
         }
         .configurationDisplayName("MC Status Widget")
         .description("Widget to show the status of Minecraft Server")
+        .contentMarginsDisabled()
         .supportedFamilies(supportedFamilies)
     }
 }
@@ -38,7 +39,7 @@ struct MinecraftServerStatusHSWidgetEntryView : View {
     var body: some View {
         switch family {
         case .systemSmall:
-            Text("small widget")
+            SmallWidgetView(entry: entry)
      
         @unknown default:
             Text("Not implemented")
@@ -66,7 +67,7 @@ struct HomescreenProvider: AppIntentTimelineProvider {
         let vm = WidgetEntryViewModel()
         let currentDate = Date()
         let entryDate = Calendar.current.date(byAdding: .hour, value: 1, to: currentDate)!
-        let entry = ServerStatusHSSnapshotEntry(date: entryDate, configuration: configuration, viewModel: vm)
+        let entry = ServerStatusHSSnapshotEntry(date: currentDate, configuration: configuration, viewModel: vm)
         entries.append(entry)
         return Timeline(entries: entries, policy: .atEnd)
     }

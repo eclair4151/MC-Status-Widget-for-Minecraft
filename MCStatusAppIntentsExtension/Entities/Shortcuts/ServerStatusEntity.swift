@@ -11,6 +11,7 @@ import MCStatusDataLayer
 struct ServerStatusEntity: AppEntity {
     
     var serverName: String
+    var querySource = "Phone"
     
     @Property(title: "Online Status")
     var onlineStatus: String
@@ -32,7 +33,7 @@ struct ServerStatusEntity: AppEntity {
     static var typeDisplayRepresentation = TypeDisplayRepresentation("Server Status")
 
     var displayRepresentation: DisplayRepresentation {
-        DisplayRepresentation(title: "\(serverName) is \(onlineStatus.lowercased()) with \(playerCount) players.")
+        DisplayRepresentation(title: "\(serverName) is \(onlineStatus.lowercased()) with \(playerCount) players. Debug: Loaded via \(querySource)")
     }
     
     init(serverId: UUID, serversName: String, serverStatus: ServerStatus) {
@@ -42,6 +43,7 @@ struct ServerStatusEntity: AppEntity {
         onlineStatus = serverStatus.status.rawValue
         motd = serverStatus.description?.getRawText() ?? ""
         playerSample = serverStatus.playerSample.map{ $0.name }.joined(separator: ",")
+        querySource = (serverStatus.source == .ThirdParty) ? "Web" : "Phone"
     }
 }
 
