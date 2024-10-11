@@ -194,6 +194,7 @@
 		F1EF77562CB86C8800EFFB20 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				ServerSelectNoTheme.swift,
 				ServerSelectWidgetIntent.swift,
 			);
 			target = F13E5FF82A4BD614005BE9B2 /* MC Status */;
@@ -201,6 +202,7 @@
 		F1EF77572CB86C8800EFFB20 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				ServerSelectNoTheme.swift,
 				ServerSelectWidgetIntent.swift,
 			);
 			target = F11F634A2A81E50E00D47187 /* MCStatusWatchApp Watch App */;
@@ -208,6 +210,7 @@
 		F1EF77582CB86C8800EFFB20 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				ServerSelectNoTheme.swift,
 				ServerSelectWidgetIntent.swift,
 			);
 			target = F1EF76EB2CB7873F00EFFB20 /* MCStatusWidgetExtension */;
