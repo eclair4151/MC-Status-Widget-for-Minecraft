@@ -29,7 +29,7 @@ struct BaseWidgetView: View {
         ZStack {
             VStack(alignment: .trailing, spacing: 4) {
                 Text(entry.viewModel.serverName)
-                    .fontWeight(.medium)
+                    .fontWeight(.semibold)
                     .foregroundColor(.semiTransparentText)
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .lineLimit(1)

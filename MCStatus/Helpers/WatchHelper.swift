@@ -56,6 +56,7 @@ class WatchHelper: NSObject, WCSessionDelegate {
                 
                 let payload = ["response":jsonString]
                 
+                print("SENDING STATUS RESPONSE TO WATCH")
                 WCSession.default.sendMessage(payload, replyHandler: nil) { error in
                     print("ERROR SENDING STATUS RESPONSE TO WATCH: " + error.localizedDescription)
                 }

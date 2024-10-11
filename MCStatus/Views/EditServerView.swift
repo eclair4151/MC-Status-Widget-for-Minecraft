@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 import MCStatusDataLayer
+import WidgetKit
 
 struct EditServerView: View {
     
@@ -155,6 +156,8 @@ struct EditServerView: View {
         return !url.contains(":") && !url.contains("/")
     }
     
+    
+    // THIS IS CALLED WHEN A SERVER IS EDITED OR ADDED
     private func addItem() {
         // first validate url doesnt contains any / or :
         tempServerInput = tempServerInput.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -195,6 +198,8 @@ struct EditServerView: View {
             print("added server")
             MCStatusShortcutsProvider.updateAppShortcutParameters()
             parentViewRefreshCallBack()
+            // force the widgets to refresh
+            WidgetCenter.shared.reloadAllTimelines()
             isPresented = false
         }
     }

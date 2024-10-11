@@ -33,6 +33,10 @@ struct ThemeIntentTypeAppEntity: AppEntity {
                 ThemeIntentTypeAppEntity(id: themeEnum.rawValue, displayString: themeEnum.rawValue)
             }
         }
+        
+        func defaultResult() async -> ThemeIntentTypeAppEntity? {
+            return ThemeIntentTypeAppEntity(id: Theme.auto.rawValue, displayString: Theme.auto.rawValue)
+        }
     }
     static var defaultQuery = ThemeIntentTypeAppEntityQuery()
 

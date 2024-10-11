@@ -32,18 +32,13 @@ struct RectangularAccessoryWidgetView : View {
                     if let statusIcon = entry.viewModel.statusIcon {
                         Image(systemName: statusIcon)
                             .font(.system(size: 20))
-                            .foregroundColor(
-                                Color.unknownColor
-                            )
-                            .background(Color.white.mask(Circle()).padding(2)
-                            )
-                        
-                    
+                            .foregroundColor(Color.unknownColor)
+                            .background(Color.white.mask(Circle()).padding(2))
                     } else {
                         Image(uiImage: entry.viewModel.icon).resizable()
                             .scaledToFit().frame(width: 18.0, height: 18.0).padding(0)
                     }
-                    Text(entry.viewModel.serverName)
+                    Text(entry.viewModel.serverName).bold()
                     
                 }
             

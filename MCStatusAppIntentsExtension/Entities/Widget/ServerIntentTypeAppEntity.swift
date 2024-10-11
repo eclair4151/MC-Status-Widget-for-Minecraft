@@ -33,6 +33,16 @@ struct ServerIntentTypeAppEntity: AppEntity {
             }
             return res
         }
+        
+        func defaultResult() async -> ServerIntentTypeAppEntity? {
+            let container = SwiftDataHelper.getModelContainter()
+            let servers = await SwiftDataHelper.getSavedServers(container: container)
+            guard servers.count == 1, let server = servers.first else {
+                return nil
+            }
+            
+            return ServerIntentTypeAppEntity(id: server.id.uuidString, displayString: server.name)
+        }
     }
     
     static var defaultQuery = ServerIntentTypeAppEntityQuery()
