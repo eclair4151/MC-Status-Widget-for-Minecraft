@@ -9,7 +9,7 @@
 import Foundation
 import AppIntents
 
-@available(iOS 17.0, macOS 14.0, watchOS 10.0, *)
+//converted for widget from previous intent
 struct ServerSelectNoThemeWidgetIntent: AppIntent, WidgetConfigurationIntent, CustomIntentMigratedAppIntent {
     static let intentClassName = "ServerSelectNoThemeIntent"
 

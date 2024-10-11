@@ -20,7 +20,7 @@ struct MinecraftServerStatusHSWidget: Widget {
     
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ServerSelectWidgetIntent.self, provider: HomescreenProvider()) { entry in
-            MinecraftServerStatusHSWidgetEntryView(entry: entry)
+            MinecraftServerStatusHSWidgetEntryView(entry: entry).containerBackground(for: .widget) {}
         }
         .configurationDisplayName("MC Status Widget")
         .description("Widget to show the status of Minecraft Server")
@@ -46,7 +46,7 @@ struct MinecraftServerStatusLSWidget1: Widget {
     
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ServerSelectNoThemeWidgetIntent.self, provider: LockscreenProvider()) { entry in
-            MinecraftServerStatusLSWidgetEntryView(entry: entry, widgetType: .ImageAndText)
+            MinecraftServerStatusLSWidgetEntryView(entry: entry, widgetType: .ImageAndText).containerBackground(for: .widget) {}
         }
         .configurationDisplayName("Lockscreen Widget 1")
         .description("Widget to show the status of Minecraft Server")
@@ -69,7 +69,7 @@ struct MinecraftServerStatusLSWidget2: Widget {
     
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ServerSelectNoThemeWidgetIntent.self, provider: LockscreenProvider()) { entry in
-            MinecraftServerStatusLSWidgetEntryView(entry: entry, widgetType: .OnlyImage)
+            MinecraftServerStatusLSWidgetEntryView(entry: entry, widgetType: .OnlyImage).containerBackground(for: .widget) {}
         }
         .configurationDisplayName("Lockscreen Widget 2")
         .description("Widget to show the status of Minecraft Server")
