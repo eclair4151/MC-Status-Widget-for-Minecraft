@@ -110,6 +110,6 @@ public struct WidgetEntryViewModel {
     var progressStringSize: Int
     var progressValue: Float
     var playersString: String
-    var bgColor: Color = Color.brown
+    var bgColor: Color = Color.widgetBackground
     var viewType = WidgetViewType.Default
 }

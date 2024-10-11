@@ -55,7 +55,7 @@
 		F1EF76DF2CB5B44700EFFB20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F11F63512A81E51000D47187 /* Assets.xcassets */; };
 		F1EF76EE2CB7873F00EFFB20 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EF76ED2CB7873F00EFFB20 /* WidgetKit.framework */; };
 		F1EF76F02CB7873F00EFFB20 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EF76EF2CB7873F00EFFB20 /* SwiftUI.framework */; };
-		F1EF76FF2CB7874000EFFB20 /* MCStatusWidgetExtensionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F1EF76EC2CB7873F00EFFB20 /* MCStatusWidgetExtensionExtension.appex */; platformFilters = (ios, maccatalyst, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F1EF76FF2CB7874000EFFB20 /* MCStatusWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F1EF76EC2CB7873F00EFFB20 /* MCStatusWidgetExtension.appex */; platformFilters = (ios, maccatalyst, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F1EF77382CB818AC00EFFB20 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F1EF77372CB818AC00EFFB20 /* MCStatusDataLayer */; };
 		F1EF775E2CB8B88B00EFFB20 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
 		F1EF775F2CB8B88B00EFFB20 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
@@ -125,7 +125,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				F1EF76FF2CB7874000EFFB20 /* MCStatusWidgetExtensionExtension.appex in Embed Foundation Extensions */,
+				F1EF76FF2CB7874000EFFB20 /* MCStatusWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,7 +169,7 @@
 		F1EF76BF2CB4204E00EFFB20 /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
 		F1EF76C02CB4204E00EFFB20 /* WatchServerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServerRowView.swift; sourceTree = "<group>"; };
 		F1EF76C92CB422D400EFFB20 /* WatchServerDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServerDetailScreen.swift; sourceTree = "<group>"; };
-		F1EF76EC2CB7873F00EFFB20 /* MCStatusWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MCStatusWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1EF76EC2CB7873F00EFFB20 /* MCStatusWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MCStatusWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1EF76ED2CB7873F00EFFB20 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		F1EF76EF2CB7873F00EFFB20 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = F1EF76EB2CB7873F00EFFB20 /* MCStatusWidgetExtensionExtension */;
+			target = F1EF76EB2CB7873F00EFFB20 /* MCStatusWidgetExtension */;
 		};
 		F1EF77502CB858CD00EFFB20 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -210,7 +210,7 @@
 			membershipExceptions = (
 				ServerSelectWidgetIntent.swift,
 			);
-			target = F1EF76EB2CB7873F00EFFB20 /* MCStatusWidgetExtensionExtension */;
+			target = F1EF76EB2CB7873F00EFFB20 /* MCStatusWidgetExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -323,7 +323,7 @@
 				F13E5FF92A4BD614005BE9B2 /* MC Status.app */,
 				F11F634B2A81E50E00D47187 /* MCStatusWatchApp Watch App.app */,
 				F1406BA92AA391B800815BE8 /* MCStatusAppIntentsExtension.appex */,
-				F1EF76EC2CB7873F00EFFB20 /* MCStatusWidgetExtensionExtension.appex */,
+				F1EF76EC2CB7873F00EFFB20 /* MCStatusWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -527,9 +527,9 @@
 			productReference = F1406BA92AA391B800815BE8 /* MCStatusAppIntentsExtension.appex */;
 			productType = "com.apple.product-type.extensionkit-extension";
 		};
-		F1EF76EB2CB7873F00EFFB20 /* MCStatusWidgetExtensionExtension */ = {
+		F1EF76EB2CB7873F00EFFB20 /* MCStatusWidgetExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F1EF77022CB7874100EFFB20 /* Build configuration list for PBXNativeTarget "MCStatusWidgetExtensionExtension" */;
+			buildConfigurationList = F1EF77022CB7874100EFFB20 /* Build configuration list for PBXNativeTarget "MCStatusWidgetExtension" */;
 			buildPhases = (
 				F1EF76E82CB7873F00EFFB20 /* Sources */,
 				F1EF76E92CB7873F00EFFB20 /* Frameworks */,
@@ -543,12 +543,12 @@
 				F1EF76F12CB7873F00EFFB20 /* MCStatusWidgetExtension */,
 				F1EF774A2CB858C300EFFB20 /* Widget */,
 			);
-			name = MCStatusWidgetExtensionExtension;
+			name = MCStatusWidgetExtension;
 			packageProductDependencies = (
 				F1EF77372CB818AC00EFFB20 /* MCStatusDataLayer */,
 			);
 			productName = MCStatusWidgetExtensionExtension;
-			productReference = F1EF76EC2CB7873F00EFFB20 /* MCStatusWidgetExtensionExtension.appex */;
+			productReference = F1EF76EC2CB7873F00EFFB20 /* MCStatusWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -594,7 +594,7 @@
 				F13E5FF82A4BD614005BE9B2 /* MC Status */,
 				F11F634A2A81E50E00D47187 /* MCStatusWatchApp Watch App */,
 				F1406BA82AA391B800815BE8 /* MCStatusAppIntentsExtension */,
-				F1EF76EB2CB7873F00EFFB20 /* MCStatusWidgetExtensionExtension */,
+				F1EF76EB2CB7873F00EFFB20 /* MCStatusWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -723,7 +723,7 @@
 		};
 		F1EF76FE2CB7874000EFFB20 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F1EF76EB2CB7873F00EFFB20 /* MCStatusWidgetExtensionExtension */;
+			target = F1EF76EB2CB7873F00EFFB20 /* MCStatusWidgetExtension */;
 			targetProxy = F1EF76FD2CB7874000EFFB20 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -953,6 +953,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				XROS_DEPLOYMENT_TARGET = 1.3;
 			};
 			name = Debug;
 		};
@@ -999,6 +1000,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				XROS_DEPLOYMENT_TARGET = 1.3;
 			};
 			name = Release;
 		};
@@ -1068,7 +1070,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = MCStatusWidgetExtension/MCStatusWidgetExtensionExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MCStatusWidgetExtension/MCStatusWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
@@ -1076,7 +1078,7 @@
 				INFOPLIST_FILE = MCStatusWidgetExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MCStatusWidgetExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1099,7 +1101,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = MCStatusWidgetExtension/MCStatusWidgetExtensionExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MCStatusWidgetExtension/MCStatusWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
@@ -1107,7 +1109,7 @@
 				INFOPLIST_FILE = MCStatusWidgetExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MCStatusWidgetExtension;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1165,7 +1167,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F1EF77022CB7874100EFFB20 /* Build configuration list for PBXNativeTarget "MCStatusWidgetExtensionExtension" */ = {
+		F1EF77022CB7874100EFFB20 /* Build configuration list for PBXNativeTarget "MCStatusWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F1EF77032CB7874100EFFB20 /* Debug */,

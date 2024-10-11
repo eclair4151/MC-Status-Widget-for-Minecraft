@@ -41,7 +41,9 @@ extension Color {
     static let MOTDBackground = Color("MOTDBackground")
     static let secondaryTextColor = Color("SecondaryTextColor")
     static let tertiaryTextColor = Color("TertiaryTextColor")
-    
+    static let unknownColor = Color("UnknownColor")
+    static let widgetBackground = Color("WidgetBackground")
+
 //    static let statusBackgroundYellow = Color("StatusBackgroundYellow")
 //    static let statusBackgroundGreen = Color("StatusBackgroundGreen")
 //    static let standoutPillGrey = Color("StandoutPillGrey")
@@ -52,9 +54,7 @@ extension Color {
 //    static let veryTransparentText = Color("VeryTransparentText")
 //    static let regularText = Color("RegularText")
 //    static let progressBarColor = Color("ProgressBarColor")
-    static let unknownColor = Color("UnknownColor")
 //    static let progressBarBgColor = Color("ProgressBarBgColor")
-//    static let widgetBackground = Color("WidgetBackground")
 //    static let widgetBackgroundGreen = Color("WidgetBackgroundGreen")
 //    static let widgetBackgroundBlue = Color("WidgetBackgroundBlue")
 //    static let widgetBackgroundRed = Color("WidgetBackgroundRed")
