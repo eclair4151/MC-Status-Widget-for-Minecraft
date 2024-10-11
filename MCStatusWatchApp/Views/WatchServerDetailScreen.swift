@@ -17,6 +17,8 @@ struct WatchServerDetailScreen: View {
         let onlinePlayerCount = serverStatusViewModel.status?.onlinePlayerCount ?? 0
         if (serverStatusViewModel.status?.status == .Offline) {
             Text("Server is offline")
+        } else if (serverStatusViewModel.server.serverType == .Bedrock) {
+            Text("Bedrock servers do not support player lists.")
         } else if (onlinePlayerCount == 0) {
             Text("No players online")
         } else if playerList.isEmpty && onlinePlayerCount > 0 {
