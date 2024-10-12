@@ -44,7 +44,7 @@ struct BaseWidgetView: View {
     
     var body: some View {
         ZStack {
-            VStack(alignment: .trailing, spacing: 4) {
+            VStack(alignment: .trailing, spacing: 0) {
                 Text(entry.viewModel.serverName)
                     .fontWeight(.semibold)
                     .foregroundColor(.semiTransparentText)
@@ -52,12 +52,16 @@ struct BaseWidgetView: View {
                     .lineLimit(1)
                     .font(.system(size: 16))
                     .widgetAccentable()
-                Text(entry.viewModel.lastUpdated)
-                    .fontWeight(.regular)
-                    .foregroundColor(.veryTransparentText)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-                    .lineLimit(1)
-                    .font(.system(size: 16))
+                    
+                Button(intent: RefreshWidgetIntent()) {
+                    HStack(spacing: 4) { // Adjust spacing as needed
+                        Image(systemName: "arrow.clockwise")
+                            .imageScale(.medium).frame(width: 16, height: 16).scaleEffect(CGSize(width: 0.70, height: 0.70), anchor: .center).foregroundColor(.veryTransparentText)
+                            .invalidatableContent() // You can adjust the size as needed
+                        Text(entry.viewModel.lastUpdated).font(.system(size: 16)).lineLimit(1) // This is your variable text
+                    }
+                }
+                .buttonStyle(PlainButtonStyle())
                 Spacer()
             }
             

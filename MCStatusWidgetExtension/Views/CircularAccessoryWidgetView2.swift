@@ -27,22 +27,25 @@ struct CircularAccessoryWidgetView2 : View {
 #if !targetEnvironment(macCatalyst)
         
         Gauge (value: entry.viewModel.progressValue) {
-            if let statusIcon = entry.viewModel.statusIcon {
-                Image(systemName: statusIcon)
-                    .font(.system(size: 24))
-                    .foregroundColor(
-                        Color.unknownColor
-                    )
-                    .background(Color.white.mask(Circle()).padding(4)
-                    )
-                 
-            } else if(entry.viewModel.viewType == .Unconfigured) {
-                Text("Edit Widget").padding(2) .multilineTextAlignment(.center)
-            } else {
-                
-                Image(uiImage: entry.viewModel.icon).resizable()
-                    .scaledToFit().frame(width: 25.0, height: 25.0).padding(0).offset(x: 0,y: -1)
+            Button(intent: RefreshWidgetIntent()) {
+                if let statusIcon = entry.viewModel.statusIcon {
+                    Image(systemName: statusIcon)
+                        .font(.system(size: 24))
+                        .foregroundColor(
+                            Color.unknownColor
+                        )
+                        .background(Color.white.mask(Circle()).padding(4)
+                        )
+                     
+                } else if(entry.viewModel.viewType == .Unconfigured) {
+                    Text("Edit Widget").padding(2) .multilineTextAlignment(.center)
+                } else {
+                    
+                    Image(uiImage: entry.viewModel.icon).resizable()
+                        .scaledToFit().frame(width: 25.0, height: 25.0).padding(0).offset(x: 0,y: -1)
+                }
             }
+            .buttonStyle(PlainButtonStyle())
         }
         .gaugeStyle(.accessoryCircularCapacity)
 

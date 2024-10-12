@@ -52,7 +52,13 @@ extension WidgetEntryViewModel {
         
         self.playersString = ""
         if status.playerSample.count > 0 {
-            var playerListString = status.playerSample.map{ $0.name }.joined(separator: ", ")
+            var playerList = status.playerSample
+            if UserDefaultHelper.sortUsersByName() {
+                playerList.sort {
+                    $0.name.lowercased() < $1.name.lowercased()
+                }
+            }
+            var playerListString = playerList.map{ $0.name }.joined(separator: ", ")
             if status.onlinePlayerCount > status.playerSample.count {
                 playerListString += ",..."
             }

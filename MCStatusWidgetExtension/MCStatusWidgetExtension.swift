@@ -20,7 +20,6 @@ struct MinecraftServerStatusHSWidget: Widget {
     
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ServerSelectWidgetIntent.self, provider: HomescreenProvider()) { entry in
-            
             MinecraftServerStatusHSWidgetEntryView(entry: entry).containerBackground(for: .widget) {
                 entry.viewModel.bgColor
             }
