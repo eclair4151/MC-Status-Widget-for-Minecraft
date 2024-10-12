@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F11F634A2A81E50E00D47187"
-               BuildableName = "MCStatusWatchApp Watch App.app"
-               BlueprintName = "MCStatusWatchApp Watch App"
+               BuildableName = "MCStatus Watch App.app"
+               BlueprintName = "MCStatus Watch App"
                ReferencedContainer = "container:MCStatus.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -58,8 +58,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F11F634A2A81E50E00D47187"
-            BuildableName = "MCStatusWatchApp Watch App.app"
-            BlueprintName = "MCStatusWatchApp Watch App"
+            BuildableName = "MCStatus Watch App.app"
+            BlueprintName = "MCStatus Watch App"
             ReferencedContainer = "container:MCStatus.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F11F634A2A81E50E00D47187"
-            BuildableName = "MCStatusWatchApp Watch App.app"
-            BlueprintName = "MCStatusWatchApp Watch App"
+            BuildableName = "MCStatus Watch App.app"
+            BlueprintName = "MCStatus Watch App"
             ReferencedContainer = "container:MCStatus.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
