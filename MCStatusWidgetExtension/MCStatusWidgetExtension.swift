@@ -20,7 +20,10 @@ struct MinecraftServerStatusHSWidget: Widget {
     
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ServerSelectWidgetIntent.self, provider: HomescreenProvider()) { entry in
-            MinecraftServerStatusHSWidgetEntryView(entry: entry).containerBackground(for: .widget) {}
+            
+            MinecraftServerStatusHSWidgetEntryView(entry: entry).containerBackground(for: .widget) {
+                entry.viewModel.bgColor
+            }
         }
         .configurationDisplayName("MC Status Widget")
         .description("Widget to show the status of Minecraft Server")

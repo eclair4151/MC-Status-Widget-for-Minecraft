@@ -10,6 +10,7 @@ import SwiftData
 import CloudKit
 import CoreData
 import MCStatusDataLayer
+import WidgetKit
 
 
 struct MainAppContentView: View {
@@ -89,6 +90,7 @@ struct MainAppContentView: View {
                 print("Active")
                 reloadData()
                 checkForAutoReload()
+
             } else if newPhase == .inactive {
                 print("Inactive")
             } else if newPhase == .background {
@@ -201,8 +203,10 @@ struct MainAppContentView: View {
             return
         }
         
-        // More than 60 seconds have passed, call the desired method
+        // More than 60 seconds have passed, reload servers and widgets
         reloadData(forceRefresh: true)
+        
+        WidgetCenter.shared.reloadAllTimelines()
     }
 
     

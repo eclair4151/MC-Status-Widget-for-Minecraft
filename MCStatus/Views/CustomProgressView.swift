@@ -16,10 +16,12 @@
 
 import Foundation
 import SwiftUI
+import WidgetKit
 
 struct CustomProgressView: View {
     var progress: CGFloat
     var bgColor = Color.gray
+    var bgOpactiy: Double = 1.0
     var filledColor = Color.green
 
     var body: some View {
@@ -32,6 +34,7 @@ struct CustomProgressView: View {
                     .frame(width: width,
                            height: height)
                     .cornerRadius(height / 2.0)
+                    .opacity(bgOpactiy)
 
                 Rectangle()
                     .foregroundColor(filledColor)
@@ -39,6 +42,8 @@ struct CustomProgressView: View {
                            height: height)
                     .cornerRadius(height / 2.0)
                     .animation(.easeInOut(duration: 0.5), value: progress)
+                    .widgetAccentable()
+
             }
         }
     }

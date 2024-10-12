@@ -24,7 +24,24 @@ import WidgetKit
 
 struct BaseWidgetView: View {
     var entry: HomescreenProvider.Entry
+    @Environment(\.widgetRenderingMode) var widgetRenderingMode
 
+    private var progressBgOpacity: Double {
+        if widgetRenderingMode == .accented {
+            return 0.6
+        } else {
+            return 1.0
+        }
+    }
+    
+    private var progressBgColor: Color {
+        if widgetRenderingMode == .accented {
+            return Color.primary
+        } else {
+            return Color.gray
+        }
+    }
+    
     var body: some View {
         ZStack {
             VStack(alignment: .trailing, spacing: 4) {
@@ -34,6 +51,7 @@ struct BaseWidgetView: View {
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .lineLimit(1)
                     .font(.system(size: 16))
+                    .widgetAccentable()
                 Text(entry.viewModel.lastUpdated)
                     .fontWeight(.regular)
                     .foregroundColor(.veryTransparentText)
@@ -46,8 +64,18 @@ struct BaseWidgetView: View {
             VStack(alignment: .leading, spacing: 0) {
                 Spacer()
                 ZStack{
-                    Image(uiImage: entry.viewModel.icon).resizable()
-                        .scaledToFit().frame(width: 36.0, height: 36.0, alignment: .leading)
+                    // hack for allowing widgetAccentedRenderingMode
+                    if #available(iOSApplicationExtension 18.0, *) {
+                        Image(uiImage: entry.viewModel.icon)
+                            .resizable()
+                            .widgetAccentedRenderingMode(WidgetAccentedRenderingMode.accentedDesaturated)
+                            .scaledToFit().frame(width: 36.0, height: 36.0, alignment: .leading)
+                            .widgetAccentable()
+                    } else {
+                        Image(uiImage: entry.viewModel.icon)
+                            .resizable()
+                            .scaledToFit().frame(width: 36.0, height: 36.0, alignment: .leading)
+                    }
                     
                     if let statusIcon = entry.viewModel.statusIcon, !statusIcon.isEmpty {
                         Image(systemName: statusIcon)
@@ -56,6 +84,7 @@ struct BaseWidgetView: View {
                             .background(Color.white.mask(Circle()).padding(4)
                             )
                             .offset(x: 18, y: 0)
+                            .widgetAccentable()
                     }
                     
                 }
@@ -71,9 +100,10 @@ struct BaseWidgetView: View {
                     .padding(.trailing, 16)
                     .opacity(entry.viewModel.progressStringAlpha)
                 if(entry.viewModel.statusIcon == nil) {
-                    CustomProgressView(progress: CGFloat(entry.viewModel.progressValue))
+                    CustomProgressView(progress: CGFloat(entry.viewModel.progressValue), bgColor: self.progressBgColor, bgOpactiy: self.progressBgOpacity)
                         .frame(height:6)
                         .padding(.top,6)
+                        
                 }
                 
             }
@@ -87,25 +117,14 @@ struct SmallWidgetView : View {
 
     var body: some View {
         if(entry.configuration.Theme == nil || entry.configuration.Theme?.id ?? "" == Theme.auto.rawValue) {
-            InnerSmallWidget(entry: entry)
+            BaseWidgetView(entry: entry).padding().padding(.bottom,3)
         } else {
-            InnerSmallWidget(entry: entry)
+            BaseWidgetView(entry: entry).padding().padding(.bottom,3)
                 .environment(
                     \.colorScheme,
                     (entry.configuration.Theme?.id ?? "" == Theme.dark.rawValue)
                         ? .dark : .light
                 )
-        }
-    }
-}
-
-private struct InnerSmallWidget : View {
-    var entry: HomescreenProvider.Entry
-
-    var body: some View {
-        ZStack {
-            entry.viewModel.bgColor
-            BaseWidgetView(entry: entry).padding().padding(.bottom,3)
         }
     }
 }
