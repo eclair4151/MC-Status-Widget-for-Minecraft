@@ -94,7 +94,7 @@ struct EditServerView: View {
             }
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    addItem()
+                    saveItem()
                 } label: {
                     Text("Save")
                 }.disabled(saveDisabled())
@@ -158,7 +158,7 @@ struct EditServerView: View {
     
     
     // THIS IS CALLED WHEN A SERVER IS EDITED OR ADDED
-    private func addItem() {
+    private func saveItem() {
         // first validate url doesnt contains any / or :
         tempServerInput = tempServerInput.trimmingCharacters(in: .whitespacesAndNewlines)
         if !isUrlValid(url: tempServerInput) {

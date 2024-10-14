@@ -11,6 +11,59 @@ import SwiftData
 
 
 struct LockscreenProvider: AppIntentTimelineProvider {
+    
+    let widgetType: LSWidgetType
+    
+    init(widgetType: LSWidgetType) {
+        self.widgetType = widgetType
+    }
+//    
+//    func recommendations() -> [AppIntentRecommendation<ServerSelectNoThemeWidgetIntent>] {
+//        // for some reason i need this hack because this moethod doesnt support async/await
+//        let semaphore = DispatchSemaphore(value: 0)
+//        var results: [AppIntentRecommendation<ServerSelectNoThemeWidgetIntent>] = []
+//        Task {
+//            // load all servers and make suggestions for all of them
+//            let container = SwiftDataHelper.getModelContainter()
+//            let servers = await SwiftDataHelper.getSavedServers(container: container)
+//            
+//            results = servers.map {
+//                let entity = ServerIntentTypeAppEntity(id: $0.id.uuidString, displayString: $0.name)
+//                let intent = ServerSelectNoThemeWidgetIntent()
+//                intent.Server = entity
+//                let widgetNamePostfix = if self.widgetType == .OnlyImage {
+//                    " - Image Only!"
+//                } else {
+//                    ""
+//                }
+//                
+//                let watchComplicationName = $0.name + widgetNamePostfix
+//                return AppIntentRecommendation(intent: intent, description: watchComplicationName)
+//            }
+//            semaphore.signal()
+//        }
+//        
+//        // Wait for the async task to complete
+//        semaphore.wait()
+//        
+//        return results
+//    }
+    
+    func recommendations() -> [AppIntentRecommendation<ServerSelectNoThemeWidgetIntent>] {
+        
+        let entity = ServerIntentTypeAppEntity(id: "BE036AAF-8E90-4629-8642-F6F749D6E9A9", displayString: "Zero Server")
+       let intent = ServerSelectNoThemeWidgetIntent()
+       intent.Server = entity
+        let widgetNamePostfix = if self.widgetType == .OnlyImage {
+            " - Image Only"
+        } else {
+            ""
+        }
+
+        let watchComplicationName = "Zero's Test2" + widgetNamePostfix
+        return [AppIntentRecommendation(intent: intent, description: watchComplicationName)]
+    }
+    
     // this view is for when the widget has been added the the homescreen, but the user has not selected a server/theme ? or not.
     func placeholder(in context: Context) -> ServerStatusLSSnapshotEntry {
         var vm = WidgetEntryViewModel()
@@ -40,7 +93,12 @@ struct LockscreenProvider: AppIntentTimelineProvider {
         }
 
         // step 2 load status
+        //horrible hack to handle watch vs phone
+        #if os(watchOS)
+        let statusResult = await WatchServerStatusChecker().checkServerAsync(server: server)
+        #else
         let statusResult = await ServerStatusChecker.checkServer(server: server)
+        #endif
         
         return (server, statusResult)
     }

@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F19528D32CBAB7D800B56E5D"
+               BlueprintIdentifier = "F13095242CBC997200C4C7BA"
                BuildableName = "MCStatusWatchWidgetExtension.appex"
                BlueprintName = "MCStatusWatchWidgetExtension"
                ReferencedContainer = "container:MCStatus.xcodeproj">
@@ -71,7 +71,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F19528D32CBAB7D800B56E5D"
+            BlueprintIdentifier = "F13095242CBC997200C4C7BA"
             BuildableName = "MCStatusWatchWidgetExtension.appex"
             BlueprintName = "MCStatusWatchWidgetExtension"
             ReferencedContainer = "container:MCStatus.xcodeproj">

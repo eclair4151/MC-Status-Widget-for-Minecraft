@@ -10,6 +10,7 @@ import SwiftData
 import CloudKit
 import CoreData
 import MCStatusDataLayer
+import WidgetKit
 
 //func testServer() -> SavedMinecraftServer {
 //    return SavedMinecraftServer(id: UUID(), serverType: .Java, name: "Hodor", serverUrl: "zero.minr.org", serverPort: 25565)
@@ -68,10 +69,10 @@ struct WatchContentView: View {
                 VStack {
                     Spacer()
                     Image (systemName: "icloud.slash")
-                    .font (.system(size: 30))
-                    .foregroundStyle(.gray)
+                        .font (.system(size: 30))
+                        .foregroundStyle(.gray)
                     ContentUnavailableView("Enable iCloud", systemImage: "",
-                       description: Text ("iCloud is required to sync servers to your watch."))
+                                           description: Text ("iCloud is required to sync servers to your watch."))
                     .scrollDisabled(true)
                     Spacer()
                 }
@@ -82,7 +83,7 @@ struct WatchContentView: View {
                     .font (.system(size: 30))
                     .foregroundStyle(.gray)
                     ContentUnavailableView("Add a Server", systemImage: "",
-                       description: Text ("Let's get started! Add a server using your phone."))
+                       description: Text ("Add a server using your phone. Sync"))
                     .scrollDisabled(true)
                     Spacer()
                 }
@@ -109,6 +110,7 @@ struct WatchContentView: View {
             if event.endDate != nil && event.type == .import {
                 reloadData()
                 MCStatusShortcutsProvider.updateAppShortcutParameters()
+                WidgetCenter.shared.invalidateConfigurationRecommendations()
             }
         }.onAppear {
             statusChecker.responseListener = { id, status in

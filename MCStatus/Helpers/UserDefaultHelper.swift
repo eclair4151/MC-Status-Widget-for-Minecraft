@@ -45,11 +45,6 @@ class UserDefaultHelper {
     static func sortUsersByName() -> Bool {
         return true
     }
-    
-    static func getServerCheckerConfig() -> ServerCheckerConfig {
-        return ServerCheckerConfig(sortUsers: sortUsersByName())
-    }
-    
 }
 
 

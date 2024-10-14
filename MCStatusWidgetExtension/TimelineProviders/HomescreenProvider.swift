@@ -70,8 +70,7 @@ struct HomescreenProvider: AppIntentTimelineProvider {
         }
         let serverIcon = ImageHelper.convertFavIconString(favIcon: serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
         
-        
-        for minOffset in 0 ..< 20 {
+        for minOffset in 0 ..< 15 {
             var timeStr = ""
             if (minOffset == 0) {
                 timeStr = "now"
@@ -85,7 +84,7 @@ struct HomescreenProvider: AppIntentTimelineProvider {
             entries.append(entry)
         }
         
-        for minOffset in stride(from: 20, through: 55, by: 5) {
+        for minOffset in stride(from: 15, through: 55, by: 5) {
             let timeStr = "\(minOffset)m ago"
             let vm = WidgetEntryViewModel(serverName: server.name, status: serverStatus, lastUpdated: timeStr, serverIcon: serverIcon, theme: widgetTheme)
             let entryDate = Calendar.current.date(byAdding: .minute, value: minOffset, to: currentDate)!

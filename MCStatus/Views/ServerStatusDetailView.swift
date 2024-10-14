@@ -228,13 +228,13 @@ struct ServerStatusDetailView: View {
             }.listStyle(.insetGrouped).listSectionSpacing(10).environment(\.defaultMinListHeaderHeight, 15)
             .navigationBarTitleDisplayMode(.inline)
         .refreshable {
-            serverStatusViewModel.reloadData(config: UserDefaultHelper.getServerCheckerConfig())
+            serverStatusViewModel.reloadData(config: ConfigHelper.getServerCheckerConfig())
             refreshPing()
         }.toolbar {
             #if targetEnvironment(macCatalyst) // Gross (show refresh button only on mac status bar since they can't pull to refresh)
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    serverStatusViewModel.reloadData(config: UserDefaultHelper.getServerCheckerConfig())
+                    serverStatusViewModel.reloadData(config: ConfigHelper.getServerCheckerConfig())
                 } label: {
                     Label("Refresh Servers", systemImage: "arrow.clockwise")
                 }
@@ -265,7 +265,7 @@ struct ServerStatusDetailView: View {
         }.sheet(isPresented: $showingEditSheet) {
             NavigationView {
                 EditServerView(server: serverStatusViewModel.server, isPresented: $showingEditSheet) {
-                    serverStatusViewModel.reloadData(config: UserDefaultHelper.getServerCheckerConfig())
+                    serverStatusViewModel.reloadData(config: ConfigHelper.getServerCheckerConfig())
                     parentViewRefreshCallBack()
                 }
             }

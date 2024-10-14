@@ -8,7 +8,7 @@
 import SwiftUI
 import MCStatusDataLayer
 
-struct MinecraftServerStatusView: View {
+struct MinecraftServerStatusTestView: View {
     // Sample data for the server status
     var serverName: String = "Zero's Server"
     var serverType: String = "Java"
@@ -167,5 +167,5 @@ struct MinecraftServerStatusView: View {
 
 
 #Preview {
-    MinecraftServerStatusView()
+    MinecraftServerStatusTestView()
 }

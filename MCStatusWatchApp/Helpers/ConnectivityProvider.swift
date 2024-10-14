@@ -15,6 +15,18 @@ enum WatchConnectivityError: Error {
 }
 
 class ConnectivityProvider: NSObject, WCSessionDelegate {
+    
+#if os(iOS)
+
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+#endif
+
         
     var responseListener: (([String:Any]) -> Void)?
     

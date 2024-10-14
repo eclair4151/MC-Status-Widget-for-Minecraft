@@ -170,7 +170,7 @@ struct MainAppContentView: View {
             return
         }
         
-        var config = UserDefaultHelper.getServerCheckerConfig()
+        var config = ConfigHelper.getServerCheckerConfig()
         self.serverViewModels = results.map {
             if let cachedVm = serverViewModelCache[$0.id] {
                 return cachedVm

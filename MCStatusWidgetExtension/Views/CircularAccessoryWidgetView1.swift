@@ -23,6 +23,21 @@ import WidgetKit
 struct CircularAccessoryWidgetView1 : View {
     var entry: LockscreenProvider.Entry
 
+    private var iconSize: CGFloat {
+        #if os(watchOS)
+        return 15
+        #else
+        return 20
+        #endif
+    }
+    
+    private var iconTopPadding: CGFloat {
+        #if os(watchOS)
+        return 4
+        #else
+        return 0
+        #endif
+    }
     var body: some View {
         
 #if !targetEnvironment(macCatalyst)
@@ -32,7 +47,7 @@ struct CircularAccessoryWidgetView1 : View {
                     HStack(spacing: 4) { // Adjust spacing as needed
                         if let statusIcon = entry.viewModel.statusIcon {
                             Image(systemName: statusIcon)
-                                .font(.system(size: 20))
+                                .font(.system(size: iconSize))
                                 .foregroundColor(
                                     Color.unknownColor
                                 )
@@ -43,12 +58,12 @@ struct CircularAccessoryWidgetView1 : View {
                             Text("Edit Widget").padding(2) .multilineTextAlignment(.center)
                         } else {
                             Image(uiImage: entry.viewModel.icon).resizable()
-                                .scaledToFit().frame(width: 20.0, height: 20.0).padding(0)
+                                .scaledToFit().frame(width: iconSize, height: iconSize).padding(0).padding(.top, iconTopPadding)
                         }
                     }
                 }
                 .buttonStyle(PlainButtonStyle())
-                Text(entry.viewModel.progressString)
+                Text(entry.viewModel.progressString).scaledToFill().padding(3)
             }
             
         }
