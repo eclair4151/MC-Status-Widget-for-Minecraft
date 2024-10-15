@@ -26,7 +26,22 @@ public class SwiftDataHelper {
         return try! ModelContainer(for: SavedMinecraftServer.self)
     }
     
-    @MainActor 
+    public static func getSavedServersBg(container: ModelContainer) -> [SavedMinecraftServer] {
+        let modelContext = ModelContext(container)
+        
+        let fetch = FetchDescriptor<SavedMinecraftServer>(
+            predicate: nil,
+            sortBy: [.init(\.displayOrder)]
+        )
+        guard let results = try? modelContext.fetch(fetch) else {
+            return []
+        }
+        
+        return results
+    }
+    
+    
+    @MainActor
     public static func getSavedServers(container: ModelContainer) -> [SavedMinecraftServer] {
         let modelContext = container.mainContext
         

@@ -34,8 +34,15 @@ struct RectangularAccessoryWidgetView : View {
                             .font(.system(size: 20))
                             .padding(2).widgetAccentable()
                     } else {
-                        Image(uiImage: entry.viewModel.icon).resizable()
-                            .scaledToFit().frame(width: 18.0, height: 18.0).padding(0).widgetAccentable()
+                        if #available(iOSApplicationExtension 18.0, watchOS 11.0, *) {
+                            Image(uiImage: entry.viewModel.icon).resizable()
+                                .widgetAccentedRenderingMode(WidgetAccentedRenderingMode.accentedDesaturated)
+                                .scaledToFit().frame(width: 18.0, height: 18.0).padding(0).widgetAccentable()
+                        } else {
+                            Image(uiImage: entry.viewModel.icon).resizable()
+                                .scaledToFit().frame(width: 18.0, height: 18.0).padding(0).widgetAccentable()
+                        }
+                        
                     }
                     Text(entry.viewModel.serverName).font(.headline).padding(.leading, 5)
                     Spacer()
