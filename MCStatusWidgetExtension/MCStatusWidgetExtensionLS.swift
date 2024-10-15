@@ -45,6 +45,8 @@ struct MinecraftServerStatusLSWidget2: Widget {
     private let supportedFamilies:[WidgetFamily] = {
         #if targetEnvironment(macCatalyst)
             return []
+        #elseif os(watchOS)
+            return [.accessoryCircular]
         #else
             return [.accessoryCircular, .accessoryInline]
         #endif

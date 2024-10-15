@@ -27,22 +27,27 @@ struct InlineAccessoryWidgetView2 : View {
 #if !targetEnvironment(macCatalyst)
         
         HStack(spacing: 3) {
+            Button(intent: RefreshWidgetIntent()) {
+                if entry.viewModel.viewType == .Unconfigured {
+                    #if os(watchOS)
+                    Text("...")
+                    #else
+                    Text("Edit Widget")
+                    #endif
+                } else {
+                    Text(entry.viewModel.progressString)
+                }
+            }.buttonStyle(PlainButtonStyle())
             if let statusIcon = entry.viewModel.statusIcon {
                 Image(systemName: statusIcon)
                     .font(.system(size: 18))
                     .widgetAccentable()
             } else if entry.viewModel.viewType != .Unconfigured {
-                let imageNumber = min(100, max(0, Int((entry.viewModel.progressValue * 100).rounded(.towardZero))))
+                let imageNumber = 50// min(100, max(0, Int((entry.viewModel.progressValue * 100).rounded(.towardZero))))
                 let imageName = "ProgressBar\(imageNumber)"
                 if let uiImage = UIImage(named: imageName) {
                     Image(uiImage:  uiImage).padding().widgetAccentable()
                 }
-            }
-            
-            if entry.viewModel.viewType == .Unconfigured {
-                Text("Edit Widget")
-            } else {
-                Text(entry.viewModel.progressString)
             }
         }
 #endif

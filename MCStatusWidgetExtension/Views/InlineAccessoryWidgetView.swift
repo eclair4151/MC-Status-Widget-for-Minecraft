@@ -37,7 +37,11 @@ struct InlineAccessoryWidgetView : View {
             
             Button(intent: RefreshWidgetIntent()) {
                 if entry.viewModel.viewType == .Unconfigured {
+                    #if os(watchOS)
+                    Text("...")
+                    #else
                     Text("Edit Widget")
+                    #endif
                 } else {
                     Text(entry.viewModel.progressString)
                 }

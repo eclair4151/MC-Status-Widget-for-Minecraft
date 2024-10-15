@@ -68,8 +68,8 @@ struct CornerAccessoryWidgetView1 : View {
               } maximumValueLabel: {
                   Text(String(entry.viewModel.playersMax)) // Watch out for clipping
               }
-              .tint(Color(hex: "#194485"))
-            .gaugeStyle(.accessoryLinearCapacity)
+              .tint(Color(hex: "#2159ad"))
+              .gaugeStyle(.accessoryLinearCapacity).widgetAccentable()
         }
         
         
