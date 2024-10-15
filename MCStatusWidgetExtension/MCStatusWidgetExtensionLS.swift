@@ -19,8 +19,10 @@ struct MinecraftServerStatusLSWidget1: Widget {
         
         #if targetEnvironment(macCatalyst)
             return []
+        #elseif os(watchOS)
+        return [.accessoryCircular, .accessoryRectangular, .accessoryInline, .accessoryCorner]
         #else
-            return [.accessoryCircular, .accessoryRectangular]
+            return [.accessoryCircular, .accessoryRectangular, .accessoryInline]
         #endif
           
        }()
@@ -44,7 +46,7 @@ struct MinecraftServerStatusLSWidget2: Widget {
         #if targetEnvironment(macCatalyst)
             return []
         #else
-            return [.accessoryCircular]
+            return [.accessoryCircular, .accessoryInline]
         #endif
        }()
     
@@ -86,9 +88,16 @@ struct MinecraftServerStatusLSWidgetEntryView : View {
             }
         case .accessoryRectangular:
             RectangularAccessoryWidgetView(entry: entry)
-    #elseif os(watchOS)
-        case .accessoryCircular:
-            Text("T")
+        case .accessoryInline:
+            switch widgetType {
+                case .ImageAndText:
+                InlineAccessoryWidgetView(entry: entry)
+                case .OnlyImage:
+                InlineAccessoryWidgetView2(entry: entry)
+            }
+            
+        case .accessoryCorner:
+            Text("Corner")
     #endif
         @unknown default:
             Text("Not implemented")

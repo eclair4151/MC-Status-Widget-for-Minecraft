@@ -27,7 +27,7 @@ struct CircularAccessoryWidgetView1 : View {
         #if os(watchOS)
         return 15
         #else
-        return 20
+        return 18
         #endif
     }
     
@@ -43,7 +43,7 @@ struct CircularAccessoryWidgetView1 : View {
 #if !targetEnvironment(macCatalyst)
         Gauge (value: entry.viewModel.progressValue) {
             VStack(spacing: 1) {
-                Button(intent: RefreshWidgetIntent()) {
+                ZStack {
                     HStack(spacing: 4) { // Adjust spacing as needed
                         if let statusIcon = entry.viewModel.statusIcon {
                             Image(systemName: statusIcon)
@@ -52,20 +52,38 @@ struct CircularAccessoryWidgetView1 : View {
                                     Color.unknownColor
                                 )
                                 .background(Color.white.mask(Circle()).padding(2)
-                                )
+                                ).widgetAccentable()
                              
                         } else if(entry.viewModel.viewType == .Unconfigured) {
                             Text("Edit Widget").padding(2) .multilineTextAlignment(.center)
                         } else {
-                            Image(uiImage: entry.viewModel.icon).resizable()
-                                .scaledToFit().frame(width: iconSize, height: iconSize).padding(0).padding(.top, iconTopPadding)
+                            if #available(iOSApplicationExtension 18.0, watchOS 11.0, *) {
+                                Image(uiImage: entry.viewModel.icon)
+                                    .resizable()
+                                    .widgetAccentedRenderingMode(WidgetAccentedRenderingMode.accentedDesaturated)
+                                    .scaledToFit().frame(width: iconSize, height: iconSize).padding(0)
+                                    .padding(.top, iconTopPadding)
+                                    .widgetAccentable()
+                                    
+                            } else {
+                                Image(uiImage: entry.viewModel.icon)
+                                    .resizable()
+                                    .scaledToFit().frame(width: iconSize, height: iconSize).padding(0)
+                                    .padding(.top, iconTopPadding)
+                                    .widgetAccentable()
+                                    
+                            }
+                            
                         }
                     }
+                    Button(intent: RefreshWidgetIntent()) {
+                        Color.clear
+                    }
+                    .buttonStyle(PlainButtonStyle())
                 }
-                .buttonStyle(PlainButtonStyle())
-                Text(entry.viewModel.progressString).scaledToFill().padding(3)
+                
+                Text(entry.viewModel.progressString).padding(.bottom, 4).padding(.horizontal,2).minimumScaleFactor(0.01).fontWeight(.semibold)
             }
-            
         }
         .gaugeStyle(.accessoryCircularCapacity)
 

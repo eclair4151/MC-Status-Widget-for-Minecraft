@@ -55,9 +55,9 @@ struct LockscreenProvider: AppIntentTimelineProvider {
        let intent = ServerSelectNoThemeWidgetIntent()
        intent.Server = entity
         let widgetNamePostfix = if self.widgetType == .OnlyImage {
-            " - Image Only"
+            " - Icon Only"
         } else {
-            ""
+            " - Icon + Text"
         }
 
         let watchComplicationName = "Zero's Test2" + widgetNamePostfix
@@ -79,6 +79,10 @@ struct LockscreenProvider: AppIntentTimelineProvider {
         if !context.isPreview, let (server, serverStatus) = await loadTimelineData(container: container, configuration: configuration) {
             let serverIcon = ImageHelper.convertFavIconString(favIcon: serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
             vm = WidgetEntryViewModel(serverName: server.name, status: serverStatus, lastUpdated: "now", serverIcon: serverIcon, theme: .auto)
+        }
+        
+        if (context.isPreview) {
+            vm.viewType = .Preview
         }
         return ServerStatusLSSnapshotEntry(date: Date(), configuration: configuration, viewModel: vm)
     }

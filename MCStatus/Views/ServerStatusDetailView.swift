@@ -200,7 +200,7 @@ struct ServerStatusDetailView: View {
 //                            let imageUrl = URL(string: "https://httpbin.org/delay/10")
                             LazyImage(url: imageUrl) { state in
                                 if let image = state.image {
-                                    image.resizable().scaledToFill()
+                                    image.resizable().scaledToFit()
                                 } else if state.error != nil {
                                     Color.placeholderGrey
                                 } else {

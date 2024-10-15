@@ -45,6 +45,7 @@
 		F174A3012A915E450051DA5B /* WatchServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174A3002A915E450051DA5B /* WatchServerStatusChecker.swift */; };
 		F17A16BB2A893DD700F8FF2F /* SettingsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */; };
 		F17A16BD2A8956DE00F8FF2F /* EditServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */; };
+		F17AE07D2CBE0B6600DC7A80 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
 		F1A43C822A8472B20081A24C /* ServerStatusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */; };
 		F1AE29162CA48577009D0D14 /* ServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* ServerRowView.swift */; };
 		F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
@@ -226,6 +227,8 @@
 				TimelineProviders/LockscreenProvider.swift,
 				Views/CircularAccessoryWidgetView1.swift,
 				Views/CircularAccessoryWidgetView2.swift,
+				Views/InlineAccessoryWidgetView.swift,
+				Views/InlineAccessoryWidgetView2.swift,
 				Views/RectangularAccessoryWidgetView.swift,
 				WidgetEntryViewModel.swift,
 			);
@@ -794,6 +797,7 @@
 				F13095572CBD48ED00C4C7BA /* WatchServerStatusChecker.swift in Sources */,
 				F13095582CBD494300C4C7BA /* ConnectivityProvider.swift in Sources */,
 				F130954D2CBC9D1C00C4C7BA /* ImageHelper.swift in Sources */,
+				F17AE07D2CBE0B6600DC7A80 /* CustomProgressView.swift in Sources */,
 				F130954C2CBC9C5D00C4C7BA /* CustomExtentions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

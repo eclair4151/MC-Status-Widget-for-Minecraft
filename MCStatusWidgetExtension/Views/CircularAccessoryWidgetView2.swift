@@ -27,7 +27,7 @@ struct CircularAccessoryWidgetView2 : View {
 #if !targetEnvironment(macCatalyst)
         
         Gauge (value: entry.viewModel.progressValue) {
-            Button(intent: RefreshWidgetIntent()) {
+            ZStack {
                 if let statusIcon = entry.viewModel.statusIcon {
                     Image(systemName: statusIcon)
                         .font(.system(size: 24))
@@ -40,12 +40,23 @@ struct CircularAccessoryWidgetView2 : View {
                 } else if(entry.viewModel.viewType == .Unconfigured) {
                     Text("Edit Widget").padding(2) .multilineTextAlignment(.center)
                 } else {
-                    
-                    Image(uiImage: entry.viewModel.icon).resizable()
-                        .scaledToFit().frame(width: 25.0, height: 25.0).padding(0).offset(x: 0,y: -1)
+                    if #available(iOSApplicationExtension 18.0, watchOS 11.0, *)  {
+                        Image(uiImage: entry.viewModel.icon).resizable()
+                            .widgetAccentedRenderingMode(WidgetAccentedRenderingMode.accentedDesaturated)
+                            .scaledToFit().frame(width: 25.0, height: 25.0).padding(0).offset(x: 0, y: -1)
+                            .widgetAccentable()
+                    } else {
+                        Image(uiImage: entry.viewModel.icon).resizable()
+                            .scaledToFit().frame(width: 25.0, height: 25.0).padding(0)
+                            .widgetAccentable().offset(x: 0, y: -1)
+                    }
                 }
+                Button(intent: RefreshWidgetIntent()) {
+                    Color.clear
+                }
+                .buttonStyle(PlainButtonStyle())
             }
-            .buttonStyle(PlainButtonStyle())
+            
         }
         .gaugeStyle(.accessoryCircularCapacity)
 

@@ -31,7 +31,7 @@ struct WatchServerDetailScreen: View {
                         let imageUrl = URL(string: serverStatusViewModel.getMcHeadsUrl(uuid: player.uuid))
                         LazyImage(url: imageUrl) { state in
                             if let image = state.image {
-                                image.resizable().scaledToFill()
+                                image.resizable().scaledToFit()
                             } else if state.error != nil {
                                 Color.serverIconBackground
                             } else {
