@@ -7,9 +7,6 @@
 
 import Foundation
 
-
-
-
 class UserDefaultHelper {
     // Define the possible keys as an enum
     enum Key: String {

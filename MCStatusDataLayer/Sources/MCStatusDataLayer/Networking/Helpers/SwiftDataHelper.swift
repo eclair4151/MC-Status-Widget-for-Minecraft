@@ -11,8 +11,8 @@ import SwiftData
 // random helper function
 public class SwiftDataHelper {
     public static func getModelContainter() -> ModelContainer {
-        //reenable :D
-       // if (UserDefaultHelper.iCloudEnabled()) {
+
+        if (UserDefaultHelper.shared.get(for: .iCloudEnabled, defaultValue: true)) {
             do {
                 let config = ModelConfiguration(nil, schema: Schema ([SavedMinecraftServer.self]), isStoredInMemoryOnly: false, allowsSave: true, groupContainer: ModelConfiguration.GroupContainer.identifier("group.shemeshapps.MinecraftServerStatus"), cloudKitDatabase: ModelConfiguration.CloudKitDatabase.private("iCloud.com.shemeshapps.MinecraftServerStatus"))
                 return try ModelContainer(for: SavedMinecraftServer.self, configurations: config)
@@ -20,7 +20,7 @@ public class SwiftDataHelper {
                 // something broken with icloud? continue with local container without config.
                 print("ERROR LOADING ICLOUD MODEL CONTAINTER: " + error.localizedDescription)
             }
-      // }
+       }
         
         // if this is broken then something is f'ed up. just crash
         return try! ModelContainer(for: SavedMinecraftServer.self)

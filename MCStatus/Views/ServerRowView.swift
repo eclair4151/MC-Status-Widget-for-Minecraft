@@ -64,7 +64,7 @@ struct ServerRowView: View {
                 
                 
                 
-                if UserDefaultHelper.showUsersOnHomesreen() {
+                if UserDefaultHelper.shared.get(for: .showUsersOnHomesreen, defaultValue: true) {
                     let sampletext = viewModel.getUserSampleText()
                         Text(sampletext)
                             .font(.footnote)

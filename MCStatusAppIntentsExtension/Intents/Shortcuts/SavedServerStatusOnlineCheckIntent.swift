@@ -40,7 +40,7 @@ private func runServerStatusIntentCheck(serverEntity: SavedServerEntity?, dismab
         }
     }
     
-    let checkerConfig = ServerCheckerConfig(sortUsers: UserDefaultHelper.sortUsersByName())
+    let checkerConfig = ServerCheckerConfig(sortUsers: UserDefaultHelper.shared.get(for: .sortUsersByName, defaultValue: true))
 
     //horrible hack to handle watch vs phone
     #if os(watchOS)

@@ -23,6 +23,7 @@ import MCStatusDataLayer
 struct SettingsRootView: View {
     
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.openURL) private var openURL
 
     var body: some View {
         Form {
@@ -73,24 +74,37 @@ struct SettingsRootView: View {
         }
         .navigationTitle("Settings")
         .background(Color(.systemGroupedBackground))
-        Button("Inject servers") {
-            injectServers()
-        }
+//        Button("Inject servers") {
+//            injectServers()
+//        }
         
     }
     
     // Action methods
         func joinTestFlight() {
-            // Code to handle TestFlight joining
+            let url = "https://testflight.apple.com/join/k9RmbbJI"
+            guard let testflightUrl = URL(string: url) else {
+                print("Expected a valid URL")
+                return
+            }
+            openURL(testflightUrl)
         }
         
         func leaveAppReview() {
-            // Code to handle leaving a review
+            // Replace the placeholder value below with the App Store ID for your app.
+            // You can find the App Store ID in your app's product URL.
+            let url = "https://apps.apple.com/app/id1408215245?action=write-review"
+            guard let writeReviewURL = URL(string: url) else {
+                print("Expected a valid URL")
+                return
+            }
+            openURL(writeReviewURL)
         }
         
         func tipDeveloper() {
             // Code to handle tipping
         }
+    
     
     func injectServers() {
         modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Insanity Craft", serverUrl: "join.insanitycraft.net", serverPort: 25565))
@@ -119,13 +133,14 @@ struct SettingsRootView: View {
 
 // General Settings Sub-View
 struct GeneralSettingsView: View {
-    @State private var toggle1 = true
-    @State private var toggle2 = true
-    @State private var toggle3 = true
+    @AppStorage(UserDefaultHelper.Key.iCloudEnabled.rawValue) var toggle1 = true
+    @AppStorage(UserDefaultHelper.Key.showUsersOnHomesreen.rawValue) var toggle2 = true
+    @AppStorage(UserDefaultHelper.Key.sortUsersByName.rawValue) var toggle3 = true
+
 
     var body: some View {
         Form {
-            Toggle(isOn: $toggle1) {
+                    Toggle(isOn: $toggle1) {
                            VStack(alignment: .leading, spacing: 2) {
                                Text("Enable iCloud Syncing")
                                Text("Sync your server list across all devices.")

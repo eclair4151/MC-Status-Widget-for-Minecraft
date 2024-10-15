@@ -19,7 +19,7 @@ import MCStatusDataLayer
 class ConfigHelper {
     
     static func getServerCheckerConfig() -> ServerCheckerConfig {
-        return ServerCheckerConfig(sortUsers: UserDefaultHelper.sortUsersByName())
+        return ServerCheckerConfig(sortUsers: UserDefaultHelper.shared.get(for: .sortUsersByName, defaultValue: true))
     }
     
 }
