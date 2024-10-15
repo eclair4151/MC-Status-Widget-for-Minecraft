@@ -25,7 +25,7 @@ struct ArbitraryServerStatusOnlineCheckIntent: AppIntent {
     @Parameter(title: "Server Port (Optional)")
     var serverPort: Int?
     
-    func perform() async throws -> some IntentResult & ReturnsValue<ServerStatusEntity>{
+    func perform() async throws -> some ProvidesDialog & IntentResult & ReturnsValue<ServerStatusEntity>{
         
         let convertedServerType: ServerType = switch serverType {
             case .java:
@@ -54,7 +54,8 @@ struct ArbitraryServerStatusOnlineCheckIntent: AppIntent {
         print("container:" + container.schema.debugDescription)
 
         let res = ServerStatusEntity(serverId: UUID(), serversName: serverAddress, serverStatus: status)
-        return .result(value: res)
+        return .result(value: res, dialog: "\(String(localized: res.displayRepresentation.title))")
+
     }
     
     static var parameterSummary: some ParameterSummary {

@@ -33,7 +33,7 @@ struct ServerStatusEntity: AppEntity {
     static var typeDisplayRepresentation = TypeDisplayRepresentation("Server Status")
 
     var displayRepresentation: DisplayRepresentation {
-        DisplayRepresentation(title: "\(serverName) is \(onlineStatus.lowercased()) with \(playerCount) players. Debug: Loaded via \(querySource)")
+        DisplayRepresentation(title: "\(serverName) is \(onlineStatus.lowercased()) with \(playerCount) players.")
     }
     
     init(serverId: UUID, serversName: String, serverStatus: ServerStatus) {
