@@ -84,7 +84,7 @@ struct WatchContentView: View {
                     .font (.system(size: 30))
                     .foregroundStyle(.gray)
                     ContentUnavailableView("Add a Server", systemImage: "",
-                       description: Text ("Servers are synced with your phone. This may take up to a minute."))
+                       description: Text ("Servers are synced with your phone. This may take some time."))
                     .scrollDisabled(true)
                     Spacer()
                 }

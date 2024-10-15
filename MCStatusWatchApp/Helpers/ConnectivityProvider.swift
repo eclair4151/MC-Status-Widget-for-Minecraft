@@ -29,6 +29,7 @@ class ConnectivityProvider: NSObject, WCSessionDelegate {
 
         
     var responseListener: (([String:Any]) -> Void)?
+    var connectionState: WCSessionActivationState = .inactive
     
     override init() {
         super.init()
@@ -58,6 +59,7 @@ class ConnectivityProvider: NSObject, WCSessionDelegate {
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         print("Watch session activationState: " + String(activationState.rawValue))
+        connectionState = activationState
     }
     
     func connect() {

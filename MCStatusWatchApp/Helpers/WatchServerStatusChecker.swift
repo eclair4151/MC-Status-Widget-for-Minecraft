@@ -7,6 +7,7 @@
 
 import Foundation
 import MCStatusDataLayer
+import WatchConnectivity
 
 class WatchServerStatusChecker {
     
@@ -57,14 +58,26 @@ class WatchServerStatusChecker {
         expectedResponseBatches.insert(expectedBatch)
         Task {
             do {
-                try checkServersViaPhone(servers: servers)
-                // wait 11 seconds, and check if we need to backup for any of the pending servers.
-                try await Task.sleep(nanoseconds: UInt64(11) * NSEC_PER_SEC)
+                
+                var connectiveStateCounter = 0
+                // first wait up to 1 second for the phone to become available.
+                while (!WCSession.default.isReachable || self.connectivityProvider.connectionState != .activated) && connectiveStateCounter < 4{
+                    connectiveStateCounter += 1
+                    try await Task.sleep(nanoseconds: UInt64(0.25 * Double(NSEC_PER_SEC)))
+                }
+                
+                //only bother trying to connect via phone is it says it is reachable
+                if WCSession.default.isReachable {
+                    try checkServersViaPhone(servers: servers)
+                    // wait 8 seconds, and check if we need to backup for any of the pending servers.
+                    try await Task.sleep(nanoseconds: UInt64(8) * NSEC_PER_SEC)
+                }
+              
             } catch let error {
                 print("Failed to check servers via phone: \(error.localizedDescription)")
             }
             
-            // after 12 seconds, anything left in the batch needs to be checked via the backup.
+            // after timeout, anything left in the batch needs to be checked via the backup web api.
             expectedBatch.expectedResults.forEach { id, server in
                 // start a new async task for each request to go in parrallel
                 Task {

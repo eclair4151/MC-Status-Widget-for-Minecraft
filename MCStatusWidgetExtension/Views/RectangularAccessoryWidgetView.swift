@@ -32,10 +32,10 @@ struct RectangularAccessoryWidgetView : View {
                     if let statusIcon = entry.viewModel.statusIcon {
                         Image(systemName: statusIcon)
                             .font(.system(size: 20))
-                            .padding(2)
+                            .padding(2).widgetAccentable()
                     } else {
                         Image(uiImage: entry.viewModel.icon).resizable()
-                            .scaledToFit().frame(width: 18.0, height: 18.0).padding(0)
+                            .scaledToFit().frame(width: 18.0, height: 18.0).padding(0).widgetAccentable()
                     }
                     Text(entry.viewModel.serverName).font(.headline).padding(.leading, 5)
                     Spacer()
