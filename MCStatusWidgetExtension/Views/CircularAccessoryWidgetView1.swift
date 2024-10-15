@@ -48,14 +48,15 @@ struct CircularAccessoryWidgetView1 : View {
                         if let statusIcon = entry.viewModel.statusIcon {
                             Image(systemName: statusIcon)
                                 .font(.system(size: iconSize))
-                                .foregroundColor(
-                                    Color.unknownColor
-                                )
-                                .background(Color.white.mask(Circle()).padding(2)
-                                ).widgetAccentable()
+                                .padding(2)
+                                .widgetAccentable()
                              
                         } else if(entry.viewModel.viewType == .Unconfigured) {
+                            #if os(watchOS)
+                            Text("...").padding(2) .multilineTextAlignment(.center)
+                            #else
                             Text("Edit Widget").padding(2) .multilineTextAlignment(.center)
+                            #endif
                         } else {
                             if #available(iOSApplicationExtension 18.0, watchOS 11.0, *) {
                                 Image(uiImage: entry.viewModel.icon)

@@ -30,9 +30,7 @@ struct InlineAccessoryWidgetView : View {
             if let statusIcon = entry.viewModel.statusIcon {
                 Image(systemName: statusIcon)
                     .font(.system(size: 18))
-                    .foregroundColor(Color.unknownColor)
                     .widgetAccentable()
-                    .background(Color.white.mask(Circle()).padding(2))
             } else {
                 Image(uiImage: entry.viewModel.icon).widgetAccentable()
             }

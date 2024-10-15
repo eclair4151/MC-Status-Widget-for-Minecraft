@@ -24,7 +24,7 @@ struct WatchContentView: View {
     
     @Environment(\.scenePhase) var scenePhase
     @Environment(\.modelContext) private var modelContext
-    @State private var serverViewModels: [ServerStatusViewModel] = []
+    @State private var serverViewModels: [ServerStatusViewModel]?
     @State private var serverViewModelCache: [UUID:ServerStatusViewModel] = [:]
     @State private var iCloudStatus: iCloudStatus = .unknown
     @State private var lastRefreshTime = Date()
@@ -38,7 +38,7 @@ struct WatchContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(serverViewModels) { viewModel in
+                ForEach(serverViewModels ?? []) { viewModel in
                     NavigationLink(value: viewModel) {
                         WatchServerRowView(viewModel: viewModel)
                     }
@@ -48,24 +48,25 @@ struct WatchContentView: View {
                 WatchServerDetailScreen(serverStatusViewModel: viewModel)
             }
             .toolbar {
-                if !serverViewModels.isEmpty {
+                if let serverViewModels, !serverViewModels.isEmpty {
                     ToolbarItem(placement: .topBarLeading) {
                         Text("Servers").font(.system(size: 25)).bold()
                     }
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button {
-                            reloadData(forceRefresh: true)
-                        } label: {
-                            Label("Refresh", systemImage: "arrow.clockwise")
-                                .foregroundColor(.white)
-                        }
+                    
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        reloadData(forceRefresh: true)
+                    } label: {
+                        Label("Refresh", systemImage: "arrow.clockwise")
+                            .foregroundColor(.white)
                     }
                 }
             }
         }
         
         .overlay {
-            if self.iCloudStatus == .unavailable && serverViewModels.isEmpty {
+            if self.iCloudStatus == .unavailable && serverViewModels?.isEmpty ?? true {
                 VStack {
                     Spacer()
                     Image (systemName: "icloud.slash")
@@ -76,14 +77,14 @@ struct WatchContentView: View {
                     .scrollDisabled(true)
                     Spacer()
                 }
-            } else if serverViewModels.isEmpty {
+            } else if let serverViewModels, serverViewModels.isEmpty {
                 VStack {
                     Spacer()
                     Image (systemName: "server.rack")
                     .font (.system(size: 30))
                     .foregroundStyle(.gray)
                     ContentUnavailableView("Add a Server", systemImage: "",
-                       description: Text ("Add a server using your phone. Sync"))
+                       description: Text ("Servers are synced with your phone. This may take up to a minute."))
                     .scrollDisabled(true)
                     Spacer()
                 }
@@ -193,7 +194,7 @@ struct WatchContentView: View {
         
         if forceRefresh {
             lastRefreshTime = Date()
-            for vm in self.serverViewModels {
+            for vm in self.serverViewModels ?? [] {
                 vm.loadingStatus = .Loading
             }
             serversToCheck = servers

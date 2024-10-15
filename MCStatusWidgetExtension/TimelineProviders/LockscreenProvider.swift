@@ -55,9 +55,9 @@ struct LockscreenProvider: AppIntentTimelineProvider {
        let intent = ServerSelectNoThemeWidgetIntent()
        intent.Server = entity
         let widgetNamePostfix = if self.widgetType == .OnlyImage {
-            " - Icon Only"
+            " - Style 2"
         } else {
-            " - Icon + Text"
+            ""
         }
 
         let watchComplicationName = "Zero's Test2" + widgetNamePostfix

@@ -33,6 +33,8 @@ extension WidgetEntryViewModel {
             } else {
                 self.progressValue = Float(status.onlinePlayerCount) / Float(status.maxPlayerCount)
             }
+            self.playersMax = status.maxPlayerCount
+            self.playersOnline = status.onlinePlayerCount
             
             self.progressStringAlpha = 1.0
             self.progressStringSize = 23
@@ -40,12 +42,16 @@ extension WidgetEntryViewModel {
             self.statusIcon = "multiply.circle.fill"
             self.progressString = "-- / --"
             self.progressValue = 0
+            self.playersMax = 0
+            self.playersOnline = 0
             self.progressStringAlpha = 0.5
             self.progressStringSize = 23
         } else {
             self.statusIcon = "questionmark.circle.fill"
             self.progressString = "No Connection"
             self.progressValue = 0
+            self.playersMax = 0
+            self.playersOnline = 0
             self.progressStringAlpha = 0.65
             self.progressStringSize = 15
         }
@@ -86,6 +92,8 @@ extension WidgetEntryViewModel {
         self.progressValue = 0.15
         self.progressStringAlpha = 1.0
         self.progressStringSize = 23
+        self.playersOnline = 3
+        self.playersMax = 20
     }
     
     mutating func setServerIcon(base64Data: String) {
@@ -99,6 +107,8 @@ extension WidgetEntryViewModel {
         self.progressString = "-- / --"
         self.lastUpdated = "now"
         self.progressValue = 0
+        self.playersOnline = 0
+        self.playersMax = 20
         self.playersString = ""
         self.viewType = .Unconfigured
     }
@@ -115,6 +125,8 @@ public struct WidgetEntryViewModel {
     var progressStringAlpha: Double
     var progressStringSize: Int
     var progressValue: Float
+    var playersOnline: Int
+    var playersMax: Int
     var playersString: String
     var bgColor: Color = Color.widgetBackground
     var viewType = WidgetViewType.Default

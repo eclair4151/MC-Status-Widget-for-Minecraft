@@ -27,24 +27,22 @@ struct InlineAccessoryWidgetView2 : View {
 #if !targetEnvironment(macCatalyst)
         
         HStack(spacing: 3) {
-            if entry.viewModel.viewType == .Unconfigured {
-                Text("Edit Widget")
-            } else {
-                Text(entry.viewModel.progressString)
-            }
-          
             if let statusIcon = entry.viewModel.statusIcon {
                 Image(systemName: statusIcon)
                     .font(.system(size: 18))
-                    .foregroundColor(Color.unknownColor)
                     .widgetAccentable()
-                    .background(Color.white.mask(Circle()).padding(2))
             } else if entry.viewModel.viewType != .Unconfigured {
                 let imageNumber = min(100, max(0, Int((entry.viewModel.progressValue * 100).rounded(.towardZero))))
                 let imageName = "ProgressBar\(imageNumber)"
                 if let uiImage = UIImage(named: imageName) {
-                    Image(uiImage:  uiImage).renderingMode(.template).padding()
+                    Image(uiImage:  uiImage).padding().widgetAccentable()
                 }
+            }
+            
+            if entry.viewModel.viewType == .Unconfigured {
+                Text("Edit Widget")
+            } else {
+                Text(entry.viewModel.progressString)
             }
         }
 #endif

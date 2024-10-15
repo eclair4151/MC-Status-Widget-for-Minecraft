@@ -97,7 +97,7 @@ struct MinecraftServerStatusLSWidgetEntryView : View {
             }
             
         case .accessoryCorner:
-            Text("Corner")
+            CornerAccessoryWidgetView1(entry: entry)
     #endif
         @unknown default:
             Text("Not implemented")

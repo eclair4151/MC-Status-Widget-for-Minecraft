@@ -227,6 +227,7 @@
 				TimelineProviders/LockscreenProvider.swift,
 				Views/CircularAccessoryWidgetView1.swift,
 				Views/CircularAccessoryWidgetView2.swift,
+				Views/CornerAccessoryWidgetView1.swift,
 				Views/InlineAccessoryWidgetView.swift,
 				Views/InlineAccessoryWidgetView2.swift,
 				Views/RectangularAccessoryWidgetView.swift,
