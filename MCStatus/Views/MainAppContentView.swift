@@ -267,7 +267,7 @@ struct MainAppContentView: View {
         }
         if reviewHelper.shouldShowRequestView() {
             Task {
-                try await Task.sleep(for: .seconds(8))
+                try await Task.sleep(for: .seconds(6))
                 requestReview()
                 reviewHelper.didShowReview()
             }
