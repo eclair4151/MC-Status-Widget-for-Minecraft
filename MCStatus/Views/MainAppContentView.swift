@@ -11,6 +11,7 @@ import CloudKit
 import CoreData
 import MCStatusDataLayer
 import WidgetKit
+import StoreKit
 
 enum PageDestinations {
     case SettingsRoot
@@ -19,6 +20,7 @@ struct MainAppContentView: View {
     
     let watchHelper = WatchHelper()
     
+    @Environment(\.requestReview) private var requestReview
     @Environment(\.scenePhase) var scenePhase
     @Environment(\.modelContext) private var modelContext
     @State private var serverViewModels: [ServerStatusViewModel]?
@@ -28,6 +30,7 @@ struct MainAppContentView: View {
     @State private var lastRefreshTime = Date()
     @State private var navPath = NavigationPath()
     @State private var pendingDeepLink: String?
+    private var reviewHelper = ReviewHelper()
     
     var body: some View {
         NavigationStack(path: $navPath) {
@@ -114,7 +117,7 @@ struct MainAppContentView: View {
                 print("Active")
                 reloadData()
                 checkForAutoReload()
-
+                checkForAppReviewRequest()
             } else if newPhase == .inactive {
                 print("Inactive")
             } else if newPhase == .background {
@@ -256,12 +259,20 @@ struct MainAppContentView: View {
         WidgetCenter.shared.reloadAllTimelines()
     }
 
+    private func checkForAppReviewRequest() {
+        reviewHelper.appLaunched()
+        // dont show if they didnt add any servers
+        if self.serverViewModels?.isEmpty ?? true {
+            return
+        }
+        if reviewHelper.shouldShowRequestView() {
+            Task {
+                try await Task.sleep(for: .seconds(8))
+                requestReview()
+                reviewHelper.didShowReview()
+            }
+            
+        }
+    }
     
 }
-
-
-//
-//#Preview {
-//    ContentView()
-//        .modelContainer(for: Item.self, inMemory: true)
-//}

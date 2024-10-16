@@ -52,6 +52,11 @@
 		F17AE0F02CC0363F00DC7A80 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* ViewHelpers.swift */; };
 		F17AE0F12CC0363F00DC7A80 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* ViewHelpers.swift */; };
 		F17AE0F22CC0363F00DC7A80 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* ViewHelpers.swift */; };
+		F17AE0F42CC0504200DC7A80 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
+		F17AE0F52CC0504200DC7A80 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
+		F17AE0F62CC0504200DC7A80 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
+		F17AE0F72CC0504200DC7A80 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
+		F17AE0F82CC0504200DC7A80 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
 		F1A43C822A8472B20081A24C /* ServerStatusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */; };
 		F1AE29162CA48577009D0D14 /* ServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* ServerRowView.swift */; };
 		F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
@@ -201,6 +206,7 @@
 		F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditServerView.swift; sourceTree = "<group>"; };
 		F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
 		F17AE0ED2CC0363F00DC7A80 /* ViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelpers.swift; sourceTree = "<group>"; };
+		F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHelper.swift; sourceTree = "<group>"; };
 		F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusDetailView.swift; sourceTree = "<group>"; };
 		F1AE29152CA48577009D0D14 /* ServerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRowView.swift; sourceTree = "<group>"; };
 		F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
@@ -513,6 +519,7 @@
 		F1BF5D9D2A8025EE00966D56 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */,
 				F17AE0ED2CC0363F00DC7A80 /* ViewHelpers.swift */,
 				F130954E2CBC9D5600C4C7BA /* ConfigHelper.swift */,
 				F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */,
@@ -789,6 +796,7 @@
 				F13095532CBC9D5600C4C7BA /* ConfigHelper.swift in Sources */,
 				F1CFCD532CABB567001A9E69 /* CustomExtentions.swift in Sources */,
 				F1EF76D22CB449E700EFFB20 /* IntentErrors.swift in Sources */,
+				F17AE0F82CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
 				F17AE0EE2CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
 				F1EF76D52CB449E700EFFB20 /* MCStatusShortcutsProvider.swift in Sources */,
 				F1EF76C22CB4204E00EFFB20 /* WatchContentView.swift in Sources */,
@@ -810,6 +818,7 @@
 				F13095582CBD494300C4C7BA /* ConnectivityProvider.swift in Sources */,
 				F130954D2CBC9D1C00C4C7BA /* ImageHelper.swift in Sources */,
 				F17AE07D2CBE0B6600DC7A80 /* CustomProgressView.swift in Sources */,
+				F17AE0F42CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
 				F17AE0F02CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
 				F130954C2CBC9C5D00C4C7BA /* CustomExtentions.swift in Sources */,
 			);
@@ -823,6 +832,7 @@
 				F174A2FC2A8F7FFA0051DA5B /* WatchHelper.swift in Sources */,
 				F17A16BD2A8956DE00F8FF2F /* EditServerView.swift in Sources */,
 				F17AE0EC2CC01E9E00DC7A80 /* FAQView.swift in Sources */,
+				F17AE0F62CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
 				F1C010492AAAB9B60017B9A9 /* SwiftyPing.swift in Sources */,
 				F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */,
 				F13E5FFD2A4BD614005BE9B2 /* MCStatusApp.swift in Sources */,
@@ -847,6 +857,7 @@
 				F13095592CBD497200C4C7BA /* WatchServerStatusChecker.swift in Sources */,
 				F10C42172AAD55BF000107D6 /* MCStatusShortcutsProvider.swift in Sources */,
 				F1CFCD522CABB567001A9E69 /* CustomExtentions.swift in Sources */,
+				F17AE0F52CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
 				F1406BAC2AA391B800815BE8 /* MCStatusAppIntentsExtension.swift in Sources */,
 				F1EF775E2CB8B88B00EFFB20 /* ImageHelper.swift in Sources */,
 				F1406BBF2AA3933400815BE8 /* IntentErrors.swift in Sources */,
@@ -862,6 +873,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F17AE0F12CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
+				F17AE0F72CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
 				F1EF77632CB958B700EFFB20 /* CustomExtentions.swift in Sources */,
 				F1EF77622CB8C62D00EFFB20 /* CustomProgressView.swift in Sources */,
 				F1EF77612CB8B89A00EFFB20 /* ImageHelper.swift in Sources */,

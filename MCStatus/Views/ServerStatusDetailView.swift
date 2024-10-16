@@ -298,7 +298,7 @@ struct ServerStatusDetailView: View {
         let imageURLs = (viewModel.status?.playerSample ?? []).compactMap {
             URL(string: viewModel.getMcHeadsUrl(uuid: $0.uuid))
         }
-
+        
         // Initialize and start prefetching all the image URLs
         prefetcher.startPrefetching(with: imageURLs)
     }
