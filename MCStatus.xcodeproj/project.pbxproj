@@ -57,6 +57,8 @@
 		F17AE0F62CC0504200DC7A80 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
 		F17AE0F72CC0504200DC7A80 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
 		F17AE0F82CC0504200DC7A80 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
+		F17AE0FA2CC05CA200DC7A80 /* MCStatusStoreKit.storekit in Resources */ = {isa = PBXBuildFile; fileRef = F17AE0F92CC05CA200DC7A80 /* MCStatusStoreKit.storekit */; };
+		F17AE0FC2CC05F9000DC7A80 /* TipJarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0FB2CC05F9000DC7A80 /* TipJarView.swift */; };
 		F1A43C822A8472B20081A24C /* ServerStatusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */; };
 		F1AE29162CA48577009D0D14 /* ServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* ServerRowView.swift */; };
 		F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
@@ -207,6 +209,8 @@
 		F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
 		F17AE0ED2CC0363F00DC7A80 /* ViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelpers.swift; sourceTree = "<group>"; };
 		F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHelper.swift; sourceTree = "<group>"; };
+		F17AE0F92CC05CA200DC7A80 /* MCStatusStoreKit.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = MCStatusStoreKit.storekit; sourceTree = "<group>"; };
+		F17AE0FB2CC05F9000DC7A80 /* TipJarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipJarView.swift; sourceTree = "<group>"; };
 		F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusDetailView.swift; sourceTree = "<group>"; };
 		F1AE29152CA48577009D0D14 /* ServerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRowView.swift; sourceTree = "<group>"; };
 		F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
@@ -489,6 +493,7 @@
 				F12E264D2CADA38C00986787 /* Fonts */,
 				F13E60042A4BD615005BE9B2 /* MCStatus.entitlements */,
 				F13E60082A4BD615005BE9B2 /* Info.plist */,
+				F17AE0F92CC05CA200DC7A80 /* MCStatusStoreKit.storekit */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -496,6 +501,7 @@
 		F1A43C802A84726F0081A24C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F17AE0FB2CC05F9000DC7A80 /* TipJarView.swift */,
 				F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */,
 				F1CFCD482CAB0FF7001A9E69 /* MinecraftServerStatusTestView.swift */,
 				F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */,
@@ -766,6 +772,7 @@
 				F13E60072A4BD615005BE9B2 /* Preview Assets.xcassets in Resources */,
 				F13E60032A4BD615005BE9B2 /* Assets.xcassets in Resources */,
 				F1EF76B92CB419AF00EFFB20 /* MigrationHelper.swift in Resources */,
+				F17AE0FA2CC05CA200DC7A80 /* MCStatusStoreKit.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -828,6 +835,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F17AE0FC2CC05F9000DC7A80 /* TipJarView.swift in Sources */,
 				F1A43C822A8472B20081A24C /* ServerStatusDetailView.swift in Sources */,
 				F174A2FC2A8F7FFA0051DA5B /* WatchHelper.swift in Sources */,
 				F17A16BD2A8956DE00F8FF2F /* EditServerView.swift in Sources */,

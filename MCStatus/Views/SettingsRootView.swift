@@ -22,6 +22,7 @@ struct SettingsRootView: View {
     
     @Environment(\.modelContext) private var modelContext
     @Environment(\.openURL) private var openURL
+    @State private var showingTipSheet = false
 
     var body: some View {
         Form {
@@ -76,6 +77,11 @@ struct SettingsRootView: View {
                }
            }
         }
+        .sheet(isPresented: $showingTipSheet) {
+            NavigationStack {
+                TipJarView(isPresented: $showingTipSheet)
+            }
+        }
         .navigationTitle("Settings")
         .background(Color(.systemGroupedBackground))
 //        Button("Inject servers") {
@@ -115,7 +121,7 @@ struct SettingsRootView: View {
         }
         
         func tipDeveloper() {
-            // Code to handle tipping
+            showingTipSheet = true
         }
     
     

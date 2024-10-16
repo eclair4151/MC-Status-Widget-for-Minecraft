@@ -138,7 +138,7 @@ struct MainAppContentView: View {
         }.sheet(isPresented: $showingAddSheet) {
             // create new binding server to add
             let newServer = SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "", serverUrl: "", serverPort: 0, srvServerUrl: "", srvServerPort: 0, serverIcon: "", displayOrder: 0)
-            NavigationView {
+            NavigationStack {
                 EditServerView(server: newServer, isPresented: $showingAddSheet) {
                     // callback when server is edited or added
                     reloadData(forceSRVRefreh: true)

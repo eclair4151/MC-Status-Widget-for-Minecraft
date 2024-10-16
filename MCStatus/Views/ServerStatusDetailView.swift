@@ -260,7 +260,7 @@ struct ServerStatusDetailView: View {
             }
             Button("Cancel", role: .cancel) { }
         }.sheet(isPresented: $showingEditSheet) {
-            NavigationView {
+            NavigationStack {
                 EditServerView(server: serverStatusViewModel.server, isPresented: $showingEditSheet) {
                     serverStatusViewModel.reloadData(config: ConfigHelper.getServerCheckerConfig())
                     parentViewRefreshCallBack()
