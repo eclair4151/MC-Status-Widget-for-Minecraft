@@ -165,6 +165,7 @@ struct WatchContentView: View {
         
         // More than 60 seconds have passed, call the desired method
         reloadData(forceRefresh: true)
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     private func reloadData(forceRefresh:Bool = false) {

@@ -22,7 +22,7 @@ import WidgetKit
 
 struct RectangularAccessoryWidgetView : View {
     var entry: LockscreenProvider.Entry
-
+    let iconSize:CGFloat = 16;
     var body: some View {
         
 #if !targetEnvironment(macCatalyst)
@@ -37,10 +37,10 @@ struct RectangularAccessoryWidgetView : View {
                         if #available(iOSApplicationExtension 18.0, watchOS 11.0, *) {
                             Image(uiImage: entry.viewModel.icon).resizable()
                                 .widgetAccentedRenderingMode(WidgetAccentedRenderingMode.accentedDesaturated)
-                                .scaledToFit().frame(width: 18.0, height: 18.0).padding(0).widgetAccentable()
+                                .scaledToFit().frame(width: iconSize, height: iconSize).padding(0).widgetAccentable()
                         } else {
                             Image(uiImage: entry.viewModel.icon).resizable()
-                                .scaledToFit().frame(width: 18.0, height: 18.0).padding(0).widgetAccentable()
+                                .scaledToFit().frame(width: iconSize, height: iconSize).padding(0).widgetAccentable()
                         }
                         
                     }

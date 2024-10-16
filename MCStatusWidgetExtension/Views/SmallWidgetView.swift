@@ -54,11 +54,11 @@ struct BaseWidgetView: View {
                     .widgetAccentable()
                     
                 Button(intent: RefreshWidgetIntent()) {
-                    HStack(spacing: 4) { // Adjust spacing as needed
+                    HStack(spacing: 3) { // Adjust spacing as needed
                         Image(systemName: "arrow.clockwise")
-                            .imageScale(.medium).frame(width: 16, height: 16).scaleEffect(CGSize(width: 0.70, height: 0.70), anchor: .center).foregroundColor(.veryTransparentText)
+                            .imageScale(.medium).frame(width: 16, height: 16).scaleEffect(CGSize(width: 0.65, height: 0.65), anchor: .center).foregroundColor(.veryTransparentText)
                             .invalidatableContent() // You can adjust the size as needed
-                        Text(entry.viewModel.lastUpdated).font(.system(size: 16)).lineLimit(1) // This is your variable text
+                        Text(entry.viewModel.lastUpdated).font(.system(size: 14)).lineLimit(1).foregroundColor(.veryTransparentText) // This is your variable text
                     }
                 }
                 .buttonStyle(PlainButtonStyle())

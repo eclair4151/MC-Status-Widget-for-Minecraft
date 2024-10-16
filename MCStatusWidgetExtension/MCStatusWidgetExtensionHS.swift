@@ -21,8 +21,19 @@ struct MinecraftServerStatusHSWidget: Widget {
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ServerSelectWidgetIntent.self, provider: HomescreenProvider()) { entry in
             MinecraftServerStatusHSWidgetEntryView(entry: entry).containerBackground(for: .widget) {
-                entry.viewModel.bgColor
-            }
+                
+                if(entry.configuration.Theme == nil || entry.configuration.Theme?.id ?? "" == Theme.auto.rawValue) {
+                    entry.viewModel.bgColor
+                } else {
+                    entry.viewModel.bgColor
+                        .environment(
+                            \.colorScheme,
+                            (entry.configuration.Theme?.id ?? "" == Theme.dark.rawValue)
+                                ? .dark : .light
+                        )
+                }
+            }.widgetURL(URL(string: entry.configuration.Server?.id ?? ""))
+
         }
         .configurationDisplayName("MC Status Widget")
         .description("Widget to show the status of Minecraft Server")

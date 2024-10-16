@@ -168,23 +168,20 @@ struct ServerStatusDetailView: View {
                                     .padding(.top, 3)
                                     .foregroundColor(.secondaryTextColor)
                             }
-                        }
+                        }.padding(.bottom, 10)
                         
-                        if let status = serverStatusViewModel.status, let motdText = status.description?.getRawText() {
-                            Text(motdText)
-                                .font(Font.minecraftFont) // Use a Minecraft-like font
+                        if let status = serverStatusViewModel.status, let _ = status.description {
+                            status.generateMOTDView()
                                 .padding(10)
                                 .frame(maxWidth: .infinity, alignment: .leading) // Make the Text view full width
-                                .foregroundColor(.white) // Set text color to white for contrast
                                 .background(Color.MOTDBackground) // Darker background
                                 .cornerRadius(15) // Rounded corners
-                                .padding(.top,10) // Additional padding around the view
-                                .padding(.bottom, 15)
                         }
                         
                         Text(playersText)
                             .font(.headline)
                             .padding(.bottom, 10)
+                            .padding(.top, 15)
                         CustomProgressView(progress: serverStatusViewModel.getPlayerCountPercentage())
                             .frame(height:10).padding(.bottom, 10)
                         

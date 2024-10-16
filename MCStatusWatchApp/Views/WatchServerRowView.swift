@@ -37,12 +37,6 @@ struct WatchServerRowView: View {
                             .foregroundStyle((status.status == .Offline) ? .red : .primary)
                         if (viewModel.loadingStatus == .Loading) {
                             ProgressView().frame(width: 15, height: 15).scaleEffect(CGSize(width: 0.65, height: 0.65), anchor: .center)
-                        } else if (viewModel.status?.source == .ThirdParty) {
-                            Image(systemName: "globe")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 10, height: 10)
-                            
                         }
                     }
                     

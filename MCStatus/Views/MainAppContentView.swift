@@ -12,7 +12,9 @@ import CoreData
 import MCStatusDataLayer
 import WidgetKit
 
-
+enum PageDestinations {
+    case SettingsRoot
+}
 struct MainAppContentView: View {
     
     let watchHelper = WatchHelper()
@@ -24,9 +26,11 @@ struct MainAppContentView: View {
     @State private var serverViewModelCache: [UUID:ServerStatusViewModel] = [:]
     @State private var showingAddSheet = false
     @State private var lastRefreshTime = Date()
+    @State private var navPath = NavigationPath()
+    @State private var pendingDeepLink: String?
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $navPath) {
             List {
                 ForEach(serverViewModels ?? []) { viewModel in
                     NavigationLink(value: viewModel) {
@@ -38,11 +42,31 @@ struct MainAppContentView: View {
                     //update underlying display order
                     refreshDisplayOrders()
                 }
-                .onDelete(perform: deleteItems) // uncomment to enable swipe to delete. You can also use a custom Swipe Action instead of this to block full swipes and require partial swipe + tap
+//                .onDelete(perform: deleteItems) // uncomment to enable swipe to delete. You can also use a custom Swipe Action instead of this to block full swipes and require partial swipe + tap
             }.navigationDestination(for: ServerStatusViewModel.self) { viewModel in
                 ServerStatusDetailView(serverStatusViewModel: viewModel) {
                     reloadData()
                     refreshDisplayOrders()
+                }
+            }.navigationDestination(for: PageDestinations.self) { destination in
+                switch destination {
+                case .SettingsRoot:
+                    SettingsRootView()
+                }
+            }.navigationDestination(for: SettingsPageDestinations.self) { destination in
+                switch destination {
+                    case .GeneralSettings: GeneralSettingsView()
+                    case .FAQ: FAQView(faqs: getiOSFAQs())
+                    case .Shortcuts: ShortcutsView()
+                    case .Siri: SiriSettingsView()
+                }
+            }.onOpenURL { url in
+                print("Received deep link: \(url)")
+                //manually go into specific server if id is server.
+                if let serverUUID = UUID(uuidString: url.absoluteString), let vm = self.serverViewModelCache[serverUUID] {
+                    goToServerView(viewModel: vm)
+                } else if !url.absoluteString.isEmpty {
+                    self.pendingDeepLink = url.absoluteString
                 }
             }.refreshable {
                 reloadData(forceRefresh: true)
@@ -62,7 +86,7 @@ struct MainAppContentView: View {
                 }
             }.toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    NavigationLink(destination: SettingsRootView()) {
+                    NavigationLink(value: PageDestinations.SettingsRoot) {
                         Label("Settings", systemImage: "gearshape")
                     }
                 }
@@ -119,6 +143,21 @@ struct MainAppContentView: View {
                 }
             }
         }
+    }
+    
+    private func goToServerView(viewModel: ServerStatusViewModel) {
+        // go to server view.
+        // first check if we are already showing a server, and if so, just update it.
+        if !self.navPath.isEmpty {
+            self.navPath.removeLast(self.navPath.count)
+            Task {
+                // hack! otherwise data wont refresh correctly
+                self.navPath.append(viewModel)
+            }
+        } else {
+            self.navPath.append(viewModel)
+        }
+        
     }
     
     private func deleteItems(at offsets: IndexSet) {
@@ -191,6 +230,14 @@ struct MainAppContentView: View {
             self.serverViewModels?.forEach { vm in
                 vm.reloadData(config: config)
             }
+        }
+        checkForPendingDeepLink()
+    }
+    
+    private func checkForPendingDeepLink() {
+        if let pendingDeepLink, let serverID = UUID(uuidString: pendingDeepLink), let vm = self.serverViewModelCache[serverID] {
+            self.pendingDeepLink = nil
+            goToServerView(viewModel: vm)
         }
     }
     

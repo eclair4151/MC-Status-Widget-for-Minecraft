@@ -7,18 +7,16 @@
 
 import SwiftUI
 import MCStatusDataLayer
+import AppIntents
 
 
-//Show tip view
-//Use SiriTipView
-//
-//SiriTipView(intent: ReorderIntent(), isVisible: $isVisible)
-//    .siriTipViewStyle(.black)
-//Show link to open Shortcuts app
-//Use ShortcutsLink
-//
-//ShortcutsLink()
-//     .shortcutsLinkStyle(.whiteOutline)
+enum SettingsPageDestinations {
+    case GeneralSettings
+    case FAQ
+    case Shortcuts
+    case Siri
+    
+}
 
 struct SettingsRootView: View {
     
@@ -28,28 +26,34 @@ struct SettingsRootView: View {
     var body: some View {
         Form {
             Section() {
-                // General Options
-                NavigationLink(destination: GeneralSettingsView()) {
+                //GeneralSettingsView
+                NavigationLink(value: SettingsPageDestinations.GeneralSettings) {
                     Label("General Settings", systemImage: "gear")
                 }
                 
                 // FAQ
-                NavigationLink(destination: FAQView()) {
+                NavigationLink(value: SettingsPageDestinations.FAQ) {
                     Label("FAQ", systemImage: "questionmark.circle")
                 }
                 
                 // Shortcuts
-                NavigationLink(destination: ShortcutsView()) {
+                NavigationLink(value: SettingsPageDestinations.Shortcuts) {
                     Label("Shortcuts", systemImage: "link")
                 }
                 
                 // Siri
-                NavigationLink(destination: SiriSettingsView()) {
+                NavigationLink(value: SettingsPageDestinations.Siri) {
                     Label("Siri", systemImage: "mic")
                 }
+                
             }
             
-           
+            Section(footer: Text("See the code that makes this app work, as well as file bugs and feature reqesusts.")) {
+                // Leave a Review
+                Button(action: openGithub) {
+                    Label("View the Source Code on GitHub", systemImage: "curlybraces")
+                }
+            }
            
            Section(footer: Text("Leave a review to help others discover the app and support its development.")) {
                // Leave a Review
@@ -79,9 +83,18 @@ struct SettingsRootView: View {
 //        }
         
     }
+
+    func openGithub() {
+        let url = "https://github.com/eclair4151/MC-Status-Widget-for-Minecraft/"
+        guard let githubUrl = URL(string: url) else {
+            print("Expected a valid URL")
+            return
+        }
+        openURL(githubUrl)
+    }
     
-    // Action methods
-        func joinTestFlight() {
+
+    func joinTestFlight() {
             let url = "https://testflight.apple.com/join/k9RmbbJI"
             guard let testflightUrl = URL(string: url) else {
                 print("Expected a valid URL")
@@ -136,7 +149,10 @@ struct GeneralSettingsView: View {
     @AppStorage(UserDefaultHelper.Key.iCloudEnabled.rawValue) var toggle1 = true
     @AppStorage(UserDefaultHelper.Key.showUsersOnHomesreen.rawValue) var toggle2 = true
     @AppStorage(UserDefaultHelper.Key.sortUsersByName.rawValue) var toggle3 = true
-
+//
+//    @State var toggle1 = true
+//    @State var toggle2 = true
+//    @State var toggle3 = true
 
     var body: some View {
         Form {
@@ -175,24 +191,27 @@ struct GeneralSettingsView: View {
    
 }
 
-// FAQ Sub-View
-struct FAQView: View {
-    var body: some View {
-        Text("Frequently Asked Questions")
-            .navigationTitle("FAQ")
-    }
-}
+//// FAQ Sub-View
+//struct FAQView: View {
+//    var body: some View {
+//        Text("Frequently Asked Questions")
+//            .navigationTitle("FAQ")
+//    }
+//}
 
 // Shortcuts Sub-View
 struct ShortcutsView: View {
     var body: some View {
         Text("Shortcuts for faster access")
             .navigationTitle("Shortcuts")
+        ShortcutsLink()
+            .shortcutsLinkStyle(ShortcutsLinkStyle.automaticOutline)
     }
 }
 
 // Siri Settings Sub-View
 struct SiriSettingsView: View {
+    @State var tipVisibility = true
     var body: some View {
         Text("Siri Settings and Customizations")
             .navigationTitle("Siri")
