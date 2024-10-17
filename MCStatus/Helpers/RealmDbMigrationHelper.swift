@@ -13,6 +13,9 @@ import MCStatusDataLayer
 class RealmDbMigrationHelper {
     public init() {}
 
+    // Singleton instance for easy access
+    static let shared = RealmDbMigrationHelper()
+    
     private class LegacyServerType {
         static let SERVER_TYPE_JAVA = 0
         static let SERVER_TYPE_BEDROCK = 1
@@ -20,6 +23,7 @@ class RealmDbMigrationHelper {
         static let SERVER_TYPE_BEDROCK_REALMS = 3
     }
 
+    private var migrationInProgress: Bool = false
 
     //server model for the database
     private class LegacySavedServer: Codable {
@@ -84,12 +88,21 @@ class RealmDbMigrationHelper {
 
 
     @MainActor func migrateServersToSwiftData() {
+        
+        guard !migrationInProgress else {
+            print("migrationInProgress is true, skipping migration.")
+            return
+        }
+        
+        self.migrationInProgress = true
+        defer { self.migrationInProgress = false }
+        
         guard let savedServers = loadServerDump() else {
             print("No saved servers found in UserDefaults.")
             return
         }
         
-        let context = ModelContext(SwiftDataHelper.getModelContainter())
+        let context = SwiftDataHelper.getModelContainter().mainContext
         for savedServer in savedServers {
             if let newServer = convertToSwiftData(savedServer: savedServer) {
                 context.insert(newServer)
@@ -98,7 +111,7 @@ class RealmDbMigrationHelper {
         
         do {
             try context.save()
-//            nukeSavedServers()
+            nukeSavedServers()
             print("Successfully migrated servers to SwiftData!")
         } catch {
             print("Failed to save servers to SwiftData: \(error)")

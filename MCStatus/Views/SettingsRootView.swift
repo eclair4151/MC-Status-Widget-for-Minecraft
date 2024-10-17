@@ -7,7 +7,6 @@
 
 import SwiftUI
 import MCStatusDataLayer
-import AppIntents
 
 
 enum SettingsPageDestinations {
@@ -202,25 +201,6 @@ struct GeneralSettingsView: View {
     }
 }
 
-
-// Shortcuts Sub-View
-struct ShortcutsView: View {
-    var body: some View {
-        Text("Shortcuts for faster access")
-            .navigationTitle("Shortcuts")
-        ShortcutsLink()
-            .shortcutsLinkStyle(ShortcutsLinkStyle.automaticOutline)
-    }
-}
-
-// Siri Settings Sub-View
-struct SiriSettingsView: View {
-    @State var tipVisibility = true
-    var body: some View {
-        Text("Siri Settings and Customizations")
-            .navigationTitle("Siri")
-    }
-}
 
 
 #Preview {

@@ -60,8 +60,8 @@ struct MainAppContentView: View {
                 switch destination {
                     case .GeneralSettings: GeneralSettingsView()
                     case .FAQ: FAQView(faqs: getiOSFAQs())
-                    case .Shortcuts: ShortcutsView()
-                    case .Siri: SiriSettingsView()
+                    case .Shortcuts: ShortcutsGuideView()
+                    case .Siri: SiriGuideView()
                 }
             }.onOpenURL { url in
                 print("Received deep link: \(url)")
@@ -150,7 +150,6 @@ struct MainAppContentView: View {
             }
         }.onAppear() {
             MigrationHelper.migrationIfNeeded()
-//            RealmDbMigrationHelper().migrateServersToSwiftData()
         }
     }
     

@@ -15,6 +15,10 @@ struct ServerIntentTypeAppEntity: AppEntity {
 
     struct ServerIntentTypeAppEntityQuery: EntityQuery {
         func entities(for identifiers: [ServerIntentTypeAppEntity.ID]) async throws -> [ServerIntentTypeAppEntity] {
+            
+            // attempt to migrate data if needed. i can prob remove this in like 2 years.
+            await RealmDbMigrationHelper.shared.migrateServersToSwiftData()
+            
             let container = SwiftDataHelper.getModelContainter()
             var result:[ServerIntentTypeAppEntity] = []
             for id in identifiers {
@@ -23,6 +27,7 @@ struct ServerIntentTypeAppEntity: AppEntity {
                 }
                 result.append(ServerIntentTypeAppEntity(id: server.id.uuidString, displayString: server.name))
             }
+  
             return result
         }
         

@@ -33,7 +33,7 @@ class MigrationHelper {
     }
     
     @MainActor static func migrateToV1() {
-        RealmDbMigrationHelper().migrateServersToSwiftData()
+        RealmDbMigrationHelper.shared.migrateServersToSwiftData()
     }
     
     

@@ -19,6 +19,9 @@ struct ServerStatusEntity: AppEntity {
     @Property(title: "Player Count")
     var playerCount: Int
     
+    @Property(title: "Max Player Count")
+    var maxPlayerCount: Int
+    
     @Property(title: "MOTD")
     var motd: String
     
@@ -40,6 +43,7 @@ struct ServerStatusEntity: AppEntity {
         id = serverId
         serverName = serversName
         playerCount = serverStatus.onlinePlayerCount
+        maxPlayerCount = serverStatus.maxPlayerCount
         onlineStatus = serverStatus.status.rawValue
         motd = serverStatus.description?.getRawText() ?? ""
         playerSample = serverStatus.playerSample.map{ $0.name }.joined(separator: ",")
