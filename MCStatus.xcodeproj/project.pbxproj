@@ -47,6 +47,7 @@
 		F150B3632CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */; };
 		F150B4342CC15F6A00739646 /* SiriGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4332CC15F6A00739646 /* SiriGuideView.swift */; };
 		F150B4362CC1709700739646 /* ShortcutsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4352CC1709700739646 /* ShortcutsGuideView.swift */; };
+		F150B43F2CC18C1100739646 /* ReleaseNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */; };
 		F157DDBF2CB9F7B500874CC7 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
 		F1612CC82CACC37300E602DC /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F1612CC72CACC37300E602DC /* Nuke */; };
 		F1612CCA2CACC37300E602DC /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F1612CC92CACC37300E602DC /* NukeUI */; };
@@ -78,7 +79,6 @@
 		F1C010432AAAB6E50017B9A9 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F1C010422AAAB6E50017B9A9 /* MCStatusDataLayer */; };
 		F1C010452AAAB6EA0017B9A9 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F1C010442AAAB6EA0017B9A9 /* MCStatusDataLayer */; };
 		F1C010492AAAB9B60017B9A9 /* SwiftyPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */; };
-		F1CFCD492CAB0FF7001A9E69 /* MinecraftServerStatusTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD482CAB0FF7001A9E69 /* MinecraftServerStatusTestView.swift */; };
 		F1CFCD512CABB567001A9E69 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
 		F1CFCD522CABB567001A9E69 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
 		F1CFCD532CABB567001A9E69 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
@@ -215,6 +215,7 @@
 		F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDbMigrationHelper.swift; sourceTree = "<group>"; };
 		F150B4332CC15F6A00739646 /* SiriGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriGuideView.swift; sourceTree = "<group>"; };
 		F150B4352CC1709700739646 /* ShortcutsGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsGuideView.swift; sourceTree = "<group>"; };
+		F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseNotesView.swift; sourceTree = "<group>"; };
 		F174A2FB2A8F7FFA0051DA5B /* WatchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHelper.swift; sourceTree = "<group>"; };
 		F174A3002A915E450051DA5B /* WatchServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServerStatusChecker.swift; sourceTree = "<group>"; };
 		F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRootView.swift; sourceTree = "<group>"; };
@@ -230,7 +231,6 @@
 		F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyPing.swift; sourceTree = "<group>"; };
 		F1C9A9AE2A879A4800C058C7 /* MCStatusWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusWatchApp.entitlements; sourceTree = "<group>"; };
 		F1C9A9AF2A879FBC00C058C7 /* MCStatusWatchApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MCStatusWatchApp-Info.plist"; sourceTree = "<group>"; };
-		F1CFCD482CAB0FF7001A9E69 /* MinecraftServerStatusTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinecraftServerStatusTestView.swift; sourceTree = "<group>"; };
 		F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExtentions.swift; sourceTree = "<group>"; };
 		F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		F1EF76BF2CB4204E00EFFB20 /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
@@ -513,11 +513,11 @@
 		F1A43C802A84726F0081A24C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */,
 				F150B4352CC1709700739646 /* ShortcutsGuideView.swift */,
 				F150B4332CC15F6A00739646 /* SiriGuideView.swift */,
 				F17AE0FB2CC05F9000DC7A80 /* TipJarView.swift */,
 				F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */,
-				F1CFCD482CAB0FF7001A9E69 /* MinecraftServerStatusTestView.swift */,
 				F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */,
 				F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */,
 				F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */,
@@ -873,8 +873,8 @@
 				F1AE29162CA48577009D0D14 /* ServerRowView.swift in Sources */,
 				F13E60012A4BD614005BE9B2 /* MainAppContentView.swift in Sources */,
 				F1E671762CA73A86002BDFC0 /* CustomProgressView.swift in Sources */,
+				F150B43F2CC18C1100739646 /* ReleaseNotesView.swift in Sources */,
 				F130954F2CBC9D5600C4C7BA /* ConfigHelper.swift in Sources */,
-				F1CFCD492CAB0FF7001A9E69 /* MinecraftServerStatusTestView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

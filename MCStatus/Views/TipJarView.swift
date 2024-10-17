@@ -25,7 +25,7 @@ struct TipJarView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(.top)
-
+            Image(systemName: "party.popper.fill").resizable().scaledToFit().frame(width: 100, height: 100).padding()
             Text("This app is free, ad-less, and open-source. If you find it useful, consider tipping to help keep it going!")
                 .font(.body)
                 .multilineTextAlignment(.center)

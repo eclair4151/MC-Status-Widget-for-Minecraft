@@ -27,6 +27,7 @@ struct MainAppContentView: View {
     // i cant think of a better way to do this since i dont want to regenerate the view model every time
     @State private var serverViewModelCache: [UUID:ServerStatusViewModel] = [:]
     @State private var showingAddSheet = false
+    @State private var showReleaseNotes = false
     @State private var lastRefreshTime = Date()
     @State private var navPath = NavigationPath()
     @State private var pendingDeepLink: String?
@@ -148,8 +149,15 @@ struct MainAppContentView: View {
                     refreshDisplayOrders()
                 }
             }
+        }.sheet(isPresented: $showReleaseNotes) {
+            NavigationStack {
+                ReleaseNotesView()
+            }
         }.onAppear() {
-            MigrationHelper.migrationIfNeeded()
+            if let version = MigrationHelper.migrationIfNeeded(), version == 1 {
+                // just migration to 2.0! show new stuff sheet
+                showReleaseNotes = true
+            }
         }
     }
     
