@@ -155,10 +155,8 @@ struct GeneralSettingsView: View {
     @AppStorage(UserDefaultHelper.Key.iCloudEnabled.rawValue) var toggle1 = true
     @AppStorage(UserDefaultHelper.Key.showUsersOnHomesreen.rawValue) var toggle2 = true
     @AppStorage(UserDefaultHelper.Key.sortUsersByName.rawValue) var toggle3 = true
-//
-//    @State var toggle1 = true
-//    @State var toggle2 = true
-//    @State var toggle3 = true
+    @AppStorage(UserDefaultHelper.Key.openToSpecificServer.rawValue) var toggle4 = true
+
 
     var body: some View {
         Form {
@@ -174,8 +172,8 @@ struct GeneralSettingsView: View {
                        // Show users on homescreen Toggle
                        Toggle(isOn: $toggle2) {
                            VStack(alignment: .leading, spacing: 2) {
-                               Text("Show users on homescreen")
-                               Text("Show users in each row on the homescreen")
+                               Text("Show users on server list")
+                               Text("Show users in each row under the progress bar on the main server list")
                                    .font(.footnote)
                                    .foregroundColor(.gray)
                            }
@@ -190,20 +188,20 @@ struct GeneralSettingsView: View {
                                    .foregroundColor(.gray)
                            }
                        }
+            
+                        Toggle(isOn: $toggle4) {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Widget opens directly to server")
+                                Text("When on, tapping the widget will open the app directly to that server. When off, it will just open the app")
+                                    .font(.footnote)
+                                    .foregroundColor(.gray)
+                            }
+                        }
         }
         .navigationTitle("General Settings")
     }
-    
-   
 }
 
-//// FAQ Sub-View
-//struct FAQView: View {
-//    var body: some View {
-//        Text("Frequently Asked Questions")
-//            .navigationTitle("FAQ")
-//    }
-//}
 
 // Shortcuts Sub-View
 struct ShortcutsView: View {

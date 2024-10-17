@@ -6,39 +6,45 @@
 //
 
 import Foundation
-import RealmSwift
+import MCStatusDataLayer
 
-let VERSION = 1
-
-func migrationIfNeeded() {
-    let lastVer = getLastVersion()
-    if lastVer < VERSION {
-        for i in lastVer...VERSION{
-            runMigrationForVer(version: i)
+class MigrationHelper {
+    
+    static let VERSION = 1
+    
+    @MainActor static func migrationIfNeeded() {
+        let lastVer = getLastVersion()
+        if lastVer < VERSION {
+            for i in lastVer...VERSION{
+                runMigrationForVer(version: i)
+            }
+            setCurrentVersion(version: VERSION)
         }
-        setCurrentVersion(version: VERSION)
+    }
+    
+    
+    @MainActor static func runMigrationForVer(version: Int) {
+        switch version {
+        case 0:
+            migrateToV1()
+        default:
+            return
+        }
+    }
+    
+    @MainActor static func migrateToV1() {
+        RealmDbMigrationHelper().migrateServersToSwiftData()
+    }
+    
+    
+    static  func getLastVersion() -> Int {
+        return  UserDefaults.standard.integer(forKey: "appVer")
+    }
+    
+    static func setCurrentVersion(version: Int) {
+        UserDefaults.standard.set(version, forKey: "appVer")
     }
 }
 
 
-func runMigrationForVer(version: Int) {
-    switch version {
-    case 0:
-        migrateToV1()
-    default:
-        return
-    }
-}
 
-func migrateToV1() {
-
-}
-
-
-func getLastVersion() -> Int {
-    return  UserDefaults.standard.integer(forKey: "appVer")
-}
-
-func setCurrentVersion(version: Int) {
-    UserDefaults.standard.set(version, forKey: "appVer")
-}

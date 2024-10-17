@@ -45,7 +45,7 @@ struct MainAppContentView: View {
                     //update underlying display order
                     refreshDisplayOrders()
                 }
-//                .onDelete(perform: deleteItems) // uncomment to enable swipe to delete. You can also use a custom Swipe Action instead of this to block full swipes and require partial swipe + tap
+                .onDelete(perform: deleteItems) // uncomment to enable swipe to delete. You can also use a custom Swipe Action instead of this to block full swipes and require partial swipe + tap
             }.navigationDestination(for: ServerStatusViewModel.self) { viewModel in
                 ServerStatusDetailView(serverStatusViewModel: viewModel) {
                     reloadData()
@@ -86,6 +86,8 @@ struct MainAppContentView: View {
                         }
                         .buttonStyle(.borderedProminent)
                     }
+                } else if self.serverViewModels == nil {
+                    ProgressView()
                 }
             }.toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -134,6 +136,7 @@ struct MainAppContentView: View {
                 print("refresh triggered via eventChangedNotification")
                 MCStatusShortcutsProvider.updateAppShortcutParameters()
                 reloadData()
+                
             }
         }.sheet(isPresented: $showingAddSheet) {
             // create new binding server to add
@@ -145,10 +148,19 @@ struct MainAppContentView: View {
                     refreshDisplayOrders()
                 }
             }
+        }.onAppear() {
+            MigrationHelper.migrationIfNeeded()
+//            RealmDbMigrationHelper().migrateServersToSwiftData()
         }
     }
     
     private func goToServerView(viewModel: ServerStatusViewModel) {
+        
+        // check if user has disabled deep links, if so do nothing
+        if !UserDefaultHelper.shared.get(for: .openToSpecificServer, defaultValue: true) {
+            return
+        }
+       
         // go to server view.
         // first check if we are already showing a server, and if so, just update it.
         if !self.navPath.isEmpty {

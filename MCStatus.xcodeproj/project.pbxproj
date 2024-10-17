@@ -35,6 +35,16 @@
 		F1406BAC2AA391B800815BE8 /* MCStatusAppIntentsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BAB2AA391B800815BE8 /* MCStatusAppIntentsExtension.swift */; };
 		F1406BBF2AA3933400815BE8 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
 		F1406BC22AA3936E00815BE8 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
+		F150B3592CC078D600739646 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
+		F150B35A2CC078D600739646 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
+		F150B35B2CC078D600739646 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
+		F150B35C2CC078D600739646 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
+		F150B35D2CC078D600739646 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
+		F150B35F2CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */; };
+		F150B3602CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */; };
+		F150B3612CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */; };
+		F150B3622CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */; };
+		F150B3632CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */; };
 		F157DDBF2CB9F7B500874CC7 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
 		F1612CC82CACC37300E602DC /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F1612CC72CACC37300E602DC /* Nuke */; };
 		F1612CCA2CACC37300E602DC /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F1612CC92CACC37300E602DC /* NukeUI */; };
@@ -71,9 +81,6 @@
 		F1CFCD522CABB567001A9E69 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
 		F1CFCD532CABB567001A9E69 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
 		F1E671762CA73A86002BDFC0 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
-		F1EF76B72CB419AF00EFFB20 /* MigrationHelper.swift in Resources */ = {isa = PBXBuildFile; fileRef = F1EF76B62CB419AF00EFFB20 /* MigrationHelper.swift */; };
-		F1EF76B82CB419AF00EFFB20 /* MigrationHelper.swift in Resources */ = {isa = PBXBuildFile; fileRef = F1EF76B62CB419AF00EFFB20 /* MigrationHelper.swift */; };
-		F1EF76B92CB419AF00EFFB20 /* MigrationHelper.swift in Resources */ = {isa = PBXBuildFile; fileRef = F1EF76B62CB419AF00EFFB20 /* MigrationHelper.swift */; };
 		F1EF76BA2CB41A2700EFFB20 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
 		F1EF76C22CB4204E00EFFB20 /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF76BF2CB4204E00EFFB20 /* WatchContentView.swift */; };
 		F1EF76C32CB4204E00EFFB20 /* WatchServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF76C02CB4204E00EFFB20 /* WatchServerRowView.swift */; };
@@ -202,6 +209,8 @@
 		F1406BAB2AA391B800815BE8 /* MCStatusAppIntentsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusAppIntentsExtension.swift; sourceTree = "<group>"; };
 		F1406BAF2AA391B800815BE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1406BB72AA391F400815BE8 /* MCStatusAppIntentsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusAppIntentsExtension.entitlements; sourceTree = "<group>"; };
+		F150B3582CC078D300739646 /* MigrationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationHelper.swift; sourceTree = "<group>"; };
+		F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDbMigrationHelper.swift; sourceTree = "<group>"; };
 		F174A2FB2A8F7FFA0051DA5B /* WatchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHelper.swift; sourceTree = "<group>"; };
 		F174A3002A915E450051DA5B /* WatchServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServerStatusChecker.swift; sourceTree = "<group>"; };
 		F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRootView.swift; sourceTree = "<group>"; };
@@ -220,7 +229,6 @@
 		F1CFCD482CAB0FF7001A9E69 /* MinecraftServerStatusTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinecraftServerStatusTestView.swift; sourceTree = "<group>"; };
 		F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExtentions.swift; sourceTree = "<group>"; };
 		F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
-		F1EF76B62CB419AF00EFFB20 /* MigrationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationHelper.swift; sourceTree = "<group>"; };
 		F1EF76BF2CB4204E00EFFB20 /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
 		F1EF76C02CB4204E00EFFB20 /* WatchServerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServerRowView.swift; sourceTree = "<group>"; };
 		F1EF76C92CB422D400EFFB20 /* WatchServerDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServerDetailScreen.swift; sourceTree = "<group>"; };
@@ -525,11 +533,12 @@
 		F1BF5D9D2A8025EE00966D56 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */,
+				F150B3582CC078D300739646 /* MigrationHelper.swift */,
 				F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */,
 				F17AE0ED2CC0363F00DC7A80 /* ViewHelpers.swift */,
 				F130954E2CBC9D5600C4C7BA /* ConfigHelper.swift */,
 				F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */,
-				F1EF76B62CB419AF00EFFB20 /* MigrationHelper.swift */,
 				F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */,
 				F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */,
 				F174A2FB2A8F7FFA0051DA5B /* WatchHelper.swift */,
@@ -754,7 +763,6 @@
 			files = (
 				F11F63552A81E51000D47187 /* Preview Assets.xcassets in Resources */,
 				F1EF76DF2CB5B44700EFFB20 /* Assets.xcassets in Resources */,
-				F1EF76B82CB419AF00EFFB20 /* MigrationHelper.swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,7 +779,6 @@
 			files = (
 				F13E60072A4BD615005BE9B2 /* Preview Assets.xcassets in Resources */,
 				F13E60032A4BD615005BE9B2 /* Assets.xcassets in Resources */,
-				F1EF76B92CB419AF00EFFB20 /* MigrationHelper.swift in Resources */,
 				F17AE0FA2CC05CA200DC7A80 /* MCStatusStoreKit.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -780,7 +787,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1EF76B72CB419AF00EFFB20 /* MigrationHelper.swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,6 +804,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F150B3592CC078D600739646 /* MigrationHelper.swift in Sources */,
 				F1EF76CA2CB422D400EFFB20 /* WatchServerDetailScreen.swift in Sources */,
 				F174A3012A915E450051DA5B /* WatchServerStatusChecker.swift in Sources */,
 				F13095532CBC9D5600C4C7BA /* ConfigHelper.swift in Sources */,
@@ -812,6 +819,7 @@
 				F11F634E2A81E50E00D47187 /* MCStatusWatchApp.swift in Sources */,
 				F1EF76BA2CB41A2700EFFB20 /* CustomProgressView.swift in Sources */,
 				F10E94B12A8C61B60039DD2B /* ConnectivityProvider.swift in Sources */,
+				F150B35F2CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */,
 				F1EF77602CB8B88B00EFFB20 /* ImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -826,6 +834,8 @@
 				F130954D2CBC9D1C00C4C7BA /* ImageHelper.swift in Sources */,
 				F17AE07D2CBE0B6600DC7A80 /* CustomProgressView.swift in Sources */,
 				F17AE0F42CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
+				F150B3612CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */,
+				F150B35A2CC078D600739646 /* MigrationHelper.swift in Sources */,
 				F17AE0F02CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
 				F130954C2CBC9C5D00C4C7BA /* CustomExtentions.swift in Sources */,
 			);
@@ -843,9 +853,11 @@
 				F17AE0F62CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
 				F1C010492AAAB9B60017B9A9 /* SwiftyPing.swift in Sources */,
 				F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */,
+				F150B3632CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */,
 				F13E5FFD2A4BD614005BE9B2 /* MCStatusApp.swift in Sources */,
 				F17AE0EF2CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
 				F16990822CA5DDE500F41232 /* IntentErrors.swift in Sources */,
+				F150B35B2CC078D600739646 /* MigrationHelper.swift in Sources */,
 				F1EF775F2CB8B88B00EFFB20 /* ImageHelper.swift in Sources */,
 				F1CFCD512CABB567001A9E69 /* CustomExtentions.swift in Sources */,
 				F16990872CA5DDE500F41232 /* MCStatusShortcutsProvider.swift in Sources */,
@@ -864,6 +876,8 @@
 			files = (
 				F13095592CBD497200C4C7BA /* WatchServerStatusChecker.swift in Sources */,
 				F10C42172AAD55BF000107D6 /* MCStatusShortcutsProvider.swift in Sources */,
+				F150B3622CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */,
+				F150B35D2CC078D600739646 /* MigrationHelper.swift in Sources */,
 				F1CFCD522CABB567001A9E69 /* CustomExtentions.swift in Sources */,
 				F17AE0F52CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
 				F1406BAC2AA391B800815BE8 /* MCStatusAppIntentsExtension.swift in Sources */,
@@ -880,6 +894,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F150B35C2CC078D600739646 /* MigrationHelper.swift in Sources */,
+				F150B3602CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */,
 				F17AE0F12CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
 				F17AE0F72CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
 				F1EF77632CB958B700EFFB20 /* CustomExtentions.swift in Sources */,

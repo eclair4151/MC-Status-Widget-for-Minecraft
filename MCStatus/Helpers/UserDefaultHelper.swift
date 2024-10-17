@@ -16,6 +16,7 @@ class UserDefaultHelper {
         case iCloudEnabled
         case showUsersOnHomesreen
         case sortUsersByName
+        case openToSpecificServer
         // Add more keys here as needed
     }
     

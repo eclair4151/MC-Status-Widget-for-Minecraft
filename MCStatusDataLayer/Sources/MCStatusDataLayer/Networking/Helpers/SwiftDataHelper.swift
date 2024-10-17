@@ -74,6 +74,9 @@ public class SwiftDataHelper {
             return nil
         }
         
+        guard results.count > 0 else {
+            return nil
+        }
         return results.first
     }
     

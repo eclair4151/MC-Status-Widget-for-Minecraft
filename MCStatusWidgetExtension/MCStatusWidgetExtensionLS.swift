@@ -29,8 +29,11 @@ struct MinecraftServerStatusLSWidget1: Widget {
     
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ServerSelectNoThemeWidgetIntent.self, provider: LockscreenProvider(widgetType: .ImageAndText)) { entry in
-            MinecraftServerStatusLSWidgetEntryView(entry: entry, widgetType: .ImageAndText).containerBackground(for: .widget) {}
+            MinecraftServerStatusLSWidgetEntryView(entry: entry, widgetType: .ImageAndText)
+                .containerBackground(for: .widget) {}
+                .widgetURL(URL(string: entry.configuration.Server?.id ?? ""))
         }
+        
         .configurationDisplayName("Lockscreen Widget 1")
         .description("Widget to show the status of Minecraft Server")
         .supportedFamilies(supportedFamilies)

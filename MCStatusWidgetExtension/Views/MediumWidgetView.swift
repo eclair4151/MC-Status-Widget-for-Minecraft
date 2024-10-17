@@ -40,18 +40,15 @@ private struct InnerMediumWidget : View {
     var entry: HomescreenProvider.Entry
 
     var body: some View {
-        ZStack {
-            entry.viewModel.bgColor
-            VStack {
-                BaseWidgetView(entry: entry)
-                Text(entry.viewModel.playersString)
-                    .fontWeight(.regular)
-                    .foregroundColor(.veryTransparentText)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .lineLimit(1)
-                    .font(.system(size: 13))
-            }.padding()
-        }
+        VStack {
+            BaseWidgetView(entry: entry)
+            Text(entry.viewModel.playersString)
+                .fontWeight(.regular)
+                .foregroundColor(.veryTransparentText)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .lineLimit(1)
+                .font(.system(size: 13))
+        }.padding()
     }
 }
 

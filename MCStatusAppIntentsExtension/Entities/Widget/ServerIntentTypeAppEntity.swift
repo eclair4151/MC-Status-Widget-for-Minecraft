@@ -37,7 +37,7 @@ struct ServerIntentTypeAppEntity: AppEntity {
         func defaultResult() async -> ServerIntentTypeAppEntity? {
             let container = SwiftDataHelper.getModelContainter()
             let servers = await SwiftDataHelper.getSavedServers(container: container)
-            guard servers.count == 1, let server = servers.first else {
+            guard servers.count >= 1, let server = servers.first else {
                 return nil
             }
             
