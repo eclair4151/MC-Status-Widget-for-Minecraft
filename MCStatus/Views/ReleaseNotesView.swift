@@ -22,7 +22,8 @@ struct ReleaseNotesView: View {
     @Environment(\.openURL) private var openURL
 
     @State private var showingTipSheet = false
-
+    var showDismissButton = true
+    
     // Accept an array of features
     let features = [
         Feature(title: "Total Rewrite from Scratch", description: "The app has been completely re-engineered using SwiftUI and SwiftData. It also introduces native network and parsing layers for ultra-fast operation.", icon: "arrow.triangle.2.circlepath.circle.fill", iconColor: .blue),
@@ -44,6 +45,7 @@ struct ReleaseNotesView: View {
                     Text("I'm thrilled to announce the release of **MC Status 2.0**, a total rewrite from the ground up! Get ready for a blazing fast app experience, with tons of new features and enhancements.")
                         .font(.body)
                         .padding(.bottom, 20)
+                        .padding(.top,15)
                     
                     // Loop through each feature and display it dynamically
                     ForEach(features) { feature in
@@ -52,7 +54,7 @@ struct ReleaseNotesView: View {
                     
                     // Thank You & Tip/Review Buttons Section
                     Divider()
-                        .padding(.vertical, 20)
+                        .padding(.vertical, 5)
 
                     VStack(alignment: .center) {
                         Text("Thank you for your support!")
@@ -91,7 +93,7 @@ struct ReleaseNotesView: View {
                                     .cornerRadius(10)
 
                             }
-                        }.frame(maxWidth: .infinity)
+                        }.padding(.bottom, 20).frame(maxWidth: .infinity)
 
                     }
                     
@@ -100,9 +102,11 @@ struct ReleaseNotesView: View {
             }
             .navigationTitle("MC Status 2.0")
             .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Got it!") {
-                        dismiss() // Close the sheet when the user is done
+                if showDismissButton {
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button("Got it!") {
+                            dismiss() // Close the sheet when the user is done
+                        }
                     }
                 }
             }.sheet(isPresented: $showingTipSheet) {

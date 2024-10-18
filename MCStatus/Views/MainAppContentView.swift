@@ -63,7 +63,7 @@ struct MainAppContentView: View {
                     case .FAQ: FAQView(faqs: getiOSFAQs())
                     case .Shortcuts: ShortcutsGuideView()
                     case .Siri: SiriGuideView()
-                    case .WhatsNew: ReleaseNotesView()
+                    case .WhatsNew: ReleaseNotesView(showDismissButton: false)
                     
                 }
             }.onOpenURL { url in
