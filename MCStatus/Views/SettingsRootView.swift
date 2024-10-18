@@ -14,7 +14,7 @@ enum SettingsPageDestinations {
     case FAQ
     case Shortcuts
     case Siri
-    
+    case WhatsNew
 }
 
 struct SettingsRootView: View {
@@ -46,9 +46,14 @@ struct SettingsRootView: View {
                     Label("Siri", systemImage: "mic")
                 }
                 
+                // Whats New
+                NavigationLink(value: SettingsPageDestinations.WhatsNew) {
+                    Label("What's New", systemImage: "sparkles")
+                }
+                
             }
             
-            Section(footer: Text("See the code that makes this app work, as well as file bugs and feature reqesusts.")) {
+            Section(footer: Text("See the code that makes this app work, as well as file bugs and feature requests.")) {
                 // Leave a Review
                 Button(action: openGithub) {
                     Label("View the Source Code on GitHub", systemImage: "curlybraces")

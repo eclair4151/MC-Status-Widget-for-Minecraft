@@ -46,7 +46,7 @@ struct MainAppContentView: View {
                     //update underlying display order
                     refreshDisplayOrders()
                 }
-                .onDelete(perform: deleteItems) // uncomment to enable swipe to delete. You can also use a custom Swipe Action instead of this to block full swipes and require partial swipe + tap
+//                .onDelete(perform: deleteItems) // uncomment to enable swipe to delete. You can also use a custom Swipe Action instead of this to block full swipes and require partial swipe + tap
             }.navigationDestination(for: ServerStatusViewModel.self) { viewModel in
                 ServerStatusDetailView(serverStatusViewModel: viewModel) {
                     reloadData()
@@ -63,6 +63,8 @@ struct MainAppContentView: View {
                     case .FAQ: FAQView(faqs: getiOSFAQs())
                     case .Shortcuts: ShortcutsGuideView()
                     case .Siri: SiriGuideView()
+                    case .WhatsNew: ReleaseNotesView()
+                    
                 }
             }.onOpenURL { url in
                 print("Received deep link: \(url)")

@@ -102,7 +102,7 @@ class RealmDbMigrationHelper {
             return
         }
         
-        let context = SwiftDataHelper.getModelContainter().mainContext
+        let context = ModelContext(SwiftDataHelper.getModelContainter())
         for savedServer in savedServers {
             if let newServer = convertToSwiftData(savedServer: savedServer) {
                 context.insert(newServer)
