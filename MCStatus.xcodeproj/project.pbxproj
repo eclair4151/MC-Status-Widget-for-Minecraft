@@ -12,7 +12,7 @@
 		F10E94B12A8C61B60039DD2B /* ConnectivityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E94B02A8C61B60039DD2B /* ConnectivityProvider.swift */; };
 		F11F634E2A81E50E00D47187 /* MCStatusWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F634D2A81E50E00D47187 /* MCStatusWatchApp.swift */; };
 		F11F63552A81E51000D47187 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F11F63542A81E51000D47187 /* Preview Assets.xcassets */; };
-		F11F63582A81E51000D47187 /* MCStatus Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F11F634B2A81E50E00D47187 /* MCStatus Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F11F63582A81E51000D47187 /* MCStatus Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F11F634B2A81E50E00D47187 /* MCStatus Watch App.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F13095262CBC997200C4C7BA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EF76ED2CB7873F00EFFB20 /* WidgetKit.framework */; };
 		F13095272CBC997200C4C7BA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EF76EF2CB7873F00EFFB20 /* SwiftUI.framework */; };
 		F13095302CBC997300C4C7BA /* MCStatusWatchWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F13095252CBC997200C4C7BA /* MCStatusWatchWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -925,6 +925,7 @@
 		};
 		F11F63572A81E51000D47187 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = F11F634A2A81E50E00D47187 /* MCStatus Watch App */;
 			targetProxy = F11F63562A81E51000D47187 /* PBXContainerItemProxy */;
 		};
@@ -1020,7 +1021,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = MCStatusWatchWidget/MCStatusWatchWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusWatchWidget/Info.plist;
@@ -1051,7 +1052,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = MCStatusWatchWidget/MCStatusWatchWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusWatchWidget/Info.plist;
@@ -1198,7 +1199,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MCStatus/Other/MCStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"MCStatus/Other\"";
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1245,7 +1246,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MCStatus/Other/MCStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"MCStatus/Other\"";
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1289,7 +1290,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = MCStatusAppIntentsExtension/MCStatusAppIntentsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusAppIntentsExtension/Info.plist;
@@ -1320,7 +1321,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = MCStatusAppIntentsExtension/MCStatusAppIntentsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusAppIntentsExtension/Info.plist;
@@ -1354,7 +1355,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = MCStatusWidgetExtension/MCStatusWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusWidgetExtension/Info.plist;
@@ -1385,7 +1386,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = MCStatusWidgetExtension/MCStatusWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = FDYR7V7AH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusWidgetExtension/Info.plist;

@@ -232,6 +232,7 @@ struct ServerStatusDetailView: View {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     serverStatusViewModel.reloadData(config: ConfigHelper.getServerCheckerConfig())
+                    refreshPing()
                 } label: {
                     Label("Refresh Servers", systemImage: "arrow.clockwise")
                 }
