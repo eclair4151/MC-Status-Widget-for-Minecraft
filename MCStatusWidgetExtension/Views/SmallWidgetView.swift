@@ -82,13 +82,20 @@ struct BaseWidgetView: View {
                     }
                     
                     if let statusIcon = entry.viewModel.statusIcon, !statusIcon.isEmpty {
-                        Image(systemName: statusIcon)
-                            .font(.system(size: 24))
-                            .foregroundColor( Color.unknownColor )
-                            .background(Color.white.mask(Circle()).padding(4)
-                            )
-                            .offset(x: 18, y: 0)
-                            .widgetAccentable()
+                        if widgetRenderingMode == .accented {
+                            Image(systemName: statusIcon)
+                                .font(.system(size: 24))
+                                .offset(x: 18, y: 0)
+                                .widgetAccentable()
+                        } else {
+                            Image(systemName: statusIcon)
+                                .font(.system(size: 24))
+                                .foregroundColor( Color.unknownColor )
+                                .background(Color.white.mask(Circle()).padding(4))
+                                .offset(x: 18, y: 0)
+                                .widgetAccentable()
+                        }
+                        
                     }
                     
                 }
