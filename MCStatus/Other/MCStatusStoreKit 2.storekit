@@ -28,13 +28,40 @@
       "productID" : "com.shemeshapps.MinecraftServerStatus.199Tip",
       "referenceName" : "Tip Developer $1.99",
       "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "61429E5B",
+      "localizations" : [
+        {
+          "description" : "Tip the developer of the app",
+          "displayName" : "Tip Developer $4.99",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.shemeshapps.MinecraftServerStatus.499Tip",
+      "referenceName" : "Tip Developer $4.99",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "9.99",
+      "familyShareable" : false,
+      "internalID" : "9782373A",
+      "localizations" : [
+        {
+          "description" : "Tip the developer of the app",
+          "displayName" : "Tip Developer $9.99",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.shemeshapps.MinecraftServerStatus.999Tip",
+      "referenceName" : "Tip Developer $9.99",
+      "type" : "Consumable"
     }
   ],
   "settings" : {
-    "_applicationInternalID" : "1408215245",
-    "_developerTeamID" : "FDYR7V7AH4",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 751099512.94670105,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [

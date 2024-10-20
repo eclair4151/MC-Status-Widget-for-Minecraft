@@ -82,6 +82,7 @@
 		F1CFCD512CABB567001A9E69 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
 		F1CFCD522CABB567001A9E69 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
 		F1CFCD532CABB567001A9E69 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
+		F1DCB7B52CC4DE940005FFE0 /* MCStatusStoreKit 2.storekit in Resources */ = {isa = PBXBuildFile; fileRef = F1DCB7B42CC4DE940005FFE0 /* MCStatusStoreKit 2.storekit */; };
 		F1E671762CA73A86002BDFC0 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
 		F1EF76BA2CB41A2700EFFB20 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
 		F1EF76C22CB4204E00EFFB20 /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF76BF2CB4204E00EFFB20 /* WatchContentView.swift */; };
@@ -232,6 +233,7 @@
 		F1C9A9AE2A879A4800C058C7 /* MCStatusWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusWatchApp.entitlements; sourceTree = "<group>"; };
 		F1C9A9AF2A879FBC00C058C7 /* MCStatusWatchApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MCStatusWatchApp-Info.plist"; sourceTree = "<group>"; };
 		F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExtentions.swift; sourceTree = "<group>"; };
+		F1DCB7B42CC4DE940005FFE0 /* MCStatusStoreKit 2.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "MCStatusStoreKit 2.storekit"; sourceTree = "<group>"; };
 		F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		F1EF76BF2CB4204E00EFFB20 /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
 		F1EF76C02CB4204E00EFFB20 /* WatchServerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServerRowView.swift; sourceTree = "<group>"; };
@@ -506,6 +508,7 @@
 				F13E60042A4BD615005BE9B2 /* MCStatus.entitlements */,
 				F13E60082A4BD615005BE9B2 /* Info.plist */,
 				F17AE0F92CC05CA200DC7A80 /* MCStatusStoreKit.storekit */,
+				F1DCB7B42CC4DE940005FFE0 /* MCStatusStoreKit 2.storekit */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -784,6 +787,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F13E60072A4BD615005BE9B2 /* Preview Assets.xcassets in Resources */,
+				F1DCB7B52CC4DE940005FFE0 /* MCStatusStoreKit 2.storekit in Resources */,
 				F13E60032A4BD615005BE9B2 /* Assets.xcassets in Resources */,
 				F17AE0FA2CC05CA200DC7A80 /* MCStatusStoreKit.storekit in Resources */,
 			);

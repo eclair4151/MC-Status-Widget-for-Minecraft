@@ -84,7 +84,7 @@ struct ReleaseNotesView: View {
                             Button(action: {
                                 showingTipSheet = true
                             }) {
-                                Label("Leave a $1.99 Tip", systemImage: "gift.fill")
+                                Label("Leave a Tip", systemImage: "gift.fill")
                                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                                     .font(.callout)
                                     .padding()

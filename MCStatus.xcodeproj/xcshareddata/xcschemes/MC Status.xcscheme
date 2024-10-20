@@ -50,7 +50,7 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <StoreKitConfigurationFileReference
-         identifier = "../../MCStatus/Other/MCStatusStoreKit.storekit">
+         identifier = "../../MCStatus/Other/MCStatusStoreKit 2.storekit">
       </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
