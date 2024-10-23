@@ -165,8 +165,9 @@ struct MainAppContentView: View {
     
     private func goToServerView(viewModel: ServerStatusViewModel) {
         
-        // check if user has disabled deep links, if so do nothing
+        // check if user has disabled deep links, if so just go to main list
         if !UserDefaultHelper.shared.get(for: .openToSpecificServer, defaultValue: true) {
+            self.navPath.removeLast(self.navPath.count)
             return
         }
        

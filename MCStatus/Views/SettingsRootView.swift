@@ -196,7 +196,7 @@ struct GeneralSettingsView: View {
                         Toggle(isOn: $toggle4) {
                             VStack(alignment: .leading, spacing: 2) {
                                 Text("Widget opens directly to server")
-                                Text("When on, tapping the widget will open the app directly to that server. When off, it will just open the app")
+                                Text("Tapping the widget will open the app directly to that server. Otherwise it will open the server list.")
                                     .font(.footnote)
                                     .foregroundColor(.gray)
                             }

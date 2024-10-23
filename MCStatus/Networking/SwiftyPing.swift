@@ -218,11 +218,12 @@ public class SwiftyPing: NSObject {
     static func pingServer(serverUrl: String) async -> PingResponse {
         return await withCheckedContinuation { continuation in
             do {
-                let pinger = try SwiftyPing(host: serverUrl, configuration: PingConfiguration(interval: 0.5, with: 5), queue: DispatchQueue.global())
+                let pinger = try SwiftyPing(host: serverUrl, configuration: PingConfiguration(interval: 0.1, with: 5), queue: DispatchQueue.global())
                 pinger.continuation = continuation
                 pinger.observer = { (response) in
                     pinger.callContinuationResume(result: response)
                 }
+                pinger.targetCount = 1
                 try pinger.startPinging()
             } catch {
                 let res = PingResponse(identifier: 0, ipAddress: nil, sequenceNumber: 0, trueSequenceNumber: 0, duration: -1, error: PingError.requestError, byteCount: nil, ipHeader: nil)

@@ -38,16 +38,19 @@ struct ServerIntentTypeAppEntity: AppEntity {
             }
             return res
         }
+
+        // this code is broken, (bug in apple??) default called on first widget, then never called again, so all subsequent widgets show old data. better to just not set default and force user to pick a server
+//        https://developer.apple.com/forums/thread/766959
         
-        func defaultResult() async -> ServerIntentTypeAppEntity? {
-            let container = SwiftDataHelper.getModelContainter()
-            let servers = await SwiftDataHelper.getSavedServers(container: container)
-            guard servers.count >= 1, let server = servers.first else {
-                return nil
-            }
-            
-            return ServerIntentTypeAppEntity(id: server.id.uuidString, displayString: server.name)
-        }
+//        func defaultResult() async -> ServerIntentTypeAppEntity? {
+//            let container = SwiftDataHelper.getModelContainter()
+//            let servers = await SwiftDataHelper.getSavedServers(container: container)
+//            guard servers.count >= 1, let server = servers.first else {
+//                return nil
+//            }
+//            
+//            return ServerIntentTypeAppEntity(id: server.id.uuidString, displayString: server.name)
+//        }
     }
     
     static var defaultQuery = ServerIntentTypeAppEntityQuery()
