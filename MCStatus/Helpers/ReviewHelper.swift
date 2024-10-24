@@ -15,7 +15,7 @@ class ReviewHelper {
     @AppStorage(UserDefaultKey.lastVersion.rawValue) private var lastVersion: String = ""
     
     private let currentVersion: String
-    
+    private let launchCountLimit: Int = 5
     init() {
         // Get the current app version from the Info.plist
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
@@ -32,7 +32,7 @@ class ReviewHelper {
     
     // Check if the review prompt should be shown
     func shouldShowRequestView() -> Bool {
-        let isLaunchCountSufficient = launchCount >= 5
+        let isLaunchCountSufficient = launchCount >= launchCountLimit
         let isTimeElapsed = isTimeSinceLastRequestExceeded()
         let isNewVersion = lastVersion != currentVersion
         
