@@ -10,6 +10,7 @@ import MCStatusDataLayer
 import AppIntents
 import NukeUI
 import Nuke
+import WidgetKit
 
 struct ServerStatusDetailView: View {
     @Environment(\.modelContext) private var modelContext
@@ -291,6 +292,8 @@ struct ServerStatusDetailView: View {
             // Failures include issues such as an invalid unique constraint
             print(error.localizedDescription)
         }
+        //refresh widgets
+        WidgetCenter.shared.reloadAllTimelines()
         parentViewRefreshCallBack()
         self.presentationMode.wrappedValue.dismiss()
     }
