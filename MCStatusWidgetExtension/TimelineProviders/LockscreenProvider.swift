@@ -93,6 +93,11 @@ struct LockscreenProvider: AppIntentTimelineProvider {
             // nothing configured yet?
             var vm = WidgetEntryViewModel()
             vm.setForUnconfiguredView()
+            let serverCount = await SwiftDataHelper.getSavedServers(container: container).count
+            if serverCount == 0 {
+                // if user has nothing in the db tell them to open the app
+                vm.serverName = "Open App"
+            }
             let entry = ServerStatusLSSnapshotEntry(date: currentDate, configuration: configuration, viewModel: vm)
             entries.append(entry)
             

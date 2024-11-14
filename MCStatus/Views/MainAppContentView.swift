@@ -160,9 +160,14 @@ struct MainAppContentView: View {
                 ReleaseNotesView()
             }
         }.onAppear() {
-            if let (old_v, new_v) = MigrationHelper.migrationIfNeeded(), old_v == 0, new_v >= 1 {
+            let migrationResult = MigrationHelper.migrationIfNeeded()
+            if let migrationResult {
+                let old_v =  migrationResult.0
+                let new_v = migrationResult.1
+                if old_v == 0 && new_v >= 1 {
+                    checkForBrokenWidgets()
+                }
                 // just migration to 2.0! check if showing error alert and show new stuff sheet
-                checkForBrokenWidgets()
             }
         }.alert(isPresented: $showAlert) {
             Alert(
