@@ -31,6 +31,10 @@ struct MainAppContentView: View {
     @State private var lastRefreshTime = Date()
     @State private var navPath = NavigationPath()
     @State private var pendingDeepLink: String?
+    @State private var showAlert: Bool = false
+    @State private var alertTitle: String = ""
+    @State private var alertMessage: String = ""
+    
     private var reviewHelper = ReviewHelper()
     
     var body: some View {
@@ -156,11 +160,42 @@ struct MainAppContentView: View {
                 ReleaseNotesView()
             }
         }.onAppear() {
-            if let version = MigrationHelper.migrationIfNeeded(), version == 1 {
-                // just migration to 2.0! show new stuff sheet
+            if let (old_v, new_v) = MigrationHelper.migrationIfNeeded(), old_v == 0, new_v >= 1 {
+                // just migration to 2.0! check if showing error alert and show new stuff sheet
+                checkForBrokenWidgets()
+            }
+        }.alert(isPresented: $showAlert) {
+            Alert(
+                title: Text(alertTitle),
+                message: Text(alertMessage),
+                dismissButton: .default(Text("OK"),
+                action: {
+                    showReleaseNotes = true
+                })
+            )
+        }
+    }
+    
+    private func checkForBrokenWidgets() {
+        WidgetCenter.shared.getCurrentConfigurations { result in
+            switch result {
+            case .success(let widgets):
+                if !widgets.isEmpty {
+                    showWidgetWarning()
+                } else {
+                    showReleaseNotes = true
+                }
+            case .failure(let error):
                 showReleaseNotes = true
+                print(error)
             }
         }
+    }
+    
+    private func showWidgetWarning() {
+        alertTitle = "Widget Migration Notice!"
+        alertMessage = "Due to a bug in iOS, widgets have been reset while migrating to the new App Intent System. (FB15531563). Simply edit your widget and re-select your server to fix them. Thank you for understanding! (I hope the new features make up for it!)"
+        showAlert = true
     }
     
     private func goToServerView(viewModel: ServerStatusViewModel) {

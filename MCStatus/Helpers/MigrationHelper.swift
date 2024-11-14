@@ -13,14 +13,14 @@ class MigrationHelper {
     static let VERSION = 1
     
     // returns nil if no migration, otherwie the current version that we just migratred to
-    @MainActor static func migrationIfNeeded() -> Int? {
+    @MainActor static func migrationIfNeeded() -> (Int,Int)? {
         let lastVer = getLastVersion()
         if lastVer < VERSION {
             for i in lastVer...VERSION{
                 runMigrationForVer(version: i)
             }
             setCurrentVersion(version: VERSION)
-            return VERSION
+            return (lastVer,VERSION)
         } else {
             return nil
         }
