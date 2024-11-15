@@ -246,11 +246,11 @@ struct ServerStatusDetailView: View {
                     } label: {
                         Text("Edit")
                     }
-                    Button {
+                    Button(role: .destructive) {
                         showingDeleteAlert = true
                     } label: {
-                        Label("Add Item", systemImage: "trash")
-                    }
+                        Label("Delete Server", systemImage: "trash")
+                    }.foregroundColor(.red)
                 }
             }
         }.onAppear {

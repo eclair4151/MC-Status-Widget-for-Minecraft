@@ -19,47 +19,50 @@ struct TipJarView: View {
     @Binding var isPresented: Bool
 
     var body: some View {
-        VStack(spacing: 20) {
-            Text("Support the app!")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding(.top)
-            Image(systemName: "party.popper.fill").resizable().scaledToFit().frame(width: 100, height: 100).padding()
-            Text("This app is free, ad-less, and open-source. If you find it useful, consider tipping to help keep it going!")
-                .font(.body)
-                .multilineTextAlignment(.center)
-                .padding()
-
-            if let products = tipProducts {
-                ForEach(products, id: \.self) { product in
-                    Button(action: {
-                        Task {
-                            await purchaseTip(product: product)
+        ScrollView {
+            
+            VStack(spacing: 15) {
+                Text("Support the app!")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .padding(.top)
+                Image(systemName: "party.popper.fill").resizable().scaledToFit().frame(width: 100, height: 100).padding()
+                Text("This app is free, ad-less, and open-source. If you find it useful, consider tipping to help keep it going!")
+                    .font(.body)
+                    .lineLimit(nil)
+                    .multilineTextAlignment(.center)
+                    .padding()
+                
+                if let products = tipProducts {
+                    ForEach(products, id: \.self) { product in
+                        Button(action: {
+                            Task {
+                                await purchaseTip(product: product)
+                            }
+                        }) {
+                            Text("Tip \(product.displayPrice)")
+                                .font(.headline)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
                         }
-                    }) {
-                        Text("Tip \(product.displayPrice)")
-                            .font(.headline)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
+                        .padding(.horizontal)
+                        .padding(.bottom,3)
+                        .disabled(isProcessing)
                     }
-                    .padding(.horizontal)
-                    .padding(.bottom,5)
-                    .disabled(isProcessing)
+                } else {
+                    ProgressView("Loading Tip Option...")
                 }
-            } else {
-                ProgressView("Loading Tip Option...")
+                
+                
+                Text("Thank you for your support!")
+                    .font(.footnote)
+                    .padding(.vertical)
             }
-
-            Spacer()
-
-            Text("Thank you for your support!")
-                .font(.footnote)
-                .padding(.bottom)
+            .padding(.horizontal)
         }
-        .padding()
         .onAppear {
             Task {
                 await loadTipProducts()
