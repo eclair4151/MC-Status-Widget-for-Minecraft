@@ -34,7 +34,7 @@ struct EditServerView: View {
 
     @State private var showingInvalidURLAlert = false
     @State private var showingInvalidNameAlert = false
-
+    @State private var showingInvalidPortAlert = false
     
     var body: some View {
         Form {
@@ -122,11 +122,15 @@ struct EditServerView: View {
             Button("OK") {
                 
             }
+        } .alert("Invalid Port", isPresented: $showingInvalidPortAlert) {
+            Button("OK") {
+                
+            }
         } message: {
-            Text("Server name must not be empty")
+            Text("Port must be a number between 0 and 65535")
         }
     }
-    
+    //
     private func extractPort(from text: String) {
             // Check if the text contains a colon
             if let colonIndex = text.firstIndex(of: ":") {
@@ -169,6 +173,11 @@ struct EditServerView: View {
         tempNameInput = tempNameInput.trimmingCharacters(in: .whitespacesAndNewlines)
         if tempNameInput.isEmpty {
             showingInvalidNameAlert = true
+            return
+        }
+        
+        if let tempPortInput,tempPortInput < 0 || tempPortInput > 65535 {
+            showingInvalidPortAlert = true
             return
         }
         

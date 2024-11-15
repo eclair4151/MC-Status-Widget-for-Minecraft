@@ -24,6 +24,7 @@ public enum ServerStatusCheckerError: Error {
     case DeviceNotConnected
     case ServerUnreachable
     case StatusUnparsable
+    case InvalidPort
 }
 
 

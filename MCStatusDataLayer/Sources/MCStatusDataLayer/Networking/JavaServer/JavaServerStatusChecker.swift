@@ -68,7 +68,14 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
     func startTCPConnection(dataToSend: Data) {
         
         print("Going to start TCP Connection to \(self.serverAddress):\(self.port)")
-        let connection = NWConnection(host: NWEndpoint.Host(self.serverAddress), port: NWEndpoint.Port(rawValue: UInt16(self.port))!, using: .tcp)
+        guard self.port <= 65535, self.port >= 0, let port = NWEndpoint.Port(rawValue: UInt16(self.port)) else {
+            print("Invalid Port... canceling")
+            self.callContinuationError(error: ServerStatusCheckerError.InvalidPort)
+            return
+        }
+        
+        let connection = NWConnection(host: NWEndpoint.Host(self.serverAddress), port: port, using: .tcp)
+
         
         // set a 5 second timeout to receive the data.
         self.timeoutTask = Task {
