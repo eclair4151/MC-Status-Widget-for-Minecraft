@@ -25,6 +25,7 @@ public enum ServerStatusCheckerError: Error {
     case ServerUnreachable
     case StatusUnparsable
     case InvalidPort
+    case QueryBlocked
 }
 
 

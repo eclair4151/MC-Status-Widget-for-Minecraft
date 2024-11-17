@@ -53,6 +53,10 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
             status.version = version.removingMinecraftFormatCodes()
         }
         
+        guard status.version.lowercased() != "error" else {
+            throw ServerStatusCheckerError.QueryBlocked
+        }
+        
         if let favIcon = responseObject.favicon {
             status.favIcon = favIcon
         }
