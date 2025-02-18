@@ -256,7 +256,14 @@
 
     },
     "Server" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сервер"
+          }
+        }
+      }
     },
     "Server Address/IP" : {
 
