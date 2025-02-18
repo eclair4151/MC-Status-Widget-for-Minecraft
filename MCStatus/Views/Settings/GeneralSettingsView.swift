@@ -11,15 +11,14 @@ struct GeneralSettingsView: View {
         Form {
             Toggle(isOn: $toggle1) {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Enable iCloud Syncing")
+                    Text("iCloud Sync")
                     
-                    Text("Sync your server list across all devices.")
+                    Text("Sync your server list across all devices")
                         .footnote()
                         .foregroundColor(.gray)
                 }
             }
             
-            // Show users on homescreen Toggle
             Toggle(isOn: $toggle2) {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Show users on server list")
@@ -30,7 +29,6 @@ struct GeneralSettingsView: View {
                 }
             }
             
-            // Sort users by name Toggle
             Toggle(isOn: $toggle3) {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Sort users alphabetically")
@@ -45,7 +43,7 @@ struct GeneralSettingsView: View {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Widget opens directly to server")
                     
-                    Text("Tapping the widget will open the app directly to that server. Otherwise it will open the server list.")
+                    Text("Tapping the widget will open the app directly to that server. Otherwise it will open the server list")
                         .footnote()
                         .foregroundColor(.gray)
                 }

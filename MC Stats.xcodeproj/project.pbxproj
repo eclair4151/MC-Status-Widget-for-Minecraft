@@ -1137,7 +1137,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MCStatusWatchApp/MC StatsWatchApp-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "MC Status";
+				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "dev.topscrech.MC-Stats";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
@@ -1169,7 +1169,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MCStatusWatchApp/MC StatsWatchApp-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "MC Status";
+				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "dev.topscrech.MC-Stats";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
@@ -1201,7 +1201,7 @@
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusWatchWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MCStatusWatchWidget;
+				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1232,7 +1232,7 @@
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusWatchWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MCStatusWatchWidget;
+				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1472,7 +1472,7 @@
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusAppIntentsExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MCStatusAppIntentsExtension;
+				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1503,7 +1503,7 @@
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusAppIntentsExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MCStatusAppIntentsExtension;
+				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1537,7 +1537,7 @@
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusWidgetExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MCStatusWidgetExtension;
+				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1568,7 +1568,7 @@
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusWidgetExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = MCStatusWidgetExtension;
+				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (

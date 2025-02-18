@@ -105,9 +105,10 @@ struct MainAppContentView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationLink(value: PageDestinations.SettingsRoot) {
-                        Label("Settings", systemImage: "gearshape")
+                        Label("Settings", systemImage: "gear")
                     }
                 }
+                
                 // Gross (show refresh button only on mac status bar since they can't pull to refresh)
 #if targetEnvironment(macCatalyst)
                 ToolbarItem(placement: .topBarTrailing) {

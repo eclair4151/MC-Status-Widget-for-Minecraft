@@ -89,9 +89,6 @@
     "Enable iCloud" : {
 
     },
-    "Enable iCloud Syncing" : {
-
-    },
     "Error: Server not found" : {
 
     },
@@ -121,6 +118,9 @@
 
     },
     "iCloud is required to sync servers to your watch." : {
+
+    },
+    "iCloud Sync" : {
 
     },
     "If you love the app, consider leaving a review or leaving a small tip to help support development!" : {
@@ -334,10 +334,10 @@
     "Support the app!" : {
 
     },
-    "Sync your server list across all devices." : {
+    "Sync your server list across all devices" : {
 
     },
-    "Tapping the widget will open the app directly to that server. Otherwise it will open the server list." : {
+    "Tapping the widget will open the app directly to that server. Otherwise it will open the server list" : {
 
     },
     "Thank you for your support!" : {
