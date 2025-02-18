@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "mcstatus_icon.png",
+      "filename" : "MC Stats Light.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -13,7 +13,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "mcstatus_icon_dark.png",
+      "filename" : "MC Stats Dark.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -25,7 +25,7 @@
           "value" : "tinted"
         }
       ],
-      "filename" : "mcstatus_icon_tinted.png",
+      "filename" : "MC Stats Dark 1.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"

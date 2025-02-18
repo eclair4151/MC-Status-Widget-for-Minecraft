@@ -12,7 +12,9 @@ enum PageDestinations {
 }
 
 struct MainAppContentView: View {
+#if os(iOS)
     private let watchHelper = WatchHelper()
+#endif
     @State private var nav = NavigationPath()
     
     @Environment(\.requestReview) private var requestReview

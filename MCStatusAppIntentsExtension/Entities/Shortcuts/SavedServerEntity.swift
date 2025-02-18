@@ -23,7 +23,10 @@ struct SavedServerQuery: EntityQuery {
                 continue
             }
             
-            result.append(SavedServerEntity(id: server.id, serverName: server.name))
+            result.append(SavedServerEntity(
+                id: server.id,
+                serverName: server.name
+            ))
         }
         
         return result

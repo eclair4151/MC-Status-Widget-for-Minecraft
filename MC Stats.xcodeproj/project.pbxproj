@@ -172,10 +172,47 @@
 		F35E1A752D64ACE400718CB7 /* MCStatusWidgetExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472042D63E9C00055C007 /* MCStatusWidgetExtensionBundle.swift */; };
 		F35E1A772D64D32D00718CB7 /* RefreshWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A762D64D32D00718CB7 /* RefreshWidgets.swift */; };
 		F35E1A782D64DC2700718CB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
-		F35E1A982D6501CC00718CB7 /* NavContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A942D6501CC00718CB7 /* NavContainer.swift */; };
-		F35E1A992D6501CC00718CB7 /* MC Stats visionOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A962D6501CC00718CB7 /* MC Stats visionOS.swift */; };
 		F35E1A9B2D6501CC00718CB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35E1A932D6501CC00718CB7 /* Assets.xcassets */; };
 		F35E1A9E2D65209500718CB7 /* PlayerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A9D2D65209500718CB7 /* PlayerCard.swift */; };
+		F35E1AA12D6522B300718CB7 /* LowPowerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A732D64A4B200718CB7 /* LowPowerMode.swift */; };
+		F35E1AA22D6522B300718CB7 /* RefreshWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A762D64D32D00718CB7 /* RefreshWidgets.swift */; };
+		F35E1AA32D6522C600718CB7 /* FeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */; };
+		F35E1AA42D6522C600718CB7 /* ReleaseNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */; };
+		F35E1AA52D6522CB00718CB7 /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
+		F35E1AA62D6522CB00718CB7 /* SiriGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4332CC15F6A00739646 /* SiriGuideView.swift */; };
+		F35E1AA72D6522D100718CB7 /* PlayerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A9D2D65209500718CB7 /* PlayerCard.swift */; };
+		F35E1AA82D6522D100718CB7 /* ServerStatusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */; };
+		F35E1AA92D6522D100718CB7 /* TipJarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0FB2CC05F9000DC7A80 /* TipJarView.swift */; };
+		F35E1AAA2D6522D100718CB7 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */; };
+		F35E1AAB2D6522D100718CB7 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
+		F35E1AAC2D6522D600718CB7 /* EditServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */; };
+		F35E1AAD2D6522D600718CB7 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettingsView.swift */; };
+		F35E1AAE2D6522D600718CB7 /* ShortcutsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4352CC1709700739646 /* ShortcutsGuideView.swift */; };
+		F35E1AAF2D6522D600718CB7 /* ServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* ServerRowView.swift */; };
+		F35E1AB02D6522D600718CB7 /* SettingsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */; };
+		F35E1AB22D6522EB00718CB7 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F35E1AB12D6522EB00718CB7 /* MCStatusDataLayer */; };
+		F35E1AB42D6522F400718CB7 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F35E1AB32D6522F400718CB7 /* NukeUI */; };
+		F35E1AB62D65230400718CB7 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F35E1AB52D65230400718CB7 /* ScrechKit */; };
+		F35E1AB72D65231500718CB7 /* MainAppContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */; };
+		F35E1AB82D65236300718CB7 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
+		F35E1AB92D65236300718CB7 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
+		F35E1ABA2D65236300718CB7 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
+		F35E1ABB2D65236300718CB7 /* RealmDbMigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */; };
+		F35E1ABC2D65236300718CB7 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
+		F35E1ABD2D65236300718CB7 /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F130954E2CBC9D5600C4C7BA /* ConfigHelper.swift */; };
+		F35E1ABE2D65236300718CB7 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
+		F35E1ABF2D65236300718CB7 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* ViewHelpers.swift */; };
+		F35E1AC02D65236900718CB7 /* SwiftyPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */; };
+		F35E1AC12D65237200718CB7 /* MinecraftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725B2D63FBFC0055C007 /* MinecraftRegular.otf */; };
+		F35E1AC22D65237200718CB7 /* MinecraftBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30472582D63FBFC0055C007 /* MinecraftBold.otf */; };
+		F35E1AC32D65237200718CB7 /* MinecraftBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30472592D63FBFC0055C007 /* MinecraftBoldItalic.otf */; };
+		F35E1AC42D65237200718CB7 /* MinecraftItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */; };
+		F35E1AC52D65238800718CB7 /* MC Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */; };
+		F35E1AC62D652B3000718CB7 /* MCStatusShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MCStatusShortcutsProvider.swift */; };
+		F35E1AC72D652B3B00718CB7 /* SavedServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift */; };
+		F35E1AC82D652B4700718CB7 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
+		F35E1AC92D652C5B00718CB7 /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* SavedServerEntity.swift */; };
+		F35E1ACA2D652C6D00718CB7 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -354,10 +391,9 @@
 		F35E1A762D64D32D00718CB7 /* RefreshWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshWidgets.swift; sourceTree = "<group>"; };
 		F35E1A7D2D6501A500718CB7 /* visionOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = visionOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F35E1A932D6501CC00718CB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F35E1A942D6501CC00718CB7 /* NavContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavContainer.swift; sourceTree = "<group>"; };
 		F35E1A952D6501CC00718CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F35E1A962D6501CC00718CB7 /* MC Stats visionOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MC Stats visionOS.swift"; sourceTree = "<group>"; };
 		F35E1A9D2D65209500718CB7 /* PlayerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCard.swift; sourceTree = "<group>"; };
+		F35E1ACB2D652C9000718CB7 /* visionOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = visionOS.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,6 +453,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F35E1AB62D65230400718CB7 /* ScrechKit in Frameworks */,
+				F35E1AB22D6522EB00718CB7 /* MCStatusDataLayer in Frameworks */,
+				F35E1AB42D6522F400718CB7 /* NukeUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,10 +762,9 @@
 		F35E1A972D6501CC00718CB7 /* visionOS */ = {
 			isa = PBXGroup;
 			children = (
-				F35E1A962D6501CC00718CB7 /* MC Stats visionOS.swift */,
+				F35E1ACB2D652C9000718CB7 /* visionOS.entitlements */,
 				F35E1A932D6501CC00718CB7 /* Assets.xcassets */,
 				F35E1A952D6501CC00718CB7 /* Info.plist */,
-				F35E1A942D6501CC00718CB7 /* NavContainer.swift */,
 			);
 			path = visionOS;
 			sourceTree = "<group>";
@@ -865,6 +903,9 @@
 			);
 			name = visionOS;
 			packageProductDependencies = (
+				F35E1AB12D6522EB00718CB7 /* MCStatusDataLayer */,
+				F35E1AB32D6522F400718CB7 /* NukeUI */,
+				F35E1AB52D65230400718CB7 /* ScrechKit */,
 			);
 			productName = "MC Stats visionOS";
 			productReference = F35E1A7D2D6501A500718CB7 /* visionOS.app */;
@@ -984,6 +1025,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F35E1A9B2D6501CC00718CB7 /* Assets.xcassets in Resources */,
+				F35E1AC12D65237200718CB7 /* MinecraftRegular.otf in Resources */,
+				F35E1AC22D65237200718CB7 /* MinecraftBold.otf in Resources */,
+				F35E1AC32D65237200718CB7 /* MinecraftBoldItalic.otf in Resources */,
+				F35E1AC42D65237200718CB7 /* MinecraftItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1159,8 +1204,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F35E1A982D6501CC00718CB7 /* NavContainer.swift in Sources */,
-				F35E1A992D6501CC00718CB7 /* MC Stats visionOS.swift in Sources */,
+				F35E1AA12D6522B300718CB7 /* LowPowerMode.swift in Sources */,
+				F35E1AA22D6522B300718CB7 /* RefreshWidgets.swift in Sources */,
+				F35E1AA52D6522CB00718CB7 /* SiriGuidePhrase.swift in Sources */,
+				F35E1AA62D6522CB00718CB7 /* SiriGuideView.swift in Sources */,
+				F35E1AA32D6522C600718CB7 /* FeatureRow.swift in Sources */,
+				F35E1AA72D6522D100718CB7 /* PlayerCard.swift in Sources */,
+				F35E1AA82D6522D100718CB7 /* ServerStatusDetailView.swift in Sources */,
+				F35E1AA92D6522D100718CB7 /* TipJarView.swift in Sources */,
+				F35E1AB72D65231500718CB7 /* MainAppContentView.swift in Sources */,
+				F35E1AAA2D6522D100718CB7 /* FAQView.swift in Sources */,
+				F35E1AAC2D6522D600718CB7 /* EditServerView.swift in Sources */,
+				F35E1ACA2D652C6D00718CB7 /* ServerStatusEntity.swift in Sources */,
+				F35E1AC02D65236900718CB7 /* SwiftyPing.swift in Sources */,
+				F35E1AC72D652B3B00718CB7 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
+				F35E1AC62D652B3000718CB7 /* MCStatusShortcutsProvider.swift in Sources */,
+				F35E1AAD2D6522D600718CB7 /* GeneralSettingsView.swift in Sources */,
+				F35E1AAE2D6522D600718CB7 /* ShortcutsGuideView.swift in Sources */,
+				F35E1AAF2D6522D600718CB7 /* ServerRowView.swift in Sources */,
+				F35E1AC52D65238800718CB7 /* MC Stats.swift in Sources */,
+				F35E1AB02D6522D600718CB7 /* SettingsRootView.swift in Sources */,
+				F35E1AAB2D6522D100718CB7 /* CustomProgressView.swift in Sources */,
+				F35E1AB82D65236300718CB7 /* ImageHelper.swift in Sources */,
+				F35E1AB92D65236300718CB7 /* CustomExtentions.swift in Sources */,
+				F35E1ABA2D65236300718CB7 /* ReviewHelper.swift in Sources */,
+				F35E1ABB2D65236300718CB7 /* RealmDbMigrationHelper.swift in Sources */,
+				F35E1AC82D652B4700718CB7 /* IntentErrors.swift in Sources */,
+				F35E1ABC2D65236300718CB7 /* UserDefaultHelper.swift in Sources */,
+				F35E1ABD2D65236300718CB7 /* ConfigHelper.swift in Sources */,
+				F35E1ABE2D65236300718CB7 /* MigrationHelper.swift in Sources */,
+				F35E1ABF2D65236300718CB7 /* ViewHelpers.swift in Sources */,
+				F35E1AC92D652C5B00718CB7 /* SavedServerEntity.swift in Sources */,
+				F35E1AA42D6522C600718CB7 /* ReleaseNotesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1670,6 +1745,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = visionOS/visionOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -1699,6 +1775,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = visionOS/visionOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -1868,6 +1945,20 @@
 			productName = ScrechKit;
 		};
 		F33A5CB22D640C440020D8A5 /* ScrechKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */;
+			productName = ScrechKit;
+		};
+		F35E1AB12D6522EB00718CB7 /* MCStatusDataLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MCStatusDataLayer;
+		};
+		F35E1AB32D6522F400718CB7 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
+		};
+		F35E1AB52D65230400718CB7 /* ScrechKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */;
 			productName = ScrechKit;
