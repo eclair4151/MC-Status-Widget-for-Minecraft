@@ -79,6 +79,13 @@ struct SettingsRootView: View {
             } footer: {
                 Text("Join the beta program to access experimental features before they’re released")
             }
+#if DEBUG
+            Section("Debug") {
+                Button("Inject servers") {
+                    injectServers()
+                }
+            }
+#endif
         }
         .sheet($showingTipSheet) {
             NavigationStack {
@@ -87,14 +94,9 @@ struct SettingsRootView: View {
         }
         .navigationTitle("Settings")
         .background(Color(.systemGroupedBackground))
-#if DEBUG
-        Button("Inject servers") {
-            injectServers()
-        }
-#endif
     }
     
-    func openGithub() {
+    private func openGithub() {
         let url = "https://github.com/TopScrech/MC-Stats"
         
         guard let githubUrl = URL(string: url) else {
@@ -105,7 +107,7 @@ struct SettingsRootView: View {
         openURL(githubUrl)
     }
     
-    func joinTestFlight() {
+    private func joinTestFlight() {
         let url = "https://testflight.apple.com/join/CCYB35PS"
         
         guard let testflightUrl = URL(string: url) else {
@@ -116,7 +118,7 @@ struct SettingsRootView: View {
         openURL(testflightUrl)
     }
     
-    func leaveAppReview() {
+    private func leaveAppReview() {
         // Replace the placeholder value below with the App Store ID for your app.
         // You can find the App Store ID in your app's product URL.
         let url = "https://apps.apple.com/app/id1408215245?action=write-review"
@@ -129,11 +131,11 @@ struct SettingsRootView: View {
         openURL(writeReviewURL)
     }
     
-    func tipDeveloper() {
+    private func tipDeveloper() {
         showingTipSheet = true
     }
     
-    func injectServers() {
+    private func injectServers() {
         modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Insanity Craft", serverUrl: "join.insanitycraft.net", serverPort: 25565))
         modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "OpBlocks", serverUrl: "hub.opblocks.com", serverPort: 25565))
         modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Ace MC", serverUrl: "mc.acemc.co", serverPort: 25565))
@@ -153,63 +155,4 @@ struct SettingsRootView: View {
             print(error.localizedDescription)
         }
     }
-}
-
-// General Settings Sub-View
-struct GeneralSettingsView: View {
-    @AppStorage(UserDefaultHelper.Key.iCloudEnabled.rawValue) var toggle1 = true
-    @AppStorage(UserDefaultHelper.Key.showUsersOnHomesreen.rawValue) var toggle2 = true
-    @AppStorage(UserDefaultHelper.Key.sortUsersByName.rawValue) var toggle3 = true
-    @AppStorage(UserDefaultHelper.Key.openToSpecificServer.rawValue) var toggle4 = true
-    
-    var body: some View {
-        Form {
-            Toggle(isOn: $toggle1) {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Enable iCloud Syncing")
-                    
-                    Text("Sync your server list across all devices.")
-                        .footnote()
-                        .foregroundColor(.gray)
-                }
-            }
-            
-            // Show users on homescreen Toggle
-            Toggle(isOn: $toggle2) {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Show users on server list")
-                    
-                    Text("Show users in each row under the progress bar on the main server list")
-                        .footnote()
-                        .foregroundColor(.gray)
-                }
-            }
-            
-            // Sort users by name Toggle
-            Toggle(isOn: $toggle3) {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Sort users alphabetically")
-                    
-                    Text("Show users sorted alphabetically instead of randomly")
-                        .footnote()
-                        .foregroundColor(.gray)
-                }
-            }
-            
-            Toggle(isOn: $toggle4) {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Widget opens directly to server")
-                    
-                    Text("Tapping the widget will open the app directly to that server. Otherwise it will open the server list.")
-                        .footnote()
-                        .foregroundColor(.gray)
-                }
-            }
-        }
-        .navigationTitle("General Settings")
-    }
-}
-
-#Preview {
-    GeneralSettingsView()
 }

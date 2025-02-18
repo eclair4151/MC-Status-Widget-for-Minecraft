@@ -167,6 +167,7 @@
 		F33A5CAF2D640C370020D8A5 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33A5CAE2D640C370020D8A5 /* ScrechKit */; };
 		F33A5CB12D640C3B0020D8A5 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33A5CB02D640C3B0020D8A5 /* ScrechKit */; };
 		F33A5CB32D640C440020D8A5 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33A5CB22D640C440020D8A5 /* ScrechKit */; };
+		F35E1A6D2D6489FD00718CB7 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -339,6 +340,7 @@
 		F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftItalic.otf; sourceTree = "<group>"; };
 		F304725B2D63FBFC0055C007 /* MinecraftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftRegular.otf; sourceTree = "<group>"; };
 		F326DB572D6416E100BCCB69 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		F35E1A6C2D6489FD00718CB7 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -521,7 +523,7 @@
 				F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */,
 				F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */,
 				F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */,
-				F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */,
+				F35E1A6B2D6489F900718CB7 /* Settings */,
 				F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */,
 				F1AE29152CA48577009D0D14 /* ServerRowView.swift */,
 				F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */,
@@ -669,6 +671,15 @@
 				F304725B2D63FBFC0055C007 /* MinecraftRegular.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F35E1A6B2D6489F900718CB7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */,
+				F35E1A6C2D6489FD00718CB7 /* GeneralSettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -977,6 +988,7 @@
 				F150B3632CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */,
 				F13E5FFD2A4BD614005BE9B2 /* MC Stats.swift in Sources */,
 				F150B4362CC1709700739646 /* ShortcutsGuideView.swift in Sources */,
+				F35E1A6D2D6489FD00718CB7 /* GeneralSettingsView.swift in Sources */,
 				F30472422D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */,
 				F30472432D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
 				F17AE0EF2CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,

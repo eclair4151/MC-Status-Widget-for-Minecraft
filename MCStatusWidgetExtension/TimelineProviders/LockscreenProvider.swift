@@ -31,14 +31,14 @@ struct LockscreenProvider: AppIntentTimelineProvider {
         }
     }
     
-    // this view is for when the widget has been added the the homescreen, but the user has not selected a server/theme ? or not.
+    // this view is for when the widget has been added the the homescreen, but the user has not selected a server/theme ? or not
     func placeholder(in context: Context) -> ServerStatusLSSnapshotEntry {
         var vm = WidgetEntryVM()
         vm.setForUnconfiguredView()
         return ServerStatusLSSnapshotEntry(date: Date(), configuration: ServerSelectNoThemeWidgetIntent(), vm: vm)
     }
     
-    // is context.isPreview is true, this is the view to show when someone clicked add widget. Just show preview with placeholder data. if it is false, yo ushould actually load the current state of the view by getting the status
+    // if context.isPreview is true, this is the view to show when someone clicked add widget. Just show preview with placeholder data. if it is false, yo ushould actually load the current state of the view by getting the status
     func snapshot(for configuration: ServerSelectNoThemeWidgetIntent, in context: Context) async -> ServerStatusLSSnapshotEntry {
         var vm = WidgetEntryVM()
         
@@ -67,7 +67,7 @@ struct LockscreenProvider: AppIntentTimelineProvider {
         }
         
         // step 2 load status
-        //horrible hack to handle watch vs phone
+        // horrible hack to handle watch vs phone
 #if os(watchOS)
         let statusResult = await WatchServerStatusChecker().checkServerAsync(server: server)
 #else

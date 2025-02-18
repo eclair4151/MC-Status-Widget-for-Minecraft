@@ -105,7 +105,7 @@ struct ReleaseNotesView: View {
         }
     }
     
-    func leaveAppReview() {
+    private func leaveAppReview() {
         // Replace the placeholder value below with the App Store ID for your app.
         // You can find the App Store ID in your app's product URL.
         let url = "https://apps.apple.com/app/id1408215245?action=write-review"

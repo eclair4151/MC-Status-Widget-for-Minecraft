@@ -11,7 +11,7 @@ struct HomescreenProvider: AppIntentTimelineProvider {
         return ServerStatusHSSnapshotEntry(date: Date(), configuration: ServerSelectWidgetIntent(), vm: vm)
     }
     
-    // is context.isPreview is true, this is the view to show when someone clicked add widget. Just show preview with placeholder data. if it is false, yo ushould actually load the current state of the view by getting the status
+    // if context.isPreview is true, this is the view to show when someone clicked add widget. Just show preview with placeholder data. if it is false, yo ushould actually load the current state of the view by getting the status
     func snapshot(for configuration: ServerSelectWidgetIntent, in context: Context) async -> ServerStatusHSSnapshotEntry {
         var vm = WidgetEntryVM()
         

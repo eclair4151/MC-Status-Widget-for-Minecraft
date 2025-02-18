@@ -105,9 +105,13 @@ struct BaseWidgetView: View {
                     .opacity(entry.vm.progressStringAlpha)
                 
                 if entry.vm.statusIcon == nil {
-                    CustomProgressView(progress: CGFloat(entry.vm.progressValue), bgColor: self.progressBgColor, bgOpactiy: self.progressBgOpacity)
-                        .frame(height: 6)
-                        .padding(.top, 6)
+                    CustomProgressView(
+                        progress: CGFloat(entry.vm.progressValue),
+                        bgColor: self.progressBgColor,
+                        bgOpactiy: self.progressBgOpacity
+                    )
+                    .frame(height: 6)
+                    .padding(.top, 6)
                 }
             }
         }
@@ -137,7 +141,13 @@ struct SmallWidgetView : View {
 
 struct MinecraftServerStatusHSWidget_SmallPreview: PreviewProvider {
     static var previews: some View {
-        MinecraftServerStatusHSWidgetEntryView(entry: ServerStatusHSSnapshotEntry(date: Date(), configuration: ServerSelectWidgetIntent(), vm: WidgetEntryVM()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        MinecraftServerStatusHSWidgetEntryView(
+            ServerStatusHSSnapshotEntry(
+                date: Date(),
+                configuration: ServerSelectWidgetIntent(),
+                vm: WidgetEntryVM()
+            )
+        )
+        .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

@@ -15,11 +15,14 @@ extension WidgetEntryVM {
         if status.status == OnlineStatus.Online {
             self.statusIcon = nil
             self.progressString = "\(status.onlinePlayerCount) / \(status.maxPlayerCount)"
-            if status.maxPlayerCount == 0 { //avoid potential for divide by 0
+            
+            // Avoid potential for divide by 0
+            if status.maxPlayerCount == 0 {
                 self.progressValue = 0
             } else {
                 self.progressValue = Float(status.onlinePlayerCount) / Float(status.maxPlayerCount)
             }
+            
             self.playersMax = status.maxPlayerCount
             self.playersOnline = status.onlinePlayerCount
             

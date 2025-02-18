@@ -74,6 +74,9 @@
     "Checks the status of an arbitrary Minecraft Server, and returns the server status which contains the player count, player sample, MOTD and Online Status, which can be either \"Online\",\"Offline\", or \"Unknown\" if the device if not connected to the internet or another error occurs" : {
 
     },
+    "Debug" : {
+
+    },
     "Delete" : {
 
     },
