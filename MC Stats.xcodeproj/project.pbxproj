@@ -439,10 +439,10 @@
 			children = (
 				F13E5FFB2A4BD614005BE9B2 /* MCStatus */,
 				F11F634C2A81E50E00D47187 /* MCStatusWatchApp */,
-				F1322FE32AAAB3FC005EAF56 /* MCStatusDataLayer */,
 				F1406BAA2AA391B800815BE8 /* MCStatusAppIntentsExtension */,
 				F30472082D63E9C00055C007 /* MCStatusWidgetExtension */,
 				F30472262D63E9C20055C007 /* MCStatusWatchWidget */,
+				F1322FE32AAAB3FC005EAF56 /* MCStatusDataLayer */,
 				F13E5FFA2A4BD614005BE9B2 /* Products */,
 				F10C421B2AAE40BC000107D6 /* Frameworks */,
 			);
