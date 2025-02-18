@@ -272,7 +272,7 @@ struct ServerStatusDetailView: View {
             
             Button("Cancel", role: .cancel) {}
         }
-        .sheet(isPresented: $showingEditSheet) {
+        .sheet($showingEditSheet) {
             NavigationStack {
                 EditServerView(server: serverStatusVM.server, isPresented: $showingEditSheet) {
                     serverStatusVM.reloadData(config: ConfigHelper.getServerCheckerConfig())

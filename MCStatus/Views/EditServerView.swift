@@ -4,7 +4,6 @@ import MCStatusDataLayer
 import WidgetKit
 
 struct EditServerView: View {
-    
     private enum FocusedField {
         case serverName, serverAddress
     }

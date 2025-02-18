@@ -72,7 +72,7 @@ struct SettingsRootView: View {
                 }
             }
         }
-        .sheet(isPresented: $showingTipSheet) {
+        .sheet($showingTipSheet) {
             NavigationStack {
                 TipJarView(isPresented: $showingTipSheet)
             }

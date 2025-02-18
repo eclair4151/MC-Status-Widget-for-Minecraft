@@ -98,7 +98,7 @@ struct ReleaseNotesView: View {
                 }
             }
         }
-        .sheet(isPresented: $showingTipSheet) {
+        .sheet($showingTipSheet) {
             NavigationStack {
                 TipJarView(isPresented: $showingTipSheet)
             }
