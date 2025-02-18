@@ -282,7 +282,7 @@ struct ServerStatusDetailView: View {
         }
         .sheet($showingEditSheet) {
             NavigationStack {
-                EditServerView(server: serverStatusVM.server, isPresented: $showingEditSheet) {
+                EditServerView(serverStatusVM.server, isPresented: $showingEditSheet) {
                     serverStatusVM.reloadData(ConfigHelper.getServerCheckerConfig())
                     parentViewRefreshCallBack()
                 }

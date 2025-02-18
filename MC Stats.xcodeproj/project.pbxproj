@@ -465,6 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */,
+				F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */,
 				F326DB572D6416E100BCCB69 /* Localizable.xcstrings */,
 				F13E60022A4BD615005BE9B2 /* Assets.xcassets */,
 				F35E1A732D64A4B200718CB7 /* LowPowerMode.swift */,
@@ -533,7 +534,6 @@
 				F35E1A6B2D6489F900718CB7 /* Settings */,
 				F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */,
 				F1AE29152CA48577009D0D14 /* ServerRowView.swift */,
-				F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

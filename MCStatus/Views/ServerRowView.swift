@@ -12,6 +12,7 @@ struct ServerRowView: View {
         self.vm = vm
     }
     
+    @State private var showingEditSheet = false
     @State private var showingDeleteAlert = false
     
     var body: some View {
@@ -80,10 +81,18 @@ struct ServerRowView: View {
             }
         }
         .contextMenu {
-            Button(role: .destructive) {
-                showingDeleteAlert = true
+            Button {
+                showingEditSheet = true
             } label: {
-                Label("Delete Server", systemImage: "trash")
+                Label("Edit", systemImage: "pencil")
+            }
+            
+            Section {
+                Button(role: .destructive) {
+                    showingDeleteAlert = true
+                } label: {
+                    Label("Delete Server", systemImage: "trash")
+                }
             }
         }
         .alert("Delete Server?", isPresented: $showingDeleteAlert) {
@@ -92,6 +101,13 @@ struct ServerRowView: View {
             }
             
             Button("Cancel", role: .cancel) {}
+        }
+        .sheet($showingEditSheet) {
+            NavigationStack {
+                EditServerView(vm.server, isPresented: $showingEditSheet) {
+                    vm.reloadData(ConfigHelper.getServerCheckerConfig())
+                }
+            }
         }
     }
     

@@ -21,7 +21,7 @@ struct MainAppContentView: View {
     @State private var showingAddSheet = false
     @State private var showReleaseNotes = false
     @State private var lastRefreshTime = Date()
-    @State private var navPath = NavigationPath()
+    @State private var nav = NavigationPath()
     @State private var pendingDeepLink: String?
     @State private var showAlert = false
     @State private var alertTitle = ""
@@ -30,7 +30,7 @@ struct MainAppContentView: View {
     private var reviewHelper = ReviewHelper()
     
     var body: some View {
-        NavigationStack(path: $navPath) {
+        NavigationStack(path: $nav) {
             List {
                 ForEach(serverVMs ?? []) { vm in
                     NavigationLink(value: vm) {
@@ -167,7 +167,7 @@ struct MainAppContentView: View {
             )
             
             NavigationStack {
-                EditServerView(server: newServer, isPresented: $showingAddSheet) {
+                EditServerView(newServer, isPresented: $showingAddSheet) {
                     // callback when server is edited or added
                     reloadData(forceSRVRefreh: true)
                     refreshDisplayOrders()
@@ -232,20 +232,20 @@ struct MainAppContentView: View {
     private func goToServerView(vm: ServerStatusVM) {
         // check if user has disabled deep links, if so just go to main list
         if !UserDefaultHelper.shared.get(for: .openToSpecificServer, defaultValue: true) {
-            self.navPath.removeLast(self.navPath.count)
+            self.nav.removeLast(self.nav.count)
             return
         }
         
         // go to server view
         // first check if we are already showing a server, and if so, just update it
-        if self.navPath.isEmpty {
-            self.navPath.append(vm)
+        if self.nav.isEmpty {
+            self.nav.append(vm)
         } else {
-            self.navPath.removeLast(self.navPath.count)
+            self.nav.removeLast(self.nav.count)
             
             Task {
                 // hack! otherwise data wont refresh correctly
-                self.navPath.append(vm)
+                self.nav.append(vm)
             }
         }
     }

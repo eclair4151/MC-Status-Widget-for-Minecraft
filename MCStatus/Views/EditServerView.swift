@@ -11,9 +11,14 @@ struct EditServerView: View {
     @Environment(\.modelContext) private var modelContext
     
     @State var server: SavedMinecraftServer
-    
     @Binding var isPresented: Bool
     var parentViewRefreshCallBack: () -> Void
+    
+    init(_ server: SavedMinecraftServer, isPresented: Binding<Bool>, parentViewRefreshCallBack: @escaping () -> Void = {}) {
+        self.server = server
+        _isPresented = isPresented
+        self.parentViewRefreshCallBack = parentViewRefreshCallBack
+    }
     
     @FocusState private var focusedField: FocusedField?
     
