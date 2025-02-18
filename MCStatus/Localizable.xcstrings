@@ -1,0 +1,368 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "..." : {
+
+    },
+    "\"%@\"" : {
+
+    },
+    "*MCStatus is used for checking the status an existing server. It will not create, setup, or host a new server." : {
+
+    },
+    "*Player list limited to %lld users by server" : {
+
+    },
+    "%@" : {
+
+    },
+    "%@ is %@ with %lld players." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ is %2$@ with %3$lld players."
+          }
+        }
+      }
+    },
+    "%lldms" : {
+
+    },
+    "Add a Server" : {
+
+    },
+    "Add Item" : {
+
+    },
+    "Add Server" : {
+
+    },
+    "Add Your First Server" : {
+
+    },
+    "Arbitrary Minecraft Server Status Check" : {
+
+    },
+    "Bedrock servers do not support player lists." : {
+
+    },
+    "Bedrock/MCPE" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "check" : {
+
+    },
+    "Check online status for ${serverType} server at ${serverAddress} and port ${serverPort}" : {
+
+    },
+    "Check Server Status" : {
+
+    },
+    "Check server status for ${serverEntity}" : {
+
+    },
+    "Checks the status of a server saved in the app, and returns the server status which contains the player count, player sample, MOTD and Online Status, which can be either \"Online\",\"Offline\", or \"Unknown\" if the device if not connected to the internet or another error occurs" : {
+
+    },
+    "Checks the status of an arbitrary Minecraft Server, and returns the server status which contains the player count, player sample, MOTD and Online Status, which can be either \"Online\",\"Offline\", or \"Unknown\" if the device if not connected to the internet or another error occurs" : {
+
+    },
+    "Delete" : {
+
+    },
+    "Delete Server" : {
+
+    },
+    "Delete Server?" : {
+
+    },
+    "Edit" : {
+
+    },
+    "Edit Widget" : {
+
+    },
+    "Enable iCloud" : {
+
+    },
+    "Enable iCloud Syncing" : {
+
+    },
+    "Error: Server not found" : {
+
+    },
+    "FAQ" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ЧАВО"
+          }
+        }
+      }
+    },
+    "General Settings" : {
+
+    },
+    "Got it!" : {
+
+    },
+    "Help support the development of free, adless, open source apps." : {
+
+    },
+    "How to Use Siri with MC Status" : {
+
+    },
+    "I'm thrilled to announce the release of **MC Status 2.0**, a total rewrite from the ground up! Get ready for a blazing fast app experience, with tons of new features and enhancements." : {
+
+    },
+    "iCloud is required to sync servers to your watch." : {
+
+    },
+    "If you love the app, consider leaving a review or leaving a small tip to help support development!" : {
+
+    },
+    "Invalid Port" : {
+
+    },
+    "Invalid Server Name" : {
+
+    },
+    "Invalid Server URL/IP Address" : {
+
+    },
+    "Java" : {
+      "shouldTranslate" : false
+    },
+    "Java Edition" : {
+
+    },
+    "Join TestFlight" : {
+
+    },
+    "Join the beta program to access experimental features before they’re released." : {
+
+    },
+    "Leave a Review" : {
+
+    },
+    "Leave a review to help others discover the app and support its development." : {
+
+    },
+    "Leave a Tip" : {
+
+    },
+    "Leave an App Review" : {
+
+    },
+    "Leave Developer a Tip" : {
+
+    },
+    "Let's get started! Add a server using the button below or the \"+\" in the top right corner." : {
+
+    },
+    "Loading Tip Option..." : {
+
+    },
+    "Lockscreen Widget 1" : {
+
+    },
+    "Lockscreen Widget 2" : {
+
+    },
+    "lookup" : {
+
+    },
+    "Max Player Count" : {
+
+    },
+    "MC" : {
+
+    },
+    "MC Status 2.0" : {
+
+    },
+    "MC Status Widget" : {
+
+    },
+    "Minecraft" : {
+
+    },
+    "Minecraft Server domains/ip addresses must be the root domain, and not contain any '/' or ':'" : {
+
+    },
+    "Minecraft Server Status" : {
+
+    },
+    "MOTD" : {
+      "shouldTranslate" : false
+    },
+    "No players online" : {
+
+    },
+    "No servers available. Add one in the app to get started!" : {
+
+    },
+    "Not implemented" : {
+
+    },
+    "OK" : {
+
+    },
+    "Online Status" : {
+
+    },
+    "Overview of Shortcuts" : {
+
+    },
+    "Player Count" : {
+
+    },
+    "Player Sample" : {
+
+    },
+    "Port must be a number between 0 and 65535" : {
+
+    },
+    "query" : {
+
+    },
+    "Refresh" : {
+
+    },
+    "Refresh Widget" : {
+
+    },
+    "Save" : {
+
+    },
+    "Saved Minecraft Server Status Check" : {
+
+    },
+    "See the code that makes this app work, as well as file bugs and feature requests." : {
+
+    },
+    "Select which server to show" : {
+
+    },
+    "server" : {
+
+    },
+    "Server" : {
+
+    },
+    "Server Address/IP" : {
+
+    },
+    "Server Intent Type" : {
+
+    },
+    "Server is offline" : {
+
+    },
+    "Server Name" : {
+
+    },
+    "Server Port (Optional)" : {
+
+    },
+    "Server Select" : {
+
+    },
+    "Server Status" : {
+
+    },
+    "Server Type" : {
+
+    },
+    "Servers" : {
+
+    },
+    "Servers are synced with your phone. This may take some time." : {
+
+    },
+    "Settings" : {
+
+    },
+    "Shortcuts" : {
+
+    },
+    "Show users in each row under the progress bar on the main server list" : {
+
+    },
+    "Show users on server list" : {
+
+    },
+    "Show users sorted alphabetically instead of randomly" : {
+
+    },
+    "Siri" : {
+      "shouldTranslate" : false
+    },
+    "Sort users alphabetically" : {
+
+    },
+    "Start monitoring a server" : {
+
+    },
+    "status" : {
+
+    },
+    "Support the app!" : {
+
+    },
+    "Sync your server list across all devices." : {
+
+    },
+    "Tapping the widget will open the app directly to that server. Otherwise it will open the server list." : {
+
+    },
+    "Thank you for your support!" : {
+
+    },
+    "Theme" : {
+
+    },
+    "Theme Intent Type" : {
+
+    },
+    "This app is free, ad-less, and open-source. If you find it useful, consider tipping to help keep it going!" : {
+
+    },
+    "This server has disabled player lists." : {
+
+    },
+    "Tip %@" : {
+
+    },
+    "Unknown error." : {
+
+    },
+    "View the Source Code on GitHub" : {
+
+    },
+    "What's New" : {
+
+    },
+    "Which server would you like to check the status of?" : {
+
+    },
+    "Widget opens directly to server" : {
+
+    },
+    "Widget to show the status of Minecraft Server" : {
+
+    },
+    "With Shortcuts, you can quickly check the status of your Minecraft servers without even opening the app. Use the built in shortcuts to show the current status and player count, or create custom shortcuts using the server's online status, current player count, player sample, and more." : {
+
+    }
+  },
+  "version" : "1.0"
+}

@@ -158,6 +158,11 @@
 		F304725E2D63FBFC0055C007 /* MinecraftBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30472592D63FBFC0055C007 /* MinecraftBoldItalic.otf */; };
 		F304725F2D63FBFC0055C007 /* MinecraftItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */; };
 		F30472602D63FBFC0055C007 /* MinecraftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725B2D63FBFC0055C007 /* MinecraftRegular.otf */; };
+		F326DB582D6416E100BCCB69 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
+		F326DB592D6416E100BCCB69 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
+		F326DB5A2D6416E100BCCB69 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
+		F326DB5B2D6416E100BCCB69 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
+		F326DB5C2D6416E100BCCB69 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
 		F33A5CAD2D640BEB0020D8A5 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33A5CAC2D640BEB0020D8A5 /* ScrechKit */; };
 		F33A5CAF2D640C370020D8A5 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33A5CAE2D640C370020D8A5 /* ScrechKit */; };
 		F33A5CB12D640C3B0020D8A5 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33A5CB02D640C3B0020D8A5 /* ScrechKit */; };
@@ -333,6 +338,7 @@
 		F30472592D63FBFC0055C007 /* MinecraftBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftBoldItalic.otf; sourceTree = "<group>"; };
 		F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftItalic.otf; sourceTree = "<group>"; };
 		F304725B2D63FBFC0055C007 /* MinecraftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftRegular.otf; sourceTree = "<group>"; };
+		F326DB572D6416E100BCCB69 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -450,8 +456,9 @@
 		F13E5FFB2A4BD614005BE9B2 /* MCStatus */ = {
 			isa = PBXGroup;
 			children = (
-				F13E60022A4BD615005BE9B2 /* Assets.xcassets */,
 				F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */,
+				F326DB572D6416E100BCCB69 /* Localizable.xcstrings */,
+				F13E60022A4BD615005BE9B2 /* Assets.xcassets */,
 				F1A43C802A84726F0081A24C /* Views */,
 				F1BF5D9D2A8025EE00966D56 /* Helpers */,
 				F1BF5D712A75F19F00966D56 /* Networking */,
@@ -817,6 +824,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = F13E5FF02A4BD614005BE9B2;
 			packageReferences = (
@@ -842,6 +850,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F326DB592D6416E100BCCB69 /* Localizable.xcstrings in Resources */,
 				F1EF76DF2CB5B44700EFFB20 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -850,6 +859,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F326DB5C2D6416E100BCCB69 /* Localizable.xcstrings in Resources */,
 				F30472282D63E9C20055C007 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -860,6 +870,7 @@
 			files = (
 				F1DCB7B52CC4DE940005FFE0 /* MCStatusStoreKit Local.storekit in Resources */,
 				F13E60032A4BD615005BE9B2 /* Assets.xcassets in Resources */,
+				F326DB582D6416E100BCCB69 /* Localizable.xcstrings in Resources */,
 				F17AE0FA2CC05CA200DC7A80 /* MCStatusStoreKit Synced.storekit in Resources */,
 				F304725D2D63FBFC0055C007 /* MinecraftBold.otf in Resources */,
 				F304725E2D63FBFC0055C007 /* MinecraftBoldItalic.otf in Resources */,
@@ -872,6 +883,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F326DB5A2D6416E100BCCB69 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -879,6 +891,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F326DB5B2D6416E100BCCB69 /* Localizable.xcstrings in Resources */,
 				F30472092D63E9C00055C007 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1264,6 +1277,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1319,6 +1333,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
 		};
