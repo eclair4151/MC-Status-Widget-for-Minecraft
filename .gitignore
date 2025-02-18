@@ -19,3 +19,4 @@ build/
 *.swp
 *.xcworkspace/xcuserdata/
 *.xcodeproj/project.xcworkspace/xcuserdata/
+.DS_Store
