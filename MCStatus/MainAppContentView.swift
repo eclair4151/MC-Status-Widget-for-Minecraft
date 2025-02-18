@@ -83,7 +83,7 @@ struct MainAppContentView: View {
             }
             .overlay {
                 //hack to avoid showing overlay for a split second before we have had a chance to check the database
-                if  let vms = self.serverVMs,  vms.isEmpty {
+                if let vms = self.serverVMs, vms.isEmpty {
                     ContentUnavailableView {
                         Label("Add Your First Server", systemImage: "server.rack")
                     } description: {
@@ -308,7 +308,12 @@ struct MainAppContentView: View {
             
             //first time we are seeing this server. force srv refresh if needed.
             config.forceSRVRefresh = forceSRVRefreh
-            let vm = ServerStatusVM(modelContext: self.modelContext, server: $0)
+            
+            let vm = ServerStatusVM(
+                modelContext: self.modelContext,
+                server: $0
+            )
+            
             serverVMCache[$0.id] = vm
             
             if !forceRefresh {
@@ -330,10 +335,16 @@ struct MainAppContentView: View {
     }
     
     private func checkForPendingDeepLink() {
-        if let pendingDeepLink, let serverID = UUID(uuidString: pendingDeepLink), let vm = self.serverVMCache[serverID] {
-            self.pendingDeepLink = nil
-            goToServerView(vm: vm)
+        guard
+            let pendingDeepLink,
+            let serverID = UUID(uuidString: pendingDeepLink),
+            let vm = self.serverVMCache[serverID]
+        else {
+            return
         }
+        
+        self.pendingDeepLink = nil
+        goToServerView(vm: vm)
     }
     
     private func checkForAutoReload() {
