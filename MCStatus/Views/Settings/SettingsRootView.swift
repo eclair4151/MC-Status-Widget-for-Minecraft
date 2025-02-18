@@ -2,11 +2,7 @@ import SwiftUI
 import MCStatusDataLayer
 
 enum SettingsPageDestinations {
-    case GeneralSettings,
-         FAQ,
-         Shortcuts,
-         Siri,
-         WhatsNew
+    case GeneralSettings, FAQ, Shortcuts, Siri, WhatsNew
 }
 
 struct SettingsRootView: View {
@@ -119,8 +115,8 @@ struct SettingsRootView: View {
     }
     
     private func leaveAppReview() {
-        // Replace the placeholder value below with the App Store ID for your app.
-        // You can find the App Store ID in your app's product URL.
+        // Replace the placeholder value below with the App Store ID for your app
+        // You can find the App Store ID in your app's product URL
         let url = "https://apps.apple.com/app/id1408215245?action=write-review"
         
         guard let writeReviewURL = URL(string: url) else {
