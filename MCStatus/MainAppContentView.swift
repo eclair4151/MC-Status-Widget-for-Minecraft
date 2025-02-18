@@ -10,6 +10,7 @@ enum PageDestinations {
 
 struct MainAppContentView: View {
     private let watchHelper = WatchHelper()
+    @State private var nav = NavigationPath()
     
     @Environment(\.requestReview) private var requestReview
     @Environment(\.scenePhase) private var scenePhase
@@ -22,7 +23,6 @@ struct MainAppContentView: View {
     @State private var showingAddSheet = false
     @State private var showReleaseNotes = false
     @State private var lastRefreshTime = Date()
-    @State private var nav = NavigationPath()
     @State private var pendingDeepLink: String?
     @State private var showAlert = false
     @State private var alertTitle = ""
@@ -49,7 +49,7 @@ struct MainAppContentView: View {
             }
             .scrollIndicators(.never)
             .navigationDestination(for: ServerStatusVM.self) { vm in
-                ServerStatusDetailView(vm: vm) {
+                ServerStatusDetailView(vm) {
                     reloadData()
                     refreshDisplayOrders()
                 }

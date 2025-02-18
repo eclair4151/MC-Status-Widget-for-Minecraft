@@ -8,11 +8,17 @@ struct ServerStatusDetailView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     
+    @State var vm: ServerStatusVM
+    var parentViewRefreshCallBack: () -> Void
+    
+    init(_ vm: ServerStatusVM, parentViewRefreshCallBack: @escaping () -> Void) {
+        self.vm = vm
+        self.parentViewRefreshCallBack = parentViewRefreshCallBack
+    }
+    
     @State private var showingEditSheet = false
     @State private var showingDeleteAlert = false
-    @State var vm: ServerStatusVM
     
-    var parentViewRefreshCallBack: () -> Void
     
     var prefetcher = ImagePrefetcher()
     
