@@ -10,9 +10,6 @@
     "\"%@\"" : {
 
     },
-    "*MCStatus is used for checking the status an existing server. It will not create, setup, or host a new server" : {
-
-    },
     "*Player list limited to %lld users by server" : {
 
     },
@@ -190,6 +187,9 @@
 
     },
     "MC" : {
+
+    },
+    "MC Stats is used for checking the status an existing server. It will not create, setup, or host a new server" : {
 
     },
     "MC Status 2.0" : {

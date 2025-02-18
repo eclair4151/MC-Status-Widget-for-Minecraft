@@ -40,12 +40,11 @@ struct MainAppContentView: View {
                 }
                 .onMove {
                     serverVMs?.move(fromOffsets: $0, toOffset: $1)
+                    
                     // update underlying display order
                     refreshDisplayOrders()
                 }
-                // .onDelete(perform: deleteItems)
-                // uncomment to enable swipe to delete
-                // You can also use a custom Swipe Action instead of this to block full swipes and require partial swipe + tap
+                .onDelete(perform: deleteItems)
             }
             .scrollIndicators(.never)
             .navigationDestination(for: ServerStatusVM.self) { vm in
@@ -105,7 +104,8 @@ struct MainAppContentView: View {
                         Label("Settings", systemImage: "gearshape")
                     }
                 }
-#if targetEnvironment(macCatalyst) // Gross (show refresh button only on mac status bar since they can't pull to refresh)
+                // Gross (show refresh button only on mac status bar since they can't pull to refresh)
+#if targetEnvironment(macCatalyst)
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         reloadData(forceRefresh: true)
