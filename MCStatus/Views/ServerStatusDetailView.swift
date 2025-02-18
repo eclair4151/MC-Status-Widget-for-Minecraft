@@ -1,6 +1,5 @@
 import SwiftUI
 import MCStatusDataLayer
-import NukeUI
 import Nuke
 
 struct ServerStatusDetailView: View {
@@ -187,34 +186,7 @@ struct ServerStatusDetailView: View {
             
             Section {
                 ForEach(vm.status?.playerSample ?? []) { player in
-                    HStack(spacing: 0) {
-                        let imageUrl = URL(string: vm.getMcHeadsUrl(uuid: player.uuid))
-                        // let imageUrl = URL(string: "https://httpbin.org/delay/10")
-                        
-                        LazyImage(url: imageUrl) { state in
-                            if let image = state.image {
-                                image.resizable().scaledToFit()
-                                
-                            } else if state.error != nil {
-                                Color.placeholderGrey
-                                
-                            } else {
-                                ZStack {
-                                    Color.placeholderGrey
-                                    
-                                    ProgressView()
-                                        .opacity(0.3)
-                                }
-                            }
-                        }
-                        .cornerRadius(3)
-                        .frame(width: 30, height: 30)
-                        .padding(.trailing, 16)
-                        
-                        Text(player.name)
-                    }
-                    .padding(.vertical, 10)
-                    .listRowInsets(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
+                    PlayerCard(player)
                 }
             } footer: {
                 let playerSampleCount = vm.status?.playerSample.count ?? 0
@@ -228,6 +200,7 @@ struct ServerStatusDetailView: View {
         .listStyle(.insetGrouped)
         .listSectionSpacing(10)
         .scrollIndicators(.never)
+        .environment(vm)
         .environment(\.defaultMinListHeaderHeight, 15)
         .navigationBarTitleDisplayMode(.inline)
         .onReceive(timer) { _ in

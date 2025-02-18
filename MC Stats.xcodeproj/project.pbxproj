@@ -175,6 +175,7 @@
 		F35E1A982D6501CC00718CB7 /* NavContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A942D6501CC00718CB7 /* NavContainer.swift */; };
 		F35E1A992D6501CC00718CB7 /* MC Stats visionOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A962D6501CC00718CB7 /* MC Stats visionOS.swift */; };
 		F35E1A9B2D6501CC00718CB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35E1A932D6501CC00718CB7 /* Assets.xcassets */; };
+		F35E1A9E2D65209500718CB7 /* PlayerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A9D2D65209500718CB7 /* PlayerCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -356,6 +357,7 @@
 		F35E1A942D6501CC00718CB7 /* NavContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavContainer.swift; sourceTree = "<group>"; };
 		F35E1A952D6501CC00718CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F35E1A962D6501CC00718CB7 /* MC Stats visionOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MC Stats visionOS.swift"; sourceTree = "<group>"; };
+		F35E1A9D2D65209500718CB7 /* PlayerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -550,6 +552,7 @@
 				F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */,
 				F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */,
 				F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */,
+				F35E1A9D2D65209500718CB7 /* PlayerCard.swift */,
 				F35E1A6B2D6489F900718CB7 /* Settings */,
 				F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */,
 				F1AE29152CA48577009D0D14 /* ServerRowView.swift */,
@@ -1077,6 +1080,7 @@
 				F150B35B2CC078D600739646 /* MigrationHelper.swift in Sources */,
 				F1EF775F2CB8B88B00EFFB20 /* ImageHelper.swift in Sources */,
 				F1CFCD512CABB567001A9E69 /* CustomExtentions.swift in Sources */,
+				F35E1A9E2D65209500718CB7 /* PlayerCard.swift in Sources */,
 				F16990872CA5DDE500F41232 /* MCStatusShortcutsProvider.swift in Sources */,
 				F17A16BB2A893DD700F8FF2F /* SettingsRootView.swift in Sources */,
 				F1AE29162CA48577009D0D14 /* ServerRowView.swift in Sources */,
