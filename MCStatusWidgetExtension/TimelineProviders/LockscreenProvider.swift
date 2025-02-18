@@ -100,9 +100,9 @@ struct LockscreenProvider: AppIntentTimelineProvider {
         // step 2 load status
         // horrible hack to handle watch vs phone
 #if os(watchOS)
-        let statusResult = await WatchServerStatusChecker().checkServerAsync(server: server)
+        let statusResult = await WatchServerStatusChecker().checkServerAsync(server)
 #else
-        let statusResult = await ServerStatusChecker.checkServer(server: server)
+        let statusResult = await ServerStatusChecker.checkServer(server)
 #endif
         return (server, statusResult)
     }

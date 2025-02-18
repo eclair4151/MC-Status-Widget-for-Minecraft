@@ -38,8 +38,9 @@ class WatchHelper: NSObject, WCSessionDelegate {
         // we start a new task for each server to let them run in parrallel
         for server in request.servers {
             Task {
-                let result = await ServerStatusChecker.checkServer(server: server)
+                let result = await ServerStatusChecker.checkServer(server)
                 let messageResponse = WatchResponseMessage(id: server.id, status: result)
+                
                 let encoder = JSONEncoder()
                 let jsonData = try encoder.encode(messageResponse)
                 

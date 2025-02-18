@@ -36,7 +36,7 @@ struct ArbitraryServerStatusOnlineCheckIntent: AppIntent {
         let tempServer = SavedMinecraftServer.initialize(id: UUID(), serverType: convertedServerType, name: "", serverUrl: serverAddress, serverPort: port)
         
         // need to change this if we are on watch!!
-        let status = await ServerStatusChecker.checkServer(server: tempServer)
+        let status = await ServerStatusChecker.checkServer(tempServer)
         
         print("container:" + container.schema.debugDescription)
         

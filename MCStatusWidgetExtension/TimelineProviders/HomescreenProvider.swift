@@ -58,7 +58,7 @@ struct HomescreenProvider: AppIntentTimelineProvider {
         }
         
         // step 2 load status
-        let statusResult = await ServerStatusChecker.checkServer(server: server)
+        let statusResult = await ServerStatusChecker.checkServer(server)
         
         let theme = if let themeId = configuration.Theme?.id, let themeEnum = Theme(rawValue: themeId) {
             themeEnum

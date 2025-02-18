@@ -24,7 +24,7 @@ class WatchServerStatusChecker {
         }
     }
     
-    func checkServerAsync(server: SavedMinecraftServer) async -> ServerStatus {
+    func checkServerAsync(_ server: SavedMinecraftServer) async -> ServerStatus {
         var didCallContinuation = false
         
         return await withCheckedContinuation { continuation in

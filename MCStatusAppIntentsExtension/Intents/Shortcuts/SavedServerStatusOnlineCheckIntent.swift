@@ -40,9 +40,9 @@ private func runServerStatusIntentCheck(
     
     //horrible hack to handle watch vs phone
 #if os(watchOS)
-    let status = await WatchServerStatusChecker().checkServerAsync(server: refrencedServer)
+    let status = await WatchServerStatusChecker().checkServerAsync(refrencedServer)
 #else
-    let status = await ServerStatusChecker.checkServer(server: refrencedServer, config: checkerConfig)
+    let status = await ServerStatusChecker.checkServer(refrencedServer, config: checkerConfig)
 #endif
     
     print("container:" + container.schema.debugDescription)

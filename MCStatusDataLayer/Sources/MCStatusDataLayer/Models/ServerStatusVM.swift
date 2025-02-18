@@ -35,7 +35,7 @@ public class ServerStatusVM: Identifiable, Hashable {
         
         Task {
             // DONT DO THIS, LET USER PASS IN FUNC WHICH WILL RELOAD DATA TO ALLOW REUSE IN WATCH
-            let statusResult = await ServerStatusChecker.checkServer(server: server, config: config)
+            let statusResult = await ServerStatusChecker.checkServer(server, config: config)
             print("Got result from status checker")
             
             self.status = statusResult
