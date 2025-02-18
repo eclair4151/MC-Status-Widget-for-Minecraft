@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1600"
+   LastUpgradeVersion = "1620"
+   wasCreatedForAppExtension = "YES"
    version = "2.0">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,10 +16,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F13095242CBC997200C4C7BA"
-               BuildableName = "MCStatusWatchWidgetExtension.appex"
-               BlueprintName = "MCStatusWatchWidgetExtension"
-               ReferencedContainer = "container:MCStatus.xcodeproj">
+               BlueprintIdentifier = "F1EF76EB2CB7873F00EFFB20"
+               BuildableName = "Widgets.appex"
+               BlueprintName = "Widgets"
+               ReferencedContainer = "container:MC Stats.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F13E5FF82A4BD614005BE9B2"
+               BuildableName = "MC Stats.app"
+               BlueprintName = "MC Stats"
+               ReferencedContainer = "container:MC Stats.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -42,10 +57,30 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.springboard">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "F1EF76EB2CB7873F00EFFB20"
+            BuildableName = "Widgets.appex"
+            BlueprintName = "Widgets"
+            ReferencedContainer = "container:MC Stats.xcodeproj">
+         </BuildableReference>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "F13E5FF82A4BD614005BE9B2"
+            BuildableName = "MC Stats.app"
+            BlueprintName = "MC Stats"
+            ReferencedContainer = "container:MC Stats.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "_XCWidgetKind"
-            value = ""
+            value = "MinecraftServerStatusHSWidget"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable
@@ -55,7 +90,7 @@
          </EnvironmentVariable>
          <EnvironmentVariable
             key = "_XCWidgetFamily"
-            value = "systemMedium"
+            value = "systemSmall"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
@@ -68,15 +103,16 @@
       debugDocumentVersioning = "YES"
       askForAppToLaunch = "Yes"
       launchAutomaticallySubstyle = "2">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F13095242CBC997200C4C7BA"
-            BuildableName = "MCStatusWatchWidgetExtension.appex"
-            BlueprintName = "MCStatusWatchWidgetExtension"
-            ReferencedContainer = "container:MCStatus.xcodeproj">
+            BlueprintIdentifier = "F13E5FF82A4BD614005BE9B2"
+            BuildableName = "MC Stats.app"
+            BlueprintName = "MC Stats"
+            ReferencedContainer = "container:MC Stats.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

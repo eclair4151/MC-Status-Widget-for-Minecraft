@@ -1,10 +1,3 @@
-//
-//  WebServerStatusParser.swift
-//  MCStatus
-//
-//  Created by Tomer Shemesh on 8/6/23.
-//
-
 import Foundation
 
 class WebServerStatusParser {
@@ -22,6 +15,7 @@ class WebServerStatusParser {
         if let players = input.players {
             status.maxPlayerCount = players.max
             status.onlinePlayerCount = players.online
+            
             status.playerSample = players.list.map {
                 return Player(name: $0.name_clean, uuid: $0.uuid)
             }
@@ -36,11 +30,12 @@ class WebServerStatusParser {
             status.version = versionString
         }
         
-        status.status = if (input.online) {
+        status.status = if input.online {
             OnlineStatus.Online
         } else {
             OnlineStatus.Offline
         }
+        
         return status
     }
     
@@ -60,11 +55,12 @@ class WebServerStatusParser {
             status.version = versionString
         }
         
-        status.status = if (input.online) {
+        status.status = if input.online {
             OnlineStatus.Online
         } else {
             OnlineStatus.Offline
         }
+        
         return status
     }
 }

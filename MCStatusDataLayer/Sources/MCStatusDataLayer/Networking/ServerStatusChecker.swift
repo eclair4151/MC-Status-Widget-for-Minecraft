@@ -1,24 +1,18 @@
-//
-//  ServerStatusChecker.swift
-//  MCStatus
-//
-//  Created by Tomer Shemesh on 8/6/23.
-//
-
 import Foundation
 
 public class ServerStatusChecker {
     public static func checkServer(server:SavedMinecraftServer, config: ServerCheckerConfig? = nil) async -> ServerStatus {
-//        if server.serverType == .Bedrock {
-//            do {
-//                //aritifical delay for testing
-//                try await Task.sleep(nanoseconds: UInt64(1) * NSEC_PER_SEC)
-//            } catch {}
-//        }
+        //        if server.serverType == .Bedrock {
+        //            do {
+        //                //aritifical delay for testing
+        //                try await Task.sleep(nanoseconds: UInt64(1) * NSEC_PER_SEC)
+        //            } catch {}
+        //        }
         
         let forceRefeshSrv = config?.forceSRVRefresh ?? false
+        
         // first check if we need to refresh the srv
-        if (forceRefeshSrv) {
+        if forceRefeshSrv {
             if let srvRecord = await SRVResolver.lookupMinecraftSRVRecord(serverURL: server.serverUrl), (srvRecord.0 != server.srvServerUrl || srvRecord.1 != server.srvServerPort) {
                 //got updated SRV info, updated it and try to connect.
                 // update on main thread to avoid crashing?
@@ -29,8 +23,8 @@ public class ServerStatusChecker {
             }
         }
         
-
         print("starting server check for: " + server.serverUrl)
+        
         // STEP 1 if we have SRV values, check that server.
         // only Java servers support SRV records
         if  server.serverType == .Java && !server.srvServerUrl.isEmpty && server.srvServerPort != 0 {
@@ -45,21 +39,22 @@ public class ServerStatusChecker {
             }
         }
         
-    
+        
         // STEP 2 if the direct provided url is different that the SRV record, attempt to connect using that directly.
         // ALSO THIS IS WHEN WE CONNECT TO BEDROCK SINCE THEY DONT HAVE SRV
         if server.serverType == .Bedrock || server.serverUrl != server.srvServerUrl || server.serverPort != server.srvServerPort {
             do {
                 print("CONNECTING TO SERVER DIRECTLY (IGNORING SRV)")
+                
                 let res = try await DirectServerStatusChecker.checkServer(serverUrl: server.serverUrl, serverPort: server.serverPort, serverType: server.serverType, config: config)
                 res.source = .Direct
+                
                 return res
             } catch {
                 // something when horribly wrong. Move to next step
                 print("ERROR DIRECT CONNECTING TO MANUAL SERVER + PORT: " + error.localizedDescription)
             }
         }
-        
         
         // STEP 3 first check if we already tried ot refresh the SRV based on previous forcing.
         // if not, and we still could not connect, refresh the SRV if its a java server, maybe there is an update
@@ -75,9 +70,15 @@ public class ServerStatusChecker {
                 
                 // we need to save it in swift data here.
                 print("FOUND NEW SRV RECORD FROM DNS! CHECKING SERVER AT: " + server.srvServerUrl)
-
+                
                 do {
-                    let res = try await DirectServerStatusChecker.checkServer(serverUrl: server.srvServerUrl, serverPort: server.srvServerPort, serverType: server.serverType, config: config)
+                    let res = try await DirectServerStatusChecker.checkServer(
+                        serverUrl: server.srvServerUrl,
+                        serverPort: server.srvServerPort,
+                        serverType: server.serverType,
+                        config: config
+                    )
+                    
                     res.source = .UpdatedSRV
                     return res
                 } catch {
@@ -87,14 +88,15 @@ public class ServerStatusChecker {
             }
         }
         
-        
         // STEP 4 if all else fails, ask 3rd party web server for info.
         // if we hear back from the 3rd party server, and they also say the server is offline, we can agree its offline
         do {
             print("CALLING BACKUP SERVER")
+            
             let res = try await WebServerStatusChecker.checkServer(serverUrl: server.serverUrl, serverPort: server.serverPort, serverType: server.serverType, config: config)
             res.source = .ThirdParty
             print("Got result from third part. Returning...")
+            
             return res
         } catch {
             // if we arent able to connect to the minecraft server directly, nor are we able to connect to the 3rd party server
@@ -105,18 +107,15 @@ public class ServerStatusChecker {
     }
 }
 
-
 public struct ServerCheckerConfig {
-    public var sortUsers: Bool = false
-    public var forceSRVRefresh: Bool = false
+    public var sortUsers = false
+    public var forceSRVRefresh = false
     
     public init(sortUsers: Bool = false, forceSRVRefresh: Bool = false) {
         self.forceSRVRefresh = forceSRVRefresh
         self.sortUsers = sortUsers
     }
 }
-
-
 
 //            let res = await SwiftyPing.pingServer(serverUrl: serverURL)
 //            print("got res: " + String(res.duration))
@@ -149,8 +148,9 @@ public struct ServerCheckerConfig {
 //            ]
 
 let servers = [
- "tomershemesh.me"
+    "tomershemesh.me"
 ]
+
 let servers2 = [
     "mslc.mc-complex.com",
     "mcslp.pika.host",
@@ -212,13 +212,13 @@ let servers2 = [
     "join.ventureland.net",
     "msl.serb-craft.com"
 ]
+
 func testCall() {
-//    for serverURL in servers {
-//    let statusCheckerTask = Task {
-//        let server = SavedMinecraftServer(id: UUID(), serverType: .Java, name: "", serverUrl: serverURL, serverPort: 25565)
-//            let status = await ServerStatusChecker.checkServer(server: server)
-//            print("👉: " + serverURL + "   -   " + status.version + "  -   " + status.status.rawValue)
-//        }
-//    }
-    
+    //    for serverURL in servers {
+    //    let statusCheckerTask = Task {
+    //        let server = SavedMinecraftServer(id: UUID(), serverType: .Java, name: "", serverUrl: serverURL, serverPort: 25565)
+    //            let status = await ServerStatusChecker.checkServer(server: server)
+    //            print("👉: " + serverURL + "   -   " + status.version + "  -   " + status.status.rawValue)
+    //        }
+    //    }
 }

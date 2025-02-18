@@ -1,26 +1,19 @@
-//
-//  SwiftUIHelper.swift
-//  MC Status
-//
-//  Created by Tomer Shemesh on 8/13/23.
-//
-
 import Foundation
 import SwiftData
 
 // random helper function
 public class SwiftDataHelper {
     public static func getModelContainter() -> ModelContainer {
-
-        if (UserDefaultHelper.shared.get(for: .iCloudEnabled, defaultValue: true)) {
+        if UserDefaultHelper.shared.get(for: .iCloudEnabled, defaultValue: true) {
             do {
-                let config = ModelConfiguration(nil, schema: Schema ([SavedMinecraftServer.self]), isStoredInMemoryOnly: false, allowsSave: true, groupContainer: ModelConfiguration.GroupContainer.identifier("group.shemeshapps.MinecraftServerStatus"), cloudKitDatabase: ModelConfiguration.CloudKitDatabase.private("iCloud.com.shemeshapps.MinecraftServerStatus"))
+                let config = ModelConfiguration(nil, schema: Schema ([SavedMinecraftServer.self]), isStoredInMemoryOnly: false, allowsSave: true, groupContainer: ModelConfiguration.GroupContainer.identifier("group.dev.topscrech.apps"), cloudKitDatabase: ModelConfiguration.CloudKitDatabase.private("iCloud.dev.topscrech.MC-Stats"))
+                
                 return try ModelContainer(for: SavedMinecraftServer.self, configurations: config)
             } catch {
                 // something broken with icloud? continue with local container without config.
                 print("ERROR LOADING ICLOUD MODEL CONTAINTER: " + error.localizedDescription)
             }
-       }
+        }
         
         // if this is broken then something is f'ed up. just crash
         return try! ModelContainer(for: SavedMinecraftServer.self)
@@ -33,13 +26,13 @@ public class SwiftDataHelper {
             predicate: nil,
             sortBy: [.init(\.displayOrder)]
         )
+        
         guard let results = try? modelContext.fetch(fetch) else {
             return []
         }
         
         return results
     }
-    
     
     @MainActor
     public static func getSavedServers(container: ModelContainer) -> [SavedMinecraftServer] {
@@ -56,10 +49,10 @@ public class SwiftDataHelper {
         return results
     }
     
-    @MainActor 
+    @MainActor
     public static func getSavedServerById(container: ModelContainer, server_id: UUID) -> SavedMinecraftServer? {
         let modelContext = container.mainContext
-
+        
         let serverPredicate = #Predicate<SavedMinecraftServer> {
             $0.id == server_id
         }
@@ -77,20 +70,11 @@ public class SwiftDataHelper {
         guard results.count > 0 else {
             return nil
         }
+        
         return results.first
     }
     
 }
-
-
-
-
-
-
-
-
-
-
 
 //@State private var isShowPhotoLibrary = false
 //
@@ -115,8 +99,6 @@ public class SwiftDataHelper {
 //
 //    }
 //}
-
-
 
 //import WidgetKit
 //

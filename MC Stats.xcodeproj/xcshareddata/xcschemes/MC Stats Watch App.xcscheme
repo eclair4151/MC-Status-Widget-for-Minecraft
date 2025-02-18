@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1500"
-   wasCreatedForAppExtension = "YES"
-   version = "2.0">
+   LastUpgradeVersion = "1620"
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -15,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F1406BA82AA391B800815BE8"
-               BuildableName = "MCStatusAppIntentsExtension.appex"
-               BlueprintName = "MCStatusAppIntentsExtension"
-               ReferencedContainer = "container:MCStatus.xcodeproj">
+               BlueprintIdentifier = "F11F634A2A81E50E00D47187"
+               BuildableName = "watchOS.app"
+               BlueprintName = "watchOS"
+               ReferencedContainer = "container:MC Stats.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -30,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F13E5FF82A4BD614005BE9B2"
-               BuildableName = "MC Status.app"
-               BlueprintName = "MC Status"
-               ReferencedContainer = "container:MCStatus.xcodeproj">
+               BuildableName = "MC Stats.app"
+               BlueprintName = "MC Stats"
+               ReferencedContainer = "container:MC Stats.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,24 +45,22 @@
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
-      selectedDebuggerIdentifier = ""
-      selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
-      askForAppToLaunch = "Yes"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "YES"
-      launchAutomaticallySubstyle = "2">
+      allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F13E5FF82A4BD614005BE9B2"
-            BuildableName = "MC Status.app"
-            BlueprintName = "MC Status"
-            ReferencedContainer = "container:MCStatus.xcodeproj">
+            BlueprintIdentifier = "F11F634A2A81E50E00D47187"
+            BuildableName = "watchOS.app"
+            BlueprintName = "watchOS"
+            ReferencedContainer = "container:MC Stats.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,17 +69,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      debugDocumentVersioning = "YES"
-      askForAppToLaunch = "Yes"
-      launchAutomaticallySubstyle = "2">
+      debugDocumentVersioning = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F13E5FF82A4BD614005BE9B2"
-            BuildableName = "MC Status.app"
-            BlueprintName = "MC Status"
-            ReferencedContainer = "container:MCStatus.xcodeproj">
+            BlueprintIdentifier = "F11F634A2A81E50E00D47187"
+            BuildableName = "watchOS.app"
+            BlueprintName = "watchOS"
+            ReferencedContainer = "container:MC Stats.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

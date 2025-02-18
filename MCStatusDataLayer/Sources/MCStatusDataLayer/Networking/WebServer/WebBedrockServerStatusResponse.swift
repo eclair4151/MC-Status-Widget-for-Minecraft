@@ -1,10 +1,3 @@
-//
-//  WebBedrockServerStatusResponse.swift
-//  MCStatus
-//
-//  Created by Tomer Shemesh on 8/6/23.
-//
-
 import Foundation
 
 class WebBedrockServerStatusResponse: Decodable {
@@ -17,7 +10,6 @@ class WebBedrockServerStatusResponse: Decodable {
 class WebBedrockResponseVersion: Decodable {
     let name: String
 }
-
 
 class WebBedrockResponsePlayers: Decodable {
     let online: Int

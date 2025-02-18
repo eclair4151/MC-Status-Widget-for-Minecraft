@@ -1,11 +1,3 @@
-//
-//  SiriPhrase.swift
-//  MCStatus
-//
-//  Created by Tomer Shemesh on 10/17/24.
-//
-
-
 import SwiftUI
 
 struct SiriPhrase: Identifiable {
@@ -21,18 +13,15 @@ struct SiriGuideView: View {
         SiriPhrase(phrase: "What's the status of [SERVER NAME]"),
         SiriPhrase(phrase: "Check [SERVER NAME]'s status for me"),
     ]
+    
     @State var tipVisibility = true
-
+    
     var body: some View {
-
+        
         Form {
-//            Looks bad dont bother using build in view
-//            SiriTipView(intent: SavedServerStatusOnlineCheckIntent(), isVisible: $tipVisibility)
-            Section(header: Text("How to Use Siri with MC Status")
-                        .font(.title2)
-                        .bold()
-                        .padding(.bottom, 5)) {
-                
+            //            Looks bad dont bother using build in view
+            //            SiriTipView(intent: SavedServerStatusOnlineCheckIntent(), isVisible: $tipVisibility)
+            Section {
                 ForEach(phrases) { phrase in
                     HStack {
                         Image(systemName: "mic.fill")
@@ -46,6 +35,11 @@ struct SiriGuideView: View {
                     }
                     .padding(.vertical, 5)
                 }
+            } header: {
+                Text("How to Use Siri with MC Status")
+                    .font(.title2)
+                    .bold()
+                    .padding(.bottom, 5)
             }
             .headerProminence(.increased)
         }
@@ -53,4 +47,3 @@ struct SiriGuideView: View {
         .background(Color(.systemGroupedBackground))
     }
 }
-

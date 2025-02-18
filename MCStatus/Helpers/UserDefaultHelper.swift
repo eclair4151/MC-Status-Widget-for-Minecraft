@@ -1,22 +1,12 @@
-//
-//  UserDefaultHelper.swift
-//  MCStatus
-//
-//  Created by Tomer Shemesh on 8/6/23.
-//
-
 import Foundation
-
-
-
 
 class UserDefaultHelper {
     // Define the possible keys as an enum
     enum Key: String {
-        case iCloudEnabled
-        case showUsersOnHomesreen
-        case sortUsersByName
-        case openToSpecificServer
+        case iCloudEnabled,
+             showUsersOnHomesreen,
+             sortUsersByName,
+             openToSpecificServer
         // Add more keys here as needed
     }
     
@@ -32,12 +22,9 @@ class UserDefaultHelper {
     
     // Function to get a boolean value, with a default if not set
     func get(for key: Key, defaultValue: Bool = false) -> Bool {
-        return UserDefaults.standard.object(forKey: key.rawValue) as? Bool ?? defaultValue
+        UserDefaults.standard.object(forKey: key.rawValue) as? Bool ?? defaultValue
     }
 }
-
-
-
 
 //    static var logLines: [String] = []
 //

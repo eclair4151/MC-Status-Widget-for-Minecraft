@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1600"
+   LastUpgradeVersion = "1620"
    wasCreatedForAppExtension = "YES"
    version = "2.0">
    <BuildAction
       parallelizeBuildables = "YES"
-      buildImplicitDependencies = "YES"
-      buildArchitectures = "Automatic">
+      buildImplicitDependencies = "YES">
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -16,10 +15,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F1EF76EB2CB7873F00EFFB20"
-               BuildableName = "MCStatusWidgetExtension.appex"
-               BlueprintName = "MCStatusWidgetExtension"
-               ReferencedContainer = "container:MCStatus.xcodeproj">
+               BlueprintIdentifier = "F1406BA82AA391B800815BE8"
+               BuildableName = "Intents.appex"
+               BlueprintName = "Intents"
+               ReferencedContainer = "container:MC Stats.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,9 +30,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F13E5FF82A4BD614005BE9B2"
-               BuildableName = "MC Status.app"
-               BlueprintName = "MC Status"
-               ReferencedContainer = "container:MCStatus.xcodeproj">
+               BuildableName = "MC Stats.app"
+               BlueprintName = "MC Stats"
+               ReferencedContainer = "container:MC Stats.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -57,43 +56,16 @@
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <RemoteRunnable
-         runnableDebuggingMode = "2"
-         BundleIdentifier = "com.apple.springboard">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F1EF76EB2CB7873F00EFFB20"
-            BuildableName = "MCStatusWidgetExtension.appex"
-            BlueprintName = "MCStatusWidgetExtension"
-            ReferencedContainer = "container:MCStatus.xcodeproj">
-         </BuildableReference>
-      </RemoteRunnable>
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F13E5FF82A4BD614005BE9B2"
-            BuildableName = "MC Status.app"
-            BlueprintName = "MC Status"
-            ReferencedContainer = "container:MCStatus.xcodeproj">
+            BuildableName = "MC Stats.app"
+            BlueprintName = "MC Stats"
+            ReferencedContainer = "container:MC Stats.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "_XCWidgetKind"
-            value = "MinecraftServerStatusHSWidget"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "_XCWidgetDefaultView"
-            value = "timeline"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "_XCWidgetFamily"
-            value = "systemSmall"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -108,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F13E5FF82A4BD614005BE9B2"
-            BuildableName = "MC Status.app"
-            BlueprintName = "MC Status"
-            ReferencedContainer = "container:MCStatus.xcodeproj">
+            BuildableName = "MC Stats.app"
+            BlueprintName = "MC Stats"
+            ReferencedContainer = "container:MC Stats.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

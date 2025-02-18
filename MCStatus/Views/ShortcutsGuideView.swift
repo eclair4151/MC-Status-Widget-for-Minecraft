@@ -1,16 +1,7 @@
-//
-//  ShortcutsGuideView.swift
-//  MCStatus
-//
-//  Created by Tomer Shemesh on 10/17/24.
-//
-
-
 import SwiftUI
 import AppIntents
 
 struct ShortcutsGuideView: View {
-    
     let shortcutImages = [
         "shortcuts1", "shortcuts2", "shortcuts3",
         "shortcuts4", "shortcuts5", "shortcuts6"
@@ -26,21 +17,22 @@ struct ShortcutsGuideView: View {
     ]
     
     var body: some View {
-                
         Form {
             
             // Overview Section
-            Section(header: Text("Overview of Shortcuts")
-                        .font(.title2)
-                        .bold()
-                        .padding(.bottom, 5)) {
-                            ShortcutsLink()
-                                .shortcutsLinkStyle(ShortcutsLinkStyle.automaticOutline)
+            Section {
+                ShortcutsLink()
+                    .shortcutsLinkStyle(ShortcutsLinkStyle.automaticOutline)
                 
                 Text("""
                 With Shortcuts, you can quickly check the status of your Minecraft servers without even opening the app. Use the built in shortcuts to show the current status and player count, or create custom shortcuts using the server's online status, current player count, player sample, and more.
                 """)
                 .padding(.vertical, 5)
+            } header: {
+                Text("Overview of Shortcuts")
+                    .font(.title2)
+                    .bold()
+                    .padding(.bottom, 5)
             }
             .headerProminence(.increased)
             
@@ -64,4 +56,3 @@ struct ShortcutsGuideView: View {
         .background(Color(.systemGroupedBackground))
     }
 }
-

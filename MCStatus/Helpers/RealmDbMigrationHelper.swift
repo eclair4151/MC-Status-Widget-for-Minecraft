@@ -1,18 +1,10 @@
-//
-//  RealmDbMigrationHelper.swift
-//  MCStatus
-//
-//  Created by Tomer Shemesh on 10/16/24.
-//
-
 import Foundation
 import SwiftData
 import MCStatusDataLayer
 
-
 class RealmDbMigrationHelper {
     public init() {}
-
+    
     // Singleton instance for easy access
     static let shared = RealmDbMigrationHelper()
     
@@ -22,9 +14,9 @@ class RealmDbMigrationHelper {
         static let SERVER_TYPE_JAVA_REALMS = 2
         static let SERVER_TYPE_BEDROCK_REALMS = 3
     }
-
-    private var migrationInProgress: Bool = false
-
+    
+    private var migrationInProgress = false
+    
     //server model for the database
     private class LegacySavedServer: Codable {
         var id = UUID().uuidString
@@ -35,14 +27,16 @@ class RealmDbMigrationHelper {
         var showInWidget = false
         var serverType = LegacyServerType.SERVER_TYPE_JAVA
     }
-
+    
     private func loadServerDump() -> [LegacySavedServer]? {
         let defaults = UserDefaults.standard
+        
         guard let jsonString = defaults.string(forKey: "serverDump") else {
             return nil
         }
         
         let jsonDecoder = JSONDecoder()
+        
         do {
             let servers = try jsonDecoder.decode([LegacySavedServer].self, from: jsonString.data(using: .utf8)!)
             return servers
@@ -51,21 +45,24 @@ class RealmDbMigrationHelper {
             return nil
         }
     }
-
-
+    
+    
     private func convertToSwiftData(savedServer: LegacySavedServer) -> SavedMinecraftServer? {
         let serverType: ServerType = (savedServer.serverType == LegacyServerType.SERVER_TYPE_JAVA) ? .Java : .Bedrock
         let serverUrlparts = savedServer.serverUrl.split(separator:  ":")
         var serverUrl = ""
         var serverPort = (savedServer.serverType == LegacyServerType.SERVER_TYPE_JAVA) ? 25565 : 19132
+        
         if serverUrlparts.isEmpty {
             return nil
         }
         
         serverUrl = String(serverUrlparts[0])
+        
         if serverUrlparts.count > 1, let port = Int(serverUrlparts[1]) {
             serverPort = port
         }
+        
         let newServer = SavedMinecraftServer.initialize(
             id: UUID(uuidString: savedServer.id) ?? UUID(),
             serverType: serverType,
@@ -77,25 +74,27 @@ class RealmDbMigrationHelper {
             serverIcon: savedServer.serverIcon,
             displayOrder: savedServer.order
         )
+        
         return newServer
     }
-
+    
     func nukeSavedServers() {
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: "serverDump")
         print("Saved servers nuked from UserDefaults.")
     }
-
-
+    
     @MainActor func migrateServersToSwiftData() {
-        
         guard !migrationInProgress else {
             print("migrationInProgress is true, skipping migration.")
             return
         }
         
         self.migrationInProgress = true
-        defer { self.migrationInProgress = false }
+        
+        defer {
+            self.migrationInProgress = false
+        }
         
         guard let savedServers = loadServerDump() else {
             print("No saved servers found in UserDefaults.")
@@ -103,6 +102,7 @@ class RealmDbMigrationHelper {
         }
         
         let context = ModelContext(SwiftDataHelper.getModelContainter())
+        
         for savedServer in savedServers {
             if let newServer = convertToSwiftData(savedServer: savedServer) {
                 context.insert(newServer)
@@ -118,4 +118,3 @@ class RealmDbMigrationHelper {
         }
     }
 }
-

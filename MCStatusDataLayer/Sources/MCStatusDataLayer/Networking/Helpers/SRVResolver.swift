@@ -1,10 +1,3 @@
-//
-//  SRVResolver.swift
-//  NoMAD
-//
-//  Created by Joel Rennich on 1/1/21.
-//
-
 // THIS CODE WAS MODIFIED from https://github.com/jamf/NoMAD-2
 import Foundation
 import dnssd
@@ -14,23 +7,21 @@ public enum SRVResolverError: String, Error, Codable {
 }
 
 public class SRVResolver {
-    
     var continuation: CheckedContinuation<SRVResult, Error>?
     var continuationHasBeenCalled = false
     let continuationQueue = DispatchQueue(label: "continuationCallerQueue")
-
+    
     private let queue = DispatchQueue.init(label: "SRVResolution")
-    private var dispatchSourceRead: DispatchSourceRead?;
-    private var timeoutTimer: DispatchSourceTimer?;
+    private var dispatchSourceRead: DispatchSourceRead?
+    private var timeoutTimer: DispatchSourceTimer?
     private var serviceRef: DNSServiceRef?
-    private var socket: dnssd_sock_t = -1;
+    private var socket: dnssd_sock_t = -1
     private var query: String?
     
     // default to 3 sec lookups
     private let timeout = TimeInterval(3)
     
     var results = [SRVRecord]()
-    
     
     func callContinuationResume(result: SRVResult) {
         continuationQueue.sync {
@@ -66,13 +57,13 @@ public class SRVResolver {
         guard let context = context else { return }
         
         let request: SRVResolver = SRVResolver.bridge(context)
-
+        
         if let data = rdata?.assumingMemoryBound(to: UInt8.self),
            let record = SRVRecord(data: Data.init(bytes: data, count: Int(rdlen))) {
             request.results.append(record)
         }
         
-        if ((flags & kDNSServiceFlagsMoreComing) == 0) {
+        if (flags & kDNSServiceFlagsMoreComing) == 0 {
             request.success()
         }
     }
@@ -80,11 +71,11 @@ public class SRVResolver {
     // These allow for the ObjC -> Swift conversion of a pointer
     // The DNS APIs are a bit... unique
     static func bridge<T:AnyObject>(_ obj : T) -> UnsafeMutableRawPointer {
-        return Unmanaged.passUnretained(obj).toOpaque();
+        return Unmanaged.passUnretained(obj).toOpaque()
     }
     
     static func bridge<T:AnyObject>(_ ptr : UnsafeMutableRawPointer) -> T {
-        return Unmanaged<T>.fromOpaque(ptr).takeUnretainedValue();
+        return Unmanaged<T>.fromOpaque(ptr).takeUnretainedValue()
     }
     
     func fail() {
@@ -104,7 +95,7 @@ public class SRVResolver {
         self.dispatchSourceRead?.cancel()
     }
     
-    // this is also only support by java servers. 
+    // this is also only support by java servers.
     public static func lookupMinecraftSRVRecord(serverURL: String) async -> (String,Int)? {
         
         //if its a regular ip just return nil
@@ -116,9 +107,11 @@ public class SRVResolver {
         do {
             let res = SRVResolver()
             let SRVResult = try await res.resolve(query: "_minecraft._tcp." + serverURL)
+            
             let highestPrioritySRV = SRVResult.SRVRecords.min(by: { rec1, rec2 in
                 rec1.priority < rec2.priority
             })
+            
             guard let address = highestPrioritySRV?.target, let port = highestPrioritySRV?.port, address != "", port != 0 else {
                 return nil
             }
@@ -128,28 +121,26 @@ public class SRVResolver {
         }
     }
     
-    
-    //checks is the server is an ip address, if so donteven bother trying to get a dns record since one wont exist.
+    //checks is the server is an ip address, if so donteven bother trying to get a dns record since one wont exist
     static func isValidIpAddress(ipToValidate: String) -> Bool {
-
         var sin = sockaddr_in()
         var sin6 = sockaddr_in6()
-
+        
         if ipToValidate.withCString({ cstring in inet_pton(AF_INET6, cstring, &sin6.sin6_addr) }) == 1 {
-            // IPv6 peer.
+            // IPv6 peer
             return true
         }
+        
         else if ipToValidate.withCString({ cstring in inet_pton(AF_INET, cstring, &sin.sin_addr) }) == 1 {
-            // IPv4 peer.
+            // IPv4 peer
             return true
         }
-
-        return false;
+        
+        return false
     }
     
     func resolve(query: String) async throws -> SRVResult {
-        
-        return try await withCheckedThrowingContinuation { continuation in
+        try await withCheckedThrowingContinuation { continuation in
             self.continuation = continuation
             self.query = query
             let namec = query.cString(using: .utf8)
@@ -158,7 +149,6 @@ public class SRVResolver {
             
             switch result {
             case DNSServiceErrorType(kDNSServiceErr_NoError):
-                
                 guard let sdRef = self.serviceRef else {
                     fail()
                     return
@@ -173,24 +163,24 @@ public class SRVResolver {
                 
                 self.dispatchSourceRead = DispatchSource.makeReadSource(fileDescriptor: self.socket, queue: self.queue)
                 
-                self.dispatchSourceRead?.setEventHandler(handler: {
+                self.dispatchSourceRead?.setEventHandler {
                     let res = DNSServiceProcessResult(sdRef)
                     if res != kDNSServiceErr_NoError {
                         self.fail()
                     }
-                })
+                }
                 
-                self.dispatchSourceRead?.setCancelHandler(handler: {
+                self.dispatchSourceRead?.setCancelHandler {
                     DNSServiceRefDeallocate(self.serviceRef)
-                })
+                }
                 
                 self.dispatchSourceRead?.resume()
                 
                 self.timeoutTimer = DispatchSource.makeTimerSource(flags: [], queue: self.queue)
                 
-                self.timeoutTimer?.setEventHandler(handler: {
+                self.timeoutTimer?.setEventHandler {
                     self.fail()
-                })
+                }
                 
                 let deadline = DispatchTime(uptimeNanoseconds: DispatchTime.now().uptimeNanoseconds + UInt64(timeout * Double(NSEC_PER_SEC)))
                 self.timeoutTimer?.schedule(deadline: deadline, repeating: .infinity, leeway: DispatchTimeInterval.never)
@@ -199,7 +189,6 @@ public class SRVResolver {
             default:
                 self.fail()
             }
-
         }
     }
 }

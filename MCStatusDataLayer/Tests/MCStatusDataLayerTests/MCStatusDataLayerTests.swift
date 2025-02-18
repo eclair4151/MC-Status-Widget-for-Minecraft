@@ -4,7 +4,6 @@ import Foundation
 @testable import MCStatusDataLayer
 
 struct MCParsingTests {
-    
     @Test func testParsing() throws {
         let stringInput = #"""
         {
@@ -38,12 +37,15 @@ struct MCParsingTests {
             }
         }
         """#
+        
         let jsonData = stringInput.data(using: .utf8)
+        
         guard let jsonData = jsonData else {
             throw ServerStatusCheckerError.StatusUnparsable
         }
         
         var responseObject: JavaServerStatusResponse
+        
         do {
             //attempt to parse it into a json using a custom parser defined in the object
             responseObject = try JSONDecoder().decode(JavaServerStatusResponse.self, from: jsonData)

@@ -1,10 +1,3 @@
-//
-//  WatchContentView.swift
-//  MCStatusWatchApp Watch App
-//
-//  Created by Tomer Shemesh on 8/7/23.
-//
-
 import SwiftUI
 import SwiftData
 import CloudKit
@@ -13,47 +6,50 @@ import MCStatusDataLayer
 import WidgetKit
 
 //func testServer() -> SavedMinecraftServer {
-//    return SavedMinecraftServer(id: UUID(), serverType: .Java, name: "Hodor", serverUrl: "zero.minr.org", serverPort: 25565)
+//    SavedMinecraftServer(id: UUID(), serverType: .Java, name: "Hodor", serverUrl: "zero.minr.org", serverPort: 25565)
 //}
-
 
 struct WatchContentView: View {
     private enum iCloudStatus {
         case available, unavailable, unknown
     }
     
-    @Environment(\.scenePhase) var scenePhase
+    @Environment(\.scenePhase) private var scenePhase
     @Environment(\.modelContext) private var modelContext
-    @State private var serverViewModels: [ServerStatusViewModel]?
-    @State private var serverViewModelCache: [UUID:ServerStatusViewModel] = [:]
+    @State private var serverVMs: [ServerStatusVM]?
+    @State private var serverVMCache: [UUID: ServerStatusVM] = [:]
     @State private var iCloudStatus: iCloudStatus = .unknown
     @State private var lastRefreshTime = Date()
+    
     private var minSinceLastRefresh: Int {
         let currentTime = Date()
         let timeInterval = currentTime.timeIntervalSince(lastRefreshTime)
+        
         return Int(timeInterval / 60)
     }
+    
     var statusChecker = WatchServerStatusChecker()
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(serverViewModels ?? []) { viewModel in
-                    NavigationLink(value: viewModel) {
-                        WatchServerRowView(viewModel: viewModel)
+                ForEach(serverVMs ?? []) { vm in
+                    NavigationLink(value: vm) {
+                        WatchServerRowView(vm: vm)
                     }
                 }
-//                Text("Updated \(minSinceLastRefresh)m ago").frame(maxWidth: .infinity, alignment: .center).listRowBackground(Color.clear) // this is ugly so removing it
-            }.navigationDestination(for: ServerStatusViewModel.self) { viewModel in
-                WatchServerDetailScreen(serverStatusViewModel: viewModel)
+                //                Text("Updated \(minSinceLastRefresh)m ago").frame(maxWidth: .infinity, alignment: .center).listRowBackground(Color.clear) // this is ugly so removing it
+            }
+            .navigationDestination(for: ServerStatusVM.self) { vm in
+                WatchServerDetailScreen(serverStatusVM: vm)
             }
             .toolbar {
-                if let serverViewModels, !serverViewModels.isEmpty {
+                if let serverVMs, !serverVMs.isEmpty {
                     ToolbarItem(placement: .topBarLeading) {
                         Text("Servers").font(.system(size: 25)).bold()
                     }
-                    
                 }
+                
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         reloadData(forceRefresh: true)
@@ -64,28 +60,32 @@ struct WatchContentView: View {
                 }
             }
         }
-        
         .overlay {
-            if self.iCloudStatus == .unavailable && serverViewModels?.isEmpty ?? true {
+            if self.iCloudStatus == .unavailable && serverVMs?.isEmpty ?? true {
                 VStack {
                     Spacer()
-                    Image (systemName: "icloud.slash")
-                        .font (.system(size: 30))
+                    Image(systemName: "icloud.slash")
+                        .font(.system(size: 30))
                         .foregroundStyle(.gray)
+                    
                     ContentUnavailableView("Enable iCloud", systemImage: "",
                                            description: Text ("iCloud is required to sync servers to your watch."))
                     .scrollDisabled(true)
+                    
                     Spacer()
                 }
-            } else if let serverViewModels, serverViewModels.isEmpty {
+            } else if let serverVMs, serverVMs.isEmpty {
                 VStack {
                     Spacer()
-                    Image (systemName: "server.rack")
-                    .font (.system(size: 30))
-                    .foregroundStyle(.gray)
+                    
+                    Image(systemName: "server.rack")
+                        .font(.system(size: 30))
+                        .foregroundStyle(.gray)
+                    
                     ContentUnavailableView("Add a Server", systemImage: "",
-                       description: Text ("Servers are synced with your phone. This may take some time."))
+                                           description: Text ("Servers are synced with your phone. This may take some time."))
                     .scrollDisabled(true)
+                    
                     Spacer()
                 }
             }
@@ -113,9 +113,10 @@ struct WatchContentView: View {
                 MCStatusShortcutsProvider.updateAppShortcutParameters()
                 WidgetCenter.shared.invalidateConfigurationRecommendations()
             }
-        }.onAppear {
+        }
+        .onAppear {
             statusChecker.responseListener = { id, status in
-                guard let servervVM = self.serverViewModelCache[id] else {
+                guard let servervVM = self.serverVMCache[id] else {
                     return
                 }
                 
@@ -128,6 +129,7 @@ struct WatchContentView: View {
             }
             
             let container = CKContainer.default()
+            
             container.accountStatus { accountStatus, error in
                 switch accountStatus {
                 case .available:
@@ -145,20 +147,20 @@ struct WatchContentView: View {
                 }
             }
             
-//            let server = SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "OPBlocks", serverUrl: "hub.opblocks.com", serverPort: 25565)
-//            modelContext.insert(server)
-//            print(server.name)
-//            
-//            modelContext.insert(server)
+            //            let server = SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "OPBlocks", serverUrl: "hub.opblocks.com", serverPort: 25565)
+            //            modelContext.insert(server)
+            //            print(server.name)
+            //
+            //            modelContext.insert(server)
             MCStatusShortcutsProvider.updateAppShortcutParameters()
         }
     }
     
     private func checkForAutoReload() {
         let currentTime = Date()
-
+        
         let timeInterval = currentTime.timeIntervalSince(lastRefreshTime)
-
+        
         guard timeInterval > 60 else {
             return
         }
@@ -173,31 +175,36 @@ struct WatchContentView: View {
             predicate: nil,
             sortBy: [.init(\.displayOrder)]
         )
+        
         guard let servers = try? modelContext.fetch(fetch) else {
-            self.serverViewModels = []
+            self.serverVMs = []
             return
         }
         
         var serversToCheck:[SavedMinecraftServer] = []
         
-        self.serverViewModels = servers.map {
-            if let cachedVm = serverViewModelCache[$0.id] {
+        self.serverVMs = servers.map {
+            if let cachedVm = serverVMCache[$0.id] {
                 return cachedVm
             }
             
-            let vm = ServerStatusViewModel(modelContext: self.modelContext, server: $0)
-            serverViewModelCache[$0.id] = vm
+            let vm = ServerStatusVM(modelContext: self.modelContext, server: $0)
+            serverVMCache[$0.id] = vm
+            
             if !forceRefresh {
                 serversToCheck.append($0)
             }
+            
             return vm
         }
         
         if forceRefresh {
             lastRefreshTime = Date()
-            for vm in self.serverViewModels ?? [] {
+            
+            for vm in self.serverVMs ?? [] {
                 vm.loadingStatus = .Loading
             }
+            
             serversToCheck = servers
         }
         
@@ -208,7 +215,7 @@ struct WatchContentView: View {
         statusChecker.checkServers(servers: serversToCheck)
     }
 }
-//
+
 //#Preview {
 //    WatchContentView()
 //}

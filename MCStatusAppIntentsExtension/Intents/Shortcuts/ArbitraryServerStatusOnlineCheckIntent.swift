@@ -1,16 +1,7 @@
-//
-//  File.swift
-//  MCStatusAppIntentsExtension
-//
-//  Created by Tomer Shemesh on 9/8/23.
-//
-
-import Foundation
 import AppIntents
 import MCStatusDataLayer
 
 struct ArbitraryServerStatusOnlineCheckIntent: AppIntent {
-        
     static var title: LocalizedStringResource = "Arbitrary Minecraft Server Status Check"
     
     static var description =
@@ -26,17 +17,13 @@ struct ArbitraryServerStatusOnlineCheckIntent: AppIntent {
     var serverPort: Int?
     
     func perform() async throws -> some ProvidesDialog & IntentResult & ReturnsValue<ServerStatusEntity>{
-        
         let convertedServerType: ServerType = switch serverType {
-            case .java:
-                .Java
-            case .bedrock:
-                .Bedrock
+        case .java: .Java
+        case .bedrock: .Bedrock
         }
         
-       
         let container = SwiftDataHelper.getModelContainter()
-
+        
         // do something about this port shit
         let port = if let serverPort {
             serverPort
@@ -47,15 +34,14 @@ struct ArbitraryServerStatusOnlineCheckIntent: AppIntent {
         }
         
         let tempServer = SavedMinecraftServer.initialize(id: UUID(), serverType: convertedServerType, name: "", serverUrl: serverAddress, serverPort: port)
-       
+        
         // need to change this if we are on watch!!
         let status = await ServerStatusChecker.checkServer(server: tempServer)
         
         print("container:" + container.schema.debugDescription)
-
+        
         let res = ServerStatusEntity(serverId: UUID(), serversName: serverAddress, serverStatus: status)
         return .result(value: res, dialog: "\(String(localized: res.displayRepresentation.title))")
-
     }
     
     static var parameterSummary: some ParameterSummary {
@@ -64,15 +50,14 @@ struct ArbitraryServerStatusOnlineCheckIntent: AppIntent {
 }
 
 enum ShortCutsServerType: String, AppEnum {
-    static var typeDisplayRepresentation = TypeDisplayRepresentation("Server Type")
-
+    static var typeDisplayRepresentation: TypeDisplayRepresentation = "Server Type"
     
     static var caseDisplayRepresentations: [ShortCutsServerType: DisplayRepresentation] = [
         .java: "Java",
         .bedrock: "Bedrock/MCPE",
     ]
-    case java
-    case bedrock
+    
+    case java, bedrock
     
     static var typeDisplayName: LocalizedStringResource = "Server Type"
 }

@@ -1,17 +1,9 @@
-//
-//  MCStatusShortcutsProvider.swift
-//  MCStatusAppIntentsExtension
-//
-//  Created by Tomer Shemesh on 9/9/23.
-//
-
-import Foundation
 import AppIntents
 
 public struct MCStatusShortcutsProvider: AppShortcutsProvider {
     public static var appShortcuts: [AppShortcut] {
         AppShortcut(
-            intent:SavedServerStatusOnlineCheckIntent(),
+            intent: SavedServerStatusOnlineCheckIntent(),
             phrases: [
                 "Check the \(.applicationName) of my server",
                 "Check the \(.applicationName) of my Minecraft server",
@@ -24,6 +16,5 @@ public struct MCStatusShortcutsProvider: AppShortcutsProvider {
             shortTitle: "Check Server Status",
             systemImageName: "rectangle.connected.to.line.below"
         )
-    }    
+    }
 }
-

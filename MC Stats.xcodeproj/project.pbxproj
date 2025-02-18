@@ -3,19 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		F10C42172AAD55BF000107D6 /* MCStatusShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MCStatusShortcutsProvider.swift */; };
-		F10C421C2AAE40BC000107D6 /* MCStatusAppIntentsExtension.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = F1406BA92AA391B800815BE8 /* MCStatusAppIntentsExtension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F10C421C2AAE40BC000107D6 /* Intents.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = F1406BA92AA391B800815BE8 /* Intents.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F10E94B12A8C61B60039DD2B /* ConnectivityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E94B02A8C61B60039DD2B /* ConnectivityProvider.swift */; };
-		F11F634E2A81E50E00D47187 /* MCStatusWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F634D2A81E50E00D47187 /* MCStatusWatchApp.swift */; };
-		F11F63552A81E51000D47187 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F11F63542A81E51000D47187 /* Preview Assets.xcassets */; };
-		F11F63582A81E51000D47187 /* MCStatus Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F11F634B2A81E50E00D47187 /* MCStatus Watch App.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F11F634E2A81E50E00D47187 /* MCStats Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F634D2A81E50E00D47187 /* MCStats Watch.swift */; };
+		F11F63582A81E51000D47187 /* watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F11F634B2A81E50E00D47187 /* watchOS.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F13095262CBC997200C4C7BA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EF76ED2CB7873F00EFFB20 /* WidgetKit.framework */; };
 		F13095272CBC997200C4C7BA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EF76EF2CB7873F00EFFB20 /* SwiftUI.framework */; };
-		F13095302CBC997300C4C7BA /* MCStatusWatchWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F13095252CBC997200C4C7BA /* MCStatusWatchWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F13095302CBC997300C4C7BA /* Watch Widgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F13095252CBC997200C4C7BA /* Watch Widgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F13095362CBC99AE00C4C7BA /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F13095352CBC99AE00C4C7BA /* MCStatusDataLayer */; };
 		F130954C2CBC9C5D00C4C7BA /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
 		F130954D2CBC9D1C00C4C7BA /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
@@ -28,10 +27,9 @@
 		F13095582CBD494300C4C7BA /* ConnectivityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E94B02A8C61B60039DD2B /* ConnectivityProvider.swift */; };
 		F13095592CBD497200C4C7BA /* WatchServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174A3002A915E450051DA5B /* WatchServerStatusChecker.swift */; };
 		F130955A2CBD499700C4C7BA /* ConnectivityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E94B02A8C61B60039DD2B /* ConnectivityProvider.swift */; };
-		F13E5FFD2A4BD614005BE9B2 /* MCStatusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFC2A4BD614005BE9B2 /* MCStatusApp.swift */; };
+		F13E5FFD2A4BD614005BE9B2 /* MC Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */; };
 		F13E60012A4BD614005BE9B2 /* MainAppContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */; };
 		F13E60032A4BD615005BE9B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
-		F13E60072A4BD615005BE9B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */; };
 		F1406BAC2AA391B800815BE8 /* MCStatusAppIntentsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BAB2AA391B800815BE8 /* MCStatusAppIntentsExtension.swift */; };
 		F1406BBF2AA3933400815BE8 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
 		F1406BC22AA3936E00815BE8 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
@@ -95,7 +93,7 @@
 		F1EF76DF2CB5B44700EFFB20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F11F63512A81E51000D47187 /* Assets.xcassets */; };
 		F1EF76EE2CB7873F00EFFB20 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EF76ED2CB7873F00EFFB20 /* WidgetKit.framework */; };
 		F1EF76F02CB7873F00EFFB20 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EF76EF2CB7873F00EFFB20 /* SwiftUI.framework */; };
-		F1EF76FF2CB7874000EFFB20 /* MCStatusWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F1EF76EC2CB7873F00EFFB20 /* MCStatusWidgetExtension.appex */; platformFilters = (ios, maccatalyst, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F1EF76FF2CB7874000EFFB20 /* Widgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F1EF76EC2CB7873F00EFFB20 /* Widgets.appex */; platformFilters = (ios, maccatalyst, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F1EF77382CB818AC00EFFB20 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F1EF77372CB818AC00EFFB20 /* MCStatusDataLayer */; };
 		F1EF775E2CB8B88B00EFFB20 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
 		F1EF775F2CB8B88B00EFFB20 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
@@ -103,6 +101,63 @@
 		F1EF77612CB8B89A00EFFB20 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
 		F1EF77622CB8C62D00EFFB20 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
 		F1EF77632CB958B700EFFB20 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
+		F30472092D63E9C00055C007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F30472012D63E9C00055C007 /* Assets.xcassets */; };
+		F304720B2D63E9C00055C007 /* HomescreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F52D63E9C00055C007 /* HomescreenProvider.swift */; };
+		F304720C2D63E9C00055C007 /* LockscreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F62D63E9C00055C007 /* LockscreenProvider.swift */; };
+		F304720D2D63E9C00055C007 /* CircularAccessoryWidgetView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F82D63E9C00055C007 /* CircularAccessoryWidgetView1.swift */; };
+		F304720E2D63E9C00055C007 /* CircularAccessoryWidgetView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F92D63E9C00055C007 /* CircularAccessoryWidgetView2.swift */; };
+		F304720F2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FA2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift */; };
+		F30472102D63E9C00055C007 /* InlineAccessoryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FB2D63E9C00055C007 /* InlineAccessoryWidgetView.swift */; };
+		F30472112D63E9C00055C007 /* InlineAccessoryWidgetView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FC2D63E9C00055C007 /* InlineAccessoryWidgetView2.swift */; };
+		F30472122D63E9C00055C007 /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FD2D63E9C00055C007 /* MediumWidgetView.swift */; };
+		F30472132D63E9C00055C007 /* RectangularAccessoryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FE2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift */; };
+		F30472142D63E9C00055C007 /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FF2D63E9C00055C007 /* SmallWidgetView.swift */; };
+		F30472152D63E9C00055C007 /* MCStatusWidgetExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472042D63E9C00055C007 /* MCStatusWidgetExtensionBundle.swift */; };
+		F30472162D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472052D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift */; };
+		F30472172D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472062D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift */; };
+		F30472182D63E9C00055C007 /* WidgetEntryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472072D63E9C00055C007 /* WidgetEntryVM.swift */; };
+		F30472192D63E9C00055C007 /* CircularAccessoryWidgetView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F82D63E9C00055C007 /* CircularAccessoryWidgetView1.swift */; };
+		F304721A2D63E9C00055C007 /* CircularAccessoryWidgetView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F92D63E9C00055C007 /* CircularAccessoryWidgetView2.swift */; };
+		F304721B2D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472062D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift */; };
+		F304721C2D63E9C00055C007 /* WidgetEntryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472072D63E9C00055C007 /* WidgetEntryVM.swift */; };
+		F304721D2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FE2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift */; };
+		F304721E2D63E9C00055C007 /* InlineAccessoryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FB2D63E9C00055C007 /* InlineAccessoryWidgetView.swift */; };
+		F304721F2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FA2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift */; };
+		F30472202D63E9C00055C007 /* InlineAccessoryWidgetView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FC2D63E9C00055C007 /* InlineAccessoryWidgetView2.swift */; };
+		F30472212D63E9C00055C007 /* LockscreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F62D63E9C00055C007 /* LockscreenProvider.swift */; };
+		F30472272D63E9C20055C007 /* MCStatusWatchWidgetExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472252D63E9C20055C007 /* MCStatusWatchWidgetExtensionBundle.swift */; };
+		F30472282D63E9C20055C007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F30472222D63E9C20055C007 /* Assets.xcassets */; };
+		F304722E2D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722A2D63E9CF0055C007 /* RefreshWidgetIntent.swift */; };
+		F304722F2D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722B2D63E9CF0055C007 /* ServerSelectNoTheme.swift */; };
+		F30472302D63E9CF0055C007 /* ServerSelectWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722C2D63E9CF0055C007 /* ServerSelectWidgetIntent.swift */; };
+		F30472372D63E9CF0055C007 /* ServerSelectWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722C2D63E9CF0055C007 /* ServerSelectWidgetIntent.swift */; };
+		F30472382D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722A2D63E9CF0055C007 /* RefreshWidgetIntent.swift */; };
+		F30472392D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722B2D63E9CF0055C007 /* ServerSelectNoTheme.swift */; };
+		F304723A2D63E9CF0055C007 /* ServerSelectWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722C2D63E9CF0055C007 /* ServerSelectWidgetIntent.swift */; };
+		F304723B2D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722A2D63E9CF0055C007 /* RefreshWidgetIntent.swift */; };
+		F304723C2D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722B2D63E9CF0055C007 /* ServerSelectNoTheme.swift */; };
+		F30472402D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723D2D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift */; };
+		F30472412D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift */; };
+		F30472422D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723D2D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift */; };
+		F30472432D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift */; };
+		F30472442D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723D2D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift */; };
+		F30472452D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift */; };
+		F30472492D63E9D20055C007 /* ServerIntentTypeAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472462D63E9D20055C007 /* ServerIntentTypeAppEntity.swift */; };
+		F304724A2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472472D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift */; };
+		F304724B2D63E9D20055C007 /* ServerIntentTypeAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472462D63E9D20055C007 /* ServerIntentTypeAppEntity.swift */; };
+		F304724C2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472472D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift */; };
+		F304724D2D63E9D20055C007 /* ServerIntentTypeAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472462D63E9D20055C007 /* ServerIntentTypeAppEntity.swift */; };
+		F304724E2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472472D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift */; };
+		F30472522D63E9D30055C007 /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* SavedServerEntity.swift */; };
+		F30472532D63E9D30055C007 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
+		F30472542D63E9D30055C007 /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* SavedServerEntity.swift */; };
+		F30472552D63E9D30055C007 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
+		F30472562D63E9D30055C007 /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* SavedServerEntity.swift */; };
+		F30472572D63E9D30055C007 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
+		F304725D2D63FBFC0055C007 /* MinecraftBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30472582D63FBFC0055C007 /* MinecraftBold.otf */; };
+		F304725E2D63FBFC0055C007 /* MinecraftBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30472592D63FBFC0055C007 /* MinecraftBoldItalic.otf */; };
+		F304725F2D63FBFC0055C007 /* MinecraftItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */; };
+		F30472602D63FBFC0055C007 /* MinecraftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725B2D63FBFC0055C007 /* MinecraftRegular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,7 +205,7 @@
 			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
 			dstSubfolderSpec = 16;
 			files = (
-				F10C421C2AAE40BC000107D6 /* MCStatusAppIntentsExtension.appex in Embed ExtensionKit Extensions */,
+				F10C421C2AAE40BC000107D6 /* Intents.appex in Embed ExtensionKit Extensions */,
 			);
 			name = "Embed ExtensionKit Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,7 +216,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				F11F63582A81E51000D47187 /* MCStatus Watch App.app in Embed Watch Content */,
+				F11F63582A81E51000D47187 /* watchOS.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,7 +227,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				F13095302CBC997300C4C7BA /* MCStatusWatchWidgetExtension.appex in Embed Foundation Extensions */,
+				F13095302CBC997300C4C7BA /* Watch Widgets.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,7 +238,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				F1EF76FF2CB7874000EFFB20 /* MCStatusWidgetExtension.appex in Embed Foundation Extensions */,
+				F1EF76FF2CB7874000EFFB20 /* Widgets.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,22 +248,20 @@
 /* Begin PBXFileReference section */
 		F10C42162AAD55BF000107D6 /* MCStatusShortcutsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusShortcutsProvider.swift; sourceTree = "<group>"; };
 		F10E94B02A8C61B60039DD2B /* ConnectivityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityProvider.swift; sourceTree = "<group>"; };
-		F11F634B2A81E50E00D47187 /* MCStatus Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MCStatus Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F11F634D2A81E50E00D47187 /* MCStatusWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusWatchApp.swift; sourceTree = "<group>"; };
+		F11F634B2A81E50E00D47187 /* watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watchOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F11F634D2A81E50E00D47187 /* MCStats Watch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MCStats Watch.swift"; sourceTree = "<group>"; };
 		F11F63512A81E51000D47187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F11F63542A81E51000D47187 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		F13095252CBC997200C4C7BA /* MCStatusWatchWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MCStatusWatchWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F13095252CBC997200C4C7BA /* Watch Widgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Watch Widgets.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F130954E2CBC9D5600C4C7BA /* ConfigHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigHelper.swift; sourceTree = "<group>"; };
 		F1322FE32AAAB3FC005EAF56 /* MCStatusDataLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MCStatusDataLayer; sourceTree = "<group>"; };
-		F13E5FF92A4BD614005BE9B2 /* MC Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F13E5FFC2A4BD614005BE9B2 /* MCStatusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusApp.swift; sourceTree = "<group>"; };
+		F13E5FF92A4BD614005BE9B2 /* MC Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC Stats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MC Stats.swift"; sourceTree = "<group>"; };
 		F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppContentView.swift; sourceTree = "<group>"; };
 		F13E60022A4BD615005BE9B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F13E60042A4BD615005BE9B2 /* MCStatus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatus.entitlements; sourceTree = "<group>"; };
-		F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F13E60082A4BD615005BE9B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentErrors.swift; sourceTree = "<group>"; };
-		F1406BA92AA391B800815BE8 /* MCStatusAppIntentsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = MCStatusAppIntentsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1406BA92AA391B800815BE8 /* Intents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = Intents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1406BAB2AA391B800815BE8 /* MCStatusAppIntentsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusAppIntentsExtension.swift; sourceTree = "<group>"; };
 		F1406BAF2AA391B800815BE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1406BB72AA391F400815BE8 /* MCStatusAppIntentsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusAppIntentsExtension.entitlements; sourceTree = "<group>"; };
@@ -231,112 +284,52 @@
 		F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
 		F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyPing.swift; sourceTree = "<group>"; };
 		F1C9A9AE2A879A4800C058C7 /* MCStatusWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusWatchApp.entitlements; sourceTree = "<group>"; };
-		F1C9A9AF2A879FBC00C058C7 /* MCStatusWatchApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MCStatusWatchApp-Info.plist"; sourceTree = "<group>"; };
+		F1C9A9AF2A879FBC00C058C7 /* MC StatsWatchApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MC StatsWatchApp-Info.plist"; sourceTree = "<group>"; };
 		F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExtentions.swift; sourceTree = "<group>"; };
 		F1DCB7B42CC4DE940005FFE0 /* MCStatusStoreKit Local.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "MCStatusStoreKit Local.storekit"; sourceTree = "<group>"; };
 		F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		F1EF76BF2CB4204E00EFFB20 /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
 		F1EF76C02CB4204E00EFFB20 /* WatchServerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServerRowView.swift; sourceTree = "<group>"; };
 		F1EF76C92CB422D400EFFB20 /* WatchServerDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServerDetailScreen.swift; sourceTree = "<group>"; };
-		F1EF76EC2CB7873F00EFFB20 /* MCStatusWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MCStatusWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1EF76EC2CB7873F00EFFB20 /* Widgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1EF76ED2CB7873F00EFFB20 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		F1EF76EF2CB7873F00EFFB20 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		F30471F52D63E9C00055C007 /* HomescreenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenProvider.swift; sourceTree = "<group>"; };
+		F30471F62D63E9C00055C007 /* LockscreenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenProvider.swift; sourceTree = "<group>"; };
+		F30471F82D63E9C00055C007 /* CircularAccessoryWidgetView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularAccessoryWidgetView1.swift; sourceTree = "<group>"; };
+		F30471F92D63E9C00055C007 /* CircularAccessoryWidgetView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularAccessoryWidgetView2.swift; sourceTree = "<group>"; };
+		F30471FA2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerAccessoryWidgetView1.swift; sourceTree = "<group>"; };
+		F30471FB2D63E9C00055C007 /* InlineAccessoryWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineAccessoryWidgetView.swift; sourceTree = "<group>"; };
+		F30471FC2D63E9C00055C007 /* InlineAccessoryWidgetView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineAccessoryWidgetView2.swift; sourceTree = "<group>"; };
+		F30471FD2D63E9C00055C007 /* MediumWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumWidgetView.swift; sourceTree = "<group>"; };
+		F30471FE2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularAccessoryWidgetView.swift; sourceTree = "<group>"; };
+		F30471FF2D63E9C00055C007 /* SmallWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidgetView.swift; sourceTree = "<group>"; };
+		F30472012D63E9C00055C007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F30472022D63E9C00055C007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F30472032D63E9C00055C007 /* MCStatusWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusWidgetExtension.entitlements; sourceTree = "<group>"; };
+		F30472042D63E9C00055C007 /* MCStatusWidgetExtensionBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusWidgetExtensionBundle.swift; sourceTree = "<group>"; };
+		F30472052D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusWidgetExtensionHS.swift; sourceTree = "<group>"; };
+		F30472062D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusWidgetExtensionLS.swift; sourceTree = "<group>"; };
+		F30472072D63E9C00055C007 /* WidgetEntryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEntryVM.swift; sourceTree = "<group>"; };
+		F30472222D63E9C20055C007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F30472232D63E9C20055C007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F30472242D63E9C20055C007 /* MCStatusWatchWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusWatchWidget.entitlements; sourceTree = "<group>"; };
+		F30472252D63E9C20055C007 /* MCStatusWatchWidgetExtensionBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusWatchWidgetExtensionBundle.swift; sourceTree = "<group>"; };
+		F304722A2D63E9CF0055C007 /* RefreshWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshWidgetIntent.swift; sourceTree = "<group>"; };
+		F304722B2D63E9CF0055C007 /* ServerSelectNoTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSelectNoTheme.swift; sourceTree = "<group>"; };
+		F304722C2D63E9CF0055C007 /* ServerSelectWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSelectWidgetIntent.swift; sourceTree = "<group>"; };
+		F304723D2D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArbitraryServerStatusOnlineCheckIntent.swift; sourceTree = "<group>"; };
+		F304723E2D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedServerStatusOnlineCheckIntent.swift; sourceTree = "<group>"; };
+		F30472462D63E9D20055C007 /* ServerIntentTypeAppEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerIntentTypeAppEntity.swift; sourceTree = "<group>"; };
+		F30472472D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeIntentTypeAppEntity.swift; sourceTree = "<group>"; };
+		F304724F2D63E9D30055C007 /* SavedServerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedServerEntity.swift; sourceTree = "<group>"; };
+		F30472502D63E9D30055C007 /* ServerStatusEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusEntity.swift; sourceTree = "<group>"; };
+		F30472582D63FBFC0055C007 /* MinecraftBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftBold.otf; sourceTree = "<group>"; };
+		F30472592D63FBFC0055C007 /* MinecraftBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftBoldItalic.otf; sourceTree = "<group>"; };
+		F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftItalic.otf; sourceTree = "<group>"; };
+		F304725B2D63FBFC0055C007 /* MinecraftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftRegular.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		F13095342CBC997300C4C7BA /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = F13095242CBC997200C4C7BA /* MCStatusWatchWidgetExtension */;
-		};
-		F13095382CBC99C500C4C7BA /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				MCStatusWidgetExtensionLS.swift,
-				TimelineProviders/LockscreenProvider.swift,
-				Views/CircularAccessoryWidgetView1.swift,
-				Views/CircularAccessoryWidgetView2.swift,
-				Views/CornerAccessoryWidgetView1.swift,
-				Views/InlineAccessoryWidgetView.swift,
-				Views/InlineAccessoryWidgetView2.swift,
-				Views/RectangularAccessoryWidgetView.swift,
-				WidgetEntryViewModel.swift,
-			);
-			target = F13095242CBC997200C4C7BA /* MCStatusWatchWidgetExtension */;
-		};
-		F130953C2CBC99FB00C4C7BA /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				RefreshWidgetIntent.swift,
-				ServerSelectNoTheme.swift,
-				ServerSelectWidgetIntent.swift,
-			);
-			target = F13095242CBC997200C4C7BA /* MCStatusWatchWidgetExtension */;
-		};
-		F130953F2CBC9A2B00C4C7BA /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				ServerIntentTypeAppEntity.swift,
-				ThemeIntentTypeAppEntity.swift,
-			);
-			target = F13095242CBC997200C4C7BA /* MCStatusWatchWidgetExtension */;
-		};
-		F1EF77012CB7874100EFFB20 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = F1EF76EB2CB7873F00EFFB20 /* MCStatusWidgetExtension */;
-		};
-		F1EF77502CB858CD00EFFB20 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				ServerIntentTypeAppEntity.swift,
-				ThemeIntentTypeAppEntity.swift,
-			);
-			target = F1406BA82AA391B800815BE8 /* MCStatusAppIntentsExtension */;
-		};
-		F1EF77562CB86C8800EFFB20 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				RefreshWidgetIntent.swift,
-				ServerSelectNoTheme.swift,
-				ServerSelectWidgetIntent.swift,
-			);
-			target = F13E5FF82A4BD614005BE9B2 /* MC Status */;
-		};
-		F1EF77572CB86C8800EFFB20 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				RefreshWidgetIntent.swift,
-				ServerSelectNoTheme.swift,
-				ServerSelectWidgetIntent.swift,
-			);
-			target = F11F634A2A81E50E00D47187 /* MCStatus Watch App */;
-		};
-		F1EF77582CB86C8800EFFB20 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				RefreshWidgetIntent.swift,
-				ServerSelectNoTheme.swift,
-				ServerSelectWidgetIntent.swift,
-			);
-			target = F1EF76EB2CB7873F00EFFB20 /* MCStatusWidgetExtension */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		F12E264D2CADA38C00986787 /* Fonts */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Fonts; sourceTree = "<group>"; };
-		F13095282CBC997200C4C7BA /* MCStatusWatchWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F13095342CBC997300C4C7BA /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = MCStatusWatchWidget; sourceTree = "<group>"; };
-		F1EF76F12CB7873F00EFFB20 /* MCStatusWidgetExtension */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F1EF77012CB7874100EFFB20 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, F13095382CBC99C500C4C7BA /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = MCStatusWidgetExtension; sourceTree = "<group>"; };
-		F1EF774A2CB858C300EFFB20 /* Widget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F1EF77502CB858CD00EFFB20 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, F130953F2CBC9A2B00C4C7BA /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Widget; sourceTree = "<group>"; };
-		F1EF77552CB86C8500EFFB20 /* Widget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F1EF77562CB86C8800EFFB20 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, F1EF77572CB86C8800EFFB20 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, F1EF77582CB86C8800EFFB20 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, F130953C2CBC99FB00C4C7BA /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Widget; sourceTree = "<group>"; };
-		F1EF77592CB86C9000EFFB20 /* Shortcuts */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Shortcuts; sourceTree = "<group>"; };
-		F1EF775A2CB86CA100EFFB20 /* Shortcuts */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Shortcuts; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F11F63482A81E50E00D47187 /* Frameworks */ = {
@@ -410,23 +403,14 @@
 		F11F634C2A81E50E00D47187 /* MCStatusWatchApp */ = {
 			isa = PBXGroup;
 			children = (
-				F1C9A9AF2A879FBC00C058C7 /* MCStatusWatchApp-Info.plist */,
+				F1C9A9AF2A879FBC00C058C7 /* MC StatsWatchApp-Info.plist */,
 				F1C9A9AE2A879A4800C058C7 /* MCStatusWatchApp.entitlements */,
-				F11F634D2A81E50E00D47187 /* MCStatusWatchApp.swift */,
+				F11F634D2A81E50E00D47187 /* MCStats Watch.swift */,
 				F11F63512A81E51000D47187 /* Assets.xcassets */,
 				F1EF76C42CB4205200EFFB20 /* Helpers */,
 				F1EF76C12CB4204E00EFFB20 /* Views */,
-				F11F63532A81E51000D47187 /* Preview Content */,
 			);
 			path = MCStatusWatchApp;
-			sourceTree = "<group>";
-		};
-		F11F63532A81E51000D47187 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				F11F63542A81E51000D47187 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		F13E5FF02A4BD614005BE9B2 = {
@@ -436,8 +420,8 @@
 				F11F634C2A81E50E00D47187 /* MCStatusWatchApp */,
 				F1322FE32AAAB3FC005EAF56 /* MCStatusDataLayer */,
 				F1406BAA2AA391B800815BE8 /* MCStatusAppIntentsExtension */,
-				F1EF76F12CB7873F00EFFB20 /* MCStatusWidgetExtension */,
-				F13095282CBC997200C4C7BA /* MCStatusWatchWidget */,
+				F30472082D63E9C00055C007 /* MCStatusWidgetExtension */,
+				F30472262D63E9C20055C007 /* MCStatusWatchWidget */,
 				F13E5FFA2A4BD614005BE9B2 /* Products */,
 				F10C421B2AAE40BC000107D6 /* Frameworks */,
 			);
@@ -446,11 +430,11 @@
 		F13E5FFA2A4BD614005BE9B2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F13E5FF92A4BD614005BE9B2 /* MC Status.app */,
-				F11F634B2A81E50E00D47187 /* MCStatus Watch App.app */,
-				F1406BA92AA391B800815BE8 /* MCStatusAppIntentsExtension.appex */,
-				F1EF76EC2CB7873F00EFFB20 /* MCStatusWidgetExtension.appex */,
-				F13095252CBC997200C4C7BA /* MCStatusWatchWidgetExtension.appex */,
+				F13E5FF92A4BD614005BE9B2 /* MC Stats.app */,
+				F11F634B2A81E50E00D47187 /* watchOS.app */,
+				F1406BA92AA391B800815BE8 /* Intents.appex */,
+				F1EF76EC2CB7873F00EFFB20 /* Widgets.appex */,
+				F13095252CBC997200C4C7BA /* Watch Widgets.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -458,9 +442,8 @@
 		F13E5FFB2A4BD614005BE9B2 /* MCStatus */ = {
 			isa = PBXGroup;
 			children = (
-				F13E60062A4BD615005BE9B2 /* Preview Assets.xcassets */,
 				F13E60022A4BD615005BE9B2 /* Assets.xcassets */,
-				F13E5FFC2A4BD614005BE9B2 /* MCStatusApp.swift */,
+				F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */,
 				F1A43C802A84726F0081A24C /* Views */,
 				F1BF5D9D2A8025EE00966D56 /* Helpers */,
 				F1BF5D712A75F19F00966D56 /* Networking */,
@@ -472,8 +455,8 @@
 		F1406BA02AA2CC2F00815BE8 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				F1EF774A2CB858C300EFFB20 /* Widget */,
-				F1EF775A2CB86CA100EFFB20 /* Shortcuts */,
+				F30472482D63E9D20055C007 /* Widget */,
+				F30472512D63E9D30055C007 /* Shortcuts */,
 				F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */,
 			);
 			path = Entities;
@@ -495,8 +478,8 @@
 		F149FEC32AA9696F00A269A3 /* Intents */ = {
 			isa = PBXGroup;
 			children = (
-				F1EF77552CB86C8500EFFB20 /* Widget */,
-				F1EF77592CB86C9000EFFB20 /* Shortcuts */,
+				F304722D2D63E9CF0055C007 /* Widget */,
+				F304723F2D63E9D00055C007 /* Shortcuts */,
 			);
 			path = Intents;
 			sourceTree = "<group>";
@@ -504,7 +487,7 @@
 		F1A43C7E2A8472420081A24C /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				F12E264D2CADA38C00986787 /* Fonts */,
+				F304725C2D63FBFC0055C007 /* Fonts */,
 				F13E60042A4BD615005BE9B2 /* MCStatus.entitlements */,
 				F13E60082A4BD615005BE9B2 /* Info.plist */,
 				F17AE0F92CC05CA200DC7A80 /* MCStatusStoreKit Synced.storekit */,
@@ -574,12 +557,111 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		F30471F72D63E9C00055C007 /* TimelineProviders */ = {
+			isa = PBXGroup;
+			children = (
+				F30471F52D63E9C00055C007 /* HomescreenProvider.swift */,
+				F30471F62D63E9C00055C007 /* LockscreenProvider.swift */,
+			);
+			path = TimelineProviders;
+			sourceTree = "<group>";
+		};
+		F30472002D63E9C00055C007 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F30471F82D63E9C00055C007 /* CircularAccessoryWidgetView1.swift */,
+				F30471F92D63E9C00055C007 /* CircularAccessoryWidgetView2.swift */,
+				F30471FA2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift */,
+				F30471FB2D63E9C00055C007 /* InlineAccessoryWidgetView.swift */,
+				F30471FC2D63E9C00055C007 /* InlineAccessoryWidgetView2.swift */,
+				F30471FD2D63E9C00055C007 /* MediumWidgetView.swift */,
+				F30471FE2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift */,
+				F30471FF2D63E9C00055C007 /* SmallWidgetView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F30472082D63E9C00055C007 /* MCStatusWidgetExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F30471F72D63E9C00055C007 /* TimelineProviders */,
+				F30472002D63E9C00055C007 /* Views */,
+				F30472012D63E9C00055C007 /* Assets.xcassets */,
+				F30472022D63E9C00055C007 /* Info.plist */,
+				F30472032D63E9C00055C007 /* MCStatusWidgetExtension.entitlements */,
+				F30472042D63E9C00055C007 /* MCStatusWidgetExtensionBundle.swift */,
+				F30472052D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift */,
+				F30472062D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift */,
+				F30472072D63E9C00055C007 /* WidgetEntryVM.swift */,
+			);
+			path = MCStatusWidgetExtension;
+			sourceTree = "<group>";
+		};
+		F30472262D63E9C20055C007 /* MCStatusWatchWidget */ = {
+			isa = PBXGroup;
+			children = (
+				F30472222D63E9C20055C007 /* Assets.xcassets */,
+				F30472232D63E9C20055C007 /* Info.plist */,
+				F30472242D63E9C20055C007 /* MCStatusWatchWidget.entitlements */,
+				F30472252D63E9C20055C007 /* MCStatusWatchWidgetExtensionBundle.swift */,
+			);
+			path = MCStatusWatchWidget;
+			sourceTree = "<group>";
+		};
+		F304722D2D63E9CF0055C007 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				F304722A2D63E9CF0055C007 /* RefreshWidgetIntent.swift */,
+				F304722B2D63E9CF0055C007 /* ServerSelectNoTheme.swift */,
+				F304722C2D63E9CF0055C007 /* ServerSelectWidgetIntent.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		F304723F2D63E9D00055C007 /* Shortcuts */ = {
+			isa = PBXGroup;
+			children = (
+				F304723D2D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift */,
+				F304723E2D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift */,
+			);
+			path = Shortcuts;
+			sourceTree = "<group>";
+		};
+		F30472482D63E9D20055C007 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				F30472462D63E9D20055C007 /* ServerIntentTypeAppEntity.swift */,
+				F30472472D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		F30472512D63E9D30055C007 /* Shortcuts */ = {
+			isa = PBXGroup;
+			children = (
+				F304724F2D63E9D30055C007 /* SavedServerEntity.swift */,
+				F30472502D63E9D30055C007 /* ServerStatusEntity.swift */,
+			);
+			path = Shortcuts;
+			sourceTree = "<group>";
+		};
+		F304725C2D63FBFC0055C007 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F30472582D63FBFC0055C007 /* MinecraftBold.otf */,
+				F30472592D63FBFC0055C007 /* MinecraftBoldItalic.otf */,
+				F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */,
+				F304725B2D63FBFC0055C007 /* MinecraftRegular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F11F634A2A81E50E00D47187 /* MCStatus Watch App */ = {
+		F11F634A2A81E50E00D47187 /* watchOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F11F63592A81E51000D47187 /* Build configuration list for PBXNativeTarget "MCStatus Watch App" */;
+			buildConfigurationList = F11F63592A81E51000D47187 /* Build configuration list for PBXNativeTarget "watchOS" */;
 			buildPhases = (
 				F11F63472A81E50E00D47187 /* Sources */,
 				F11F63482A81E50E00D47187 /* Frameworks */,
@@ -592,24 +674,19 @@
 				F1EF76D02CB4496F00EFFB20 /* PBXTargetDependency */,
 				F130952F2CBC997300C4C7BA /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				F1EF77552CB86C8500EFFB20 /* Widget */,
-				F1EF77592CB86C9000EFFB20 /* Shortcuts */,
-				F1EF775A2CB86CA100EFFB20 /* Shortcuts */,
-			);
-			name = "MCStatus Watch App";
+			name = watchOS;
 			packageProductDependencies = (
 				F1C010422AAAB6E50017B9A9 /* MCStatusDataLayer */,
 				F1EF76C52CB4216F00EFFB20 /* Nuke */,
 				F1EF76C72CB4216F00EFFB20 /* NukeUI */,
 			);
 			productName = "MCStatusWatchApp Watch App";
-			productReference = F11F634B2A81E50E00D47187 /* MCStatus Watch App.app */;
+			productReference = F11F634B2A81E50E00D47187 /* watchOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F13095242CBC997200C4C7BA /* MCStatusWatchWidgetExtension */ = {
+		F13095242CBC997200C4C7BA /* Watch Widgets */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F13095312CBC997300C4C7BA /* Build configuration list for PBXNativeTarget "MCStatusWatchWidgetExtension" */;
+			buildConfigurationList = F13095312CBC997300C4C7BA /* Build configuration list for PBXNativeTarget "Watch Widgets" */;
 			buildPhases = (
 				F13095212CBC997200C4C7BA /* Sources */,
 				F13095222CBC997200C4C7BA /* Frameworks */,
@@ -619,20 +696,17 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				F13095282CBC997200C4C7BA /* MCStatusWatchWidget */,
-			);
-			name = MCStatusWatchWidgetExtension;
+			name = "Watch Widgets";
 			packageProductDependencies = (
 				F13095352CBC99AE00C4C7BA /* MCStatusDataLayer */,
 			);
 			productName = MCStatusWatchWidgetExtension;
-			productReference = F13095252CBC997200C4C7BA /* MCStatusWatchWidgetExtension.appex */;
+			productReference = F13095252CBC997200C4C7BA /* Watch Widgets.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		F13E5FF82A4BD614005BE9B2 /* MC Status */ = {
+		F13E5FF82A4BD614005BE9B2 /* MC Stats */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F13E600B2A4BD615005BE9B2 /* Build configuration list for PBXNativeTarget "MC Status" */;
+			buildConfigurationList = F13E600B2A4BD615005BE9B2 /* Build configuration list for PBXNativeTarget "MC Stats" */;
 			buildPhases = (
 				F13E5FF52A4BD614005BE9B2 /* Sources */,
 				F13E5FF62A4BD614005BE9B2 /* Frameworks */,
@@ -648,25 +722,19 @@
 				F10C421E2AAE40BC000107D6 /* PBXTargetDependency */,
 				F1EF76FE2CB7874000EFFB20 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				F12E264D2CADA38C00986787 /* Fonts */,
-				F1EF77552CB86C8500EFFB20 /* Widget */,
-				F1EF77592CB86C9000EFFB20 /* Shortcuts */,
-				F1EF775A2CB86CA100EFFB20 /* Shortcuts */,
-			);
-			name = "MC Status";
+			name = "MC Stats";
 			packageProductDependencies = (
 				F1C010402AAAB6DE0017B9A9 /* MCStatusDataLayer */,
 				F1612CC72CACC37300E602DC /* Nuke */,
 				F1612CC92CACC37300E602DC /* NukeUI */,
 			);
 			productName = MinecraftServerStatus;
-			productReference = F13E5FF92A4BD614005BE9B2 /* MC Status.app */;
+			productReference = F13E5FF92A4BD614005BE9B2 /* MC Stats.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F1406BA82AA391B800815BE8 /* MCStatusAppIntentsExtension */ = {
+		F1406BA82AA391B800815BE8 /* Intents */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F1406BB32AA391B800815BE8 /* Build configuration list for PBXNativeTarget "MCStatusAppIntentsExtension" */;
+			buildConfigurationList = F1406BB32AA391B800815BE8 /* Build configuration list for PBXNativeTarget "Intents" */;
 			buildPhases = (
 				F1406BA52AA391B800815BE8 /* Sources */,
 				F1406BA62AA391B800815BE8 /* Frameworks */,
@@ -676,22 +744,17 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				F1EF77552CB86C8500EFFB20 /* Widget */,
-				F1EF77592CB86C9000EFFB20 /* Shortcuts */,
-				F1EF775A2CB86CA100EFFB20 /* Shortcuts */,
-			);
-			name = MCStatusAppIntentsExtension;
+			name = Intents;
 			packageProductDependencies = (
 				F1C010442AAAB6EA0017B9A9 /* MCStatusDataLayer */,
 			);
 			productName = MCStatusIntentsFramework;
-			productReference = F1406BA92AA391B800815BE8 /* MCStatusAppIntentsExtension.appex */;
+			productReference = F1406BA92AA391B800815BE8 /* Intents.appex */;
 			productType = "com.apple.product-type.extensionkit-extension";
 		};
-		F1EF76EB2CB7873F00EFFB20 /* MCStatusWidgetExtension */ = {
+		F1EF76EB2CB7873F00EFFB20 /* Widgets */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F1EF77022CB7874100EFFB20 /* Build configuration list for PBXNativeTarget "MCStatusWidgetExtension" */;
+			buildConfigurationList = F1EF77022CB7874100EFFB20 /* Build configuration list for PBXNativeTarget "Widgets" */;
 			buildPhases = (
 				F1EF76E82CB7873F00EFFB20 /* Sources */,
 				F1EF76E92CB7873F00EFFB20 /* Frameworks */,
@@ -701,16 +764,12 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				F1EF76F12CB7873F00EFFB20 /* MCStatusWidgetExtension */,
-				F1EF774A2CB858C300EFFB20 /* Widget */,
-			);
-			name = MCStatusWidgetExtension;
+			name = Widgets;
 			packageProductDependencies = (
 				F1EF77372CB818AC00EFFB20 /* MCStatusDataLayer */,
 			);
 			productName = MCStatusWidgetExtensionExtension;
-			productReference = F1EF76EC2CB7873F00EFFB20 /* MCStatusWidgetExtension.appex */;
+			productReference = F1EF76EC2CB7873F00EFFB20 /* Widgets.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -721,7 +780,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					F11F634A2A81E50E00D47187 = {
 						CreatedOnToolsVersion = 15.0;
@@ -740,8 +799,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F13E5FF42A4BD614005BE9B2 /* Build configuration list for PBXProject "MCStatus" */;
-			compatibilityVersion = "Xcode 14.0";
+			buildConfigurationList = F13E5FF42A4BD614005BE9B2 /* Build configuration list for PBXProject "MC Stats" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -752,15 +810,16 @@
 			packageReferences = (
 				F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
+			preferredProjectObjectVersion = 77;
 			productRefGroup = F13E5FFA2A4BD614005BE9B2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F13E5FF82A4BD614005BE9B2 /* MC Status */,
-				F11F634A2A81E50E00D47187 /* MCStatus Watch App */,
-				F1406BA82AA391B800815BE8 /* MCStatusAppIntentsExtension */,
-				F1EF76EB2CB7873F00EFFB20 /* MCStatusWidgetExtension */,
-				F13095242CBC997200C4C7BA /* MCStatusWatchWidgetExtension */,
+				F13E5FF82A4BD614005BE9B2 /* MC Stats */,
+				F11F634A2A81E50E00D47187 /* watchOS */,
+				F1406BA82AA391B800815BE8 /* Intents */,
+				F1EF76EB2CB7873F00EFFB20 /* Widgets */,
+				F13095242CBC997200C4C7BA /* Watch Widgets */,
 			);
 		};
 /* End PBXProject section */
@@ -770,7 +829,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F11F63552A81E51000D47187 /* Preview Assets.xcassets in Resources */,
 				F1EF76DF2CB5B44700EFFB20 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -779,6 +837,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F30472282D63E9C20055C007 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -786,10 +845,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F13E60072A4BD615005BE9B2 /* Preview Assets.xcassets in Resources */,
 				F1DCB7B52CC4DE940005FFE0 /* MCStatusStoreKit Local.storekit in Resources */,
 				F13E60032A4BD615005BE9B2 /* Assets.xcassets in Resources */,
 				F17AE0FA2CC05CA200DC7A80 /* MCStatusStoreKit Synced.storekit in Resources */,
+				F304725D2D63FBFC0055C007 /* MinecraftBold.otf in Resources */,
+				F304725E2D63FBFC0055C007 /* MinecraftBoldItalic.otf in Resources */,
+				F304725F2D63FBFC0055C007 /* MinecraftItalic.otf in Resources */,
+				F30472602D63FBFC0055C007 /* MinecraftRegular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,6 +866,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F30472092D63E9C00055C007 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,11 +886,15 @@
 				F17AE0F82CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
 				F17AE0EE2CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
 				F1EF76D52CB449E700EFFB20 /* MCStatusShortcutsProvider.swift in Sources */,
+				F30472442D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */,
+				F30472452D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
 				F1EF76C22CB4204E00EFFB20 /* WatchContentView.swift in Sources */,
 				F1EF76C32CB4204E00EFFB20 /* WatchServerRowView.swift in Sources */,
 				F174A2FE2A8F8ED70051DA5B /* UserDefaultHelper.swift in Sources */,
-				F11F634E2A81E50E00D47187 /* MCStatusWatchApp.swift in Sources */,
+				F11F634E2A81E50E00D47187 /* MCStats Watch.swift in Sources */,
 				F1EF76BA2CB41A2700EFFB20 /* CustomProgressView.swift in Sources */,
+				F30472562D63E9D30055C007 /* SavedServerEntity.swift in Sources */,
+				F30472572D63E9D30055C007 /* ServerStatusEntity.swift in Sources */,
 				F10E94B12A8C61B60039DD2B /* ConnectivityProvider.swift in Sources */,
 				F150B35F2CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */,
 				F1EF77602CB8B88B00EFFB20 /* ImageHelper.swift in Sources */,
@@ -841,11 +908,26 @@
 				F13095542CBC9DB300C4C7BA /* UserDefaultHelper.swift in Sources */,
 				F13095572CBD48ED00C4C7BA /* WatchServerStatusChecker.swift in Sources */,
 				F13095582CBD494300C4C7BA /* ConnectivityProvider.swift in Sources */,
+				F304723A2D63E9CF0055C007 /* ServerSelectWidgetIntent.swift in Sources */,
+				F304723B2D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */,
+				F304723C2D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */,
 				F130954D2CBC9D1C00C4C7BA /* ImageHelper.swift in Sources */,
 				F17AE07D2CBE0B6600DC7A80 /* CustomProgressView.swift in Sources */,
 				F17AE0F42CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
+				F304724D2D63E9D20055C007 /* ServerIntentTypeAppEntity.swift in Sources */,
+				F304724E2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */,
 				F150B3612CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */,
 				F150B35A2CC078D600739646 /* MigrationHelper.swift in Sources */,
+				F30472192D63E9C00055C007 /* CircularAccessoryWidgetView1.swift in Sources */,
+				F304721A2D63E9C00055C007 /* CircularAccessoryWidgetView2.swift in Sources */,
+				F304721B2D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift in Sources */,
+				F304721C2D63E9C00055C007 /* WidgetEntryVM.swift in Sources */,
+				F304721D2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift in Sources */,
+				F304721E2D63E9C00055C007 /* InlineAccessoryWidgetView.swift in Sources */,
+				F304721F2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift in Sources */,
+				F30472202D63E9C00055C007 /* InlineAccessoryWidgetView2.swift in Sources */,
+				F30472212D63E9C00055C007 /* LockscreenProvider.swift in Sources */,
+				F30472272D63E9C20055C007 /* MCStatusWatchWidgetExtensionBundle.swift in Sources */,
 				F17AE0F02CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
 				F130954C2CBC9C5D00C4C7BA /* CustomExtentions.swift in Sources */,
 			);
@@ -858,6 +940,8 @@
 				F150B4342CC15F6A00739646 /* SiriGuideView.swift in Sources */,
 				F17AE0FC2CC05F9000DC7A80 /* TipJarView.swift in Sources */,
 				F1A43C822A8472B20081A24C /* ServerStatusDetailView.swift in Sources */,
+				F30472542D63E9D30055C007 /* SavedServerEntity.swift in Sources */,
+				F30472552D63E9D30055C007 /* ServerStatusEntity.swift in Sources */,
 				F174A2FC2A8F7FFA0051DA5B /* WatchHelper.swift in Sources */,
 				F17A16BD2A8956DE00F8FF2F /* EditServerView.swift in Sources */,
 				F17AE0EC2CC01E9E00DC7A80 /* FAQView.swift in Sources */,
@@ -865,8 +949,10 @@
 				F1C010492AAAB9B60017B9A9 /* SwiftyPing.swift in Sources */,
 				F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */,
 				F150B3632CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */,
-				F13E5FFD2A4BD614005BE9B2 /* MCStatusApp.swift in Sources */,
+				F13E5FFD2A4BD614005BE9B2 /* MC Stats.swift in Sources */,
 				F150B4362CC1709700739646 /* ShortcutsGuideView.swift in Sources */,
+				F30472422D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */,
+				F30472432D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
 				F17AE0EF2CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
 				F16990822CA5DDE500F41232 /* IntentErrors.swift in Sources */,
 				F150B35B2CC078D600739646 /* MigrationHelper.swift in Sources */,
@@ -886,8 +972,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F30472522D63E9D30055C007 /* SavedServerEntity.swift in Sources */,
+				F30472532D63E9D30055C007 /* ServerStatusEntity.swift in Sources */,
+				F30472402D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */,
+				F30472412D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
 				F13095592CBD497200C4C7BA /* WatchServerStatusChecker.swift in Sources */,
 				F10C42172AAD55BF000107D6 /* MCStatusShortcutsProvider.swift in Sources */,
+				F304724B2D63E9D20055C007 /* ServerIntentTypeAppEntity.swift in Sources */,
+				F304724C2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */,
 				F150B3622CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */,
 				F150B35D2CC078D600739646 /* MigrationHelper.swift in Sources */,
 				F1CFCD522CABB567001A9E69 /* CustomExtentions.swift in Sources */,
@@ -896,6 +988,9 @@
 				F1EF775E2CB8B88B00EFFB20 /* ImageHelper.swift in Sources */,
 				F1406BBF2AA3933400815BE8 /* IntentErrors.swift in Sources */,
 				F130955A2CBD499700C4C7BA /* ConnectivityProvider.swift in Sources */,
+				F304722E2D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */,
+				F304722F2D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */,
+				F30472302D63E9CF0055C007 /* ServerSelectWidgetIntent.swift in Sources */,
 				F13095512CBC9D5600C4C7BA /* ConfigHelper.swift in Sources */,
 				F17AE0F22CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
 				F1406BC22AA3936E00815BE8 /* UserDefaultHelper.swift in Sources */,
@@ -908,8 +1003,27 @@
 			files = (
 				F150B35C2CC078D600739646 /* MigrationHelper.swift in Sources */,
 				F150B3602CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */,
+				F304720B2D63E9C00055C007 /* HomescreenProvider.swift in Sources */,
+				F304720C2D63E9C00055C007 /* LockscreenProvider.swift in Sources */,
+				F30472372D63E9CF0055C007 /* ServerSelectWidgetIntent.swift in Sources */,
+				F30472382D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */,
+				F30472392D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */,
+				F304720D2D63E9C00055C007 /* CircularAccessoryWidgetView1.swift in Sources */,
+				F304720E2D63E9C00055C007 /* CircularAccessoryWidgetView2.swift in Sources */,
+				F304720F2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift in Sources */,
+				F30472102D63E9C00055C007 /* InlineAccessoryWidgetView.swift in Sources */,
+				F30472112D63E9C00055C007 /* InlineAccessoryWidgetView2.swift in Sources */,
+				F30472122D63E9C00055C007 /* MediumWidgetView.swift in Sources */,
+				F30472132D63E9C00055C007 /* RectangularAccessoryWidgetView.swift in Sources */,
+				F30472142D63E9C00055C007 /* SmallWidgetView.swift in Sources */,
+				F30472152D63E9C00055C007 /* MCStatusWidgetExtensionBundle.swift in Sources */,
+				F30472162D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift in Sources */,
+				F30472172D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift in Sources */,
+				F30472182D63E9C00055C007 /* WidgetEntryVM.swift in Sources */,
 				F17AE0F12CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
 				F17AE0F72CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
+				F30472492D63E9D20055C007 /* ServerIntentTypeAppEntity.swift in Sources */,
+				F304724A2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */,
 				F1EF77632CB958B700EFFB20 /* CustomExtentions.swift in Sources */,
 				F1EF77622CB8C62D00EFFB20 /* CustomProgressView.swift in Sources */,
 				F1EF77612CB8B89A00EFFB20 /* ImageHelper.swift in Sources */,
@@ -924,28 +1038,28 @@
 		F10C421E2AAE40BC000107D6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			platformFilter = ios;
-			target = F1406BA82AA391B800815BE8 /* MCStatusAppIntentsExtension */;
+			target = F1406BA82AA391B800815BE8 /* Intents */;
 			targetProxy = F10C421D2AAE40BC000107D6 /* PBXContainerItemProxy */;
 		};
 		F11F63572A81E51000D47187 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			platformFilter = ios;
-			target = F11F634A2A81E50E00D47187 /* MCStatus Watch App */;
+			target = F11F634A2A81E50E00D47187 /* watchOS */;
 			targetProxy = F11F63562A81E51000D47187 /* PBXContainerItemProxy */;
 		};
 		F130952F2CBC997300C4C7BA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F13095242CBC997200C4C7BA /* MCStatusWatchWidgetExtension */;
+			target = F13095242CBC997200C4C7BA /* Watch Widgets */;
 			targetProxy = F130952E2CBC997300C4C7BA /* PBXContainerItemProxy */;
 		};
 		F1EF76D02CB4496F00EFFB20 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F1406BA82AA391B800815BE8 /* MCStatusAppIntentsExtension */;
+			target = F1406BA82AA391B800815BE8 /* Intents */;
 			targetProxy = F1EF76CF2CB4496F00EFFB20 /* PBXContainerItemProxy */;
 		};
 		F1EF76FE2CB7874000EFFB20 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F1EF76EB2CB7873F00EFFB20 /* MCStatusWidgetExtension */;
+			target = F1EF76EB2CB7873F00EFFB20 /* Widgets */;
 			targetProxy = F1EF76FD2CB7874000EFFB20 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -958,22 +1072,21 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MCStatusWatchApp/MCStatusWatchApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_ASSET_PATHS = "\"MCStatusWatchApp/Preview Content\"";
-				DEVELOPMENT_TEAM = FDYR7V7AH4;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MCStatusWatchApp/MCStatusWatchApp-Info.plist";
+				INFOPLIST_FILE = "MCStatusWatchApp/MC StatsWatchApp-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Status";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.shemeshapps.MinecraftServerStatus;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "dev.topscrech.MC-Stats";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.watchkitapp;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -991,22 +1104,21 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MCStatusWatchApp/MCStatusWatchApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_ASSET_PATHS = "\"MCStatusWatchApp/Preview Content\"";
-				DEVELOPMENT_TEAM = FDYR7V7AH4;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MCStatusWatchApp/MCStatusWatchApp-Info.plist";
+				INFOPLIST_FILE = "MCStatusWatchApp/MC StatsWatchApp-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Status";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.shemeshapps.MinecraftServerStatus;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "dev.topscrech.MC-Stats";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.watchkitapp;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1025,8 +1137,8 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = MCStatusWatchWidget/MCStatusWatchWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = FDYR7V7AH4;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusWatchWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MCStatusWatchWidget;
@@ -1037,8 +1149,8 @@
 					"@executable_path/../../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.watchkitapp.MCStatusWatchWidget;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.watchkitapp.WatchWidgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1056,8 +1168,8 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = MCStatusWatchWidget/MCStatusWatchWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = FDYR7V7AH4;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusWatchWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MCStatusWatchWidget;
@@ -1068,8 +1180,8 @@
 					"@executable_path/../../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.watchkitapp.MCStatusWatchWidget;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.watchkitapp.WatchWidgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1115,6 +1227,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1176,6 +1289,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1198,19 +1312,19 @@
 		F13E600C2A4BD615005BE9B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MCStatus/Other/MCStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 0;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MCStatus/Other\"";
-				DEVELOPMENT_TEAM = FDYR7V7AH4;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatus/Other/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "MC Status";
+				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "This app requires local network access in order to check the status of servers on your local connection";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -1221,14 +1335,13 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
@@ -1245,19 +1358,19 @@
 		F13E600D2A4BD615005BE9B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MCStatus/Other/MCStatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 0;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MCStatus/Other\"";
-				DEVELOPMENT_TEAM = FDYR7V7AH4;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatus/Other/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "MC Status";
+				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "This app requires local network access in order to check the status of servers on your local connection";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -1268,14 +1381,13 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
@@ -1294,8 +1406,8 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = MCStatusAppIntentsExtension/MCStatusAppIntentsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = FDYR7V7AH4;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusAppIntentsExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MCStatusAppIntentsExtension;
@@ -1306,8 +1418,8 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.MCStatusAppIntentsExtension;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.Intents";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1325,8 +1437,8 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = MCStatusAppIntentsExtension/MCStatusAppIntentsExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = FDYR7V7AH4;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusAppIntentsExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MCStatusAppIntentsExtension;
@@ -1337,8 +1449,8 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.MCStatusAppIntentsExtension;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.Intents";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1359,8 +1471,8 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = MCStatusWidgetExtension/MCStatusWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = FDYR7V7AH4;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusWidgetExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MCStatusWidgetExtension;
@@ -1371,8 +1483,8 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.MinecraftServerStatusHSWidget;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.Widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1390,8 +1502,8 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = MCStatusWidgetExtension/MCStatusWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
-				DEVELOPMENT_TEAM = FDYR7V7AH4;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCStatusWidgetExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MCStatusWidgetExtension;
@@ -1402,8 +1514,8 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shemeshapps.MinecraftServerStatus.MinecraftServerStatusHSWidget;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.Widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1418,7 +1530,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F11F63592A81E51000D47187 /* Build configuration list for PBXNativeTarget "MCStatus Watch App" */ = {
+		F11F63592A81E51000D47187 /* Build configuration list for PBXNativeTarget "watchOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F11F635A2A81E51000D47187 /* Debug */,
@@ -1427,7 +1539,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F13095312CBC997300C4C7BA /* Build configuration list for PBXNativeTarget "MCStatusWatchWidgetExtension" */ = {
+		F13095312CBC997300C4C7BA /* Build configuration list for PBXNativeTarget "Watch Widgets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F13095322CBC997300C4C7BA /* Debug */,
@@ -1436,7 +1548,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F13E5FF42A4BD614005BE9B2 /* Build configuration list for PBXProject "MCStatus" */ = {
+		F13E5FF42A4BD614005BE9B2 /* Build configuration list for PBXProject "MC Stats" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F13E60092A4BD615005BE9B2 /* Debug */,
@@ -1445,7 +1557,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F13E600B2A4BD615005BE9B2 /* Build configuration list for PBXNativeTarget "MC Status" */ = {
+		F13E600B2A4BD615005BE9B2 /* Build configuration list for PBXNativeTarget "MC Stats" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F13E600C2A4BD615005BE9B2 /* Debug */,
@@ -1454,7 +1566,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F1406BB32AA391B800815BE8 /* Build configuration list for PBXNativeTarget "MCStatusAppIntentsExtension" */ = {
+		F1406BB32AA391B800815BE8 /* Build configuration list for PBXNativeTarget "Intents" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F1406BB42AA391B800815BE8 /* Debug */,
@@ -1463,7 +1575,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F1EF77022CB7874100EFFB20 /* Build configuration list for PBXNativeTarget "MCStatusWidgetExtension" */ = {
+		F1EF77022CB7874100EFFB20 /* Build configuration list for PBXNativeTarget "Widgets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F1EF77032CB7874100EFFB20 /* Debug */,

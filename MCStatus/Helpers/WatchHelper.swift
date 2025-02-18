@@ -1,11 +1,5 @@
-//
-//  WatchHelper.swift
-//  MC Status
-//
-//  Created by Tomer Shemesh on 8/18/23.
-//
-import WatchConnectivity
 import Foundation
+import WatchConnectivity
 import SwiftData
 import MCStatusDataLayer
 
@@ -14,6 +8,7 @@ class WatchHelper: NSObject, WCSessionDelegate {
         super.init()
         connect()
     }
+    
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         print("watch session changed state: " + String(activationState.rawValue))
     }
@@ -27,18 +22,17 @@ class WatchHelper: NSObject, WCSessionDelegate {
     }
     
     func handleWatchMessage(message: [String : Any], session: WCSession) {
-       
         let decoder = JSONDecoder()
-
+        
         // i've done the lazy thing and hard coded the logic directly in here. Should be moved to a helper function at some point.
-        guard let requestString = message["request"] as? String, 
+        guard let requestString = message["request"] as? String,
                 let jsonData = requestString.data(using: .utf8),
-                let request = try? decoder.decode(WatchRequestMessage.self, from: jsonData) else {
+              let request = try? decoder.decode(WatchRequestMessage.self, from: jsonData) else {
             // unknown input? return nothing
             print("error parsing watch request")
             return
         }
-
+        
         
         // for each server, get response, and send responses back as we receive them to the watch
         // we start a new task for each server to let them run in parrallel
@@ -57,10 +51,10 @@ class WatchHelper: NSObject, WCSessionDelegate {
                 let payload = ["response":jsonString]
                 
                 print("SENDING STATUS RESPONSE TO WATCH")
+                
                 WCSession.default.sendMessage(payload, replyHandler: nil) { error in
                     print("ERROR SENDING STATUS RESPONSE TO WATCH: " + error.localizedDescription)
                 }
-
             }
         }
     }
@@ -71,7 +65,7 @@ class WatchHelper: NSObject, WCSessionDelegate {
         // initilize model container since sometimes its not ready yet???
         // https://developer.apple.com/forums/thread/734212
         let container = SwiftDataHelper.getModelContainter()
-
+        
         handleWatchMessage(message: message, session: session)
         
         print("container:" + container.schema.debugDescription)
@@ -79,8 +73,8 @@ class WatchHelper: NSObject, WCSessionDelegate {
     
     func connect() {
         if WCSession.isSupported() {
-               WCSession.default.delegate = self
-               WCSession.default.activate()
-           }
+            WCSession.default.delegate = self
+            WCSession.default.activate()
+        }
     }
 }

@@ -1,26 +1,20 @@
-//
-//  SavedServerStatusOnlineCheckIntent.swift
-//  MC Status
-//
-//  Created by Tomer Shemesh on 8/29/23.
-//
-//
 import Foundation
 import AppIntents
 import MCStatusDataLayer
 
-
-
-private func runServerStatusIntentCheck(serverEntity: SavedServerEntity?, dismabiguationCallback: @escaping ([SavedMinecraftServer]) async throws -> SavedServerEntity) async throws -> ServerStatusEntity {
+private func runServerStatusIntentCheck(
+    serverEntity: SavedServerEntity?,
+    dismabiguationCallback: @escaping ([SavedMinecraftServer]) async throws -> SavedServerEntity
+) async throws -> ServerStatusEntity {
     let container = SwiftDataHelper.getModelContainter()
-          
+    
     let refrencedServer: SavedMinecraftServer
-
     
     if let serverEnt = serverEntity {
         guard let serverLookup = await SwiftDataHelper.getSavedServerById(container: container, server_id: serverEnt.id) else {
             throw MCIntentError.DB_ID_MISSING
         }
+        
         refrencedServer = serverLookup
     } else {
         let savedServers = await SwiftDataHelper.getSavedServers(container: container)
@@ -33,29 +27,29 @@ private func runServerStatusIntentCheck(serverEntity: SavedServerEntity?, dismab
             refrencedServer = serverLookup
         } else {
             let serverEnt = try await dismabiguationCallback(savedServers)
+            
             guard let serverLookup = await SwiftDataHelper.getSavedServerById(container: container, server_id: serverEnt.id) else {
                 throw MCIntentError.DB_ID_MISSING
             }
+            
             refrencedServer = serverLookup
         }
     }
     
     let checkerConfig = ServerCheckerConfig(sortUsers: UserDefaultHelper.shared.get(for: .sortUsersByName, defaultValue: true))
-
+    
     //horrible hack to handle watch vs phone
-    #if os(watchOS)
+#if os(watchOS)
     let status = await WatchServerStatusChecker().checkServerAsync(server: refrencedServer)
-    #else
+#else
     let status = await ServerStatusChecker.checkServer(server: refrencedServer, config: checkerConfig)
-    #endif
+#endif
     
     print("container:" + container.schema.debugDescription)
     return ServerStatusEntity(serverId: UUID(), serversName: refrencedServer.name, serverStatus: status)
 }
 
-
 struct SavedServerStatusOnlineCheckIntent: AppIntent {
-    
     static var title: LocalizedStringResource = "Saved Minecraft Server Status Check"
     
     static var description =
@@ -65,7 +59,6 @@ struct SavedServerStatusOnlineCheckIntent: AppIntent {
     var serverEntity: SavedServerEntity?
     
     func perform() async throws -> some ProvidesDialog & IntentResult & ReturnsValue<ServerStatusEntity>{
-        
         let res = try await runServerStatusIntentCheck(serverEntity: serverEntity) { savedServers in
             try await $serverEntity.requestDisambiguation(
                 among: savedServers.map {
@@ -80,7 +73,5 @@ struct SavedServerStatusOnlineCheckIntent: AppIntent {
     
     static var parameterSummary: some ParameterSummary {
         Summary("Check server status for \(\.$serverEntity)")
-
     }
 }
-

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1500"
+   LastUpgradeVersion = "1620"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,24 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F11F634A2A81E50E00D47187"
-               BuildableName = "MCStatus Watch App.app"
-               BlueprintName = "MCStatus Watch App"
-               ReferencedContainer = "container:MCStatus.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "F13E5FF82A4BD614005BE9B2"
-               BuildableName = "MC Status.app"
-               BlueprintName = "MC Status"
-               ReferencedContainer = "container:MCStatus.xcodeproj">
+               BuildableName = "MC Stats.app"
+               BlueprintName = "MC Stats"
+               ReferencedContainer = "container:MC Stats.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -57,12 +43,15 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F11F634A2A81E50E00D47187"
-            BuildableName = "MCStatus Watch App.app"
-            BlueprintName = "MCStatus Watch App"
-            ReferencedContainer = "container:MCStatus.xcodeproj">
+            BlueprintIdentifier = "F13E5FF82A4BD614005BE9B2"
+            BuildableName = "MC Stats.app"
+            BlueprintName = "MC Stats"
+            ReferencedContainer = "container:MC Stats.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <StoreKitConfigurationFileReference
+         identifier = "../../MCStatus/Other/MCStatusStoreKit 2.storekit">
+      </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -74,10 +63,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F11F634A2A81E50E00D47187"
-            BuildableName = "MCStatus Watch App.app"
-            BlueprintName = "MCStatus Watch App"
-            ReferencedContainer = "container:MCStatus.xcodeproj">
+            BlueprintIdentifier = "F13E5FF82A4BD614005BE9B2"
+            BuildableName = "MC Stats.app"
+            BlueprintName = "MC Stats"
+            ReferencedContainer = "container:MC Stats.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

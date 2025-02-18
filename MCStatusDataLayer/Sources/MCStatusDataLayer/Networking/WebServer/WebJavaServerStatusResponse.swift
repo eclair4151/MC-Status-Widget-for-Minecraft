@@ -1,12 +1,4 @@
-//
-//  WebServerStatusResponse.swift
-//  MCStatus
-//
-//  Created by Tomer Shemesh on 8/6/23.
-//
-
 import Foundation
-
 
 class WebJavaServerStatusResponse: Decodable {
     let online: Bool
@@ -19,7 +11,6 @@ class WebJavaServerStatusResponse: Decodable {
 class WebJavaResponseVersion: Decodable {
     let name_clean: String
 }
-
 
 class WebJavaResponsePlayers: Decodable {
     let online: Int

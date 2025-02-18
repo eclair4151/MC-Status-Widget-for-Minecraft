@@ -1,61 +1,41 @@
-//
-//  RectangularAccessoryWidgetView.swift
-//  MCStatus
-//
-//  Created by Tomer Shemesh on 10/11/24.
-//
-
-
-//
-//  CircularAccessoryWidgetView.swift
-//  MinecraftServerStatusHSWidgetExtension
-//
-//  Created by Tomer Shemesh on 10/4/22.
-//  Copyright © 2022 ShemeshApps. All rights reserved.
-//
-
-import Foundation
 import SwiftUI
 import Intents
 import WidgetKit
 
-
 struct InlineAccessoryWidgetView : View {
     var entry: LockscreenProvider.Entry
-
+    
     var body: some View {
-        
 #if !targetEnvironment(macCatalyst)
         HStack(spacing: 8) {
-            if let statusIcon = entry.viewModel.statusIcon {
+            if let statusIcon = entry.vm.statusIcon {
                 Image(systemName: statusIcon)
                     .font(.system(size: 18))
                     .widgetAccentable()
             } else {
-                Image(uiImage: entry.viewModel.icon).widgetAccentable()
+                Image(uiImage: entry.vm.icon).widgetAccentable()
             }
             
             Button(intent: RefreshWidgetIntent()) {
-                if entry.viewModel.viewType == .Unconfigured {
-                    #if os(watchOS)
+                if entry.vm.viewType == .Unconfigured {
+#if os(watchOS)
                     Text("...")
-                    #else
+#else
                     Text("Edit Widget")
-                    #endif
+#endif
                 } else {
-                    Text(entry.viewModel.progressString)
+                    Text(entry.vm.progressString)
                 }
-            }.buttonStyle(PlainButtonStyle())
+            }.buttonStyle(.plain)
         }
 #endif
     }
 }
 
-
 #if !targetEnvironment(macCatalyst)
 struct MinecraftServerStatusHSWidget_InlinePreview: PreviewProvider {
     static var previews: some View {
-        MinecraftServerStatusLSWidgetEntryView(entry: ServerStatusLSSnapshotEntry(date: Date(), configuration: ServerSelectNoThemeWidgetIntent(), viewModel: WidgetEntryViewModel()))
+        MinecraftServerStatusLSWidgetEntryView(entry: ServerStatusLSSnapshotEntry(date: Date(), configuration: ServerSelectNoThemeWidgetIntent(), vm: WidgetEntryVM()))
             .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
     }
 }

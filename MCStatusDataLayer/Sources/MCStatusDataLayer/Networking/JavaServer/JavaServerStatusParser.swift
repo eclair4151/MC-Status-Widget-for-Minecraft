@@ -1,10 +1,3 @@
-//
-//  JavaServerStatusParser.swift
-//  MCStatus
-//
-//  Created by Tomer Shemesh on 7/30/23.
-//
-
 import Foundation
 
 public class JavaServerStatusParser: ServerStatusParserProtocol {
@@ -69,7 +62,7 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
         status.playerSample.removeAll { player in
             player.name.isEmpty
         }
-                
+        
         // sort users if needed
         if config?.sortUsers ?? false {
             status.sortUsers()
@@ -92,7 +85,7 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
         var motdSections:[FormattedMOTDSection] = []
         var currentSection = FormattedMOTDSection()
         var currentIndex = input.startIndex
-
+        
         // walk through the MOTD string and look for section sign modifiers "§"
         while currentIndex < input.endIndex {
             if input[currentIndex] == "§" {
@@ -103,23 +96,27 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
                 if let sectionFormatter = javaSectionSignFormatCodes[String(modifierKey)] {
                     // cap off current section, so next set can have new formatters.
                     // if the text is empty dont both adding it
-                    if (!currentSection.text.isEmpty) {
+                    if !currentSection.text.isEmpty {
                         motdSections.append(currentSection)
                     }
+                    
                     let newSection = FormattedMOTDSection()
-
+                    
                     if sectionFormatter != .Reset {
                         // if we are not resetting, copy the old formatters, and add the new one
                         newSection.color = currentSection.color
                         newSection.formatters = currentSection.formatters
                         newSection.formatters.insert(sectionFormatter)
                     }
+                    
                     currentSection = newSection
+                    
                 } else if let colorFormatter = javaSectionSignColorFormats[String(modifierKey)] {
                     // if the text is empty dont bother adding it
-                    if (!currentSection.text.isEmpty) {
+                    if !currentSection.text.isEmpty {
                         motdSections.append(currentSection)
                     }
+                    
                     // in java edition only, when a new color is specified, all previous formatters are reset.
                     currentSection = FormattedMOTDSection()
                     currentSection.color = colorFormatter.rawValue
@@ -134,8 +131,8 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
         
         return motdSections
     }
-
-
+    
+    
     // newer systems use the JSON based system which is a recursive
     // https://minecraft.fandom.com/wiki/Raw_JSON_text_format
     static func parseJavaMOTD(input: JavaMOTDDescriptionSection, color: String = "", formatters: Set<MOTDFormatter> = []) -> [FormattedMOTDSection] {
@@ -219,46 +216,44 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
         "o": MOTDFormatter.Italic,
         "r": MOTDFormatter.Reset
     ]
-
+    
     static let javaSectionSignColorFormats = [
         "0": MOTDColor.Black,
-        "1": MOTDColor.DarkBlue,
-        "2": MOTDColor.DarkGreen,
-        "3": MOTDColor.DarkAqua,
-        "4": MOTDColor.DarkRed,
-        "5": MOTDColor.DarkPurple,
-        "6": MOTDColor.Gold,
-        "7": MOTDColor.Gray,
-        "8": MOTDColor.DarkGray,
-        "9": MOTDColor.Blue,
-        "a": MOTDColor.Green,
-        "b": MOTDColor.Aqua,
-        "c": MOTDColor.Red,
-        "d": MOTDColor.LightPurple,
-        "e": MOTDColor.Yellow,
-        "f": MOTDColor.White
+        "1": .DarkBlue,
+        "2": .DarkGreen,
+        "3": .DarkAqua,
+        "4": .DarkRed,
+        "5": .DarkPurple,
+        "6": .Gold,
+        "7": .Gray,
+        "8": .DarkGray,
+        "9": .Blue,
+        "a": .Green,
+        "b": .Aqua,
+        "c": .Red,
+        "d": .LightPurple,
+        "e": .Yellow,
+        "f": .White
     ]
-
+    
     static let javaJsonColorFormats = [
         "black": MOTDColor.Black,
-        "dark_blue": MOTDColor.DarkBlue,
-        "dark_green": MOTDColor.DarkGreen,
-        "dark_aqua": MOTDColor.DarkAqua,
-        "dark_red": MOTDColor.DarkRed,
-        "dark_purple": MOTDColor.DarkPurple,
-        "gold": MOTDColor.Gold,
-        "gray": MOTDColor.Gray,
-        "dark_gray": MOTDColor.DarkGray,
-        "blue": MOTDColor.Blue,
-        "green": MOTDColor.Green,
-        "aqua": MOTDColor.Aqua,
-        "red": MOTDColor.Red,
-        "light_purple": MOTDColor.LightPurple,
-        "yellow": MOTDColor.Yellow,
-        "white": MOTDColor.White
+        "dark_blue": .DarkBlue,
+        "dark_green": .DarkGreen,
+        "dark_aqua": .DarkAqua,
+        "dark_red": .DarkRed,
+        "dark_purple": .DarkPurple,
+        "gold": .Gold,
+        "gray": .Gray,
+        "dark_gray": .DarkGray,
+        "blue": .Blue,
+        "green": .Green,
+        "aqua": .Aqua,
+        "red": .Red,
+        "light_purple": .LightPurple,
+        "yellow": .Yellow,
+        "white": .White
     ]
-
-
 }
 
 extension String {
@@ -267,8 +262,3 @@ extension String {
         return self.replacingOccurrences(of: pattern, with: "", options: .regularExpression)
     }
 }
-
-
-
-
-

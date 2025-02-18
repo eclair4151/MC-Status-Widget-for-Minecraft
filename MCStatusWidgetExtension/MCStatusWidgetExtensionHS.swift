@@ -1,39 +1,34 @@
-//
-//  MCStatusWidgetExtension.swift
-//  MCStatusWidgetExtension
-//
-//  Created by Tomer Shemesh on 10/9/24.
-//
-
-import WidgetKit
 import SwiftUI
+import WidgetKit
 import MCStatusDataLayer
 
-
-
 struct MinecraftServerStatusHSWidget: Widget {
-    let kind: String = "MinecraftServerStatusHSWidget"
-
-    private let supportedFamilies:[WidgetFamily] = {
-            return [.systemSmall, .systemMedium]
-       }()
+    private let kind = "MinecraftServerStatusHSWidget"
+    
+    private let supportedFamilies: [WidgetFamily] = {
+        [.systemSmall, .systemMedium]
+    }()
     
     var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind, intent: ServerSelectWidgetIntent.self, provider: HomescreenProvider()) { entry in
-            MinecraftServerStatusHSWidgetEntryView(entry: entry).containerBackground(for: .widget) {
-                
-                if(entry.configuration.Theme == nil || entry.configuration.Theme?.id ?? "" == Theme.auto.rawValue) {
-                    entry.viewModel.bgColor
-                } else {
-                    entry.viewModel.bgColor
-                        .environment(
-                            \.colorScheme,
-                            (entry.configuration.Theme?.id ?? "" == Theme.dark.rawValue)
-                                ? .dark : .light
-                        )
+        AppIntentConfiguration(
+            kind: kind,
+            intent: ServerSelectWidgetIntent.self,
+            provider: HomescreenProvider()
+        ) { entry in
+            MinecraftServerStatusHSWidgetEntryView(entry: entry)
+                .containerBackground(for: .widget) {
+                    if entry.configuration.Theme == nil || entry.configuration.Theme?.id ?? "" == Theme.auto.rawValue {
+                        entry.vm.bgColor
+                    } else {
+                        entry.vm.bgColor
+                            .environment(
+                                \.colorScheme,
+                                 (entry.configuration.Theme?.id ?? "" == Theme.dark.rawValue)
+                                 ? .dark : .light
+                            )
+                    }
                 }
-            }.widgetURL(URL(string: entry.configuration.Server?.id ?? ""))
-
+                .widgetURL(URL(string: entry.configuration.Server?.id ?? ""))
         }
         .configurationDisplayName("MC Status Widget")
         .description("Widget to show the status of Minecraft Server")
@@ -41,9 +36,6 @@ struct MinecraftServerStatusHSWidget: Widget {
         .supportedFamilies(supportedFamilies)
     }
 }
-
-
-
 
 struct MinecraftServerStatusHSWidgetEntryView : View {
     var entry: HomescreenProvider.Entry
@@ -55,6 +47,7 @@ struct MinecraftServerStatusHSWidgetEntryView : View {
         switch family {
         case .systemSmall:
             SmallWidgetView(entry: entry)
+            
         case .systemMedium:
             MediumWidgetView(entry: entry)
             
@@ -64,13 +57,8 @@ struct MinecraftServerStatusHSWidgetEntryView : View {
     }
 }
 
-
-
-
-
 struct ServerStatusHSSnapshotEntry: TimelineEntry {
     let date: Date
     let configuration: ServerSelectWidgetIntent
-    let viewModel: WidgetEntryViewModel
+    let vm: WidgetEntryVM
 }
-

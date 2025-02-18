@@ -1,11 +1,3 @@
-//
-//  ServerStatusViewModel.swift
-//  MC Status
-//
-//  Created by Tomer Shemesh on 8/9/23.
-//
-import Foundation
-import UIKit
 import SwiftUI
 import SwiftData
 
@@ -14,8 +6,8 @@ public enum LoadingStatus: String {
 }
 
 @Observable
-public class ServerStatusViewModel: Identifiable, Hashable {
-    public static func == (lhs: ServerStatusViewModel, rhs: ServerStatusViewModel) -> Bool {
+public class ServerStatusVM: Identifiable, Hashable {
+    public static func == (lhs: ServerStatusVM, rhs: ServerStatusVM) -> Bool {
         ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
     }
     
@@ -40,35 +32,37 @@ public class ServerStatusViewModel: Identifiable, Hashable {
     
     public func reloadData(config: ServerCheckerConfig) {
         loadingStatus = .Loading
-
+        
         Task {
             // DONT DO THIS, LET USER PASS IN FUNCTION WHICH WILL RELOAD DATA TO ALLOW REUSE IN WATCH
             let statusResult = await ServerStatusChecker.checkServer(server: server, config: config)
             print("Got result from status checker")
-
+            
             self.status = statusResult
             // i need this but it crashes everything
-
+            
             loadIcon()
+            
             Task.detached { @MainActor in
                 self.loadingStatus = .Finished
                 
                 if !statusResult.favIcon.isEmpty {
                     self.server.serverIcon = statusResult.favIcon
-    
+                    
                     print("Going to insert updated model")
                     self.modelContext.insert(self.server)
-//                    print("inserted updated model")
-
+                    //                    print("inserted updated model")
+                    
                     do {
                         // Try to save
-//                        print("Going to save updated model")
-
+                        //                        print("Going to save updated model")
+                        
                         try self.modelContext.save()
                     } catch {
                         // We couldn't save :(
                         print(error.localizedDescription)
                     }
+                    
                     print("Saved server icon to DB")
                 }
             }
@@ -76,10 +70,11 @@ public class ServerStatusViewModel: Identifiable, Hashable {
     }
     
     public func getUserSampleText() -> String {
-        guard let status else { return "" }
-        return status.playerSample.map {
-            $0.name
-        }.joined(separator: ", ")
+        guard let status else {
+            return ""
+        }
+        
+        return status.playerSample.map(\.name).joined(separator: ", ")
     }
     
     public func getPlayerCountPercentage() -> CGFloat {
@@ -91,9 +86,9 @@ public class ServerStatusViewModel: Identifiable, Hashable {
     
     public func getServerAddressToPing() -> String {
         if !server.srvServerUrl.isEmpty {
-            return server.srvServerUrl
+            server.srvServerUrl
         } else {
-            return server.serverUrl
+            server.serverUrl
         }
     }
     
@@ -111,6 +106,7 @@ public class ServerStatusViewModel: Identifiable, Hashable {
     
     public func loadIcon() {
         var base64Icon = ""
+        
         if let status, status.favIcon != "" {
             base64Icon = status.favIcon
         } else {
@@ -121,6 +117,7 @@ public class ServerStatusViewModel: Identifiable, Hashable {
             if let defaultIcon = UIImage(named: "DefaultIcon") {
                 self.serverIcon =  defaultIcon
             }
+            
             return
         }
         
@@ -130,6 +127,6 @@ public class ServerStatusViewModel: Identifiable, Hashable {
     }
     
     public func getMcHeadsUrl(uuid: String) -> String{
-        return "https://mc-heads.net/avatar/" + uuid + "/90"
+        "https://mc-heads.net/avatar/" + uuid + "/90"
     }
 }
