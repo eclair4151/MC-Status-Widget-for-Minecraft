@@ -102,8 +102,7 @@ struct EditServerView: View {
             } header: {
                 Text("Start monitoring a server")
             } footer: {
-                Text("*MCStatus is used for checking the status an existing server. It will not create, setup, or host a new server")
-                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+                Text("MC Stats is used for checking the status an existing server. It will not create, setup, or host a new server")
             }
             .headerProminence(.increased)
         }
