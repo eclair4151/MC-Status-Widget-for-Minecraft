@@ -4,12 +4,12 @@ import MCStatusDataLayer
 extension ServerStatus {
     // Add this method inside the ServerStatus class
     public func generateMOTDView() -> Text {
-        // Check if there is a description
+        // Check for description
         guard let description else {
             return Text("")
         }
         
-        // Initialize a variable to hold the composed Text view
+        // init a var to hold the composed Text view
         var combinedText = Text("")
         
         // Loop through each section in the messageSections

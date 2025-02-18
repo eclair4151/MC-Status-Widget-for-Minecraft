@@ -2,6 +2,7 @@ import SwiftUI
 
 struct CustomProgressView: View {
     var progress: CGFloat
+    
     var bgColor = Color.gray
     var bgOpactiy = 1.0
     var filledColor = Color.green

@@ -40,10 +40,12 @@ struct MainAppContentView: View {
                 }
                 .onMove {
                     serverVMs?.move(fromOffsets: $0, toOffset: $1)
-                    //update underlying display order
+                    // update underlying display order
                     refreshDisplayOrders()
                 }
-                //                .onDelete(perform: deleteItems) // uncomment to enable swipe to delete. You can also use a custom Swipe Action instead of this to block full swipes and require partial swipe + tap
+                // .onDelete(perform: deleteItems)
+                // uncomment to enable swipe to delete
+                // You can also use a custom Swipe Action instead of this to block full swipes and require partial swipe + tap
             }
             .navigationDestination(for: ServerStatusVM.self) { vm in
                 ServerStatusDetailView(serverStatusVM: vm) {

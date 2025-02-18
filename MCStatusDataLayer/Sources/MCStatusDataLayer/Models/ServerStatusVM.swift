@@ -39,7 +39,7 @@ public class ServerStatusVM: Identifiable, Hashable {
             print("Got result from status checker")
             
             self.status = statusResult
-            // i need this but it crashes everything
+            // I need this, but it crashes everything
             
             loadIcon()
             
@@ -51,11 +51,11 @@ public class ServerStatusVM: Identifiable, Hashable {
                     
                     print("Going to insert updated model")
                     self.modelContext.insert(self.server)
-                    //                    print("inserted updated model")
+                    // print("inserted updated model")
                     
                     do {
                         // Try to save
-                        //                        print("Going to save updated model")
+                        // print("Going to save updated model")
                         
                         try self.modelContext.save()
                     } catch {
@@ -83,6 +83,7 @@ public class ServerStatusVM: Identifiable, Hashable {
         }
         
         let playerCount = status.onlinePlayerCount
+        
         return CGFloat(playerCount) / CGFloat(status.maxPlayerCount)
     }
     

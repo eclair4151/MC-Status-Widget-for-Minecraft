@@ -31,9 +31,7 @@ public class SavedMinecraftServer: Identifiable, Codable {
         return server
     }
     
-    init() {
-        
-    }
+    init() {}
     
     public enum CodingKeys: CodingKey {
         case id, name, serverUrl, serverPort, srvServerUrl, srvServerPort, serverIcon, displayOrder, serverType

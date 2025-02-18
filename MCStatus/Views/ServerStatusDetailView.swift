@@ -235,7 +235,9 @@ struct ServerStatusDetailView: View {
         .environment(\.defaultMinListHeaderHeight, 15)
         .navigationBarTitleDisplayMode(.inline)
         .onReceive(timer) { _ in
-            refreshPing()
+            if !lowPowerMode {
+                refreshPing()
+            }
         }
         .refreshable {
             serverStatusVM.reloadData(ConfigHelper.getServerCheckerConfig())

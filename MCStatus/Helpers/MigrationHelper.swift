@@ -13,6 +13,7 @@ class MigrationHelper {
             }
             
             setCurrentVersion(version: VERSION)
+            
             return (lastVer,VERSION)
             
         } else {

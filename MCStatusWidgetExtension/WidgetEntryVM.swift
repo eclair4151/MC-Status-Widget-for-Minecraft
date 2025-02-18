@@ -16,7 +16,7 @@ extension WidgetEntryVM {
             self.statusIcon = nil
             self.progressString = "\(status.onlinePlayerCount) / \(status.maxPlayerCount)"
             
-            // Avoid potential for divide by 0
+            // Avoid dividing by 0
             if status.maxPlayerCount == 0 {
                 self.progressValue = 0
             } else {

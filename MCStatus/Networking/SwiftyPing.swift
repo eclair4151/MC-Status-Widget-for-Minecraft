@@ -285,7 +285,7 @@ public class SwiftyPing: NSObject {
         }
     }
     
-    /// Initializes a pinger
+    /// Pinger init
     /// - Parameter destination: Specifies the host
     /// - Parameter configuration: A configuration object which can be used to customize pinging behavior
     /// - Parameter queue: All responses are delivered through this dispatch queue
@@ -298,7 +298,7 @@ public class SwiftyPing: NSObject {
         try createSocket()
     }
     
-    // MARK: - Convenience Initializers
+    // MARK: - Convenience Inits
     /// Initializes a pinger from an IPv4 address string
     /// - Parameter ipv4Address: The host's IP address
     /// - Parameter configuration: A configuration object which can be used to customize pinging behavior
