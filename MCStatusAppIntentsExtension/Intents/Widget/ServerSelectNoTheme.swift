@@ -1,7 +1,7 @@
 import Foundation
 import AppIntents
 
-//converted for widget from previous intent
+// Converted for widget from previous intent
 struct ServerSelectNoThemeWidgetIntent: AppIntent, WidgetConfigurationIntent, CustomIntentMigratedAppIntent {
     static let intentClassName = "ServerSelectNoThemeIntent"
     

@@ -1,14 +1,14 @@
 import Foundation
 import AppIntents
 
-//converted for widget from previous intent
+// Converted for widget from previous intent
 struct ServerSelectWidgetIntent: AppIntent, WidgetConfigurationIntent, CustomIntentMigratedAppIntent {
     static let intentClassName = "ServerSelectIntent"
     
     static var title: LocalizedStringResource = "Server Select"
     static var description: IntentDescription = "Select which server to show"
     
-    // hide this since it is only for the widget not for shortcuts
+    // Not for shortcuts
     static var isDiscoverable = false
     
     @Parameter(title: "Server")
