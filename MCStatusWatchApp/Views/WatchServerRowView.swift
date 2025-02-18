@@ -4,7 +4,11 @@ import Nuke
 import NukeUI
 
 struct WatchServerRowView: View {
-    var vm: ServerStatusVM
+    private var vm: ServerStatusVM
+    
+    init(_ vm: ServerStatusVM) {
+        self.vm = vm
+    }
     
     var body: some View {
         HStack {

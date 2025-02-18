@@ -136,7 +136,7 @@ struct ServerStatusDetailView: View {
                                             .scaledToFit()
                                             .foregroundColor(pingColor(for: pingDuration))
                                             .frame(width: 15, height: 15)
-                                        //                                         .symbolEffect(.variableColor.iterative.dimInactiveLayers.nonReversing, options: .repeat(.continuous))
+                                        // .symbolEffect(.variableColor.iterative.dimInactiveLayers.nonReversing, options: .repeat(.continuous))
                                     }
                                     .padding(.horizontal, 14)
                                     .padding(.vertical, 7)
@@ -172,7 +172,6 @@ struct ServerStatusDetailView: View {
                         status.generateMOTDView()
                             .padding(10)
                             .frame(maxWidth: .infinity, alignment: .leading) // Make the Text view full width
-                            .background(Color.MOTDBackground) // Darker background
                             .cornerRadius(15)
                     }
                     
@@ -275,7 +274,7 @@ struct ServerStatusDetailView: View {
         }
         .onAppear {
             refreshPing()
-            startPrefetchingUserImages(vm: vm)
+            startPrefetchingUserImages(vm)
         }
         .alert("Delete Server?", isPresented: $showingDeleteAlert) {
             Button("Delete", role: .destructive) {
@@ -296,7 +295,7 @@ struct ServerStatusDetailView: View {
     
     private func refreshPing() {
         Task {
-            let pingResult = await SwiftyPing.pingServer(serverUrl: vm.getServerAddressToPing())
+            let pingResult = await SwiftyPing.pingServer(vm.getServerAddressToPing())
             
             guard pingResult.error == nil else {
                 return
@@ -323,7 +322,7 @@ struct ServerStatusDetailView: View {
         self.presentationMode.wrappedValue.dismiss()
     }
     
-    private func startPrefetchingUserImages(vm: ServerStatusVM) {
+    private func startPrefetchingUserImages(_ vm: ServerStatusVM) {
         let imageURLs = (vm.status?.playerSample ?? []).compactMap {
             URL(string: vm.getMcHeadsUrl(uuid: $0.uuid))
         }

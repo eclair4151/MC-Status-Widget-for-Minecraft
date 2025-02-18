@@ -3,7 +3,11 @@ import MCStatusDataLayer
 import NukeUI
 
 struct WatchServerDetailScreen: View {
-    @State var vm: ServerStatusVM
+    @State private var vm: ServerStatusVM
+    
+    init(_ vm: ServerStatusVM) {
+        self.vm = vm
+    }
     
     var body: some View {
         let playerList = vm.status?.playerSample ?? []
@@ -31,8 +35,10 @@ struct WatchServerDetailScreen: View {
                         LazyImage(url: imageUrl) { state in
                             if let image = state.image {
                                 image.resizable().scaledToFit()
+                                
                             } else if state.error != nil {
                                 Color.serverIconBackground
+                                
                             } else {
                                 ZStack {
                                     Color.serverIconBackground

@@ -6,7 +6,13 @@ import MCStatusDataLayer
 import WidgetKit
 
 //func testServer() -> SavedMinecraftServer {
-//    SavedMinecraftServer(id: UUID(), serverType: .Java, name: "Hodor", serverUrl: "zero.minr.org", serverPort: 25565)
+//    SavedMinecraftServer(
+//        id: UUID(),
+//        serverType: .Java,
+//        name: "Hodor",
+//        serverUrl: "zero.minr.org",
+//        serverPort: 25565
+//    )
 //}
 
 struct WatchContentView: View {
@@ -16,6 +22,7 @@ struct WatchContentView: View {
     
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.modelContext) private var modelContext
+    
     @State private var serverVMs: [ServerStatusVM]?
     @State private var serverVMCache: [UUID: ServerStatusVM] = [:]
     @State private var iCloudStatus: iCloudStatus = .unknown
@@ -35,13 +42,13 @@ struct WatchContentView: View {
             List {
                 ForEach(serverVMs ?? []) { vm in
                     NavigationLink(value: vm) {
-                        WatchServerRowView(vm: vm)
+                        WatchServerRowView(vm)
                     }
                 }
                 //                Text("Updated \(minSinceLastRefresh)m ago").frame(maxWidth: .infinity, alignment: .center).listRowBackground(Color.clear) // this is ugly so removing it
             }
             .navigationDestination(for: ServerStatusVM.self) { vm in
-                WatchServerDetailScreen(vm: vm)
+                WatchServerDetailScreen(vm)
             }
             .toolbar {
                 if let serverVMs, !serverVMs.isEmpty {

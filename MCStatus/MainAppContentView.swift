@@ -77,7 +77,7 @@ struct MainAppContentView: View {
                 
                 // Manually go into specific server if id is server
                 if let serverUUID = UUID(uuidString: url.absoluteString), let vm = self.serverVMCache[serverUUID] {
-                    goToServerView(vm: vm)
+                    goToServerView(vm)
                 } else if !url.absoluteString.isEmpty {
                     self.pendingDeepLink = url.absoluteString
                 }
@@ -236,7 +236,7 @@ struct MainAppContentView: View {
         showAlert = true
     }
     
-    private func goToServerView(vm: ServerStatusVM) {
+    private func goToServerView(_ vm: ServerStatusVM) {
         // check if user has disabled deep links, if so just go to main list
         if !UserDefaultHelper.shared.get(for: .openToSpecificServer, defaultValue: true) {
             self.nav.removeLast(self.nav.count)
@@ -349,7 +349,7 @@ struct MainAppContentView: View {
         }
         
         self.pendingDeepLink = nil
-        goToServerView(vm: vm)
+        goToServerView(vm)
     }
     
     private func checkForAutoReload() {

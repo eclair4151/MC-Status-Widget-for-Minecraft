@@ -254,7 +254,7 @@ public class SwiftyPing: NSObject {
         }
     }
     
-    static func pingServer(serverUrl: String) async -> PingResponse {
+    static func pingServer(_ serverUrl: String) async -> PingResponse {
         await withCheckedContinuation { continuation in
             do {
                 let pinger = try SwiftyPing(host: serverUrl, configuration: PingConfiguration(interval: 0.1, with: 5), queue: DispatchQueue.global())
