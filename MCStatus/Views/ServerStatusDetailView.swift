@@ -15,6 +15,7 @@ struct ServerStatusDetailView: View {
         self.parentViewRefreshCallBack = parentViewRefreshCallBack
     }
     
+    @State private var pingDuration = 0
     @State private var showingEditSheet = false
     @State private var showingDeleteAlert = false
     
@@ -68,8 +69,6 @@ struct ServerStatusDetailView: View {
         default:            .gray
         }
     }
-    
-    @State private var pingDuration = 0
     
     var body: some View {
         List {
