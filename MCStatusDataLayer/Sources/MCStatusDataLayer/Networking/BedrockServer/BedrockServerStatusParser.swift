@@ -21,6 +21,7 @@ public class BedrockServerStatusParser: ServerStatusParserProtocol {
         serverStatus.maxPlayerCount = Int(dataParts[5]) ?? 0
         serverStatus.version = String(dataParts[3])
         serverStatus.status = .Online
+        
         return serverStatus
     }
     
@@ -55,6 +56,7 @@ public class BedrockServerStatusParser: ServerStatusParserProtocol {
                         newSection.formatters = currentSection.formatters
                         newSection.formatters.insert(sectionFormatter)
                     }
+                    
                     currentSection = newSection
                 } else if let colorFormatter = bedrockSectionSignColorFormats[String(modifierKey)] {
                     // if the text is empty dont both adding it

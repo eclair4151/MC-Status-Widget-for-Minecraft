@@ -48,13 +48,14 @@ public class SRVResolver {
     // this processes any results from the system DNS resolver
     // we could parse all the things, but we don't really need the info...
     let queryCallback: DNSServiceQueryRecordReply = { (sdRef, flags, interfaceIndex, errorCode, fullname, rrtype, rrclass, rdlen, rdata, ttl, context) -> Void in
-        
         // if this isnt an SRV record just ignore it.
         guard rrtype == kDNSServiceType_SRV else {
             return
         }
         
-        guard let context = context else { return }
+        guard let context = context else {
+            return
+        }
         
         let request: SRVResolver = SRVResolver.bridge(context)
         
@@ -71,11 +72,11 @@ public class SRVResolver {
     // These allow for the ObjC -> Swift conversion of a pointer
     // The DNS APIs are a bit... unique
     static func bridge<T:AnyObject>(_ obj : T) -> UnsafeMutableRawPointer {
-        return Unmanaged.passUnretained(obj).toOpaque()
+        Unmanaged.passUnretained(obj).toOpaque()
     }
     
     static func bridge<T:AnyObject>(_ ptr : UnsafeMutableRawPointer) -> T {
-        return Unmanaged<T>.fromOpaque(ptr).takeUnretainedValue()
+        Unmanaged<T>.fromOpaque(ptr).takeUnretainedValue()
     }
     
     func fail() {
@@ -151,7 +152,16 @@ public class SRVResolver {
             self.query = query
             let namec = query.cString(using: .utf8)
             
-            let result = DNSServiceQueryRecord(&self.serviceRef, kDNSServiceFlagsReturnIntermediates, UInt32(0), namec,  UInt16(kDNSServiceType_SRV),  UInt16(kDNSServiceClass_IN), queryCallback, SRVResolver.bridge(self))
+            let result = DNSServiceQueryRecord(
+                &self.serviceRef,
+                kDNSServiceFlagsReturnIntermediates,
+                UInt32(0),
+                namec,
+                UInt16(kDNSServiceType_SRV),
+                UInt16(kDNSServiceClass_IN),
+                queryCallback,
+                SRVResolver.bridge(self)
+            )
             
             switch result {
             case DNSServiceErrorType(kDNSServiceErr_NoError):
@@ -189,8 +199,16 @@ public class SRVResolver {
                     self.fail()
                 }
                 
-                let deadline = DispatchTime(uptimeNanoseconds: DispatchTime.now().uptimeNanoseconds + UInt64(timeout * Double(NSEC_PER_SEC)))
-                self.timeoutTimer?.schedule(deadline: deadline, repeating: .infinity, leeway: DispatchTimeInterval.never)
+                let deadline = DispatchTime(
+                    uptimeNanoseconds: DispatchTime.now().uptimeNanoseconds + UInt64(timeout * Double(NSEC_PER_SEC))
+                )
+                
+                self.timeoutTimer?.schedule(
+                    deadline: deadline,
+                    repeating: .infinity,
+                    leeway: DispatchTimeInterval.never
+                )
+                
                 self.timeoutTimer?.resume()
                 
             default:

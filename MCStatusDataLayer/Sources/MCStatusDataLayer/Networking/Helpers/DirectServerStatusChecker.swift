@@ -1,7 +1,12 @@
 import Foundation
 
 public class DirectServerStatusChecker {
-    public static func checkServer(serverUrl: String, serverPort: Int, serverType: ServerType, config: ServerCheckerConfig?) async throws -> ServerStatus {
+    public static func checkServer(
+        serverUrl: String,
+        serverPort: Int,
+        serverType: ServerType,
+        config: ServerCheckerConfig?
+    ) async throws -> ServerStatus {
         let statusChecker = ServerStatusCheckerFactory().getStatusChecker(serverUrl: serverUrl, serverPort: serverPort, serverType: serverType)
         
         let stringResult = try await statusChecker.checkServer()
@@ -14,7 +19,7 @@ public class DirectServerStatusChecker {
     }
 }
 
-//factory to dynamically handles creating the correct status checker for bedrock vs java
+// factory to dynamically handles creating the correct status checker for bedrock vs java
 public class ServerStatusCheckerFactory {
     public func getStatusChecker(serverUrl: String, serverPort: Int, serverType: ServerType) -> ServerStatusCheckerProtocol {
         switch serverType {

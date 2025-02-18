@@ -12,9 +12,12 @@ class UserDefaultHelper {
     // Singleton instance for easy access
     static let shared = UserDefaultHelper()
     
-    private init() {}  // Prevents external instantiation
+    // Prevents external instantiation
+    private init() {
+        
+    }
     
-    // Function to set a boolean value
+    // Func to set a boolean value
     func set(_ value: Bool, for key: Key) {
         UserDefaults.standard.set(value, forKey: key.rawValue)
     }

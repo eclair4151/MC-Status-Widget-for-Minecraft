@@ -95,7 +95,7 @@ public class BedrockServerStatusChecker: ServerStatusCheckerProtocol {
     }
     
     /** Minecraft protocol can be found here: https://wiki.vg/Raknet_Protocol#Unconnected_Ping
-     * sends a request directly to the minecraft server for a ping request.
+     * sends a request directly to the minecraft server for a ping request
      1. Client sends:
      1a. \x01 , unsigned 64bit long timestamp, 16 bytes of magic data predefined by the API, followed by a "2" formated as a Big Endian 64bit integer
      2. Server responds with:
@@ -109,10 +109,15 @@ public class BedrockServerStatusChecker: ServerStatusCheckerProtocol {
     private func getBedrockStatusQueryData() -> Data {
         var data: [UInt8] = []
         
-        // your are supposed to send the current timestamp here in the begining instead of all 0's but in practie it doesnt seem to matter and i am too lazy to implement timestamp -> bit conversion. will fix later if it seems to cause any issues.
-        let magicData: [UInt8] = [0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00, 0x00, 0xff, 0xff, 0x00, 0xfe, 0xfe, 0xfe, 0xfe,
-                                  0xfd, 0xfd, 0xfd, 0xfd, 0x12, 0x34, 0x56, 0x78, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x02]
-        data.append(0x01) //packet id (always 1)
+        // your are supposed to send the current timestamp here in the begining instead of all 0's but in practie it doesnt seem to matter and i am too lazy to implement timestamp -> bit conversion. will fix later if it seems to cause any issues
+        let magicData: [UInt8] = [
+            0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00, 0x00, 0xff, 0xff, 0x00, 0xfe, 0xfe, 0xfe, 0xfe,
+            0xfd, 0xfd, 0xfd, 0xfd, 0x12, 0x34, 0x56, 0x78, 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x02
+        ]
+        
+        // packet id (always 1)
+        data.append(0x01)
+        
         data.append(contentsOf: magicData)
         
         return Data(bytes: data, count: data.count)
