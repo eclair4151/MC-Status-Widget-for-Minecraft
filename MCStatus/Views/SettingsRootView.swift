@@ -160,7 +160,7 @@ struct GeneralSettingsView: View {
                     Text("Enable iCloud Syncing")
                     
                     Text("Sync your server list across all devices.")
-                        .font(.footnote)
+                        .footnote()
                         .foregroundColor(.gray)
                 }
             }
@@ -171,7 +171,7 @@ struct GeneralSettingsView: View {
                     Text("Show users on server list")
                     
                     Text("Show users in each row under the progress bar on the main server list")
-                        .font(.footnote)
+                        .footnote()
                         .foregroundColor(.gray)
                 }
             }
@@ -182,7 +182,7 @@ struct GeneralSettingsView: View {
                     Text("Sort users alphabetically")
                     
                     Text("Show users sorted alphabetically instead of randomly")
-                        .font(.footnote)
+                        .footnote()
                         .foregroundColor(.gray)
                 }
             }
@@ -192,7 +192,7 @@ struct GeneralSettingsView: View {
                     Text("Widget opens directly to server")
                     
                     Text("Tapping the widget will open the app directly to that server. Otherwise it will open the server list.")
-                        .font(.footnote)
+                        .footnote()
                         .foregroundColor(.gray)
                 }
             }

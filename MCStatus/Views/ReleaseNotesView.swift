@@ -34,9 +34,8 @@ struct ReleaseNotesView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 Text("I'm thrilled to announce the release of **MC Status 2.0**, a total rewrite from the ground up! Get ready for a blazing fast app experience, with tons of new features and enhancements.")
-                    .font(.body)
-                    .padding(.bottom, 20)
-                    .padding(.top,15)
+                    .padding(15)
+                    .padding(.bottom, 5)
                 
                 // Loop through each feature and display it dynamically
                 ForEach(features) { feature in
@@ -49,13 +48,13 @@ struct ReleaseNotesView: View {
                 
                 VStack(alignment: .center) {
                     Text("Thank you for your support!")
-                        .font(.headline)
+                        .headline()
                         .padding(.bottom, 10)
                     
                     Text("If you love the app, consider leaving a review or leaving a small tip to help support development!")
-                        .font(.subheadline)
+                        .subheadline()
                         .multilineTextAlignment(.center)
-                        .foregroundColor(.secondary)
+                        .secondary()
                         .padding(.bottom, 20)
                     
                     HStack(spacing: 10) {
@@ -64,7 +63,7 @@ struct ReleaseNotesView: View {
                         } label: {
                             Label("Leave a Review", systemImage: "star.fill")
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                .font(.callout)
+                                .callout()
                                 .padding()
                                 .background(.orange)
                                 .foregroundColor(.white)
@@ -76,7 +75,7 @@ struct ReleaseNotesView: View {
                         } label: {
                             Label("Leave a Tip", systemImage: "gift.fill")
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                                .font(.callout)
+                                .callout()
                                 .padding()
                                 .background(.blue)
                                 .foregroundColor(.white)
@@ -134,12 +133,10 @@ struct FeatureRow: View {
             
             VStack(alignment: .leading) {
                 Text(feature.title)
-                    .font(.headline)
-                    .bold()
+                    .headline(.bold)
                 
                 Text(feature.description)
-                    .font(.body)
-                    .foregroundColor(.secondary)
+                    .secondary()
             }
         }
     }

@@ -29,8 +29,7 @@ struct ShortcutsGuideView: View {
                 .padding(.vertical, 5)
             } header: {
                 Text("Overview of Shortcuts")
-                    .font(.title2)
-                    .bold()
+                    .title2(.bold)
                     .padding(.bottom, 5)
             }
             .headerProminence(.increased)
@@ -39,7 +38,6 @@ struct ShortcutsGuideView: View {
             ForEach(0..<shortcutImages.count, id: \.self) { index in
                 Section {
                     Text(shortcutDescriptions[index])
-                        .font(.body)
                         .foregroundColor(.primary)
                         .padding(.bottom, 5)
                     

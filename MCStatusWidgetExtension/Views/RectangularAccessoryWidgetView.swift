@@ -14,7 +14,7 @@ struct RectangularAccessoryWidgetView : View {
                 HStack(spacing: 0) {
                     if let statusIcon = entry.vm.statusIcon {
                         Image(systemName: statusIcon)
-                            .font(.system(size: 20))
+                            .fontSize(20)
                             .padding(2)
                             .widgetAccentable()
                     } else {
@@ -37,7 +37,7 @@ struct RectangularAccessoryWidgetView : View {
                     }
                     
                     Text(entry.vm.serverName)
-                        .font(.headline)
+                        .headline()
                         .padding(.leading, 5)
                     
                     Spacer()

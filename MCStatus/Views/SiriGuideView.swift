@@ -29,15 +29,14 @@ struct SiriGuideView: View {
                             .padding(.trailing, 5)
                         
                         Text("\"\(phrase.phrase)\"")
-                            .font(.subheadline)
+                            .subheadline()
                             .foregroundColor(.primary)
                     }
                     .padding(.vertical, 5)
                 }
             } header: {
                 Text("How to Use Siri with MC Status")
-                    .font(.title2)
-                    .bold()
+                    .title2(.bold)
                     .padding(.bottom, 5)
             }
             .headerProminence(.increased)

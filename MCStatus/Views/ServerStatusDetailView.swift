@@ -91,19 +91,18 @@ struct ServerStatusDetailView: View {
                         
                         VStack(alignment: .leading, spacing: 0) {
                             Text(serverStatusVM.server.name)
-                                .font(.title)
-                                .fontWeight(.bold)
+                                .title(.bold)
                             
                             let serverAddressString = serverStatusVM.server.serverUrl + ":" + String(serverStatusVM.server.serverPort)
                             
                             Text(serverAddressString)
-                                .font(.footnote)
+                                .footnote()
                                 .foregroundColor(.secondaryTextColor)
                                 .lineLimit(1)
                             
                             if !srvAddressText.isEmpty {
                                 Text(srvAddressText)
-                                    .font(.footnote)
+                                    .footnote()
                                     .foregroundColor(.secondaryTextColor)
                                     .lineLimit(1)
                             }
@@ -117,7 +116,7 @@ struct ServerStatusDetailView: View {
                                         .padding(.vertical, 7)
                                         .background(pillColor)
                                         .foregroundColor(.white)
-                                        .font(.subheadline)
+                                        .subheadline()
                                         .cornerRadius(16)
                                     
                                     if serverStatusVM.loadingStatus == .Loading {
@@ -128,7 +127,7 @@ struct ServerStatusDetailView: View {
                                 if self.pingDuration > 0 {
                                     HStack {
                                         Text("\(self.pingDuration)ms")
-                                            .font(.subheadline)
+                                            .subheadline()
                                         
                                         Image(systemName: "wifi")
                                             .resizable()
@@ -150,17 +149,16 @@ struct ServerStatusDetailView: View {
                     
                     HStack(alignment: .top) {
                         Text(serverStatusVM.server.serverType.rawValue)
-                            .font(.subheadline)
+                            .subheadline(.bold)
                             .padding(.horizontal, 6)
                             .padding(.vertical, 3)
                             .background(Color.standoutPillGrey)
                             .cornerRadius(6)
                             .foregroundColor(.tertiaryTextColor)
-                            .bold()
                         
                         if let version = serverStatusVM.status?.version, !version.isEmpty {
                             Text(version)
-                                .font(.subheadline)
+                                .subheadline()
                                 .padding(.top, 3)
                                 .foregroundColor(.secondaryTextColor)
                         }
@@ -176,7 +174,7 @@ struct ServerStatusDetailView: View {
                     }
                     
                     Text(playersText)
-                        .font(.headline)
+                        .headline()
                         .padding(.bottom, 10)
                         .padding(.top, 15)
                     

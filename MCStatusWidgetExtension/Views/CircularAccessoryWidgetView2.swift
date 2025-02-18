@@ -11,7 +11,7 @@ struct CircularAccessoryWidgetView2 : View {
             ZStack {
                 if let statusIcon = entry.vm.statusIcon {
                     Image(systemName: statusIcon)
-                        .font(.system(size: 24))
+                        .fontSize(24)
                         .padding(4)
                     
                 } else if entry.vm.viewType == .Unconfigured {

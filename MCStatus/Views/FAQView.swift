@@ -40,13 +40,12 @@ struct FAQRow: View {
     var body: some View {
         DisclosureGroup(isExpanded: $isExpanded) {
             Text(faq.answer)
-                .font(.body)
-                .foregroundColor(.secondary) // Muted answer color
+            // Muted answer color
+                .secondary()
                 .padding(.vertical, 5)
         } label: {
             Text(faq.question)
-                .font(.title3)
-                .bold()
+                .title3(.bold)
                 .padding(.trailing, 10)
         }
     }

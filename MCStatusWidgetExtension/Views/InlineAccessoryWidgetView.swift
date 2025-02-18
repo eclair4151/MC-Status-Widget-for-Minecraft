@@ -10,7 +10,7 @@ struct InlineAccessoryWidgetView : View {
         HStack(spacing: 8) {
             if let statusIcon = entry.vm.statusIcon {
                 Image(systemName: statusIcon)
-                    .font(.system(size: 18))
+                    .fontSize(18)
                     .widgetAccentable()
             } else {
                 Image(uiImage: entry.vm.icon).widgetAccentable()

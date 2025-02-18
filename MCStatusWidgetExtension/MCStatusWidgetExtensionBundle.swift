@@ -1,4 +1,4 @@
-import SwiftUI
+import ScrechKit
 
 @main
 struct MCStatusWidgetExtensionBundle: WidgetBundle {

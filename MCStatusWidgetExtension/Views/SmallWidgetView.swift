@@ -27,15 +27,16 @@ struct BaseWidgetView: View {
         ZStack {
             VStack(alignment: .trailing, spacing: 0) {
                 Text(entry.vm.serverName)
-                    .fontWeight(.semibold)
+                    .semibold()
                     .foregroundColor(.semiTransparentText)
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .lineLimit(1)
-                    .font(.system(size: 16))
+                    .fontSize(16)
                     .widgetAccentable()
                 
                 Button(intent: RefreshWidgetIntent()) {
-                    HStack(spacing: 3) { // Adjust spacing as needed
+                    // Adjust spacing as needed
+                    HStack(spacing: 3) {
                         Image(systemName: "arrow.clockwise")
                             .imageScale(.medium)
                             .frame(width: 16, height: 16)
@@ -44,7 +45,7 @@ struct BaseWidgetView: View {
                             .invalidatableContent() // You can adjust the size as needed
                         
                         Text(entry.vm.lastUpdated)
-                            .font(.system(size: 14))
+                            .fontSize(14)
                             .lineLimit(1)
                             .foregroundColor(.veryTransparentText) // This is your variable text
                     }
@@ -74,25 +75,27 @@ struct BaseWidgetView: View {
                     if let statusIcon = entry.vm.statusIcon, !statusIcon.isEmpty {
                         if widgetRenderingMode == .accented {
                             Image(systemName: statusIcon)
-                                .font(.system(size: 24))
-                                .offset(x: 18, y: 0)
+                                .fontSize(24)
+                                .offset(x: 18)
                                 .widgetAccentable()
                         } else {
                             Image(systemName: statusIcon)
-                                .font(.system(size: 24))
-                                .foregroundColor( Color.unknownColor )
-                                .background(Color.white.mask(Circle()).padding(4))
-                                .offset(x: 18, y: 0)
+                                .fontSize(24)
+                                .foregroundColor(Color.unknownColor)
+                                .background {
+                                    Color.white
+                                        .mask(Circle())
+                                        .padding(4)
+                                }
+                                .offset(x: 18)
                                 .widgetAccentable()
                         }
-                        
                     }
-                    
                 }
                 
                 Text(entry.vm.progressString)
                     .bold()
-                    .font(.system(size: CGFloat(entry.vm.progressStringSize)))
+                    .fontSize(CGFloat(entry.vm.progressStringSize))
                     .foregroundColor(.regularText)
                     .lineLimit(1)
                     .minimumScaleFactor(0.7)
@@ -103,8 +106,8 @@ struct BaseWidgetView: View {
                 
                 if entry.vm.statusIcon == nil {
                     CustomProgressView(progress: CGFloat(entry.vm.progressValue), bgColor: self.progressBgColor, bgOpactiy: self.progressBgOpacity)
-                        .frame(height:6)
-                        .padding(.top,6)
+                        .frame(height: 6)
+                        .padding(.top, 6)
                 }
             }
         }

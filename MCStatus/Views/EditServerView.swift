@@ -35,7 +35,7 @@ struct EditServerView: View {
                 HStack {
                     Image(systemName: "list.bullet")
                         .foregroundColor(.gray)
-                        .font(.headline)
+                        .headline()
                         .frame(width: 25, height: 25)
                     
                     Picker("Server Type", selection: $tempServerType) {
@@ -57,7 +57,7 @@ struct EditServerView: View {
                 HStack {
                     Image(systemName: "tag.fill")
                         .foregroundColor(.gray)
-                        .font(.headline)
+                        .headline()
                         .frame(width: 25, height: 25)
                     
                     TextField("Server Name", text: $tempNameInput, prompt: Text("Server Name"))
@@ -71,7 +71,7 @@ struct EditServerView: View {
                 HStack {
                     Image(systemName: "rectangle.connected.to.line.below")
                         .foregroundColor(.gray)
-                        .font(.headline)
+                        .headline()
                         .frame(width: 25, height: 25)
                     
                     TextField("Server Address/IP", text: $tempServerInput, prompt: Text("Server Address/IP"))
@@ -88,7 +88,7 @@ struct EditServerView: View {
                 HStack {
                     Image(systemName: "number")
                         .foregroundColor(.gray)
-                        .font(.headline)
+                        .headline()
                         .frame(width: 25, height: 25)
                     
                     TextField(portLabelPromptText, value: $tempPortInput, formatter: NumberFormatter(), prompt: Text(portLabelPromptText))

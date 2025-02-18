@@ -12,7 +12,7 @@ struct CornerAccessoryWidgetView1 : View {
         ZStack {
             if let statusIcon = entry.vm.statusIcon {
                 Image(systemName: statusIcon)
-                    .font(.system(size: iconSize))
+                    .fontSize(iconSize)
                     .widgetAccentable()
                 
             } else if entry.vm.viewType == .Unconfigured {

@@ -15,8 +15,7 @@ struct TipJarView: View {
             
             VStack(spacing: 15) {
                 Text("Support the app!")
-                    .font(.largeTitle)
-                    .bold()
+                    .largeTitle(.bold)
                     .padding(.top)
                 
                 Image(systemName: "party.popper.fill")
@@ -26,7 +25,6 @@ struct TipJarView: View {
                     .padding()
                 
                 Text("This app is free, ad-less, and open-source. If you find it useful, consider tipping to help keep it going!")
-                    .font(.body)
                     .lineLimit(nil)
                     .multilineTextAlignment(.center)
                     .padding()
@@ -39,7 +37,7 @@ struct TipJarView: View {
                             }
                         } label: {
                             Text("Tip \(product.displayPrice)")
-                                .font(.headline)
+                                .headline()
                                 .frame(maxWidth: .infinity)
                                 .padding()
                                 .background(Color.blue)
@@ -55,7 +53,7 @@ struct TipJarView: View {
                 }
                 
                 Text("Thank you for your support!")
-                    .font(.footnote)
+                    .footnote()
                     .padding(.vertical)
             }
             .padding(.horizontal)

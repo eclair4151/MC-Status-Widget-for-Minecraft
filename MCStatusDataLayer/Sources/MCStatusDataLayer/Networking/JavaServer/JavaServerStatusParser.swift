@@ -210,11 +210,11 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
     
     static let javaSectionSignFormatCodes = [
         "k": MOTDFormatter.Obfuscated,
-        "l": MOTDFormatter.Bold,
-        "m": MOTDFormatter.Strikethrough,
-        "n": MOTDFormatter.Underline,
-        "o": MOTDFormatter.Italic,
-        "r": MOTDFormatter.Reset
+        "l": .Bold,
+        "m": .Strikethrough,
+        "n": .Underline,
+        "o": .Italic,
+        "r": .Reset
     ]
     
     static let javaSectionSignColorFormats = [

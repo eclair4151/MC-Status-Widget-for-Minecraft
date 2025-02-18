@@ -47,7 +47,7 @@ struct WatchContentView: View {
                 if let serverVMs, !serverVMs.isEmpty {
                     ToolbarItem(placement: .topBarLeading) {
                         Text("Servers")
-                            .font(.system(size: 25))
+                            .fontSize(25)
                             .bold()
                     }
                 }
@@ -68,7 +68,7 @@ struct WatchContentView: View {
                     Spacer()
                     
                     Image(systemName: "icloud.slash")
-                        .font(.system(size: 30))
+                        .fontSize(30)
                         .foregroundStyle(.gray)
                     
                     ContentUnavailableView("Enable iCloud", systemImage: "", description: Text ("iCloud is required to sync servers to your watch."))
@@ -81,7 +81,7 @@ struct WatchContentView: View {
                     Spacer()
                     
                     Image(systemName: "server.rack")
-                        .font(.system(size: 30))
+                        .fontSize(30)
                         .foregroundStyle(.gray)
                     
                     ContentUnavailableView("Add a Server", systemImage: "", description: Text ("Servers are synced with your phone. This may take some time."))
@@ -97,8 +97,10 @@ struct WatchContentView: View {
                 print("Active")
                 reloadData()
                 checkForAutoReload()
+                
             } else if newPhase == .inactive {
                 print("Inactive")
+                
             } else if newPhase == .background {
                 print("Background")
             }

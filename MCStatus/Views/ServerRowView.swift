@@ -2,7 +2,11 @@ import SwiftUI
 import MCStatusDataLayer
 
 struct ServerRowView: View {
-    var vm: ServerStatusVM
+    private var vm: ServerStatusVM
+    
+    init(_ vm: ServerStatusVM) {
+        self.vm = vm
+    }
     
     var body: some View {
         HStack {
@@ -19,30 +23,27 @@ struct ServerRowView: View {
                 .clipShape(.rect(cornerRadius: 8))
                 .padding(.trailing, 5)
             
-            
             VStack(alignment: .leading, spacing: 5) {
                 HStack {
                     VStack(alignment: .leading) {
                         Text(vm.server.name)
-                            .font(.headline)
+                            .headline()
                             .foregroundColor(.primary)
                         
                         if let status = vm.status {
                             if status.status == .Offline {
                                 Text(status.status.rawValue.capitalized)
-                                    .font(.subheadline)
+                                    .subheadline(.bold)
                                     .foregroundColor(.red)
-                                    .bold()
                             } else {
                                 Text(status.getDisplayText())
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
+                                    .subheadline()
+                                    .secondary()
                             }
-                            
                         } else if vm.loadingStatus == .Loading {
                             Text(vm.loadingStatus.rawValue)
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
+                                .subheadline()
+                                .secondary()
                         }
                     }
                     
@@ -53,6 +54,7 @@ struct ServerRowView: View {
                             .padding(.trailing, 5)
                     }
                 }
+                
                 CustomProgressView(progress: CGFloat(vm.getPlayerCountPercentage()))
                     .frame(height: 8)
                 
@@ -60,8 +62,8 @@ struct ServerRowView: View {
                     let sampletext = vm.getUserSampleText()
                     
                     Text(sampletext)
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
+                        .footnote()
+                        .secondary()
                         .padding(0)
                         .frame(height: 8)
                         .lineLimit(1)

@@ -7,7 +7,7 @@ struct WatchServerRowView: View {
     var vm: ServerStatusVM
     
     var body: some View {
-        HStack() {
+        HStack {
             Image(uiImage: vm.serverIcon)
                 .resizable()
                 .scaledToFit()
@@ -23,12 +23,14 @@ struct WatchServerRowView: View {
             
             VStack(alignment: .leading, spacing: 0) {
                 if let status = vm.status {
-                    Text(vm.server.name).bold()
+                    Text(vm.server.name)
+                        .bold()
                         .minimumScaleFactor(0.65)
                         .lineLimit(1)
+                    
                     HStack {
                         Text(status.getWatchDisplayText())
-                            .font(.footnote)
+                            .footnote()
                             .foregroundStyle((status.status == .Offline) ? .red : .primary)
                         
                         if vm.loadingStatus == .Loading {
@@ -39,15 +41,20 @@ struct WatchServerRowView: View {
                     }
                 } else {
                     HStack {
-                        Text(vm.server.name).bold()
+                        Text(vm.server.name)
+                            .bold()
                             .minimumScaleFactor(0.65)
                             .lineLimit(1)
-                        ProgressView().frame(width: 20, height: 20).scaleEffect(CGSize(width: 0.8, height: 0.8), anchor: .center)
+                        
+                        ProgressView()
+                            .frame(width: 20, height: 20)
+                            .scaleEffect(CGSize(width: 0.8, height: 0.8), anchor: .center)
                     }
                 }
                 
                 CustomProgressView(progress: vm.getPlayerCountPercentage())
-                    .frame(height:6).padding(.vertical, 3)
+                    .frame(height:6)
+                    .padding(.vertical, 3)
             }
         }
     }

@@ -36,7 +36,7 @@ struct MainAppContentView: View {
             List {
                 ForEach(serverVMs ?? []) { vm in
                     NavigationLink(value: vm) {
-                        ServerRowView(vm: vm)
+                        ServerRowView(vm)
                     }
                     .listRowInsets(EdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15))
                 }

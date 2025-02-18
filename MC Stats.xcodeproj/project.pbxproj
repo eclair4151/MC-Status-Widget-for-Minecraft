@@ -158,6 +158,10 @@
 		F304725E2D63FBFC0055C007 /* MinecraftBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30472592D63FBFC0055C007 /* MinecraftBoldItalic.otf */; };
 		F304725F2D63FBFC0055C007 /* MinecraftItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */; };
 		F30472602D63FBFC0055C007 /* MinecraftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725B2D63FBFC0055C007 /* MinecraftRegular.otf */; };
+		F33A5CAD2D640BEB0020D8A5 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33A5CAC2D640BEB0020D8A5 /* ScrechKit */; };
+		F33A5CAF2D640C370020D8A5 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33A5CAE2D640C370020D8A5 /* ScrechKit */; };
+		F33A5CB12D640C3B0020D8A5 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33A5CB02D640C3B0020D8A5 /* ScrechKit */; };
+		F33A5CB32D640C440020D8A5 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33A5CB22D640C440020D8A5 /* ScrechKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -337,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1EF76C82CB4216F00EFFB20 /* NukeUI in Frameworks */,
+				F33A5CB32D640C440020D8A5 /* ScrechKit in Frameworks */,
 				F1C010432AAAB6E50017B9A9 /* MCStatusDataLayer in Frameworks */,
 				F1EF76C62CB4216F00EFFB20 /* Nuke in Frameworks */,
 			);
@@ -347,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F13095272CBC997200C4C7BA /* SwiftUI.framework in Frameworks */,
+				F33A5CB12D640C3B0020D8A5 /* ScrechKit in Frameworks */,
 				F13095362CBC99AE00C4C7BA /* MCStatusDataLayer in Frameworks */,
 				F13095262CBC997200C4C7BA /* WidgetKit.framework in Frameworks */,
 			);
@@ -357,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1612CCA2CACC37300E602DC /* NukeUI in Frameworks */,
+				F33A5CAD2D640BEB0020D8A5 /* ScrechKit in Frameworks */,
 				F1C010412AAAB6DE0017B9A9 /* MCStatusDataLayer in Frameworks */,
 				F1612CC82CACC37300E602DC /* Nuke in Frameworks */,
 			);
@@ -375,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1EF76F02CB7873F00EFFB20 /* SwiftUI.framework in Frameworks */,
+				F33A5CAF2D640C370020D8A5 /* ScrechKit in Frameworks */,
 				F1EF77382CB818AC00EFFB20 /* MCStatusDataLayer in Frameworks */,
 				F1EF76EE2CB7873F00EFFB20 /* WidgetKit.framework in Frameworks */,
 			);
@@ -679,6 +687,7 @@
 				F1C010422AAAB6E50017B9A9 /* MCStatusDataLayer */,
 				F1EF76C52CB4216F00EFFB20 /* Nuke */,
 				F1EF76C72CB4216F00EFFB20 /* NukeUI */,
+				F33A5CB22D640C440020D8A5 /* ScrechKit */,
 			);
 			productName = "MCStatusWatchApp Watch App";
 			productReference = F11F634B2A81E50E00D47187 /* watchOS.app */;
@@ -699,6 +708,7 @@
 			name = "Watch Widgets";
 			packageProductDependencies = (
 				F13095352CBC99AE00C4C7BA /* MCStatusDataLayer */,
+				F33A5CB02D640C3B0020D8A5 /* ScrechKit */,
 			);
 			productName = MCStatusWatchWidgetExtension;
 			productReference = F13095252CBC997200C4C7BA /* Watch Widgets.appex */;
@@ -727,6 +737,7 @@
 				F1C010402AAAB6DE0017B9A9 /* MCStatusDataLayer */,
 				F1612CC72CACC37300E602DC /* Nuke */,
 				F1612CC92CACC37300E602DC /* NukeUI */,
+				F33A5CAC2D640BEB0020D8A5 /* ScrechKit */,
 			);
 			productName = MinecraftServerStatus;
 			productReference = F13E5FF92A4BD614005BE9B2 /* MC Stats.app */;
@@ -767,6 +778,7 @@
 			name = Widgets;
 			packageProductDependencies = (
 				F1EF77372CB818AC00EFFB20 /* MCStatusDataLayer */,
+				F33A5CAE2D640C370020D8A5 /* ScrechKit */,
 			);
 			productName = MCStatusWidgetExtensionExtension;
 			productReference = F1EF76EC2CB7873F00EFFB20 /* Widgets.appex */;
@@ -809,6 +821,7 @@
 			mainGroup = F13E5FF02A4BD614005BE9B2;
 			packageReferences = (
 				F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */,
+				F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F13E5FFA2A4BD614005BE9B2 /* Products */;
@@ -1595,6 +1608,14 @@
 				minimumVersion = 12.8.0;
 			};
 		};
+		F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/TopScrech/ScrechKit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1637,6 +1658,26 @@
 		F1EF77372CB818AC00EFFB20 /* MCStatusDataLayer */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MCStatusDataLayer;
+		};
+		F33A5CAC2D640BEB0020D8A5 /* ScrechKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */;
+			productName = ScrechKit;
+		};
+		F33A5CAE2D640C370020D8A5 /* ScrechKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */;
+			productName = ScrechKit;
+		};
+		F33A5CB02D640C3B0020D8A5 /* ScrechKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */;
+			productName = ScrechKit;
+		};
+		F33A5CB22D640C440020D8A5 /* ScrechKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */;
+			productName = ScrechKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

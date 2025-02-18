@@ -23,8 +23,9 @@ struct InlineAccessoryWidgetView2 : View {
             
             if let statusIcon = entry.vm.statusIcon {
                 Image(systemName: statusIcon)
-                    .font(.system(size: 18))
+                    .fontSize(18)
                     .widgetAccentable()
+                
             } else if entry.vm.viewType != .Unconfigured {
                 let imageNumber = 50// min(100, max(0, Int((entry.vm.progressValue * 100).rounded(.towardZero))))
                 let imageName = "ProgressBar\(imageNumber)"

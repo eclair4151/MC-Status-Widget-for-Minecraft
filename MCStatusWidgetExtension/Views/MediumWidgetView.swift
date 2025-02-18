@@ -30,7 +30,7 @@ private struct InnerMediumWidget : View {
                 .foregroundColor(.veryTransparentText)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .lineLimit(1)
-                .font(.system(size: 13))
+                .fontSize(13)
         }
         .padding()
     }

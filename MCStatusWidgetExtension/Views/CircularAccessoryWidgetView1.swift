@@ -30,7 +30,7 @@ struct CircularAccessoryWidgetView1 : View {
                     HStack(spacing: 4) { // Adjust spacing as needed
                         if let statusIcon = entry.vm.statusIcon {
                             Image(systemName: statusIcon)
-                                .font(.system(size: iconSize))
+                                .fontSize(iconSize)
                                 .padding(2)
                                 .widgetAccentable()
                             
@@ -77,7 +77,7 @@ struct CircularAccessoryWidgetView1 : View {
                     .padding(.bottom, 4)
                     .padding(.horizontal,2)
                     .minimumScaleFactor(0.01)
-                    .fontWeight(.semibold)
+                    .semibold()
             }
         }
         .gaugeStyle(.accessoryCircularCapacity)
