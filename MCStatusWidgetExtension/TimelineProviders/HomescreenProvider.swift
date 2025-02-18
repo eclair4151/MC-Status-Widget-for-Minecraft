@@ -83,6 +83,7 @@ struct HomescreenProvider: AppIntentTimelineProvider {
             // nothing configured yet?
             var vm = WidgetEntryVM()
             vm.setForUnconfiguredView()
+            
             let serverCount = await SwiftDataHelper.getSavedServers(container: container).count
             
             if serverCount == 0 {

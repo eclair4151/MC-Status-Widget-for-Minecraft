@@ -1,7 +1,10 @@
 import Foundation
 
 public class ServerStatusChecker {
-    public static func checkServer(server:SavedMinecraftServer, config: ServerCheckerConfig? = nil) async -> ServerStatus {
+    public static func checkServer(
+        _ server: SavedMinecraftServer,
+        config: ServerCheckerConfig? = nil
+    ) async -> ServerStatus {
         //        if server.serverType == .Bedrock {
         //            do {
         //                //aritifical delay for testing
@@ -30,8 +33,16 @@ public class ServerStatusChecker {
         if  server.serverType == .Java && !server.srvServerUrl.isEmpty && server.srvServerPort != 0 {
             do {
                 print("CHECKING SERVER FROM CACHED SRV: " + server.srvServerUrl)
-                let res = try await DirectServerStatusChecker.checkServer(serverUrl: server.srvServerUrl, serverPort: server.srvServerPort, serverType: server.serverType, config: config)
+                
+                let res = try await DirectServerStatusChecker.checkServer(
+                    serverUrl: server.srvServerUrl,
+                    serverPort: server.srvServerPort,
+                    serverType: server.serverType,
+                    config: config
+                )
+                
                 res.source = .CachedSRV
+                
                 return res
             } catch {
                 // something when horribly wrong. Move to next step
@@ -39,14 +50,19 @@ public class ServerStatusChecker {
             }
         }
         
-        
         // STEP 2 if the direct provided url is different that the SRV record, attempt to connect using that directly.
         // ALSO THIS IS WHEN WE CONNECT TO BEDROCK SINCE THEY DONT HAVE SRV
         if server.serverType == .Bedrock || server.serverUrl != server.srvServerUrl || server.serverPort != server.srvServerPort {
             do {
                 print("CONNECTING TO SERVER DIRECTLY (IGNORING SRV)")
                 
-                let res = try await DirectServerStatusChecker.checkServer(serverUrl: server.serverUrl, serverPort: server.serverPort, serverType: server.serverType, config: config)
+                let res = try await DirectServerStatusChecker.checkServer(
+                    serverUrl: server.serverUrl,
+                    serverPort: server.serverPort,
+                    serverType: server.serverType,
+                    config: config
+                )
+                
                 res.source = .Direct
                 
                 return res
@@ -93,7 +109,13 @@ public class ServerStatusChecker {
         do {
             print("CALLING BACKUP SERVER")
             
-            let res = try await WebServerStatusChecker.checkServer(serverUrl: server.serverUrl, serverPort: server.serverPort, serverType: server.serverType, config: config)
+            let res = try await WebServerStatusChecker.checkServer(
+                serverUrl: server.serverUrl,
+                serverPort: server.serverPort,
+                serverType: server.serverType,
+                config: config
+            )
+            
             res.source = .ThirdParty
             print("Got result from third part. Returning...")
             
