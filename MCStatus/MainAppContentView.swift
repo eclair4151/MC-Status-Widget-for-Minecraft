@@ -47,6 +47,7 @@ struct MainAppContentView: View {
                 // uncomment to enable swipe to delete
                 // You can also use a custom Swipe Action instead of this to block full swipes and require partial swipe + tap
             }
+            .scrollIndicators(.never)
             .navigationDestination(for: ServerStatusVM.self) { vm in
                 ServerStatusDetailView(serverStatusVM: vm) {
                     reloadData()

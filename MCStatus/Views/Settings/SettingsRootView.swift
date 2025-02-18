@@ -61,7 +61,7 @@ struct SettingsRootView: View {
             Section {
                 // Tip Developer
                 Button(action: tipDeveloper) {
-                    Label("Leave Developer a Tip", systemImage: "giftcard")
+                    Label("Leave Developer a Tip", systemImage: "gift")
                 }
             } footer: {
                 Text("Help support the development of free, adless, open source apps")
@@ -83,13 +83,14 @@ struct SettingsRootView: View {
             }
 #endif
         }
+        .scrollIndicators(.never)
+        .navigationTitle("Settings")
+        .background(Color(.systemGroupedBackground))
         .sheet($showingTipSheet) {
             NavigationStack {
                 TipJarView($showingTipSheet)
             }
         }
-        .navigationTitle("Settings")
-        .background(Color(.systemGroupedBackground))
     }
     
     private func openGithub() {
