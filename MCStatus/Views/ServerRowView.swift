@@ -70,13 +70,15 @@ struct ServerRowView: View {
                 if UserDefaultHelper.shared.get(for: .showUsersOnHomesreen, defaultValue: true) {
                     let sampletext = vm.getUserSampleText()
                     
-                    Text(sampletext)
-                        .footnote()
-                        .secondary()
-                        .padding(0)
-                        .frame(height: 8)
-                        .lineLimit(1)
-                        .truncationMode(.tail)
+                    if !sampletext.isEmpty {
+                        Text(sampletext)
+                            .footnote()
+                            .secondary()
+                            .padding(0)
+                            .frame(height: 8)
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                    }
                 }
             }
         }
