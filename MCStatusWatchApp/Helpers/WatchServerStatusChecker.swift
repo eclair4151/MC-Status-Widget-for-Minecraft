@@ -84,7 +84,10 @@ class WatchServerStatusChecker {
     }
     
     private func parseWatchResponse(message: [String:Any]) -> (UUID, ServerStatus)? {
-        guard let responseString = message["response"] as? String, let jsonData = responseString.data(using: .utf8) else {
+        guard
+            let responseString = message["response"] as? String,
+            let jsonData = responseString.data(using: .utf8)
+        else {
             return nil
         }
         

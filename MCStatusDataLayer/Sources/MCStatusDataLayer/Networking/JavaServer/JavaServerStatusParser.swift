@@ -4,7 +4,7 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
     public static func parseServerResponse(stringInput: String, config: ServerCheckerConfig?) throws -> ServerStatus {
         
         let jsonData = stringInput.data(using: .utf8)
-        guard let jsonData = jsonData else {
+        guard let jsonData else {
             throw ServerStatusCheckerError.StatusUnparsable
         }
         

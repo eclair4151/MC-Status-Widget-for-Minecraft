@@ -62,8 +62,13 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
     func startTCPConnection(dataToSend: Data) {
         print("Going to start TCP Connection to \(self.serverAddress):\(self.port)")
         
-        guard self.port <= 65535, self.port >= 0, let port = NWEndpoint.Port(rawValue: UInt16(self.port)) else {
+        guard
+            self.port <= 65535,
+            self.port >= 0,
+            let port = NWEndpoint.Port(rawValue: UInt16(self.port))
+        else {
             print("Invalid Port... canceling")
+            
             self.callContinuationError(error: ServerStatusCheckerError.InvalidPort)
             return
         }

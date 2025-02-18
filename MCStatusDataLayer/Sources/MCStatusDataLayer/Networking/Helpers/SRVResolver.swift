@@ -95,7 +95,7 @@ public class SRVResolver {
         self.dispatchSourceRead?.cancel()
     }
     
-    // this is also only support by java servers.
+    // this is also only support by java servers
     public static func lookupMinecraftSRVRecord(serverURL: String) async -> (String,Int)? {
         
         //if its a regular ip just return nil
@@ -112,9 +112,15 @@ public class SRVResolver {
                 rec1.priority < rec2.priority
             })
             
-            guard let address = highestPrioritySRV?.target, let port = highestPrioritySRV?.port, address != "", port != 0 else {
+            guard
+                let address = highestPrioritySRV?.target,
+                let port = highestPrioritySRV?.port,
+                address != "",
+                port != 0
+            else {
                 return nil
             }
+            
             return (address, port)
         } catch {
             return nil
@@ -165,6 +171,7 @@ public class SRVResolver {
                 
                 self.dispatchSourceRead?.setEventHandler {
                     let res = DNSServiceProcessResult(sdRef)
+                    
                     if res != kDNSServiceErr_NoError {
                         self.fail()
                     }

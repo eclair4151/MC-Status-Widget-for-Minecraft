@@ -40,7 +40,7 @@ struct MCParsingTests {
         
         let jsonData = stringInput.data(using: .utf8)
         
-        guard let jsonData = jsonData else {
+        guard let jsonData else {
             throw ServerStatusCheckerError.StatusUnparsable
         }
         

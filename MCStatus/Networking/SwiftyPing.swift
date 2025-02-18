@@ -5,10 +5,10 @@ import Darwin
 public typealias Observer = ((_ response: PingResponse) -> Void)
 public typealias FinishedCallback = ((_ result: PingResult) -> Void)
 
-/// Represents a ping delegate.
+/// Represents a ping delegate
 public protocol PingDelegate {
-    /// Called when a ping response is received.
-    /// - Parameter response: A `PingResponse` object representing the echo reply.
+    /// Called when a ping response is received
+    /// - Parameter response: A `PingResponse` object representing the echo reply
     func didReceive(response: PingResponse)
 }
 
@@ -16,60 +16,74 @@ public protocol PingDelegate {
 public enum PingError: Error, Equatable {
     // Response errors
     
-    /// The response took longer to arrive than `configuration.timeoutInterval`.
+    /// The response took longer to arrive than `configuration.timeoutInterval`
     case responseTimeout
     
     // Response validation errors
     
     /// The response length was too short.
     case invalidLength(received: Int)
-    /// The received checksum doesn't match the calculated one.
+    
+    /// The received checksum doesn't match the calculated one
     case checksumMismatch(received: UInt16, calculated: UInt16)
-    /// Response `type` was invalid.
+    
+    /// Response `type` was invalid
     case invalidType(received: ICMPType.RawValue)
-    /// Response `code` was invalid.
+    
+    /// Response `code` was invalid
     case invalidCode(received: UInt8)
-    /// Response `identifier` doesn't match what was sent.
+    
+    /// Response `identifier` doesn't match what was sent
     case identifierMismatch(received: UInt16, expected: UInt16)
-    /// Response `sequenceNumber` doesn't match.
+    
+    /// Response `sequenceNumber` doesn't match
     case invalidSequenceIndex(received: UInt16, expected: UInt16)
     
     // Host resolve errors
-    /// Unknown error occured within host lookup.
+    /// Unknown error occured within host lookup
     case unknownHostError
-    /// Address lookup failed.
+    
+    /// Address lookup failed
     case addressLookupError
-    /// Host was not found.
+    
+    /// Host was not found
     case hostNotFound
-    /// Address data could not be converted to `sockaddr`.
+    
+    /// Address data could not be converted to `sockaddr`
     case addressMemoryError
     
     // Request errors
-    /// An error occured while sending the request.
+    /// An error occured while sending the request
     case requestError
+    
     /// The request send timed out. Note that this is not "the" timeout,
     /// that would be `responseTimeout`. This timeout means that
-    /// the ping request wasn't even sent within the timeout interval.
+    /// the ping request wasn't even sent within the timeout interval
     case requestTimeout
     
     // Internal errors
-    /// Checksum is out-of-bounds for `UInt16` in `computeCheckSum`. This shouldn't occur, but if it does, this error ensures that the app won't crash.
+    /// Checksum is out-of-bounds for `UInt16` in `computeCheckSum`. This shouldn't occur, but if it does, this error ensures that the app won't crash
     case checksumOutOfBounds
-    /// Unexpected payload length.
+    
+    /// Unexpected payload length
     case unexpectedPayloadLength
-    /// Unspecified package creation error.
+    
+    /// Unspecified package creation error
     case packageCreationFailed
+    
     /// For some reason, the socket is `nil`. This shouldn't ever happen, but just in case...
     case socketNil
-    /// The ICMP header offset couldn't be calculated.
+    
+    /// The ICMP header offset couldn't be calculated
     case invalidHeaderOffset
-    /// Failed to change socket options, in particular SIGPIPE.
+    
+    /// Failed to change socket options, in particular SIGPIPE
     case socketOptionsSetError(err: Int32)
 }
 
 // MARK: SwiftyPing
 
-/// Class representing socket info, which contains a `SwiftyPing` instance and the identifier.
+/// Class representing socket info, which contains a `SwiftyPing` instance and the identifier
 public class SocketInfo {
     public weak var pinger: SwiftyPing?
     public let identifier: UInt16
@@ -80,19 +94,25 @@ public class SocketInfo {
     }
 }
 
-/// Represents a single ping instance. A ping instance has a single destination.
+/// Represents a single ping instance. A ping instance has a single destination
 public class SwiftyPing: NSObject {
-    /// Describes the ping host destination.
+    /// Describes the ping host destination
     public struct Destination {
-        /// The host name, can be a IP address or a URL.
+        /// The host name, can be a IP address or a URL
         public let host: String
-        /// IPv4 address of the host.
+        
+        /// IPv4 address of the host
         public let ipv4Address: Data
-        /// Socket address of `ipv4Address`.
+        
+        /// Socket address of `ipv4Address`
         public var socketAddress: sockaddr_in? { return ipv4Address.socketAddressInternet }
-        /// IP address of the host.
+        
+        /// IP address of the host
         public var ip: String? {
-            guard let address = socketAddress else { return nil }
+            guard let address = socketAddress else {
+                return nil
+            }
+            
             return String(cString: inet_ntoa(address.sin_addr), encoding: .ascii)
         }
         
@@ -747,7 +767,10 @@ public class SwiftyPing: NSObject {
         var i = 0
         
         while i < payload.count {
-            guard payload.indices.contains(i + 1) else { throw PingError.unexpectedPayloadLength }
+            guard payload.indices.contains(i + 1) else {
+                throw PingError.unexpectedPayloadLength
+            }
+            
             // Convert two 8 byte ints to one 16 byte int
             sum += Data([payload[i], payload[i + 1]]).withUnsafeBytes { UInt64($0.load(as: UInt16.self)) }
             i += 2

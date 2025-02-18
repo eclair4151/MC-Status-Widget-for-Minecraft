@@ -12,9 +12,13 @@ struct ServerIntentTypeAppEntity: AppEntity {
             var result: [ServerIntentTypeAppEntity] = []
             
             for id in identifiers {
-                guard let serverUUID = UUID(uuidString: id), let server = await SwiftDataHelper.getSavedServerById(container: container, server_id: serverUUID) else {
+                guard
+                    let serverUUID = UUID(uuidString: id),
+                    let server = await SwiftDataHelper.getSavedServerById(container: container, server_id: serverUUID)
+                else {
                     continue
                 }
+                
                 result.append(ServerIntentTypeAppEntity(id: server.id.uuidString, displayString: server.name))
             }
             
@@ -37,6 +41,7 @@ struct ServerIntentTypeAppEntity: AppEntity {
         //        func defaultResult() async -> ServerIntentTypeAppEntity? {
         //            let container = SwiftDataHelper.getModelContainter()
         //            let servers = await SwiftDataHelper.getSavedServers(container: container)
+        //
         //            guard servers.count >= 1, let server = servers.first else {
         //                return nil
         //            }

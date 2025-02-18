@@ -25,9 +25,11 @@ class WatchHelper: NSObject, WCSessionDelegate {
         let decoder = JSONDecoder()
         
         // i've done the lazy thing and hard coded the logic directly in here. Should be moved to a helper function at some point.
-        guard let requestString = message["request"] as? String,
-                let jsonData = requestString.data(using: .utf8),
-              let request = try? decoder.decode(WatchRequestMessage.self, from: jsonData) else {
+        guard
+            let requestString = message["request"] as? String,
+            let jsonData = requestString.data(using: .utf8),
+            let request = try? decoder.decode(WatchRequestMessage.self, from: jsonData)
+        else {
             // unknown input? return nothing
             print("error parsing watch request")
             return

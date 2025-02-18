@@ -42,6 +42,7 @@ public class SwiftDataHelper {
             predicate: nil,
             sortBy: [.init(\.displayOrder)]
         )
+        
         guard let results = try? modelContext.fetch(fetch) else {
             return []
         }
@@ -61,13 +62,13 @@ public class SwiftDataHelper {
             predicate: serverPredicate,
             sortBy: [.init(\.displayOrder)]
         )
+        
         fetch.fetchLimit = 1
         
-        guard let results = try? modelContext.fetch(fetch) else {
-            return nil
-        }
-        
-        guard results.count > 0 else {
+        guard
+            let results = try? modelContext.fetch(fetch),
+            results.count > 0
+        else {
             return nil
         }
         

@@ -78,7 +78,9 @@ public class ServerStatusVM: Identifiable, Hashable {
     }
     
     public func getPlayerCountPercentage() -> CGFloat {
-        guard let status, status.maxPlayerCount > 0 else { return 0 }
+        guard let status, status.maxPlayerCount > 0 else {
+            return 0
+        }
         
         let playerCount = status.onlinePlayerCount
         return CGFloat(playerCount) / CGFloat(status.maxPlayerCount)

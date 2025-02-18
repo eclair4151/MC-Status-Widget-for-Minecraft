@@ -84,6 +84,7 @@ public class UDPClient {
             
             guard let data else {
                 print("Error: Received nil Data")
+                
                 self.listener(.ERROR, self, nil)
                 return
             }
