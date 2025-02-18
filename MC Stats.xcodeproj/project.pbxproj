@@ -125,7 +125,6 @@
 		F304721F2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FA2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift */; };
 		F30472202D63E9C00055C007 /* InlineAccessoryWidgetView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FC2D63E9C00055C007 /* InlineAccessoryWidgetView2.swift */; };
 		F30472212D63E9C00055C007 /* LockscreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F62D63E9C00055C007 /* LockscreenProvider.swift */; };
-		F30472272D63E9C20055C007 /* MCStatusWatchWidgetExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472252D63E9C20055C007 /* MCStatusWatchWidgetExtensionBundle.swift */; };
 		F30472282D63E9C20055C007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F30472222D63E9C20055C007 /* Assets.xcassets */; };
 		F304722E2D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722A2D63E9CF0055C007 /* RefreshWidgetIntent.swift */; };
 		F304722F2D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722B2D63E9CF0055C007 /* ServerSelectNoTheme.swift */; };
@@ -171,6 +170,7 @@
 		F35E1A6F2D649C6000718CB7 /* FeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */; };
 		F35E1A712D649D1300718CB7 /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
 		F35E1A742D64A4B200718CB7 /* LowPowerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A732D64A4B200718CB7 /* LowPowerMode.swift */; };
+		F35E1A752D64ACE400718CB7 /* MCStatusWidgetExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472042D63E9C00055C007 /* MCStatusWidgetExtensionBundle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -328,7 +328,6 @@
 		F30472222D63E9C20055C007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F30472232D63E9C20055C007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F30472242D63E9C20055C007 /* MCStatusWatchWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusWatchWidget.entitlements; sourceTree = "<group>"; };
-		F30472252D63E9C20055C007 /* MCStatusWatchWidgetExtensionBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusWatchWidgetExtensionBundle.swift; sourceTree = "<group>"; };
 		F304722A2D63E9CF0055C007 /* RefreshWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshWidgetIntent.swift; sourceTree = "<group>"; };
 		F304722B2D63E9CF0055C007 /* ServerSelectNoTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSelectNoTheme.swift; sourceTree = "<group>"; };
 		F304722C2D63E9CF0055C007 /* ServerSelectWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSelectWidgetIntent.swift; sourceTree = "<group>"; };
@@ -608,12 +607,12 @@
 		F30472082D63E9C00055C007 /* MCStatusWidgetExtension */ = {
 			isa = PBXGroup;
 			children = (
-				F30471F72D63E9C00055C007 /* TimelineProviders */,
-				F30472002D63E9C00055C007 /* Views */,
+				F30472042D63E9C00055C007 /* MCStatusWidgetExtensionBundle.swift */,
 				F30472012D63E9C00055C007 /* Assets.xcassets */,
 				F30472022D63E9C00055C007 /* Info.plist */,
 				F30472032D63E9C00055C007 /* MCStatusWidgetExtension.entitlements */,
-				F30472042D63E9C00055C007 /* MCStatusWidgetExtensionBundle.swift */,
+				F30471F72D63E9C00055C007 /* TimelineProviders */,
+				F30472002D63E9C00055C007 /* Views */,
 				F30472052D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift */,
 				F30472062D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift */,
 				F30472072D63E9C00055C007 /* WidgetEntryVM.swift */,
@@ -627,7 +626,6 @@
 				F30472222D63E9C20055C007 /* Assets.xcassets */,
 				F30472232D63E9C20055C007 /* Info.plist */,
 				F30472242D63E9C20055C007 /* MCStatusWatchWidget.entitlements */,
-				F30472252D63E9C20055C007 /* MCStatusWatchWidgetExtensionBundle.swift */,
 			);
 			path = MCStatusWatchWidget;
 			sourceTree = "<group>";
@@ -962,6 +960,7 @@
 				F13095542CBC9DB300C4C7BA /* UserDefaultHelper.swift in Sources */,
 				F13095572CBD48ED00C4C7BA /* WatchServerStatusChecker.swift in Sources */,
 				F13095582CBD494300C4C7BA /* ConnectivityProvider.swift in Sources */,
+				F35E1A752D64ACE400718CB7 /* MCStatusWidgetExtensionBundle.swift in Sources */,
 				F304723A2D63E9CF0055C007 /* ServerSelectWidgetIntent.swift in Sources */,
 				F304723B2D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */,
 				F304723C2D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */,
@@ -981,7 +980,6 @@
 				F304721F2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift in Sources */,
 				F30472202D63E9C00055C007 /* InlineAccessoryWidgetView2.swift in Sources */,
 				F30472212D63E9C00055C007 /* LockscreenProvider.swift in Sources */,
-				F30472272D63E9C20055C007 /* MCStatusWatchWidgetExtensionBundle.swift in Sources */,
 				F17AE0F02CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
 				F130954C2CBC9C5D00C4C7BA /* CustomExtentions.swift in Sources */,
 			);
