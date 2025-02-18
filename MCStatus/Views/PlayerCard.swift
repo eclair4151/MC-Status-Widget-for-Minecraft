@@ -42,9 +42,19 @@ struct PlayerCard: View {
         }
         .padding(.vertical, 10)
         .listRowInsets(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
+        .toolbar {
+            Button {
+                UIPasteboard.general.string = player.name
+            } label: {
+                Label("Copy Nickname", systemImage: "document.on.document")
+            }
+        }
     }
 }
 
-//#Preview {
-//    PlayerCard()
-//}
+#Preview {
+    PlayerCard(.init(
+        name: "Preview",
+        uuid: "Preview"
+    ))
+}
