@@ -90,7 +90,6 @@ struct SettingsRootView: View {
         }
         .navigationTitle("Settings")
         .scrollIndicators(.never)
-        .background(Color(.systemGroupedBackground))
         .sheet($showingTipSheet) {
             NavigationStack {
                 TipJarView($showingTipSheet)
