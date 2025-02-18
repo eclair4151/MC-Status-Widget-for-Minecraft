@@ -21,7 +21,7 @@ struct MainAppContentView: View {
     
     @State private var serverVMs: [ServerStatusVM]?
     
-    // i cant think of a better way to do this since i dont want to regenerate the view model every time
+    // I can't think of a better way to do this since I don't want to regenerate the VM every time
     @State private var serverVMCache: [UUID: ServerStatusVM] = [:]
     @State private var showingAddSheet = false
     @State private var showReleaseNotes = false

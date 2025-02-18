@@ -172,6 +172,9 @@
 		F35E1A752D64ACE400718CB7 /* MCStatusWidgetExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472042D63E9C00055C007 /* MCStatusWidgetExtensionBundle.swift */; };
 		F35E1A772D64D32D00718CB7 /* RefreshWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A762D64D32D00718CB7 /* RefreshWidgets.swift */; };
 		F35E1A782D64DC2700718CB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
+		F35E1A982D6501CC00718CB7 /* NavContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A942D6501CC00718CB7 /* NavContainer.swift */; };
+		F35E1A992D6501CC00718CB7 /* MC Stats visionOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A962D6501CC00718CB7 /* MC Stats visionOS.swift */; };
+		F35E1A9B2D6501CC00718CB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35E1A932D6501CC00718CB7 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -348,6 +351,11 @@
 		F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriGuidePhrase.swift; sourceTree = "<group>"; };
 		F35E1A732D64A4B200718CB7 /* LowPowerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowPowerMode.swift; sourceTree = "<group>"; };
 		F35E1A762D64D32D00718CB7 /* RefreshWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshWidgets.swift; sourceTree = "<group>"; };
+		F35E1A7D2D6501A500718CB7 /* visionOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = visionOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F35E1A932D6501CC00718CB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F35E1A942D6501CC00718CB7 /* NavContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavContainer.swift; sourceTree = "<group>"; };
+		F35E1A952D6501CC00718CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F35E1A962D6501CC00718CB7 /* MC Stats visionOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MC Stats visionOS.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -403,6 +411,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F35E1A7A2D6501A500718CB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -444,6 +459,7 @@
 				F1406BAA2AA391B800815BE8 /* MCStatusAppIntentsExtension */,
 				F30472082D63E9C00055C007 /* MCStatusWidgetExtension */,
 				F30472262D63E9C20055C007 /* MCStatusWatchWidget */,
+				F35E1A972D6501CC00718CB7 /* visionOS */,
 				F1322FE32AAAB3FC005EAF56 /* MCStatusDataLayer */,
 				F13E5FFA2A4BD614005BE9B2 /* Products */,
 				F10C421B2AAE40BC000107D6 /* Frameworks */,
@@ -458,6 +474,7 @@
 				F1406BA92AA391B800815BE8 /* Intents.appex */,
 				F1EF76EC2CB7873F00EFFB20 /* Widgets.appex */,
 				F13095252CBC997200C4C7BA /* Watch Widgets.appex */,
+				F35E1A7D2D6501A500718CB7 /* visionOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -700,6 +717,17 @@
 			path = Siri;
 			sourceTree = "<group>";
 		};
+		F35E1A972D6501CC00718CB7 /* visionOS */ = {
+			isa = PBXGroup;
+			children = (
+				F35E1A962D6501CC00718CB7 /* MC Stats visionOS.swift */,
+				F35E1A932D6501CC00718CB7 /* Assets.xcassets */,
+				F35E1A952D6501CC00718CB7 /* Info.plist */,
+				F35E1A942D6501CC00718CB7 /* NavContainer.swift */,
+			);
+			path = visionOS;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -820,6 +848,25 @@
 			productReference = F1EF76EC2CB7873F00EFFB20 /* Widgets.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		F35E1A7C2D6501A500718CB7 /* visionOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F35E1A8E2D6501A600718CB7 /* Build configuration list for PBXNativeTarget "visionOS" */;
+			buildPhases = (
+				F35E1A792D6501A500718CB7 /* Sources */,
+				F35E1A7A2D6501A500718CB7 /* Frameworks */,
+				F35E1A7B2D6501A500718CB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = visionOS;
+			packageProductDependencies = (
+			);
+			productName = "MC Stats visionOS";
+			productReference = F35E1A7D2D6501A500718CB7 /* visionOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -827,7 +874,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1600;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					F11F634A2A81E50E00D47187 = {
@@ -844,6 +891,9 @@
 					};
 					F1EF76EB2CB7873F00EFFB20 = {
 						CreatedOnToolsVersion = 16.0;
+					};
+					F35E1A7C2D6501A500718CB7 = {
+						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
@@ -867,6 +917,7 @@
 			targets = (
 				F13E5FF82A4BD614005BE9B2 /* MC Stats */,
 				F11F634A2A81E50E00D47187 /* watchOS */,
+				F35E1A7C2D6501A500718CB7 /* visionOS */,
 				F1406BA82AA391B800815BE8 /* Intents */,
 				F1EF76EB2CB7873F00EFFB20 /* Widgets */,
 				F13095242CBC997200C4C7BA /* Watch Widgets */,
@@ -922,6 +973,14 @@
 			files = (
 				F326DB5B2D6416E100BCCB69 /* Localizable.xcstrings in Resources */,
 				F30472092D63E9C00055C007 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F35E1A7B2D6501A500718CB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F35E1A9B2D6501CC00718CB7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1089,6 +1148,15 @@
 				F1EF77612CB8B89A00EFFB20 /* ImageHelper.swift in Sources */,
 				F13095502CBC9D5600C4C7BA /* ConfigHelper.swift in Sources */,
 				F157DDBF2CB9F7B500874CC7 /* UserDefaultHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F35E1A792D6501A500718CB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F35E1A982D6501CC00718CB7 /* NavContainer.swift in Sources */,
+				F35E1A992D6501CC00718CB7 /* MC Stats visionOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1409,7 +1477,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1456,7 +1524,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -1593,6 +1661,65 @@
 			};
 			name = Release;
 		};
+		F35E1A8F2D6501A600718CB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 8FQUA2F388;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Debug;
+		};
+		F35E1A902D6501A600718CB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 8FQUA2F388;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				VALIDATE_PRODUCT = YES;
+				XROS_DEPLOYMENT_TARGET = 1.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1646,6 +1773,15 @@
 			buildConfigurations = (
 				F1EF77032CB7874100EFFB20 /* Debug */,
 				F1EF77042CB7874100EFFB20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F35E1A8E2D6501A600718CB7 /* Build configuration list for PBXNativeTarget "visionOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F35E1A8F2D6501A600718CB7 /* Debug */,
+				F35E1A902D6501A600718CB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
