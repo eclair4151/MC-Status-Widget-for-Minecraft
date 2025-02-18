@@ -30,7 +30,7 @@ public class ServerStatusVM: Identifiable, Hashable {
         loadIcon()
     }
     
-    public func reloadData(config: ServerCheckerConfig) {
+    public func reloadData(_ config: ServerCheckerConfig) {
         loadingStatus = .Loading
         
         Task {

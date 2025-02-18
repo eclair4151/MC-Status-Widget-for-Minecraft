@@ -310,7 +310,7 @@ struct MainAppContentView: View {
             serverVMCache[$0.id] = vm
             
             if !forceRefresh {
-                vm.reloadData(config: config)
+                vm.reloadData(config)
             }
             
             return vm
@@ -320,7 +320,7 @@ struct MainAppContentView: View {
             self.lastRefreshTime = Date()
             
             self.serverVMs?.forEach { vm in
-                vm.reloadData(config: config)
+                vm.reloadData(config)
             }
         }
         

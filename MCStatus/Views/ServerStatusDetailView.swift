@@ -124,15 +124,15 @@ struct ServerStatusDetailView: View {
                                     }
                                 }
                                 
-                                if self.pingDuration > 0 {
+                                if pingDuration > 0 {
                                     HStack {
-                                        Text("\(self.pingDuration)ms")
+                                        Text("\(pingDuration)ms")
                                             .subheadline()
                                         
                                         Image(systemName: "wifi")
                                             .resizable()
                                             .scaledToFit()
-                                            .foregroundColor(pingColor(for: self.pingDuration))
+                                            .foregroundColor(pingColor(for: pingDuration))
                                             .frame(width: 15, height: 15)
                                     }
                                     .padding(.horizontal, 14)
@@ -205,7 +205,9 @@ struct ServerStatusDetailView: View {
                             } else {
                                 ZStack {
                                     Color.placeholderGrey
-                                    ProgressView().opacity(0.3)
+                                    
+                                    ProgressView()
+                                        .opacity(0.3)
                                 }
                             }
                         }
@@ -223,7 +225,8 @@ struct ServerStatusDetailView: View {
                 let onlinePlayersCount = serverStatusVM.status?.onlinePlayerCount ?? 0
                 
                 if playerSampleCount > 0 && playerSampleCount < onlinePlayersCount {
-                    Text("*Player list limited to \(playerSampleCount) users by server").frame(maxWidth: .infinity, alignment: .center)
+                    Text("*Player list limited to \(playerSampleCount) users by server")
+                        .frame(maxWidth: .infinity, alignment: .center)
                 }
             }
         }
@@ -232,14 +235,14 @@ struct ServerStatusDetailView: View {
         .environment(\.defaultMinListHeaderHeight, 15)
         .navigationBarTitleDisplayMode(.inline)
         .refreshable {
-            serverStatusVM.reloadData(config: ConfigHelper.getServerCheckerConfig())
+            serverStatusVM.reloadData(ConfigHelper.getServerCheckerConfig())
             refreshPing()
         }
         .toolbar {
 #if targetEnvironment(macCatalyst) // Gross (show refresh button only on mac status bar since they can't pull to refresh)
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    serverStatusVM.reloadData(config: ConfigHelper.getServerCheckerConfig())
+                    serverStatusVM.reloadData(ConfigHelper.getServerCheckerConfig())
                     refreshPing()
                 } label: {
                     Label("Refresh Servers", systemImage: "arrow.clockwise")
@@ -275,7 +278,7 @@ struct ServerStatusDetailView: View {
         .sheet($showingEditSheet) {
             NavigationStack {
                 EditServerView(server: serverStatusVM.server, isPresented: $showingEditSheet) {
-                    serverStatusVM.reloadData(config: ConfigHelper.getServerCheckerConfig())
+                    serverStatusVM.reloadData(ConfigHelper.getServerCheckerConfig())
                     parentViewRefreshCallBack()
                 }
             }
@@ -319,7 +322,7 @@ struct ServerStatusDetailView: View {
             URL(string: vm.getMcHeadsUrl(uuid: $0.uuid))
         }
         
-        // Initialize and start prefetching all the image URLs
+        // Init and start prefetching all the image URLs
         prefetcher.startPrefetching(with: imageURLs)
     }
 }
