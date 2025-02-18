@@ -36,11 +36,15 @@ struct EditServerView: View {
     var body: some View {
         Form {
             Section {
-                HStack {
-                    Image(systemName: "list.bullet")
-                        .foregroundColor(.gray)
-                        .headline()
-                        .frame(width: 25, height: 25)
+                VStack(alignment: .leading) {
+                    HStack {
+                        Image(systemName: "list.bullet")
+                            .foregroundColor(.gray)
+                            .headline()
+                            .frame(width: 25, height: 25)
+                        
+                        Text("Server Type")
+                    }
                     
                     Picker("Server Type", selection: $tempServerType) {
                         Text("Java Edition")
@@ -49,6 +53,7 @@ struct EditServerView: View {
                         Text("Bedrock/MCPE")
                             .tag(ServerType.Bedrock)
                     }
+                    .pickerStyle(.segmented)
                     .onChange(of: tempServerType, initial: false) { oldValue, newValue in
                         if newValue == .Java {
                             portLabelPromptText = "Port (Optional - Default 25565)"
