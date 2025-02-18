@@ -17,8 +17,19 @@ public class SavedMinecraftServer: Identifiable, Codable {
     public var displayOrder = 0
     public var serverType = ServerType.Java
     
-    public static func initialize(id:UUID, serverType: ServerType, name: String, serverUrl: String, serverPort: Int, srvServerUrl: String = "", srvServerPort: Int = 1, serverIcon: String = "", displayOrder: Int = 0) -> SavedMinecraftServer {
+    public static func initialize(
+        id: UUID,
+        serverType: ServerType,
+        name: String,
+        serverUrl: String,
+        serverPort: Int,
+        srvServerUrl: String = "",
+        srvServerPort: Int = 1,
+        serverIcon: String = "",
+        displayOrder: Int = 0
+    ) -> SavedMinecraftServer {
         let server = SavedMinecraftServer()
+        
         server.id = id
         server.name = name
         server.serverUrl = serverUrl
@@ -28,6 +39,7 @@ public class SavedMinecraftServer: Identifiable, Codable {
         server.serverIcon = serverIcon
         server.displayOrder = displayOrder
         server.serverType = serverType
+        
         return server
     }
     

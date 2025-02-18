@@ -43,7 +43,7 @@ struct SettingsRootView: View {
             Section {
                 // Leave a Review
                 Button(action: openGithub) {
-                    Label("View the Source Code on GitHub", systemImage: "curlybraces")
+                    Label("Source Code on GitHub", systemImage: "curlybraces")
                 }
             } footer: {
                 Text("See the code that makes this app work, as well as file bugs and feature requests")
@@ -52,7 +52,12 @@ struct SettingsRootView: View {
             Section {
                 // Leave a Review
                 Button(action: leaveAppReview) {
-                    Label("Leave an App Review", systemImage: "star")
+                    Label {
+                        Text("Leave an App Review")
+                    } icon: {
+                        Image(systemName: "star.fill")
+                            .foregroundStyle(.yellow.gradient)
+                    }
                 }
             } footer: {
                 Text("Leave a review to help others discover the app and support its development")
@@ -83,8 +88,8 @@ struct SettingsRootView: View {
             }
 #endif
         }
-        .scrollIndicators(.never)
         .navigationTitle("Settings")
+        .scrollIndicators(.never)
         .background(Color(.systemGroupedBackground))
         .sheet($showingTipSheet) {
             NavigationStack {
