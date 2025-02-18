@@ -2,7 +2,7 @@ import Foundation
 
 // this class is used to call the 3rd party web api, and ask them for information, in the case we are unable to connect directly.
 public class WebServerStatusChecker {
-    static let API_URL = "https://api.mcstatus.io/v2/status/"
+    static let API_URL = "https://api.mcstatus.io/v2/status"
     static let timeout = 4
     
     public static func checkServer(serverUrl: String, serverPort: Int, serverType: ServerType, config: ServerCheckerConfig?) async throws -> ServerStatus {
@@ -33,10 +33,18 @@ public class WebServerStatusChecker {
         
         if serverType == .Java {
             let decodedObj = try JSONDecoder().decode(WebJavaServerStatusResponse.self, from: data)
-            return try WebServerStatusParser.parseServerResponse(input: decodedObj, config: config)
+            
+            return try WebServerStatusParser.parseServerResponse(
+                input: decodedObj,
+                config: config
+            )
         } else {
             let decodedObj = try JSONDecoder().decode(WebBedrockServerStatusResponse.self, from: data)
-            return try WebServerStatusParser.parseServerResponse(input: decodedObj, config: config)
+            
+            return try WebServerStatusParser.parseServerResponse(
+                input: decodedObj,
+                config: config
+            )
         }
     }
 }
