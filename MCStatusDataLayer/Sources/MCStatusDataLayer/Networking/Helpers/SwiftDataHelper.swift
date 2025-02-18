@@ -6,7 +6,13 @@ public class SwiftDataHelper {
     public static func getModelContainter() -> ModelContainer {
         if UserDefaultHelper.shared.get(for: .iCloudEnabled, defaultValue: true) {
             do {
-                let config = ModelConfiguration(nil, schema: Schema ([SavedMinecraftServer.self]), isStoredInMemoryOnly: false, allowsSave: true, groupContainer: ModelConfiguration.GroupContainer.identifier("group.dev.topscrech.apps"), cloudKitDatabase: ModelConfiguration.CloudKitDatabase.private("iCloud.dev.topscrech.MC-Stats"))
+                let config = ModelConfiguration(
+                    nil, schema: Schema ([SavedMinecraftServer.self]),
+                    isStoredInMemoryOnly: false,
+                    allowsSave: true,
+                    groupContainer: ModelConfiguration.GroupContainer.identifier("group.dev.topscrech.apps"),
+                    cloudKitDatabase: ModelConfiguration.CloudKitDatabase.private("iCloud.dev.topscrech.MC-Stats")
+                )
                 
                 return try ModelContainer(for: SavedMinecraftServer.self, configurations: config)
             } catch {
@@ -74,7 +80,6 @@ public class SwiftDataHelper {
         
         return results.first
     }
-    
 }
 
 //@State private var isShowPhotoLibrary = false
