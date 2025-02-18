@@ -30,7 +30,7 @@ struct EditServerView: View {
     
     var body: some View {
         Form {
-            Section(header: Text("Start monitoring a server"), footer: Text("*MCStatus is used for checking the status an existing server. It will not create, setup, or host a new server.").padding(EdgeInsets(top: 10,leading: 0,bottom: 0,trailing: 0))) {
+            Section {
                 HStack {
                     Image(systemName: "list.bullet")
                         .foregroundColor(.gray)
@@ -67,6 +67,7 @@ struct EditServerView: View {
                             focusedField = .serverAddress
                         }
                 }
+                
                 HStack {
                     Image(systemName: "rectangle.connected.to.line.below")
                         .foregroundColor(.gray)
@@ -79,7 +80,7 @@ struct EditServerView: View {
                         .autocorrectionDisabled(true)
                         .submitLabel(.done)
                         .focused($focusedField, equals: .serverAddress)
-                        .onChange(of: tempServerInput, initial: false) { oldValue, newValue  in
+                        .onChange(of: tempServerInput, initial: false) { _, newValue  in
                             extractPort(from: newValue)
                         }
                 }
@@ -93,6 +94,11 @@ struct EditServerView: View {
                     TextField(portLabelPromptText, value: $tempPortInput, formatter: NumberFormatter(), prompt: Text(portLabelPromptText))
                         .keyboardType(.numberPad)
                 }
+            } header: {
+                Text("Start monitoring a server")
+            } footer: {
+                Text("*MCStatus is used for checking the status an existing server. It will not create, setup, or host a new server")
+                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
             }
             .headerProminence(.increased)
         }
@@ -108,7 +114,6 @@ struct EditServerView: View {
                 }
                 .disabled(saveDisabled())
             }
-            
         }
         .onAppear {
             tempServerInput = server.serverUrl
@@ -129,7 +134,8 @@ struct EditServerView: View {
         }
         .alert("Invalid Server Name", isPresented: $showingInvalidNameAlert) {
             Button("OK") {}
-        } .alert("Invalid Port", isPresented: $showingInvalidPortAlert) {
+        }
+        .alert("Invalid Port", isPresented: $showingInvalidPortAlert) {
             Button("OK") {}
         } message: {
             Text("Port must be a number between 0 and 65535")
@@ -149,7 +155,6 @@ struct EditServerView: View {
             tempPortInput = Int(port)
         }
     }
-    
     
     private func saveDisabled() -> Bool {
         tempNameInput.isEmpty || tempServerInput.isEmpty

@@ -18,7 +18,7 @@ struct SettingsRootView: View {
     var body: some View {
         Form {
             Section {
-                // GeneralSettingsView
+                // General Settings
                 NavigationLink(value: SettingsPageDestinations.GeneralSettings) {
                     Label("General Settings", systemImage: "gear")
                 }
@@ -38,38 +38,46 @@ struct SettingsRootView: View {
                     Label("Siri", systemImage: "mic")
                 }
                 
-                // Whats New
+                // What's New
                 NavigationLink(value: SettingsPageDestinations.WhatsNew) {
                     Label("What's New", systemImage: "sparkles")
                 }
             }
             
-            Section(footer: Text("See the code that makes this app work, as well as file bugs and feature requests.")) {
+            Section {
                 // Leave a Review
                 Button(action: openGithub) {
                     Label("View the Source Code on GitHub", systemImage: "curlybraces")
                 }
+            } footer: {
+                Text("See the code that makes this app work, as well as file bugs and feature requests")
             }
             
-            Section(footer: Text("Leave a review to help others discover the app and support its development.")) {
+            Section {
                 // Leave a Review
                 Button(action: leaveAppReview) {
                     Label("Leave an App Review", systemImage: "star")
                 }
+            } footer: {
+                Text("Leave a review to help others discover the app and support its development")
             }
             
-            Section(footer: Text("Help support the development of free, adless, open source apps.")) {
+            Section {
                 // Tip Developer
                 Button(action: tipDeveloper) {
                     Label("Leave Developer a Tip", systemImage: "giftcard")
                 }
+            } footer: {
+                Text("Help support the development of free, adless, open source apps")
             }
             
-            Section(footer: Text("Join the beta program to access experimental features before they’re released.")) {
+            Section {
                 // Join TestFlight
                 Button(action: joinTestFlight) {
                     Label("Join TestFlight", systemImage: "airplane")
                 }
+            } footer: {
+                Text("Join the beta program to access experimental features before they’re released")
             }
         }
         .sheet($showingTipSheet) {
@@ -79,14 +87,15 @@ struct SettingsRootView: View {
         }
         .navigationTitle("Settings")
         .background(Color(.systemGroupedBackground))
-        //        Button("Inject servers") {
-        //            injectServers()
-        //        }
-        
+#if DEBUG
+        Button("Inject servers") {
+            injectServers()
+        }
+#endif
     }
     
     func openGithub() {
-        let url = "https://github.com/eclair4151/MC-Status-Widget-for-Minecraft/"
+        let url = "https://github.com/TopScrech/MC-Stats"
         
         guard let githubUrl = URL(string: url) else {
             print("Expected a valid URL")
@@ -97,7 +106,7 @@ struct SettingsRootView: View {
     }
     
     func joinTestFlight() {
-        let url = "https://testflight.apple.com/join/k9RmbbJI"
+        let url = "https://testflight.apple.com/join/CCYB35PS"
         
         guard let testflightUrl = URL(string: url) else {
             print("Expected a valid URL")

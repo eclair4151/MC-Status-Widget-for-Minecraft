@@ -17,6 +17,9 @@ struct ServerStatusDetailView: View {
     
     var prefetcher = ImagePrefetcher()
     
+    // Ping updater
+    private let timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
+    
     private var pillText: String {
         if let status = serverStatusVM.status, serverStatusVM.loadingStatus != .Loading {
             status.status.rawValue
@@ -57,14 +60,10 @@ struct ServerStatusDetailView: View {
     
     private func pingColor(for strength: Int) -> Color {
         switch strength {
-        case 1 ... 75:
-                .statusBackgroundGreen
-        case 76 ... 200:
-                .statusBackgroundYellow
-        case 200 ... Int.max:
-                .red
-        default:
-                .gray
+        case 1...75:        .statusBackgroundGreen
+        case 76...200:      .statusBackgroundYellow
+        case 200...Int.max: .red
+        default:            .gray
         }
     }
     
@@ -127,6 +126,7 @@ struct ServerStatusDetailView: View {
                                 if pingDuration > 0 {
                                     HStack {
                                         Text("\(pingDuration)ms")
+                                            .monospacedDigit()
                                             .subheadline()
                                         
                                         Image(systemName: "wifi")
@@ -134,6 +134,7 @@ struct ServerStatusDetailView: View {
                                             .scaledToFit()
                                             .foregroundColor(pingColor(for: pingDuration))
                                             .frame(width: 15, height: 15)
+                                        // .symbolEffect(.variableColor.iterative.dimInactiveLayers.nonReversing, options: .repeat(.continuous))
                                     }
                                     .padding(.horizontal, 14)
                                     .padding(.vertical, 7)
@@ -234,6 +235,9 @@ struct ServerStatusDetailView: View {
         .listSectionSpacing(10)
         .environment(\.defaultMinListHeaderHeight, 15)
         .navigationBarTitleDisplayMode(.inline)
+        .onReceive(timer) { _ in
+            refreshPing()
+        }
         .refreshable {
             serverStatusVM.reloadData(ConfigHelper.getServerCheckerConfig())
             refreshPing()

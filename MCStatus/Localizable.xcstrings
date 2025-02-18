@@ -10,7 +10,7 @@
     "\"%@\"" : {
 
     },
-    "*MCStatus is used for checking the status an existing server. It will not create, setup, or host a new server." : {
+    "*MCStatus is used for checking the status an existing server. It will not create, setup, or host a new server" : {
 
     },
     "*Player list limited to %lld users by server" : {
@@ -114,7 +114,7 @@
     "Got it!" : {
 
     },
-    "Help support the development of free, adless, open source apps." : {
+    "Help support the development of free, adless, open source apps" : {
 
     },
     "How to Use Siri with MC Status" : {
@@ -127,6 +127,9 @@
 
     },
     "If you love the app, consider leaving a review or leaving a small tip to help support development!" : {
+
+    },
+    "Inject servers" : {
 
     },
     "Invalid Port" : {
@@ -147,13 +150,13 @@
     "Join TestFlight" : {
 
     },
-    "Join the beta program to access experimental features before they’re released." : {
+    "Join the beta program to access experimental features before they’re released" : {
 
     },
     "Leave a Review" : {
 
     },
-    "Leave a review to help others discover the app and support its development." : {
+    "Leave a review to help others discover the app and support its development" : {
 
     },
     "Leave a Tip" : {
@@ -246,7 +249,7 @@
     "Saved Minecraft Server Status Check" : {
 
     },
-    "See the code that makes this app work, as well as file bugs and feature requests." : {
+    "See the code that makes this app work, as well as file bugs and feature requests" : {
 
     },
     "Select which server to show" : {
