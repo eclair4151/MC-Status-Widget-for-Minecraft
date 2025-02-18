@@ -2,7 +2,6 @@ import SwiftUI
 import MCStatusDataLayer
 import NukeUI
 import Nuke
-import WidgetKit
 
 struct ServerStatusDetailView: View {
     @Environment(\.modelContext) private var modelContext
@@ -318,8 +317,7 @@ struct ServerStatusDetailView: View {
             print(error.localizedDescription)
         }
         
-        // Refresh widgets
-        WidgetCenter.shared.reloadAllTimelines()
+        refreshAllWidgets()
         
         parentViewRefreshCallBack()
         self.presentationMode.wrappedValue.dismiss()

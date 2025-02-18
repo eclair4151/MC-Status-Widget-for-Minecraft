@@ -1,7 +1,6 @@
 import SwiftUI
 import SwiftData
 import MCStatusDataLayer
-import WidgetKit
 
 struct EditServerView: View {
     private enum FocusedField {
@@ -228,11 +227,12 @@ struct EditServerView: View {
             }
             
             print("added server")
-            MCStatusShortcutsProvider.updateAppShortcutParameters()
-            parentViewRefreshCallBack()
             
-            // force the widgets to refresh
-            WidgetCenter.shared.reloadAllTimelines()
+            MCStatusShortcutsProvider.updateAppShortcutParameters()
+            
+            parentViewRefreshCallBack()
+            refreshAllWidgets()
+            
             isPresented = false
         }
     }

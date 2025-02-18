@@ -1,5 +1,4 @@
 import SwiftUI
-import WidgetKit
 import MCStatusDataLayer
 
 struct ServerRowView: View {
@@ -123,8 +122,7 @@ struct ServerRowView: View {
             print(error.localizedDescription)
         }
         
-        // Refresh widgets
-        WidgetCenter.shared.reloadAllTimelines()
+        refreshAllWidgets()
         
         self.presentationMode.wrappedValue.dismiss()
     }

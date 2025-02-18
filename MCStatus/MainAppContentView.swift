@@ -2,7 +2,10 @@ import SwiftUI
 import SwiftData
 import CoreData
 import MCStatusDataLayer
+
+#if canImport(WidgetKit)
 import WidgetKit
+#endif
 
 enum PageDestinations {
     case SettingsRoot
@@ -209,6 +212,7 @@ struct MainAppContentView: View {
     }
     
     private func checkForBrokenWidgets() {
+#if canImport(WidgetKit)
         WidgetCenter.shared.getCurrentConfigurations { result in
             switch result {
             case .success(let widgets):
@@ -223,6 +227,7 @@ struct MainAppContentView: View {
                 print(error)
             }
         }
+#endif
     }
     
     private func showWidgetWarning() {
@@ -359,7 +364,7 @@ struct MainAppContentView: View {
         // >60 seconds passed, reload servers and widgets
         reloadData(forceRefresh: true)
         
-        WidgetCenter.shared.reloadAllTimelines()
+        refreshAllWidgets()
     }
     
     private func checkForAppReviewRequest() {

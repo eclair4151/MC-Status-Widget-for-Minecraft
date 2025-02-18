@@ -16,7 +16,6 @@ struct TipJarView: View {
     
     var body: some View {
         ScrollView {
-            
             VStack(spacing: 15) {
                 Text("Support the app!")
                     .largeTitle(.bold)
@@ -37,7 +36,7 @@ struct TipJarView: View {
                     ForEach(products) { product in
                         Button {
                             Task {
-                                await purchaseTip(product: product)
+                                await purchaseTip(product)
                             }
                         } label: {
                             Text("Tip \(product.displayPrice)")
@@ -99,7 +98,15 @@ struct TipJarView: View {
         }
     }
     
-    private func purchaseTip(product: Product) async {
+    private func purchaseTip(_ product: Product) async {
+        guard let scene = UIApplication.shared.connectedScenes
+            .first(where: { $0.activationState == .foregroundActive }) else {
+            alertTitle = "Purchase Error"
+            alertMessage = "Could not find an active scene for the transaction."
+            showAlert = true
+            return
+        }
+        
         isProcessing = true
         
         defer {
@@ -107,7 +114,7 @@ struct TipJarView: View {
         }
         
         do {
-            let result = try await product.purchase()
+            let result = try await product.purchase(confirmIn: scene, options: [])
             
             switch result {
             case .success(let verification):
@@ -120,9 +127,6 @@ struct TipJarView: View {
                     alertMessage = "Transaction verification failed: \(error.localizedDescription)"
                     showAlert = true
                 }
-                
-            case .userCancelled:
-                break
                 
             default:
                 break

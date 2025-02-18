@@ -23,7 +23,9 @@ struct CustomProgressView: View {
                     .frame(width: width * progress, height: height)
                     .cornerRadius(height / 2)
                     .animation(.easeInOut(duration: 0.5), value: progress)
+#if canImport(WidgetKit)
                     .widgetAccentable()
+#endif
             }
         }
     }
