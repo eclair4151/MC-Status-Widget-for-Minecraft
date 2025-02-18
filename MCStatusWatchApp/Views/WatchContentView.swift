@@ -46,7 +46,9 @@ struct WatchContentView: View {
             .toolbar {
                 if let serverVMs, !serverVMs.isEmpty {
                     ToolbarItem(placement: .topBarLeading) {
-                        Text("Servers").font(.system(size: 25)).bold()
+                        Text("Servers")
+                            .font(.system(size: 25))
+                            .bold()
                     }
                 }
                 
@@ -64,13 +66,13 @@ struct WatchContentView: View {
             if self.iCloudStatus == .unavailable && serverVMs?.isEmpty ?? true {
                 VStack {
                     Spacer()
+                    
                     Image(systemName: "icloud.slash")
                         .font(.system(size: 30))
                         .foregroundStyle(.gray)
                     
-                    ContentUnavailableView("Enable iCloud", systemImage: "",
-                                           description: Text ("iCloud is required to sync servers to your watch."))
-                    .scrollDisabled(true)
+                    ContentUnavailableView("Enable iCloud", systemImage: "", description: Text ("iCloud is required to sync servers to your watch."))
+                        .scrollDisabled(true)
                     
                     Spacer()
                 }
@@ -82,9 +84,8 @@ struct WatchContentView: View {
                         .font(.system(size: 30))
                         .foregroundStyle(.gray)
                     
-                    ContentUnavailableView("Add a Server", systemImage: "",
-                                           description: Text ("Servers are synced with your phone. This may take some time."))
-                    .scrollDisabled(true)
+                    ContentUnavailableView("Add a Server", systemImage: "", description: Text ("Servers are synced with your phone. This may take some time."))
+                        .scrollDisabled(true)
                     
                     Spacer()
                 }

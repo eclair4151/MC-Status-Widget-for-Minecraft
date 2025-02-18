@@ -17,7 +17,7 @@ struct ServerRowView: View {
                         .stroke(Color(hex: "6e6e6e"), lineWidth: 3)
                 }
                 .clipShape(.rect(cornerRadius: 8))
-                .padding([.trailing], 5)
+                .padding(.trailing, 5)
             
             
             VStack(alignment: .leading, spacing: 5) {
@@ -63,7 +63,7 @@ struct ServerRowView: View {
                         .font(.footnote)
                         .foregroundColor(.secondary)
                         .padding(0)
-                        .frame(height:8)
+                        .frame(height: 8)
                         .lineLimit(1)
                         .truncationMode(.tail)
                 }

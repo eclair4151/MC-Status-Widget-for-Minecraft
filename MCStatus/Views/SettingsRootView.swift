@@ -18,7 +18,7 @@ struct SettingsRootView: View {
     var body: some View {
         Form {
             Section {
-                //GeneralSettingsView
+                // GeneralSettingsView
                 NavigationLink(value: SettingsPageDestinations.GeneralSettings) {
                     Label("General Settings", systemImage: "gear")
                 }

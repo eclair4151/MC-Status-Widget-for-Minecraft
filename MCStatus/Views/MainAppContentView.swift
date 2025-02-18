@@ -129,8 +129,10 @@ struct MainAppContentView: View {
                 reloadData()
                 checkForAutoReload()
                 checkForAppReviewRequest()
+                
             } else if newPhase == .inactive {
                 print("Inactive")
+                
             } else if newPhase == .background {
                 print("Background")
             }
@@ -144,14 +146,25 @@ struct MainAppContentView: View {
             // can we somehow check if anything actually changed? this is spam called on every open.
             if event.endDate != nil && event.type == .import {
                 print("refresh triggered via eventChangedNotification")
+                
                 MCStatusShortcutsProvider.updateAppShortcutParameters()
                 reloadData()
-                
             }
         }
         .sheet(isPresented: $showingAddSheet) {
             // create new binding server to add
-            let newServer = SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "", serverUrl: "", serverPort: 0, srvServerUrl: "", srvServerPort: 0, serverIcon: "", displayOrder: 0)
+            let newServer = SavedMinecraftServer.initialize(
+                id: UUID(),
+                serverType: .Java,
+                name: "",
+                serverUrl: "",
+                serverPort: 0,
+                srvServerUrl: "",
+                srvServerPort: 0,
+                serverIcon: "",
+                displayOrder: 0
+            )
+            
             NavigationStack {
                 EditServerView(server: newServer, isPresented: $showingAddSheet) {
                     // callback when server is edited or added
@@ -183,10 +196,11 @@ struct MainAppContentView: View {
             Alert(
                 title: Text(alertTitle),
                 message: Text(alertMessage),
-                dismissButton: .default(Text("OK"),
-                                        action: {
-                                            showReleaseNotes = true
-                                        })
+                dismissButton: .default(
+                    Text("OK"),
+                    action: {
+                        showReleaseNotes = true
+                    })
             )
         }
     }
@@ -195,10 +209,10 @@ struct MainAppContentView: View {
         WidgetCenter.shared.getCurrentConfigurations { result in
             switch result {
             case .success(let widgets):
-                if !widgets.isEmpty {
-                    showWidgetWarning()
-                } else {
+                if widgets.isEmpty {
                     showReleaseNotes = true
+                } else {
+                    showWidgetWarning()
                 }
                 
             case .failure(let error):
@@ -223,15 +237,15 @@ struct MainAppContentView: View {
         
         // go to server view
         // first check if we are already showing a server, and if so, just update it
-        if !self.navPath.isEmpty {
+        if self.navPath.isEmpty {
+            self.navPath.append(vm)
+        } else {
             self.navPath.removeLast(self.navPath.count)
             
             Task {
                 // hack! otherwise data wont refresh correctly
                 self.navPath.append(vm)
             }
-        } else {
-            self.navPath.append(vm)
         }
     }
     

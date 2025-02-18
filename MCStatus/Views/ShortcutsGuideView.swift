@@ -18,11 +18,10 @@ struct ShortcutsGuideView: View {
     
     var body: some View {
         Form {
-            
             // Overview Section
             Section {
                 ShortcutsLink()
-                    .shortcutsLinkStyle(ShortcutsLinkStyle.automaticOutline)
+                    .shortcutsLinkStyle(.automaticOutline)
                 
                 Text("""
                 With Shortcuts, you can quickly check the status of your Minecraft servers without even opening the app. Use the built in shortcuts to show the current status and player count, or create custom shortcuts using the server's online status, current player count, player sample, and more.

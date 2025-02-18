@@ -86,9 +86,8 @@ struct ServerStatusDetailView: View {
                                     .stroke(Color(hex: "6e6e6e"), lineWidth: 4)
                             }
                             .clipShape(.rect(cornerRadius: 15))
-                            .padding([.trailing], 16)
+                            .padding(.trailing, 16)
                             .shadow(color: .black.opacity(0.2), radius: 5, x: 3, y: 3) // Drop shadow
-                        
                         
                         VStack(alignment: .leading, spacing: 0) {
                             Text(serverStatusVM.server.name)
@@ -96,6 +95,7 @@ struct ServerStatusDetailView: View {
                                 .fontWeight(.bold)
                             
                             let serverAddressString = serverStatusVM.server.serverUrl + ":" + String(serverStatusVM.server.serverPort)
+                            
                             Text(serverAddressString)
                                 .font(.footnote)
                                 .foregroundColor(.secondaryTextColor)
@@ -113,8 +113,8 @@ struct ServerStatusDetailView: View {
                                 ZStack(alignment: .center) {
                                     Text(pillText)
                                         .frame(minWidth: 45)
-                                        .padding([.trailing, .leading], 14)
-                                        .padding([.bottom, .top], 7)
+                                        .padding(.horizontal, 14)
+                                        .padding(.vertical, 7)
                                         .background(pillColor)
                                         .foregroundColor(.white)
                                         .font(.subheadline)
@@ -172,7 +172,7 @@ struct ServerStatusDetailView: View {
                             .padding(10)
                             .frame(maxWidth: .infinity, alignment: .leading) // Make the Text view full width
                             .background(Color.MOTDBackground) // Darker background
-                            .cornerRadius(15) // Rounded corners
+                            .cornerRadius(15)
                     }
                     
                     Text(playersText)
@@ -200,8 +200,10 @@ struct ServerStatusDetailView: View {
                         LazyImage(url: imageUrl) { state in
                             if let image = state.image {
                                 image.resizable().scaledToFit()
+                                
                             } else if state.error != nil {
                                 Color.placeholderGrey
+                                
                             } else {
                                 ZStack {
                                     Color.placeholderGrey
@@ -211,7 +213,7 @@ struct ServerStatusDetailView: View {
                         }
                         .cornerRadius(3)
                         .frame(width: 30, height: 30)
-                        .padding([.trailing], 16)
+                        .padding(.trailing, 16)
                         
                         Text(player.name)
                     }
@@ -323,4 +325,3 @@ struct ServerStatusDetailView: View {
         prefetcher.startPrefetching(with: imageURLs)
     }
 }
-
