@@ -37,9 +37,7 @@ public class ServerStatus: Identifiable, Codable {
         }
     }
     
-    public init() {
-        
-    }
+    public init() {}
 }
 
 public class Player: Codable, Identifiable {
