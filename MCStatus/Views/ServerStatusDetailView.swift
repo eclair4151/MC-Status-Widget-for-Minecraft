@@ -19,11 +19,9 @@ struct ServerStatusDetailView: View {
     @State private var showingEditSheet = false
     @State private var showingDeleteAlert = false
     
-    
-    var prefetcher = ImagePrefetcher()
-    
     // Ping updater
     private let timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
+    private var prefetcher = ImagePrefetcher()
     
     private var pillText: String {
         if let status = vm.status, vm.loadingStatus != .Loading {
@@ -139,7 +137,7 @@ struct ServerStatusDetailView: View {
                                             .scaledToFit()
                                             .foregroundColor(pingColor(for: pingDuration))
                                             .frame(width: 15, height: 15)
-                                        // .symbolEffect(.variableColor.iterative.dimInactiveLayers.nonReversing, options: .repeat(.continuous))
+                                        //                                         .symbolEffect(.variableColor.iterative.dimInactiveLayers.nonReversing, options: .repeat(.continuous))
                                     }
                                     .padding(.horizontal, 14)
                                     .padding(.vertical, 7)
@@ -199,7 +197,7 @@ struct ServerStatusDetailView: View {
                 ForEach(vm.status?.playerSample ?? []) { player in
                     HStack(spacing: 0) {
                         let imageUrl = URL(string: vm.getMcHeadsUrl(uuid: player.uuid))
-                        //                            let imageUrl = URL(string: "https://httpbin.org/delay/10")
+                        // let imageUrl = URL(string: "https://httpbin.org/delay/10")
                         
                         LazyImage(url: imageUrl) { state in
                             if let image = state.image {
@@ -250,7 +248,8 @@ struct ServerStatusDetailView: View {
             refreshPing()
         }
         .toolbar {
-#if targetEnvironment(macCatalyst) // Gross (show refresh button only on mac status bar since they can't pull to refresh)
+            // Gross (show refresh button only on Mac status bar since they can't pull to refresh)
+#if targetEnvironment(macCatalyst)
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     serverStatusVM.reloadData(ConfigHelper.getServerCheckerConfig())
