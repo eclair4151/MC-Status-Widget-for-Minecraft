@@ -80,11 +80,6 @@ struct ServerStatusDetailView: View {
                             .scaledToFit()
                             .frame(width: 100, height: 100)
                             .cornerRadius(15)
-                            .background(Color.serverIconBackground)
-                            .overlay {
-                                RoundedRectangle(cornerRadius: 15)
-                                    .stroke(Color(hex: "6e6e6e"), lineWidth: 4)
-                            }
                             .clipShape(.rect(cornerRadius: 15))
                             .padding(.trailing, 16)
                             .shadow(color: .black.opacity(0.2), radius: 5, x: 3, y: 3) // Drop shadow
@@ -223,9 +218,9 @@ struct ServerStatusDetailView: View {
                 }
             } footer: {
                 let playerSampleCount = vm.status?.playerSample.count ?? 0
-                let onlinePlayersCount = vm.status?.onlinePlayerCount ?? 0
+                let onlinePlayerCount = vm.status?.onlinePlayerCount ?? 0
                 
-                if playerSampleCount > 0 && playerSampleCount < onlinePlayersCount {
+                if playerSampleCount > 0 && playerSampleCount < onlinePlayerCount {
                     Text("Player list limited to \(playerSampleCount) users by server")
                 }
             }

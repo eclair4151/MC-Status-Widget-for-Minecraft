@@ -21,13 +21,9 @@ struct ServerRowView: View {
                 .scaledToFit()
                 .frame(width: 65, height: 65)
                 .cornerRadius(8)
-                .background(.serverIconBackground)
-                .overlay {
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color(hex: "6e6e6e"), lineWidth: 3)
-                }
                 .clipShape(.rect(cornerRadius: 8))
                 .padding(.trailing, 5)
+                .shadow(color: .black.opacity(0.2), radius: 5, x: 3, y: 3) // Drop shadow
             
             VStack(alignment: .leading, spacing: 5) {
                 HStack {
