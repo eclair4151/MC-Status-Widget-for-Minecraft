@@ -13,7 +13,7 @@ struct LockscreenProvider: AppIntentTimelineProvider {
     // This is needed for Apple Watch complications
     func recommendations() -> [AppIntentRecommendation<ServerSelectNoThemeWidgetIntent>] {
         let container = SwiftDataHelper.getModelContainter()
-        let servers = SwiftDataHelper.getSavedServersBg(container: container)
+        let servers = SwiftDataHelper.getSavedServersBg(container)
         
         return servers.map {
             let entity = ServerIntentTypeAppEntity(
@@ -31,7 +31,11 @@ struct LockscreenProvider: AppIntentTimelineProvider {
             }
             
             let watchComplicationName = $0.name + widgetNamePostfix
-            return AppIntentRecommendation(intent: intent, description: watchComplicationName)
+            
+            return AppIntentRecommendation(
+                intent: intent,
+                description: watchComplicationName
+            )
         }
     }
     
@@ -137,7 +141,10 @@ struct LockscreenProvider: AppIntentTimelineProvider {
             
             entries.append(entry)
             
-            return Timeline(entries: entries, policy: .after(futureDate))
+            return Timeline(
+                entries: entries,
+                policy: .after(futureDate)
+            )
         }
         
         let serverIcon = ImageHelper.convertFavIconString(serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
@@ -158,6 +165,9 @@ struct LockscreenProvider: AppIntentTimelineProvider {
         
         entries.append(entry)
         
-        return Timeline(entries: entries, policy: .after(futureDate))
+        return Timeline(
+            entries: entries,
+            policy: .after(futureDate)
+        )
     }
 }
