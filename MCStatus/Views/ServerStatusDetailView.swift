@@ -253,16 +253,16 @@ struct ServerStatusDetailView: View {
 #endif
             ToolbarItem(placement: .topBarTrailing) {
                 HStack {
-                    Button("Edit") {
-                        showingEditSheet = true
-                    }
-                    
                     Button(role: .destructive) {
                         showingDeleteAlert = true
                     } label: {
                         Label("Delete Server", systemImage: "trash")
                     }
                     .foregroundColor(.red)
+                    
+                    Button("Edit") {
+                        showingEditSheet = true
+                    }
                 }
             }
         }
