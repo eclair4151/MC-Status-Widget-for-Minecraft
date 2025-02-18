@@ -28,6 +28,7 @@ class ConnectivityProvider: NSObject, WCSessionDelegate {
     // send a message to the phone. error throw if one is encountered
     func send(message: [String:Any]) throws {
         print("Checking if phone is connected to watch...")
+        
         guard WCSession.default.isReachable else {
             // Phone not connected. throw error
             print("Phone is not connected..")
@@ -35,6 +36,7 @@ class ConnectivityProvider: NSObject, WCSessionDelegate {
         }
         
         print("Phone seems to be connected. Sending message to phone...")
+        
         WCSession.default.sendMessage(message, replyHandler: nil) { error in
             print("Get error trying to talk to phone: " + error.localizedDescription)
         }
