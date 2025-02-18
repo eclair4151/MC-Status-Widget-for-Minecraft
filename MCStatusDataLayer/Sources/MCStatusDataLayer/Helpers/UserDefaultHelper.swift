@@ -22,7 +22,7 @@ class UserDefaultHelper {
         UserDefaults.standard.set(value, forKey: key.rawValue)
     }
     
-    // Function to get a boolean value, with a default if not set
+    // Func to get a boolean value, with a default if not set
     func get(for key: Key, defaultValue: Bool = false) -> Bool {
         UserDefaults.standard.object(forKey: key.rawValue) as? Bool ?? defaultValue
     }

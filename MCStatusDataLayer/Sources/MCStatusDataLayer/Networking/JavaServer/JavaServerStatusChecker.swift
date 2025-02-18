@@ -129,9 +129,9 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
         connection.start(queue: DispatchQueue.global(qos: .background))
     }
     
-    // this is a recursive function that will read data from a given connection recurisvely, until the expected data has been read.
+    // this is a recursive func that will read data from a given connection recurisvely, until the expected data has been read.
     // and once finished, sends the result to the continuation
-    // i would have prefered to not make his recursive, but since connection.receive sends the data back in a callback, there is basiaclaly no other way without making the code wayyy more complicated. you would need to extract this section out into it own class with withCheckedThrowingContinuation. Then you could use an async await to download the data with a while loop instead of recurisve function. Not worth it at the moment.
+    // i would have prefered to not make his recursive, but since connection.receive sends the data back in a callback, there is basiaclaly no other way without making the code wayyy more complicated. you would need to extract this section out into it own class with withCheckedThrowingContinuation. Then you could use an async await to download the data with a while loop instead of recurisve func. Not worth it at the moment.
     func receiveConnectionData( connection: NWConnection, dataParts: [UInt8] = [], expectedSize: Int = -1) {
         
         // i have implemented TCP paging logic since the response may be sent over multitple packets
@@ -169,7 +169,7 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
                     messageComplete = expectedMessageSize > 0 && dataArr.count >= expectedMessageSize
                 }
                 
-                // if we have the expected message length already, we can continue with parsing, if not, recursivly call this function to download the next chunk of data
+                // if we have the expected message length already, we can continue with parsing, if not, recursivly call this func to download the next chunk of data
                 if messageComplete {
                     print("Data received successfully.")
                     // just in case...
@@ -235,7 +235,7 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
         return result
     }
     
-    // This is a function to generate the data that we sent to the minecraft server, in order to tell it we want to request the query data
+    // This is a func to generate the data that we sent to the minecraft server, in order to tell it we want to request the query data
     /** Minecraft protocol can be found here: https://wiki.vg/Protocol#Clientbound
      * sends a request directly to the minecraft server for a ping request.
      1. Client sends:
@@ -255,7 +255,7 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
      */
     private func getJavaStatusQueryData(address: String, port: Int) -> [UInt8] {
         var data: [UInt8] = []
-        let addressBytes:[UInt8] = Array(address.utf8)
+        let addressBytes: [UInt8] = Array(address.utf8)
         
         data.append(0x00) //packet id (always 0)
         data.append(0x00) //protocol version (0-752, we can use 0 since this api was here since the start)

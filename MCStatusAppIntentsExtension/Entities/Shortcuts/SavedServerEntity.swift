@@ -16,7 +16,7 @@ struct SavedServerEntity: AppEntity {
 struct SavedServerQuery: EntityQuery {
     func entities(for identifiers: [UUID]) async throws -> [SavedServerEntity] {
         let container = SwiftDataHelper.getModelContainter()
-        var result:[SavedServerEntity] = []
+        var result: [SavedServerEntity] = []
         
         for id in identifiers {
             guard let server = await SwiftDataHelper.getSavedServerById(container: container, server_id: id) else {

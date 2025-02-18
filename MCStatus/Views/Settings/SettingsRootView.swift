@@ -89,7 +89,7 @@ struct SettingsRootView: View {
         }
         .sheet($showingTipSheet) {
             NavigationStack {
-                TipJarView(isPresented: $showingTipSheet)
+                TipJarView($showingTipSheet)
             }
         }
         .navigationTitle("Settings")

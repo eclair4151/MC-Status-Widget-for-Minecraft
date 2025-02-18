@@ -10,13 +10,17 @@ struct LockscreenProvider: AppIntentTimelineProvider {
         self.widgetType = widgetType
     }
     
-    // This is needed for apple watch complications
+    // This is needed for Apple Watch complications
     func recommendations() -> [AppIntentRecommendation<ServerSelectNoThemeWidgetIntent>] {
         let container = SwiftDataHelper.getModelContainter()
         let servers = SwiftDataHelper.getSavedServersBg(container: container)
         
         return servers.map {
-            let entity = ServerIntentTypeAppEntity(id: $0.id.uuidString, displayString: $0.name)
+            let entity = ServerIntentTypeAppEntity(
+                id: $0.id.uuidString,
+                displayString: $0.name
+            )
+            
             let intent = ServerSelectNoThemeWidgetIntent()
             intent.Server = entity
             
@@ -35,33 +39,60 @@ struct LockscreenProvider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> ServerStatusLSSnapshotEntry {
         var vm = WidgetEntryVM()
         vm.setForUnconfiguredView()
-        return ServerStatusLSSnapshotEntry(date: Date(), configuration: ServerSelectNoThemeWidgetIntent(), vm: vm)
+        
+        return ServerStatusLSSnapshotEntry(
+            date: Date(),
+            configuration: ServerSelectNoThemeWidgetIntent(),
+            vm: vm
+        )
     }
     
-    // if context.isPreview is true, this is the view to show when someone clicked add widget. Just show preview with placeholder data. if it is false, yo ushould actually load the current state of the view by getting the status
-    func snapshot(for configuration: ServerSelectNoThemeWidgetIntent, in context: Context) async -> ServerStatusLSSnapshotEntry {
+    // if context.isPreview is true, this is the view to show when someone clicked add widget
+    // Just show preview with placeholder data
+    // if it is false, yo ushould actually load the current state of the view by getting the status
+    func snapshot(
+        for configuration: ServerSelectNoThemeWidgetIntent,
+        in context: Context
+    ) async -> ServerStatusLSSnapshotEntry {
         var vm = WidgetEntryVM()
         
         let container = SwiftDataHelper.getModelContainter()
         
         if !context.isPreview, let (server, serverStatus) = await loadTimelineData(container: container, configuration: configuration) {
-            let serverIcon = ImageHelper.convertFavIconString(favIcon: serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
-            vm = WidgetEntryVM(serverName: server.name, status: serverStatus, lastUpdated: "now", serverIcon: serverIcon, theme: .auto)
+            let serverIcon = ImageHelper.convertFavIconString(serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
+            
+            vm = WidgetEntryVM(
+                serverName: server.name,
+                status: serverStatus,
+                lastUpdated: "now",
+                serverIcon: serverIcon,
+                theme: .auto
+            )
         }
         
         if context.isPreview {
             vm.viewType = .Preview
         }
         
-        return ServerStatusLSSnapshotEntry(date: Date(), configuration: configuration, vm: vm)
+        return ServerStatusLSSnapshotEntry(
+            date: Date(),
+            configuration: configuration,
+            vm: vm
+        )
     }
     
-    func loadTimelineData(container: ModelContainer, configuration: ServerSelectNoThemeWidgetIntent) async -> (SavedMinecraftServer, ServerStatus)? {
+    func loadTimelineData(
+        container: ModelContainer,
+        configuration: ServerSelectNoThemeWidgetIntent
+    ) async -> (SavedMinecraftServer, ServerStatus)? {
         // step 1 load server from DB
         guard
             let serverId = configuration.Server?.id,
             let uuid = UUID(uuidString: serverId),
-            let server = await SwiftDataHelper.getSavedServerById(container: container, server_id: uuid)
+            let server = await SwiftDataHelper.getSavedServerById(
+                container: container,
+                server_id: uuid
+            )
         else {
             return nil
         }
@@ -76,7 +107,10 @@ struct LockscreenProvider: AppIntentTimelineProvider {
         return (server, statusResult)
     }
     
-    func timeline(for configuration: ServerSelectNoThemeWidgetIntent, in context: Context) async -> Timeline<ServerStatusLSSnapshotEntry> {
+    func timeline(
+        for configuration: ServerSelectNoThemeWidgetIntent,
+        in context: Context
+    ) async -> Timeline<ServerStatusLSSnapshotEntry> {
         var entries: [ServerStatusLSSnapshotEntry] = []
         let currentDate = Date()
         let futureDate = Calendar.current.date(byAdding: .minute, value: 10, to: Date())!
@@ -95,16 +129,33 @@ struct LockscreenProvider: AppIntentTimelineProvider {
                 vm.serverName = "Open App"
             }
             
-            let entry = ServerStatusLSSnapshotEntry(date: currentDate, configuration: configuration, vm: vm)
+            let entry = ServerStatusLSSnapshotEntry(
+                date: currentDate,
+                configuration: configuration,
+                vm: vm
+            )
+            
             entries.append(entry)
             
             return Timeline(entries: entries, policy: .after(futureDate))
         }
         
-        let serverIcon = ImageHelper.convertFavIconString(favIcon: serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
+        let serverIcon = ImageHelper.convertFavIconString(serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
         
-        let vm = WidgetEntryVM(serverName: server.name, status: serverStatus, lastUpdated: "", serverIcon: serverIcon, theme: .auto)
-        let entry = ServerStatusLSSnapshotEntry(date: currentDate, configuration: configuration, vm: vm)
+        let vm = WidgetEntryVM(
+            serverName: server.name,
+            status: serverStatus,
+            lastUpdated: "",
+            serverIcon: serverIcon,
+            theme: .auto
+        )
+        
+        let entry = ServerStatusLSSnapshotEntry(
+            date: currentDate,
+            configuration: configuration,
+            vm: vm
+        )
+        
         entries.append(entry)
         
         return Timeline(entries: entries, policy: .after(futureDate))

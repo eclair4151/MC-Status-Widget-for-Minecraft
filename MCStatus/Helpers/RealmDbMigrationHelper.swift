@@ -46,7 +46,6 @@ class RealmDbMigrationHelper {
         }
     }
     
-    
     private func convertToSwiftData(savedServer: LegacySavedServer) -> SavedMinecraftServer? {
         let serverType: ServerType = (savedServer.serverType == LegacyServerType.SERVER_TYPE_JAVA) ? .Java : .Bedrock
         let serverUrlparts = savedServer.serverUrl.split(separator:  ":")
@@ -68,7 +67,7 @@ class RealmDbMigrationHelper {
             serverType: serverType,
             name: savedServer.name,
             serverUrl: serverUrl,
-            serverPort: serverPort,  // default port, update this as needed
+            serverPort: serverPort, // default port, update as needed
             srvServerUrl: "",
             srvServerPort: 0,
             serverIcon: savedServer.serverIcon,

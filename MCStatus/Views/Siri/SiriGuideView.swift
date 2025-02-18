@@ -22,17 +22,7 @@ struct SiriGuideView: View {
             //            SiriTipView(intent: SavedServerStatusOnlineCheckIntent(), isVisible: $tipVisibility)
             Section {
                 ForEach(phrases) { phrase in
-                    HStack {
-                        Image(systemName: "mic.fill")
-                            .foregroundColor(.blue)
-                            .imageScale(.large)
-                            .padding(.trailing, 5)
-                        
-                        Text("\"\(phrase.phrase)\"")
-                            .subheadline()
-                            .foregroundColor(.primary)
-                    }
-                    .padding(.vertical, 5)
+                    SiriGuidePhrase(phrase)
                 }
             } header: {
                 Text("How to Use Siri with MC Status")

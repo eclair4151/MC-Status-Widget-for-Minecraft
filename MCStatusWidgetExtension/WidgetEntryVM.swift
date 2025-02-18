@@ -99,7 +99,7 @@ extension WidgetEntryVM {
     mutating func setServerIcon(base64Data: String) {
         print("Decoding base64 image")
         
-        self.icon = ImageHelper.convertFavIconString(favIcon: base64Data) ?? UIImage(named: "DefaultIcon")!
+        self.icon = ImageHelper.convertFavIconString(base64Data) ?? UIImage(named: "DefaultIcon")!
     }
     
     mutating func setForUnconfiguredView() {

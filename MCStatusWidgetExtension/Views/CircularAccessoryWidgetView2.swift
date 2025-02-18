@@ -2,12 +2,16 @@ import SwiftUI
 import Intents
 import WidgetKit
 
-struct CircularAccessoryWidgetView2 : View {
-    var entry: LockscreenProvider.Entry
+struct CircularAccessoryWidgetView2: View {
+    private var entry: LockscreenProvider.Entry
+    
+    init(_ entry: LockscreenProvider.Entry) {
+        self.entry = entry
+    }
     
     var body: some View {
 #if !targetEnvironment(macCatalyst)
-        Gauge (value: entry.vm.progressValue) {
+        Gauge(value: entry.vm.progressValue) {
             ZStack {
                 if let statusIcon = entry.vm.statusIcon {
                     Image(systemName: statusIcon)
@@ -29,13 +33,15 @@ struct CircularAccessoryWidgetView2 : View {
                         Image(uiImage: entry.vm.icon)
                             .resizable()
                             .widgetAccentedRenderingMode(.accentedDesaturated)
-                            .scaledToFit().frame(width: 25, height: 25)
+                            .scaledToFit()
+                            .frame(width: 25, height: 25)
                             .padding(0)
                             .offset(y: -1)
                             .widgetAccentable()
                     } else {
                         Image(uiImage: entry.vm.icon).resizable()
-                            .scaledToFit().frame(width: 25, height: 25)
+                            .scaledToFit()
+                            .frame(width: 25, height: 25)
                             .padding(0)
                             .widgetAccentable()
                             .offset(y: -1)

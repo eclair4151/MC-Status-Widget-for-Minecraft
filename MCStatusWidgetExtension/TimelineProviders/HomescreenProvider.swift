@@ -8,24 +8,46 @@ struct HomescreenProvider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> ServerStatusHSSnapshotEntry {
         var vm = WidgetEntryVM()
         vm.setForUnconfiguredView()
-        return ServerStatusHSSnapshotEntry(date: Date(), configuration: ServerSelectWidgetIntent(), vm: vm)
+        
+        return ServerStatusHSSnapshotEntry(
+            date: Date(),
+            configuration: ServerSelectWidgetIntent(),
+            vm: vm
+        )
     }
     
     // if context.isPreview is true, this is the view to show when someone clicked add widget. Just show preview with placeholder data. if it is false, yo ushould actually load the current state of the view by getting the status
-    func snapshot(for configuration: ServerSelectWidgetIntent, in context: Context) async -> ServerStatusHSSnapshotEntry {
+    func snapshot(
+        for configuration: ServerSelectWidgetIntent,
+        in context: Context
+    ) async -> ServerStatusHSSnapshotEntry {
         var vm = WidgetEntryVM()
         
         let container = SwiftDataHelper.getModelContainter()
         
         if !context.isPreview, let (server, serverStatus, widgetTheme) = await loadTimelineData(container: container, configuration: configuration) {
-            let serverIcon = ImageHelper.convertFavIconString(favIcon: serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
-            vm = WidgetEntryVM(serverName: server.name, status: serverStatus, lastUpdated: "now", serverIcon: serverIcon, theme: widgetTheme)
+            let serverIcon = ImageHelper.convertFavIconString(serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
+            
+            vm = WidgetEntryVM(
+                serverName: server.name,
+                status: serverStatus,
+                lastUpdated: "now",
+                serverIcon: serverIcon,
+                theme: widgetTheme
+            )
         }
         
-        return ServerStatusHSSnapshotEntry(date: Date(), configuration: configuration, vm: vm)
+        return ServerStatusHSSnapshotEntry(
+            date: Date(),
+            configuration: configuration,
+            vm: vm
+        )
     }
     
-    func loadTimelineData(container: ModelContainer, configuration: ServerSelectWidgetIntent) async -> (SavedMinecraftServer, ServerStatus, Theme)? {
+    func loadTimelineData(
+        container: ModelContainer,
+        configuration: ServerSelectWidgetIntent
+    ) async -> (SavedMinecraftServer, ServerStatus, Theme)? {
         // step 1 load server from DB
         guard
             let serverId = configuration.Server?.id,
@@ -47,7 +69,10 @@ struct HomescreenProvider: AppIntentTimelineProvider {
         return (server, statusResult, theme)
     }
     
-    func timeline(for configuration: ServerSelectWidgetIntent, in context: Context) async -> Timeline<ServerStatusHSSnapshotEntry> {
+    func timeline(
+        for configuration: ServerSelectWidgetIntent,
+        in context: Context
+    ) async -> Timeline<ServerStatusHSSnapshotEntry> {
         var entries: [ServerStatusHSSnapshotEntry] = []
         let currentDate = Date()
         let futureDate = Calendar.current.date(byAdding: .minute, value: 10, to: Date())!
@@ -65,15 +90,20 @@ struct HomescreenProvider: AppIntentTimelineProvider {
                 vm.serverName = "Open App"
             }
             
-            let entry = ServerStatusHSSnapshotEntry(date: currentDate, configuration: configuration, vm: vm)
+            let entry = ServerStatusHSSnapshotEntry(
+                date: currentDate,
+                configuration: configuration,
+                vm: vm
+            )
+            
             entries.append(entry)
             
             return Timeline(entries: entries, policy: .after(futureDate))
         }
         
-        let serverIcon = ImageHelper.convertFavIconString(favIcon: serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
+        let serverIcon = ImageHelper.convertFavIconString(serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
         
-        for minOffset in 0 ..< 15 {
+        for minOffset in 0..<15 {
             var timeStr = ""
             
             if minOffset == 0 {
@@ -82,28 +112,77 @@ struct HomescreenProvider: AppIntentTimelineProvider {
                 timeStr = "\(minOffset)m ago"
             }
             
-            let vm = WidgetEntryVM(serverName: server.name, status: serverStatus, lastUpdated: timeStr, serverIcon: serverIcon, theme: widgetTheme)
-            let entryDate = Calendar.current.date(byAdding: .minute, value: minOffset, to: currentDate)!
-            let entry = ServerStatusHSSnapshotEntry(date: entryDate, configuration: configuration, vm: vm)
+            let vm = WidgetEntryVM(
+                serverName: server.name,
+                status: serverStatus,
+                lastUpdated: timeStr,
+                serverIcon: serverIcon,
+                theme: widgetTheme
+            )
+            
+            let entryDate = Calendar.current.date(
+                byAdding: .minute,
+                value: minOffset,
+                to: currentDate
+            )!
+            
+            let entry = ServerStatusHSSnapshotEntry(
+                date: entryDate,
+                configuration: configuration,
+                vm: vm
+            )
             
             entries.append(entry)
         }
         
         for minOffset in stride(from: 15, through: 55, by: 5) {
             let timeStr = "\(minOffset)m ago"
-            let vm = WidgetEntryVM(serverName: server.name, status: serverStatus, lastUpdated: timeStr, serverIcon: serverIcon, theme: widgetTheme)
-            let entryDate = Calendar.current.date(byAdding: .minute, value: minOffset, to: currentDate)!
-            let entry = ServerStatusHSSnapshotEntry(date: entryDate, configuration: configuration, vm: vm)
+            
+            let vm = WidgetEntryVM(
+                serverName: server.name,
+                status: serverStatus,
+                lastUpdated: timeStr,
+                serverIcon: serverIcon,
+                theme: widgetTheme
+            )
+            
+            let entryDate = Calendar.current.date(
+                byAdding: .minute,
+                value: minOffset,
+                to: currentDate
+            )!
+            
+            let entry = ServerStatusHSSnapshotEntry(
+                date: entryDate,
+                configuration: configuration,
+                vm: vm
+            )
             
             entries.append(entry)
         }
         
-        for hourOffset in 1 ..< 11 { // 360
+        for hourOffset in 1..<11 { // 360
             let timeStr = "\(hourOffset)hr ago"
             
-            let vm = WidgetEntryVM(serverName: server.name, status: serverStatus, lastUpdated: timeStr, serverIcon: serverIcon, theme: widgetTheme)
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = ServerStatusHSSnapshotEntry(date: entryDate, configuration: configuration, vm: vm)
+            let vm = WidgetEntryVM(
+                serverName: server.name,
+                status: serverStatus,
+                lastUpdated: timeStr,
+                serverIcon: serverIcon,
+                theme: widgetTheme
+            )
+            
+            let entryDate = Calendar.current.date(
+                byAdding: .hour,
+                value: hourOffset,
+                to: currentDate
+            )!
+            
+            let entry = ServerStatusHSSnapshotEntry(
+                date: entryDate,
+                configuration: configuration,
+                vm: vm
+            )
             
             entries.append(entry)
         }

@@ -39,7 +39,7 @@ class WatchServerStatusChecker {
         }
     }
     
-    func checkServers(servers:[SavedMinecraftServer]) {
+    func checkServers(servers: [SavedMinecraftServer]) {
         print("Watch is going to ask for server status from phone")
         
         let serverBatch = servers.reduce(into: [UUID: SavedMinecraftServer]()) {
@@ -102,7 +102,7 @@ class WatchServerStatusChecker {
         }
     }
     
-    private func checkServersViaPhone(servers:[SavedMinecraftServer]) throws {
+    private func checkServersViaPhone(servers: [SavedMinecraftServer]) throws {
         let messageRequest = WatchRequestMessage()
         messageRequest.servers = servers
         
@@ -128,7 +128,12 @@ class WatchServerStatusChecker {
         do {
             print("CALLING BACKUP SERVER")
             
-            let res = try await WebServerStatusChecker.checkServer(serverUrl: server.serverUrl, serverPort: server.serverPort, serverType: server.serverType, config: nil)
+            let res = try await WebServerStatusChecker.checkServer(
+                serverUrl: server.serverUrl,
+                serverPort: server.serverPort,
+                serverType: server.serverType,
+                config: nil
+            )
             res.source = Source.ThirdParty
             
             print("Got result from third part. Returning...")
@@ -152,7 +157,7 @@ class ExpectedResultBatch: Hashable {
         hasher.combine(expectedResults)
     }
     
-    init(expectedResults: [UUID : SavedMinecraftServer]) {
+    init(expectedResults: [UUID: SavedMinecraftServer]) {
         self.expectedResults = expectedResults
     }
     

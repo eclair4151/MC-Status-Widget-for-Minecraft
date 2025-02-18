@@ -15,9 +15,8 @@ class WebJavaResponseVersion: Decodable {
 class WebJavaResponsePlayers: Decodable {
     let online: Int
     let max: Int
-    let list:[WebJavaResponsePlayer]
+    let list: [WebJavaResponsePlayer]
 }
-
 
 class WebJavaResponsePlayer: Decodable {
     let name_clean: String

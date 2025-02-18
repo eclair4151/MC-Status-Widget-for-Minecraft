@@ -2,8 +2,12 @@ import SwiftUI
 import Intents
 import WidgetKit
 
-struct InlineAccessoryWidgetView : View {
-    var entry: LockscreenProvider.Entry
+struct InlineAccessoryWidgetView: View {
+    private var entry: LockscreenProvider.Entry
+    
+    init(_ entry: LockscreenProvider.Entry) {
+        self.entry = entry
+    }
     
     var body: some View {
 #if !targetEnvironment(macCatalyst)
@@ -13,7 +17,8 @@ struct InlineAccessoryWidgetView : View {
                     .fontSize(18)
                     .widgetAccentable()
             } else {
-                Image(uiImage: entry.vm.icon).widgetAccentable()
+                Image(uiImage: entry.vm.icon)
+                    .widgetAccentable()
             }
             
             Button(intent: RefreshWidgetIntent()) {
@@ -26,7 +31,8 @@ struct InlineAccessoryWidgetView : View {
                 } else {
                     Text(entry.vm.progressString)
                 }
-            }.buttonStyle(.plain)
+            }
+            .buttonStyle(.plain)
         }
 #endif
     }
@@ -35,8 +41,14 @@ struct InlineAccessoryWidgetView : View {
 #if !targetEnvironment(macCatalyst)
 struct MinecraftServerStatusHSWidget_InlinePreview: PreviewProvider {
     static var previews: some View {
-        MinecraftServerStatusLSWidgetEntryView(entry: ServerStatusLSSnapshotEntry(date: Date(), configuration: ServerSelectNoThemeWidgetIntent(), vm: WidgetEntryVM()))
-            .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
+        MinecraftServerStatusLSWidgetEntryView(
+            entry: ServerStatusLSSnapshotEntry(
+                date: Date(),
+                configuration: ServerSelectNoThemeWidgetIntent(),
+                vm: WidgetEntryVM()
+            )
+        )
+        .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
     }
 }
 #endif

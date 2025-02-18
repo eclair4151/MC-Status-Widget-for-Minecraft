@@ -168,6 +168,8 @@
 		F33A5CB12D640C3B0020D8A5 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33A5CB02D640C3B0020D8A5 /* ScrechKit */; };
 		F33A5CB32D640C440020D8A5 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33A5CB22D640C440020D8A5 /* ScrechKit */; };
 		F35E1A6D2D6489FD00718CB7 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettingsView.swift */; };
+		F35E1A6F2D649C6000718CB7 /* FeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */; };
+		F35E1A712D649D1300718CB7 /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -341,6 +343,8 @@
 		F304725B2D63FBFC0055C007 /* MinecraftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftRegular.otf; sourceTree = "<group>"; };
 		F326DB572D6416E100BCCB69 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		F35E1A6C2D6489FD00718CB7 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
+		F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureRow.swift; sourceTree = "<group>"; };
+		F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriGuidePhrase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -517,8 +521,9 @@
 			isa = PBXGroup;
 			children = (
 				F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */,
+				F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */,
 				F150B4352CC1709700739646 /* ShortcutsGuideView.swift */,
-				F150B4332CC15F6A00739646 /* SiriGuideView.swift */,
+				F35E1A722D649D1700718CB7 /* Siri */,
 				F17AE0FB2CC05F9000DC7A80 /* TipJarView.swift */,
 				F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */,
 				F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */,
@@ -680,6 +685,15 @@
 				F35E1A6C2D6489FD00718CB7 /* GeneralSettingsView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		F35E1A722D649D1700718CB7 /* Siri */ = {
+			isa = PBXGroup;
+			children = (
+				F150B4332CC15F6A00739646 /* SiriGuideView.swift */,
+				F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */,
+			);
+			path = Siri;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -977,8 +991,10 @@
 				F150B4342CC15F6A00739646 /* SiriGuideView.swift in Sources */,
 				F17AE0FC2CC05F9000DC7A80 /* TipJarView.swift in Sources */,
 				F1A43C822A8472B20081A24C /* ServerStatusDetailView.swift in Sources */,
+				F35E1A6F2D649C6000718CB7 /* FeatureRow.swift in Sources */,
 				F30472542D63E9D30055C007 /* SavedServerEntity.swift in Sources */,
 				F30472552D63E9D30055C007 /* ServerStatusEntity.swift in Sources */,
+				F35E1A712D649D1300718CB7 /* SiriGuidePhrase.swift in Sources */,
 				F174A2FC2A8F7FFA0051DA5B /* WatchHelper.swift in Sources */,
 				F17A16BD2A8956DE00F8FF2F /* EditServerView.swift in Sources */,
 				F17AE0EC2CC01E9E00DC7A80 /* FAQView.swift in Sources */,

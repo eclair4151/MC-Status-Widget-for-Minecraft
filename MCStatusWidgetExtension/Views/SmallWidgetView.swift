@@ -3,7 +3,11 @@ import Intents
 import WidgetKit
 
 struct BaseWidgetView: View {
-    var entry: HomescreenProvider.Entry
+    private var entry: HomescreenProvider.Entry
+    
+    init(_ entry: HomescreenProvider.Entry) {
+        self.entry = entry
+    }
     
     @Environment(\.widgetRenderingMode) private var widgetRenderingMode
     
@@ -118,16 +122,20 @@ struct BaseWidgetView: View {
     }
 }
 
-struct SmallWidgetView : View {
-    var entry: HomescreenProvider.Entry
+struct SmallWidgetView: View {
+    private var entry: HomescreenProvider.Entry
+    
+    init(_ entry: HomescreenProvider.Entry) {
+        self.entry = entry
+    }
     
     var body: some View {
         if entry.configuration.Theme == nil || entry.configuration.Theme?.id ?? "" == Theme.auto.rawValue {
-            BaseWidgetView(entry: entry)
+            BaseWidgetView(entry)
                 .padding()
                 .padding(.bottom, 3)
         } else {
-            BaseWidgetView(entry: entry)
+            BaseWidgetView(entry)
                 .padding()
                 .padding(.bottom, 3)
                 .environment(

@@ -1,7 +1,7 @@
 import Foundation
 import SwiftData
 
-// random helper function
+// random helper func
 public class SwiftDataHelper {
     public static func getModelContainter() -> ModelContainer {
         if UserDefaultHelper.shared.get(for: .iCloudEnabled, defaultValue: true) {

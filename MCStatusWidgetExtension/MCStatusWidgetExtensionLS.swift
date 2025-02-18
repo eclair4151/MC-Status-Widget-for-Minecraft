@@ -37,7 +37,7 @@ struct MinecraftServerStatusLSWidget1: Widget {
 struct MinecraftServerStatusLSWidget2: Widget {
     private let kind = "MinecraftServerStatusLSWidget2"
     
-    private let supportedFamilies:[WidgetFamily] = {
+    private let supportedFamilies: [WidgetFamily] = {
 #if targetEnvironment(macCatalyst)
         []
 #elseif os(watchOS)
@@ -68,7 +68,7 @@ enum LSWidgetType {
     case ImageAndText, OnlyImage
 }
 
-struct MinecraftServerStatusLSWidgetEntryView : View {
+struct MinecraftServerStatusLSWidgetEntryView: View {
     var entry: LockscreenProvider.Entry
     var widgetType: LSWidgetType = .ImageAndText //defult
     
@@ -81,25 +81,26 @@ struct MinecraftServerStatusLSWidgetEntryView : View {
         case .accessoryCircular:
             switch widgetType {
             case .ImageAndText:
-                CircularAccessoryWidgetView1(entry: entry)
+                CircularAccessoryWidgetView1(entry)
+                
             case .OnlyImage:
-                CircularAccessoryWidgetView2(entry: entry)
+                CircularAccessoryWidgetView2(entry)
             }
             
         case .accessoryRectangular:
-            RectangularAccessoryWidgetView(entry: entry)
+            RectangularAccessoryWidgetView(entry)
             
         case .accessoryInline:
             switch widgetType {
             case .ImageAndText:
-                InlineAccessoryWidgetView(entry: entry)
+                InlineAccessoryWidgetView(entry)
                 
             case .OnlyImage:
-                InlineAccessoryWidgetView2(entry: entry)
+                InlineAccessoryWidgetView2(entry)
             }
             
         case .accessoryCorner:
-            CornerAccessoryWidgetView1(entry: entry)
+            CornerAccessoryWidgetView1(entry)
 #endif
         @unknown default:
             Text("Not implemented")

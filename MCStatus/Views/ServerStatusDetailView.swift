@@ -1,6 +1,5 @@
 import SwiftUI
 import MCStatusDataLayer
-import AppIntents
 import NukeUI
 import Nuke
 import WidgetKit
@@ -321,7 +320,7 @@ struct ServerStatusDetailView: View {
         self.presentationMode.wrappedValue.dismiss()
     }
     
-    func startPrefetchingUserImages(vm: ServerStatusVM) {
+    private func startPrefetchingUserImages(vm: ServerStatusVM) {
         let imageURLs = (vm.status?.playerSample ?? []).compactMap {
             URL(string: vm.getMcHeadsUrl(uuid: $0.uuid))
         }

@@ -37,7 +37,7 @@ struct MinecraftServerStatusHSWidget: Widget {
     }
 }
 
-struct MinecraftServerStatusHSWidgetEntryView : View {
+struct MinecraftServerStatusHSWidgetEntryView: View {
     private var entry: HomescreenProvider.Entry
     
     init(_ entry: HomescreenProvider.Entry) {
@@ -50,10 +50,10 @@ struct MinecraftServerStatusHSWidgetEntryView : View {
     var body: some View {
         switch family {
         case .systemSmall:
-            SmallWidgetView(entry: entry)
+            SmallWidgetView(entry)
             
         case .systemMedium:
-            MediumWidgetView(entry: entry)
+            MediumWidgetView(entry)
             
         @unknown default:
             Text("Not implemented")

@@ -10,17 +10,17 @@ class UserDefaultHelper {
         // Add more keys here as needed
     }
     
-    // Singleton instance for easy access
+    // Singleton instance
     static let shared = UserDefaultHelper()
     
     private init() {}  // Prevents external instantiation
     
-    // Function to set a boolean value
+    // Func to set a boolean value
     func set(_ value: Bool, for key: Key) {
         UserDefaults.standard.set(value, forKey: key.rawValue)
     }
     
-    // Function to get a boolean value, with a default if not set
+    // Func to get a boolean value, with a default if not set
     func get(for key: Key, defaultValue: Bool = false) -> Bool {
         UserDefaults.standard.object(forKey: key.rawValue) as? Bool ?? defaultValue
     }

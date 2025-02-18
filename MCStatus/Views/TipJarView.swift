@@ -2,13 +2,17 @@ import SwiftUI
 import StoreKit
 
 struct TipJarView: View {
+    @Binding var isPresented: Bool
+    
+    init(_ isPresented: Binding<Bool>) {
+        _isPresented = isPresented
+    }
+    
     @State private var isProcessing = false
     @State private var tipProducts: [Product]?
     @State private var showAlert = false
     @State private var alertTitle = ""
     @State private var alertMessage = ""
-    
-    @Binding var isPresented: Bool
     
     var body: some View {
         ScrollView {
@@ -87,7 +91,7 @@ struct TipJarView: View {
                 "dev.topscrech.MinecraftServerStatus.999Tip"
             ])
             
-            self.tipProducts = Array(products).sorted { p1, p2 in
+            tipProducts = Array(products).sorted { p1, p2 in
                 return p1.price < p2.price
             }
         } catch {

@@ -2,8 +2,12 @@ import SwiftUI
 import Intents
 import WidgetKit
 
-struct CornerAccessoryWidgetView1 : View {
-    var entry: LockscreenProvider.Entry
+struct CornerAccessoryWidgetView1: View {
+    private var entry: LockscreenProvider.Entry
+    
+    init(_ entry: LockscreenProvider.Entry) {
+        self.entry = entry
+    }
     
     var iconSize = 27.0
     
@@ -46,9 +50,11 @@ struct CornerAccessoryWidgetView1 : View {
             } currentValueLabel: {
                 Text("")
             } minimumValueLabel: {
-                Text(String(entry.vm.playersOnline)) // Watch out for clipping)
+                // Watch out for clipping)
+                Text(String(entry.vm.playersOnline))
             } maximumValueLabel: {
-                Text(String(entry.vm.playersMax)) // Watch out for clipping
+                // Watch out for clipping
+                Text(String(entry.vm.playersMax))
             }
             .tint(Color(hex: "#2159ad"))
             .gaugeStyle(.accessoryLinearCapacity).widgetAccentable()

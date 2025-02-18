@@ -1,4 +1,3 @@
-import Foundation
 import WatchConnectivity
 import SwiftData
 import MCStatusDataLayer
@@ -21,10 +20,10 @@ class WatchHelper: NSObject, WCSessionDelegate {
         print("watch session deactivated")
     }
     
-    func handleWatchMessage(message: [String : Any], session: WCSession) {
+    func handleWatchMessage(message: [String: Any], session: WCSession) {
         let decoder = JSONDecoder()
         
-        // i've done the lazy thing and hard coded the logic directly in here. Should be moved to a helper function at some point.
+        // i've done the lazy thing and hard coded the logic directly in here. Should be moved to a helper func at some point
         guard
             let requestString = message["request"] as? String,
             let jsonData = requestString.data(using: .utf8),
@@ -35,13 +34,12 @@ class WatchHelper: NSObject, WCSessionDelegate {
             return
         }
         
-        
         // for each server, get response, and send responses back as we receive them to the watch
         // we start a new task for each server to let them run in parrallel
         for server in request.servers {
             Task {
                 let result = await ServerStatusChecker.checkServer(server: server)
-                let messageResponse = WatchResponseMessage(id: server.id, status:result)
+                let messageResponse = WatchResponseMessage(id: server.id, status: result)
                 let encoder = JSONEncoder()
                 let jsonData = try encoder.encode(messageResponse)
                 
@@ -50,7 +48,7 @@ class WatchHelper: NSObject, WCSessionDelegate {
                     throw ServerStatusCheckerError.StatusUnparsable
                 }
                 
-                let payload = ["response":jsonString]
+                let payload = ["response": jsonString]
                 
                 print("SENDING STATUS RESPONSE TO WATCH")
                 
@@ -61,7 +59,7 @@ class WatchHelper: NSObject, WCSessionDelegate {
         }
     }
     
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+    func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         print("we've been waken from the background, and have been asked for data from the watch!")
         
         // initilize model container since sometimes its not ready yet???

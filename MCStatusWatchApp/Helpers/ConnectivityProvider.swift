@@ -43,7 +43,7 @@ class ConnectivityProvider: NSObject, WCSessionDelegate {
     }
     
     // this should be where we recived the status from the iPhone after requesting it
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+    func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         responseListener?(message)
     }
     

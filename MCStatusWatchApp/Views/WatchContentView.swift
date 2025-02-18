@@ -173,7 +173,7 @@ struct WatchContentView: View {
         WidgetCenter.shared.reloadAllTimelines()
     }
     
-    private func reloadData(forceRefresh:Bool = false) {
+    private func reloadData(forceRefresh: Bool = false) {
         let fetch = FetchDescriptor<SavedMinecraftServer>(
             predicate: nil,
             sortBy: [.init(\.displayOrder)]
@@ -184,7 +184,7 @@ struct WatchContentView: View {
             return
         }
         
-        var serversToCheck:[SavedMinecraftServer] = []
+        var serversToCheck: [SavedMinecraftServer] = []
         
         self.serverVMs = servers.map {
             if let cachedVm = serverVMCache[$0.id] {

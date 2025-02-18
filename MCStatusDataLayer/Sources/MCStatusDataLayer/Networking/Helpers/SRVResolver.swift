@@ -71,11 +71,11 @@ public class SRVResolver {
     
     // These allow for the ObjC -> Swift conversion of a pointer
     // The DNS APIs are a bit... unique
-    static func bridge<T:AnyObject>(_ obj : T) -> UnsafeMutableRawPointer {
+    static func bridge<T:AnyObject>(_ obj: T) -> UnsafeMutableRawPointer {
         Unmanaged.passUnretained(obj).toOpaque()
     }
     
-    static func bridge<T:AnyObject>(_ ptr : UnsafeMutableRawPointer) -> T {
+    static func bridge<T:AnyObject>(_ ptr: UnsafeMutableRawPointer) -> T {
         Unmanaged<T>.fromOpaque(ptr).takeUnretainedValue()
     }
     
@@ -86,6 +86,7 @@ public class SRVResolver {
     
     func success() {
         stopQuery()
+        
         let result = SRVResult(SRVRecords: results, query: query ?? "Unknown Query")
         callContinuationResume(result: result)
     }

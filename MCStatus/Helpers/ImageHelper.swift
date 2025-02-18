@@ -1,7 +1,7 @@
 import SwiftUI
 
 class ImageHelper {
-    static func convertFavIconString(favIcon: String?) -> UIImage? {
+    static func convertFavIconString(_ favIcon: String?) -> UIImage? {
         if let favIconString = favIcon, favIconString != "" {
             let favIconParts = favIconString.split(separator: ",")
             

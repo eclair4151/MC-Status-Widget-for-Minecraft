@@ -52,7 +52,11 @@ struct FAQRow: View {
 }
 
 struct FAQView: View {
-    let faqs: [FAQ]
+    private let faqs: [FAQ]
+    
+    init(_ faqs: [FAQ]) {
+        self.faqs = faqs
+    }
     
     var body: some View {
         Form {

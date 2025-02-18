@@ -27,9 +27,9 @@ public class BedrockServerStatusParser: ServerStatusParserProtocol {
     
     // § is a section-sign which is used for formatting legacy style MOTD and bedrock
     // https://minecraft.fandom.com/wiki/Formatting_codes
-    //Idealy, i would have the same code for both java and bedrock MOTD parsing, but alas there are some subtle differences in the parsing code that make it just annoying enough to require breaking into 2 seperate functions (See other parser in JavaServerStatusParser.
+    // Idealy, i would have the same code for both java and bedrock MOTD parsing, but alas there are some subtle differences in the parsing code that make it just annoying enough to require breaking into 2 seperate funcs (See other parser in JavaServerStatusParser.
     static func parseBedrockMOTD(input: String) -> [FormattedMOTDSection] {
-        var motdSections:[FormattedMOTDSection] = []
+        var motdSections: [FormattedMOTDSection] = []
         var currentSection = FormattedMOTDSection()
         var currentIndex = input.startIndex
         
@@ -68,6 +68,7 @@ public class BedrockServerStatusParser: ServerStatusParserProtocol {
                     let newSection = FormattedMOTDSection()
                     newSection.color = colorFormatter.rawValue
                     newSection.formatters = currentSection.formatters
+                    
                     currentSection = newSection
                 }
             } else {

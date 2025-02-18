@@ -34,7 +34,7 @@ public class ServerStatusVM: Identifiable, Hashable {
         loadingStatus = .Loading
         
         Task {
-            // DONT DO THIS, LET USER PASS IN FUNCTION WHICH WILL RELOAD DATA TO ALLOW REUSE IN WATCH
+            // DONT DO THIS, LET USER PASS IN FUNC WHICH WILL RELOAD DATA TO ALLOW REUSE IN WATCH
             let statusResult = await ServerStatusChecker.checkServer(server: server, config: config)
             print("Got result from status checker")
             

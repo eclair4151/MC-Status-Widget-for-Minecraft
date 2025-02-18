@@ -1,5 +1,4 @@
 import SwiftUI
-import WidgetKit
 
 struct CustomProgressView: View {
     var progress: CGFloat
@@ -21,7 +20,7 @@ struct CustomProgressView: View {
                 
                 Rectangle()
                     .foregroundColor(filledColor)
-                    .frame(width: width * self.progress, height: height)
+                    .frame(width: width * progress, height: height)
                     .cornerRadius(height / 2)
                     .animation(.easeInOut(duration: 0.5), value: progress)
                     .widgetAccentable()

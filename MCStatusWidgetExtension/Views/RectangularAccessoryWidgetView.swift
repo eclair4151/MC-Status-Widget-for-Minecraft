@@ -2,12 +2,16 @@ import SwiftUI
 import Intents
 import WidgetKit
 
-struct RectangularAccessoryWidgetView : View {
-    var entry: LockscreenProvider.Entry
+struct RectangularAccessoryWidgetView: View {
+    private var entry: LockscreenProvider.Entry
+    
+    init(_ entry: LockscreenProvider.Entry) {
+        self.entry = entry
+    }
+    
     let iconSize = 16.0
     
     var body: some View {
-        
 #if !targetEnvironment(macCatalyst)
         Gauge (value: entry.vm.progressValue) {
             VStack(alignment: .leading, spacing: 2) {

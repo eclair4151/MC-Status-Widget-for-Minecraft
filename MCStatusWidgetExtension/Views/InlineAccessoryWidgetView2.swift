@@ -2,8 +2,12 @@ import SwiftUI
 import Intents
 import WidgetKit
 
-struct InlineAccessoryWidgetView2 : View {
-    var entry: LockscreenProvider.Entry
+struct InlineAccessoryWidgetView2: View {
+    private var entry: LockscreenProvider.Entry
+    
+    init(_ entry: LockscreenProvider.Entry) {
+        self.entry = entry
+    }
     
     var body: some View {
 #if !targetEnvironment(macCatalyst)

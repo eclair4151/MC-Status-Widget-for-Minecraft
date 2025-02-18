@@ -1,10 +1,8 @@
 import SwiftUI
 import SwiftData
-import CloudKit
 import CoreData
 import MCStatusDataLayer
 import WidgetKit
-import StoreKit
 
 enum PageDestinations {
     case SettingsRoot
@@ -62,7 +60,7 @@ struct MainAppContentView: View {
             .navigationDestination(for: SettingsPageDestinations.self) { destination in
                 switch destination {
                 case .GeneralSettings: GeneralSettingsView()
-                case .FAQ:             FAQView(faqs: getiOSFAQs())
+                case .FAQ:             FAQView(getiOSFAQs())
                 case .Shortcuts:       ShortcutsGuideView()
                 case .Siri:            SiriGuideView()
                 case .WhatsNew:        ReleaseNotesView(showDismissButton: false)
@@ -70,7 +68,8 @@ struct MainAppContentView: View {
             }
             .onOpenURL { url in
                 print("Received deep link: \(url)")
-                //manually go into specific server if id is server.
+                
+                // Manually go into specific server if id is server
                 if let serverUUID = UUID(uuidString: url.absoluteString), let vm = self.serverVMCache[serverUUID] {
                     goToServerView(vm: vm)
                 } else if !url.absoluteString.isEmpty {
@@ -143,7 +142,7 @@ struct MainAppContentView: View {
             }
             
             // may have gotten new/changed data refresh models from database
-            // can we somehow check if anything actually changed? this is spam called on every open.
+            // can we somehow check if anything actually changed? this is spam called on every open
             if event.endDate != nil && event.type == .import {
                 print("refresh triggered via eventChangedNotification")
                 
@@ -280,7 +279,7 @@ struct MainAppContentView: View {
         }
     }
     
-    private func reloadData(forceRefresh:Bool = false, forceSRVRefreh:Bool = false) {
+    private func reloadData(forceRefresh: Bool = false, forceSRVRefreh: Bool = false) {
         // crashes when run in background from apple watch??
         // FB13069019
         guard scenePhase != .background else {

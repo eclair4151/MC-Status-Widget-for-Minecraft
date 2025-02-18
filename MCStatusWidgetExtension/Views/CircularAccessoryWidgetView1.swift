@@ -3,8 +3,12 @@ import SwiftUI
 import Intents
 import WidgetKit
 
-struct CircularAccessoryWidgetView1 : View {
-    var entry: LockscreenProvider.Entry
+struct CircularAccessoryWidgetView1: View {
+    private var entry: LockscreenProvider.Entry
+    
+    init(_ entry: LockscreenProvider.Entry) {
+        self.entry = entry
+    }
     
     private var iconSize: CGFloat {
 #if os(watchOS)
@@ -21,13 +25,14 @@ struct CircularAccessoryWidgetView1 : View {
         0
 #endif
     }
+    
     var body: some View {
-        
 #if !targetEnvironment(macCatalyst)
         Gauge(value: entry.vm.progressValue) {
             VStack(spacing: 1) {
                 ZStack {
-                    HStack(spacing: 4) { // Adjust spacing as needed
+                    // Adjust spacing as needed
+                    HStack(spacing: 4) {
                         if let statusIcon = entry.vm.statusIcon {
                             Image(systemName: statusIcon)
                                 .fontSize(iconSize)
@@ -88,8 +93,14 @@ struct CircularAccessoryWidgetView1 : View {
 #if !targetEnvironment(macCatalyst)
 struct MinecraftServerStatusHSWidget_CircularPreview: PreviewProvider {
     static var previews: some View {
-        MinecraftServerStatusLSWidgetEntryView(entry: ServerStatusLSSnapshotEntry(date: Date(), configuration: ServerSelectNoThemeWidgetIntent(), vm: WidgetEntryVM()))
-            .previewContext(WidgetPreviewContext(family: .accessoryCircular))
+        MinecraftServerStatusLSWidgetEntryView(
+            entry: ServerStatusLSSnapshotEntry(
+                date: Date(),
+                configuration: ServerSelectNoThemeWidgetIntent(),
+                vm: WidgetEntryVM()
+            )
+        )
+        .previewContext(WidgetPreviewContext(family: .accessoryCircular))
     }
 }
 #endif

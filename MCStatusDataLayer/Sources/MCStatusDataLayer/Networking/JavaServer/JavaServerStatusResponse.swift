@@ -60,15 +60,13 @@ class JavaMOTDDescriptionSection: Decodable {
     var text: String?
     var color: String?
     var extra: [JavaMOTDDescriptionSection]?
-    var bold:Bool?
-    var italic:Bool?
-    var underlined:Bool?
-    var strikethrough:Bool?
-    var obfuscated:Bool?
+    var bold: Bool?
+    var italic: Bool?
+    var underlined: Bool?
+    var strikethrough: Bool?
+    var obfuscated: Bool?
     
-    public init() {
-        
-    }
+    public init() {}
     
     public required init(from decoder: Decoder) throws {
         // first check if this object is a string itself
@@ -79,18 +77,19 @@ class JavaMOTDDescriptionSection: Decodable {
             return
         }
         
-        
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         // first check extra it its a regular string, if so, load it into the text object to keep everything consistent
         if let strExtra = try? container.decode(String.self, forKey: .extra) {
             let extra = JavaMOTDDescriptionSection()
             extra.text = strExtra
+            
             self.extra = [extra]
             
         } else if let strArr = try? container.decode([String].self, forKey: .extra) { //then check if it is a regular string array (very rare but valid)
             let extra = JavaMOTDDescriptionSection()
             extra.text = strArr.joined(separator: " ")
+            
             self.extra = [extra]
             
         } else if let objDesc = try? container.decode([JavaMOTDDescriptionSection].self, forKey: .extra) { //finally anything remaining should be the description object
@@ -123,5 +122,3 @@ class UserSample: Decodable {
     var name: String!
     var id: String!
 }
-
-

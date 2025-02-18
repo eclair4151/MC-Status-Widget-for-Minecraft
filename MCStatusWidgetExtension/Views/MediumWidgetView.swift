@@ -2,14 +2,18 @@ import SwiftUI
 import Intents
 import WidgetKit
 
-struct MediumWidgetView : View {
-    var entry: HomescreenProvider.Entry
+struct MediumWidgetView: View {
+    private var entry: HomescreenProvider.Entry
+    
+    init(_ entry: HomescreenProvider.Entry) {
+        self.entry = entry
+    }
     
     var body: some View {
         if entry.configuration.Theme == nil || entry.configuration.Theme?.id ?? "" == Theme.auto.rawValue {
-            InnerMediumWidget(entry: entry)
+            InnerMediumWidget(entry)
         } else {
-            InnerMediumWidget(entry: entry)
+            InnerMediumWidget(entry)
                 .environment(
                     \.colorScheme,
                      (entry.configuration.Theme?.id ?? "" == Theme.dark.rawValue)
@@ -19,12 +23,17 @@ struct MediumWidgetView : View {
     }
 }
 
-private struct InnerMediumWidget : View {
-    var entry: HomescreenProvider.Entry
+private struct InnerMediumWidget: View {
+    private var entry: HomescreenProvider.Entry
+    
+    init(_ entry: HomescreenProvider.Entry) {
+        self.entry = entry
+    }
     
     var body: some View {
         VStack {
-            BaseWidgetView(entry: entry)
+            BaseWidgetView(entry)
+            
             Text(entry.vm.playersString)
                 .fontWeight(.regular)
                 .foregroundColor(.veryTransparentText)
@@ -36,10 +45,15 @@ private struct InnerMediumWidget : View {
     }
 }
 
-
 struct MinecraftServerStatusHSWidget_MediumPreview: PreviewProvider {
     static var previews: some View {
-        MinecraftServerStatusHSWidgetEntryView(entry: ServerStatusHSSnapshotEntry(date: Date(), configuration: ServerSelectWidgetIntent(), vm: WidgetEntryVM()))
-            .previewContext(WidgetPreviewContext(family: .systemMedium))
+        MinecraftServerStatusHSWidgetEntryView(
+            ServerStatusHSSnapshotEntry(
+                date: Date(),
+                configuration: ServerSelectWidgetIntent(),
+                vm: WidgetEntryVM()
+            )
+        )
+        .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }
