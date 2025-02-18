@@ -99,17 +99,13 @@ struct EditServerView: View {
         }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
-                Button {
+                Button("Cancel") {
                     isPresented = false
-                } label: {
-                    Text("Cancel")
                 }
             }
             ToolbarItem(placement: .topBarTrailing) {
-                Button {
+                Button("Save") {
                     saveItem()
-                } label: {
-                    Text("Save")
                 }
                 .disabled(saveDisabled())
             }
@@ -128,31 +124,26 @@ struct EditServerView: View {
         }
         .interactiveDismissDisabled(inputHasChanged())
         .alert("Invalid Server URL/IP Address", isPresented: $showingInvalidURLAlert) {
-            Button("OK") {
-                
-            }
+            Button("OK") {}
         } message: {
             Text("Minecraft Server domains/ip addresses must be the root domain, and not contain any '/' or ':'")
         }
         .alert("Invalid Server Name", isPresented: $showingInvalidNameAlert) {
-            Button("OK") {
-                
-            }
+            Button("OK") {}
         } .alert("Invalid Port", isPresented: $showingInvalidPortAlert) {
-            Button("OK") {
-                
-            }
+            Button("OK") {}
         } message: {
             Text("Port must be a number between 0 and 65535")
         }
     }
-    //
+    
     private func extractPort(from text: String) {
         // Check if the text contains a colon
         if let colonIndex = text.firstIndex(of: ":") {
             // Extract the port number after the colon
             let portValue = text[text.index(after: colonIndex)...]
             let port = String(portValue)
+            
             // Remove the port from serverIP if necessary
             let serverIP = String(text[..<colonIndex])
             tempServerInput = serverIP
@@ -162,7 +153,7 @@ struct EditServerView: View {
     
     
     private func saveDisabled() -> Bool {
-        return tempNameInput.isEmpty || tempServerInput.isEmpty
+        tempNameInput.isEmpty || tempServerInput.isEmpty
     }
     
     private func inputHasChanged() -> Bool {
@@ -173,7 +164,7 @@ struct EditServerView: View {
     
     // server domains cannot have / or :
     private func isUrlValid(url: String) -> Bool {
-        return !url.contains(":") && !url.contains("/")
+        !url.contains(":") && !url.contains("/")
     }
     
     // THIS IS CALLED WHEN A SERVER IS EDITED OR ADDED
@@ -203,8 +194,10 @@ struct EditServerView: View {
             
             if let tempPortInput {
                 server.serverPort =  tempPortInput
+                
             } else if tempServerType == .Java {
                 server.serverPort = 25565
+                
             } else if tempServerType == .Bedrock {
                 server.serverPort = 19132
             }
@@ -226,6 +219,7 @@ struct EditServerView: View {
             print("added server")
             MCStatusShortcutsProvider.updateAppShortcutParameters()
             parentViewRefreshCallBack()
+            
             // force the widgets to refresh
             WidgetCenter.shared.reloadAllTimelines()
             isPresented = false
