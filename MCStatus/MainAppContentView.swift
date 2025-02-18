@@ -16,6 +16,7 @@ struct MainAppContentView: View {
     @Environment(\.modelContext) private var modelContext
     
     @State private var serverVMs: [ServerStatusVM]?
+    
     // i cant think of a better way to do this since i dont want to regenerate the view model every time
     @State private var serverVMCache: [UUID: ServerStatusVM] = [:]
     @State private var showingAddSheet = false
@@ -274,10 +275,8 @@ struct MainAppContentView: View {
         }
         
         do {
-            // Try to save
             try modelContext.save()
         } catch {
-            // We couldn't save :(
             print(error.localizedDescription)
         }
     }
@@ -306,7 +305,8 @@ struct MainAppContentView: View {
                 return cachedVm
             }
             
-            //first time we are seeing this server. force srv refresh if needed.
+            // First time seeing this server
+            // Force SRV refresh if needed
             config.forceSRVRefresh = forceSRVRefreh
             
             let vm = ServerStatusVM(
@@ -356,7 +356,7 @@ struct MainAppContentView: View {
             return
         }
         
-        // More than 60 seconds have passed, reload servers and widgets
+        // >60 seconds passed, reload servers and widgets
         reloadData(forceRefresh: true)
         
         WidgetCenter.shared.reloadAllTimelines()

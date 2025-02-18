@@ -115,10 +115,8 @@ struct ServerRowView: View {
         modelContext.delete(vm.server)
         
         do {
-            // Try to save
             try modelContext.save()
         } catch {
-            // We couldn't save :(
             // Failures include issues such as an invalid unique constraint
             print(error.localizedDescription)
         }

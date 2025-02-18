@@ -51,15 +51,10 @@ public class ServerStatusVM: Identifiable, Hashable {
                     
                     print("Going to insert updated model")
                     self.modelContext.insert(self.server)
-                    // print("inserted updated model")
                     
                     do {
-                        // Try to save
-                        // print("Going to save updated model")
-                        
                         try self.modelContext.save()
                     } catch {
-                        // We couldn't save :(
                         print(error.localizedDescription)
                     }
                     

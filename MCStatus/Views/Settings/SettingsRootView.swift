@@ -149,10 +149,8 @@ struct SettingsRootView: View {
         modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Bedrock, name: "MC Hub", serverUrl: "mps.mchub.com", serverPort: 19132))
         
         do {
-            // Try to save
             try modelContext.save()
         } catch {
-            // We couldn't save :(
             print(error.localizedDescription)
         }
     }

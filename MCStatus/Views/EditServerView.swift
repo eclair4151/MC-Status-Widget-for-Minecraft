@@ -222,10 +222,8 @@ struct EditServerView: View {
             modelContext.insert(server)
             
             do {
-                // Try to save
                 try modelContext.save()
             } catch {
-                // We couldn't save :(
                 print(error.localizedDescription)
             }
             

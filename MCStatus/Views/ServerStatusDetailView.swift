@@ -232,6 +232,7 @@ struct ServerStatusDetailView: View {
         }
         .listStyle(.insetGrouped)
         .listSectionSpacing(10)
+        .scrollIndicators(.never)
         .environment(\.defaultMinListHeaderHeight, 15)
         .navigationBarTitleDisplayMode(.inline)
         .onReceive(timer) { _ in
@@ -307,10 +308,8 @@ struct ServerStatusDetailView: View {
         modelContext.delete(serverStatusVM.server)
         
         do {
-            // Try to save
             try modelContext.save()
         } catch {
-            // We couldn't save :(
             // Failures include issues such as an invalid unique constraint
             print(error.localizedDescription)
         }
