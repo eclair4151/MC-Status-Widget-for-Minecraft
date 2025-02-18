@@ -3,16 +3,16 @@ import MCStatusDataLayer
 import NukeUI
 
 struct WatchServerDetailScreen: View {
-    @State var serverStatusVM: ServerStatusVM
+    @State var vm: ServerStatusVM
     
     var body: some View {
-        let playerList = serverStatusVM.status?.playerSample ?? []
-        let onlinePlayerCount = serverStatusVM.status?.onlinePlayerCount ?? 0
+        let playerList = vm.status?.playerSample ?? []
+        let onlinePlayerCount = vm.status?.onlinePlayerCount ?? 0
         
-        if serverStatusVM.status?.status == .Offline {
+        if vm.status?.status == .Offline {
             Text("Server is offline")
             
-        } else if serverStatusVM.server.serverType == .Bedrock {
+        } else if vm.server.serverType == .Bedrock {
             Text("Bedrock servers do not support player lists.")
             
         } else if onlinePlayerCount == 0 {
@@ -26,7 +26,7 @@ struct WatchServerDetailScreen: View {
             Section {
                 ForEach(playerList) { player in
                     HStack {
-                        let imageUrl = URL(string: serverStatusVM.getMcHeadsUrl(uuid: player.uuid))
+                        let imageUrl = URL(string: vm.getMcHeadsUrl(uuid: player.uuid))
                         
                         LazyImage(url: imageUrl) { state in
                             if let image = state.image {
@@ -51,16 +51,15 @@ struct WatchServerDetailScreen: View {
                     }
                 }
             } footer: {
-                let playerSampleCount = serverStatusVM.status?.playerSample.count ?? 0
-                let onlinePlayersCount = serverStatusVM.status?.onlinePlayerCount ?? 0
+                let playerSampleCount = vm.status?.playerSample.count ?? 0
+                let onlinePlayersCount = vm.status?.onlinePlayerCount ?? 0
                 
                 if playerSampleCount > 0 && playerSampleCount < onlinePlayersCount {
-                    Text("*Player list limited to \(playerSampleCount) users by server")
-                        .frame(maxWidth: .infinity, alignment: .center)
+                    Text("Player list limited to \(playerSampleCount) users by server")
                 }
             }
         }
-        .navigationTitle(serverStatusVM.server.name)
+        .navigationTitle(vm.server.name)
     }
 }
 

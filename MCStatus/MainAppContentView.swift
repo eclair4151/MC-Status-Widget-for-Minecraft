@@ -49,7 +49,7 @@ struct MainAppContentView: View {
             }
             .scrollIndicators(.never)
             .navigationDestination(for: ServerStatusVM.self) { vm in
-                ServerStatusDetailView(serverStatusVM: vm) {
+                ServerStatusDetailView(vm: vm) {
                     reloadData()
                     refreshDisplayOrders()
                 }

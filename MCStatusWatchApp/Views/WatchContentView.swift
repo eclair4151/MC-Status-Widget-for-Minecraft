@@ -41,7 +41,7 @@ struct WatchContentView: View {
                 //                Text("Updated \(minSinceLastRefresh)m ago").frame(maxWidth: .infinity, alignment: .center).listRowBackground(Color.clear) // this is ugly so removing it
             }
             .navigationDestination(for: ServerStatusVM.self) { vm in
-                WatchServerDetailScreen(serverStatusVM: vm)
+                WatchServerDetailScreen(vm: vm)
             }
             .toolbar {
                 if let serverVMs, !serverVMs.isEmpty {

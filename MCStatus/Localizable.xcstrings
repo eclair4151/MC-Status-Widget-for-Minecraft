@@ -10,9 +10,6 @@
     "\"%@\"" : {
 
     },
-    "*Player list limited to %lld users by server" : {
-
-    },
     "%@" : {
 
     },
@@ -229,6 +226,9 @@
 
     },
     "Player Count" : {
+
+    },
+    "Player list limited to %lld users by server" : {
 
     },
     "Player Sample" : {
