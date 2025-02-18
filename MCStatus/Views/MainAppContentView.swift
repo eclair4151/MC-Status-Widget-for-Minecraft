@@ -62,10 +62,10 @@ struct MainAppContentView: View {
             .navigationDestination(for: SettingsPageDestinations.self) { destination in
                 switch destination {
                 case .GeneralSettings: GeneralSettingsView()
-                case .FAQ: FAQView(faqs: getiOSFAQs())
-                case .Shortcuts: ShortcutsGuideView()
-                case .Siri: SiriGuideView()
-                case .WhatsNew: ReleaseNotesView(showDismissButton: false)
+                case .FAQ:             FAQView(faqs: getiOSFAQs())
+                case .Shortcuts:       ShortcutsGuideView()
+                case .Siri:            SiriGuideView()
+                case .WhatsNew:        ReleaseNotesView(showDismissButton: false)
                 }
             }
             .onOpenURL { url in

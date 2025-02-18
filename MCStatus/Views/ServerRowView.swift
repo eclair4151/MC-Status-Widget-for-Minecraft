@@ -1,12 +1,18 @@
 import SwiftUI
+import WidgetKit
 import MCStatusDataLayer
 
 struct ServerRowView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    
     private var vm: ServerStatusVM
     
     init(_ vm: ServerStatusVM) {
         self.vm = vm
     }
+    
+    @State private var showingDeleteAlert = false
     
     var body: some View {
         HStack {
@@ -71,6 +77,38 @@ struct ServerRowView: View {
                 }
             }
         }
+        .contextMenu {
+            Button(role: .destructive) {
+                showingDeleteAlert = true
+            } label: {
+                Label("Delete Server", systemImage: "trash")
+            }
+        }
+        .alert("Delete Server?", isPresented: $showingDeleteAlert) {
+            Button("Delete", role: .destructive) {
+                deleteServer()
+            }
+            
+            Button("Cancel", role: .cancel) {}
+        }
+    }
+    
+    private func deleteServer() {
+        modelContext.delete(vm.server)
+        
+        do {
+            // Try to save
+            try modelContext.save()
+        } catch {
+            // We couldn't save :(
+            // Failures include issues such as an invalid unique constraint
+            print(error.localizedDescription)
+        }
+        
+        // Refresh widgets
+        WidgetCenter.shared.reloadAllTimelines()
+        
+        self.presentationMode.wrappedValue.dismiss()
     }
 }
 
