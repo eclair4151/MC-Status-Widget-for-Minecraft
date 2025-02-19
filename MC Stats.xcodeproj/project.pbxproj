@@ -213,6 +213,9 @@
 		F35E1AC82D652B4700718CB7 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
 		F35E1AC92D652C5B00718CB7 /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* SavedServerEntity.swift */; };
 		F35E1ACA2D652C6D00718CB7 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
+		F3C879D22D65722200840745 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3C879CD2D65722200840745 /* Assets.xcassets */; };
+		F3C879D32D65722200840745 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C879CE2D65722200840745 /* ContentView.swift */; };
+		F3C879D42D65722200840745 /* tvOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C879CF2D65722200840745 /* tvOSApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -394,6 +397,12 @@
 		F35E1A952D6501CC00718CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F35E1A9D2D65209500718CB7 /* PlayerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCard.swift; sourceTree = "<group>"; };
 		F35E1ACB2D652C9000718CB7 /* visionOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = visionOS.entitlements; sourceTree = "<group>"; };
+		F3C879BD2D65720500840745 /* tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3C879CD2D65722200840745 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F3C879CE2D65722200840745 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F3C879CF2D65722200840745 /* tvOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSApp.swift; sourceTree = "<group>"; };
+		F3C879D52D65724C00840745 /* tvOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tvOS.entitlements; sourceTree = "<group>"; };
+		F3C879D62D65726200840745 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -459,6 +468,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F3C879BA2D65720500840745 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -502,6 +518,7 @@
 				F30472262D63E9C20055C007 /* MCStatusWatchWidget */,
 				F35E1A972D6501CC00718CB7 /* visionOS */,
 				F1322FE32AAAB3FC005EAF56 /* MCStatusDataLayer */,
+				F3C879D02D65722200840745 /* tvOS */,
 				F13E5FFA2A4BD614005BE9B2 /* Products */,
 				F10C421B2AAE40BC000107D6 /* Frameworks */,
 			);
@@ -516,6 +533,7 @@
 				F1EF76EC2CB7873F00EFFB20 /* Widgets.appex */,
 				F13095252CBC997200C4C7BA /* Watch Widgets.appex */,
 				F35E1A7D2D6501A500718CB7 /* visionOS.app */,
+				F3C879BD2D65720500840745 /* tvOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -769,6 +787,18 @@
 			path = visionOS;
 			sourceTree = "<group>";
 		};
+		F3C879D02D65722200840745 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				F3C879D62D65726200840745 /* Info.plist */,
+				F3C879D52D65724C00840745 /* tvOS.entitlements */,
+				F3C879CF2D65722200840745 /* tvOSApp.swift */,
+				F3C879CD2D65722200840745 /* Assets.xcassets */,
+				F3C879CE2D65722200840745 /* ContentView.swift */,
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -911,6 +941,25 @@
 			productReference = F35E1A7D2D6501A500718CB7 /* visionOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F3C879BC2D65720500840745 /* tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3C879C82D65720600840745 /* Build configuration list for PBXNativeTarget "tvOS" */;
+			buildPhases = (
+				F3C879B92D65720500840745 /* Sources */,
+				F3C879BA2D65720500840745 /* Frameworks */,
+				F3C879BB2D65720500840745 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tvOS;
+			packageProductDependencies = (
+			);
+			productName = tvOS;
+			productReference = F3C879BD2D65720500840745 /* tvOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -939,6 +988,9 @@
 					F35E1A7C2D6501A500718CB7 = {
 						CreatedOnToolsVersion = 16.2;
 					};
+					F3C879BC2D65720500840745 = {
+						CreatedOnToolsVersion = 16.2;
+					};
 				};
 			};
 			buildConfigurationList = F13E5FF42A4BD614005BE9B2 /* Build configuration list for PBXProject "MC Stats" */;
@@ -961,6 +1013,7 @@
 			targets = (
 				F13E5FF82A4BD614005BE9B2 /* MC Stats */,
 				F11F634A2A81E50E00D47187 /* watchOS */,
+				F3C879BC2D65720500840745 /* tvOS */,
 				F35E1A7C2D6501A500718CB7 /* visionOS */,
 				F1406BA82AA391B800815BE8 /* Intents */,
 				F1EF76EB2CB7873F00EFFB20 /* Widgets */,
@@ -1029,6 +1082,14 @@
 				F35E1AC22D65237200718CB7 /* MinecraftBold.otf in Resources */,
 				F35E1AC32D65237200718CB7 /* MinecraftBoldItalic.otf in Resources */,
 				F35E1AC42D65237200718CB7 /* MinecraftItalic.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3C879BB2D65720500840745 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3C879D22D65722200840745 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1236,6 +1297,15 @@
 				F35E1ABF2D65236300718CB7 /* ViewHelpers.swift in Sources */,
 				F35E1AC92D652C5B00718CB7 /* SavedServerEntity.swift in Sources */,
 				F35E1AA42D6522C600718CB7 /* ReleaseNotesView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3C879B92D65720500840745 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3C879D32D65722200840745 /* ContentView.swift in Sources */,
+				F3C879D42D65722200840745 /* tvOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1801,6 +1871,71 @@
 			};
 			name = Release;
 		};
+		F3C879C92D65720600840745 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = tvOS/tvOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 8FQUA2F388;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = tvOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Debug;
+		};
+		F3C879CA2D65720600840745 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = tvOS/tvOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 8FQUA2F388;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = tvOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1863,6 +1998,15 @@
 			buildConfigurations = (
 				F35E1A8F2D6501A600718CB7 /* Debug */,
 				F35E1A902D6501A600718CB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3C879C82D65720600840745 /* Build configuration list for PBXNativeTarget "tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3C879C92D65720600840745 /* Debug */,
+				F3C879CA2D65720600840745 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
