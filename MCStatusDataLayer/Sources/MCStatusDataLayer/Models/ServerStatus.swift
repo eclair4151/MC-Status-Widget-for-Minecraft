@@ -58,7 +58,9 @@ public class FormattedMOTD: Codable {
     public var messageSections: [FormattedMOTDSection] = []
     
     public func getRawText() -> String {
-        messageSections.map(\.text).joined()
+        messageSections
+            .map(\.text)
+            .joined()
     }
 }
 
