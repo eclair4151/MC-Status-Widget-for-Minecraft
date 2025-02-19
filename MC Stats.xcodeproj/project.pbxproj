@@ -215,7 +215,43 @@
 		F35E1ACA2D652C6D00718CB7 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
 		F3C879D22D65722200840745 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3C879CD2D65722200840745 /* Assets.xcassets */; };
 		F3C879D32D65722200840745 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C879CE2D65722200840745 /* ContentView.swift */; };
-		F3C879D42D65722200840745 /* tvOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C879CF2D65722200840745 /* tvOSApp.swift */; };
+		F3C879D72D6572AA00840745 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
+		F3C879D82D6572AA00840745 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
+		F3C879D92D6572B000840745 /* MC Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */; };
+		F3C879DA2D6572B000840745 /* MainAppContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */; };
+		F3C879DB2D6572BA00840745 /* LowPowerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A732D64A4B200718CB7 /* LowPowerMode.swift */; };
+		F3C879DC2D6572BA00840745 /* RefreshWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A762D64D32D00718CB7 /* RefreshWidgets.swift */; };
+		F3C879DD2D6572BE00840745 /* FeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */; };
+		F3C879DE2D6572BE00840745 /* ReleaseNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */; };
+		F3C879DF2D6572C400840745 /* ServerStatusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */; };
+		F3C879E02D6572C400840745 /* PlayerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A9D2D65209500718CB7 /* PlayerCard.swift */; };
+		F3C879E12D6572C400840745 /* SiriGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4332CC15F6A00739646 /* SiriGuideView.swift */; };
+		F3C879E22D6572C400840745 /* TipJarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0FB2CC05F9000DC7A80 /* TipJarView.swift */; };
+		F3C879E32D6572C400840745 /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
+		F3C879E42D6572C400840745 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
+		F3C879E52D6572C400840745 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */; };
+		F3C879E62D6572CA00840745 /* ServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* ServerRowView.swift */; };
+		F3C879E72D6572CA00840745 /* SettingsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */; };
+		F3C879E82D6572CA00840745 /* EditServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */; };
+		F3C879E92D6572CA00840745 /* ShortcutsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4352CC1709700739646 /* ShortcutsGuideView.swift */; };
+		F3C879EA2D6572CA00840745 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettingsView.swift */; };
+		F3C879EB2D6572D000840745 /* RealmDbMigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */; };
+		F3C879EC2D6572D000840745 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* ViewHelpers.swift */; };
+		F3C879ED2D6572D000840745 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
+		F3C879EE2D6572D000840745 /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F130954E2CBC9D5600C4C7BA /* ConfigHelper.swift */; };
+		F3C879EF2D6572D000840745 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
+		F3C879F02D6572D000840745 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
+		F3C879F12D6572D000840745 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
+		F3C879F22D6572D000840745 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
+		F3C879F32D6572D500840745 /* SwiftyPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */; };
+		F3C879F42D6572DF00840745 /* MinecraftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725B2D63FBFC0055C007 /* MinecraftRegular.otf */; };
+		F3C879F52D6572DF00840745 /* MinecraftItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */; };
+		F3C879F62D6572DF00840745 /* MinecraftBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30472582D63FBFC0055C007 /* MinecraftBold.otf */; };
+		F3C879F72D6572DF00840745 /* MinecraftBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30472592D63FBFC0055C007 /* MinecraftBoldItalic.otf */; };
+		F3C879F92D6572F500840745 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3C879F82D6572F500840745 /* MCStatusDataLayer */; };
+		F3C879FB2D6572F900840745 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3C879FA2D6572F900840745 /* ScrechKit */; };
+		F3C879FD2D6572FD00840745 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F3C879FC2D6572FD00840745 /* Nuke */; };
+		F3C879FF2D65730000840745 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F3C879FE2D65730000840745 /* NukeUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -400,7 +436,6 @@
 		F3C879BD2D65720500840745 /* tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C879CD2D65722200840745 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3C879CE2D65722200840745 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		F3C879CF2D65722200840745 /* tvOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSApp.swift; sourceTree = "<group>"; };
 		F3C879D52D65724C00840745 /* tvOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tvOS.entitlements; sourceTree = "<group>"; };
 		F3C879D62D65726200840745 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -472,6 +507,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3C879FD2D6572FD00840745 /* Nuke in Frameworks */,
+				F3C879F92D6572F500840745 /* MCStatusDataLayer in Frameworks */,
+				F3C879FB2D6572F900840745 /* ScrechKit in Frameworks */,
+				F3C879FF2D65730000840745 /* NukeUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,7 +831,6 @@
 			children = (
 				F3C879D62D65726200840745 /* Info.plist */,
 				F3C879D52D65724C00840745 /* tvOS.entitlements */,
-				F3C879CF2D65722200840745 /* tvOSApp.swift */,
 				F3C879CD2D65722200840745 /* Assets.xcassets */,
 				F3C879CE2D65722200840745 /* ContentView.swift */,
 			);
@@ -955,6 +993,10 @@
 			);
 			name = tvOS;
 			packageProductDependencies = (
+				F3C879F82D6572F500840745 /* MCStatusDataLayer */,
+				F3C879FA2D6572F900840745 /* ScrechKit */,
+				F3C879FC2D6572FD00840745 /* Nuke */,
+				F3C879FE2D65730000840745 /* NukeUI */,
 			);
 			productName = tvOS;
 			productReference = F3C879BD2D65720500840745 /* tvOS.app */;
@@ -1079,6 +1121,7 @@
 			files = (
 				F35E1A9B2D6501CC00718CB7 /* Assets.xcassets in Resources */,
 				F35E1AC12D65237200718CB7 /* MinecraftRegular.otf in Resources */,
+				F3C879D82D6572AA00840745 /* Localizable.xcstrings in Resources */,
 				F35E1AC22D65237200718CB7 /* MinecraftBold.otf in Resources */,
 				F35E1AC32D65237200718CB7 /* MinecraftBoldItalic.otf in Resources */,
 				F35E1AC42D65237200718CB7 /* MinecraftItalic.otf in Resources */,
@@ -1089,7 +1132,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3C879D72D6572AA00840745 /* Localizable.xcstrings in Resources */,
 				F3C879D22D65722200840745 /* Assets.xcassets in Resources */,
+				F3C879F42D6572DF00840745 /* MinecraftRegular.otf in Resources */,
+				F3C879F52D6572DF00840745 /* MinecraftItalic.otf in Resources */,
+				F3C879F62D6572DF00840745 /* MinecraftBold.otf in Resources */,
+				F3C879F72D6572DF00840745 /* MinecraftBoldItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1305,7 +1353,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3C879D32D65722200840745 /* ContentView.swift in Sources */,
-				F3C879D42D65722200840745 /* tvOSApp.swift in Sources */,
+				F3C879DF2D6572C400840745 /* ServerStatusDetailView.swift in Sources */,
+				F3C879E02D6572C400840745 /* PlayerCard.swift in Sources */,
+				F3C879F32D6572D500840745 /* SwiftyPing.swift in Sources */,
+				F3C879E12D6572C400840745 /* SiriGuideView.swift in Sources */,
+				F3C879E22D6572C400840745 /* TipJarView.swift in Sources */,
+				F3C879E32D6572C400840745 /* SiriGuidePhrase.swift in Sources */,
+				F3C879E42D6572C400840745 /* CustomProgressView.swift in Sources */,
+				F3C879E52D6572C400840745 /* FAQView.swift in Sources */,
+				F3C879EB2D6572D000840745 /* RealmDbMigrationHelper.swift in Sources */,
+				F3C879EC2D6572D000840745 /* ViewHelpers.swift in Sources */,
+				F3C879ED2D6572D000840745 /* CustomExtentions.swift in Sources */,
+				F3C879EE2D6572D000840745 /* ConfigHelper.swift in Sources */,
+				F3C879EF2D6572D000840745 /* ImageHelper.swift in Sources */,
+				F3C879F02D6572D000840745 /* MigrationHelper.swift in Sources */,
+				F3C879F12D6572D000840745 /* ReviewHelper.swift in Sources */,
+				F3C879F22D6572D000840745 /* UserDefaultHelper.swift in Sources */,
+				F3C879DD2D6572BE00840745 /* FeatureRow.swift in Sources */,
+				F3C879DE2D6572BE00840745 /* ReleaseNotesView.swift in Sources */,
+				F3C879D92D6572B000840745 /* MC Stats.swift in Sources */,
+				F3C879DB2D6572BA00840745 /* LowPowerMode.swift in Sources */,
+				F3C879DC2D6572BA00840745 /* RefreshWidgets.swift in Sources */,
+				F3C879E62D6572CA00840745 /* ServerRowView.swift in Sources */,
+				F3C879E72D6572CA00840745 /* SettingsRootView.swift in Sources */,
+				F3C879E82D6572CA00840745 /* EditServerView.swift in Sources */,
+				F3C879E92D6572CA00840745 /* ShortcutsGuideView.swift in Sources */,
+				F3C879EA2D6572CA00840745 /* GeneralSettingsView.swift in Sources */,
+				F3C879DA2D6572B000840745 /* MainAppContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2106,6 +2180,25 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */;
 			productName = ScrechKit;
+		};
+		F3C879F82D6572F500840745 /* MCStatusDataLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MCStatusDataLayer;
+		};
+		F3C879FA2D6572F900840745 /* ScrechKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */;
+			productName = ScrechKit;
+		};
+		F3C879FC2D6572FD00840745 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+		F3C879FE2D65730000840745 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
