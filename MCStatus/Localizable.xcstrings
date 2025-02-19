@@ -29,10 +29,16 @@
     "%lld ms" : {
 
     },
+    "%lld ping" : {
+
+    },
     "%lld sold" : {
 
     },
     "%lldms" : {
+
+    },
+    "Add" : {
 
     },
     "Add a Server" : {
@@ -289,9 +295,6 @@
 
     },
     "Refresh Widget" : {
-
-    },
-    "Sales" : {
 
     },
     "Save" : {
