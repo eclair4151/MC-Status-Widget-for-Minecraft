@@ -21,7 +21,7 @@ struct SettingsRootView: View {
                 
                 // FAQ
                 NavigationLink(value: SettingsPageDestinations.FAQ) {
-                    Label("FAQ", systemImage: "questionmark.circle")
+                    Label("FAQ", systemImage: "exclamationmark.questionmark")
                 }
                 
                 // Shortcuts
@@ -82,7 +82,7 @@ struct SettingsRootView: View {
             }
 #if DEBUG
             Section("Debug") {
-                Button("Inject servers") {
+                Button("Add test servers") {
                     injectServers()
                 }
             }
