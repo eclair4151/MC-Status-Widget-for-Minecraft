@@ -5,9 +5,9 @@ import MCStatusDataLayer
 struct MinecraftServerStatusHSWidget: Widget {
     private let kind = "MinecraftServerStatusHSWidget"
     
-    private let supportedFamilies: [WidgetFamily] = {
-        [.systemSmall, .systemMedium]
-    }()
+    private let supportedFamilies: [WidgetFamily] = [
+        .systemSmall, .systemMedium
+    ]
     
     var body: some WidgetConfiguration {
         AppIntentConfiguration(

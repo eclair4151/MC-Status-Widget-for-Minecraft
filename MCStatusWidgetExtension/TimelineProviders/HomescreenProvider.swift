@@ -4,7 +4,7 @@ import MCStatusDataLayer
 import SwiftData
 
 struct HomescreenProvider: AppIntentTimelineProvider {
-    // this view is for when the widget has been added the the homescreen, but the user has not selected a server/theme ? or not.
+    // This view is for when the widget has been added the the homescreen, but the user has not selected a server/theme
     func placeholder(in context: Context) -> ServerStatusHSSnapshotEntry {
         var vm = WidgetEntryVM()
         vm.setForUnconfiguredView()
@@ -16,7 +16,9 @@ struct HomescreenProvider: AppIntentTimelineProvider {
         )
     }
     
-    // if context.isPreview is true, this is the view to show when someone clicked add widget. Just show preview with placeholder data. if it is false, yo ushould actually load the current state of the view by getting the status
+    // If context.isPreview is true, this is the view to show when someone clicked add widget
+    // Just show preview with placeholder data
+    // If it is false, yo ushould actually load the current state of the view by getting the status
     func snapshot(
         for configuration: ServerSelectWidgetIntent,
         in context: Context
@@ -48,7 +50,7 @@ struct HomescreenProvider: AppIntentTimelineProvider {
         container: ModelContainer,
         configuration: ServerSelectWidgetIntent
     ) async -> (SavedMinecraftServer, ServerStatus, Theme)? {
-        // step 1 load server from DB
+        // Step 1: load server from DB
         guard
             let serverId = configuration.Server?.id,
             let uuid = UUID(uuidString: serverId),
@@ -57,7 +59,7 @@ struct HomescreenProvider: AppIntentTimelineProvider {
             return nil
         }
         
-        // step 2 load status
+        // Step 2: load status
         let statusResult = await ServerStatusChecker.checkServer(server)
         
         let theme = if let themeId = configuration.Theme?.id, let themeEnum = Theme(rawValue: themeId) {
@@ -80,14 +82,13 @@ struct HomescreenProvider: AppIntentTimelineProvider {
         let container = SwiftDataHelper.getModelContainter()
         
         guard let (server, serverStatus, widgetTheme) = await loadTimelineData(container: container, configuration: configuration) else {
-            // nothing configured yet?
+            // Not configured yet
             var vm = WidgetEntryVM()
             vm.setForUnconfiguredView()
             
             let serverCount = await SwiftDataHelper.getSavedServers(container: container).count
             
             if serverCount == 0 {
-                // if user has nothing in the db tell them to open the app
                 vm.serverName = "Open App"
             }
             
@@ -188,6 +189,9 @@ struct HomescreenProvider: AppIntentTimelineProvider {
             entries.append(entry)
         }
         
-        return Timeline(entries: entries, policy: .after(futureDate))
+        return Timeline(
+            entries: entries,
+            policy: .after(futureDate)
+        )
     }
 }

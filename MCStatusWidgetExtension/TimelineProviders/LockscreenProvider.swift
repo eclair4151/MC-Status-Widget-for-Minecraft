@@ -10,7 +10,7 @@ struct LockscreenProvider: AppIntentTimelineProvider {
         self.widgetType = widgetType
     }
     
-    // This is needed for Apple Watch complications
+    // Required for Apple Watch complications
     func recommendations() -> [AppIntentRecommendation<ServerSelectNoThemeWidgetIntent>] {
         let container = SwiftDataHelper.getModelContainter()
         let servers = SwiftDataHelper.getSavedServersBg(container)
@@ -39,7 +39,7 @@ struct LockscreenProvider: AppIntentTimelineProvider {
         }
     }
     
-    // this view is for when the widget has been added the the homescreen, but the user has not selected a server/theme ? or not
+    // this view is for when the widget has been added the the homescreen, but the user has not selected a server/theme
     func placeholder(in context: Context) -> ServerStatusLSSnapshotEntry {
         var vm = WidgetEntryVM()
         vm.setForUnconfiguredView()
@@ -89,7 +89,7 @@ struct LockscreenProvider: AppIntentTimelineProvider {
         container: ModelContainer,
         configuration: ServerSelectNoThemeWidgetIntent
     ) async -> (SavedMinecraftServer, ServerStatus)? {
-        // step 1 load server from DB
+        // Step 1: load server from DB
         guard
             let serverId = configuration.Server?.id,
             let uuid = UUID(uuidString: serverId),
@@ -101,8 +101,7 @@ struct LockscreenProvider: AppIntentTimelineProvider {
             return nil
         }
         
-        // step 2 load status
-        // horrible hack to handle watch vs phone
+        // Step 2: load status
 #if os(watchOS)
         let statusResult = await WatchServerStatusChecker().checkServerAsync(server)
 #else
