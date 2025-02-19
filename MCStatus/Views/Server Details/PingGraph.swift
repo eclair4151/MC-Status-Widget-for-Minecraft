@@ -78,7 +78,6 @@ struct PingGraph: View {
             .symbol(Circle().strokeBorder(lineWidth: lineWidth))
             .symbolSize(showSymbols ? 60 : 0)
         }
-        .animation(.default, value: data.count)
         .chartYScale(domain: 0...300)
         .chartOverlay { proxy in
             GeometryReader { geo in
@@ -113,14 +112,12 @@ struct PingGraph: View {
         .chartBackground { proxy in
             ZStack(alignment: .topLeading) {
                 GeometryReader { geo in
-                    if showLollipop,
-                       let selectedElement {
-                        let dateInterval = Calendar.current.dateInterval(of: .day, for: selectedElement.date)!
-                        let startPositionX1 = proxy.position(forX: dateInterval.start) ?? 0
+                    if showLollipop, let selectedElement {
+                        let startPositionX1 = proxy.position(forX: selectedElement.date) ?? 0
                         
                         let lineX = startPositionX1 + geo[proxy.plotAreaFrame].origin.x
                         let lineHeight = geo[proxy.plotAreaFrame].maxY
-                        let boxWidth: CGFloat = 100
+                        let boxWidth: CGFloat = 70
                         let boxOffset = max(0, min(geo.size.width - boxWidth, lineX - boxWidth / 2))
                         
                         Rectangle()
@@ -129,7 +126,9 @@ struct PingGraph: View {
                             .position(x: lineX, y: lineHeight / 2)
                         
                         VStack(alignment: .center) {
-                            Text("\(selectedElement.date, format: .dateTime.year().month().day())")
+                            // Text("\(selectedElement.date, format: .dateTime.year().month().day())")
+                            
+                            Text("\(selectedElement.date, format: .dateTime.hour().minute().second())")
                                 .callout()
                                 .foregroundStyle(.secondary)
                             
@@ -159,6 +158,7 @@ struct PingGraph: View {
         .chartXAxis(.automatic)
         .chartYAxis(.automatic)
         .frame(height: detailChartHeight)
+        .animation(.default, value: data.count)
     }
     
     private func findElement(location: CGPoint, proxy: ChartProxy, geo: GeometryProxy) -> ServerPing? {
