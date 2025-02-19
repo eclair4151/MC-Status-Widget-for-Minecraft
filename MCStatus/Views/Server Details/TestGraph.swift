@@ -27,10 +27,7 @@ struct SingleLineLollipop: View {
     
     var body: some View {
         List {
-            Section {
-                chart
-                    .animation(.default, value: data.count)
-            }
+            chart
             
             Section {
                 Text("**Hold and drag** over the chart to view and move the lollipop")
@@ -53,7 +50,13 @@ struct SingleLineLollipop: View {
     }
     
     private func add() {
-        data.append(.init(50, date: data.last!.date.addingTimeInterval(31536000)))
+        withAnimation {
+            data.append(.init(Int.random(in: 0...100), date: data.last!.date.addingTimeInterval(31536000)))
+            
+            if data.count > 60 {
+                data.removeFirst()
+            }
+        }
     }
     
     private var chart: some View {
@@ -70,6 +73,7 @@ struct SingleLineLollipop: View {
             .symbol(Circle().strokeBorder(lineWidth: lineWidth))
             .symbolSize(showSymbols ? 60 : 0)
         }
+        .chartYScale(domain: 0...200)
         .chartOverlay { proxy in
             GeometryReader { geo in
                 Rectangle()
