@@ -106,15 +106,12 @@
 		F30246C92D6661D60030F71C /* PlayerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C82D6661D60030F71C /* PlayerList.swift */; };
 		F30246CA2D6661D60030F71C /* PlayerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C82D6661D60030F71C /* PlayerList.swift */; };
 		F30246CB2D6661D60030F71C /* PlayerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C82D6661D60030F71C /* PlayerList.swift */; };
-		F30246CE2D667EC80030F71C /* PingGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246CD2D667EC80030F71C /* PingGraph.swift */; };
-		F30246CF2D667EC80030F71C /* PingGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246CD2D667EC80030F71C /* PingGraph.swift */; };
-		F30246D02D667EC80030F71C /* PingGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246CD2D667EC80030F71C /* PingGraph.swift */; };
 		F30246D22D667ED50030F71C /* ServerPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D12D667ED50030F71C /* ServerPing.swift */; };
 		F30246D32D667ED50030F71C /* ServerPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D12D667ED50030F71C /* ServerPing.swift */; };
 		F30246D42D667ED50030F71C /* ServerPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D12D667ED50030F71C /* ServerPing.swift */; };
-		F30246D62D66816E0030F71C /* TestGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* TestGraph.swift */; };
-		F30246D72D66816E0030F71C /* TestGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* TestGraph.swift */; };
-		F30246D82D66816E0030F71C /* TestGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* TestGraph.swift */; };
+		F30246D62D66816E0030F71C /* PingGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* PingGraph.swift */; };
+		F30246D72D66816E0030F71C /* PingGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* PingGraph.swift */; };
+		F30246D82D66816E0030F71C /* PingGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* PingGraph.swift */; };
 		F30472092D63E9C00055C007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F30472012D63E9C00055C007 /* Assets.xcassets */; };
 		F304720B2D63E9C00055C007 /* HomescreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F52D63E9C00055C007 /* HomescreenProvider.swift */; };
 		F304720C2D63E9C00055C007 /* LockscreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F62D63E9C00055C007 /* LockscreenProvider.swift */; };
@@ -419,9 +416,8 @@
 		F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		F30246C42D65E6F70030F71C /* SiriPhrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriPhrase.swift; sourceTree = "<group>"; };
 		F30246C82D6661D60030F71C /* PlayerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerList.swift; sourceTree = "<group>"; };
-		F30246CD2D667EC80030F71C /* PingGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingGraph.swift; sourceTree = "<group>"; };
 		F30246D12D667ED50030F71C /* ServerPing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerPing.swift; sourceTree = "<group>"; };
-		F30246D52D66816E0030F71C /* TestGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGraph.swift; sourceTree = "<group>"; };
+		F30246D52D66816E0030F71C /* PingGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingGraph.swift; sourceTree = "<group>"; };
 		F30471F52D63E9C00055C007 /* HomescreenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenProvider.swift; sourceTree = "<group>"; };
 		F30471F62D63E9C00055C007 /* LockscreenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenProvider.swift; sourceTree = "<group>"; };
 		F30471F82D63E9C00055C007 /* CircularAccessoryWidgetView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularAccessoryWidgetView1.swift; sourceTree = "<group>"; };
@@ -739,8 +735,7 @@
 			children = (
 				F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */,
 				F30246D12D667ED50030F71C /* ServerPing.swift */,
-				F30246CD2D667EC80030F71C /* PingGraph.swift */,
-				F30246D52D66816E0030F71C /* TestGraph.swift */,
+				F30246D52D66816E0030F71C /* PingGraph.swift */,
 				F30246C82D6661D60030F71C /* PlayerList.swift */,
 				F35E1A9D2D65209500718CB7 /* PlayerCard.swift */,
 			);
@@ -1268,7 +1263,6 @@
 			files = (
 				F150B4342CC15F6A00739646 /* SiriGuideView.swift in Sources */,
 				F3C87A032D6574D200840745 /* FAQRow.swift in Sources */,
-				F30246D02D667EC80030F71C /* PingGraph.swift in Sources */,
 				F35E1A772D64D32D00718CB7 /* RefreshWidgets.swift in Sources */,
 				F17AE0FC2CC05F9000DC7A80 /* TipJarView.swift in Sources */,
 				F1A43C822A8472B20081A24C /* ServerStatusDetailView.swift in Sources */,
@@ -1298,7 +1292,7 @@
 				F16990822CA5DDE500F41232 /* IntentErrors.swift in Sources */,
 				F150B35B2CC078D600739646 /* MigrationHelper.swift in Sources */,
 				F1EF775F2CB8B88B00EFFB20 /* ImageHelper.swift in Sources */,
-				F30246D82D66816E0030F71C /* TestGraph.swift in Sources */,
+				F30246D82D66816E0030F71C /* PingGraph.swift in Sources */,
 				F1CFCD512CABB567001A9E69 /* CustomExtentions.swift in Sources */,
 				F35E1A9E2D65209500718CB7 /* PlayerCard.swift in Sources */,
 				F16990872CA5DDE500F41232 /* MCStatusShortcutsProvider.swift in Sources */,
@@ -1383,7 +1377,7 @@
 				F35E1AA22D6522B300718CB7 /* RefreshWidgets.swift in Sources */,
 				F35E1AA52D6522CB00718CB7 /* SiriGuidePhrase.swift in Sources */,
 				F35E1AA62D6522CB00718CB7 /* SiriGuideView.swift in Sources */,
-				F30246D62D66816E0030F71C /* TestGraph.swift in Sources */,
+				F30246D62D66816E0030F71C /* PingGraph.swift in Sources */,
 				F35E1AA32D6522C600718CB7 /* FeatureRow.swift in Sources */,
 				F35E1AA72D6522D100718CB7 /* PlayerCard.swift in Sources */,
 				F35E1AA82D6522D100718CB7 /* ServerStatusDetailView.swift in Sources */,
@@ -1411,7 +1405,6 @@
 				F35E1AB92D65236300718CB7 /* CustomExtentions.swift in Sources */,
 				F35E1ABA2D65236300718CB7 /* ReviewHelper.swift in Sources */,
 				F35E1ABB2D65236300718CB7 /* RealmDbMigrationHelper.swift in Sources */,
-				F30246CE2D667EC80030F71C /* PingGraph.swift in Sources */,
 				F35E1AC82D652B4700718CB7 /* IntentErrors.swift in Sources */,
 				F35E1ABC2D65236300718CB7 /* UserDefaultHelper.swift in Sources */,
 				F35E1ABD2D65236300718CB7 /* ConfigHelper.swift in Sources */,
@@ -1430,7 +1423,7 @@
 				F3C879E02D6572C400840745 /* PlayerCard.swift in Sources */,
 				F3C87A0B2D6575B700840745 /* IntentErrors.swift in Sources */,
 				F3C87A092D65759B00840745 /* MCStatusShortcutsProvider.swift in Sources */,
-				F30246D72D66816E0030F71C /* TestGraph.swift in Sources */,
+				F30246D72D66816E0030F71C /* PingGraph.swift in Sources */,
 				F3C87A0D2D6575DE00840745 /* SavedServerEntity.swift in Sources */,
 				F3C879F32D6572D500840745 /* SwiftyPing.swift in Sources */,
 				F3C879E12D6572C400840745 /* SiriGuideView.swift in Sources */,
@@ -1458,7 +1451,6 @@
 				F3C879DE2D6572BE00840745 /* ReleaseNotesView.swift in Sources */,
 				F3C879D92D6572B000840745 /* MC Stats.swift in Sources */,
 				F3C879DB2D6572BA00840745 /* LowPowerMode.swift in Sources */,
-				F30246CF2D667EC80030F71C /* PingGraph.swift in Sources */,
 				F3C879DC2D6572BA00840745 /* RefreshWidgets.swift in Sources */,
 				F3C879E62D6572CA00840745 /* ServerRowView.swift in Sources */,
 				F3C879E72D6572CA00840745 /* SettingsRootView.swift in Sources */,
