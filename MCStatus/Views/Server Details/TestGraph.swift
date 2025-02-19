@@ -2,14 +2,19 @@ import SwiftUI
 import Charts
 
 struct SingleLineLollipop: View {
+    @Binding private var data: [Sale]
+    
+    init(_ data: Binding<[Sale]>) {
+        _data = data
+    }
+    
+    private let detailChartHeight = 300.0
+    
     @State private var lineWidth = 2.0
-    @State private var interpolationMethod: ChartInterpolationMethod = .cardinal
     @State private var chartColor: Color = .blue
     @State private var showSymbols = true
     @State private var selectedElement: Sale? = SalesData.last30Days[10]
     @State private var showLollipop = true
-    
-    var data = SalesData.last30Days
     
     var body: some View {
         List {
@@ -20,35 +25,42 @@ struct SingleLineLollipop: View {
             Section {
                 Text("**Hold and drag** over the chart to view and move the lollipop")
                     .callout()
+                
                 Toggle("Lollipop", isOn: $showLollipop)
             }
         }
-        //            .navigationBarTitle(ChartType.singleLineLollipop.title, displayMode: .inline)
     }
     
     private var chart: some View {
-        Chart(data, id: \.day) {
+        Chart(data, id: \.date) {
             LineMark (
-                x: .value("Date", $0.day),
+                x: .value("Date", $0.date),
                 y: .value("Sales", $0.sales)
             )
-            .accessibilityLabel($0.day.formatted(date: .complete, time: .omitted))
+            .accessibilityLabel($0.date.formatted(date: .complete, time: .omitted))
             .accessibilityValue("\($0.sales) sold")
             .lineStyle(StrokeStyle(lineWidth: lineWidth))
             .foregroundStyle(chartColor.gradient)
-            .interpolationMethod(interpolationMethod.mode)
+            .interpolationMethod(.cardinal)
             .symbol(Circle().strokeBorder(lineWidth: lineWidth))
             .symbolSize(showSymbols ? 60 : 0)
         }
         .chartOverlay { proxy in
             GeometryReader { geo in
-                Rectangle().fill(.clear).contentShape(Rectangle())
-                    .gesture (
+                Rectangle()
+                    .fill(.clear)
+                    .contentShape(.rect())
+                    .gesture(
                         SpatialTapGesture()
                             .onEnded { value in
-                                let element = findElement(location: value.location, proxy: proxy, geometry: geo)
-                                if selectedElement?.day == element?.day {
-                                    // If tapping the same element, clear the selection.
+                                let element = findElement(
+                                    location: value.location,
+                                    proxy: proxy,
+                                    geometry: geo
+                                )
+                                
+                                if selectedElement?.date == element?.date {
+                                    // If tapping the same element, clear the selection
                                     selectedElement = nil
                                 } else {
                                     selectedElement = element
@@ -68,7 +80,7 @@ struct SingleLineLollipop: View {
                 GeometryReader { geo in
                     if showLollipop,
                        let selectedElement {
-                        let dateInterval = Calendar.current.dateInterval(of: .day, for: selectedElement.day)!
+                        let dateInterval = Calendar.current.dateInterval(of: .day, for: selectedElement.date)!
                         let startPositionX1 = proxy.position(forX: dateInterval.start) ?? 0
                         
                         let lineX = startPositionX1 + geo[proxy.plotAreaFrame].origin.x
@@ -82,7 +94,7 @@ struct SingleLineLollipop: View {
                             .position(x: lineX, y: lineHeight / 2)
                         
                         VStack(alignment: .center) {
-                            Text("\(selectedElement.day, format: .dateTime.year().month().day())")
+                            Text("\(selectedElement.date, format: .dateTime.year().month().day())")
                                 .callout()
                                 .foregroundStyle(.secondary)
                             Text("\(selectedElement.sales, format: .number)")
@@ -96,6 +108,7 @@ struct SingleLineLollipop: View {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 8)
                                     .fill(.background)
+                                
                                 RoundedRectangle(cornerRadius: 8)
                                     .fill(.quaternary.opacity(0.7))
                             }
@@ -109,28 +122,31 @@ struct SingleLineLollipop: View {
         }
         .chartXAxis(.automatic)
         .chartYAxis(.automatic)
-        //        .accessibilityChartDescriptor(self)
-        .frame(height: Constants.detailChartHeight)
+        .frame(height: detailChartHeight)
     }
     
     private func findElement(location: CGPoint, proxy: ChartProxy, geometry: GeometryProxy) -> Sale? {
         let relativeXPosition = location.x - geometry[proxy.plotAreaFrame].origin.x
+        
         if let date = proxy.value(atX: relativeXPosition) as Date? {
-            // Find the closest date element.
+            // Find the closest date element
             var minDistance: TimeInterval = .infinity
             var index: Int? = nil
             
             for salesDataIndex in data.indices {
-                let nthSalesDataDistance = data[salesDataIndex].day.distance(to: date)
+                let nthSalesDataDistance = data[salesDataIndex].date.distance(to: date)
+                
                 if abs(nthSalesDataDistance) < minDistance {
                     minDistance = abs(nthSalesDataDistance)
                     index = salesDataIndex
                 }
             }
+            
             if let index {
                 return data[index]
             }
         }
+        
         return nil
     }
 }
@@ -140,54 +156,13 @@ struct SingleLineLollipop: View {
         ServerPing(Int.random(in: 10...100), date: Date().addingTimeInterval(Double($0)))
     }
     
-//    PingGraph($pings)
-    SingleLineLollipop()
-}
-
-// MARK: - Accessibility
-//extension SingleLineLollipop: AXChartDescriptorRepresentable {
-//    func makeChartDescriptor() -> AXChartDescriptor {
-//        AccessibilityHelpers.chartDescriptor(forSalesSeries: data)
-//    }
-//}
-
-import Charts
-
-enum ChartInterpolationMethod: Identifiable, CaseIterable {
-    case linear
-    case monotone
-    case catmullRom
-    case cardinal
-    case stepStart
-    case stepCenter
-    case stepEnd
+    @Previewable @State var data = SalesData.last30Days
     
-    var id: String {
-        mode.description
-    }
-    
-    var mode: InterpolationMethod {
-        switch self {
-        case .linear:
-            return .linear
-        case .monotone:
-            return .monotone
-        case .stepStart:
-            return .stepStart
-        case .stepCenter:
-            return .stepCenter
-        case .stepEnd:
-            return .stepEnd
-        case .catmullRom:
-            return .catmullRom
-        case .cardinal:
-            return .cardinal
-        }
-    }
+    //    PingGraph($pings)
+    SingleLineLollipop($data)
 }
 
 enum SalesData {
-    /// Sales by day for the last 30 days.
     static let last30Days = [
         (day: date(year: 2022, month: 5, day: 8), sales: 168),
         (day: date(year: 2022, month: 5, day: 9), sales: 117),
@@ -219,7 +194,7 @@ enum SalesData {
         (day: date(year: 2022, month: 6, day: 4), sales: 214),
         (day: date(year: 2022, month: 6, day: 5), sales: 250),
         (day: date(year: 2022, month: 6, day: 6), sales: 146)
-    ].map { Sale(day: $0.day, sales: $0.sales) }
+    ].map { Sale(date: $0.day, sales: $0.sales) }
     
     /// Total sales for the last 30 days.
     static var last30DaysTotal: Int {
@@ -246,145 +221,21 @@ enum SalesData {
         (month: date(year: 2022, month: 6), sales: 1023, dailyAverage: 170, dailyMin: 120, dailyMax: 250)
     ]
     
-    /// Total sales for the last 12 months.
-    static var last12MonthsTotal: Int {
-        last12Months.map { $0.sales }.reduce(0, +)
-    }
-    
-    static var last12MonthsDailyAverage: Int {
-        last12Months.map { $0.dailyAverage }.reduce(0, +) / last12Months.count
-    }
+//    /// Total sales for the last 12 months.
+//    static var last12MonthsTotal: Int {
+//        last12Months.map { $0.sales }.reduce(0, +)
+//    }
+//    
+//    static var last12MonthsDailyAverage: Int {
+//        last12Months.map { $0.dailyAverage }.reduce(0, +) / last12Months.count
+//    }
 }
 
 struct Sale {
-    let day: Date
+    let date: Date
     var sales: Int
 }
 
 func date(year: Int, month: Int, day: Int = 1, hour: Int = 0, minutes: Int = 0, seconds: Int = 0) -> Date {
     Calendar.current.date(from: DateComponents(year: year, month: month, day: day, hour: hour, minute: minutes, second: seconds)) ?? Date()
 }
-
-enum Constants {
-    static let previewChartHeight: CGFloat = 100
-    static let detailChartHeight: CGFloat = 300
-}
-
-//enum AccessibilityHelpers {
-//    // TODO: This should be a protocol but since the data objects are in flux this will suffice
-//    static func chartDescriptor(forSalesSeries data: [Sale],
-//                                saleThreshold: Double? = nil,
-//                                isContinuous: Bool = false) -> AXChartDescriptor {
-//
-//        // Since we're measuring a tangible quantity,
-//        // keeping an independant minimum prevents visual scaling in the Rotor Chart Details View
-//        let min = 0 // data.map(\.sales).min() ??
-//        let max = data.map(\.sales).max() ?? 0
-//
-//        // A closure that takes a date and converts it to a label for axes
-//        let dateTupleStringConverter: ((Sale) -> (String)) = { dataPoint in
-//
-//            let dateDescription = dataPoint.day.formatted(date: .complete, time: .omitted)
-//
-//            if let threshold = saleThreshold {
-//                let isAbove = dataPoint.isAbove(threshold: threshold)
-//
-//                return "\(dateDescription): \(isAbove ? "Above" : "Below") threshold"
-//            }
-//
-//            return dateDescription
-//        }
-//
-//        let xAxis = AXNumericDataAxisDescriptor(
-//            title: "Date index",
-//            range: Double(0)...Double(data.count),
-//            gridlinePositions: []
-//        ) { "Day \(Int($0) + 1)" }
-//
-//        let yAxis = AXNumericDataAxisDescriptor(
-//            title: "Sales",
-//            range: Double(min)...Double(max),
-//            gridlinePositions: []
-//        ) { value in "\(Int(value)) sold" }
-//
-//        let series = AXDataSeriesDescriptor(
-//            name: "Daily sale quantity",
-//            isContinuous: isContinuous,
-//            dataPoints: data.enumerated().map { (idx, point) in
-//                    .init(x: Double(idx),
-//                          y: Double(point.sales),
-//                          label: dateTupleStringConverter(point))
-//            }
-//        )
-//
-//        return AXChartDescriptor(
-//            title: "Sales per day",
-//            summary: nil,
-//            xAxis: xAxis,
-//            yAxis: yAxis,
-//            additionalAxes: [],
-//            series: [series]
-//        )
-//    }
-//
-//    static func chartDescriptor(forLocationSeries data: [LocationData.Series]) -> AXChartDescriptor {
-//        let dateStringConverter: ((Date) -> (String)) = { date in
-//            date.formatted(date: .abbreviated, time: .omitted)
-//        }
-//
-//        // Create a descriptor for each Series object
-//        // as that allows auditory comparison with VoiceOver
-//        // much like the chart does visually and allows individual city charts to be played
-//        let series = data.map { dataPoint in
-//            AXDataSeriesDescriptor(
-//                name: "\(dataPoint.city)",
-//                isContinuous: false,
-//                dataPoints: dataPoint.sales.map { data in
-//                        .init(x: dateStringConverter(data.weekday),
-//                              y: Double(data.sales),
-//                              label: "\(data.weekday.weekdayString)")
-//                }
-//            )
-//        }
-//
-//        // Get the minimum/maximum within each city
-//        // and then the limits of the resulting list
-//        // to pass in as the Y axis limits
-//        let limits: [(Int, Int)] = data.map { seriesData in
-//            let sales = seriesData.sales.map { $0.sales }
-//            let localMin = sales.min() ?? 0
-//            let localMax = sales.max() ?? 0
-//            return (localMin, localMax)
-//        }
-//
-//        let min = limits.map { $0.0 }.min() ?? 0
-//        let max = limits.map { $0.1 }.max() ?? 0
-//
-//        // Get the unique days to mark the x-axis
-//        // and then sort them
-//        let uniqueDays = Set( data
-//            .map { $0.sales.map { $0.weekday } }
-//            .joined() )
-//        let days = Array(uniqueDays).sorted()
-//
-//        let xAxis = AXCategoricalDataAxisDescriptor(
-//            title: "Days",
-//            categoryOrder: days.map { dateStringConverter($0) }
-//        )
-//
-//        let yAxis = AXNumericDataAxisDescriptor(
-//            title: "Sales",
-//            range: Double(min)...Double(max),
-//            gridlinePositions: []
-//        ) { value in "\(Int(value)) sold" }
-//
-//        return AXChartDescriptor(
-//            title: "Sales per day",
-//            summary: nil,
-//            xAxis: xAxis,
-//            yAxis: yAxis,
-//            additionalAxes: [],
-//            series: series
-//        )
-//    }
-//}
