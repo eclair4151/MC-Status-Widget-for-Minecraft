@@ -18,6 +18,13 @@ struct SingleLineLollipop: View {
     
     @State private var showLollipop = true
     
+    var average: Double {
+        data.map {
+            Double($0.ping)
+        }
+        .reduce(0, +) / Double(data.count)
+    }
+    
     var body: some View {
         List {
             Section {
@@ -30,6 +37,8 @@ struct SingleLineLollipop: View {
                     .callout()
                 
                 Toggle("Lollipop", isOn: $showLollipop)
+                
+                Text("Average: \(average)")
                 
                 Button("Add") {
                     add()
@@ -48,7 +57,7 @@ struct SingleLineLollipop: View {
     }
     
     private var chart: some View {
-        Chart(data, id: \.date) {
+        Chart(data) {
             LineMark (
                 x: .value("Date", $0.date),
                 y: .value("Ping", $0.ping)
@@ -72,7 +81,7 @@ struct SingleLineLollipop: View {
                                 let element = findElement(
                                     location: value.location,
                                     proxy: proxy,
-                                    geometry: geo
+                                    geo: geo
                                 )
                                 
                                 if selectedElement?.date == element?.date {
@@ -85,7 +94,7 @@ struct SingleLineLollipop: View {
                             .exclusively (
                                 before: DragGesture()
                                     .onChanged { value in
-                                        selectedElement = findElement(location: value.location, proxy: proxy, geometry: geo)
+                                        selectedElement = findElement(location: value.location, proxy: proxy, geo: geo)
                                     }
                             )
                     )
@@ -142,8 +151,8 @@ struct SingleLineLollipop: View {
         .frame(height: detailChartHeight)
     }
     
-    private func findElement(location: CGPoint, proxy: ChartProxy, geometry: GeometryProxy) -> ServerPing? {
-        let relativeXPosition = location.x - geometry[proxy.plotAreaFrame].origin.x
+    private func findElement(location: CGPoint, proxy: ChartProxy, geo: GeometryProxy) -> ServerPing? {
+        let relativeXPosition = location.x - geo[proxy.plotAreaFrame].origin.x
         
         if let date = proxy.value(atX: relativeXPosition) as Date? {
             // Find the closest date element
@@ -175,12 +184,3 @@ struct SingleLineLollipop: View {
     
     SingleLineLollipop($pings)
 }
-
-//    /// Total sales for the last 12 months.
-//    static var last12MonthsTotal: Int {
-//        last12Months.map { $0.sales }.reduce(0, +)
-//    }
-//
-//    static var last12MonthsDailyAverage: Int {
-//        last12Months.map { $0.dailyAverage }.reduce(0, +) / last12Months.count
-//    }
