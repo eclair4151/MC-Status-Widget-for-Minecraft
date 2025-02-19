@@ -14,7 +14,7 @@ struct ReleaseNotesView: View {
         Feature("Siri", description: "Ask Siri for your server's status without lifting a finger!", icon: "mic.fill", iconColor: .orange),
         Feature("iCloud Sync", description: "Sync your server list seamlessly across all of your devices", icon: "arrow.trianglehead.2.clockwise.rotate.90.icloud", iconColor: .blue),
         Feature("Custom Dark/Tinted Icons & Widgets", description: "Personalize your app and widgets with custom colors and styles", icon: "paintbrush.fill", iconColor: .purple),
-        Feature("New Inline Widgets", description: "New inline widgets for your lock screen and Apple Watch", icon: "rectangle.fill.on.rectangle.angled.fill", iconColor: .indigo),
+        Feature("Lock Screen Widgets", description: "New inline widgets for your lock screen and Apple Watch", icon: "rectangle.fill.on.rectangle.angled.fill", iconColor: .indigo),
         Feature("Refreshable Widgets", description: "Widgets now include a manual refresh button to keep your server statuses up-to-date", icon: "arrow.clockwise", iconColor: .pink),
         Feature("Support for SRV & Server MOTD", description: "The app now supports domain SRV records, and shows correctly formatted server MOTD (message of the day)", icon: "server.rack", iconColor: .red),
         Feature("More Coming Soon!", description: "Stay tuned for more exciting features in upcoming releases!", icon: "sparkles", iconColor: .yellow)
