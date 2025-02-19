@@ -100,6 +100,9 @@
 		F1EF77612CB8B89A00EFFB20 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
 		F1EF77622CB8C62D00EFFB20 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
 		F1EF77632CB958B700EFFB20 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
+		F30246C52D65E6F70030F71C /* SiriPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C42D65E6F70030F71C /* SiriPhrase.swift */; };
+		F30246C62D65E6F70030F71C /* SiriPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C42D65E6F70030F71C /* SiriPhrase.swift */; };
+		F30246C72D65E6F70030F71C /* SiriPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C42D65E6F70030F71C /* SiriPhrase.swift */; };
 		F30472092D63E9C00055C007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F30472012D63E9C00055C007 /* Assets.xcassets */; };
 		F304720B2D63E9C00055C007 /* HomescreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F52D63E9C00055C007 /* HomescreenProvider.swift */; };
 		F304720C2D63E9C00055C007 /* LockscreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F62D63E9C00055C007 /* LockscreenProvider.swift */; };
@@ -402,6 +405,7 @@
 		F1EF76ED2CB7873F00EFFB20 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		F1EF76EF2CB7873F00EFFB20 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		F30246C42D65E6F70030F71C /* SiriPhrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriPhrase.swift; sourceTree = "<group>"; };
 		F30471F52D63E9C00055C007 /* HomescreenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenProvider.swift; sourceTree = "<group>"; };
 		F30471F62D63E9C00055C007 /* LockscreenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenProvider.swift; sourceTree = "<group>"; };
 		F30471F82D63E9C00055C007 /* CircularAccessoryWidgetView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularAccessoryWidgetView1.swift; sourceTree = "<group>"; };
@@ -828,6 +832,7 @@
 			children = (
 				F150B4332CC15F6A00739646 /* SiriGuideView.swift */,
 				F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */,
+				F30246C42D65E6F70030F71C /* SiriPhrase.swift */,
 			);
 			path = Siri;
 			sourceTree = "<group>";
@@ -1258,6 +1263,7 @@
 				F30472422D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */,
 				F30472432D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
 				F17AE0EF2CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
+				F30246C72D65E6F70030F71C /* SiriPhrase.swift in Sources */,
 				F16990822CA5DDE500F41232 /* IntentErrors.swift in Sources */,
 				F150B35B2CC078D600739646 /* MigrationHelper.swift in Sources */,
 				F1EF775F2CB8B88B00EFFB20 /* ImageHelper.swift in Sources */,
@@ -1350,6 +1356,7 @@
 				F35E1AA82D6522D100718CB7 /* ServerStatusDetailView.swift in Sources */,
 				F35E1AA92D6522D100718CB7 /* TipJarView.swift in Sources */,
 				F35E1AB72D65231500718CB7 /* MainAppContentView.swift in Sources */,
+				F30246C62D65E6F70030F71C /* SiriPhrase.swift in Sources */,
 				F35E1AAA2D6522D100718CB7 /* FAQView.swift in Sources */,
 				F3C87A022D6574D200840745 /* FAQRow.swift in Sources */,
 				F35E1AAC2D6522D600718CB7 /* EditServerView.swift in Sources */,
@@ -1392,6 +1399,7 @@
 				F3C879E12D6572C400840745 /* SiriGuideView.swift in Sources */,
 				F3C87A0A2D6575AE00840745 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
 				F3C879E22D6572C400840745 /* TipJarView.swift in Sources */,
+				F30246C52D65E6F70030F71C /* SiriPhrase.swift in Sources */,
 				F3C879E32D6572C400840745 /* SiriGuidePhrase.swift in Sources */,
 				F3C879E42D6572C400840745 /* CustomProgressView.swift in Sources */,
 				F3C87A082D6574DD00840745 /* FAQ.swift in Sources */,

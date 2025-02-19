@@ -42,15 +42,6 @@ struct SettingsRootView: View {
             
             Section {
                 // Leave a Review
-                Button(action: openGithub) {
-                    Label("Source Code on GitHub", systemImage: "curlybraces")
-                }
-            } footer: {
-                Text("See the code that makes this app work, as well as file bugs and feature requests")
-            }
-            
-            Section {
-                // Leave a Review
                 Button(action: leaveAppReview) {
                     Label {
                         Text("Leave an App Review")
@@ -79,6 +70,15 @@ struct SettingsRootView: View {
                 }
             } footer: {
                 Text("Join the beta program to access experimental features before they’re released")
+            }
+            
+            Section {
+                // GitHub
+                Button(action: openGithub) {
+                    Label("Source Code on GitHub", systemImage: "curlybraces")
+                }
+            } footer: {
+                Text("See the code that makes this app work, as well as file bugs and feature requests")
             }
 #if DEBUG
             Section("Debug") {
