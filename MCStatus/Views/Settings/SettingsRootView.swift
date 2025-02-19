@@ -1,4 +1,5 @@
 import SwiftUI
+import StoreKit
 import MCStatusDataLayer
 
 enum SettingsPageDestinations {
@@ -120,9 +121,8 @@ struct SettingsRootView: View {
     }
     
     private func leaveAppReview() {
-        // Replace the placeholder value below with the App Store ID for your app
-        // You can find the App Store ID in your app's product URL
-        let url = "https://apps.apple.com/app/id1408215245?action=write-review"
+#if os(tvOS)
+        let url = "https://apps.apple.com/app/6740754881?action=write-review"
         
         guard let writeReviewURL = URL(string: url) else {
             print("Expected a valid URL")
@@ -130,6 +130,13 @@ struct SettingsRootView: View {
         }
         
         openURL(writeReviewURL)
+#else
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+            return
+        }
+        
+        SKStoreReviewController.requestReview(in: windowScene)
+#endif
     }
     
     private func tipDeveloper() {
