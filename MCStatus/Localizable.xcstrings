@@ -44,7 +44,7 @@
     "Arbitrary Minecraft Server Status Check" : {
 
     },
-    "Bedrock servers do not support player lists." : {
+    "Bedrock servers do not support player lists" : {
 
     },
     "Bedrock/MCPE" : {
@@ -75,7 +75,14 @@
 
     },
     "Debug" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дебаг"
+          }
+        }
+      }
     },
     "Delete" : {
 
@@ -93,7 +100,14 @@
 
     },
     "Enable iCloud" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Включить iCloud"
+          }
+        }
+      }
     },
     "Error: Server not found" : {
 
@@ -145,7 +159,7 @@
       "shouldTranslate" : false
     },
     "Java Edition" : {
-
+      "shouldTranslate" : false
     },
     "Join TestFlight" : {
 
@@ -154,7 +168,14 @@
 
     },
     "Leave a Review" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оставить отзыв"
+          }
+        }
+      }
     },
     "Leave a review to help others discover the app and support its development" : {
 
@@ -187,7 +208,7 @@
 
     },
     "MC" : {
-
+      "shouldTranslate" : false
     },
     "MC Stats is used for checking the status an existing server. It will not create, setup, or host a new server" : {
 
@@ -196,7 +217,7 @@
 
     },
     "Minecraft" : {
-
+      "shouldTranslate" : false
     },
     "Minecraft Server domains/ip addresses must be the root domain, and not contain any '/' or ':'" : {
 
@@ -259,7 +280,14 @@
 
     },
     "server" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "сервер"
+          }
+        }
+      }
     },
     "Server" : {
       "localizations" : {
@@ -278,10 +306,24 @@
 
     },
     "Server is offline" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сервер не в сети"
+          }
+        }
+      }
     },
     "Server Name" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Название сервера"
+          }
+        }
+      }
     },
     "Server Port (Optional)" : {
 
@@ -293,16 +335,37 @@
 
     },
     "Server Type" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тип сервера"
+          }
+        }
+      }
     },
     "Servers" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Серверы"
+          }
+        }
+      }
     },
     "Servers are synced with your phone. This may take some time." : {
 
     },
     "Settings" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройки"
+          }
+        }
+      }
     },
     "Shortcuts" : {
 
@@ -320,31 +383,80 @@
       "shouldTranslate" : false
     },
     "Sort users alphabetically" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сортировать пользователей по алфавиту"
+          }
+        }
+      }
     },
     "Source Code on GitHub" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Исходный код на GitHub"
+          }
+        }
+      }
     },
     "Start monitoring a server" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Начать мониторинг сервера"
+          }
+        }
+      }
     },
     "status" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "статус"
+          }
+        }
+      }
     },
     "Support the app!" : {
 
     },
     "Sync your server list across all devices" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Синхронизируйте список серверов на всех устройствах"
+          }
+        }
+      }
     },
     "Tapping the widget will open the app directly to that server. Otherwise it will open the server list" : {
 
     },
     "Thank you for your support!" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спасибо за вашу поддержку!"
+          }
+        }
+      }
     },
     "Theme" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тема"
+          }
+        }
+      }
     },
     "Theme Intent Type" : {
 
@@ -352,17 +464,28 @@
     "This app is free, ad-less, and open-source. If you find it useful, consider tipping to help keep it going!" : {
 
     },
-    "This server has disabled player lists." : {
-
+    "This server has disabled player lists" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "На этом сервере отключены списки игроков"
+          }
+        }
+      }
     },
     "Tip %@" : {
 
     },
-    "Unknown error." : {
-
-    },
-    "What's New" : {
-
+    "Unknown error" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неизвестная ошибка"
+          }
+        }
+      }
     },
     "Which server would you like to check the status of?" : {
 

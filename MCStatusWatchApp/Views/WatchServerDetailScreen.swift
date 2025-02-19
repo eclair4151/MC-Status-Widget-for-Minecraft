@@ -17,13 +17,13 @@ struct WatchServerDetailScreen: View {
             Text("Server is offline")
             
         } else if vm.server.serverType == .Bedrock {
-            Text("Bedrock servers do not support player lists.")
+            Text("Bedrock servers do not support player lists")
             
         } else if onlinePlayerCount == 0 {
             Text("No players online")
             
         } else if playerList.isEmpty && onlinePlayerCount > 0 {
-            Text("This server has disabled player lists.")
+            Text("This server has disabled player lists")
         }
         
         List {

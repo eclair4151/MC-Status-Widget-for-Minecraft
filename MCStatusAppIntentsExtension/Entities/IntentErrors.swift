@@ -7,7 +7,7 @@ enum MCIntentError: Swift.Error, CustomLocalizedStringResourceConvertible {
     
     var localizedStringResource: LocalizedStringResource {
         switch self {
-        case .UNKNOWN_ERROR: "Unknown error."
+        case .UNKNOWN_ERROR: "Unknown error"
         case .DB_ID_MISSING: "Error: Server not found"
         case .NO_SERVERS: "No servers available. Add one in the app to get started!"
         }
