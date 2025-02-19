@@ -18,8 +18,8 @@ struct SiriGuideView: View {
     
     var body: some View {
         Form {
-            //            Looks bad dont bother using build in view
-            //            SiriTipView(intent: SavedServerStatusOnlineCheckIntent(), isVisible: $tipVisibility)
+            // Looks bad dont bother using build in view
+            // SiriTipView(intent: SavedServerStatusOnlineCheckIntent(), isVisible: $tipVisibility)
             Section {
                 ForEach(phrases) { phrase in
                     SiriGuidePhrase(phrase)
@@ -32,6 +32,8 @@ struct SiriGuideView: View {
             .headerProminence(.increased)
         }
         .navigationTitle("Siri")
+#if !os(tvOS)
         .background(Color(.systemGroupedBackground))
+#endif
     }
 }

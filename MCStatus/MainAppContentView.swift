@@ -17,7 +17,9 @@ struct MainAppContentView: View {
 #endif
     @State private var nav = NavigationPath()
     
+#if !os(tvOS)
     @Environment(\.requestReview) private var requestReview
+#endif
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.modelContext) private var modelContext
     
@@ -381,8 +383,9 @@ struct MainAppContentView: View {
         if reviewHelper.shouldShowRequestView() {
             Task {
                 try await Task.sleep(for: .seconds(6))
-                
+#if !os(tvOS)
                 requestReview()
+#endif
                 reviewHelper.didShowReview()
             }
         }

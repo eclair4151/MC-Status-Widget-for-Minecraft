@@ -252,6 +252,17 @@
 		F3C879FB2D6572F900840745 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3C879FA2D6572F900840745 /* ScrechKit */; };
 		F3C879FD2D6572FD00840745 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F3C879FC2D6572FD00840745 /* Nuke */; };
 		F3C879FF2D65730000840745 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F3C879FE2D65730000840745 /* NukeUI */; };
+		F3C87A022D6574D200840745 /* FAQRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A012D6574D200840745 /* FAQRow.swift */; };
+		F3C87A032D6574D200840745 /* FAQRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A012D6574D200840745 /* FAQRow.swift */; };
+		F3C87A042D6574D200840745 /* FAQRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A012D6574D200840745 /* FAQRow.swift */; };
+		F3C87A062D6574DD00840745 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A052D6574DD00840745 /* FAQ.swift */; };
+		F3C87A072D6574DD00840745 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A052D6574DD00840745 /* FAQ.swift */; };
+		F3C87A082D6574DD00840745 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A052D6574DD00840745 /* FAQ.swift */; };
+		F3C87A092D65759B00840745 /* MCStatusShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MCStatusShortcutsProvider.swift */; };
+		F3C87A0A2D6575AE00840745 /* SavedServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift */; };
+		F3C87A0B2D6575B700840745 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
+		F3C87A0C2D6575C800840745 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
+		F3C87A0D2D6575DE00840745 /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* SavedServerEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -438,6 +449,8 @@
 		F3C879CE2D65722200840745 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F3C879D52D65724C00840745 /* tvOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tvOS.entitlements; sourceTree = "<group>"; };
 		F3C879D62D65726200840745 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3C87A012D6574D200840745 /* FAQRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQRow.swift; sourceTree = "<group>"; };
+		F3C87A052D6574DD00840745 /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -645,7 +658,7 @@
 				F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */,
 				F35E1A722D649D1700718CB7 /* Siri */,
 				F17AE0FB2CC05F9000DC7A80 /* TipJarView.swift */,
-				F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */,
+				F3C87A002D6574CA00840745 /* FAQ */,
 				F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */,
 				F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */,
 				F35E1A9D2D65209500718CB7 /* PlayerCard.swift */,
@@ -835,6 +848,16 @@
 				F3C879CE2D65722200840745 /* ContentView.swift */,
 			);
 			path = tvOS;
+			sourceTree = "<group>";
+		};
+		F3C87A002D6574CA00840745 /* FAQ */ = {
+			isa = PBXGroup;
+			children = (
+				F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */,
+				F3C87A012D6574D200840745 /* FAQRow.swift */,
+				F3C87A052D6574DD00840745 /* FAQ.swift */,
+			);
+			path = FAQ;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1209,12 +1232,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F150B4342CC15F6A00739646 /* SiriGuideView.swift in Sources */,
+				F3C87A032D6574D200840745 /* FAQRow.swift in Sources */,
 				F35E1A772D64D32D00718CB7 /* RefreshWidgets.swift in Sources */,
 				F17AE0FC2CC05F9000DC7A80 /* TipJarView.swift in Sources */,
 				F1A43C822A8472B20081A24C /* ServerStatusDetailView.swift in Sources */,
 				F35E1A6F2D649C6000718CB7 /* FeatureRow.swift in Sources */,
 				F30472542D63E9D30055C007 /* SavedServerEntity.swift in Sources */,
 				F35E1A742D64A4B200718CB7 /* LowPowerMode.swift in Sources */,
+				F3C87A062D6574DD00840745 /* FAQ.swift in Sources */,
 				F30472552D63E9D30055C007 /* ServerStatusEntity.swift in Sources */,
 				F35E1A712D649D1300718CB7 /* SiriGuidePhrase.swift in Sources */,
 				F174A2FC2A8F7FFA0051DA5B /* WatchHelper.swift in Sources */,
@@ -1323,6 +1348,7 @@
 				F35E1AA92D6522D100718CB7 /* TipJarView.swift in Sources */,
 				F35E1AB72D65231500718CB7 /* MainAppContentView.swift in Sources */,
 				F35E1AAA2D6522D100718CB7 /* FAQView.swift in Sources */,
+				F3C87A022D6574D200840745 /* FAQRow.swift in Sources */,
 				F35E1AAC2D6522D600718CB7 /* EditServerView.swift in Sources */,
 				F35E1ACA2D652C6D00718CB7 /* ServerStatusEntity.swift in Sources */,
 				F35E1AC02D65236900718CB7 /* SwiftyPing.swift in Sources */,
@@ -1334,6 +1360,7 @@
 				F35E1AC52D65238800718CB7 /* MC Stats.swift in Sources */,
 				F35E1AB02D6522D600718CB7 /* SettingsRootView.swift in Sources */,
 				F35E1AAB2D6522D100718CB7 /* CustomProgressView.swift in Sources */,
+				F3C87A072D6574DD00840745 /* FAQ.swift in Sources */,
 				F35E1AB82D65236300718CB7 /* ImageHelper.swift in Sources */,
 				F35E1AB92D65236300718CB7 /* CustomExtentions.swift in Sources */,
 				F35E1ABA2D65236300718CB7 /* ReviewHelper.swift in Sources */,
@@ -1355,19 +1382,26 @@
 				F3C879D32D65722200840745 /* ContentView.swift in Sources */,
 				F3C879DF2D6572C400840745 /* ServerStatusDetailView.swift in Sources */,
 				F3C879E02D6572C400840745 /* PlayerCard.swift in Sources */,
+				F3C87A0B2D6575B700840745 /* IntentErrors.swift in Sources */,
+				F3C87A092D65759B00840745 /* MCStatusShortcutsProvider.swift in Sources */,
+				F3C87A0D2D6575DE00840745 /* SavedServerEntity.swift in Sources */,
 				F3C879F32D6572D500840745 /* SwiftyPing.swift in Sources */,
 				F3C879E12D6572C400840745 /* SiriGuideView.swift in Sources */,
+				F3C87A0A2D6575AE00840745 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
 				F3C879E22D6572C400840745 /* TipJarView.swift in Sources */,
 				F3C879E32D6572C400840745 /* SiriGuidePhrase.swift in Sources */,
 				F3C879E42D6572C400840745 /* CustomProgressView.swift in Sources */,
+				F3C87A082D6574DD00840745 /* FAQ.swift in Sources */,
 				F3C879E52D6572C400840745 /* FAQView.swift in Sources */,
 				F3C879EB2D6572D000840745 /* RealmDbMigrationHelper.swift in Sources */,
 				F3C879EC2D6572D000840745 /* ViewHelpers.swift in Sources */,
 				F3C879ED2D6572D000840745 /* CustomExtentions.swift in Sources */,
 				F3C879EE2D6572D000840745 /* ConfigHelper.swift in Sources */,
 				F3C879EF2D6572D000840745 /* ImageHelper.swift in Sources */,
+				F3C87A042D6574D200840745 /* FAQRow.swift in Sources */,
 				F3C879F02D6572D000840745 /* MigrationHelper.swift in Sources */,
 				F3C879F12D6572D000840745 /* ReviewHelper.swift in Sources */,
+				F3C87A0C2D6575C800840745 /* ServerStatusEntity.swift in Sources */,
 				F3C879F22D6572D000840745 /* UserDefaultHelper.swift in Sources */,
 				F3C879DD2D6572BE00840745 /* FeatureRow.swift in Sources */,
 				F3C879DE2D6572BE00840745 /* ReleaseNotesView.swift in Sources */,

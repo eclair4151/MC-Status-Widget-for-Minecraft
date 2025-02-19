@@ -42,6 +42,7 @@ struct PlayerCard: View {
         }
         .padding(.vertical, 10)
         .listRowInsets(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
+#if !os(tvOS)
         .toolbar {
             Button {
                 UIPasteboard.general.string = player.name
@@ -49,6 +50,7 @@ struct PlayerCard: View {
                 Label("Copy Nickname", systemImage: "document.on.document")
             }
         }
+#endif
     }
 }
 

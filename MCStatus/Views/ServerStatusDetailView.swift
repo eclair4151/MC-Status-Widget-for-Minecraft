@@ -197,12 +197,14 @@ struct ServerStatusDetailView: View {
                 }
             }
         }
-        .listStyle(.insetGrouped)
-        .listSectionSpacing(10)
         .scrollIndicators(.never)
         .environment(vm)
+#if !os(tvOS)
+        .listSectionSpacing(10)
+        .listStyle(.insetGrouped)
         .environment(\.defaultMinListHeaderHeight, 15)
         .navigationBarTitleDisplayMode(.inline)
+#endif
         .onReceive(timer) { _ in
             if !lowPowerMode {
                 refreshPing()
