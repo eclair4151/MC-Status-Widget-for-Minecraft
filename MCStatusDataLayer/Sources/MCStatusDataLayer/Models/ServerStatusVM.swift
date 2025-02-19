@@ -124,7 +124,7 @@ public class ServerStatusVM: Identifiable, Hashable {
         }
     }
     
-    public func getMcHeadsUrl(uuid: String) -> String{
+    public func getMcHeadsUrl(_ uuid: String) -> String{
         "https://mc-heads.net/avatar/" + uuid + "/90"
     }
 }

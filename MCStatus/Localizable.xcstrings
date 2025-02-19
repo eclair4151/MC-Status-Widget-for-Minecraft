@@ -32,9 +32,6 @@
     "%lld ping" : {
 
     },
-    "Add" : {
-
-    },
     "Add a Server" : {
 
     },
@@ -93,9 +90,6 @@
 
     },
     "Copy Nickname" : {
-
-    },
-    "Count: %lld" : {
 
     },
     "Data is synced automatically, but may be delayed under certain conditions controlled by the OS\n    1. Make sure you have iCloud enabled on one of your devices\n    2. If your data hasn’t synced within a minute, try restarting your watch to force a resync" : {
@@ -300,7 +294,7 @@
     "Saved Minecraft Server Status Check" : {
 
     },
-    "See the code that makes this app work, as well as file bugs and feature requests" : {
+    "See the code that makes this app work, as well as file bugs and feature requests. Forked from [eclair4151's MC-Status](https://github.com/eclair4151/MC-Status-Widget-for-Minecraft)" : {
 
     },
     "Select which server to show" : {

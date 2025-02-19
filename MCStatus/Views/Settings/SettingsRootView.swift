@@ -80,7 +80,7 @@ struct SettingsRootView: View {
                     Label("Source Code", systemImage: "curlybraces")
                 }
             } footer: {
-                Text("See the code that makes this app work, as well as file bugs and feature requests")
+                Text("See the code that makes this app work, as well as file bugs and feature requests. Forked from [eclair4151's MC-Status](https://github.com/eclair4151/MC-Status-Widget-for-Minecraft)")
             }
 #if DEBUG
             Section("Debug") {

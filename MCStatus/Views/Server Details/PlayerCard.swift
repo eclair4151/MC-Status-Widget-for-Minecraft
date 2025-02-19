@@ -13,7 +13,7 @@ struct PlayerCard: View {
     
     var body: some View {
         HStack(spacing: 0) {
-            let imageUrl = URL(string: vm.getMcHeadsUrl(uuid: player.uuid))
+            let imageUrl = URL(string: vm.getMcHeadsUrl(player.uuid))
             // let imageUrl = URL(string: "https://httpbin.org/delay/10")
             
             LazyImage(url: imageUrl) { state in

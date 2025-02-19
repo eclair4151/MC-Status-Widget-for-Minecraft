@@ -30,7 +30,7 @@ struct WatchServerDetailScreen: View {
             Section {
                 ForEach(playerList) { player in
                     HStack {
-                        let imageUrl = URL(string: vm.getMcHeadsUrl(uuid: player.uuid))
+                        let imageUrl = URL(string: vm.getMcHeadsUrl(player.uuid))
                         
                         LazyImage(url: imageUrl) { state in
                             if let image = state.image {
