@@ -41,6 +41,9 @@
     "Add Your First Server" : {
 
     },
+    "All bug reports and feature requests can be raised as an issue on the [GitHub repository](https://github.com/TopScrech/MC-Stats)" : {
+
+    },
     "Arbitrary Minecraft Server Status Check" : {
 
     },
@@ -72,6 +75,9 @@
 
     },
     "Copy Nickname" : {
+
+    },
+    "Data is synced automatically, but may be delayed under certain conditions controlled by the OS\n    1. Make sure you have iCloud enabled on one of your devices\n    2. If your data hasn’t synced within a minute, try restarting your watch to force a resync" : {
 
     },
     "Debug" : {
@@ -382,6 +388,9 @@
     "Siri" : {
       "shouldTranslate" : false
     },
+    "Some servers use plugins to disable this feature or replace player names with custom messages. Servers running versions older than 1.7 must set enable-query=true in server.properties to enable it. Additionally, Bedrock servers do not support player lists" : {
+
+    },
     "Sort users alphabetically" : {
       "localizations" : {
         "ru" : {
@@ -448,6 +457,12 @@
         }
       }
     },
+    "The Minecraft Server Status protocol returns a maximum of 12 randomly selected online players" : {
+
+    },
+    "The widgets are already set to the maximum allowed refresh rate. Widgets can be manually refreshed by tapping the refresh button" : {
+
+    },
     "Theme" : {
       "localizations" : {
         "ru" : {
@@ -459,6 +474,9 @@
       }
     },
     "Theme Intent Type" : {
+
+    },
+    "These features require a server component, and would need to be a paid subscription service. This may become an option in the future" : {
 
     },
     "This app is free, ad-less, and open-source. If you find it useful, consider tipping to help keep it going!" : {

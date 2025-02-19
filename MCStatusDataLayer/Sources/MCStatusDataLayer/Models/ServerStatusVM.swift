@@ -79,7 +79,7 @@ public class ServerStatusVM: Identifiable, Hashable {
         
         let playerCount = status.onlinePlayerCount
         
-        return CGFloat(playerCount) / CGFloat(status.maxPlayerCount)
+        return CGFloat(playerCount / status.maxPlayerCount)
     }
     
     public func getServerAddressToPing() -> String {

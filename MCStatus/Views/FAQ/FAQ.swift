@@ -1,11 +1,11 @@
-import Foundation
+import SwiftUI
 
 struct FAQ: Identifiable {
     let id = UUID()
     let question: String
-    let answer: String
+    let answer: LocalizedStringKey
     
-    init(_ question: String, answer: String) {
+    init(_ question: String, answer: LocalizedStringKey) {
         self.question = question
         self.answer = answer
     }
