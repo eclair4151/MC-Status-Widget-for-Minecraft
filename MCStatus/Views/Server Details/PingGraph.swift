@@ -34,28 +34,14 @@ struct PingGraph: View {
                     .callout()
                 
                 Toggle("Lollipop", isOn: $showLollipop)
-                
-                Text("Count: \(data.count)")
-                
+                                
                 Text("Average: \(average)")
-                
-                Button("Add") {
-                    add()
-                }
                 
                 Button("Clear") {
                     selectedElement = nil
                     data.removeAll()
                 }
             }
-        }
-    }
-    
-    private func add() {
-        data.append(.init(Int.random(in: 0...100), date: data.last!.date.addingTimeInterval(31536000)))
-        
-        if data.count > 60 {
-            data.removeFirst()
         }
     }
     
