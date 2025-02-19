@@ -401,7 +401,11 @@
         }
       }
     },
+    "Source Code" : {
+
+    },
     "Source Code on GitHub" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {

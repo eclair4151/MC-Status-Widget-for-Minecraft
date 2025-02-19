@@ -1,6 +1,5 @@
 // THIS CODE WAS MODIFIED FROM https://github.com/samiyr/SwiftyPing
 import Foundation
-import Darwin
 
 public typealias Observer = ((_ response: PingResponse) -> Void)
 public typealias FinishedCallback = ((_ result: PingResult) -> Void)
@@ -257,7 +256,12 @@ public class SwiftyPing: NSObject {
     static func pingServer(_ serverUrl: String) async -> PingResponse {
         await withCheckedContinuation { continuation in
             do {
-                let pinger = try SwiftyPing(host: serverUrl, configuration: PingConfiguration(interval: 0.1, with: 5), queue: DispatchQueue.global())
+                let pinger = try SwiftyPing(
+                    host: serverUrl,
+                    configuration: PingConfiguration(interval: 0.1, with: 5),
+                    queue: DispatchQueue.global()
+                )
+                
                 pinger.continuation = continuation
                 
                 pinger.observer = { response in
@@ -310,10 +314,16 @@ public class SwiftyPing: NSObject {
         socketAddress.sin_family = UInt8(AF_INET)
         socketAddress.sin_port = 0
         socketAddress.sin_addr.s_addr = inet_addr(ipv4Address.cString(using: .utf8))
+        
         let data = Data(bytes: &socketAddress, count: MemoryLayout<sockaddr_in>.size)
         
         let destination = Destination(host: ipv4Address, ipv4Address: data)
-        try self.init(destination: destination, configuration: configuration, queue: queue)
+        
+        try self.init(
+            destination: destination,
+            configuration: configuration,
+            queue: queue
+        )
     }
     /// Initializes a pinger from a given host string
     /// - Parameter host: A string describing the host. This can be an IP address or host name
@@ -322,8 +332,17 @@ public class SwiftyPing: NSObject {
     /// - Throws: A `PingError` if the given host could not be resolved
     public convenience init(host: String, configuration: PingConfiguration, queue: DispatchQueue) throws {
         let result = try Destination.getIPv4AddressFromHost(host: host)
-        let destination = Destination(host: host, ipv4Address: result)
-        try self.init(destination: destination, configuration: configuration, queue: queue)
+        
+        let destination = Destination(
+            host: host,
+            ipv4Address: result
+        )
+        
+        try self.init(
+            destination: destination,
+            configuration: configuration,
+            queue: queue
+        )
     }
     
     /// Initializes a CFSocket
@@ -333,7 +352,14 @@ public class SwiftyPing: NSObject {
             // Create a socket context...
             let info = SocketInfo(pinger: self, identifier: identifier)
             unmanagedSocketInfo = Unmanaged.passRetained(info)
-            var context = CFSocketContext(version: 0, info: unmanagedSocketInfo!.toOpaque(), retain: nil, release: nil, copyDescription: nil)
+            
+            var context = CFSocketContext(
+                version: 0,
+                info: unmanagedSocketInfo!.toOpaque(),
+                retain: nil,
+                release: nil,
+                copyDescription: nil
+            )
             
             // ...and a socket...
             socket = CFSocketCreate(kCFAllocatorDefault, AF_INET, SOCK_DGRAM, IPPROTO_ICMP, CFSocketCallBackType.dataCallBack.rawValue, { socket, type, address, data, info in
@@ -346,7 +372,10 @@ public class SwiftyPing: NSObject {
                 let ping = socketInfo.pinger
                 
                 if (type as CFSocketCallBackType) == CFSocketCallBackType.dataCallBack {
-                    let cfdata = Unmanaged<CFData>.fromOpaque(data).takeUnretainedValue()
+                    let cfdata = Unmanaged<CFData>
+                        .fromOpaque(data)
+                        .takeUnretainedValue()
+                    
                     ping?.socket(socket: socket, didReadData: cfdata as Data)
                 }
             }, &context)
@@ -653,8 +682,8 @@ public class SwiftyPing: NSObject {
         informFinishedStatus(count)
     }
     
-    /// Stops pinging the host and destroys the CFSocket object.
-    /// - Parameter resetSequence: Controls whether the sequence index should be set back to zero.
+    /// Stops pinging the host and destroys the CFSocket object
+    /// - Parameter resetSequence: Controls whether the sequence index should be set back to zero
     public func haltPinging(resetSequence: Bool = true) {
         stopPinging(resetSequence: resetSequence)
         tearDown()
@@ -728,7 +757,7 @@ public class SwiftyPing: NSObject {
     
     // MARK: - ICMP package
     
-    /// Creates an ICMP package.
+    /// Creates an ICMP package
     private func createICMPPackage(identifier: UInt16, sequenceNumber: UInt16) throws -> Data {
         var header = ICMPHeader(
             type: ICMPType.EchoRequest.rawValue,
@@ -914,7 +943,6 @@ public enum ICMPType: UInt8 {
 
 // MARK: - Helpers
 
-
 /// A struct encapsulating a ping response
 public struct PingResponse {
     /// The randomly generated identifier used in the ping header
@@ -924,7 +952,7 @@ public struct PingResponse {
     public let ipAddress: String?
     
     /// Running sequence number, starting from 0
-    /// This number will wrap to zero when it exceeds `UInt16.max`,
+    /// This number will wrap to zero when it exceeds `UInt16.max`
     /// which is usually just 65535, and is the one used in the ping
     
     /// protocol. See `trueSequenceNumber` for the actual count

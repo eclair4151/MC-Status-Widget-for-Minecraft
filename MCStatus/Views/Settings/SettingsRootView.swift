@@ -76,7 +76,7 @@ struct SettingsRootView: View {
             Section {
                 // GitHub
                 Button(action: openGithub) {
-                    Label("Source Code on GitHub", systemImage: "curlybraces")
+                    Label("Source Code", systemImage: "curlybraces")
                 }
             } footer: {
                 Text("See the code that makes this app work, as well as file bugs and feature requests")
