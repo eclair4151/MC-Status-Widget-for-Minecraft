@@ -10,6 +10,9 @@
     "\"%@\"" : {
 
     },
+    "**Hold and drag** over the chart to view and move the lollipop" : {
+
+    },
     "%@" : {
 
     },
@@ -22,6 +25,12 @@
           }
         }
       }
+    },
+    "%lld ms" : {
+
+    },
+    "%lld sold" : {
+
     },
     "%lldms" : {
 
@@ -78,6 +87,9 @@
 
     },
     "Data is synced automatically, but may be delayed under certain conditions controlled by the OS\n    1. Make sure you have iCloud enabled on one of your devices\n    2. If your data hasn’t synced within a minute, try restarting your watch to force a resync" : {
+
+    },
+    "Date" : {
 
     },
     "Debug" : {
@@ -207,6 +219,9 @@
     "Lockscreen Widget 2" : {
 
     },
+    "Lollipop" : {
+
+    },
     "lookup" : {
 
     },
@@ -252,6 +267,9 @@
     "Overview of Shortcuts" : {
 
     },
+    "Ping" : {
+
+    },
     "Player Count" : {
 
     },
@@ -271,6 +289,9 @@
 
     },
     "Refresh Widget" : {
+
+    },
+    "Sales" : {
 
     },
     "Save" : {

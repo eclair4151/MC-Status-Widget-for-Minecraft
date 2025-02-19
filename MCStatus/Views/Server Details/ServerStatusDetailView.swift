@@ -2,6 +2,7 @@ import SwiftUI
 import MCStatusDataLayer
 import Nuke
 
+
 struct ServerStatusDetailView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
@@ -17,6 +18,9 @@ struct ServerStatusDetailView: View {
     @State private var pingDuration = 0
     @State private var showingEditSheet = false
     @State private var showingDeleteAlert = false
+    @State private var sheetPings = false
+    
+    @State private var pings: [ServerPing] = []
     
     // Ping updater
     private let timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()
@@ -261,6 +265,10 @@ struct ServerStatusDetailView: View {
             
             let pingDuration = Int(round(pingResult.duration * 1000))
             self.pingDuration = pingDuration
+            
+            pings.append(
+                ServerPing(pingDuration)
+            )
         }
     }
     
