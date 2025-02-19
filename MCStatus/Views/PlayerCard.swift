@@ -43,7 +43,7 @@ struct PlayerCard: View {
         .padding(.vertical, 10)
         .listRowInsets(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
 #if !os(tvOS)
-        .toolbar {
+        .contextMenu {
             Button {
                 UIPasteboard.general.string = player.name
             } label: {
