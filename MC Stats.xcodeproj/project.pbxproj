@@ -214,7 +214,6 @@
 		F35E1AC92D652C5B00718CB7 /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* SavedServerEntity.swift */; };
 		F35E1ACA2D652C6D00718CB7 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
 		F3C879D22D65722200840745 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3C879CD2D65722200840745 /* Assets.xcassets */; };
-		F3C879D32D65722200840745 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C879CE2D65722200840745 /* ContentView.swift */; };
 		F3C879D72D6572AA00840745 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
 		F3C879D82D6572AA00840745 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
 		F3C879D92D6572B000840745 /* MC Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */; };
@@ -263,6 +262,9 @@
 		F3C87A0B2D6575B700840745 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
 		F3C87A0C2D6575C800840745 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
 		F3C87A0D2D6575DE00840745 /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* SavedServerEntity.swift */; };
+		F3C87A0F2D657A1500840745 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
+		F3C87A102D657A1500840745 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
+		F3C87A112D657A1500840745 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -446,11 +448,11 @@
 		F35E1ACB2D652C9000718CB7 /* visionOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = visionOS.entitlements; sourceTree = "<group>"; };
 		F3C879BD2D65720500840745 /* tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C879CD2D65722200840745 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F3C879CE2D65722200840745 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F3C879D52D65724C00840745 /* tvOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tvOS.entitlements; sourceTree = "<group>"; };
 		F3C879D62D65726200840745 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3C87A012D6574D200840745 /* FAQRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQRow.swift; sourceTree = "<group>"; };
 		F3C87A052D6574DD00840745 /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
+		F3C87A0E2D657A1500840745 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -655,6 +657,7 @@
 			isa = PBXGroup;
 			children = (
 				F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */,
+				F3C87A0E2D657A1500840745 /* Feature.swift */,
 				F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */,
 				F35E1A722D649D1700718CB7 /* Siri */,
 				F17AE0FB2CC05F9000DC7A80 /* TipJarView.swift */,
@@ -845,7 +848,6 @@
 				F3C879D62D65726200840745 /* Info.plist */,
 				F3C879D52D65724C00840745 /* tvOS.entitlements */,
 				F3C879CD2D65722200840745 /* Assets.xcassets */,
-				F3C879CE2D65722200840745 /* ContentView.swift */,
 			);
 			path = tvOS;
 			sourceTree = "<group>";
@@ -1249,6 +1251,7 @@
 				F1C010492AAAB9B60017B9A9 /* SwiftyPing.swift in Sources */,
 				F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */,
 				F150B3632CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */,
+				F3C87A112D657A1500840745 /* Feature.swift in Sources */,
 				F13E5FFD2A4BD614005BE9B2 /* MC Stats.swift in Sources */,
 				F150B4362CC1709700739646 /* ShortcutsGuideView.swift in Sources */,
 				F35E1A6D2D6489FD00718CB7 /* GeneralSettingsView.swift in Sources */,
@@ -1360,6 +1363,7 @@
 				F35E1AC52D65238800718CB7 /* MC Stats.swift in Sources */,
 				F35E1AB02D6522D600718CB7 /* SettingsRootView.swift in Sources */,
 				F35E1AAB2D6522D100718CB7 /* CustomProgressView.swift in Sources */,
+				F3C87A102D657A1500840745 /* Feature.swift in Sources */,
 				F3C87A072D6574DD00840745 /* FAQ.swift in Sources */,
 				F35E1AB82D65236300718CB7 /* ImageHelper.swift in Sources */,
 				F35E1AB92D65236300718CB7 /* CustomExtentions.swift in Sources */,
@@ -1379,7 +1383,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3C879D32D65722200840745 /* ContentView.swift in Sources */,
 				F3C879DF2D6572C400840745 /* ServerStatusDetailView.swift in Sources */,
 				F3C879E02D6572C400840745 /* PlayerCard.swift in Sources */,
 				F3C87A0B2D6575B700840745 /* IntentErrors.swift in Sources */,
@@ -1402,6 +1405,7 @@
 				F3C879F02D6572D000840745 /* MigrationHelper.swift in Sources */,
 				F3C879F12D6572D000840745 /* ReviewHelper.swift in Sources */,
 				F3C87A0C2D6575C800840745 /* ServerStatusEntity.swift in Sources */,
+				F3C87A0F2D657A1500840745 /* Feature.swift in Sources */,
 				F3C879F22D6572D000840745 /* UserDefaultHelper.swift in Sources */,
 				F3C879DD2D6572BE00840745 /* FeatureRow.swift in Sources */,
 				F3C879DE2D6572BE00840745 /* ReleaseNotesView.swift in Sources */,

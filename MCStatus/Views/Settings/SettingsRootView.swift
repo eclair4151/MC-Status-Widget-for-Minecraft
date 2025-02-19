@@ -36,7 +36,7 @@ struct SettingsRootView: View {
                 
                 // What's New
                 NavigationLink(value: SettingsPageDestinations.WhatsNew) {
-                    Label("What's New", systemImage: "sparkles")
+                    Label("Features", systemImage: "sparkles")
                 }
             }
             

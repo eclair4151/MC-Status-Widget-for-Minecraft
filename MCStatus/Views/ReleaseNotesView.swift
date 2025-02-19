@@ -1,21 +1,5 @@
 import SwiftUI
 
-// Feature model to hold title, description, icon, and icon color
-struct Feature: Identifiable {
-    let id = UUID()
-    let title: String
-    let description: String
-    let icon: String
-    let iconColor: Color
-    
-    init(_ title: String, description: String, icon: String, iconColor: Color) {
-        self.title = title
-        self.description = description
-        self.icon = icon
-        self.iconColor = iconColor
-    }
-}
-
 struct ReleaseNotesView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
@@ -24,26 +8,21 @@ struct ReleaseNotesView: View {
     var showDismissButton = true
     
     private let features = [
-        Feature("Total Rewrite from Scratch", description: "The app has been completely re-engineered using SwiftUI and SwiftData. It also introduces native network and parsing layers for ultra-fast operation.", icon: "arrow.triangle.2.circlepath.circle.fill", iconColor: .blue),
-        Feature("Apple Watch App & Complications", description: "Get MC Status on your wrist with the new Apple Watch app, along with a full suite of complications for your watch faces.", icon: "applewatch.watchface", iconColor: .teal),
-        Feature("Support for Shortcuts", description: "Quickly check your server's status with customizable Shortcuts.", icon: "link", iconColor: .green),
-        Feature("Support for Siri", description: "Ask Siri for your server's status without lifting a finger!", icon: "mic.fill", iconColor: .orange),
-        Feature("iCloud Syncing Support", description: "Sync your server list seamlessly across all of your devices.", icon: "icloud", iconColor: .blue),
-        Feature("Custom Dark/Tinted Icons & Widgets", description: "Personalize your app and widgets with custom colors and styles.", icon: "paintbrush.fill", iconColor: .purple),
+        Feature("Total Rewrite from Scratch", description: "The app has been completely re-engineered using SwiftUI and SwiftData. It also introduces native network and parsing layers for ultra-fast operation", icon: "arrow.triangle.2.circlepath.circle.fill", iconColor: .blue),
+        Feature("Apple Watch App & Complications", description: "Get MC Status on your wrist with the new Apple Watch app, along with a full suite of complications for your watch faces", icon: "applewatch.watchface", iconColor: .teal),
+        Feature("Shortcuts", description: "Quickly check your server's status with customizable Shortcuts", icon: "link", iconColor: .green),
+        Feature("Siri", description: "Ask Siri for your server's status without lifting a finger!", icon: "mic.fill", iconColor: .orange),
+        Feature("iCloud Sync", description: "Sync your server list seamlessly across all of your devices", icon: "arrow.trianglehead.2.clockwise.rotate.90.icloud", iconColor: .blue),
+        Feature("Custom Dark/Tinted Icons & Widgets", description: "Personalize your app and widgets with custom colors and styles", icon: "paintbrush.fill", iconColor: .purple),
         Feature("New Inline Widgets", description: "New inline widgets for your lock screen and Apple Watch", icon: "rectangle.fill.on.rectangle.angled.fill", iconColor: .indigo),
-        Feature("Refreshable Widgets", description: "Widgets now include a manual refresh button to keep your server statuses up-to-date.", icon: "arrow.clockwise", iconColor: .pink),
-        Feature("Support for SRV & Server MOTD", description: "The app now supports domain SRV records, and shows correctly formatted server MOTD (message of the day).", icon: "server.rack", iconColor: .red),
+        Feature("Refreshable Widgets", description: "Widgets now include a manual refresh button to keep your server statuses up-to-date", icon: "arrow.clockwise", iconColor: .pink),
+        Feature("Support for SRV & Server MOTD", description: "The app now supports domain SRV records, and shows correctly formatted server MOTD (message of the day)", icon: "server.rack", iconColor: .red),
         Feature("More Coming Soon!", description: "Stay tuned for more exciting features in upcoming releases!", icon: "sparkles", iconColor: .yellow)
     ]
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                Text("I'm thrilled to announce the release of **MC Status 2.0**, a total rewrite from the ground up! Get ready for a blazing fast app experience, with tons of new features and enhancements.")
-                    .padding(15)
-                    .padding(.bottom, 5)
-                
-                // Loop through each feature and display it dynamically
                 ForEach(features) { feature in
                     FeatureRow(feature)
                 }
@@ -94,7 +73,8 @@ struct ReleaseNotesView: View {
             }
             .padding([.leading, .trailing, .bottom], 30)
         }
-        .navigationTitle("MC Status 2.0")
+        .navigationTitle("Features")
+        .scrollIndicators(.never)
         .sheet($showingTipSheet) {
             NavigationStack {
                 TipJarView($showingTipSheet)

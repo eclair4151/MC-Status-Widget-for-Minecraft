@@ -108,22 +108,19 @@
         }
       }
     },
+    "Features" : {
+
+    },
     "General Settings" : {
 
     },
     "Got it!" : {
 
     },
-    "Hello, world!" : {
-
-    },
     "Help support the development of free, adless, open source apps" : {
 
     },
     "How to Use Siri with MC Status" : {
-
-    },
-    "I'm thrilled to announce the release of **MC Status 2.0**, a total rewrite from the ground up! Get ready for a blazing fast app experience, with tons of new features and enhancements." : {
 
     },
     "iCloud is required to sync servers to your watch." : {
@@ -193,9 +190,6 @@
 
     },
     "MC Stats is used for checking the status an existing server. It will not create, setup, or host a new server" : {
-
-    },
-    "MC Status 2.0" : {
 
     },
     "MC Status Widget" : {
