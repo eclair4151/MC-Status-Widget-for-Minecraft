@@ -30,7 +30,7 @@ struct MinecraftServerStatusHSWidget: Widget {
                 }
                 .widgetURL(URL(string: entry.configuration.Server?.id ?? ""))
         }
-        .configurationDisplayName("MC Status Widget")
+        .configurationDisplayName("MC Stats Widget")
         .description("Widget to show the status of Minecraft Server")
         .contentMarginsDisabled()
         .supportedFamilies(supportedFamilies)

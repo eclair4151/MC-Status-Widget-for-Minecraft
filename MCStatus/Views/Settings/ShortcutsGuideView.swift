@@ -8,7 +8,7 @@ struct ShortcutsGuideView: View {
     ]
     
     private let shortcutDescriptions = [
-        "To create a custom shortcut, open the shortcut app, create a new shortcut, and search for MC Status.\n The \"Saved Minecraft Server Status Check\" lets you select a specific server from your saved list in the app. The arbitrary server check shortcut allows you to pass in a custom URL and port to check any server on the fly",
+        "To create a custom shortcut, open the shortcut app, create a new shortcut, and search for MC Stats.\n The \"Saved Minecraft Server Status Check\" lets you select a specific server from your saved list in the app. The arbitrary server check shortcut allows you to pass in a custom URL and port to check any server on the fly",
         "You can select which server you want to check the status of in the shortcut. By default the shortcut will show a popup with the server status and player count. To disable this, click the drop down arrow and disable \"Show When Run\"",
         "The resulting shortcut object represents the server status, and can be used however you need. Once you select the Server Status variable, you can pick  which property of the server status you want to use in your further shortcuts",
         "Online status can be \"Online\", \"Offline\", or \"Unknown\" if your phone is not connected",

@@ -9,7 +9,7 @@ struct ReleaseNotesView: View {
     
     private let features = [
         Feature("Total Rewrite from Scratch", description: "The app has been completely re-engineered using SwiftUI and SwiftData. It also introduces native network and parsing layers for ultra-fast operation", icon: "arrow.triangle.2.circlepath.circle.fill", iconColor: .blue),
-        Feature("Apple Watch App & Complications", description: "Get MC Status on your wrist with the new Apple Watch app, along with a full suite of complications for your watch faces", icon: "applewatch.watchface", iconColor: .teal),
+        Feature("Apple Watch App & Complications", description: "Get MC Stats on your wrist with the new Apple Watch app, along with a full suite of complications for your watch faces", icon: "applewatch.watchface", iconColor: .teal),
         Feature("Shortcuts", description: "Quickly check your server's status with customizable Shortcuts", icon: "link", iconColor: .green),
         Feature("Siri", description: "Ask Siri for your server's status without lifting a finger!", icon: "mic.fill", iconColor: .orange),
         Feature("iCloud Sync", description: "Sync your server list seamlessly across all of your devices", icon: "arrow.trianglehead.2.clockwise.rotate.90.icloud", iconColor: .blue),

@@ -111,7 +111,7 @@
 		F30472122D63E9C00055C007 /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FD2D63E9C00055C007 /* MediumWidgetView.swift */; };
 		F30472132D63E9C00055C007 /* RectangularAccessoryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FE2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift */; };
 		F30472142D63E9C00055C007 /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FF2D63E9C00055C007 /* SmallWidgetView.swift */; };
-		F30472152D63E9C00055C007 /* MCStatusWidgetExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472042D63E9C00055C007 /* MCStatusWidgetExtensionBundle.swift */; };
+		F30472152D63E9C00055C007 /* Widgets Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472042D63E9C00055C007 /* Widgets Bundle.swift */; };
 		F30472162D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472052D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift */; };
 		F30472172D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472062D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift */; };
 		F30472182D63E9C00055C007 /* WidgetEntryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472072D63E9C00055C007 /* WidgetEntryVM.swift */; };
@@ -169,7 +169,7 @@
 		F35E1A6F2D649C6000718CB7 /* FeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */; };
 		F35E1A712D649D1300718CB7 /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
 		F35E1A742D64A4B200718CB7 /* LowPowerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A732D64A4B200718CB7 /* LowPowerMode.swift */; };
-		F35E1A752D64ACE400718CB7 /* MCStatusWidgetExtensionBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472042D63E9C00055C007 /* MCStatusWidgetExtensionBundle.swift */; };
+		F35E1A752D64ACE400718CB7 /* Widgets Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472042D63E9C00055C007 /* Widgets Bundle.swift */; };
 		F35E1A772D64D32D00718CB7 /* RefreshWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A762D64D32D00718CB7 /* RefreshWidgets.swift */; };
 		F35E1A782D64DC2700718CB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
 		F35E1A9B2D6501CC00718CB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35E1A932D6501CC00718CB7 /* Assets.xcassets */; };
@@ -415,7 +415,7 @@
 		F30472012D63E9C00055C007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F30472022D63E9C00055C007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F30472032D63E9C00055C007 /* MCStatusWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusWidgetExtension.entitlements; sourceTree = "<group>"; };
-		F30472042D63E9C00055C007 /* MCStatusWidgetExtensionBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusWidgetExtensionBundle.swift; sourceTree = "<group>"; };
+		F30472042D63E9C00055C007 /* Widgets Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Widgets Bundle.swift"; sourceTree = "<group>"; };
 		F30472052D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusWidgetExtensionHS.swift; sourceTree = "<group>"; };
 		F30472062D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusWidgetExtensionLS.swift; sourceTree = "<group>"; };
 		F30472072D63E9C00055C007 /* WidgetEntryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEntryVM.swift; sourceTree = "<group>"; };
@@ -742,7 +742,7 @@
 		F30472082D63E9C00055C007 /* MCStatusWidgetExtension */ = {
 			isa = PBXGroup;
 			children = (
-				F30472042D63E9C00055C007 /* MCStatusWidgetExtensionBundle.swift */,
+				F30472042D63E9C00055C007 /* Widgets Bundle.swift */,
 				F30472012D63E9C00055C007 /* Assets.xcassets */,
 				F30472022D63E9C00055C007 /* Info.plist */,
 				F30472032D63E9C00055C007 /* MCStatusWidgetExtension.entitlements */,
@@ -1204,7 +1204,7 @@
 				F13095542CBC9DB300C4C7BA /* UserDefaultHelper.swift in Sources */,
 				F13095572CBD48ED00C4C7BA /* WatchServerStatusChecker.swift in Sources */,
 				F13095582CBD494300C4C7BA /* ConnectivityProvider.swift in Sources */,
-				F35E1A752D64ACE400718CB7 /* MCStatusWidgetExtensionBundle.swift in Sources */,
+				F35E1A752D64ACE400718CB7 /* Widgets Bundle.swift in Sources */,
 				F304723A2D63E9CF0055C007 /* ServerSelectWidgetIntent.swift in Sources */,
 				F304723B2D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */,
 				F304723C2D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */,
@@ -1321,7 +1321,7 @@
 				F30472122D63E9C00055C007 /* MediumWidgetView.swift in Sources */,
 				F30472132D63E9C00055C007 /* RectangularAccessoryWidgetView.swift in Sources */,
 				F30472142D63E9C00055C007 /* SmallWidgetView.swift in Sources */,
-				F30472152D63E9C00055C007 /* MCStatusWidgetExtensionBundle.swift in Sources */,
+				F30472152D63E9C00055C007 /* Widgets Bundle.swift in Sources */,
 				F30472162D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift in Sources */,
 				F30472172D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift in Sources */,
 				F30472182D63E9C00055C007 /* WidgetEntryVM.swift in Sources */,

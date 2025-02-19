@@ -25,7 +25,7 @@ struct SiriGuideView: View {
                     SiriGuidePhrase(phrase)
                 }
             } header: {
-                Text("How to Use Siri with MC Status")
+                Text("How to Use Siri with MC Stats")
                     .title2(.bold)
                     .padding(.bottom, 5)
             }
