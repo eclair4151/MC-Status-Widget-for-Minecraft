@@ -437,7 +437,7 @@
 		F3C879CD2D65722200840745 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3C879CE2D65722200840745 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F3C879D52D65724C00840745 /* tvOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tvOS.entitlements; sourceTree = "<group>"; };
-		F3C879D62D65726200840745 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F3C879D62D65726200840745 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -556,8 +556,8 @@
 				F30472082D63E9C00055C007 /* MCStatusWidgetExtension */,
 				F30472262D63E9C20055C007 /* MCStatusWatchWidget */,
 				F35E1A972D6501CC00718CB7 /* visionOS */,
-				F1322FE32AAAB3FC005EAF56 /* MCStatusDataLayer */,
 				F3C879D02D65722200840745 /* tvOS */,
+				F1322FE32AAAB3FC005EAF56 /* MCStatusDataLayer */,
 				F13E5FFA2A4BD614005BE9B2 /* Products */,
 				F10C421B2AAE40BC000107D6 /* Frameworks */,
 			);
