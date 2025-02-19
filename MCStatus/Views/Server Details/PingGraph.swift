@@ -34,7 +34,7 @@ struct PingGraph: View {
                     .callout()
                 
                 Toggle("Lollipop", isOn: $showLollipop)
-                                
+                
                 Text("Average: \(average)")
                 
                 Button("Clear") {
@@ -43,6 +43,7 @@ struct PingGraph: View {
                 }
             }
         }
+        .ornamentDismissButton()
     }
     
     private var chart: some View {
