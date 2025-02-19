@@ -35,6 +35,8 @@ struct PingGraph: View {
                 
                 Toggle("Lollipop", isOn: $showLollipop)
                 
+                Text("Count: \(data.count)")
+                
                 Text("Average: \(average)")
                 
                 Button("Add") {
@@ -50,17 +52,20 @@ struct PingGraph: View {
     }
     
     private func add() {
-        withAnimation {
-            data.append(.init(Int.random(in: 0...100), date: data.last!.date.addingTimeInterval(31536000)))
-            
-            if data.count > 60 {
-                data.removeFirst()
-            }
+        data.append(.init(Int.random(in: 0...100), date: data.last!.date.addingTimeInterval(31536000)))
+        
+        if data.count > 60 {
+            data.removeFirst()
         }
     }
     
     private var chart: some View {
         Chart(data) {
+            RuleMark(y: .value("Avg.", average))
+                .opacity(0.1)
+                .lineStyle(StrokeStyle(lineWidth: 1))
+                .foregroundStyle(.red)
+            
             LineMark (
                 x: .value("Date", $0.date),
                 y: .value("Ping", $0.ping)
@@ -73,7 +78,8 @@ struct PingGraph: View {
             .symbol(Circle().strokeBorder(lineWidth: lineWidth))
             .symbolSize(showSymbols ? 60 : 0)
         }
-        .chartYScale(domain: 0...200)
+        .animation(.default, value: data.count)
+        .chartYScale(domain: 0...300)
         .chartOverlay { proxy in
             GeometryReader { geo in
                 Rectangle()

@@ -123,23 +123,27 @@ struct ServerStatusDetailView: View {
                                 }
                                 
                                 if pingDuration > 0 {
-                                    HStack {
-                                        Text("\(pingDuration)ms")
-                                            .monospacedDigit()
-                                            .subheadline()
-                                        
-                                        Image(systemName: "wifi")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .foregroundColor(pingColor(for: pingDuration))
-                                            .frame(width: 15, height: 15)
-                                        // .symbolEffect(.variableColor.iterative.dimInactiveLayers.nonReversing, options: .repeat(.continuous))
+                                    Button {
+                                        sheetPings = true
+                                    } label: {
+                                        HStack {
+                                            Text("\(pingDuration)ms")
+                                                .monospacedDigit()
+                                                .subheadline()
+                                            
+                                            Image(systemName: "wifi")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .foregroundColor(pingColor(for: pingDuration))
+                                                .frame(width: 15, height: 15)
+                                            // .symbolEffect(.variableColor.iterative.dimInactiveLayers.nonReversing, options: .repeat(.continuous))
+                                        }
+                                        .padding(.horizontal, 14)
+                                        .padding(.vertical, 7)
+                                        .background(Color.standoutPillGrey)
+                                        .foregroundColor(.tertiaryTextColor)
+                                        .cornerRadius(16)
                                     }
-                                    .padding(.horizontal, 14)
-                                    .padding(.vertical, 7)
-                                    .background(Color.standoutPillGrey)
-                                    .foregroundColor(.tertiaryTextColor)
-                                    .cornerRadius(16)
                                 }
                             }
                             .padding(.top, 8)
@@ -178,7 +182,7 @@ struct ServerStatusDetailView: View {
                         .padding(.top, 15)
                     
                     CustomProgressView(progress: vm.getPlayerCountPercentage())
-                        .frame(height:10)
+                        .frame(height: 10)
                         .padding(.bottom, 10)
                 }
             } header: {
@@ -202,6 +206,9 @@ struct ServerStatusDetailView: View {
             if !lowPowerMode {
                 refreshPing()
             }
+        }
+        .sheet($sheetPings) {
+            PingGraph($pings)
         }
         .refreshable {
             vm.reloadData(ConfigHelper.getServerCheckerConfig())
@@ -269,6 +276,10 @@ struct ServerStatusDetailView: View {
             pings.append(
                 ServerPing(pingDuration)
             )
+            
+            if pings.count > 60 {
+                pings.removeFirst()
+            }
         }
     }
     

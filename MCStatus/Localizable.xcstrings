@@ -26,13 +26,7 @@
         }
       }
     },
-    "%lld ms" : {
-
-    },
     "%lld ping" : {
-
-    },
-    "%lld sold" : {
 
     },
     "%lldms" : {
@@ -63,6 +57,9 @@
 
     },
     "Average: %lf" : {
+
+    },
+    "Avg." : {
 
     },
     "Bedrock servers do not support player lists" : {
@@ -96,6 +93,9 @@
 
     },
     "Copy Nickname" : {
+
+    },
+    "Count: %lld" : {
 
     },
     "Data is synced automatically, but may be delayed under certain conditions controlled by the OS\n    1. Make sure you have iCloud enabled on one of your devices\n    2. If your data hasn’t synced within a minute, try restarting your watch to force a resync" : {
