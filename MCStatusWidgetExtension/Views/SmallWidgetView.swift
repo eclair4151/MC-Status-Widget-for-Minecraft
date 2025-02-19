@@ -112,7 +112,7 @@ struct BaseWidgetView: View {
                     CustomProgressView(
                         progress: CGFloat(entry.vm.progressValue),
                         bgColor: self.progressBgColor,
-                        bgOpactiy: self.progressBgOpacity
+                        bgOpacity: self.progressBgOpacity
                     )
                     .frame(height: 6)
                     .padding(.top, 6)

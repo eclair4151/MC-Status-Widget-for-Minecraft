@@ -127,7 +127,7 @@ struct ServerStatusDetailView: View {
                                         sheetPings = true
                                     } label: {
                                         HStack {
-                                            Text("\(pingDuration)ms")
+                                            Text("\(pingDuration) ms")
                                                 .monospacedDigit()
                                                 .subheadline()
                                             

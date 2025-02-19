@@ -1,6 +1,6 @@
 import Foundation
 
-// this class is used to call the 3rd party web api, and ask them for information, in the case we are unable to connect directly.
+// This class is used to call the 3rd party web API in the case we are unable to connect directly
 public class WebServerStatusChecker {
     static let API_URL = "https://api.mcstatus.io/v2/status"
     static let timeout = 4
@@ -22,9 +22,10 @@ public class WebServerStatusChecker {
         
         guard (response as? HTTPURLResponse)?.statusCode == 200 else {
             if (response as? HTTPURLResponse)?.statusCode == 400 {
-                // if the backup server returns a 400, then we address we supplied is invalid, so the server is offline.
+                // if the backup server returns a 400, then we address we supplied is invalid, so the server is offline
                 let status = ServerStatus()
                 status.status = .Offline
+                
                 return status
             } else {
                 throw ServerStatusCheckerError.DeviceNotConnected

@@ -3,7 +3,7 @@ import SwiftUI
 struct CustomProgressView: View {
     var progress: CGFloat
     var bgColor = Color.gray
-    var bgOpactiy = 1.0
+    var bgOpacity = 1.0
     var filledColor = Color.green
     
     var body: some View {
@@ -16,7 +16,7 @@ struct CustomProgressView: View {
                     .foregroundColor(bgColor)
                     .frame(width: width, height: height)
                     .cornerRadius(height / 2)
-                    .opacity(bgOpactiy)
+                    .opacity(bgOpacity)
                 
                 Rectangle()
                     .foregroundColor(filledColor)

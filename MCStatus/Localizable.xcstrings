@@ -26,10 +26,10 @@
         }
       }
     },
-    "%lld ping" : {
+    "%lld ms" : {
 
     },
-    "%lldms" : {
+    "%lld ping" : {
 
     },
     "Add" : {

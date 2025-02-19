@@ -17,7 +17,7 @@ public class ServerStatusChecker {
         // first check if we need to refresh the srv
         if forceRefeshSrv {
             if let srvRecord = await SRVResolver.lookupMinecraftSRVRecord(serverURL: server.serverUrl), (srvRecord.0 != server.srvServerUrl || srvRecord.1 != server.srvServerPort) {
-                //got updated SRV info, updated it and try to connect.
+                //got updated SRV info, updated it and try to connect
                 // update on main thread to avoid crashing?
                 await MainActor.run {
                     server.srvServerUrl = srvRecord.0
@@ -28,7 +28,7 @@ public class ServerStatusChecker {
         
         print("starting server check for: " + server.serverUrl)
         
-        // STEP 1 if we have SRV values, check that server.
+        // STEP 1 if we have SRV values, check that server
         // only Java servers support SRV records
         if  server.serverType == .Java && !server.srvServerUrl.isEmpty && server.srvServerPort != 0 {
             do {
@@ -104,7 +104,7 @@ public class ServerStatusChecker {
             }
         }
         
-        // STEP 4 if all else fails, ask 3rd party web server for info.
+        // STEP 4 if all else fails, ask 3rd party web server for info
         // if we hear back from the 3rd party server, and they also say the server is offline, we can agree its offline
         do {
             print("CALLING BACKUP SERVER")
@@ -142,32 +142,33 @@ public struct ServerCheckerConfig {
 //            let res = await SwiftyPing.pingServer(serverUrl: serverURL)
 //            print("got res: " + String(res.duration))
 
-//let servers = ["buzz.manacube.com",
-//               "play.MysticMC.co",
-//               "buzz.netherite.gg",
-//               "join.wildwoodsmp.com",
-//               "buzz.bosscraft.net",
-//               "buzz.pixelblockmc.com",
-//               "Play.SiphonMC.net",
-//               "mc.advancius.net",
-//               "mc.thecavern.net",
-//               "bedrock.pika.host",
-//               "bedrock.jartex.fun",
-//               "bedrock.akumamc.net",
-//               "buzz.havoc.games",
-//               "bedrock.opblocks.com",
-//               "play.applemc.fun",
-//               "buzz.cosmosmc.org",
-//               "buzz.catcraft.net",
-//               "play.blossomcraft.org",
-//               "join.wildwoodsmp.com",
-//               "buzz.netherite.gg",
-//               "buzz.zedarmc.com",
-//               "plateousmp.net",
-//               "buzz.semisurvivalcraft.com",
-//               "Play.MinePower.Org",
-//               "play.vanillarealms.com",
-//            ]
+//let servers = [
+//    "buzz.manacube.com",
+//    "play.MysticMC.co",
+//    "buzz.netherite.gg",
+//    "join.wildwoodsmp.com",
+//    "buzz.bosscraft.net",
+//    "buzz.pixelblockmc.com",
+//    "Play.SiphonMC.net",
+//    "mc.advancius.net",
+//    "mc.thecavern.net",
+//    "bedrock.pika.host",
+//    "bedrock.jartex.fun",
+//    "bedrock.akumamc.net",
+//    "buzz.havoc.games",
+//    "bedrock.opblocks.com",
+//    "play.applemc.fun",
+//    "buzz.cosmosmc.org",
+//    "buzz.catcraft.net",
+//    "play.blossomcraft.org",
+//    "join.wildwoodsmp.com",
+//    "buzz.netherite.gg",
+//    "buzz.zedarmc.com",
+//    "plateousmp.net",
+//    "buzz.semisurvivalcraft.com",
+//    "Play.MinePower.Org",
+//    "play.vanillarealms.com",
+//]
 
 let servers = [
     "tomershemesh.me"
