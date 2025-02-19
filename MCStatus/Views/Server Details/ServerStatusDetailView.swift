@@ -207,12 +207,12 @@ struct ServerStatusDetailView: View {
                 refreshPing()
             }
         }
-        .sheet($sheetPings) {
-            PingGraph($pings)
-        }
         .refreshable {
             vm.reloadData(ConfigHelper.getServerCheckerConfig())
             refreshPing()
+        }
+        .sheet($sheetPings) {
+            PingGraph($pings)
         }
         .toolbar {
             // Gross (show refresh button only on Mac status bar since they can't pull to refresh)
