@@ -30,11 +30,12 @@ struct SettingsRootView: View {
                     Label("Shortcuts", systemImage: "link")
                 }
                 
+#if !os(tvOS)
                 // Siri
                 NavigationLink(value: SettingsPageDestinations.Siri) {
                     Label("Siri", systemImage: "mic")
                 }
-                
+#endif
                 // What's New
                 NavigationLink(value: SettingsPageDestinations.WhatsNew) {
                     Label("Features", systemImage: "sparkles")

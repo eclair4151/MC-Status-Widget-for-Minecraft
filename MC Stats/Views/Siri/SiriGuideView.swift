@@ -16,12 +16,6 @@ struct SiriGuideView: View {
             // Looks bad, don't bother using build in view
             // SiriTipView(intent: SavedServerStatusOnlineCheckIntent(), isVisible: $tipVisibility)
             
-#if os(tvOS)
-            Section {
-                Text("Unsupported on tvOS")
-            }
-#endif
-            
             Section {
                 ForEach(phrases) { phrase in
                     SiriGuidePhrase(phrase)

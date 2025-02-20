@@ -223,9 +223,9 @@
 		F35E1ACA2D652C6D00718CB7 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
 		F38218852D671BAB005025E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F11F63512A81E51000D47187 /* Assets.xcassets */; };
 		F38218882D676E23005025E7 /* PingGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* PingGraph.swift */; };
-		F38218892D677A94005025E7 /* SiriPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C42D65E6F70030F71C /* SiriPhrase.swift */; };
-		F382188A2D677A94005025E7 /* SiriGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4332CC15F6A00739646 /* SiriGuideView.swift */; };
-		F382188B2D677A94005025E7 /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
+		F383D1982D67D3D100FE4239 /* SiriGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4332CC15F6A00739646 /* SiriGuideView.swift */; };
+		F383D1992D67D3DB00FE4239 /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
+		F383D19A2D67D3DB00FE4239 /* SiriPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C42D65E6F70030F71C /* SiriPhrase.swift */; };
 		F3C879D22D65722200840745 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3C879CD2D65722200840745 /* Assets.xcassets */; };
 		F3C879D72D6572AA00840745 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
 		F3C879D82D6572AA00840745 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
@@ -1420,6 +1420,7 @@
 				F3C879DF2D6572C400840745 /* ServerStatusDetailView.swift in Sources */,
 				F3C879E02D6572C400840745 /* PlayerCard.swift in Sources */,
 				F3C87A0B2D6575B700840745 /* IntentErrors.swift in Sources */,
+				F383D1982D67D3D100FE4239 /* SiriGuideView.swift in Sources */,
 				F3C87A092D65759B00840745 /* MCStatusShortcutsProvider.swift in Sources */,
 				F3C87A0D2D6575DE00840745 /* SavedServerEntity.swift in Sources */,
 				F3C879F32D6572D500840745 /* SwiftyPing.swift in Sources */,
@@ -1427,10 +1428,9 @@
 				F3C879E22D6572C400840745 /* TipJarView.swift in Sources */,
 				F30246D22D667ED50030F71C /* ServerPing.swift in Sources */,
 				F30246CA2D6661D60030F71C /* PlayerList.swift in Sources */,
+				F383D1992D67D3DB00FE4239 /* SiriGuidePhrase.swift in Sources */,
+				F383D19A2D67D3DB00FE4239 /* SiriPhrase.swift in Sources */,
 				F3C879E42D6572C400840745 /* CustomProgressView.swift in Sources */,
-				F38218892D677A94005025E7 /* SiriPhrase.swift in Sources */,
-				F382188A2D677A94005025E7 /* SiriGuideView.swift in Sources */,
-				F382188B2D677A94005025E7 /* SiriGuidePhrase.swift in Sources */,
 				F3C87A082D6574DD00840745 /* FAQ.swift in Sources */,
 				F3C879E52D6572C400840745 /* FAQView.swift in Sources */,
 				F3C879EB2D6572D000840745 /* RealmDbMigrationHelper.swift in Sources */,
