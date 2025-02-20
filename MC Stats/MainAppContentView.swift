@@ -320,7 +320,7 @@ struct MainAppContentView: View {
             config.forceSRVRefresh = forceSRVRefreh
             
             let vm = ServerStatusVM(
-                modelContext: self.modelContext,
+                modelContext: modelContext,
                 server: $0
             )
             
