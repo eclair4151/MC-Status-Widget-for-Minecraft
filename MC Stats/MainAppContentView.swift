@@ -117,13 +117,16 @@ struct MainAppContentView: View {
                     }
                 }
                 
-                // Gross (show refresh button only on mac status bar since they can't pull to refresh)
-#if targetEnvironment(macCatalyst)
+#if os(macOS) || os(tvOS)
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         reloadData(forceRefresh: true)
                     } label: {
+#if os(macOS)
                         Label("Refresh Servers", systemImage: "arrow.clockwise")
+#elseif os(tvOS)
+                        Text("Refresh")
+#endif
                     }
                 }
 #endif

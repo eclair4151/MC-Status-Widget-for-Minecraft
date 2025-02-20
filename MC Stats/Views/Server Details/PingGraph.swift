@@ -35,10 +35,10 @@ struct PingGraph: View {
             chart
             
             Section {
+#if !os(tvOS)
                 Text("**Hold and drag** over the chart to view and move the lollipop")
                     .callout()
                 
-#if !os(tvOS)
                 Toggle("Lollipop", isOn: $showLollipop)
 #endif
                 Text("Average: \(average) ms")
