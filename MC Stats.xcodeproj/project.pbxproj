@@ -674,9 +674,7 @@
 				F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */,
 				F3C87A0E2D657A1500840745 /* Feature.swift */,
 				F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */,
-				F35E1A722D649D1700718CB7 /* Siri */,
 				F17AE0FB2CC05F9000DC7A80 /* TipJarView.swift */,
-				F3C87A002D6574CA00840745 /* FAQ */,
 				F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */,
 				F30246CC2D667EBF0030F71C /* Server Details */,
 				F35E1A6B2D6489F900718CB7 /* Settings */,
@@ -845,6 +843,8 @@
 				F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */,
 				F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */,
 				F150B4352CC1709700739646 /* ShortcutsGuideView.swift */,
+				F35E1A722D649D1700718CB7 /* Siri */,
+				F3C87A002D6574CA00840745 /* FAQ */,
 			);
 			path = Settings;
 			sourceTree = "<group>";

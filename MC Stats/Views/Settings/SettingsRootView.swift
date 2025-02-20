@@ -25,12 +25,12 @@ struct SettingsRootView: View {
                     Label("FAQ", systemImage: "exclamationmark.questionmark")
                 }
                 
+#if !os(tvOS)
                 // Shortcuts
                 NavigationLink(value: SettingsPageDestinations.Shortcuts) {
                     Label("Shortcuts", systemImage: "link")
                 }
                 
-#if !os(tvOS)
                 // Siri
                 NavigationLink(value: SettingsPageDestinations.Siri) {
                     Label("Siri", systemImage: "mic")
@@ -41,7 +41,7 @@ struct SettingsRootView: View {
                     Label("Features", systemImage: "sparkles")
                 }
             }
-            
+#if !os(tvOS)
             Section {
                 // Leave a Review
                 Button(action: leaveAppReview) {
@@ -83,6 +83,7 @@ struct SettingsRootView: View {
             } footer: {
                 Text("See the code that makes this app work, as well as file bugs and feature requests. Forked from [eclair4151's MC-Status](https://github.com/eclair4151/MC-Status-Widget-for-Minecraft)")
             }
+#endif
 #if DEBUG
             Section("Debug") {
                 Button("Add test servers") {
