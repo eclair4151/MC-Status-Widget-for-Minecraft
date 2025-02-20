@@ -21,8 +21,7 @@ struct PingGraph: View {
     var average: Int {
         let avg = data.map {
             Double($0.ping)
-        }
-            .reduce(0, +) / Double(data.count)
+        }.reduce(0, +) / Double(data.count)
         
         return Int(avg)
     }
