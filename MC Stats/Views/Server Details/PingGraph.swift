@@ -18,11 +18,13 @@ struct PingGraph: View {
     
     @State private var showLollipop = true
     
-    var average: Double {
-        data.map {
+    var average: Int {
+        let avg = data.map {
             Double($0.ping)
         }
-        .reduce(0, +) / Double(data.count)
+            .reduce(0, +) / Double(data.count)
+        
+        return Int(avg)
     }
     
     var body: some View {
@@ -33,9 +35,10 @@ struct PingGraph: View {
                 Text("**Hold and drag** over the chart to view and move the lollipop")
                     .callout()
                 
+#if !os(tvOS)
                 Toggle("Lollipop", isOn: $showLollipop)
-                
-                Text("Average: \(average)")
+#endif
+                Text("Average: \(average) ms")
                 
                 Button("Clear") {
                     selectedElement = nil
@@ -66,11 +69,12 @@ struct PingGraph: View {
             .symbolSize(showSymbols ? 60 : 0)
         }
         .chartYScale(domain: 0...300)
+#if !os(tvOS)
         .chartOverlay { proxy in
             GeometryReader { geo in
                 Rectangle()
                     .fill(.clear)
-                    .contentShape(.rect())
+                    .contentShape(.rect)
                     .gesture(
                         SpatialTapGesture()
                             .onEnded { value in
@@ -87,7 +91,7 @@ struct PingGraph: View {
                                     selectedElement = element
                                 }
                             }
-                            .exclusively (
+                            .exclusively(
                                 before: DragGesture()
                                     .onChanged { value in
                                         selectedElement = findElement(location: value.location, proxy: proxy, geo: geo)
@@ -142,12 +146,14 @@ struct PingGraph: View {
                 }
             }
         }
+#endif
         .chartXAxis(.automatic)
         .chartYAxis(.automatic)
         .frame(height: detailChartHeight)
         .animation(.default, value: data.count)
     }
     
+#if !os(tvOS)
     private func findElement(location: CGPoint, proxy: ChartProxy, geo: GeometryProxy) -> ServerPing? {
         let relativeXPosition = location.x - geo[proxy.plotAreaFrame].origin.x
         
@@ -172,11 +178,12 @@ struct PingGraph: View {
         
         return nil
     }
+#endif
 }
 
 #Preview {
     @Previewable @State var pings = (0..<20).map {
-        ServerPing(Int.random(in: 10...100), date: Date().addingTimeInterval(Double($0 * 31536000)))
+        ServerPing(Int.random(in: 10...100), date: Date().addingTimeInterval(Double($0)))
     }
     
     PingGraph($pings)

@@ -53,7 +53,7 @@
     "Arbitrary Minecraft Server Status Check" : {
 
     },
-    "Average: %lf" : {
+    "Average: %lld ms" : {
 
     },
     "Avg." : {
