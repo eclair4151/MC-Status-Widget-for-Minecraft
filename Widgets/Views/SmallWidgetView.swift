@@ -85,7 +85,7 @@ struct BaseWidgetView: View {
                         } else {
                             Image(systemName: statusIcon)
                                 .fontSize(24)
-                                .foregroundColor(Color.unknownColor)
+                                .foregroundColor(.unknownColor)
                                 .background {
                                     Color.white
                                         .mask(Circle())
@@ -147,6 +147,16 @@ struct SmallWidgetView: View {
     }
 }
 
+//#Preview(as: .systemSmall) {
+//    MinecraftServerStatusHSWidget()
+//} timeline: {
+//    ServerStatusHSSnapshotEntry(
+//        date: Date(),
+//        configuration: ServerSelectWidgetIntent(),
+//        vm: WidgetEntryVM()
+//    )
+//}
+
 struct MinecraftServerStatusHSWidget_SmallPreview: PreviewProvider {
     static var previews: some View {
         MinecraftServerStatusHSWidgetEntryView(
@@ -157,5 +167,6 @@ struct MinecraftServerStatusHSWidget_SmallPreview: PreviewProvider {
             )
         )
         .previewContext(WidgetPreviewContext(family: .systemSmall))
+        .containerBackground(.widgetBackground, for: .widget)
     }
 }

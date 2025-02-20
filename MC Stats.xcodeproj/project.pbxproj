@@ -772,11 +772,11 @@
 				F30472012D63E9C00055C007 /* Assets.xcassets */,
 				F30472022D63E9C00055C007 /* Info.plist */,
 				F30472032D63E9C00055C007 /* MCStatusWidgetExtension.entitlements */,
-				F30471F72D63E9C00055C007 /* TimelineProviders */,
-				F30472002D63E9C00055C007 /* Views */,
 				F30472052D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift */,
 				F30472062D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift */,
 				F30472072D63E9C00055C007 /* WidgetEntryVM.swift */,
+				F30471F72D63E9C00055C007 /* TimelineProviders */,
+				F30472002D63E9C00055C007 /* Views */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
