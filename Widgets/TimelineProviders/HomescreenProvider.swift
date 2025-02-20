@@ -11,7 +11,7 @@ struct HomescreenProvider: AppIntentTimelineProvider {
         
         return ServerStatusHSSnapshotEntry(
             date: Date(),
-            configuration: ServerSelectWidgetIntent(),
+            configuration: SelectServerIntent(),
             vm: vm
         )
     }
@@ -20,7 +20,7 @@ struct HomescreenProvider: AppIntentTimelineProvider {
     // Just show preview with placeholder data
     // If it is false, you should actually load the current state of the view by getting the status
     func snapshot(
-        for configuration: ServerSelectWidgetIntent,
+        for configuration: SelectServerIntent,
         in context: Context
     ) async -> ServerStatusHSSnapshotEntry {
         var vm = WidgetEntryVM()
@@ -48,7 +48,7 @@ struct HomescreenProvider: AppIntentTimelineProvider {
     
     func loadTimelineData(
         from container: ModelContainer,
-        with configuration: ServerSelectWidgetIntent
+        with configuration: SelectServerIntent
     ) async -> (SavedMinecraftServer, ServerStatus, Theme)? {
         // Step 1: load server from DB
         guard
@@ -72,7 +72,7 @@ struct HomescreenProvider: AppIntentTimelineProvider {
     }
     
     func timeline(
-        for configuration: ServerSelectWidgetIntent,
+        for configuration: SelectServerIntent,
         in context: Context
     ) async -> Timeline<ServerStatusHSSnapshotEntry> {
         var entries: [ServerStatusHSSnapshotEntry] = []

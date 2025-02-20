@@ -2,7 +2,7 @@ import Foundation
 import AppIntents
 
 // Converted for widget from previous intent
-struct ServerSelectWidgetIntent: AppIntent, WidgetConfigurationIntent, CustomIntentMigratedAppIntent {
+struct SelectServerIntent: AppIntent, WidgetConfigurationIntent, CustomIntentMigratedAppIntent {
     static let intentClassName = "ServerSelectIntent"
     
     static var title: LocalizedStringResource = "Server Select"

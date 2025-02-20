@@ -137,11 +137,11 @@
 		F30472282D63E9C20055C007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F30472222D63E9C20055C007 /* Assets.xcassets */; };
 		F304722E2D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722A2D63E9CF0055C007 /* RefreshWidgetIntent.swift */; };
 		F304722F2D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722B2D63E9CF0055C007 /* ServerSelectNoTheme.swift */; };
-		F30472302D63E9CF0055C007 /* ServerSelectWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722C2D63E9CF0055C007 /* ServerSelectWidgetIntent.swift */; };
-		F30472372D63E9CF0055C007 /* ServerSelectWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722C2D63E9CF0055C007 /* ServerSelectWidgetIntent.swift */; };
+		F30472302D63E9CF0055C007 /* SelectServerIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722C2D63E9CF0055C007 /* SelectServerIntent.swift */; };
+		F30472372D63E9CF0055C007 /* SelectServerIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722C2D63E9CF0055C007 /* SelectServerIntent.swift */; };
 		F30472382D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722A2D63E9CF0055C007 /* RefreshWidgetIntent.swift */; };
 		F30472392D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722B2D63E9CF0055C007 /* ServerSelectNoTheme.swift */; };
-		F304723A2D63E9CF0055C007 /* ServerSelectWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722C2D63E9CF0055C007 /* ServerSelectWidgetIntent.swift */; };
+		F304723A2D63E9CF0055C007 /* SelectServerIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722C2D63E9CF0055C007 /* SelectServerIntent.swift */; };
 		F304723B2D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722A2D63E9CF0055C007 /* RefreshWidgetIntent.swift */; };
 		F304723C2D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722B2D63E9CF0055C007 /* ServerSelectNoTheme.swift */; };
 		F30472402D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723D2D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift */; };
@@ -439,7 +439,7 @@
 		F30472242D63E9C20055C007 /* MCStatusWatchWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusWatchWidget.entitlements; sourceTree = "<group>"; };
 		F304722A2D63E9CF0055C007 /* RefreshWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshWidgetIntent.swift; sourceTree = "<group>"; };
 		F304722B2D63E9CF0055C007 /* ServerSelectNoTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSelectNoTheme.swift; sourceTree = "<group>"; };
-		F304722C2D63E9CF0055C007 /* ServerSelectWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSelectWidgetIntent.swift; sourceTree = "<group>"; };
+		F304722C2D63E9CF0055C007 /* SelectServerIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectServerIntent.swift; sourceTree = "<group>"; };
 		F304723D2D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArbitraryServerStatusOnlineCheckIntent.swift; sourceTree = "<group>"; };
 		F304723E2D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedServerStatusOnlineCheckIntent.swift; sourceTree = "<group>"; };
 		F30472462D63E9D20055C007 /* ServerIntentTypeAppEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerIntentTypeAppEntity.swift; sourceTree = "<group>"; };
@@ -796,7 +796,7 @@
 			children = (
 				F304722A2D63E9CF0055C007 /* RefreshWidgetIntent.swift */,
 				F304722B2D63E9CF0055C007 /* ServerSelectNoTheme.swift */,
-				F304722C2D63E9CF0055C007 /* ServerSelectWidgetIntent.swift */,
+				F304722C2D63E9CF0055C007 /* SelectServerIntent.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -1231,7 +1231,7 @@
 				F13095572CBD48ED00C4C7BA /* WatchServerStatusChecker.swift in Sources */,
 				F13095582CBD494300C4C7BA /* ConnectivityProvider.swift in Sources */,
 				F35E1A752D64ACE400718CB7 /* Widgets Bundle.swift in Sources */,
-				F304723A2D63E9CF0055C007 /* ServerSelectWidgetIntent.swift in Sources */,
+				F304723A2D63E9CF0055C007 /* SelectServerIntent.swift in Sources */,
 				F304723B2D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */,
 				F304723C2D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */,
 				F130954D2CBC9D1C00C4C7BA /* ImageHelper.swift in Sources */,
@@ -1325,7 +1325,7 @@
 				F130955A2CBD499700C4C7BA /* ConnectivityProvider.swift in Sources */,
 				F304722E2D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */,
 				F304722F2D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */,
-				F30472302D63E9CF0055C007 /* ServerSelectWidgetIntent.swift in Sources */,
+				F30472302D63E9CF0055C007 /* SelectServerIntent.swift in Sources */,
 				F13095512CBC9D5600C4C7BA /* ConfigHelper.swift in Sources */,
 				F17AE0F22CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
 				F1406BC22AA3936E00815BE8 /* UserDefaultHelper.swift in Sources */,
@@ -1340,7 +1340,7 @@
 				F150B3602CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */,
 				F304720B2D63E9C00055C007 /* HomescreenProvider.swift in Sources */,
 				F304720C2D63E9C00055C007 /* LockscreenProvider.swift in Sources */,
-				F30472372D63E9CF0055C007 /* ServerSelectWidgetIntent.swift in Sources */,
+				F30472372D63E9CF0055C007 /* SelectServerIntent.swift in Sources */,
 				F30472382D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */,
 				F30472392D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */,
 				F304720D2D63E9C00055C007 /* CircularAccessoryWidgetView1.swift in Sources */,

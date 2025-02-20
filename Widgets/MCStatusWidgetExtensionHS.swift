@@ -12,7 +12,7 @@ struct MinecraftServerStatusHSWidget: Widget {
     var body: some WidgetConfiguration {
         AppIntentConfiguration(
             kind: kind,
-            intent: ServerSelectWidgetIntent.self,
+            intent: SelectServerIntent.self,
             provider: HomescreenProvider()
         ) { entry in
             MinecraftServerStatusHSWidgetEntryView(entry)
@@ -63,6 +63,6 @@ struct MinecraftServerStatusHSWidgetEntryView: View {
 
 struct ServerStatusHSSnapshotEntry: TimelineEntry {
     let date: Date
-    let configuration: ServerSelectWidgetIntent
+    let configuration: SelectServerIntent
     let vm: WidgetEntryVM
 }

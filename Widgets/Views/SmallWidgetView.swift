@@ -162,7 +162,7 @@ struct MinecraftServerStatusHSWidget_SmallPreview: PreviewProvider {
         MinecraftServerStatusHSWidgetEntryView(
             ServerStatusHSSnapshotEntry(
                 date: Date(),
-                configuration: ServerSelectWidgetIntent(),
+                configuration: SelectServerIntent(),
                 vm: WidgetEntryVM()
             )
         )

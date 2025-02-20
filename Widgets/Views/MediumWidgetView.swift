@@ -50,7 +50,7 @@ struct MinecraftServerStatusHSWidget_MediumPreview: PreviewProvider {
         MinecraftServerStatusHSWidgetEntryView(
             ServerStatusHSSnapshotEntry(
                 date: Date(),
-                configuration: ServerSelectWidgetIntent(),
+                configuration: SelectServerIntent(),
                 vm: WidgetEntryVM()
             )
         )
