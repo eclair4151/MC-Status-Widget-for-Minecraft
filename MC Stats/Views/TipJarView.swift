@@ -66,12 +66,10 @@ struct TipJarView: View {
                 await loadTipProducts()
             }
         }
-        .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text(alertTitle),
-                message: Text(alertMessage),
-                dismissButton: .default(Text("OK"))
-            )
+        .alert(alertTitle, isPresented: $showAlert) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(alertMessage)
         }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {

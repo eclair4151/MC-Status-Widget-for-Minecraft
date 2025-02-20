@@ -203,16 +203,12 @@ struct MainAppContentView: View {
                 // just migration to 2.0! check if showing error alert and show new stuff sheet
             }
         }
-        .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text(alertTitle),
-                message: Text(alertMessage),
-                dismissButton: .default(
-                    Text("OK"),
-                    action: {
-                        showReleaseNotes = true
-                    })
-            )
+        .alert("Title", isPresented: $showAlert) {
+            Button("OK") {
+                showReleaseNotes = true
+            }
+        } message: {
+            Text(alertMessage)
         }
     }
     
