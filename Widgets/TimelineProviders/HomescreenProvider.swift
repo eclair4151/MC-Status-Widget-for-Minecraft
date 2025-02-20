@@ -18,7 +18,7 @@ struct HomescreenProvider: AppIntentTimelineProvider {
     
     // If context.isPreview is true, this is the view to show when someone clicked add widget
     // Just show preview with placeholder data
-    // If it is false, yo ushould actually load the current state of the view by getting the status
+    // If it is false, you should actually load the current state of the view by getting the status
     func snapshot(
         for configuration: ServerSelectWidgetIntent,
         in context: Context
@@ -27,7 +27,7 @@ struct HomescreenProvider: AppIntentTimelineProvider {
         
         let container = SwiftDataHelper.getModelContainter()
         
-        if !context.isPreview, let (server, serverStatus, widgetTheme) = await loadTimelineData(container: container, configuration: configuration) {
+        if !context.isPreview, let (server, serverStatus, widgetTheme) = await loadTimelineData(from: container, with: configuration) {
             let serverIcon = ImageHelper.convertFavIconString(serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
             
             vm = WidgetEntryVM(
@@ -47,14 +47,14 @@ struct HomescreenProvider: AppIntentTimelineProvider {
     }
     
     func loadTimelineData(
-        container: ModelContainer,
-        configuration: ServerSelectWidgetIntent
+        from container: ModelContainer,
+        with configuration: ServerSelectWidgetIntent
     ) async -> (SavedMinecraftServer, ServerStatus, Theme)? {
         // Step 1: load server from DB
         guard
             let serverId = configuration.Server?.id,
             let uuid = UUID(uuidString: serverId),
-            let server = await SwiftDataHelper.getSavedServerById(container: container, server_id: uuid)
+            let server = await SwiftDataHelper.getSavedServerById(uuid, from: container)
         else {
             return nil
         }
@@ -81,12 +81,12 @@ struct HomescreenProvider: AppIntentTimelineProvider {
         
         let container = SwiftDataHelper.getModelContainter()
         
-        guard let (server, serverStatus, widgetTheme) = await loadTimelineData(container: container, configuration: configuration) else {
+        guard let (server, serverStatus, widgetTheme) = await loadTimelineData(from: container, with: configuration) else {
             // Not configured yet
             var vm = WidgetEntryVM()
             vm.setForUnconfiguredView()
             
-            let serverCount = await SwiftDataHelper.getSavedServers(container: container).count
+            let serverCount = await SwiftDataHelper.getSavedServers(container).count
             
             if serverCount == 0 {
                 vm.serverName = "Open App"

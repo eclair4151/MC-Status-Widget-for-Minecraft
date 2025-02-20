@@ -62,7 +62,7 @@ struct LockscreenProvider: AppIntentTimelineProvider {
         
         let container = SwiftDataHelper.getModelContainter()
         
-        if !context.isPreview, let (server, serverStatus) = await loadTimelineData(container: container, configuration: configuration) {
+        if !context.isPreview, let (server, serverStatus) = await loadTimelineData(from: container, with: configuration) {
             let serverIcon = ImageHelper.convertFavIconString(serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
             
             vm = WidgetEntryVM(
@@ -86,17 +86,14 @@ struct LockscreenProvider: AppIntentTimelineProvider {
     }
     
     func loadTimelineData(
-        container: ModelContainer,
-        configuration: ServerSelectNoThemeWidgetIntent
+        from container: ModelContainer,
+        with configuration: ServerSelectNoThemeWidgetIntent
     ) async -> (SavedMinecraftServer, ServerStatus)? {
         // Step 1: load server from DB
         guard
             let serverId = configuration.Server?.id,
             let uuid = UUID(uuidString: serverId),
-            let server = await SwiftDataHelper.getSavedServerById(
-                container: container,
-                server_id: uuid
-            )
+            let server = await SwiftDataHelper.getSavedServerById(uuid, from: container)
         else {
             return nil
         }
@@ -120,12 +117,12 @@ struct LockscreenProvider: AppIntentTimelineProvider {
         
         let container = SwiftDataHelper.getModelContainter()
         
-        guard let (server, serverStatus) = await loadTimelineData(container: container, configuration: configuration) else {
+        guard let (server, serverStatus) = await loadTimelineData(from: container, with: configuration) else {
             // nothing configured yet?
             var vm = WidgetEntryVM()
             vm.setForUnconfiguredView()
             
-            let serverCount = await SwiftDataHelper.getSavedServers(container: container).count
+            let serverCount = await SwiftDataHelper.getSavedServers(container).count
             
             if serverCount == 0 {
                 // if user has nothing in the DB tell them to open the app

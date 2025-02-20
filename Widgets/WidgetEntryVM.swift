@@ -6,7 +6,13 @@ enum WidgetViewType {
 }
 
 extension WidgetEntryVM {
-    init(serverName: String, status: ServerStatus, lastUpdated: String, serverIcon: UIImage, theme: Theme) {
+    init(
+        serverName: String,
+        status: ServerStatus,
+        lastUpdated: String,
+        serverIcon: UIImage,
+        theme: Theme
+    ) {
         self.lastUpdated = lastUpdated
         
         self.icon = serverIcon
@@ -127,5 +133,5 @@ public struct WidgetEntryVM {
     var playersMax: Int
     var playersString: String
     var bgColor: Color = .widgetBackground
-    var viewType = WidgetViewType.Default
+    var viewType: WidgetViewType = .Default
 }

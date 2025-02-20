@@ -45,7 +45,10 @@ struct WatchContentView: View {
                         WatchServerRowView(vm)
                     }
                 }
-                //                Text("Updated \(minSinceLastRefresh)m ago").frame(maxWidth: .infinity, alignment: .center).listRowBackground(Color.clear) // this is ugly so removing it
+                
+                // Text("Updated \(minSinceLastRefresh)m ago")
+                //     .frame(maxWidth: .infinity, alignment: .center)
+                //     .listRowBackground(Color.clear) // this is ugly so removing it
             }
             .navigationDestination(for: ServerStatusVM.self) { vm in
                 WatchServerDetailScreen(vm)
@@ -222,7 +225,7 @@ struct WatchContentView: View {
             return
         }
         
-        statusChecker.checkServers(servers: serversToCheck)
+        statusChecker.checkServers(serversToCheck)
     }
 }
 

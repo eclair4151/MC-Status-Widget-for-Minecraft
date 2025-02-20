@@ -11,13 +11,13 @@ private func runServerStatusIntentCheck(
     let refrencedServer: SavedMinecraftServer
     
     if let serverEnt = serverEntity {
-        guard let serverLookup = await SwiftDataHelper.getSavedServerById(container: container, server_id: serverEnt.id) else {
+        guard let serverLookup = await SwiftDataHelper.getSavedServerById(serverEnt.id, from: container) else {
             throw MCIntentError.DB_ID_MISSING
         }
         
         refrencedServer = serverLookup
     } else {
-        let savedServers = await SwiftDataHelper.getSavedServers(container: container)
+        let savedServers = await SwiftDataHelper.getSavedServers(container)
         
         if savedServers.isEmpty {
             throw MCIntentError.NO_SERVERS
@@ -28,7 +28,7 @@ private func runServerStatusIntentCheck(
         } else {
             let serverEnt = try await dismabiguationCallback(savedServers)
             
-            guard let serverLookup = await SwiftDataHelper.getSavedServerById(container: container, server_id: serverEnt.id) else {
+            guard let serverLookup = await SwiftDataHelper.getSavedServerById(serverEnt.id, from: container) else {
                 throw MCIntentError.DB_ID_MISSING
             }
             

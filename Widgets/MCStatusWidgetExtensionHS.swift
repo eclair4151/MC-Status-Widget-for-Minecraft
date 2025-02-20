@@ -55,7 +55,7 @@ struct MinecraftServerStatusHSWidgetEntryView: View {
         case .systemMedium:
             MediumWidgetView(entry)
             
-        @unknown default:
+        default:
             Text("Not implemented")
         }
     }

@@ -69,10 +69,9 @@ enum LSWidgetType {
 }
 
 struct MinecraftServerStatusLSWidgetEntryView: View {
+    @Environment(\.widgetFamily) private var family
     var entry: LockscreenProvider.Entry
     var widgetType: LSWidgetType = .ImageAndText
-    
-    @Environment(\.widgetFamily) private var family
     
     @ViewBuilder
     var body: some View {
@@ -102,7 +101,7 @@ struct MinecraftServerStatusLSWidgetEntryView: View {
         case .accessoryCorner:
             CornerAccessoryWidgetView1(entry)
 #endif
-        @unknown default:
+        default:
             Text("Not implemented")
         }
     }

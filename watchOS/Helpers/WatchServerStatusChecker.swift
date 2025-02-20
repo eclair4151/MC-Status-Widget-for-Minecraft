@@ -35,11 +35,11 @@ class WatchServerStatusChecker {
                 }
             }
             
-            checkServers(servers: [server])
+            checkServers([server])
         }
     }
     
-    func checkServers(servers: [SavedMinecraftServer]) {
+    func checkServers(_ servers: [SavedMinecraftServer]) {
         print("Watch is going to ask for server status from phone")
         
         let serverBatch = servers.reduce(into: [UUID: SavedMinecraftServer]()) {

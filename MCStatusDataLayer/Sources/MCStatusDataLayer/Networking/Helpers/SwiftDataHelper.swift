@@ -41,7 +41,7 @@ public class SwiftDataHelper {
     }
     
     @MainActor
-    public static func getSavedServers(container: ModelContainer) -> [SavedMinecraftServer] {
+    public static func getSavedServers(_ container: ModelContainer) -> [SavedMinecraftServer] {
         let modelContext = container.mainContext
         
         let fetch = FetchDescriptor<SavedMinecraftServer>(
@@ -57,11 +57,11 @@ public class SwiftDataHelper {
     }
     
     @MainActor
-    public static func getSavedServerById(container: ModelContainer, server_id: UUID) -> SavedMinecraftServer? {
+    public static func getSavedServerById(_ id: UUID, from container: ModelContainer) -> SavedMinecraftServer? {
         let modelContext = container.mainContext
         
         let serverPredicate = #Predicate<SavedMinecraftServer> {
-            $0.id == server_id
+            $0.id == id
         }
         
         var fetch = FetchDescriptor<SavedMinecraftServer>(

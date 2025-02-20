@@ -5,8 +5,13 @@ struct SavedServerEntity: AppEntity {
     static var defaultQuery = SavedServerQuery()
     static var typeDisplayRepresentation: TypeDisplayRepresentation = "Server"
     
+#warning("Add description & image")
     var displayRepresentation: DisplayRepresentation {
-        DisplayRepresentation(title: "\(serverName)")
+        DisplayRepresentation(
+            title: "\(serverName)"
+            // subtitle: "",
+            // image: <#T##DisplayRepresentation.Image?#>
+        )
     }
     
     var id: UUID
@@ -19,7 +24,7 @@ struct SavedServerQuery: EntityQuery {
         var result: [SavedServerEntity] = []
         
         for id in identifiers {
-            guard let server = await SwiftDataHelper.getSavedServerById(container: container, server_id: id) else {
+            guard let server = await SwiftDataHelper.getSavedServerById(id, from: container) else {
                 continue
             }
             
@@ -34,7 +39,7 @@ struct SavedServerQuery: EntityQuery {
     
     func suggestedEntities() async throws -> [SavedServerEntity] {
         let container = SwiftDataHelper.getModelContainter()
-        let servers = await SwiftDataHelper.getSavedServers(container: container)
+        let servers = await SwiftDataHelper.getSavedServers(container)
         
         return servers.map {
             SavedServerEntity(id: $0.id, serverName: $0.name)
