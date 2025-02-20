@@ -69,7 +69,7 @@ struct MainAppContentView: View {
             }
             .navigationDestination(for: SettingsPageDestinations.self) { destination in
                 switch destination {
-                case .GeneralSettings: GeneralSettingsView()
+                case .GeneralSettings: GeneralSettings()
                 case .FAQ:             FAQView(getiOSFAQs())
                 case .Shortcuts:       ShortcutsGuideView()
                 case .Siri:            SiriGuideView()

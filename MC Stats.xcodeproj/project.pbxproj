@@ -173,7 +173,7 @@
 		F33A5CAF2D640C370020D8A5 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33A5CAE2D640C370020D8A5 /* ScrechKit */; };
 		F33A5CB12D640C3B0020D8A5 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33A5CB02D640C3B0020D8A5 /* ScrechKit */; };
 		F33A5CB32D640C440020D8A5 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33A5CB22D640C440020D8A5 /* ScrechKit */; };
-		F35E1A6D2D6489FD00718CB7 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettingsView.swift */; };
+		F35E1A6D2D6489FD00718CB7 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */; };
 		F35E1A6F2D649C6000718CB7 /* FeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */; };
 		F35E1A712D649D1300718CB7 /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
 		F35E1A742D64A4B200718CB7 /* LowPowerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A732D64A4B200718CB7 /* LowPowerMode.swift */; };
@@ -194,7 +194,7 @@
 		F35E1AAA2D6522D100718CB7 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */; };
 		F35E1AAB2D6522D100718CB7 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
 		F35E1AAC2D6522D600718CB7 /* EditServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */; };
-		F35E1AAD2D6522D600718CB7 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettingsView.swift */; };
+		F35E1AAD2D6522D600718CB7 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */; };
 		F35E1AAE2D6522D600718CB7 /* ShortcutsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4352CC1709700739646 /* ShortcutsGuideView.swift */; };
 		F35E1AAF2D6522D600718CB7 /* ServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* ServerRowView.swift */; };
 		F35E1AB02D6522D600718CB7 /* SettingsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */; };
@@ -244,7 +244,7 @@
 		F3C879E72D6572CA00840745 /* SettingsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */; };
 		F3C879E82D6572CA00840745 /* EditServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */; };
 		F3C879E92D6572CA00840745 /* ShortcutsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4352CC1709700739646 /* ShortcutsGuideView.swift */; };
-		F3C879EA2D6572CA00840745 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettingsView.swift */; };
+		F3C879EA2D6572CA00840745 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */; };
 		F3C879EB2D6572D000840745 /* RealmDbMigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */; };
 		F3C879EC2D6572D000840745 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* ViewHelpers.swift */; };
 		F3C879ED2D6572D000840745 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
@@ -451,7 +451,7 @@
 		F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftItalic.otf; sourceTree = "<group>"; };
 		F304725B2D63FBFC0055C007 /* MinecraftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftRegular.otf; sourceTree = "<group>"; };
 		F326DB572D6416E100BCCB69 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		F35E1A6C2D6489FD00718CB7 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
+		F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
 		F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureRow.swift; sourceTree = "<group>"; };
 		F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriGuidePhrase.swift; sourceTree = "<group>"; };
 		F35E1A732D64A4B200718CB7 /* LowPowerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowPowerMode.swift; sourceTree = "<group>"; };
@@ -843,7 +843,7 @@
 			isa = PBXGroup;
 			children = (
 				F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */,
-				F35E1A6C2D6489FD00718CB7 /* GeneralSettingsView.swift */,
+				F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */,
 				F150B4352CC1709700739646 /* ShortcutsGuideView.swift */,
 			);
 			path = Settings;
@@ -1282,7 +1282,7 @@
 				F30246D42D667ED50030F71C /* ServerPing.swift in Sources */,
 				F13E5FFD2A4BD614005BE9B2 /* MC Stats.swift in Sources */,
 				F150B4362CC1709700739646 /* ShortcutsGuideView.swift in Sources */,
-				F35E1A6D2D6489FD00718CB7 /* GeneralSettingsView.swift in Sources */,
+				F35E1A6D2D6489FD00718CB7 /* GeneralSettings.swift in Sources */,
 				F30472422D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */,
 				F30472432D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
 				F17AE0EF2CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
@@ -1391,7 +1391,7 @@
 				F35E1AC02D65236900718CB7 /* SwiftyPing.swift in Sources */,
 				F35E1AC72D652B3B00718CB7 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
 				F35E1AC62D652B3000718CB7 /* MCStatusShortcutsProvider.swift in Sources */,
-				F35E1AAD2D6522D600718CB7 /* GeneralSettingsView.swift in Sources */,
+				F35E1AAD2D6522D600718CB7 /* GeneralSettings.swift in Sources */,
 				F35E1AAE2D6522D600718CB7 /* ShortcutsGuideView.swift in Sources */,
 				F35E1AAF2D6522D600718CB7 /* ServerRowView.swift in Sources */,
 				F35E1AC52D65238800718CB7 /* MC Stats.swift in Sources */,
@@ -1454,7 +1454,7 @@
 				F3C879E72D6572CA00840745 /* SettingsRootView.swift in Sources */,
 				F3C879E82D6572CA00840745 /* EditServerView.swift in Sources */,
 				F3C879E92D6572CA00840745 /* ShortcutsGuideView.swift in Sources */,
-				F3C879EA2D6572CA00840745 /* GeneralSettingsView.swift in Sources */,
+				F3C879EA2D6572CA00840745 /* GeneralSettings.swift in Sources */,
 				F3C879DA2D6572B000840745 /* MainAppContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,7 +1,7 @@
 import SwiftUI
 
 // General Settings Sub-View
-struct GeneralSettingsView: View {
+struct GeneralSettings: View {
     @AppStorage(UserDefaultHelper.Key.iCloudEnabled.rawValue)        private var toggle1 = true
     @AppStorage(UserDefaultHelper.Key.showUsersOnHomesreen.rawValue) private var toggle2 = true
     @AppStorage(UserDefaultHelper.Key.sortUsersByName.rawValue)      private var toggle3 = true
@@ -39,6 +39,7 @@ struct GeneralSettingsView: View {
                 }
             }
             
+#if !os(tvOS)
             Toggle(isOn: $toggle4) {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Widget opens directly to server")
@@ -48,11 +49,12 @@ struct GeneralSettingsView: View {
                         .foregroundColor(.gray)
                 }
             }
+#endif
         }
         .navigationTitle("General Settings")
     }
 }
 
 #Preview {
-    GeneralSettingsView()
+    GeneralSettings()
 }
