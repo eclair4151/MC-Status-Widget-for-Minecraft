@@ -17,10 +17,14 @@ struct SelectServerIntent: AppIntent, WidgetConfigurationIntent, CustomIntentMig
     @Parameter(title: "Theme")
     var Theme: ThemeIntentTypeAppEntity?
     
+    @Parameter(title: "Show max player count", description: "Displays the max player count alongside the current number of players in the widgets", default: true)
+    var showMaxPlayerCount: Bool
+    
     static var parameterSummary: some ParameterSummary {
         Summary {
             \.$Server
             \.$Theme
+            \.$showMaxPlayerCount
         }
     }
 }

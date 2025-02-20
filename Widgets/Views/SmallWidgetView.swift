@@ -3,28 +3,20 @@ import Intents
 import WidgetKit
 
 struct BaseWidgetView: View {
+    @Environment(\.widgetRenderingMode) private var widgetRenderingMode
+    
     private var entry: HomescreenProvider.Entry
     
     init(_ entry: HomescreenProvider.Entry) {
         self.entry = entry
     }
     
-    @Environment(\.widgetRenderingMode) private var widgetRenderingMode
-    
     private var progressBgOpacity: Double {
-        if widgetRenderingMode == .accented {
-            0.6
-        } else {
-            1
-        }
+        widgetRenderingMode == .accented ? 0.6 : 1
     }
     
     private var progressBgColor: Color {
-        if widgetRenderingMode == .accented {
-            .primary
-        } else {
-            .gray
-        }
+        widgetRenderingMode == .accented ? .primary : .gray
     }
     
     var body: some View {
@@ -46,7 +38,7 @@ struct BaseWidgetView: View {
                             .frame(width: 16, height: 16)
                             .scaleEffect(CGSize(width: 0.65, height: 0.65), anchor: .center)
                             .foregroundColor(.veryTransparentText)
-                            .invalidatableContent() // You can adjust the size as needed
+                            .invalidatableContent() // Adjust the size as needed
                         
                         Text(entry.vm.lastUpdated)
                             .fontSize(14)
@@ -97,16 +89,22 @@ struct BaseWidgetView: View {
                     }
                 }
                 
-                Text(entry.vm.progressString)
-                    .bold()
-                    .fontSize(CGFloat(entry.vm.progressStringSize))
-                    .foregroundColor(.regularText)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.7)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.top,3)
-                    .padding(.trailing, 16)
-                    .opacity(entry.vm.progressStringAlpha)
+                VStack {
+                    if entry.configuration.showMaxPlayerCount {
+                        Text(entry.vm.progressString)
+                    } else {
+                        Text(entry.vm.playersOnline)
+                    }
+                }
+                .bold()
+                .fontSize(CGFloat(entry.vm.progressStringSize))
+                .foregroundColor(.regularText)
+                .lineLimit(1)
+                .minimumScaleFactor(0.7)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.top,3)
+                .padding(.trailing, 16)
+                .opacity(entry.vm.progressStringAlpha)
                 
                 if entry.vm.statusIcon == nil {
                     CustomProgressView(

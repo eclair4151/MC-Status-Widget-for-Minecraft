@@ -117,6 +117,9 @@
     "Delete Server?" : {
 
     },
+    "Displays the max player count alongside the current number of players in the widgets" : {
+
+    },
     "Edit" : {
 
     },
@@ -394,13 +397,16 @@
     "Shortcuts" : {
 
     },
-    "Show users in each row under the progress bar on the main server list" : {
+    "Show max player count" : {
 
     },
-    "Show users on server list" : {
+    "Show players in each row under the progress bar on the main server list" : {
 
     },
-    "Show users sorted alphabetically instead of randomly" : {
+    "Show players on server list" : {
+
+    },
+    "Show players sorted alphabetically instead of randomly" : {
 
     },
     "Siri" : {
@@ -409,7 +415,11 @@
     "Some servers use plugins to disable this feature or replace player names with custom messages. Servers running versions older than 1.7 must set enable-query=true in server.properties to enable it. Additionally, Bedrock servers do not support player lists" : {
 
     },
+    "Sort players alphabetically" : {
+
+    },
     "Sort users alphabetically" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -533,10 +543,13 @@
     "Which server would you like to check the status of?" : {
 
     },
-    "Widget opens directly to server" : {
+    "Widget to show the status of Minecraft Server" : {
 
     },
-    "Widget to show the status of Minecraft Server" : {
+    "Widgets" : {
+
+    },
+    "Widgets open directly to server" : {
 
     },
     "With Shortcuts, you can quickly check the status of your Minecraft servers without even opening the app. Use the built in shortcuts to show the current status and player count, or create custom shortcuts using the server's online status, current player count, player sample, and more" : {
