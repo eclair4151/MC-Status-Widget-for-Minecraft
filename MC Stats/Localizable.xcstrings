@@ -32,10 +32,10 @@
     "%lld ping" : {
 
     },
-    "Add a Server" : {
+    "+" : {
 
     },
-    "Add Item" : {
+    "Add a Server" : {
 
     },
     "Add Server" : {
@@ -526,6 +526,9 @@
           }
         }
       }
+    },
+    "Unsupported on tvOS" : {
+
     },
     "Which server would you like to check the status of?" : {
 

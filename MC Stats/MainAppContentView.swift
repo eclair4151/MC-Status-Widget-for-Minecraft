@@ -109,7 +109,11 @@ struct MainAppContentView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationLink(value: PageDestinations.SettingsRoot) {
-                        Label("Settings", systemImage: "gear")
+#if os(tvOS)
+                        Text("Settings")
+#else
+                        Image(systemName: "gear")
+#endif
                     }
                 }
                 
@@ -127,7 +131,11 @@ struct MainAppContentView: View {
                     Button {
                         showingAddSheet.toggle()
                     } label: {
-                        Label("Add Item", systemImage: "plus")
+#if os(tvOS)
+                        Text("+")
+#else
+                        Image(systemName: "plus")
+#endif
                     }
                 }
             }
@@ -137,6 +145,7 @@ struct MainAppContentView: View {
             // this is some code to investigate an apple watch bug
             if newPhase == .active {
                 print("Active")
+                
                 reloadData()
                 checkForAutoReload()
                 checkForAppReviewRequest()

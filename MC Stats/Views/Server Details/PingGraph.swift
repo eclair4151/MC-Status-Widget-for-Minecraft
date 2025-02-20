@@ -19,6 +19,10 @@ struct PingGraph: View {
     @State private var showLollipop = true
     
     var average: Int {
+        guard !data.isEmpty else {
+            return 0
+        }
+        
         let avg = data.map {
             Double($0.ping)
         }.reduce(0, +) / Double(data.count)
