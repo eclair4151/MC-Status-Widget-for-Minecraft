@@ -227,21 +227,19 @@ struct ServerStatusDetailView: View {
             }
 #endif
             ToolbarItemGroup(placement: .topBarTrailing) {
-                HStack {
-                    Button(role: .destructive) {
-                        showingDeleteAlert = true
-                    } label: {
+                Button(role: .destructive) {
+                    showingDeleteAlert = true
+                } label: {
 #if os(tvOS)
-                        Text("Delete Server")
+                    Text("Delete Server")
 #else
-                        Label("Delete Server", systemImage: "trash")
+                    Label("Delete Server", systemImage: "trash")
 #endif
-                    }
-                    .foregroundColor(.red)
-                    
-                    Button("Edit") {
-                        showingEditSheet = true
-                    }
+                }
+                .foregroundColor(.red)
+                
+                Button("Edit") {
+                    showingEditSheet = true
                 }
             }
         }
