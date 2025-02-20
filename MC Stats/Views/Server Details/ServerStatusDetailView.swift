@@ -231,7 +231,8 @@ struct ServerStatusDetailView: View {
                     showingDeleteAlert = true
                 } label: {
 #if os(tvOS)
-                    Text("Delete Server")
+                    Text("Delete")
+                        .foregroundStyle(.red)
 #else
                     Label("Delete Server", systemImage: "trash")
 #endif
