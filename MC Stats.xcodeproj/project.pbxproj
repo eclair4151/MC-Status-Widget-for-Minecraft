@@ -29,7 +29,7 @@
 		F130955A2CBD499700C4C7BA /* ConnectivityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E94B02A8C61B60039DD2B /* ConnectivityProvider.swift */; };
 		F13E5FFD2A4BD614005BE9B2 /* MC Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */; };
 		F13E60012A4BD614005BE9B2 /* MainAppContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */; };
-		F1406BAC2AA391B800815BE8 /* MCStatusAppIntentsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BAB2AA391B800815BE8 /* MCStatusAppIntentsExtension.swift */; };
+		F1406BAC2AA391B800815BE8 /* AppIntentsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BAB2AA391B800815BE8 /* AppIntentsExtension.swift */; };
 		F1406BBF2AA3933400815BE8 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
 		F1406BC22AA3936E00815BE8 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
 		F150B3592CC078D600739646 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
@@ -380,7 +380,7 @@
 		F13E60082A4BD615005BE9B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentErrors.swift; sourceTree = "<group>"; };
 		F1406BA92AA391B800815BE8 /* Intents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = Intents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1406BAB2AA391B800815BE8 /* MCStatusAppIntentsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusAppIntentsExtension.swift; sourceTree = "<group>"; };
+		F1406BAB2AA391B800815BE8 /* AppIntentsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntentsExtension.swift; sourceTree = "<group>"; };
 		F1406BAF2AA391B800815BE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1406BB72AA391F400815BE8 /* MCStatusAppIntentsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusAppIntentsExtension.entitlements; sourceTree = "<group>"; };
 		F150B3582CC078D300739646 /* MigrationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationHelper.swift; sourceTree = "<group>"; };
@@ -641,7 +641,7 @@
 				F149FEC32AA9696F00A269A3 /* Intents */,
 				F1406BA02AA2CC2F00815BE8 /* Entities */,
 				F1406BB72AA391F400815BE8 /* MCStatusAppIntentsExtension.entitlements */,
-				F1406BAB2AA391B800815BE8 /* MCStatusAppIntentsExtension.swift */,
+				F1406BAB2AA391B800815BE8 /* AppIntentsExtension.swift */,
 				F1406BAF2AA391B800815BE8 /* Info.plist */,
 			);
 			path = Intents;
@@ -1319,7 +1319,7 @@
 				F150B35D2CC078D600739646 /* MigrationHelper.swift in Sources */,
 				F1CFCD522CABB567001A9E69 /* CustomExtentions.swift in Sources */,
 				F17AE0F52CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
-				F1406BAC2AA391B800815BE8 /* MCStatusAppIntentsExtension.swift in Sources */,
+				F1406BAC2AA391B800815BE8 /* AppIntentsExtension.swift in Sources */,
 				F1EF775E2CB8B88B00EFFB20 /* ImageHelper.swift in Sources */,
 				F1406BBF2AA3933400815BE8 /* IntentErrors.swift in Sources */,
 				F130955A2CBD499700C4C7BA /* ConnectivityProvider.swift in Sources */,
