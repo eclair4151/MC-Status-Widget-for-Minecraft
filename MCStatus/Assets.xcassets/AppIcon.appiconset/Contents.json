@@ -1,31 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "MC Stats Light.png",
-      "idiom" : "universal",
-      "platform" : "ios",
-      "size" : "1024x1024"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "filename" : "MC Stats Dark.png",
-      "idiom" : "universal",
-      "platform" : "ios",
-      "size" : "1024x1024"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "tinted"
-        }
-      ],
-      "filename" : "MC Stats Dark 1.png",
+      "filename" : "Без имени-6.jpg",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
