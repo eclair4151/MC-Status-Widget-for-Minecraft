@@ -226,7 +226,7 @@
 		F383D1982D67D3D100FE4239 /* SiriGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4332CC15F6A00739646 /* SiriGuideView.swift */; };
 		F383D1992D67D3DB00FE4239 /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
 		F383D19A2D67D3DB00FE4239 /* SiriPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C42D65E6F70030F71C /* SiriPhrase.swift */; };
-		F3C879D22D65722200840745 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3C879CD2D65722200840745 /* Assets.xcassets */; };
+		F383D19B2D67E60400FE4239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3C879CD2D65722200840745 /* Assets.xcassets */; };
 		F3C879D72D6572AA00840745 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
 		F3C879D82D6572AA00840745 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
 		F3C879D92D6572B000840745 /* MC Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */; };
@@ -1183,8 +1183,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F383D19B2D67E60400FE4239 /* Assets.xcassets in Resources */,
 				F3C879D72D6572AA00840745 /* Localizable.xcstrings in Resources */,
-				F3C879D22D65722200840745 /* Assets.xcassets in Resources */,
 				F3C879F42D6572DF00840745 /* MinecraftRegular.otf in Resources */,
 				F3C879F52D6572DF00840745 /* MinecraftItalic.otf in Resources */,
 				F3C879F62D6572DF00840745 /* MinecraftBold.otf in Resources */,
@@ -2026,6 +2026,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = tvOS/tvOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
@@ -2058,6 +2059,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = tvOS/tvOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
