@@ -25,7 +25,15 @@ struct ReleaseNotesView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 ForEach(features) { feature in
+#if os(tvOS)
+                    Button {
+                        
+                    } label: {
+                        FeatureRow(feature)
+                    }
+#else
                     FeatureRow(feature)
+#endif
                 }
                 
                 // Thank You & Tip/Review Buttons Section

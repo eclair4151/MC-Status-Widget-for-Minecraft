@@ -69,7 +69,7 @@ struct MainAppContentView: View {
             }
             .navigationDestination(for: SettingsPageDestinations.self) { destination in
                 switch destination {
-                case .GeneralSettings: GeneralSettingsView()
+                case .GeneralSettings: GeneralSettings()
                 case .FAQ:             FAQView(getiOSFAQs())
                 case .Shortcuts:       ShortcutsGuideView()
                 case .Siri:            SiriGuideView()
@@ -109,17 +109,24 @@ struct MainAppContentView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationLink(value: PageDestinations.SettingsRoot) {
-                        Label("Settings", systemImage: "gear")
+#if os(tvOS)
+                        Text("Settings")
+#else
+                        Image(systemName: "gear")
+#endif
                     }
                 }
                 
-                // Gross (show refresh button only on mac status bar since they can't pull to refresh)
-#if targetEnvironment(macCatalyst)
+#if os(macOS) || os(tvOS)
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         reloadData(forceRefresh: true)
                     } label: {
+#if os(macOS)
                         Label("Refresh Servers", systemImage: "arrow.clockwise")
+#elseif os(tvOS)
+                        Text("Refresh")
+#endif
                     }
                 }
 #endif
@@ -127,7 +134,11 @@ struct MainAppContentView: View {
                     Button {
                         showingAddSheet.toggle()
                     } label: {
-                        Label("Add Item", systemImage: "plus")
+#if os(tvOS)
+                        Text("+")
+#else
+                        Image(systemName: "plus")
+#endif
                     }
                 }
             }
@@ -137,6 +148,7 @@ struct MainAppContentView: View {
             // this is some code to investigate an apple watch bug
             if newPhase == .active {
                 print("Active")
+                
                 reloadData()
                 checkForAutoReload()
                 checkForAppReviewRequest()
@@ -203,16 +215,12 @@ struct MainAppContentView: View {
                 // just migration to 2.0! check if showing error alert and show new stuff sheet
             }
         }
-        .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text(alertTitle),
-                message: Text(alertMessage),
-                dismissButton: .default(
-                    Text("OK"),
-                    action: {
-                        showReleaseNotes = true
-                    })
-            )
+        .alert("Title", isPresented: $showAlert) {
+            Button("OK") {
+                showReleaseNotes = true
+            }
+        } message: {
+            Text(alertMessage)
         }
     }
     
@@ -320,7 +328,7 @@ struct MainAppContentView: View {
             config.forceSRVRefresh = forceSRVRefreh
             
             let vm = ServerStatusVM(
-                modelContext: self.modelContext,
+                modelContext: modelContext,
                 server: $0
             )
             

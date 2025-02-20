@@ -32,10 +32,10 @@
     "%lld ping" : {
 
     },
-    "Add a Server" : {
+    "+" : {
 
     },
-    "Add Item" : {
+    "Add a Server" : {
 
     },
     "Add Server" : {
@@ -53,7 +53,7 @@
     "Arbitrary Minecraft Server Status Check" : {
 
     },
-    "Average: %lf" : {
+    "Average: %lld ms" : {
 
     },
     "Avg." : {
@@ -285,6 +285,9 @@
     "Refresh" : {
 
     },
+    "Refresh Servers" : {
+
+    },
     "Refresh Widget" : {
 
     },
@@ -512,6 +515,9 @@
       }
     },
     "Tip %@" : {
+
+    },
+    "Title" : {
 
     },
     "Unknown error" : {
