@@ -201,20 +201,6 @@ struct MainAppContentView: View {
                 ReleaseNotesView()
             }
         }
-        .onAppear {
-            let migrationResult = MigrationHelper.migrationIfNeeded()
-            
-            if let migrationResult {
-                let old_v =  migrationResult.0
-                let new_v = migrationResult.1
-                
-                if old_v == 0 && new_v >= 1 {
-                    checkForBrokenWidgets()
-                }
-                
-                // just migration to 2.0! check if showing error alert and show new stuff sheet
-            }
-        }
         .alert("Title", isPresented: $showAlert) {
             Button("OK") {
                 showReleaseNotes = true
@@ -222,31 +208,6 @@ struct MainAppContentView: View {
         } message: {
             Text(alertMessage)
         }
-    }
-    
-    private func checkForBrokenWidgets() {
-#if canImport(WidgetKit)
-        WidgetCenter.shared.getCurrentConfigurations { result in
-            switch result {
-            case .success(let widgets):
-                if widgets.isEmpty {
-                    showReleaseNotes = true
-                } else {
-                    showWidgetWarning()
-                }
-                
-            case .failure(let error):
-                showReleaseNotes = true
-                print(error)
-            }
-        }
-#endif
-    }
-    
-    private func showWidgetWarning() {
-        alertTitle = "Widget Migration Notice!"
-        alertMessage = "Due to a bug in iOS, widgets have been reset while migrating to the new App Intent System. (FB15531563). Simply edit your widget and re-select your server to fix them. Thank you for understanding! (I hope the new features make up for it!)"
-        showAlert = true
     }
     
     private func goToServerView(_ vm: ServerStatusVM) {

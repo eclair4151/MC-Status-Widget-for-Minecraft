@@ -32,11 +32,6 @@
 		F1406BAC2AA391B800815BE8 /* Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BAB2AA391B800815BE8 /* Intents.swift */; };
 		F1406BBF2AA3933400815BE8 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
 		F1406BC22AA3936E00815BE8 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
-		F150B3592CC078D600739646 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
-		F150B35A2CC078D600739646 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
-		F150B35B2CC078D600739646 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
-		F150B35C2CC078D600739646 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
-		F150B35D2CC078D600739646 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
 		F150B4342CC15F6A00739646 /* SiriGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4332CC15F6A00739646 /* SiriGuideView.swift */; };
 		F150B4362CC1709700739646 /* ShortcutsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4352CC1709700739646 /* ShortcutsGuideView.swift */; };
 		F150B43F2CC18C1100739646 /* ReleaseNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */; };
@@ -202,7 +197,6 @@
 		F35E1ABA2D65236300718CB7 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
 		F35E1ABC2D65236300718CB7 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
 		F35E1ABD2D65236300718CB7 /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F130954E2CBC9D5600C4C7BA /* ConfigHelper.swift */; };
-		F35E1ABE2D65236300718CB7 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
 		F35E1ABF2D65236300718CB7 /* MOTD View Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* MOTD View Generator.swift */; };
 		F35E1AC02D65236900718CB7 /* SwiftyPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */; };
 		F35E1AC12D65237200718CB7 /* MinecraftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725B2D63FBFC0055C007 /* MinecraftRegular.otf */; };
@@ -247,7 +241,6 @@
 		F3C879ED2D6572D000840745 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
 		F3C879EE2D6572D000840745 /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F130954E2CBC9D5600C4C7BA /* ConfigHelper.swift */; };
 		F3C879EF2D6572D000840745 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
-		F3C879F02D6572D000840745 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
 		F3C879F12D6572D000840745 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
 		F3C879F22D6572D000840745 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
 		F3C879F32D6572D500840745 /* SwiftyPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */; };
@@ -380,7 +373,6 @@
 		F1406BAB2AA391B800815BE8 /* Intents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intents.swift; sourceTree = "<group>"; };
 		F1406BAF2AA391B800815BE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1406BB72AA391F400815BE8 /* MCStatusAppIntentsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusAppIntentsExtension.entitlements; sourceTree = "<group>"; };
-		F150B3582CC078D300739646 /* MigrationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationHelper.swift; sourceTree = "<group>"; };
 		F150B4332CC15F6A00739646 /* SiriGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriGuideView.swift; sourceTree = "<group>"; };
 		F150B4352CC1709700739646 /* ShortcutsGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsGuideView.swift; sourceTree = "<group>"; };
 		F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseNotesView.swift; sourceTree = "<group>"; };
@@ -692,7 +684,6 @@
 		F1BF5D9D2A8025EE00966D56 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				F150B3582CC078D300739646 /* MigrationHelper.swift */,
 				F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */,
 				F17AE0ED2CC0363F00DC7A80 /* MOTD View Generator.swift */,
 				F130954E2CBC9D5600C4C7BA /* ConfigHelper.swift */,
@@ -1196,7 +1187,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F150B3592CC078D600739646 /* MigrationHelper.swift in Sources */,
 				F1EF76CA2CB422D400EFFB20 /* WatchServerDetailScreen.swift in Sources */,
 				F174A3012A915E450051DA5B /* WatchServerStatusChecker.swift in Sources */,
 				F13095532CBC9D5600C4C7BA /* ConfigHelper.swift in Sources */,
@@ -1236,7 +1226,6 @@
 				F17AE0F42CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
 				F304724D2D63E9D20055C007 /* ServerIntentTypeAppEntity.swift in Sources */,
 				F304724E2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */,
-				F150B35A2CC078D600739646 /* MigrationHelper.swift in Sources */,
 				F30472192D63E9C00055C007 /* CircularAccessoryWidgetView1.swift in Sources */,
 				F304721A2D63E9C00055C007 /* CircularAccessoryWidgetView2.swift in Sources */,
 				F304721B2D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift in Sources */,
@@ -1284,7 +1273,6 @@
 				F17AE0EF2CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */,
 				F30246C72D65E6F70030F71C /* SiriPhrase.swift in Sources */,
 				F16990822CA5DDE500F41232 /* IntentErrors.swift in Sources */,
-				F150B35B2CC078D600739646 /* MigrationHelper.swift in Sources */,
 				F1EF775F2CB8B88B00EFFB20 /* ImageHelper.swift in Sources */,
 				F30246D82D66816E0030F71C /* PingGraph.swift in Sources */,
 				F1CFCD512CABB567001A9E69 /* CustomExtentions.swift in Sources */,
@@ -1311,7 +1299,6 @@
 				F10C42172AAD55BF000107D6 /* MCStatusShortcutsProvider.swift in Sources */,
 				F304724B2D63E9D20055C007 /* ServerIntentTypeAppEntity.swift in Sources */,
 				F304724C2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */,
-				F150B35D2CC078D600739646 /* MigrationHelper.swift in Sources */,
 				F1CFCD522CABB567001A9E69 /* CustomExtentions.swift in Sources */,
 				F17AE0F52CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
 				F1406BAC2AA391B800815BE8 /* Intents.swift in Sources */,
@@ -1331,7 +1318,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F150B35C2CC078D600739646 /* MigrationHelper.swift in Sources */,
 				F304720B2D63E9C00055C007 /* HomescreenProvider.swift in Sources */,
 				F304720C2D63E9C00055C007 /* LockscreenProvider.swift in Sources */,
 				F30472372D63E9CF0055C007 /* SelectServerIntent.swift in Sources */,
@@ -1400,7 +1386,6 @@
 				F35E1AC82D652B4700718CB7 /* IntentErrors.swift in Sources */,
 				F35E1ABC2D65236300718CB7 /* UserDefaultHelper.swift in Sources */,
 				F35E1ABD2D65236300718CB7 /* ConfigHelper.swift in Sources */,
-				F35E1ABE2D65236300718CB7 /* MigrationHelper.swift in Sources */,
 				F35E1ABF2D65236300718CB7 /* MOTD View Generator.swift in Sources */,
 				F35E1AC92D652C5B00718CB7 /* SavedServerEntity.swift in Sources */,
 				F35E1AA42D6522C600718CB7 /* ReleaseNotesView.swift in Sources */,
@@ -1434,7 +1419,6 @@
 				F3C879EE2D6572D000840745 /* ConfigHelper.swift in Sources */,
 				F3C879EF2D6572D000840745 /* ImageHelper.swift in Sources */,
 				F3C87A042D6574D200840745 /* FAQRow.swift in Sources */,
-				F3C879F02D6572D000840745 /* MigrationHelper.swift in Sources */,
 				F3C879F12D6572D000840745 /* ReviewHelper.swift in Sources */,
 				F3C87A0C2D6575C800840745 /* ServerStatusEntity.swift in Sources */,
 				F3C87A0F2D657A1500840745 /* Feature.swift in Sources */,
