@@ -28,7 +28,7 @@ struct HomescreenProvider: AppIntentTimelineProvider {
         let container = SwiftDataHelper.getModelContainter()
         
         if !context.isPreview, let (server, serverStatus, widgetTheme) = await loadTimelineData(from: container, with: configuration) {
-            let serverIcon = ImageHelper.convertFavIconString(serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
+            let serverIcon = ImageHelper.favIconString(serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
             
             vm = WidgetEntryVM(
                 serverName: server.name,
@@ -100,10 +100,13 @@ struct HomescreenProvider: AppIntentTimelineProvider {
             
             entries.append(entry)
             
-            return Timeline(entries: entries, policy: .after(futureDate))
+            return Timeline(
+                entries: entries,
+                policy: .after(futureDate)
+            )
         }
         
-        let serverIcon = ImageHelper.convertFavIconString(serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
+        let serverIcon = ImageHelper.favIconString(serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
         
         for minOffset in 0..<15 {
             var timeStr = ""
