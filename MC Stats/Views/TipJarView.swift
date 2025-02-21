@@ -145,7 +145,7 @@ struct TipJarView: View {
         await transaction.finish()
         
         alertTitle = "Thank You"
-        alertMessage = "Thank you for supporting the development of MC Stats! Your contribution helps keep the app ad-free and open source for everyone."
+        alertMessage = "Thank you for supporting the development of MC Stats! Your contribution helps keep the app ad-free and open source for everyone!"
         showAlert = true
     }
 }
