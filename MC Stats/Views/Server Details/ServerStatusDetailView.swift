@@ -58,7 +58,7 @@ struct ServerStatusDetailView: View {
     
     private var srvAddressText: String {
         if vm.hasSRVRecord() {
-            "srv: " + vm.server.srvServerUrl + ":" + String(vm.server.srvServerPort)
+            "SRV: " + vm.server.srvServerUrl + ":" + String(vm.server.srvServerPort)
         } else {
             ""
         }
@@ -169,12 +169,7 @@ struct ServerStatusDetailView: View {
                     }
                     .padding(.bottom, 10)
                     
-                    if let status = vm.status, let _ = status.description {
-                        status.generateMOTDView()
-                            .padding(10)
-                            .frame(maxWidth: .infinity, alignment: .leading) // Make the Text view full width
-                            .cornerRadius(15)
-                    }
+                    MOTDView(vm.status)
                     
                     Text(playersText)
                         .headline()

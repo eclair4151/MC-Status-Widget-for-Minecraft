@@ -221,6 +221,10 @@
 		F383D1992D67D3DB00FE4239 /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
 		F383D19A2D67D3DB00FE4239 /* SiriPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C42D65E6F70030F71C /* SiriPhrase.swift */; };
 		F383D19B2D67E60400FE4239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3C879CD2D65722200840745 /* Assets.xcassets */; };
+		F3BFB14D2D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
+		F3BFB14E2D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
+		F3BFB14F2D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
+		F3BFB1502D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
 		F3C879D72D6572AA00840745 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
 		F3C879D82D6572AA00840745 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
 		F3C879D92D6572B000840745 /* MC Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */; };
@@ -453,6 +457,7 @@
 		F35E1A952D6501CC00718CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F35E1A9D2D65209500718CB7 /* PlayerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCard.swift; sourceTree = "<group>"; };
 		F35E1ACB2D652C9000718CB7 /* visionOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = visionOS.entitlements; sourceTree = "<group>"; };
+		F3BFB14C2D68055A00E16468 /* MOTD View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOTD View.swift"; sourceTree = "<group>"; };
 		F3C879BD2D65720500840745 /* tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C879CD2D65722200840745 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3C879D52D65724C00840745 /* tvOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tvOS.entitlements; sourceTree = "<group>"; };
@@ -722,6 +727,7 @@
 			isa = PBXGroup;
 			children = (
 				F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */,
+				F3BFB14C2D68055A00E16468 /* MOTD View.swift */,
 				F30246D12D667ED50030F71C /* ServerPing.swift */,
 				F30246D52D66816E0030F71C /* PingGraph.swift */,
 				F30246C82D6661D60030F71C /* PlayerList.swift */,
@@ -1200,6 +1206,7 @@
 				F17AE0EE2CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
 				F1EF76D52CB449E700EFFB20 /* MCStatusShortcutsProvider.swift in Sources */,
 				F30472442D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */,
+				F3BFB1502D68055A00E16468 /* MOTD View.swift in Sources */,
 				F30472452D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
 				F1EF76C22CB4204E00EFFB20 /* WatchContentView.swift in Sources */,
 				F1EF76C32CB4204E00EFFB20 /* WatchServerRowView.swift in Sources */,
@@ -1256,6 +1263,7 @@
 				F35E1A6F2D649C6000718CB7 /* FeatureRow.swift in Sources */,
 				F30472542D63E9D30055C007 /* SavedServerEntity.swift in Sources */,
 				F35E1A742D64A4B200718CB7 /* LowPowerMode.swift in Sources */,
+				F3BFB14D2D68055A00E16468 /* MOTD View.swift in Sources */,
 				F3C87A062D6574DD00840745 /* FAQ.swift in Sources */,
 				F30472552D63E9D30055C007 /* ServerStatusEntity.swift in Sources */,
 				F30246CB2D6661D60030F71C /* PlayerList.swift in Sources */,
@@ -1358,6 +1366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F35E1AA12D6522B300718CB7 /* LowPowerMode.swift in Sources */,
+				F3BFB14E2D68055A00E16468 /* MOTD View.swift in Sources */,
 				F35E1AA22D6522B300718CB7 /* RefreshWidgets.swift in Sources */,
 				F35E1AA52D6522CB00718CB7 /* SiriGuidePhrase.swift in Sources */,
 				F35E1AA62D6522CB00718CB7 /* SiriGuideView.swift in Sources */,
@@ -1403,6 +1412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3C879DF2D6572C400840745 /* ServerStatusDetailView.swift in Sources */,
+				F3BFB14F2D68055A00E16468 /* MOTD View.swift in Sources */,
 				F3C879E02D6572C400840745 /* PlayerCard.swift in Sources */,
 				F3C87A0B2D6575B700840745 /* IntentErrors.swift in Sources */,
 				F383D1982D67D3D100FE4239 /* SiriGuideView.swift in Sources */,

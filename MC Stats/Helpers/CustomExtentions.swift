@@ -57,5 +57,13 @@ extension Color {
 }
 
 extension Font {
-    static let minecraftFont = Font.custom("Minecraft-Regular", size: 13)
+    static var size: CGFloat {
+#if os(tvOS)
+        40
+#else
+        13
+#endif
+    }
+    
+    static let minecraftFont = Font.custom("Minecraft-Regular", size: size)
 }
