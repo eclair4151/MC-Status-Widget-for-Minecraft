@@ -14,7 +14,7 @@ class MigrationHelper {
             
             setCurrentVersion(VERSION)
             
-            return (lastVer,VERSION)
+            return (lastVer, VERSION)
             
         } else {
             return nil
@@ -28,7 +28,7 @@ class MigrationHelper {
         }
     }
     
-    static  func getLastVersion() -> Int {
+    static func getLastVersion() -> Int {
         UserDefaults.standard.integer(forKey: "appVer")
     }
     
