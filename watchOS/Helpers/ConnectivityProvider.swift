@@ -7,13 +7,9 @@ enum WatchConnectivityError: Error {
 
 class ConnectivityProvider: NSObject, WCSessionDelegate {
 #if os(iOS)
-    func sessionDidBecomeInactive(_ session: WCSession) {
-        
-    }
+    func sessionDidBecomeInactive(_ session: WCSession) {}
     
-    func sessionDidDeactivate(_ session: WCSession) {
-        
-    }
+    func sessionDidDeactivate(_ session: WCSession) {}
 #endif
     
     var responseListener: (([String:Any]) -> Void)?
@@ -38,7 +34,7 @@ class ConnectivityProvider: NSObject, WCSessionDelegate {
         print("Phone seems to be connected. Sending message to phone...")
         
         WCSession.default.sendMessage(message, replyHandler: nil) { error in
-            print("Get error trying to talk to phone: " + error.localizedDescription)
+            print("Get error trying to talk to phone:", error.localizedDescription)
         }
     }
     
@@ -48,7 +44,7 @@ class ConnectivityProvider: NSObject, WCSessionDelegate {
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        print("Watch session activationState: " + String(activationState.rawValue))
+        print("Watch session activationState:", String(activationState.rawValue))
         connectionState = activationState
     }
     

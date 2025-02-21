@@ -9,7 +9,7 @@ class WatchHelper: NSObject, WCSessionDelegate {
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        print("watch session changed state: " + String(activationState.rawValue))
+        print("watch session changed state:", String(activationState.rawValue))
     }
     
     func sessionDidBecomeInactive(_ session: WCSession) {
@@ -54,7 +54,7 @@ class WatchHelper: NSObject, WCSessionDelegate {
                 print("SENDING STATUS RESPONSE TO WATCH")
                 
                 WCSession.default.sendMessage(payload, replyHandler: nil) { error in
-                    print("ERROR SENDING STATUS RESPONSE TO WATCH: " + error.localizedDescription)
+                    print("ERROR SENDING STATUS RESPONSE TO WATCH:", error.localizedDescription)
                 }
             }
         }

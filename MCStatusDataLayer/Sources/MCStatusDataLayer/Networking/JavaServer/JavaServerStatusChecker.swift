@@ -108,7 +108,7 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
                 })
                 
             case .failed(let error):
-                print("Connection failed with error: \(error)" + "   -   server: " + self.serverAddress)
+                print("Connection failed with error: \(error)" + "   -   server:", self.serverAddress)
                 self.callContinuationError(error: ServerStatusCheckerError.ServerUnreachable)
                 connection.cancel()
                 
@@ -116,7 +116,7 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
                 //                    print("Connection preparing or setup.")
                 //
                 //                case .waiting(let error):
-                //                    print("Connection waiting with error: \(error)" + "   -   server: " + self.serverAddress)
+                //                    print("Connection waiting with error: \(error)" + "   -   server:", self.serverAddress)
                 
             default:
                 break
@@ -138,7 +138,7 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
         // i would prefer to use connection.receiveMessage like in UDP for the bedrock server, but in my testing, java minecraft servers do not automatically close the connection after the message is finished sending, so you need to manually keep track of the incoming data packets and close the connection once you have received all the expected data
         connection.receive(minimumIncompleteLength: 1, maximumLength: 65536) { [self] data, _, isComplete, error in
             if let error {
-                print("Error receiving data: \(error)" + "  -  address: " + self.serverAddress)
+                print("Error receiving data: \(error)" + "  -  address:", self.serverAddress)
                 self.callContinuationError(error: ServerStatusCheckerError.ServerUnreachable)
                 connection.cancel()
                 

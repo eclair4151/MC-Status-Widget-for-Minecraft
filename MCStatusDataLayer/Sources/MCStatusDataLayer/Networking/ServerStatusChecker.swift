@@ -26,13 +26,13 @@ public class ServerStatusChecker {
             }
         }
         
-        print("starting server check for: " + server.serverUrl)
+        print("starting server check for:", server.serverUrl)
         
         // STEP 1 if we have SRV values, check that server
         // only Java servers support SRV records
         if  server.serverType == .Java && !server.srvServerUrl.isEmpty && server.srvServerPort != 0 {
             do {
-                print("CHECKING SERVER FROM CACHED SRV: " + server.srvServerUrl)
+                print("CHECKING SERVER FROM CACHED SRV:", server.srvServerUrl)
                 
                 let res = try await DirectServerStatusChecker.checkServer(
                     serverUrl: server.srvServerUrl,
@@ -46,7 +46,7 @@ public class ServerStatusChecker {
                 return res
             } catch {
                 // something when horribly wrong. Move to next step
-                print("ERROR CONNECTING TO CACHED SRV: " + error.localizedDescription)
+                print("ERROR CONNECTING TO CACHED SRV:", error.localizedDescription)
             }
         }
         
@@ -68,7 +68,7 @@ public class ServerStatusChecker {
                 return res
             } catch {
                 // something when horribly wrong. Move to next step
-                print("ERROR DIRECT CONNECTING TO MANUAL SERVER + PORT: " + error.localizedDescription)
+                print("ERROR DIRECT CONNECTING TO MANUAL SERVER + PORT:", error.localizedDescription)
             }
         }
         
@@ -85,7 +85,7 @@ public class ServerStatusChecker {
                 }
                 
                 // we need to save it in swift data here.
-                print("FOUND NEW SRV RECORD FROM DNS! CHECKING SERVER AT: " + server.srvServerUrl)
+                print("FOUND NEW SRV RECORD FROM DNS! CHECKING SERVER AT:", server.srvServerUrl)
                 
                 do {
                     let res = try await DirectServerStatusChecker.checkServer(
@@ -99,7 +99,7 @@ public class ServerStatusChecker {
                     return res
                 } catch {
                     // something when horribly wrong. Move to next step
-                    print("ERROR CONNECTING TO NEW SRV: " + error.localizedDescription)
+                    print("ERROR CONNECTING TO NEW SRV:", error.localizedDescription)
                 }
             }
         }
@@ -140,7 +140,7 @@ public struct ServerCheckerConfig {
 }
 
 //            let res = await SwiftyPing.pingServer(serverUrl: serverURL)
-//            print("got res: " + String(res.duration))
+//            print("got res:", String(res.duration))
 
 //let servers = [
 //    "buzz.manacube.com",
@@ -241,7 +241,7 @@ func testCall() {
     //    let statusCheckerTask = Task {
     //        let server = SavedMinecraftServer(id: UUID(), serverType: .Java, name: "", serverUrl: serverURL, serverPort: 25565)
     //            let status = await ServerStatusChecker.checkServer(server: server)
-    //            print("👉: " + serverURL + "   -   " + status.version + "  -   " + status.status.rawValue)
+    //            print("👉:", serverURL + "   -   " + status.version + "  -   " + status.status.rawValue)
     //        }
     //    }
 }
