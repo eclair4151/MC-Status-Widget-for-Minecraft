@@ -38,13 +38,13 @@ struct MinecraftServerStatusHSWidget: Widget {
 }
 
 struct MinecraftServerStatusHSWidgetEntryView: View {
+    @Environment(\.widgetFamily) private var family
+    
     private var entry: HomescreenProvider.Entry
     
     init(_ entry: HomescreenProvider.Entry) {
         self.entry = entry
     }
-    
-    @Environment(\.widgetFamily) private var family
     
     @ViewBuilder
     var body: some View {

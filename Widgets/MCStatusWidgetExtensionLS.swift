@@ -70,6 +70,7 @@ enum LSWidgetType {
 
 struct MinecraftServerStatusLSWidgetEntryView: View {
     @Environment(\.widgetFamily) private var family
+    
     var entry: LockscreenProvider.Entry
     var widgetType: LSWidgetType = .ImageAndText
     
