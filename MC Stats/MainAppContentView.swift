@@ -317,7 +317,7 @@ struct MainAppContentView: View {
         guard
             let pendingDeepLink,
             let serverID = UUID(uuidString: pendingDeepLink),
-            let vm = self.serverVMCache[serverID]
+            let vm = serverVMCache[serverID]
         else {
             return
         }
@@ -345,7 +345,7 @@ struct MainAppContentView: View {
         reviewHelper.appLaunched()
         
         // dont show if they didn't add any servers
-        if self.serverVMs?.isEmpty ?? true {
+        if serverVMs?.isEmpty ?? true {
             return
         }
         
