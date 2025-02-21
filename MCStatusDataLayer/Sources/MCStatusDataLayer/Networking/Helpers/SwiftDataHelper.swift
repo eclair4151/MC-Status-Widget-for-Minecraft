@@ -16,7 +16,7 @@ public class SwiftDataHelper {
                 
                 return try ModelContainer(for: SavedMinecraftServer.self, configurations: config)
             } catch {
-                // something broken with icloud? continue with local container without config.
+                // something broken with icloud? continue with local container without config
                 print("ERROR LOADING ICLOUD MODEL CONTAINTER:", error.localizedDescription)
             }
         }
