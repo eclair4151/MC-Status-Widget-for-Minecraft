@@ -9,10 +9,10 @@ class MigrationHelper {
         
         if lastVer < VERSION {
             for i in lastVer...VERSION{
-                runMigrationForVer(version: i)
+                runMigrationForVer(i)
             }
             
-            setCurrentVersion(version: VERSION)
+            setCurrentVersion(VERSION)
             
             return (lastVer,VERSION)
             
@@ -21,25 +21,18 @@ class MigrationHelper {
         }
     }
     
-    @MainActor static func runMigrationForVer(version: Int) {
+    @MainActor static func runMigrationForVer(_ version: Int) {
         switch version {
-        case 0:
-            migrateToV1()
-            
         default:
             return
         }
-    }
-    
-    @MainActor static func migrateToV1() {
-        RealmDbMigrationHelper.shared.migrateServersToSwiftData()
     }
     
     static  func getLastVersion() -> Int {
         UserDefaults.standard.integer(forKey: "appVer")
     }
     
-    static func setCurrentVersion(version: Int) {
+    static func setCurrentVersion(_ version: Int) {
         UserDefaults.standard.set(version, forKey: "appVer")
     }
 }
