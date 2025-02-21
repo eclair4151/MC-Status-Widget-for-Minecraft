@@ -7,10 +7,13 @@ public class SwiftDataHelper {
         if UserDefaultHelper.shared.get(for: .iCloudEnabled, defaultValue: true) {
             do {
                 let config = ModelConfiguration(
-                    nil, schema: Schema ([SavedMinecraftServer.self]),
+                    nil,
+                    schema: Schema ([SavedMinecraftServer.self]),
                     isStoredInMemoryOnly: false,
                     allowsSave: true,
-                    groupContainer: ModelConfiguration.GroupContainer.identifier("group.dev.topscrech.apps"),
+//                    groupContainer: ModelConfiguration.GroupContainer.automatic,
+                    groupContainer: ModelConfiguration.GroupContainer.identifier("group.dev.topscrech.MC-Stats"),
+//                    cloudKitDatabase: ModelConfiguration.CloudKitDatabase.automatic
                     cloudKitDatabase: ModelConfiguration.CloudKitDatabase.private("iCloud.dev.topscrech.MC-Stats")
                 )
                 

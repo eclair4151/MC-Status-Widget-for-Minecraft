@@ -14,7 +14,7 @@
 	</array>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.dev.topscrech.apps</string>
+		<string>group.dev.topscrech.MC-Stats</string>
 	</array>
 </dict>
 </plist>
