@@ -282,6 +282,9 @@
     "Port must be a number between 0 and 65535" : {
 
     },
+    "Powered by **[Bisquit.Host](https://bisquit.host)**" : {
+
+    },
     "query" : {
 
     },

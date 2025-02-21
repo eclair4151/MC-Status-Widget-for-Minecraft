@@ -15,6 +15,11 @@ struct SettingsRootView: View {
     var body: some View {
         Form {
             Section {
+                Text("Powered by **[Bisquit.Host](https://bisquit.host)**")
+                    .tint(.orange)
+            }
+            
+            Section {
                 // General Settings
                 NavigationLink(value: SettingsPageDestinations.GeneralSettings) {
                     Label("General Settings", systemImage: "gear")
@@ -24,7 +29,6 @@ struct SettingsRootView: View {
                 NavigationLink(value: SettingsPageDestinations.FAQ) {
                     Label("FAQ", systemImage: "exclamationmark.questionmark")
                 }
-                
 #if !os(tvOS)
                 // Shortcuts
                 NavigationLink(value: SettingsPageDestinations.Shortcuts) {
@@ -163,5 +167,11 @@ struct SettingsRootView: View {
         } catch {
             print(error.localizedDescription)
         }
+    }
+}
+
+#Preview {
+    NavigationView {
+        SettingsRootView()
     }
 }
