@@ -27,6 +27,7 @@ public class ServerStatusVM: Identifiable, Hashable {
         self.server = server
         self.status = status
         self.modelContext = modelContext
+        
         loadIcon()
     }
     
@@ -124,7 +125,7 @@ public class ServerStatusVM: Identifiable, Hashable {
         }
     }
     
-    public func getMcHeadsUrl(_ uuid: String) -> String{
+    public func getMcHeadsUrl(_ uuid: String) -> String {
         "https://mc-heads.net/avatar/" + uuid + "/90"
     }
 }
