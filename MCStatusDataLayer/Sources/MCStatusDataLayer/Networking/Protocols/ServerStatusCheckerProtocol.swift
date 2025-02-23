@@ -7,11 +7,9 @@ public protocol ServerStatusCheckerProtocol {
     func getParser() -> ServerStatusParserProtocol.Type
 }
 
-
 public protocol ServerStatusParserProtocol {
     static func parseServerResponse(stringInput: String, config: ServerCheckerConfig?) throws -> ServerStatus
 }
-
 
 public enum ServerStatusCheckerError: Error {
     case DeviceNotConnected,

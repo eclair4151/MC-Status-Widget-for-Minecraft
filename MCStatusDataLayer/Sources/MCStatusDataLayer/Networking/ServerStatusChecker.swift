@@ -86,7 +86,7 @@ public class ServerStatusChecker {
                     server.srvServerPort = srvRecord.1
                 }
                 
-                // we need to save it in swift data here.
+                // we need to save it in swift data here
                 print("FOUND NEW SRV RECORD FROM DNS! CHECKING SERVER AT:", server.srvServerUrl)
                 
                 do {
@@ -100,7 +100,8 @@ public class ServerStatusChecker {
                     res.source = .UpdatedSRV
                     return res
                 } catch {
-                    // something when horribly wrong. Move to next step
+                    // something when horribly wrong
+                    // Move to next step
                     print("ERROR CONNECTING TO NEW SRV:", error.localizedDescription)
                 }
             }
