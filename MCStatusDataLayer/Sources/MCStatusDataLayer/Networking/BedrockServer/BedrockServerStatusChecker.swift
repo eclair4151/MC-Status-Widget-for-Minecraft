@@ -32,8 +32,8 @@ public class BedrockServerStatusChecker: ServerStatusCheckerProtocol {
         }
     }
     
-    public required init(serverAddress: String, port: Int) {
-        self.serverAddress = serverAddress
+    public required init(address: String, port: Int) {
+        self.serverAddress = address
         self.port = port
     }
     

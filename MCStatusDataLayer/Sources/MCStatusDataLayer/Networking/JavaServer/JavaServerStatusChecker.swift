@@ -16,8 +16,8 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
     var timeoutTask: Task<(), Error>?
     var recievedData = false
     
-    public required init(serverAddress: String, port: Int) {
-        self.serverAddress = serverAddress
+    public required init(address: String, port: Int) {
+        self.serverAddress = address
         self.port = port
     }
     

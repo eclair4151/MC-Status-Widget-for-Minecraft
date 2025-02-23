@@ -220,7 +220,13 @@ struct EditServerView: View {
             server.srvServerPort = 0
             modelContext.insert(server)
             
-            print("Added server")
+            do {
+                try modelContext.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+            
+            print("added server")
             
             MCStatusShortcutsProvider.updateAppShortcutParameters()
             

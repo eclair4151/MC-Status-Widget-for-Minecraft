@@ -237,6 +237,12 @@ struct MainAppContentView: View {
             }
         }
         
+        do {
+            try modelContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+        
         servers?.remove(atOffsets: offsets)
     }
     
@@ -244,6 +250,12 @@ struct MainAppContentView: View {
         servers?.enumerated().forEach { index, vm in
             vm.server.displayOrder = index + 1
             modelContext.insert(vm.server)
+        }
+        
+        do {
+            try modelContext.save()
+        } catch {
+            print(error.localizedDescription)
         }
     }
     

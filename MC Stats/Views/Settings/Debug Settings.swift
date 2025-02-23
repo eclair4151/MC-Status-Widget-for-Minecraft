@@ -37,6 +37,12 @@ struct DebugSettings: View {
             modelContext.delete(server)
         }
         
+        do {
+            try modelContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+        
         reloadServers()
     }
     
