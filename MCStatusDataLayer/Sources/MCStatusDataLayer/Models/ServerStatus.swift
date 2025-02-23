@@ -65,9 +65,7 @@ public class FormattedMOTD: Codable {
 }
 
 public class FormattedMOTDSection: Codable {
-    public init () {
-        
-    }
+    public init () {}
     
     public init (text: String) {
         self.text = text

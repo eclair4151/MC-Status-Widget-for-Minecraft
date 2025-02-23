@@ -1,23 +1,23 @@
 import Foundation
 import SwiftData
 
-// random helper func
 public class SwiftDataHelper {
     public static func getModelContainter() -> ModelContainer {
         if UserDefaultHelper.shared.get(for: .iCloudEnabled, defaultValue: true) {
             do {
                 let config = ModelConfiguration(
-                    nil, schema: Schema ([SavedMinecraftServer.self]),
+                    nil,
+                    schema: Schema ([SavedMinecraftServer.self]),
                     isStoredInMemoryOnly: false,
                     allowsSave: true,
-                    groupContainer: ModelConfiguration.GroupContainer.identifier("group.dev.topscrech.apps"),
-                    cloudKitDatabase: ModelConfiguration.CloudKitDatabase.private("iCloud.dev.topscrech.MC-Stats")
+                    groupContainer: ModelConfiguration.GroupContainer.automatic,
+                    cloudKitDatabase: ModelConfiguration.CloudKitDatabase.automatic
                 )
                 
                 return try ModelContainer(for: SavedMinecraftServer.self, configurations: config)
             } catch {
-                // something broken with icloud? continue with local container without config.
-                print("ERROR LOADING ICLOUD MODEL CONTAINTER: " + error.localizedDescription)
+                // something broken with icloud? continue with local container without config
+                print("ERROR LOADING ICLOUD MODEL CONTAINTER:", error.localizedDescription)
             }
         }
         
@@ -88,11 +88,9 @@ public class SwiftDataHelper {
 //    }
 //
 //struct ImagePicker: UIViewControllerRepresentable {
-//
 //    var sourceType: UIImagePickerController.SourceType = .photoLibrary
 //
 //    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
-//
 //        let imagePicker = UIImagePickerController()
 //        imagePicker.allowsEditing = true
 //        imagePicker.sourceType = sourceType
@@ -100,9 +98,7 @@ public class SwiftDataHelper {
 //        return imagePicker
 //    }
 //
-//    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {
-//
-//    }
+//    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {}
 //}
 
 //import WidgetKit

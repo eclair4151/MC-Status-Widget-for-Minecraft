@@ -3,19 +3,17 @@ import Foundation
 class UserDefaultHelper {
     // Define the possible keys as an enum
     enum Key: String {
+        // Add more keys here as needed
         case iCloudEnabled,
              showUsersOnHomesreen,
              sortUsersByName
-        // Add more keys here as needed
     }
     
     // Singleton instance for easy access
     static let shared = UserDefaultHelper()
     
     // Prevents external instantiation
-    private init() {
-        
-    }
+    private init() {}
     
     // Func to set a boolean value
     func set(_ value: Bool, for key: Key) {

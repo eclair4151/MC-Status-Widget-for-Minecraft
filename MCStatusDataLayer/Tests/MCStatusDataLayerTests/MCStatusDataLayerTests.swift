@@ -47,10 +47,11 @@ struct MCParsingTests {
         var responseObject: JavaServerStatusResponse
         
         do {
-            //attempt to parse it into a json using a custom parser defined in the object
+            // Attempt to parse it into a json using a custom parser defined in the object
             responseObject = try JSONDecoder().decode(JavaServerStatusResponse.self, from: jsonData)
         } catch let error {
-            print("Unable to parse response from input: " + stringInput)
+            print("Unable to parse response from input:",  stringInput)
+            
             throw error
         }
         

@@ -118,7 +118,10 @@ public class SwiftyPing: NSObject {
         /// Resolves the `host`.
         public static func getIPv4AddressFromHost(host: String) throws -> Data {
             var streamError = CFStreamError()
-            let cfhost = CFHostCreateWithName(nil, host as CFString).takeRetainedValue()
+            
+            let cfhost = CFHostCreateWithName(nil, host as CFString)
+                .takeRetainedValue()
+            
             let status = CFHostStartInfoResolution(cfhost, .addresses, &streamError)
             
             var data: Data?
@@ -165,13 +168,13 @@ public class SwiftyPing: NSObject {
     /// Ping configuration
     public let configuration: PingConfiguration
     
-    /// This closure gets called with ping responses.
+    /// This closure gets called with ping responses
     public var observer: Observer?
     
-    /// This closure gets called when pinging stops, either when `targetCount` is reached or pinging is stopped explicitly with `stop()` or `halt()`.
+    /// This closure gets called when pinging stops, either when `targetCount` is reached or pinging is stopped explicitly with `stop()` or `halt()`
     public var finished: FinishedCallback?
     
-    /// This delegate gets called with ping responses.
+    /// This delegate gets called with ping responses
     public var delegate: PingDelegate?
     
     /// The number of pings to make. Default is `1`, which means 1 ping
@@ -284,7 +287,7 @@ public class SwiftyPing: NSObject {
                 )
                 
                 continuation.resume(returning: res)
-                print("ERROR PINGING: " + error.localizedDescription)
+                print("ERROR PINGING:" + error.localizedDescription)
             }
         }
     }
@@ -588,15 +591,11 @@ public class SwiftyPing: NSObject {
     }
     
     private func shouldSchedulePing() -> Bool {
-        if killswitch {
-            return false
+        if killswitch, isTargetCountReached() {
+            false
+        } else {
+            true
         }
-        
-        if isTargetCountReached() {
-            return false
-        }
-        
-        return true
     }
     
     private func scheduleNextPing() {
@@ -630,10 +629,20 @@ public class SwiftyPing: NSObject {
                 let variance = roundtripTimes.reduce(0, { $0 + ($1 - avg) * ($1 - avg) })
                 let stddev = sqrt(variance / count)
                 
-                roundtrip = PingResult.Roundtrip(minimum: min, maximum: max, average: avg, standardDeviation: stddev)
+                roundtrip = PingResult.Roundtrip(
+                    minimum: min,
+                    maximum: max,
+                    average: avg,
+                    standardDeviation: stddev
+                )
             }
             
-            let result = PingResult(responses: responses, packetsTransmitted: sequenceIndex, packetsReceived: UInt64(roundtripTimes.count), roundtrip: roundtrip)
+            let result = PingResult(
+                responses: responses,
+                packetsTransmitted: sequenceIndex,
+                packetsReceived: UInt64(roundtripTimes.count),
+                roundtrip: roundtrip
+            )
             callback(result)
         }
     }
@@ -706,11 +715,7 @@ public class SwiftyPing: NSObject {
     
     // MARK: - Socket callback
     private func socket(socket: CFSocket, didReadData data: Data?) {
-        if killswitch {
-            return
-        }
-        
-        guard let data else {
+        guard !killswitch, let data else {
             return
         }
         
@@ -729,6 +734,7 @@ public class SwiftyPing: NSObject {
         }
         
         timeoutTimer?.invalidate()
+        
         var ipHeader: IPHeader? = nil
         
         if validationError == nil {
@@ -777,7 +783,10 @@ public class SwiftyPing: NSObject {
             }
         }
         
-        let checksum = try computeChecksum(header: header, additionalPayload: additional)
+        let checksum = try computeChecksum(
+            header: header, additionalPayload: additional
+        )
+        
         header.checksum = checksum
         
         let package = Data(bytes: &header, count: MemoryLayout<ICMPHeader>.size) + Data(additional)
@@ -785,8 +794,12 @@ public class SwiftyPing: NSObject {
     }
     
     private func computeChecksum(header: ICMPHeader, additionalPayload: [UInt8]) throws -> UInt16 {
-        let typecode = Data([header.type, header.code]).withUnsafeBytes { $0.load(as: UInt16.self) }
+        let typecode = Data([header.type, header.code]).withUnsafeBytes {
+            $0.load(as: UInt16.self)
+        }
+        
         var sum = UInt64(typecode) + UInt64(header.identifier) + UInt64(header.sequenceNumber)
+        
         let payload = convert(payload: header.payload) + additionalPayload
         
         guard payload.count % 2 == 0 else {
@@ -801,7 +814,10 @@ public class SwiftyPing: NSObject {
             }
             
             // Convert two 8 byte ints to one 16 byte int
-            sum += Data([payload[i], payload[i + 1]]).withUnsafeBytes { UInt64($0.load(as: UInt16.self)) }
+            sum += Data([payload[i], payload[i + 1]]).withUnsafeBytes {
+                UInt64($0.load(as: UInt16.self))
+            }
+            
             i += 2
         }
         
@@ -818,7 +834,9 @@ public class SwiftyPing: NSObject {
     
     private func icmpHeaderOffset(of packet: Data) -> Int? {
         if packet.count >= MemoryLayout<IPHeader>.size + MemoryLayout<ICMPHeader>.size {
-            let ipHeader = packet.withUnsafeBytes({ $0.load(as: IPHeader.self) })
+            let ipHeader = packet.withUnsafeBytes {
+                $0.load(as: IPHeader.self)
+            }
             
             if ipHeader.versionAndHeaderLength & 0xF0 == 0x40 && ipHeader.protocol == IPPROTO_ICMP {
                 let headerLength = Int(ipHeader.versionAndHeaderLength) & 0x0F * MemoryLayout<UInt32>.size
@@ -886,7 +904,7 @@ public class SwiftyPing: NSObject {
         
         guard receivedSequenceIndex == sequenceIndex else {
             if erroredIndices.contains(Int(receivedSequenceIndex)) {
-                // This response either errorred or timed out, ignore it
+                // Errorred or timed out response, ignore
                 return false
             }
             
@@ -895,7 +913,6 @@ public class SwiftyPing: NSObject {
         
         return true
     }
-    
 }
 
 // MARK: ICMP
@@ -1003,7 +1020,10 @@ public struct PingResult {
     
     /// The packet loss. If the number of packets transmitted (`packetsTransmitted`) is zero, returns `nil`
     public var packetLoss: Double? {
-        if packetsTransmitted == 0 { return nil }
+        if packetsTransmitted == 0 {
+            return nil
+        }
+        
         return 1 - Double(packetsReceived) / Double(packetsTransmitted)
     }
     
@@ -1013,7 +1033,7 @@ public struct PingResult {
 
 /// Controls pinging behaviour
 public struct PingConfiguration {
-    /// The time between consecutive pings in seconds.
+    /// The time between consecutive pings in seconds
     public let pingInterval: TimeInterval
     
     /// Timeout interval in seconds

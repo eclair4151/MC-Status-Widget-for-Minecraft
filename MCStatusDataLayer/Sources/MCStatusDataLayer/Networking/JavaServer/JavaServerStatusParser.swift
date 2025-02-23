@@ -12,17 +12,18 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
         var responseObject: JavaServerStatusResponse
         
         do {
-            //attempt to parse it into a json using a custom parser defined in the object
+            // Attempt to parse it into a json using a custom parser defined in the object
             responseObject = try JSONDecoder().decode(JavaServerStatusResponse.self, from: jsonData)
         } catch let error {
-            print("Unable to parse response from input: " + stringInput)
+            print("Unable to parse response from input:", stringInput)
             throw error
         }
         
         let formattedMOTDSections = if let desc = responseObject.description, let extras = desc.extra, !extras.isEmpty {
             parseJavaMOTD(input: desc)
         } else if let desc = responseObject.description, let motdText = desc.text {
-            // had no extras, so its just a string. check if we have section signs. If we do send it though string parser. If not sent through json parser
+            // had no extras, so its just a string. check if we have section signs
+            // If we do send it though string parser. If not sent through json parser
             if motdText.contains("§") {
                 parseJavaMOTD(input: motdText)
             } else {
@@ -68,21 +69,15 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
         if config?.sortUsers ?? false {
             status.sortUsers()
         }
+        
         status.status = .Online
         return status
     }
     
-    
-    
-    
-    
-    
-    
-    // § is a section-sign which is used for formatting legacy style MOTD
     // https://minecraft.fandom.com/wiki/Formatting_codes
-    //Idealy, i would have the same code for both java and bedrock MOTD parsing, but alas there are some subtle differences in the parsing code that make it just annoying enough to require breaking into 2 seperate funcs (See other parser in BedrockServerStatusParser.
+    // § is a section-sign which is used for formatting legacy style MOTD
+    // Idealy, i would have the same code for both java and bedrock MOTD parsing, but alas there are some subtle differences in the parsing code that make it just annoying enough to require breaking into 2 seperate funcs (See other parser in BedrockServerStatusParser
     static func parseJavaMOTD(input: String) -> [FormattedMOTDSection] {
-        
         var motdSections: [FormattedMOTDSection] = []
         var currentSection = FormattedMOTDSection()
         var currentIndex = input.startIndex
@@ -197,6 +192,7 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
             section.text = motdText
             section.formatters = newFormatters
             section.color = currentMotdColor
+            
             response.append(section)
         }
         

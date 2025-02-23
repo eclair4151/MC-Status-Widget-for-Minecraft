@@ -34,7 +34,7 @@ private struct InnerMediumWidget: View {
         VStack {
             BaseWidgetView(entry)
             
-            Text(entry.vm.progressString)
+            Text(entry.vm.playersString)
                 .fontWeight(.regular)
                 .foregroundColor(.veryTransparentText)
                 .frame(maxWidth: .infinity, alignment: .leading)

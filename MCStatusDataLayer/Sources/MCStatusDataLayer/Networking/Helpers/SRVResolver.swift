@@ -28,6 +28,7 @@ public class SRVResolver {
             guard !continuationHasBeenCalled else {
                 return
             }
+            
             stopQuery()
             continuationHasBeenCalled = true
             continuation?.resume(returning: result)
@@ -39,6 +40,7 @@ public class SRVResolver {
             guard !continuationHasBeenCalled else {
                 return
             }
+            
             stopQuery()
             continuationHasBeenCalled = true
             continuation?.resume(throwing: error)
@@ -72,11 +74,15 @@ public class SRVResolver {
     // These allow for the ObjC -> Swift conversion of a pointer
     // The DNS APIs are a bit... unique
     static func bridge<T:AnyObject>(_ obj: T) -> UnsafeMutableRawPointer {
-        Unmanaged.passUnretained(obj).toOpaque()
+        Unmanaged
+            .passUnretained(obj)
+            .toOpaque()
     }
     
     static func bridge<T:AnyObject>(_ ptr: UnsafeMutableRawPointer) -> T {
-        Unmanaged<T>.fromOpaque(ptr).takeUnretainedValue()
+        Unmanaged<T>
+            .fromOpaque(ptr)
+            .takeUnretainedValue()
     }
     
     func fail() {
@@ -98,7 +104,7 @@ public class SRVResolver {
     }
     
     // this is also only support by java servers
-    public static func lookupMinecraftSRVRecord(serverURL: String) async -> (String,Int)? {
+    public static func lookupMinecraftSRVRecord(_ serverURL: String) async -> (String,Int)? {
         
         //if its a regular ip just return nil
         guard !SRVResolver.isValidIpAddress(ipToValidate: serverURL) else {
@@ -137,9 +143,7 @@ public class SRVResolver {
         if ipToValidate.withCString({ cstring in inet_pton(AF_INET6, cstring, &sin6.sin6_addr) }) == 1 {
             // IPv6 peer
             return true
-        }
-        
-        else if ipToValidate.withCString({ cstring in inet_pton(AF_INET, cstring, &sin.sin_addr) }) == 1 {
+        } else if ipToValidate.withCString({ cstring in inet_pton(AF_INET, cstring, &sin.sin_addr) }) == 1 {
             // IPv4 peer
             return true
         }
@@ -151,6 +155,7 @@ public class SRVResolver {
         try await withCheckedThrowingContinuation { continuation in
             self.continuation = continuation
             self.query = query
+            
             let namec = query.cString(using: .utf8)
             
             let result = DNSServiceQueryRecord(
@@ -166,21 +171,21 @@ public class SRVResolver {
             
             switch result {
             case DNSServiceErrorType(kDNSServiceErr_NoError):
-                guard let sdRef = self.serviceRef else {
+                guard let sdRef = serviceRef else {
                     fail()
                     return
                 }
                 
-                self.socket = DNSServiceRefSockFD(self.serviceRef)
+                self.socket = DNSServiceRefSockFD(serviceRef)
                 
-                guard self.socket != -1 else {
+                guard socket != -1 else {
                     fail()
                     return
                 }
                 
-                self.dispatchSourceRead = DispatchSource.makeReadSource(fileDescriptor: self.socket, queue: self.queue)
+                dispatchSourceRead = DispatchSource.makeReadSource(fileDescriptor: socket, queue: queue)
                 
-                self.dispatchSourceRead?.setEventHandler {
+                dispatchSourceRead?.setEventHandler {
                     let res = DNSServiceProcessResult(sdRef)
                     
                     if res != kDNSServiceErr_NoError {
@@ -188,15 +193,15 @@ public class SRVResolver {
                     }
                 }
                 
-                self.dispatchSourceRead?.setCancelHandler {
+                dispatchSourceRead?.setCancelHandler {
                     DNSServiceRefDeallocate(self.serviceRef)
                 }
                 
-                self.dispatchSourceRead?.resume()
+                dispatchSourceRead?.resume()
                 
-                self.timeoutTimer = DispatchSource.makeTimerSource(flags: [], queue: self.queue)
+                timeoutTimer = DispatchSource.makeTimerSource(flags: [], queue: queue)
                 
-                self.timeoutTimer?.setEventHandler {
+                timeoutTimer?.setEventHandler {
                     self.fail()
                 }
                 
@@ -204,16 +209,16 @@ public class SRVResolver {
                     uptimeNanoseconds: DispatchTime.now().uptimeNanoseconds + UInt64(timeout * Double(NSEC_PER_SEC))
                 )
                 
-                self.timeoutTimer?.schedule(
+                timeoutTimer?.schedule(
                     deadline: deadline,
                     repeating: .infinity,
                     leeway: DispatchTimeInterval.never
                 )
                 
-                self.timeoutTimer?.resume()
+                timeoutTimer?.resume()
                 
             default:
-                self.fail()
+                fail()
             }
         }
     }

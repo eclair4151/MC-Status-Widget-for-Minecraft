@@ -32,8 +32,8 @@ public class BedrockServerStatusChecker: ServerStatusCheckerProtocol {
         }
     }
     
-    public required init(serverAddress: String, port: Int) {
-        self.serverAddress = serverAddress
+    public required init(address: String, port: Int) {
+        self.serverAddress = address
         self.port = port
     }
     
@@ -61,7 +61,7 @@ public class BedrockServerStatusChecker: ServerStatusCheckerProtocol {
                 return
             }
             
-            // read data.
+            // read data
             // 1 byte packet id, 8 byte timestamp, 8 byte server id, 16 byte magic data
             // then  2 bytes for the length of the following server data message
             // 1 + 8 + 8 + 16 + 2 = 35

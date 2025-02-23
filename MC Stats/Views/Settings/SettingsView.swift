@@ -6,14 +6,24 @@ enum SettingsPageDestinations {
     case GeneralSettings, FAQ, Shortcuts, Siri, WhatsNew
 }
 
-struct SettingsRootView: View {
-    @Environment(\.modelContext) private var modelContext
+struct SettingsView: View {
     @Environment(\.openURL) private var openURL
+    
+    private let reloadServers: () -> Void
+    
+    init(reloadServers: @escaping () -> Void = {}) {
+        self.reloadServers = reloadServers
+    }
     
     @State private var showingTipSheet = false
     
     var body: some View {
         Form {
+            Section {
+                Text("Powered by **[Bisquit.Host](https://bisquit.host)**")
+                    .tint(.orange)
+            }
+            
             Section {
                 // General Settings
                 NavigationLink(value: SettingsPageDestinations.GeneralSettings) {
@@ -24,7 +34,6 @@ struct SettingsRootView: View {
                 NavigationLink(value: SettingsPageDestinations.FAQ) {
                     Label("FAQ", systemImage: "exclamationmark.questionmark")
                 }
-                
 #if !os(tvOS)
                 // Shortcuts
                 NavigationLink(value: SettingsPageDestinations.Shortcuts) {
@@ -84,13 +93,9 @@ struct SettingsRootView: View {
                 Text("See the code that makes this app work, as well as file bugs and feature requests. Forked from [eclair4151's MC-Status](https://github.com/eclair4151/MC-Status-Widget-for-Minecraft)")
             }
 #endif
-#if DEBUG
-            Section("Debug") {
-                Button("Add test servers") {
-                    injectServers()
-                }
+            DebugSettings {
+                reloadServers()
             }
-#endif
         }
         .navigationTitle("Settings")
         .scrollIndicators(.never)
@@ -145,23 +150,10 @@ struct SettingsRootView: View {
     private func tipDeveloper() {
         showingTipSheet = true
     }
-    
-    private func injectServers() {
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Insanity Craft", serverUrl: "join.insanitycraft.net", serverPort: 25565))
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "OpBlocks", serverUrl: "hub.opblocks.com", serverPort: 25565))
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Ace MC", serverUrl: "mc.acemc.co", serverPort: 25565))
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Vanilla Realms", serverUrl: "mcs.vanillarealms.com", serverPort: 25565))
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Earth MC", serverUrl: "org.earthmc.net", serverPort: 25565))
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Zero's Server", serverUrl: "zero.minr.org", serverPort: 25565))
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Rainy Day", serverUrl: "rainyday.gg", serverPort: 25565))
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Harmony Server", serverUrl: "join.harmonyfallssmp.world", serverPort: 25565))
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Bedrock, name: "Fade Cloud", serverUrl: "mp.fadecloud.com", serverPort: 19132))
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Bedrock, name: "MC Hub", serverUrl: "mps.mchub.com", serverPort: 19132))
-        
-        do {
-            try modelContext.save()
-        } catch {
-            print(error.localizedDescription)
-        }
+}
+
+#Preview {
+    NavigationView {
+        SettingsView()
     }
 }

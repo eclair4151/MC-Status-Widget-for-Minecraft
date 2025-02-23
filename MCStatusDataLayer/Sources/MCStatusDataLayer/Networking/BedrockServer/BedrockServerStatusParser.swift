@@ -3,7 +3,7 @@ import Foundation
 public class BedrockServerStatusParser: ServerStatusParserProtocol {
     public static func parseServerResponse(stringInput: String, config: ServerCheckerConfig?) throws -> ServerStatus {
         let dataParts = stringInput.split(separator: ";", omittingEmptySubsequences: false)
-        //[edition, motdLine1, protocolVersion, version, onlinePlayers, maxPlayers, serverID, motdLine2, gameMode, gameModeID, portIPv4, portIPv6]
+        // [edition, motdLine1, protocolVersion, version, onlinePlayers, maxPlayers, serverID, motdLine2, gameMode, gameModeID, portIPv4, portIPv6]
         
         guard dataParts.count > 7 else {
             throw ServerStatusCheckerError.StatusUnparsable
@@ -27,7 +27,7 @@ public class BedrockServerStatusParser: ServerStatusParserProtocol {
     
     // § is a section-sign which is used for formatting legacy style MOTD and bedrock
     // https://minecraft.fandom.com/wiki/Formatting_codes
-    // Idealy, i would have the same code for both java and bedrock MOTD parsing, but alas there are some subtle differences in the parsing code that make it just annoying enough to require breaking into 2 seperate funcs (See other parser in JavaServerStatusParser.
+    // Idealy, i would have the same code for both java and bedrock MOTD parsing, but alas there are some subtle differences in the parsing code that make it just annoying enough to require breaking into 2 seperate funcs (See other parser in JavaServerStatusParser)
     static func parseBedrockMOTD(input: String) -> [FormattedMOTDSection] {
         var motdSections: [FormattedMOTDSection] = []
         var currentSection = FormattedMOTDSection()

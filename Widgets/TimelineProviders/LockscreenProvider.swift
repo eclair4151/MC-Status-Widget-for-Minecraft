@@ -63,7 +63,7 @@ struct LockscreenProvider: AppIntentTimelineProvider {
         let container = SwiftDataHelper.getModelContainter()
         
         if !context.isPreview, let (server, serverStatus) = await loadTimelineData(from: container, with: configuration) {
-            let serverIcon = ImageHelper.convertFavIconString(serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
+            let serverIcon = ImageHelper.favIconString(serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
             
             vm = WidgetEntryVM(
                 serverName: server.name,
@@ -143,7 +143,7 @@ struct LockscreenProvider: AppIntentTimelineProvider {
             )
         }
         
-        let serverIcon = ImageHelper.convertFavIconString(serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
+        let serverIcon = ImageHelper.favIconString(serverStatus.favIcon) ?? UIImage(named: "DefaultIcon")!
         
         let vm = WidgetEntryVM(
             serverName: server.name,

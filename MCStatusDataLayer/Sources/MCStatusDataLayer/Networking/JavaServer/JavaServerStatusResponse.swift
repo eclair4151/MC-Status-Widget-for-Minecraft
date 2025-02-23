@@ -14,7 +14,7 @@ public class JavaServerStatusResponse: Decodable {
     }
     
     // We need a custom decoder inside this response, because different servers return different data formats, so we need to handle this dynamically
-    // Sometimes the description is a string, while other times, its a description sub object with additional info inside.
+    // Sometimes the description is a string, while other times, it's a description sub object with additional info inside
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -22,18 +22,24 @@ public class JavaServerStatusResponse: Decodable {
         if let strDesc = try? container.decode(String.self, forKey: .description) {
             let desc = JavaMOTDDescriptionSection()
             desc.text = strDesc
+            
             self.description = desc
-        } else if let objDesc = try? container.decode([String].self, forKey: .description) { //then check if it is a regular string array (very rare but valid)
+            
+        } else if let objDesc = try? container.decode([String].self, forKey: .description) {
+            // Tthen check if it is a regular string array (very rare but valid)
             let desc = JavaMOTDDescriptionSection()
             desc.text = objDesc.joined()
+            
             self.description = desc
-        } else if let objDesc = try? container.decode(JavaMOTDDescriptionSection.self, forKey: .description) { //finally anything remaining should be the description object
+            
+        } else if let objDesc = try? container.decode(JavaMOTDDescriptionSection.self, forKey: .description) {
+            // finally anything remaining should be the description object
             self.description = objDesc
+            
         } else {
             print("FAILED TO PARSE INCOMING SERVER JSON")
             throw ServerStatusCheckerError.StatusUnparsable
         }
-        
         
         self.players = try? container.decode(Players.self, forKey: .players)
         self.version = try? container.decode(Version.self, forKey: .version)
@@ -41,10 +47,11 @@ public class JavaServerStatusResponse: Decodable {
     }
 }
 
-// this needs to be refactored, as this currently does not support regular string string array's nested inside the extra instead of being a description object, which is techinically valid, although i've never seen it. Should be handled either way.
-// IE dynmic decoding of the extra to check the same as above. is it a string, string array, or a desc object?
+// this needs to be refactored, as this currently does not support regular string string array's nested inside the extra instead of being a description object, which is techinically valid, although i've never seen it
+// Should be handled either way
+// IE dynmic decoding of the extra to check the same as above
+// is it a string, string array, or a desc object?
 class JavaMOTDDescriptionSection: Decodable {
-    
     enum CodingKeys: String, CodingKey {
         case text = "text"
         case color = "color"
@@ -86,18 +93,19 @@ class JavaMOTDDescriptionSection: Decodable {
             
             self.extra = [extra]
             
-        } else if let strArr = try? container.decode([String].self, forKey: .extra) { //then check if it is a regular string array (very rare but valid)
+        } else if let strArr = try? container.decode([String].self, forKey: .extra) {
+            // then check if it is a regular string array (very rare but valid)
             let extra = JavaMOTDDescriptionSection()
             extra.text = strArr.joined(separator: " ")
             
             self.extra = [extra]
             
-        } else if let objDesc = try? container.decode([JavaMOTDDescriptionSection].self, forKey: .extra) { //finally anything remaining should be the description object
+        } else if let objDesc = try? container.decode([JavaMOTDDescriptionSection].self, forKey: .extra) {
+            // finally anything remaining should be the description object
             self.extra = objDesc
         }
         
-        // otherwise there is no extra, just the regular properties, continue parsing as normal.
-        
+        // otherwise there is no extra, just the regular properties, continue parsing as normal
         self.text = try? container.decode(String.self, forKey: .text)
         self.color = try? container.decode(String.self, forKey: .color)
         self.bold = try? container.decode(Bool.self, forKey: .bold)

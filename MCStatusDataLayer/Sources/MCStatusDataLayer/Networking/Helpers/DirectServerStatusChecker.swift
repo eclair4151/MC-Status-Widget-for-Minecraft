@@ -8,9 +8,9 @@ public class DirectServerStatusChecker {
         config: ServerCheckerConfig?
     ) async throws -> ServerStatus {
         let statusChecker = ServerStatusCheckerFactory().getStatusChecker(
-            serverUrl: serverUrl,
-            serverPort: serverPort,
-            serverType: serverType
+            url: serverUrl,
+            port: serverPort,
+            type: serverType
         )
         
         let stringResult = try await statusChecker.checkServer()
@@ -30,13 +30,13 @@ public class DirectServerStatusChecker {
 
 // Factory to dynamically handles creating the correct status checker for bedrock vs java
 public class ServerStatusCheckerFactory {
-    public func getStatusChecker(serverUrl: String, serverPort: Int, serverType: ServerType) -> ServerStatusCheckerProtocol {
-        switch serverType {
+    public func getStatusChecker(url: String, port: Int, type: ServerType) -> ServerStatusCheckerProtocol {
+        switch type {
         case .Java:
-            JavaServerStatusChecker(serverAddress: serverUrl, port: serverPort)
+            JavaServerStatusChecker(address: url, port: port)
             
         case .Bedrock:
-            BedrockServerStatusChecker(serverAddress: serverUrl, port: serverPort)
+            BedrockServerStatusChecker(address: url, port: port)
         }
     }
 }

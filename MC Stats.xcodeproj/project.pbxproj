@@ -32,16 +32,6 @@
 		F1406BAC2AA391B800815BE8 /* Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BAB2AA391B800815BE8 /* Intents.swift */; };
 		F1406BBF2AA3933400815BE8 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
 		F1406BC22AA3936E00815BE8 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
-		F150B3592CC078D600739646 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
-		F150B35A2CC078D600739646 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
-		F150B35B2CC078D600739646 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
-		F150B35C2CC078D600739646 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
-		F150B35D2CC078D600739646 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
-		F150B35F2CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */; };
-		F150B3602CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */; };
-		F150B3612CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */; };
-		F150B3622CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */; };
-		F150B3632CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */; };
 		F150B4342CC15F6A00739646 /* SiriGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4332CC15F6A00739646 /* SiriGuideView.swift */; };
 		F150B4362CC1709700739646 /* ShortcutsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4352CC1709700739646 /* ShortcutsGuideView.swift */; };
 		F150B43F2CC18C1100739646 /* ReleaseNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */; };
@@ -53,15 +43,15 @@
 		F174A2FC2A8F7FFA0051DA5B /* WatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174A2FB2A8F7FFA0051DA5B /* WatchHelper.swift */; };
 		F174A2FE2A8F8ED70051DA5B /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
 		F174A3012A915E450051DA5B /* WatchServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174A3002A915E450051DA5B /* WatchServerStatusChecker.swift */; };
-		F17A16BB2A893DD700F8FF2F /* SettingsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */; };
+		F17A16BB2A893DD700F8FF2F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsView.swift */; };
 		F17A16BD2A8956DE00F8FF2F /* EditServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */; };
 		F17AE07D2CBE0B6600DC7A80 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
 		F17AE0EC2CC01E9E00DC7A80 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */; };
-		F17AE0EE2CC0363F00DC7A80 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* ViewHelpers.swift */; };
-		F17AE0EF2CC0363F00DC7A80 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* ViewHelpers.swift */; };
-		F17AE0F02CC0363F00DC7A80 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* ViewHelpers.swift */; };
-		F17AE0F12CC0363F00DC7A80 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* ViewHelpers.swift */; };
-		F17AE0F22CC0363F00DC7A80 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* ViewHelpers.swift */; };
+		F17AE0EE2CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* MOTD View Generator.swift */; };
+		F17AE0EF2CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* MOTD View Generator.swift */; };
+		F17AE0F02CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* MOTD View Generator.swift */; };
+		F17AE0F12CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* MOTD View Generator.swift */; };
+		F17AE0F22CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* MOTD View Generator.swift */; };
 		F17AE0F42CC0504200DC7A80 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
 		F17AE0F52CC0504200DC7A80 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
 		F17AE0F62CC0504200DC7A80 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
@@ -197,7 +187,7 @@
 		F35E1AAD2D6522D600718CB7 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */; };
 		F35E1AAE2D6522D600718CB7 /* ShortcutsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4352CC1709700739646 /* ShortcutsGuideView.swift */; };
 		F35E1AAF2D6522D600718CB7 /* ServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* ServerRowView.swift */; };
-		F35E1AB02D6522D600718CB7 /* SettingsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */; };
+		F35E1AB02D6522D600718CB7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsView.swift */; };
 		F35E1AB22D6522EB00718CB7 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F35E1AB12D6522EB00718CB7 /* MCStatusDataLayer */; };
 		F35E1AB42D6522F400718CB7 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F35E1AB32D6522F400718CB7 /* NukeUI */; };
 		F35E1AB62D65230400718CB7 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F35E1AB52D65230400718CB7 /* ScrechKit */; };
@@ -205,11 +195,9 @@
 		F35E1AB82D65236300718CB7 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
 		F35E1AB92D65236300718CB7 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
 		F35E1ABA2D65236300718CB7 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
-		F35E1ABB2D65236300718CB7 /* RealmDbMigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */; };
 		F35E1ABC2D65236300718CB7 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
 		F35E1ABD2D65236300718CB7 /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F130954E2CBC9D5600C4C7BA /* ConfigHelper.swift */; };
-		F35E1ABE2D65236300718CB7 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
-		F35E1ABF2D65236300718CB7 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* ViewHelpers.swift */; };
+		F35E1ABF2D65236300718CB7 /* MOTD View Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* MOTD View Generator.swift */; };
 		F35E1AC02D65236900718CB7 /* SwiftyPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */; };
 		F35E1AC12D65237200718CB7 /* MinecraftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725B2D63FBFC0055C007 /* MinecraftRegular.otf */; };
 		F35E1AC22D65237200718CB7 /* MinecraftBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30472582D63FBFC0055C007 /* MinecraftBold.otf */; };
@@ -221,12 +209,19 @@
 		F35E1AC82D652B4700718CB7 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
 		F35E1AC92D652C5B00718CB7 /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* SavedServerEntity.swift */; };
 		F35E1ACA2D652C6D00718CB7 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
+		F378836A2D6AF86A00D38522 /* Debug Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37883692D6AF86A00D38522 /* Debug Settings.swift */; };
+		F378836B2D6AF86A00D38522 /* Debug Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37883692D6AF86A00D38522 /* Debug Settings.swift */; };
+		F378836C2D6AF86A00D38522 /* Debug Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37883692D6AF86A00D38522 /* Debug Settings.swift */; };
 		F38218852D671BAB005025E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F11F63512A81E51000D47187 /* Assets.xcassets */; };
 		F38218882D676E23005025E7 /* PingGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* PingGraph.swift */; };
 		F383D1982D67D3D100FE4239 /* SiriGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4332CC15F6A00739646 /* SiriGuideView.swift */; };
 		F383D1992D67D3DB00FE4239 /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
 		F383D19A2D67D3DB00FE4239 /* SiriPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C42D65E6F70030F71C /* SiriPhrase.swift */; };
 		F383D19B2D67E60400FE4239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3C879CD2D65722200840745 /* Assets.xcassets */; };
+		F3BFB14D2D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
+		F3BFB14E2D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
+		F3BFB14F2D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
+		F3BFB1502D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
 		F3C879D72D6572AA00840745 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
 		F3C879D82D6572AA00840745 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
 		F3C879D92D6572B000840745 /* MC Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */; };
@@ -241,16 +236,14 @@
 		F3C879E42D6572C400840745 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
 		F3C879E52D6572C400840745 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */; };
 		F3C879E62D6572CA00840745 /* ServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* ServerRowView.swift */; };
-		F3C879E72D6572CA00840745 /* SettingsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */; };
+		F3C879E72D6572CA00840745 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsView.swift */; };
 		F3C879E82D6572CA00840745 /* EditServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */; };
 		F3C879E92D6572CA00840745 /* ShortcutsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4352CC1709700739646 /* ShortcutsGuideView.swift */; };
 		F3C879EA2D6572CA00840745 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */; };
-		F3C879EB2D6572D000840745 /* RealmDbMigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */; };
-		F3C879EC2D6572D000840745 /* ViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* ViewHelpers.swift */; };
+		F3C879EC2D6572D000840745 /* MOTD View Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* MOTD View Generator.swift */; };
 		F3C879ED2D6572D000840745 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
 		F3C879EE2D6572D000840745 /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F130954E2CBC9D5600C4C7BA /* ConfigHelper.swift */; };
 		F3C879EF2D6572D000840745 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
-		F3C879F02D6572D000840745 /* MigrationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B3582CC078D300739646 /* MigrationHelper.swift */; };
 		F3C879F12D6572D000840745 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
 		F3C879F22D6572D000840745 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
 		F3C879F32D6572D500840745 /* SwiftyPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */; };
@@ -276,6 +269,7 @@
 		F3C87A0F2D657A1500840745 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
 		F3C87A102D657A1500840745 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
 		F3C87A112D657A1500840745 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
+		F3EAB8552D6BB860006AEA9F /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3EAB8542D6BB860006AEA9F /* MCStatusDataLayer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -376,24 +370,22 @@
 		F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MC Stats.swift"; sourceTree = "<group>"; };
 		F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppContentView.swift; sourceTree = "<group>"; };
 		F13E60022A4BD615005BE9B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F13E60042A4BD615005BE9B2 /* MCStatus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatus.entitlements; sourceTree = "<group>"; };
-		F13E60082A4BD615005BE9B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F13E60042A4BD615005BE9B2 /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
+		F13E60082A4BD615005BE9B2 /* iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = iOS.plist; sourceTree = "<group>"; };
 		F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentErrors.swift; sourceTree = "<group>"; };
 		F1406BA92AA391B800815BE8 /* Intents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = Intents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1406BAB2AA391B800815BE8 /* Intents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intents.swift; sourceTree = "<group>"; };
-		F1406BAF2AA391B800815BE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1406BB72AA391F400815BE8 /* MCStatusAppIntentsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusAppIntentsExtension.entitlements; sourceTree = "<group>"; };
-		F150B3582CC078D300739646 /* MigrationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationHelper.swift; sourceTree = "<group>"; };
-		F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDbMigrationHelper.swift; sourceTree = "<group>"; };
+		F1406BAF2AA391B800815BE8 /* Intents.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Intents.plist; sourceTree = "<group>"; };
+		F1406BB72AA391F400815BE8 /* Intents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Intents.entitlements; sourceTree = "<group>"; };
 		F150B4332CC15F6A00739646 /* SiriGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriGuideView.swift; sourceTree = "<group>"; };
 		F150B4352CC1709700739646 /* ShortcutsGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsGuideView.swift; sourceTree = "<group>"; };
 		F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseNotesView.swift; sourceTree = "<group>"; };
 		F174A2FB2A8F7FFA0051DA5B /* WatchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHelper.swift; sourceTree = "<group>"; };
 		F174A3002A915E450051DA5B /* WatchServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServerStatusChecker.swift; sourceTree = "<group>"; };
-		F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRootView.swift; sourceTree = "<group>"; };
+		F17A16BA2A893DD700F8FF2F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditServerView.swift; sourceTree = "<group>"; };
 		F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
-		F17AE0ED2CC0363F00DC7A80 /* ViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelpers.swift; sourceTree = "<group>"; };
+		F17AE0ED2CC0363F00DC7A80 /* MOTD View Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOTD View Generator.swift"; sourceTree = "<group>"; };
 		F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHelper.swift; sourceTree = "<group>"; };
 		F17AE0F92CC05CA200DC7A80 /* MCStatusStoreKit Synced.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "MCStatusStoreKit Synced.storekit"; sourceTree = "<group>"; };
 		F17AE0FB2CC05F9000DC7A80 /* TipJarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipJarView.swift; sourceTree = "<group>"; };
@@ -401,8 +393,8 @@
 		F1AE29152CA48577009D0D14 /* ServerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRowView.swift; sourceTree = "<group>"; };
 		F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
 		F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyPing.swift; sourceTree = "<group>"; };
-		F1C9A9AE2A879A4800C058C7 /* MCStatusWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusWatchApp.entitlements; sourceTree = "<group>"; };
-		F1C9A9AF2A879FBC00C058C7 /* MC StatsWatchApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MC StatsWatchApp-Info.plist"; sourceTree = "<group>"; };
+		F1C9A9AE2A879A4800C058C7 /* watchOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = watchOS.entitlements; sourceTree = "<group>"; };
+		F1C9A9AF2A879FBC00C058C7 /* watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = watchOS.plist; sourceTree = "<group>"; };
 		F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExtentions.swift; sourceTree = "<group>"; };
 		F1DCB7B42CC4DE940005FFE0 /* MCStatusStoreKit Local.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "MCStatusStoreKit Local.storekit"; sourceTree = "<group>"; };
 		F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
@@ -428,15 +420,15 @@
 		F30471FE2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularAccessoryWidgetView.swift; sourceTree = "<group>"; };
 		F30471FF2D63E9C00055C007 /* SmallWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidgetView.swift; sourceTree = "<group>"; };
 		F30472012D63E9C00055C007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F30472022D63E9C00055C007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F30472032D63E9C00055C007 /* MCStatusWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusWidgetExtension.entitlements; sourceTree = "<group>"; };
+		F30472022D63E9C00055C007 /* Widgets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Widgets.plist; sourceTree = "<group>"; };
+		F30472032D63E9C00055C007 /* Widgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widgets.entitlements; sourceTree = "<group>"; };
 		F30472042D63E9C00055C007 /* Widgets Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Widgets Bundle.swift"; sourceTree = "<group>"; };
 		F30472052D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusWidgetExtensionHS.swift; sourceTree = "<group>"; };
 		F30472062D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusWidgetExtensionLS.swift; sourceTree = "<group>"; };
 		F30472072D63E9C00055C007 /* WidgetEntryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEntryVM.swift; sourceTree = "<group>"; };
 		F30472222D63E9C20055C007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F30472232D63E9C20055C007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F30472242D63E9C20055C007 /* MCStatusWatchWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusWatchWidget.entitlements; sourceTree = "<group>"; };
+		F30472232D63E9C20055C007 /* Widgets watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Widgets watchOS.plist"; sourceTree = "<group>"; };
+		F30472242D63E9C20055C007 /* Widgets watchOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Widgets watchOS.entitlements"; sourceTree = "<group>"; };
 		F304722A2D63E9CF0055C007 /* RefreshWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshWidgetIntent.swift; sourceTree = "<group>"; };
 		F304722B2D63E9CF0055C007 /* ServerSelectNoTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSelectNoTheme.swift; sourceTree = "<group>"; };
 		F304722C2D63E9CF0055C007 /* SelectServerIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectServerIntent.swift; sourceTree = "<group>"; };
@@ -458,13 +450,15 @@
 		F35E1A762D64D32D00718CB7 /* RefreshWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshWidgets.swift; sourceTree = "<group>"; };
 		F35E1A7D2D6501A500718CB7 /* visionOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = visionOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F35E1A932D6501CC00718CB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F35E1A952D6501CC00718CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F35E1A952D6501CC00718CB7 /* visionOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = visionOS.plist; sourceTree = "<group>"; };
 		F35E1A9D2D65209500718CB7 /* PlayerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCard.swift; sourceTree = "<group>"; };
 		F35E1ACB2D652C9000718CB7 /* visionOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = visionOS.entitlements; sourceTree = "<group>"; };
+		F37883692D6AF86A00D38522 /* Debug Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Debug Settings.swift"; sourceTree = "<group>"; };
+		F3BFB14C2D68055A00E16468 /* MOTD View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOTD View.swift"; sourceTree = "<group>"; };
 		F3C879BD2D65720500840745 /* tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C879CD2D65722200840745 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3C879D52D65724C00840745 /* tvOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tvOS.entitlements; sourceTree = "<group>"; };
-		F3C879D62D65726200840745 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3C879D62D65726200840745 /* tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = tvOS.plist; sourceTree = "<group>"; };
 		F3C87A012D6574D200840745 /* FAQRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQRow.swift; sourceTree = "<group>"; };
 		F3C87A052D6574DD00840745 /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
 		F3C87A0E2D657A1500840745 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
@@ -497,6 +491,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3EAB8552D6BB860006AEA9F /* MCStatusDataLayer in Frameworks */,
 				F1612CCA2CACC37300E602DC /* NukeUI in Frameworks */,
 				F33A5CAD2D640BEB0020D8A5 /* ScrechKit in Frameworks */,
 				F1C010412AAAB6DE0017B9A9 /* MCStatusDataLayer in Frameworks */,
@@ -567,8 +562,8 @@
 		F11F634C2A81E50E00D47187 /* watchOS */ = {
 			isa = PBXGroup;
 			children = (
-				F1C9A9AF2A879FBC00C058C7 /* MC StatsWatchApp-Info.plist */,
-				F1C9A9AE2A879A4800C058C7 /* MCStatusWatchApp.entitlements */,
+				F1C9A9AF2A879FBC00C058C7 /* watchOS.plist */,
+				F1C9A9AE2A879A4800C058C7 /* watchOS.entitlements */,
 				F11F634D2A81E50E00D47187 /* MCStats Watch.swift */,
 				F11F63512A81E51000D47187 /* Assets.xcassets */,
 				F1EF76C42CB4205200EFFB20 /* Helpers */,
@@ -614,12 +609,12 @@
 				F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */,
 				F326DB572D6416E100BCCB69 /* Localizable.xcstrings */,
 				F13E60022A4BD615005BE9B2 /* Assets.xcassets */,
+				F1A43C7E2A8472420081A24C /* Other */,
 				F35E1A732D64A4B200718CB7 /* LowPowerMode.swift */,
 				F35E1A762D64D32D00718CB7 /* RefreshWidgets.swift */,
 				F1A43C802A84726F0081A24C /* Views */,
 				F1BF5D9D2A8025EE00966D56 /* Helpers */,
 				F1BF5D712A75F19F00966D56 /* Networking */,
-				F1A43C7E2A8472420081A24C /* Other */,
 			);
 			path = "MC Stats";
 			sourceTree = "<group>";
@@ -638,8 +633,8 @@
 			isa = PBXGroup;
 			children = (
 				F1406BAB2AA391B800815BE8 /* Intents.swift */,
-				F1406BB72AA391F400815BE8 /* MCStatusAppIntentsExtension.entitlements */,
-				F1406BAF2AA391B800815BE8 /* Info.plist */,
+				F1406BAF2AA391B800815BE8 /* Intents.plist */,
+				F1406BB72AA391F400815BE8 /* Intents.entitlements */,
 				F10C42152AAD55A6000107D6 /* Providers */,
 				F149FEC32AA9696F00A269A3 /* Intents */,
 				F1406BA02AA2CC2F00815BE8 /* Entities */,
@@ -659,11 +654,11 @@
 		F1A43C7E2A8472420081A24C /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				F304725C2D63FBFC0055C007 /* Fonts */,
-				F13E60042A4BD615005BE9B2 /* MCStatus.entitlements */,
-				F13E60082A4BD615005BE9B2 /* Info.plist */,
+				F13E60082A4BD615005BE9B2 /* iOS.plist */,
+				F13E60042A4BD615005BE9B2 /* iOS.entitlements */,
 				F17AE0F92CC05CA200DC7A80 /* MCStatusStoreKit Synced.storekit */,
 				F1DCB7B42CC4DE940005FFE0 /* MCStatusStoreKit Local.storekit */,
+				F304725C2D63FBFC0055C007 /* Fonts */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -695,10 +690,8 @@
 		F1BF5D9D2A8025EE00966D56 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				F150B35E2CC07EF800739646 /* RealmDbMigrationHelper.swift */,
-				F150B3582CC078D300739646 /* MigrationHelper.swift */,
 				F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */,
-				F17AE0ED2CC0363F00DC7A80 /* ViewHelpers.swift */,
+				F17AE0ED2CC0363F00DC7A80 /* MOTD View Generator.swift */,
 				F130954E2CBC9D5600C4C7BA /* ConfigHelper.swift */,
 				F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */,
 				F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */,
@@ -731,6 +724,7 @@
 			isa = PBXGroup;
 			children = (
 				F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */,
+				F3BFB14C2D68055A00E16468 /* MOTD View.swift */,
 				F30246D12D667ED50030F71C /* ServerPing.swift */,
 				F30246D52D66816E0030F71C /* PingGraph.swift */,
 				F30246C82D6661D60030F71C /* PlayerList.swift */,
@@ -767,9 +761,9 @@
 			isa = PBXGroup;
 			children = (
 				F30472042D63E9C00055C007 /* Widgets Bundle.swift */,
+				F30472022D63E9C00055C007 /* Widgets.plist */,
+				F30472032D63E9C00055C007 /* Widgets.entitlements */,
 				F30472012D63E9C00055C007 /* Assets.xcassets */,
-				F30472022D63E9C00055C007 /* Info.plist */,
-				F30472032D63E9C00055C007 /* MCStatusWidgetExtension.entitlements */,
 				F30472052D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift */,
 				F30472062D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift */,
 				F30472072D63E9C00055C007 /* WidgetEntryVM.swift */,
@@ -782,9 +776,9 @@
 		F30472262D63E9C20055C007 /* Widgets watchOS */ = {
 			isa = PBXGroup;
 			children = (
+				F30472232D63E9C20055C007 /* Widgets watchOS.plist */,
+				F30472242D63E9C20055C007 /* Widgets watchOS.entitlements */,
 				F30472222D63E9C20055C007 /* Assets.xcassets */,
-				F30472232D63E9C20055C007 /* Info.plist */,
-				F30472242D63E9C20055C007 /* MCStatusWatchWidget.entitlements */,
 			);
 			path = "Widgets watchOS";
 			sourceTree = "<group>";
@@ -840,9 +834,10 @@
 		F35E1A6B2D6489F900718CB7 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */,
+				F17A16BA2A893DD700F8FF2F /* SettingsView.swift */,
 				F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */,
 				F150B4352CC1709700739646 /* ShortcutsGuideView.swift */,
+				F37883692D6AF86A00D38522 /* Debug Settings.swift */,
 				F35E1A722D649D1700718CB7 /* Siri */,
 				F3C87A002D6574CA00840745 /* FAQ */,
 			);
@@ -862,9 +857,9 @@
 		F35E1A972D6501CC00718CB7 /* visionOS */ = {
 			isa = PBXGroup;
 			children = (
+				F35E1A952D6501CC00718CB7 /* visionOS.plist */,
 				F35E1ACB2D652C9000718CB7 /* visionOS.entitlements */,
 				F35E1A932D6501CC00718CB7 /* Assets.xcassets */,
-				F35E1A952D6501CC00718CB7 /* Info.plist */,
 			);
 			path = visionOS;
 			sourceTree = "<group>";
@@ -872,7 +867,7 @@
 		F3C879D02D65722200840745 /* tvOS */ = {
 			isa = PBXGroup;
 			children = (
-				F3C879D62D65726200840745 /* Info.plist */,
+				F3C879D62D65726200840745 /* tvOS.plist */,
 				F3C879D52D65724C00840745 /* tvOS.entitlements */,
 				F3C879CD2D65722200840745 /* Assets.xcassets */,
 			);
@@ -963,6 +958,7 @@
 				F1612CC72CACC37300E602DC /* Nuke */,
 				F1612CC92CACC37300E602DC /* NukeUI */,
 				F33A5CAC2D640BEB0020D8A5 /* ScrechKit */,
+				F3EAB8542D6BB860006AEA9F /* MCStatusDataLayer */,
 			);
 			productName = MinecraftServerStatus;
 			productReference = F13E5FF92A4BD614005BE9B2 /* MC Stats.app */;
@@ -1062,7 +1058,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
-				LastUpgradeCheck = 1620;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					F11F634A2A81E50E00D47187 = {
 						CreatedOnToolsVersion = 15.0;
@@ -1099,6 +1095,7 @@
 			packageReferences = (
 				F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */,
 				F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */,
+				F3EAB8532D6BB860006AEA9F /* XCLocalSwiftPackageReference "MCStatusDataLayer" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F13E5FFA2A4BD614005BE9B2 /* Products */;
@@ -1199,16 +1196,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F150B3592CC078D600739646 /* MigrationHelper.swift in Sources */,
 				F1EF76CA2CB422D400EFFB20 /* WatchServerDetailScreen.swift in Sources */,
 				F174A3012A915E450051DA5B /* WatchServerStatusChecker.swift in Sources */,
 				F13095532CBC9D5600C4C7BA /* ConfigHelper.swift in Sources */,
 				F1CFCD532CABB567001A9E69 /* CustomExtentions.swift in Sources */,
 				F1EF76D22CB449E700EFFB20 /* IntentErrors.swift in Sources */,
 				F17AE0F82CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
-				F17AE0EE2CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
+				F17AE0EE2CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */,
 				F1EF76D52CB449E700EFFB20 /* MCStatusShortcutsProvider.swift in Sources */,
 				F30472442D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */,
+				F3BFB1502D68055A00E16468 /* MOTD View.swift in Sources */,
 				F30472452D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
 				F1EF76C22CB4204E00EFFB20 /* WatchContentView.swift in Sources */,
 				F1EF76C32CB4204E00EFFB20 /* WatchServerRowView.swift in Sources */,
@@ -1218,7 +1215,6 @@
 				F30472562D63E9D30055C007 /* SavedServerEntity.swift in Sources */,
 				F30472572D63E9D30055C007 /* ServerStatusEntity.swift in Sources */,
 				F10E94B12A8C61B60039DD2B /* ConnectivityProvider.swift in Sources */,
-				F150B35F2CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */,
 				F1EF77602CB8B88B00EFFB20 /* ImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1239,8 +1235,6 @@
 				F17AE0F42CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
 				F304724D2D63E9D20055C007 /* ServerIntentTypeAppEntity.swift in Sources */,
 				F304724E2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */,
-				F150B3612CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */,
-				F150B35A2CC078D600739646 /* MigrationHelper.swift in Sources */,
 				F30472192D63E9C00055C007 /* CircularAccessoryWidgetView1.swift in Sources */,
 				F304721A2D63E9C00055C007 /* CircularAccessoryWidgetView2.swift in Sources */,
 				F304721B2D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift in Sources */,
@@ -1250,7 +1244,7 @@
 				F304721F2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift in Sources */,
 				F30472202D63E9C00055C007 /* InlineAccessoryWidgetView2.swift in Sources */,
 				F30472212D63E9C00055C007 /* LockscreenProvider.swift in Sources */,
-				F17AE0F02CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
+				F17AE0F02CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */,
 				F130954C2CBC9C5D00C4C7BA /* CustomExtentions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1266,7 +1260,9 @@
 				F1A43C822A8472B20081A24C /* ServerStatusDetailView.swift in Sources */,
 				F35E1A6F2D649C6000718CB7 /* FeatureRow.swift in Sources */,
 				F30472542D63E9D30055C007 /* SavedServerEntity.swift in Sources */,
+				F378836A2D6AF86A00D38522 /* Debug Settings.swift in Sources */,
 				F35E1A742D64A4B200718CB7 /* LowPowerMode.swift in Sources */,
+				F3BFB14D2D68055A00E16468 /* MOTD View.swift in Sources */,
 				F3C87A062D6574DD00840745 /* FAQ.swift in Sources */,
 				F30472552D63E9D30055C007 /* ServerStatusEntity.swift in Sources */,
 				F30246CB2D6661D60030F71C /* PlayerList.swift in Sources */,
@@ -1277,7 +1273,6 @@
 				F17AE0F62CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
 				F1C010492AAAB9B60017B9A9 /* SwiftyPing.swift in Sources */,
 				F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */,
-				F150B3632CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */,
 				F3C87A112D657A1500840745 /* Feature.swift in Sources */,
 				F30246D42D667ED50030F71C /* ServerPing.swift in Sources */,
 				F13E5FFD2A4BD614005BE9B2 /* MC Stats.swift in Sources */,
@@ -1285,16 +1280,15 @@
 				F35E1A6D2D6489FD00718CB7 /* GeneralSettings.swift in Sources */,
 				F30472422D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */,
 				F30472432D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
-				F17AE0EF2CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
+				F17AE0EF2CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */,
 				F30246C72D65E6F70030F71C /* SiriPhrase.swift in Sources */,
 				F16990822CA5DDE500F41232 /* IntentErrors.swift in Sources */,
-				F150B35B2CC078D600739646 /* MigrationHelper.swift in Sources */,
 				F1EF775F2CB8B88B00EFFB20 /* ImageHelper.swift in Sources */,
 				F30246D82D66816E0030F71C /* PingGraph.swift in Sources */,
 				F1CFCD512CABB567001A9E69 /* CustomExtentions.swift in Sources */,
 				F35E1A9E2D65209500718CB7 /* PlayerCard.swift in Sources */,
 				F16990872CA5DDE500F41232 /* MCStatusShortcutsProvider.swift in Sources */,
-				F17A16BB2A893DD700F8FF2F /* SettingsRootView.swift in Sources */,
+				F17A16BB2A893DD700F8FF2F /* SettingsView.swift in Sources */,
 				F1AE29162CA48577009D0D14 /* ServerRowView.swift in Sources */,
 				F13E60012A4BD614005BE9B2 /* MainAppContentView.swift in Sources */,
 				F1E671762CA73A86002BDFC0 /* CustomProgressView.swift in Sources */,
@@ -1315,8 +1309,6 @@
 				F10C42172AAD55BF000107D6 /* MCStatusShortcutsProvider.swift in Sources */,
 				F304724B2D63E9D20055C007 /* ServerIntentTypeAppEntity.swift in Sources */,
 				F304724C2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */,
-				F150B3622CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */,
-				F150B35D2CC078D600739646 /* MigrationHelper.swift in Sources */,
 				F1CFCD522CABB567001A9E69 /* CustomExtentions.swift in Sources */,
 				F17AE0F52CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
 				F1406BAC2AA391B800815BE8 /* Intents.swift in Sources */,
@@ -1327,7 +1319,7 @@
 				F304722F2D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */,
 				F30472302D63E9CF0055C007 /* SelectServerIntent.swift in Sources */,
 				F13095512CBC9D5600C4C7BA /* ConfigHelper.swift in Sources */,
-				F17AE0F22CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
+				F17AE0F22CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */,
 				F1406BC22AA3936E00815BE8 /* UserDefaultHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1336,8 +1328,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F150B35C2CC078D600739646 /* MigrationHelper.swift in Sources */,
-				F150B3602CC07EF800739646 /* RealmDbMigrationHelper.swift in Sources */,
 				F304720B2D63E9C00055C007 /* HomescreenProvider.swift in Sources */,
 				F304720C2D63E9C00055C007 /* LockscreenProvider.swift in Sources */,
 				F30472372D63E9CF0055C007 /* SelectServerIntent.swift in Sources */,
@@ -1355,7 +1345,7 @@
 				F30472162D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift in Sources */,
 				F30472172D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift in Sources */,
 				F30472182D63E9C00055C007 /* WidgetEntryVM.swift in Sources */,
-				F17AE0F12CC0363F00DC7A80 /* ViewHelpers.swift in Sources */,
+				F17AE0F12CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */,
 				F17AE0F72CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
 				F30472492D63E9D20055C007 /* ServerIntentTypeAppEntity.swift in Sources */,
 				F304724A2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */,
@@ -1372,6 +1362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F35E1AA12D6522B300718CB7 /* LowPowerMode.swift in Sources */,
+				F3BFB14E2D68055A00E16468 /* MOTD View.swift in Sources */,
 				F35E1AA22D6522B300718CB7 /* RefreshWidgets.swift in Sources */,
 				F35E1AA52D6522CB00718CB7 /* SiriGuidePhrase.swift in Sources */,
 				F35E1AA62D6522CB00718CB7 /* SiriGuideView.swift in Sources */,
@@ -1395,19 +1386,18 @@
 				F35E1AAE2D6522D600718CB7 /* ShortcutsGuideView.swift in Sources */,
 				F35E1AAF2D6522D600718CB7 /* ServerRowView.swift in Sources */,
 				F35E1AC52D65238800718CB7 /* MC Stats.swift in Sources */,
-				F35E1AB02D6522D600718CB7 /* SettingsRootView.swift in Sources */,
+				F35E1AB02D6522D600718CB7 /* SettingsView.swift in Sources */,
 				F35E1AAB2D6522D100718CB7 /* CustomProgressView.swift in Sources */,
 				F3C87A102D657A1500840745 /* Feature.swift in Sources */,
+				F378836C2D6AF86A00D38522 /* Debug Settings.swift in Sources */,
 				F3C87A072D6574DD00840745 /* FAQ.swift in Sources */,
 				F35E1AB82D65236300718CB7 /* ImageHelper.swift in Sources */,
 				F35E1AB92D65236300718CB7 /* CustomExtentions.swift in Sources */,
 				F35E1ABA2D65236300718CB7 /* ReviewHelper.swift in Sources */,
-				F35E1ABB2D65236300718CB7 /* RealmDbMigrationHelper.swift in Sources */,
 				F35E1AC82D652B4700718CB7 /* IntentErrors.swift in Sources */,
 				F35E1ABC2D65236300718CB7 /* UserDefaultHelper.swift in Sources */,
 				F35E1ABD2D65236300718CB7 /* ConfigHelper.swift in Sources */,
-				F35E1ABE2D65236300718CB7 /* MigrationHelper.swift in Sources */,
-				F35E1ABF2D65236300718CB7 /* ViewHelpers.swift in Sources */,
+				F35E1ABF2D65236300718CB7 /* MOTD View Generator.swift in Sources */,
 				F35E1AC92D652C5B00718CB7 /* SavedServerEntity.swift in Sources */,
 				F35E1AA42D6522C600718CB7 /* ReleaseNotesView.swift in Sources */,
 			);
@@ -1418,6 +1408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3C879DF2D6572C400840745 /* ServerStatusDetailView.swift in Sources */,
+				F3BFB14F2D68055A00E16468 /* MOTD View.swift in Sources */,
 				F3C879E02D6572C400840745 /* PlayerCard.swift in Sources */,
 				F3C87A0B2D6575B700840745 /* IntentErrors.swift in Sources */,
 				F383D1982D67D3D100FE4239 /* SiriGuideView.swift in Sources */,
@@ -1433,25 +1424,24 @@
 				F3C879E42D6572C400840745 /* CustomProgressView.swift in Sources */,
 				F3C87A082D6574DD00840745 /* FAQ.swift in Sources */,
 				F3C879E52D6572C400840745 /* FAQView.swift in Sources */,
-				F3C879EB2D6572D000840745 /* RealmDbMigrationHelper.swift in Sources */,
 				F38218882D676E23005025E7 /* PingGraph.swift in Sources */,
-				F3C879EC2D6572D000840745 /* ViewHelpers.swift in Sources */,
+				F3C879EC2D6572D000840745 /* MOTD View Generator.swift in Sources */,
 				F3C879ED2D6572D000840745 /* CustomExtentions.swift in Sources */,
 				F3C879EE2D6572D000840745 /* ConfigHelper.swift in Sources */,
 				F3C879EF2D6572D000840745 /* ImageHelper.swift in Sources */,
 				F3C87A042D6574D200840745 /* FAQRow.swift in Sources */,
-				F3C879F02D6572D000840745 /* MigrationHelper.swift in Sources */,
 				F3C879F12D6572D000840745 /* ReviewHelper.swift in Sources */,
 				F3C87A0C2D6575C800840745 /* ServerStatusEntity.swift in Sources */,
 				F3C87A0F2D657A1500840745 /* Feature.swift in Sources */,
 				F3C879F22D6572D000840745 /* UserDefaultHelper.swift in Sources */,
 				F3C879DD2D6572BE00840745 /* FeatureRow.swift in Sources */,
+				F378836B2D6AF86A00D38522 /* Debug Settings.swift in Sources */,
 				F3C879DE2D6572BE00840745 /* ReleaseNotesView.swift in Sources */,
 				F3C879D92D6572B000840745 /* MC Stats.swift in Sources */,
 				F3C879DB2D6572BA00840745 /* LowPowerMode.swift in Sources */,
 				F3C879DC2D6572BA00840745 /* RefreshWidgets.swift in Sources */,
 				F3C879E62D6572CA00840745 /* ServerRowView.swift in Sources */,
-				F3C879E72D6572CA00840745 /* SettingsRootView.swift in Sources */,
+				F3C879E72D6572CA00840745 /* SettingsView.swift in Sources */,
 				F3C879E82D6572CA00840745 /* EditServerView.swift in Sources */,
 				F3C879E92D6572CA00840745 /* ShortcutsGuideView.swift in Sources */,
 				F3C879EA2D6572CA00840745 /* GeneralSettings.swift in Sources */,
@@ -1498,13 +1488,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = watchOS/MCStatusWatchApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = watchOS/watchOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "watchOS/MC StatsWatchApp-Info.plist";
+				INFOPLIST_FILE = watchOS/watchOS.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "dev.topscrech.MC-Stats";
@@ -1513,7 +1502,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1531,13 +1520,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = watchOS/MCStatusWatchApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = watchOS/watchOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "watchOS/MC StatsWatchApp-Info.plist";
+				INFOPLIST_FILE = watchOS/watchOS.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "dev.topscrech.MC-Stats";
@@ -1546,7 +1534,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1564,12 +1552,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "Widgets watchOS/MCStatusWatchWidget.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Widgets watchOS/Widgets watchOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Widgets watchOS/Info.plist";
+				INFOPLIST_FILE = "Widgets watchOS/Widgets watchOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1578,7 +1565,7 @@
 					"@executable_path/../../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.watchkitapp.WatchWidgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1595,12 +1582,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "Widgets watchOS/MCStatusWatchWidget.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Widgets watchOS/Widgets watchOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Widgets watchOS/Info.plist";
+				INFOPLIST_FILE = "Widgets watchOS/Widgets watchOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1609,7 +1595,7 @@
 					"@executable_path/../../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.watchkitapp.WatchWidgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1627,6 +1613,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1658,6 +1645,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1690,6 +1678,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1721,6 +1710,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1746,16 +1736,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = "MC Stats/Other/MCStatus.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "MC Stats/Other/iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MC Stats/Other\"";
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MC Stats/Other/Info.plist";
+				INFOPLIST_FILE = "MC Stats/Other/iOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "This app requires local network access in order to check the status of servers on your local connection";
@@ -1772,12 +1761,12 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1793,16 +1782,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = "MC Stats/Other/MCStatus.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "MC Stats/Other/iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MC Stats/Other\"";
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MC Stats/Other/Info.plist";
+				INFOPLIST_FILE = "MC Stats/Other/iOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "This app requires local network access in order to check the status of servers on your local connection";
@@ -1819,12 +1807,12 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1837,12 +1825,11 @@
 		F1406BB42AA391B800815BE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Intents/MCStatusAppIntentsExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Intents/Intents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Intents/Info.plist;
+				INFOPLIST_FILE = Intents/Intents.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -1851,7 +1838,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.Intents";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1868,12 +1855,11 @@
 		F1406BB52AA391B800815BE8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Intents/MCStatusAppIntentsExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Intents/Intents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Intents/Info.plist;
+				INFOPLIST_FILE = Intents/Intents.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -1882,7 +1868,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.Intents";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1902,12 +1888,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = Widgets/MCStatusWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Widgets/Widgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Widgets/Info.plist;
+				INFOPLIST_FILE = Widgets/Widgets.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -1916,7 +1901,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.Widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1933,12 +1918,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = Widgets/MCStatusWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Widgets/Widgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Widgets/Info.plist;
+				INFOPLIST_FILE = Widgets/Widgets.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -1947,7 +1931,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.Widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1969,16 +1953,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_FILE = "$(TARGET_NAME)/visionOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = xros;
@@ -1999,16 +1982,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_FILE = "$(TARGET_NAME)/visionOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = xros;
@@ -2031,10 +2013,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = tvOS/Info.plist;
+				INFOPLIST_FILE = tvOS/tvOS.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -2043,7 +2024,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -2064,10 +2045,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = tvOS/Info.plist;
+				INFOPLIST_FILE = tvOS/tvOS.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -2076,7 +2056,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -2164,6 +2144,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		F3EAB8532D6BB860006AEA9F /* XCLocalSwiftPackageReference "MCStatusDataLayer" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = MCStatusDataLayer;
+		};
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
 		F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */ = {
@@ -2277,6 +2264,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = NukeUI;
+		};
+		F3EAB8542D6BB860006AEA9F /* MCStatusDataLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MCStatusDataLayer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
