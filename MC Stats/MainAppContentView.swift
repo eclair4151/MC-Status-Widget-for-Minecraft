@@ -8,10 +8,11 @@ enum PageDestinations {
 }
 
 struct MainAppContentView: View {
+    @State private var nav = NavigationPath()
+    private var reviewHelper = ReviewHelper()
 #if os(iOS)
     private let watchHelper = WatchHelper()
 #endif
-    @State private var nav = NavigationPath()
     
 #if !os(tvOS)
     @Environment(\.requestReview) private var requestReview
@@ -19,7 +20,7 @@ struct MainAppContentView: View {
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.modelContext) private var modelContext
     
-    @State private var serverVMs: [ServerStatusVM]?
+    @State private var servers: [ServerStatusVM]?
     
     // I can't think of a better way to do this since I don't want to regenerate the VM every time
     @State private var serverVMCache: [UUID: ServerStatusVM] = [:]
@@ -31,19 +32,17 @@ struct MainAppContentView: View {
     @State private var alertTitle = ""
     @State private var alertMessage = ""
     
-    private var reviewHelper = ReviewHelper()
-    
     var body: some View {
         NavigationStack(path: $nav) {
             List {
-                ForEach(serverVMs ?? []) { vm in
+                ForEach(servers ?? []) { vm in
                     NavigationLink(value: vm) {
                         ServerRowView(vm)
                     }
                     .listRowInsets(EdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15))
                 }
                 .onMove {
-                    serverVMs?.move(fromOffsets: $0, toOffset: $1)
+                    servers?.move(fromOffsets: $0, toOffset: $1)
                     
                     // update underlying display order
                     refreshDisplayOrders()
@@ -87,7 +86,7 @@ struct MainAppContentView: View {
             }
             .overlay {
                 //hack to avoid showing overlay for a split second before we have had a chance to check the database
-                if let vms = serverVMs, vms.isEmpty {
+                if let vms = servers, vms.isEmpty {
                     ContentUnavailableView {
                         Label("Add Your First Server", systemImage: "server.rack")
                     } description: {
@@ -98,7 +97,7 @@ struct MainAppContentView: View {
                         }
                         .buttonStyle(.borderedProminent)
                     }
-                } else if serverVMs == nil {
+                } else if servers == nil {
                     ProgressView()
                 }
             }
@@ -230,7 +229,7 @@ struct MainAppContentView: View {
     
     private func deleteItems(at offsets: IndexSet) {
         offsets.makeIterator().forEach { pos in
-            if let serverVM = serverVMs?[pos] {
+            if let serverVM = servers?[pos] {
                 modelContext.delete(serverVM.server)
             }
         }
@@ -241,11 +240,11 @@ struct MainAppContentView: View {
             print(error.localizedDescription)
         }
         
-        serverVMs?.remove(atOffsets: offsets)
+        servers?.remove(atOffsets: offsets)
     }
     
     private func refreshDisplayOrders() {
-        serverVMs?.enumerated().forEach { index, vm in
+        servers?.enumerated().forEach { index, vm in
             vm.server.displayOrder = index + 1
             modelContext.insert(vm.server)
         }
@@ -270,13 +269,13 @@ struct MainAppContentView: View {
         )
         
         guard let results = try? modelContext.fetch(fetch) else {
-            self.serverVMs = []
+            self.servers = []
             return
         }
         
         var config = ConfigHelper.getServerCheckerConfig()
         
-        self.serverVMs = results.map {
+        self.servers = results.map {
             if let cachedVm = serverVMCache[$0.id] {
                 return cachedVm
             }
@@ -302,7 +301,7 @@ struct MainAppContentView: View {
         if forceRefresh {
             self.lastRefreshTime = Date()
             
-            self.serverVMs?.forEach { vm in
+            self.servers?.forEach { vm in
                 vm.reloadData(config)
             }
         }
@@ -342,7 +341,7 @@ struct MainAppContentView: View {
         reviewHelper.appLaunched()
         
         // dont show if they didn't add any servers
-        if serverVMs?.isEmpty ?? true {
+        if servers?.isEmpty ?? true {
             return
         }
         

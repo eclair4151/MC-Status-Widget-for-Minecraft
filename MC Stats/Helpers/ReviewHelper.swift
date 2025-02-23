@@ -1,6 +1,6 @@
 import SwiftUI
 
-class ReviewHelper {
+final class ReviewHelper {
     private enum UserDefaultKey: String {
         case launchCount,
              lastRequestTimestamp,
@@ -17,9 +17,10 @@ class ReviewHelper {
     init() {
         // Get the current app version from the Info.plist
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-            self.currentVersion = version
+            currentVersion = version
         } else {
-            self.currentVersion = "1.0" // Fallback version
+            // Fallback version
+            currentVersion = "1.0"
         }
     }
     
@@ -52,8 +53,8 @@ class ReviewHelper {
         let sixMonthsAgo = Date().timeIntervalSince1970 - sixMonthsInSeconds
         
         // if 0, user just installed, set it to 6 months ago, +1 day, so user wont see alert for 2 days after install
-        if self.lastRequestTimestamp == 0 {
-            self.lastRequestTimestamp = sixMonthsAgo + 48 * 60 * 60
+        if lastRequestTimestamp == 0 {
+            lastRequestTimestamp = sixMonthsAgo + 48 * 60 * 60
         }
         
         return lastRequestTimestamp < sixMonthsAgo
