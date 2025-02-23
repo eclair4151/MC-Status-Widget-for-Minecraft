@@ -1,7 +1,6 @@
 import Foundation
 import SwiftData
 
-// random helper func
 public class SwiftDataHelper {
     public static func getModelContainter() -> ModelContainer {
         if UserDefaultHelper.shared.get(for: .iCloudEnabled, defaultValue: true) {
@@ -91,11 +90,9 @@ public class SwiftDataHelper {
 //    }
 //
 //struct ImagePicker: UIViewControllerRepresentable {
-//
 //    var sourceType: UIImagePickerController.SourceType = .photoLibrary
 //
 //    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
-//
 //        let imagePicker = UIImagePickerController()
 //        imagePicker.allowsEditing = true
 //        imagePicker.sourceType = sourceType
@@ -103,9 +100,7 @@ public class SwiftDataHelper {
 //        return imagePicker
 //    }
 //
-//    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {
-//
-//    }
+//    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {}
 //}
 
 //import WidgetKit

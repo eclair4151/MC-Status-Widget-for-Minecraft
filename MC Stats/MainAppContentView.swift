@@ -3,10 +3,6 @@ import SwiftData
 import CoreData
 import MCStatusDataLayer
 
-#if canImport(WidgetKit)
-import WidgetKit
-#endif
-
 enum PageDestinations {
     case SettingsRoot
 }
@@ -80,10 +76,10 @@ struct MainAppContentView: View {
                 print("Received deep link: \(url)")
                 
                 // Manually go into specific server if id is server
-                if let serverUUID = UUID(uuidString: url.absoluteString), let vm = self.serverVMCache[serverUUID] {
+                if let serverUUID = UUID(uuidString: url.absoluteString), let vm = serverVMCache[serverUUID] {
                     goToServerView(vm)
                 } else if !url.absoluteString.isEmpty {
-                    self.pendingDeepLink = url.absoluteString
+                    pendingDeepLink = url.absoluteString
                 }
             }
             .refreshable {
@@ -91,18 +87,18 @@ struct MainAppContentView: View {
             }
             .overlay {
                 //hack to avoid showing overlay for a split second before we have had a chance to check the database
-                if let vms = self.serverVMs, vms.isEmpty {
+                if let vms = serverVMs, vms.isEmpty {
                     ContentUnavailableView {
                         Label("Add Your First Server", systemImage: "server.rack")
                     } description: {
-                        Text("Let's get started! Add a server using the button below or the \"+\" in the top right corner.")
+                        Text("Add a server using the button below or the \"+\" in the top right corner")
                     } actions: {
                         Button("Add Server") {
                             showingAddSheet = true
                         }
                         .buttonStyle(.borderedProminent)
                     }
-                } else if self.serverVMs == nil {
+                } else if serverVMs == nil {
                     ProgressView()
                 }
             }
@@ -165,8 +161,9 @@ struct MainAppContentView: View {
                 return
             }
             
-            // may have gotten new/changed data refresh models from database
-            // can we somehow check if anything actually changed? this is spam called on every open
+            // May have gotten new/changed data refresh models from database
+            // Can we somehow check if anything actually changed?
+            // This is spam called on every open
             if event.endDate != nil && event.type == .import {
                 print("refresh triggered via eventChangedNotification")
                 
@@ -175,7 +172,7 @@ struct MainAppContentView: View {
             }
         }
         .sheet($showingAddSheet) {
-            // create new binding server to add
+            // Create new binding server to add
             let newServer = SavedMinecraftServer.initialize(
                 id: UUID(),
                 serverType: .Java,
