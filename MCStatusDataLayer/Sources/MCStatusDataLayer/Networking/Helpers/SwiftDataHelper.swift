@@ -11,9 +11,7 @@ public class SwiftDataHelper {
                     isStoredInMemoryOnly: false,
                     allowsSave: true,
                     groupContainer: ModelConfiguration.GroupContainer.automatic,
-//                    groupContainer: ModelConfiguration.GroupContainer.identifier("group.dev.topscrech.MC-Stats"),
                     cloudKitDatabase: ModelConfiguration.CloudKitDatabase.automatic
-//                    cloudKitDatabase: ModelConfiguration.CloudKitDatabase.private("iCloud.dev.topscrech.MC-Stats")
                 )
                 
                 return try ModelContainer(for: SavedMinecraftServer.self, configurations: config)
