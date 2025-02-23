@@ -209,6 +209,9 @@
 		F35E1AC82D652B4700718CB7 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
 		F35E1AC92D652C5B00718CB7 /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* SavedServerEntity.swift */; };
 		F35E1ACA2D652C6D00718CB7 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
+		F378836A2D6AF86A00D38522 /* Debug Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37883692D6AF86A00D38522 /* Debug Settings.swift */; };
+		F378836B2D6AF86A00D38522 /* Debug Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37883692D6AF86A00D38522 /* Debug Settings.swift */; };
+		F378836C2D6AF86A00D38522 /* Debug Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37883692D6AF86A00D38522 /* Debug Settings.swift */; };
 		F38218852D671BAB005025E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F11F63512A81E51000D47187 /* Assets.xcassets */; };
 		F38218882D676E23005025E7 /* PingGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* PingGraph.swift */; };
 		F383D1982D67D3D100FE4239 /* SiriGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4332CC15F6A00739646 /* SiriGuideView.swift */; };
@@ -449,6 +452,7 @@
 		F35E1A952D6501CC00718CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F35E1A9D2D65209500718CB7 /* PlayerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCard.swift; sourceTree = "<group>"; };
 		F35E1ACB2D652C9000718CB7 /* visionOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = visionOS.entitlements; sourceTree = "<group>"; };
+		F37883692D6AF86A00D38522 /* Debug Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Debug Settings.swift"; sourceTree = "<group>"; };
 		F3BFB14C2D68055A00E16468 /* MOTD View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOTD View.swift"; sourceTree = "<group>"; };
 		F3C879BD2D65720500840745 /* tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C879CD2D65722200840745 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -831,6 +835,7 @@
 				F17A16BA2A893DD700F8FF2F /* SettingsView.swift */,
 				F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */,
 				F150B4352CC1709700739646 /* ShortcutsGuideView.swift */,
+				F37883692D6AF86A00D38522 /* Debug Settings.swift */,
 				F35E1A722D649D1700718CB7 /* Siri */,
 				F3C87A002D6574CA00840745 /* FAQ */,
 			);
@@ -1251,6 +1256,7 @@
 				F1A43C822A8472B20081A24C /* ServerStatusDetailView.swift in Sources */,
 				F35E1A6F2D649C6000718CB7 /* FeatureRow.swift in Sources */,
 				F30472542D63E9D30055C007 /* SavedServerEntity.swift in Sources */,
+				F378836A2D6AF86A00D38522 /* Debug Settings.swift in Sources */,
 				F35E1A742D64A4B200718CB7 /* LowPowerMode.swift in Sources */,
 				F3BFB14D2D68055A00E16468 /* MOTD View.swift in Sources */,
 				F3C87A062D6574DD00840745 /* FAQ.swift in Sources */,
@@ -1379,6 +1385,7 @@
 				F35E1AB02D6522D600718CB7 /* SettingsView.swift in Sources */,
 				F35E1AAB2D6522D100718CB7 /* CustomProgressView.swift in Sources */,
 				F3C87A102D657A1500840745 /* Feature.swift in Sources */,
+				F378836C2D6AF86A00D38522 /* Debug Settings.swift in Sources */,
 				F3C87A072D6574DD00840745 /* FAQ.swift in Sources */,
 				F35E1AB82D65236300718CB7 /* ImageHelper.swift in Sources */,
 				F35E1AB92D65236300718CB7 /* CustomExtentions.swift in Sources */,
@@ -1424,6 +1431,7 @@
 				F3C87A0F2D657A1500840745 /* Feature.swift in Sources */,
 				F3C879F22D6572D000840745 /* UserDefaultHelper.swift in Sources */,
 				F3C879DD2D6572BE00840745 /* FeatureRow.swift in Sources */,
+				F378836B2D6AF86A00D38522 /* Debug Settings.swift in Sources */,
 				F3C879DE2D6572BE00840745 /* ReleaseNotesView.swift in Sources */,
 				F3C879D92D6572B000840745 /* MC Stats.swift in Sources */,
 				F3C879DB2D6572BA00840745 /* LowPowerMode.swift in Sources */,

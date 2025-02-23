@@ -1,5 +1,4 @@
 import SwiftUI
-import SwiftData
 import StoreKit
 import MCStatusDataLayer
 
@@ -8,8 +7,6 @@ enum SettingsPageDestinations {
 }
 
 struct SettingsView: View {
-    @Query private var servers: [SavedMinecraftServer]
-    @Environment(\.modelContext) private var modelContext
     @Environment(\.openURL) private var openURL
     
     private let reloadServers: () -> Void
@@ -96,17 +93,9 @@ struct SettingsView: View {
                 Text("See the code that makes this app work, as well as file bugs and feature requests. Forked from [eclair4151's MC-Status](https://github.com/eclair4151/MC-Status-Widget-for-Minecraft)")
             }
 #endif
-#if DEBUG
-            Section("Debug") {
-                Button("Add test servers") {
-                    addTestServers()
-                }
-                
-                Button("Delete all servers") {
-                    deleteAllServers()
-                }
+            DebugSettings {
+                reloadServers()
             }
-#endif
         }
         .navigationTitle("Settings")
         .scrollIndicators(.never)
@@ -115,14 +104,6 @@ struct SettingsView: View {
                 TipJarView($showingTipSheet)
             }
         }
-    }
-    
-    private func deleteAllServers() {
-        for server in servers {
-            modelContext.delete(server)
-        }
-        
-        reloadServers()
     }
     
     private func openGithub() {
@@ -168,21 +149,6 @@ struct SettingsView: View {
     
     private func tipDeveloper() {
         showingTipSheet = true
-    }
-    
-    private func addTestServers() {
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Insanity Craft", serverUrl: "join.insanitycraft.net", serverPort: 25565))
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "OpBlocks", serverUrl: "hub.opblocks.com", serverPort: 25565))
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Ace MC", serverUrl: "mc.acemc.co", serverPort: 25565))
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Vanilla Realms", serverUrl: "mcs.vanillarealms.com", serverPort: 25565))
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Earth MC", serverUrl: "org.earthmc.net", serverPort: 25565))
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Zero's Server", serverUrl: "zero.minr.org", serverPort: 25565))
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Rainy Day", serverUrl: "rainyday.gg", serverPort: 25565))
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Harmony Server", serverUrl: "join.harmonyfallssmp.world", serverPort: 25565))
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Bedrock, name: "Fade Cloud", serverUrl: "mp.fadecloud.com", serverPort: 19132))
-        modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Bedrock, name: "MC Hub", serverUrl: "mps.mchub.com", serverPort: 19132))
-        
-        reloadServers()
     }
 }
 
