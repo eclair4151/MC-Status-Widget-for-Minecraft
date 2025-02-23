@@ -92,11 +92,12 @@ struct MainAppContentView: View {
                     ContentUnavailableView {
                         Label("Add Your First Server", systemImage: "server.rack")
                     } description: {
-                        Text("Add a server using the button below or the \"+\" in the top right corner")
+                        Text("Use the button below or the \"+\" in the top right corner")
                     } actions: {
                         Button("Add Server") {
                             showingAddSheet = true
                         }
+                        .semibold()
                         .buttonStyle(.borderedProminent)
                     }
                 } else if servers == nil {
