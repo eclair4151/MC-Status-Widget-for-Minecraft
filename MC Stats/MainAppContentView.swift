@@ -142,8 +142,8 @@ struct MainAppContentView: View {
             }
             .navigationTitle("Servers")
         }
-        .onChange(of: scenePhase, initial: true) { old,newPhase in
-            // this is some code to investigate an apple watch bug
+        .onChange(of: scenePhase, initial: true) { _, newPhase in
+            // Some code to investigate an apple watch bug
             if newPhase == .active {
                 print("Active")
                 
@@ -163,7 +163,7 @@ struct MainAppContentView: View {
                 return
             }
             
-            // May have gotten new/changed data refresh models from database
+            // May have gotten new/changed data refresh models from db
             // Can we somehow check if anything actually changed?
             // This is spam called on every open
             if event.endDate != nil && event.type == .import {
