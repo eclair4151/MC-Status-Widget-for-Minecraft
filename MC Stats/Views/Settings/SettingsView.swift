@@ -182,12 +182,6 @@ struct SettingsView: View {
         modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Bedrock, name: "Fade Cloud", serverUrl: "mp.fadecloud.com", serverPort: 19132))
         modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Bedrock, name: "MC Hub", serverUrl: "mps.mchub.com", serverPort: 19132))
         
-        do {
-            try modelContext.save()
-        } catch {
-            print(error.localizedDescription)
-        }
-        
         reloadServers()
     }
 }

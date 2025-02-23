@@ -36,9 +36,9 @@ public class ServerStatusChecker {
                 print("CHECKING SERVER FROM CACHED SRV:", server.srvServerUrl)
                 
                 let res = try await DirectServerStatusChecker.checkServer(
-                    serverUrl: server.srvServerUrl,
-                    serverPort: server.srvServerPort,
-                    serverType: server.serverType,
+                    url: server.srvServerUrl,
+                    port: server.srvServerPort,
+                    type: server.serverType,
                     config: config
                 )
                 
@@ -58,9 +58,9 @@ public class ServerStatusChecker {
                 print("CONNECTING TO SERVER DIRECTLY (IGNORING SRV)")
                 
                 let res = try await DirectServerStatusChecker.checkServer(
-                    serverUrl: server.serverUrl,
-                    serverPort: server.serverPort,
-                    serverType: server.serverType,
+                    url: server.serverUrl,
+                    port: server.serverPort,
+                    type: server.serverType,
                     config: config
                 )
                 
@@ -91,9 +91,9 @@ public class ServerStatusChecker {
                 
                 do {
                     let res = try await DirectServerStatusChecker.checkServer(
-                        serverUrl: server.srvServerUrl,
-                        serverPort: server.srvServerPort,
-                        serverType: server.serverType,
+                        url: server.srvServerUrl,
+                        port: server.srvServerPort,
+                        type: server.serverType,
                         config: config
                     )
                     
@@ -141,8 +141,8 @@ public struct ServerCheckerConfig {
     }
 }
 
-//            let res = await SwiftyPing.pingServer(serverUrl: serverURL)
-//            print("got res:", String(res.duration))
+// let res = await SwiftyPing.pingServer(serverUrl: serverURL)
+// print("got res:", String(res.duration))
 
 //let servers = [
 //    "buzz.manacube.com",
@@ -240,8 +240,8 @@ let servers2 = [
 
 func testCall() {
     //    for serverURL in servers {
-    //    let statusCheckerTask = Task {
-    //        let server = SavedMinecraftServer(id: UUID(), serverType: .Java, name: "", serverUrl: serverURL, serverPort: 25565)
+    //        let statusCheckerTask = Task {
+    //            let server = SavedMinecraftServer(id: UUID(), serverType: .Java, name: "", serverUrl: serverURL, serverPort: 25565)
     //            let status = await ServerStatusChecker.checkServer(server: server)
     //            print("👉:", serverURL + "   -   " + status.version + "  -   " + status.status.rawValue)
     //        }
