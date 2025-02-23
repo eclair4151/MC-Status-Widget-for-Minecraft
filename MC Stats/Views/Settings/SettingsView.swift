@@ -51,8 +51,8 @@ struct SettingsView: View {
                 }
             }
 #if !os(tvOS)
+            // Leave a Review
             Section {
-                // Leave a Review
                 Button(action: leaveAppReview) {
                     Label {
                         Text("Leave an App Review")
@@ -75,17 +75,24 @@ struct SettingsView: View {
             //                Text("Help support the development of free, adless, open source apps")
             //            }
             
+            // Join TestFlight
             Section {
-                // Join TestFlight
                 Button(action: joinTestFlight) {
-                    Label("Join TestFlight", systemImage: "airplane")
+                    Label {
+                        Text("Join TestFlight")
+                    } icon: {
+                        Image(.testFlight)
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                            .clipShape(.rect(cornerRadius: 6))
+                    }
                 }
             } footer: {
                 Text("Join the beta program to access experimental features before they’re released")
             }
             
+            // GitHub
             Section {
-                // GitHub
                 Button(action: openGithub) {
                     Label("Source Code", systemImage: "curlybraces")
                 }
