@@ -389,8 +389,8 @@
 		F1AE29152CA48577009D0D14 /* ServerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRowView.swift; sourceTree = "<group>"; };
 		F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
 		F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyPing.swift; sourceTree = "<group>"; };
-		F1C9A9AE2A879A4800C058C7 /* MCStatusWatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusWatchApp.entitlements; sourceTree = "<group>"; };
-		F1C9A9AF2A879FBC00C058C7 /* MC StatsWatchApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MC StatsWatchApp-Info.plist"; sourceTree = "<group>"; };
+		F1C9A9AE2A879A4800C058C7 /* MC Stats watchOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MC Stats watchOS.entitlements"; sourceTree = "<group>"; };
+		F1C9A9AF2A879FBC00C058C7 /* MC Stats watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MC Stats watchOS.plist"; sourceTree = "<group>"; };
 		F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExtentions.swift; sourceTree = "<group>"; };
 		F1DCB7B42CC4DE940005FFE0 /* MCStatusStoreKit Local.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "MCStatusStoreKit Local.storekit"; sourceTree = "<group>"; };
 		F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
@@ -556,8 +556,8 @@
 		F11F634C2A81E50E00D47187 /* watchOS */ = {
 			isa = PBXGroup;
 			children = (
-				F1C9A9AF2A879FBC00C058C7 /* MC StatsWatchApp-Info.plist */,
-				F1C9A9AE2A879A4800C058C7 /* MCStatusWatchApp.entitlements */,
+				F1C9A9AF2A879FBC00C058C7 /* MC Stats watchOS.plist */,
+				F1C9A9AE2A879A4800C058C7 /* MC Stats watchOS.entitlements */,
 				F11F634D2A81E50E00D47187 /* MCStats Watch.swift */,
 				F11F63512A81E51000D47187 /* Assets.xcassets */,
 				F1EF76C42CB4205200EFFB20 /* Helpers */,
@@ -1476,13 +1476,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = watchOS/MCStatusWatchApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "watchOS/MC Stats watchOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "watchOS/MC StatsWatchApp-Info.plist";
+				INFOPLIST_FILE = "watchOS/MC Stats watchOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "dev.topscrech.MC-Stats";
@@ -1509,13 +1509,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = watchOS/MCStatusWatchApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "watchOS/MC Stats watchOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "watchOS/MC StatsWatchApp-Info.plist";
+				INFOPLIST_FILE = "watchOS/MC Stats watchOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "dev.topscrech.MC-Stats";
