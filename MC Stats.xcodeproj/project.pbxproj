@@ -43,7 +43,7 @@
 		F174A2FC2A8F7FFA0051DA5B /* WatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174A2FB2A8F7FFA0051DA5B /* WatchHelper.swift */; };
 		F174A2FE2A8F8ED70051DA5B /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
 		F174A3012A915E450051DA5B /* WatchServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174A3002A915E450051DA5B /* WatchServerStatusChecker.swift */; };
-		F17A16BB2A893DD700F8FF2F /* SettingsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */; };
+		F17A16BB2A893DD700F8FF2F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsView.swift */; };
 		F17A16BD2A8956DE00F8FF2F /* EditServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */; };
 		F17AE07D2CBE0B6600DC7A80 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
 		F17AE0EC2CC01E9E00DC7A80 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */; };
@@ -187,7 +187,7 @@
 		F35E1AAD2D6522D600718CB7 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */; };
 		F35E1AAE2D6522D600718CB7 /* ShortcutsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4352CC1709700739646 /* ShortcutsGuideView.swift */; };
 		F35E1AAF2D6522D600718CB7 /* ServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* ServerRowView.swift */; };
-		F35E1AB02D6522D600718CB7 /* SettingsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */; };
+		F35E1AB02D6522D600718CB7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsView.swift */; };
 		F35E1AB22D6522EB00718CB7 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F35E1AB12D6522EB00718CB7 /* MCStatusDataLayer */; };
 		F35E1AB42D6522F400718CB7 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F35E1AB32D6522F400718CB7 /* NukeUI */; };
 		F35E1AB62D65230400718CB7 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F35E1AB52D65230400718CB7 /* ScrechKit */; };
@@ -233,7 +233,7 @@
 		F3C879E42D6572C400840745 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
 		F3C879E52D6572C400840745 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */; };
 		F3C879E62D6572CA00840745 /* ServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* ServerRowView.swift */; };
-		F3C879E72D6572CA00840745 /* SettingsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */; };
+		F3C879E72D6572CA00840745 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsView.swift */; };
 		F3C879E82D6572CA00840745 /* EditServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */; };
 		F3C879E92D6572CA00840745 /* ShortcutsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4352CC1709700739646 /* ShortcutsGuideView.swift */; };
 		F3C879EA2D6572CA00840745 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */; };
@@ -378,7 +378,7 @@
 		F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseNotesView.swift; sourceTree = "<group>"; };
 		F174A2FB2A8F7FFA0051DA5B /* WatchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHelper.swift; sourceTree = "<group>"; };
 		F174A3002A915E450051DA5B /* WatchServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServerStatusChecker.swift; sourceTree = "<group>"; };
-		F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRootView.swift; sourceTree = "<group>"; };
+		F17A16BA2A893DD700F8FF2F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditServerView.swift; sourceTree = "<group>"; };
 		F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
 		F17AE0ED2CC0363F00DC7A80 /* MOTD View Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOTD View Generator.swift"; sourceTree = "<group>"; };
@@ -828,7 +828,7 @@
 		F35E1A6B2D6489F900718CB7 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				F17A16BA2A893DD700F8FF2F /* SettingsRootView.swift */,
+				F17A16BA2A893DD700F8FF2F /* SettingsView.swift */,
 				F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */,
 				F150B4352CC1709700739646 /* ShortcutsGuideView.swift */,
 				F35E1A722D649D1700718CB7 /* Siri */,
@@ -1278,7 +1278,7 @@
 				F1CFCD512CABB567001A9E69 /* CustomExtentions.swift in Sources */,
 				F35E1A9E2D65209500718CB7 /* PlayerCard.swift in Sources */,
 				F16990872CA5DDE500F41232 /* MCStatusShortcutsProvider.swift in Sources */,
-				F17A16BB2A893DD700F8FF2F /* SettingsRootView.swift in Sources */,
+				F17A16BB2A893DD700F8FF2F /* SettingsView.swift in Sources */,
 				F1AE29162CA48577009D0D14 /* ServerRowView.swift in Sources */,
 				F13E60012A4BD614005BE9B2 /* MainAppContentView.swift in Sources */,
 				F1E671762CA73A86002BDFC0 /* CustomProgressView.swift in Sources */,
@@ -1376,7 +1376,7 @@
 				F35E1AAE2D6522D600718CB7 /* ShortcutsGuideView.swift in Sources */,
 				F35E1AAF2D6522D600718CB7 /* ServerRowView.swift in Sources */,
 				F35E1AC52D65238800718CB7 /* MC Stats.swift in Sources */,
-				F35E1AB02D6522D600718CB7 /* SettingsRootView.swift in Sources */,
+				F35E1AB02D6522D600718CB7 /* SettingsView.swift in Sources */,
 				F35E1AAB2D6522D100718CB7 /* CustomProgressView.swift in Sources */,
 				F3C87A102D657A1500840745 /* Feature.swift in Sources */,
 				F3C87A072D6574DD00840745 /* FAQ.swift in Sources */,
@@ -1429,7 +1429,7 @@
 				F3C879DB2D6572BA00840745 /* LowPowerMode.swift in Sources */,
 				F3C879DC2D6572BA00840745 /* RefreshWidgets.swift in Sources */,
 				F3C879E62D6572CA00840745 /* ServerRowView.swift in Sources */,
-				F3C879E72D6572CA00840745 /* SettingsRootView.swift in Sources */,
+				F3C879E72D6572CA00840745 /* SettingsView.swift in Sources */,
 				F3C879E82D6572CA00840745 /* EditServerView.swift in Sources */,
 				F3C879E92D6572CA00840745 /* ShortcutsGuideView.swift in Sources */,
 				F3C879EA2D6572CA00840745 /* GeneralSettings.swift in Sources */,

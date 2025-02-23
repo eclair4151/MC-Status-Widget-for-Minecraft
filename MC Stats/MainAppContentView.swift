@@ -59,7 +59,9 @@ struct MainAppContentView: View {
             .navigationDestination(for: PageDestinations.self) { destination in
                 switch destination {
                 case .SettingsRoot:
-                    SettingsRootView()
+                    SettingsView {
+                        reloadData(forceRefresh: true)
+                    }
                 }
             }
             .navigationDestination(for: SettingsPageDestinations.self) { destination in

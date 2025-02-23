@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 import StoreKit
 import MCStatusDataLayer
 
@@ -6,9 +7,16 @@ enum SettingsPageDestinations {
     case GeneralSettings, FAQ, Shortcuts, Siri, WhatsNew
 }
 
-struct SettingsRootView: View {
+struct SettingsView: View {
+    @Query private var servers: [SavedMinecraftServer]
     @Environment(\.modelContext) private var modelContext
     @Environment(\.openURL) private var openURL
+    
+    private let reloadServers: () -> Void
+    
+    init(reloadServers: @escaping () -> Void = {}) {
+        self.reloadServers = reloadServers
+    }
     
     @State private var showingTipSheet = false
     
@@ -91,7 +99,11 @@ struct SettingsRootView: View {
 #if DEBUG
             Section("Debug") {
                 Button("Add test servers") {
-                    injectServers()
+                    addTestServers()
+                }
+                
+                Button("Delete all servers") {
+                    deleteAllServers()
                 }
             }
 #endif
@@ -103,6 +115,14 @@ struct SettingsRootView: View {
                 TipJarView($showingTipSheet)
             }
         }
+    }
+    
+    private func deleteAllServers() {
+        for server in servers {
+            modelContext.delete(server)
+        }
+        
+        reloadServers()
     }
     
     private func openGithub() {
@@ -150,7 +170,7 @@ struct SettingsRootView: View {
         showingTipSheet = true
     }
     
-    private func injectServers() {
+    private func addTestServers() {
         modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Insanity Craft", serverUrl: "join.insanitycraft.net", serverPort: 25565))
         modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "OpBlocks", serverUrl: "hub.opblocks.com", serverPort: 25565))
         modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Ace MC", serverUrl: "mc.acemc.co", serverPort: 25565))
@@ -167,11 +187,13 @@ struct SettingsRootView: View {
         } catch {
             print(error.localizedDescription)
         }
+        
+        reloadServers()
     }
 }
 
 #Preview {
     NavigationView {
-        SettingsRootView()
+        SettingsView()
     }
 }
