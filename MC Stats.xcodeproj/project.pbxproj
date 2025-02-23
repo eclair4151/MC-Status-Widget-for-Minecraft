@@ -369,13 +369,13 @@
 		F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MC Stats.swift"; sourceTree = "<group>"; };
 		F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppContentView.swift; sourceTree = "<group>"; };
 		F13E60022A4BD615005BE9B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F13E60042A4BD615005BE9B2 /* MC Stats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MC Stats.entitlements"; sourceTree = "<group>"; };
-		F13E60082A4BD615005BE9B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F13E60042A4BD615005BE9B2 /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
+		F13E60082A4BD615005BE9B2 /* iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = iOS.plist; sourceTree = "<group>"; };
 		F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentErrors.swift; sourceTree = "<group>"; };
 		F1406BA92AA391B800815BE8 /* Intents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = Intents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1406BAB2AA391B800815BE8 /* Intents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intents.swift; sourceTree = "<group>"; };
-		F1406BAF2AA391B800815BE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1406BB72AA391F400815BE8 /* MCStatusAppIntentsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusAppIntentsExtension.entitlements; sourceTree = "<group>"; };
+		F1406BAF2AA391B800815BE8 /* Intents.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Intents.plist; sourceTree = "<group>"; };
+		F1406BB72AA391F400815BE8 /* Intents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Intents.entitlements; sourceTree = "<group>"; };
 		F150B4332CC15F6A00739646 /* SiriGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriGuideView.swift; sourceTree = "<group>"; };
 		F150B4352CC1709700739646 /* ShortcutsGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsGuideView.swift; sourceTree = "<group>"; };
 		F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseNotesView.swift; sourceTree = "<group>"; };
@@ -392,8 +392,8 @@
 		F1AE29152CA48577009D0D14 /* ServerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRowView.swift; sourceTree = "<group>"; };
 		F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
 		F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyPing.swift; sourceTree = "<group>"; };
-		F1C9A9AE2A879A4800C058C7 /* MC Stats watchOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MC Stats watchOS.entitlements"; sourceTree = "<group>"; };
-		F1C9A9AF2A879FBC00C058C7 /* MC Stats watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MC Stats watchOS.plist"; sourceTree = "<group>"; };
+		F1C9A9AE2A879A4800C058C7 /* watchOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = watchOS.entitlements; sourceTree = "<group>"; };
+		F1C9A9AF2A879FBC00C058C7 /* watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = watchOS.plist; sourceTree = "<group>"; };
 		F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExtentions.swift; sourceTree = "<group>"; };
 		F1DCB7B42CC4DE940005FFE0 /* MCStatusStoreKit Local.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "MCStatusStoreKit Local.storekit"; sourceTree = "<group>"; };
 		F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
@@ -419,15 +419,15 @@
 		F30471FE2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularAccessoryWidgetView.swift; sourceTree = "<group>"; };
 		F30471FF2D63E9C00055C007 /* SmallWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidgetView.swift; sourceTree = "<group>"; };
 		F30472012D63E9C00055C007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F30472022D63E9C00055C007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F30472032D63E9C00055C007 /* MCStatusWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusWidgetExtension.entitlements; sourceTree = "<group>"; };
+		F30472022D63E9C00055C007 /* Widgets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Widgets.plist; sourceTree = "<group>"; };
+		F30472032D63E9C00055C007 /* Widgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widgets.entitlements; sourceTree = "<group>"; };
 		F30472042D63E9C00055C007 /* Widgets Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Widgets Bundle.swift"; sourceTree = "<group>"; };
 		F30472052D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusWidgetExtensionHS.swift; sourceTree = "<group>"; };
 		F30472062D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusWidgetExtensionLS.swift; sourceTree = "<group>"; };
 		F30472072D63E9C00055C007 /* WidgetEntryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEntryVM.swift; sourceTree = "<group>"; };
 		F30472222D63E9C20055C007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F30472232D63E9C20055C007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F30472242D63E9C20055C007 /* MCStatusWatchWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCStatusWatchWidget.entitlements; sourceTree = "<group>"; };
+		F30472232D63E9C20055C007 /* Widgets watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Widgets watchOS.plist"; sourceTree = "<group>"; };
+		F30472242D63E9C20055C007 /* Widgets watchOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Widgets watchOS.entitlements"; sourceTree = "<group>"; };
 		F304722A2D63E9CF0055C007 /* RefreshWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshWidgetIntent.swift; sourceTree = "<group>"; };
 		F304722B2D63E9CF0055C007 /* ServerSelectNoTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSelectNoTheme.swift; sourceTree = "<group>"; };
 		F304722C2D63E9CF0055C007 /* SelectServerIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectServerIntent.swift; sourceTree = "<group>"; };
@@ -449,7 +449,7 @@
 		F35E1A762D64D32D00718CB7 /* RefreshWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshWidgets.swift; sourceTree = "<group>"; };
 		F35E1A7D2D6501A500718CB7 /* visionOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = visionOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F35E1A932D6501CC00718CB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F35E1A952D6501CC00718CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F35E1A952D6501CC00718CB7 /* visionOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = visionOS.plist; sourceTree = "<group>"; };
 		F35E1A9D2D65209500718CB7 /* PlayerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCard.swift; sourceTree = "<group>"; };
 		F35E1ACB2D652C9000718CB7 /* visionOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = visionOS.entitlements; sourceTree = "<group>"; };
 		F37883692D6AF86A00D38522 /* Debug Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Debug Settings.swift"; sourceTree = "<group>"; };
@@ -457,7 +457,7 @@
 		F3C879BD2D65720500840745 /* tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C879CD2D65722200840745 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3C879D52D65724C00840745 /* tvOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tvOS.entitlements; sourceTree = "<group>"; };
-		F3C879D62D65726200840745 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3C879D62D65726200840745 /* tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = tvOS.plist; sourceTree = "<group>"; };
 		F3C87A012D6574D200840745 /* FAQRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQRow.swift; sourceTree = "<group>"; };
 		F3C87A052D6574DD00840745 /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
 		F3C87A0E2D657A1500840745 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
@@ -560,8 +560,8 @@
 		F11F634C2A81E50E00D47187 /* watchOS */ = {
 			isa = PBXGroup;
 			children = (
-				F1C9A9AF2A879FBC00C058C7 /* MC Stats watchOS.plist */,
-				F1C9A9AE2A879A4800C058C7 /* MC Stats watchOS.entitlements */,
+				F1C9A9AF2A879FBC00C058C7 /* watchOS.plist */,
+				F1C9A9AE2A879A4800C058C7 /* watchOS.entitlements */,
 				F11F634D2A81E50E00D47187 /* MCStats Watch.swift */,
 				F11F63512A81E51000D47187 /* Assets.xcassets */,
 				F1EF76C42CB4205200EFFB20 /* Helpers */,
@@ -631,8 +631,8 @@
 			isa = PBXGroup;
 			children = (
 				F1406BAB2AA391B800815BE8 /* Intents.swift */,
-				F1406BB72AA391F400815BE8 /* MCStatusAppIntentsExtension.entitlements */,
-				F1406BAF2AA391B800815BE8 /* Info.plist */,
+				F1406BAF2AA391B800815BE8 /* Intents.plist */,
+				F1406BB72AA391F400815BE8 /* Intents.entitlements */,
 				F10C42152AAD55A6000107D6 /* Providers */,
 				F149FEC32AA9696F00A269A3 /* Intents */,
 				F1406BA02AA2CC2F00815BE8 /* Entities */,
@@ -652,8 +652,8 @@
 		F1A43C7E2A8472420081A24C /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				F13E60042A4BD615005BE9B2 /* MC Stats.entitlements */,
-				F13E60082A4BD615005BE9B2 /* Info.plist */,
+				F13E60082A4BD615005BE9B2 /* iOS.plist */,
+				F13E60042A4BD615005BE9B2 /* iOS.entitlements */,
 				F17AE0F92CC05CA200DC7A80 /* MCStatusStoreKit Synced.storekit */,
 				F1DCB7B42CC4DE940005FFE0 /* MCStatusStoreKit Local.storekit */,
 				F304725C2D63FBFC0055C007 /* Fonts */,
@@ -759,9 +759,9 @@
 			isa = PBXGroup;
 			children = (
 				F30472042D63E9C00055C007 /* Widgets Bundle.swift */,
+				F30472022D63E9C00055C007 /* Widgets.plist */,
+				F30472032D63E9C00055C007 /* Widgets.entitlements */,
 				F30472012D63E9C00055C007 /* Assets.xcassets */,
-				F30472022D63E9C00055C007 /* Info.plist */,
-				F30472032D63E9C00055C007 /* MCStatusWidgetExtension.entitlements */,
 				F30472052D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift */,
 				F30472062D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift */,
 				F30472072D63E9C00055C007 /* WidgetEntryVM.swift */,
@@ -774,9 +774,9 @@
 		F30472262D63E9C20055C007 /* Widgets watchOS */ = {
 			isa = PBXGroup;
 			children = (
+				F30472232D63E9C20055C007 /* Widgets watchOS.plist */,
+				F30472242D63E9C20055C007 /* Widgets watchOS.entitlements */,
 				F30472222D63E9C20055C007 /* Assets.xcassets */,
-				F30472232D63E9C20055C007 /* Info.plist */,
-				F30472242D63E9C20055C007 /* MCStatusWatchWidget.entitlements */,
 			);
 			path = "Widgets watchOS";
 			sourceTree = "<group>";
@@ -855,9 +855,9 @@
 		F35E1A972D6501CC00718CB7 /* visionOS */ = {
 			isa = PBXGroup;
 			children = (
+				F35E1A952D6501CC00718CB7 /* visionOS.plist */,
 				F35E1ACB2D652C9000718CB7 /* visionOS.entitlements */,
 				F35E1A932D6501CC00718CB7 /* Assets.xcassets */,
-				F35E1A952D6501CC00718CB7 /* Info.plist */,
 			);
 			path = visionOS;
 			sourceTree = "<group>";
@@ -865,7 +865,7 @@
 		F3C879D02D65722200840745 /* tvOS */ = {
 			isa = PBXGroup;
 			children = (
-				F3C879D62D65726200840745 /* Info.plist */,
+				F3C879D62D65726200840745 /* tvOS.plist */,
 				F3C879D52D65724C00840745 /* tvOS.entitlements */,
 				F3C879CD2D65722200840745 /* Assets.xcassets */,
 			);
@@ -1484,13 +1484,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = "watchOS/MC Stats watchOS.entitlements";
+				CODE_SIGN_ENTITLEMENTS = watchOS/watchOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "watchOS/MC Stats watchOS.plist";
+				INFOPLIST_FILE = watchOS/watchOS.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "dev.topscrech.MC-Stats";
@@ -1517,13 +1517,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = "watchOS/MC Stats watchOS.entitlements";
+				CODE_SIGN_ENTITLEMENTS = watchOS/watchOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "watchOS/MC Stats watchOS.plist";
+				INFOPLIST_FILE = watchOS/watchOS.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "dev.topscrech.MC-Stats";
@@ -1550,12 +1550,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "Widgets watchOS/MCStatusWatchWidget.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Widgets watchOS/Widgets watchOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Widgets watchOS/Info.plist";
+				INFOPLIST_FILE = "Widgets watchOS/Widgets watchOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1581,12 +1581,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "Widgets watchOS/MCStatusWatchWidget.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Widgets watchOS/Widgets watchOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Widgets watchOS/Info.plist";
+				INFOPLIST_FILE = "Widgets watchOS/Widgets watchOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1732,7 +1732,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = "MC Stats/Other/MC Stats.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "MC Stats/Other/iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEAD_CODE_STRIPPING = YES;
@@ -1741,7 +1741,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MC Stats/Other/Info.plist";
+				INFOPLIST_FILE = "MC Stats/Other/iOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "This app requires local network access in order to check the status of servers on your local connection";
@@ -1779,7 +1779,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = "MC Stats/Other/MC Stats.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "MC Stats/Other/iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEAD_CODE_STRIPPING = YES;
@@ -1788,7 +1788,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MC Stats/Other/Info.plist";
+				INFOPLIST_FILE = "MC Stats/Other/iOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "This app requires local network access in order to check the status of servers on your local connection";
@@ -1823,12 +1823,12 @@
 		F1406BB42AA391B800815BE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Intents/MCStatusAppIntentsExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Intents/Intents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Intents/Info.plist;
+				INFOPLIST_FILE = Intents/Intents.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -1854,12 +1854,12 @@
 		F1406BB52AA391B800815BE8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Intents/MCStatusAppIntentsExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Intents/Intents.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Intents/Info.plist;
+				INFOPLIST_FILE = Intents/Intents.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -1888,12 +1888,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = Widgets/MCStatusWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Widgets/Widgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Widgets/Info.plist;
+				INFOPLIST_FILE = Widgets/Widgets.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -1919,12 +1919,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = Widgets/MCStatusWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Widgets/Widgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Widgets/Info.plist;
+				INFOPLIST_FILE = Widgets/Widgets.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -1958,7 +1958,7 @@
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_FILE = "$(TARGET_NAME)/visionOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1988,7 +1988,7 @@
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_FILE = "$(TARGET_NAME)/visionOS.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2020,7 +2020,7 @@
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = tvOS/Info.plist;
+				INFOPLIST_FILE = tvOS/tvOS.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -2053,7 +2053,7 @@
 				DEVELOPMENT_TEAM = 8FQUA2F388;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = tvOS/Info.plist;
+				INFOPLIST_FILE = tvOS/tvOS.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
