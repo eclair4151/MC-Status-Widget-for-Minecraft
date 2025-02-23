@@ -16,8 +16,9 @@ public class ServerStatusChecker {
         
         // first check if we need to refresh the srv
         if forceRefeshSrv {
-            if let srvRecord = await SRVResolver.lookupMinecraftSRVRecord(serverURL: server.serverUrl), (srvRecord.0 != server.srvServerUrl || srvRecord.1 != server.srvServerPort) {
-                //got updated SRV info, updated it and try to connect
+            if let srvRecord = await SRVResolver.lookupMinecraftSRVRecord(server.serverUrl),
+               (srvRecord.0 != server.srvServerUrl || srvRecord.1 != server.srvServerPort) {
+                // got updated SRV info, updated it and try to connect
                 // update on main thread to avoid crashing?
                 await MainActor.run {
                     server.srvServerUrl = srvRecord.0
@@ -76,7 +77,8 @@ public class ServerStatusChecker {
         // if not, and we still could not connect, refresh the SRV if its a java server, maybe there is an update
         // if we recevied updated values from previous SRV, attempt ot connect using that
         if !forceRefeshSrv && server.serverType == .Java {
-            if let srvRecord = await SRVResolver.lookupMinecraftSRVRecord(serverURL: server.serverUrl), (srvRecord.0 != server.srvServerUrl || srvRecord.1 != server.srvServerPort) {
+            if let srvRecord = await SRVResolver.lookupMinecraftSRVRecord(server.serverUrl),
+               (srvRecord.0 != server.srvServerUrl || srvRecord.1 != server.srvServerPort) {
                 //got updated SRV info, updated it and try to connect.
                 // update on main thread to avoid crashing?
                 await MainActor.run {
