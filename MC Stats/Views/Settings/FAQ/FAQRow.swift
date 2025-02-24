@@ -7,19 +7,22 @@ struct FAQRow: View {
         self.faq = faq
     }
     
-    // Expanded by default
     @State private var isExpanded = false
     
     var body: some View {
 #if os(tvOS)
-        VStack(alignment: .leading) {
-            Text(faq.answer)
-                .secondary()
-                .padding(.vertical, 5)
+        Button {
             
-            Text(faq.question)
-                .title3(.bold)
-                .padding(.trailing, 10)
+        } label: {
+            VStack(alignment: .leading) {
+                Text(faq.answer)
+                    .secondary()
+                    .padding(.vertical, 5)
+                
+                Text(faq.question)
+                    .title3(.bold)
+                    .padding(.trailing, 10)
+            }
         }
 #else
         DisclosureGroup(isExpanded: $isExpanded) {

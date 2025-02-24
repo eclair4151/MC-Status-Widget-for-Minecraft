@@ -11,15 +11,7 @@ struct FAQView: View {
         Form {
             Section {
                 ForEach(faqs) { faq in
-#if os(tvOS)
-                    Button {
-                        
-                    } label: {
-                        FAQRow(faq)
-                    }
-#else
                     FAQRow(faq)
-#endif
                 }
             }
         }
