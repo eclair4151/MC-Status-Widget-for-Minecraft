@@ -39,13 +39,13 @@ struct AppContainer: View {
                     }
                     .listRowInsets(EdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15))
                 }
+                .onDelete(perform: deleteItems)
                 .onMove {
                     servers?.move(fromOffsets: $0, toOffset: $1)
                     
                     // update underlying display order
                     refreshDisplayOrders()
                 }
-                .onDelete(perform: deleteItems)
             }
             .scrollIndicators(.never)
             .navigationDestination(for: ServerStatusVM.self) { vm in

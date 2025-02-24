@@ -35,13 +35,13 @@ struct AppContainer: View {
                         ServerRow(vm)
                     }
                 }
+                .onDelete(perform: deleteItems)
                 .onMove {
                     servers?.move(fromOffsets: $0, toOffset: $1)
                     
                     // update underlying display order
                     refreshDisplayOrders()
                 }
-                .onDelete(perform: deleteItems)
                 
                 // Text("Updated \(minSinceLastRefresh)m ago")
                 //     .frame(maxWidth: .infinity, alignment: .center)
