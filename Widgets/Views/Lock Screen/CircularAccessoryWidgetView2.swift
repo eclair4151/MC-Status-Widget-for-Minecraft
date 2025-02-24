@@ -39,7 +39,8 @@ struct CircularAccessoryWidgetView2: View {
                             .offset(y: -1)
                             .widgetAccentable()
                     } else {
-                        Image(uiImage: entry.vm.icon).resizable()
+                        Image(uiImage: entry.vm.icon)
+                            .resizable()
                             .scaledToFit()
                             .frame(width: 25, height: 25)
                             .padding(0)

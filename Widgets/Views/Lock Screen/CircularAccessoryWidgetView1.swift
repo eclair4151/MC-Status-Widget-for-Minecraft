@@ -78,11 +78,17 @@ struct CircularAccessoryWidgetView1: View {
                     .buttonStyle(.plain)
                 }
                 
-                Text(entry.vm.progressString)
-                    .padding(.bottom, 4)
-                    .padding(.horizontal,2)
-                    .minimumScaleFactor(0.01)
-                    .semibold()
+                VStack {
+                    if entry.configuration.showMaxPlayerCount {
+                        Text(entry.vm.progressString)
+                    } else {
+                        Text(entry.vm.playersOnline)
+                    }
+                }
+                .padding(.bottom, 4)
+                .padding(.horizontal,2)
+                .minimumScaleFactor(0.01)
+                .semibold()
             }
         }
         .gaugeStyle(.accessoryCircularCapacity)

@@ -58,7 +58,11 @@ struct RectangularAccessoryWidgetView: View {
                     .buttonStyle(.plain)
                 }
                 
-                Text(entry.vm.progressString)
+                if entry.configuration.showMaxPlayerCount {
+                    Text(entry.vm.progressString)
+                } else {
+                    Text(entry.vm.playersOnline)
+                }
             }
         }
         .gaugeStyle(.accessoryLinearCapacity)

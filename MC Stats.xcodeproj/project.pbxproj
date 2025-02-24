@@ -759,10 +759,7 @@
 		F30472002D63E9C00055C007 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F30471F82D63E9C00055C007 /* CircularAccessoryWidgetView1.swift */,
-				F30471F92D63E9C00055C007 /* CircularAccessoryWidgetView2.swift */,
-				F30471FA2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift */,
-				F30471FB2D63E9C00055C007 /* InlineAccessoryWidgetView.swift */,
+				F39296302D6CFFE90021E2ED /* Lock Screen */,
 				F30471FC2D63E9C00055C007 /* InlineAccessoryWidgetView2.swift */,
 				F30471FD2D63E9C00055C007 /* MediumWidgetView.swift */,
 				F30471FE2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift */,
@@ -779,7 +776,6 @@
 				F30472032D63E9C00055C007 /* Widgets.entitlements */,
 				F30472012D63E9C00055C007 /* Assets.xcassets */,
 				F30472052D63E9C00055C007 /* MinecraftServerStatusHSWidget.swift */,
-				F30472062D63E9C00055C007 /* MinecraftServerStatusLSWidget1.swift */,
 				F30472072D63E9C00055C007 /* WidgetEntryVM.swift */,
 				F30471F72D63E9C00055C007 /* TimelineProviders */,
 				F30472002D63E9C00055C007 /* Views */,
@@ -876,6 +872,18 @@
 				F35E1A932D6501CC00718CB7 /* visionOS Icon.xcassets */,
 			);
 			path = visionOS;
+			sourceTree = "<group>";
+		};
+		F39296302D6CFFE90021E2ED /* Lock Screen */ = {
+			isa = PBXGroup;
+			children = (
+				F30472062D63E9C00055C007 /* MinecraftServerStatusLSWidget1.swift */,
+				F30471F82D63E9C00055C007 /* CircularAccessoryWidgetView1.swift */,
+				F30471F92D63E9C00055C007 /* CircularAccessoryWidgetView2.swift */,
+				F30471FA2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift */,
+				F30471FB2D63E9C00055C007 /* InlineAccessoryWidgetView.swift */,
+			);
+			path = "Lock Screen";
 			sourceTree = "<group>";
 		};
 		F3C879D02D65722200840745 /* tvOS */ = {
