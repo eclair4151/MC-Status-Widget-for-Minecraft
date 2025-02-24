@@ -19,11 +19,8 @@ public class ServerStatusChecker {
             if let srvRecord = await SRVResolver.lookupMinecraftSRVRecord(server.serverUrl),
                (srvRecord.0 != server.srvServerUrl || srvRecord.1 != server.srvServerPort) {
                 // got updated SRV info, updated it and try to connect
-                // update on main thread to avoid crashing?
-                await MainActor.run {
-                    server.srvServerUrl = srvRecord.0
-                    server.srvServerPort = srvRecord.1
-                }
+                server.srvServerUrl = srvRecord.0
+                server.srvServerPort = srvRecord.1
             }
         }
         
@@ -80,12 +77,10 @@ public class ServerStatusChecker {
         if !forceRefeshSrv && server.serverType == .Java {
             if let srvRecord = await SRVResolver.lookupMinecraftSRVRecord(server.serverUrl),
                (srvRecord.0 != server.srvServerUrl || srvRecord.1 != server.srvServerPort) {
-                //got updated SRV info, updated it and try to connect.
-                // update on main thread to avoid crashing?
-                await MainActor.run {
-                    server.srvServerUrl = srvRecord.0
-                    server.srvServerPort = srvRecord.1
-                }
+                // got updated SRV info, updated it and try to connect
+                
+                server.srvServerUrl = srvRecord.0
+                server.srvServerPort = srvRecord.1
                 
                 // we need to save it in swift data here
                 print("FOUND NEW SRV RECORD FROM DNS! CHECKING SERVER AT:", server.srvServerUrl)
@@ -143,8 +138,8 @@ public struct ServerCheckerConfig {
     }
 }
 
-//            let res = await SwiftyPing.pingServer(serverUrl: serverURL)
-//            print("got res:", String(res.duration))
+// let res = await SwiftyPing.pingServer(serverUrl: serverURL)
+// print("got res:", String(res.duration))
 
 //let servers = [
 //    "buzz.manacube.com",
@@ -242,8 +237,8 @@ let servers2 = [
 
 func testCall() {
     //    for serverURL in servers {
-    //    let statusCheckerTask = Task {
-    //        let server = SavedMinecraftServer(id: UUID(), serverType: .Java, name: "", serverUrl: serverURL, serverPort: 25565)
+    //        let statusCheckerTask = Task {
+    //            let server = SavedMinecraftServer(id: UUID(), serverType: .Java, name: "", serverUrl: serverURL, serverPort: 25565)
     //            let status = await ServerStatusChecker.checkServer(server: server)
     //            print("👉:", serverURL + "   -   " + status.version + "  -   " + status.status.rawValue)
     //        }
