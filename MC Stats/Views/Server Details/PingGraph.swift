@@ -57,7 +57,7 @@ struct PingGraph: View {
                 .lineStyle(StrokeStyle(lineWidth: 1))
                 .foregroundStyle(.red)
             
-            LineMark (
+            LineMark(
                 x: .value("Date", $0.date),
                 y: .value("Ping", $0.ping)
             )
@@ -86,7 +86,7 @@ struct PingGraph: View {
                                 )
                                 
                                 if selectedElement?.date == element?.date {
-                                    // If tapping the same element, clear the selection
+                                    // Clear the selection when tapping the same element
                                     selectedElement = nil
                                 } else {
                                     selectedElement = element
@@ -95,7 +95,11 @@ struct PingGraph: View {
                             .exclusively(
                                 before: DragGesture()
                                     .onChanged { value in
-                                        selectedElement = findElement(location: value.location, proxy: proxy, geo: geo)
+                                        selectedElement = findElement(
+                                            location: value.location,
+                                            proxy: proxy,
+                                            geo: geo
+                                        )
                                     }
                             )
                     )
