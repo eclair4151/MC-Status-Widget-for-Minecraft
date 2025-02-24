@@ -104,11 +104,11 @@ struct PingGraph: View {
         .chartBackground { proxy in
             ZStack(alignment: .topLeading) {
                 GeometryReader { geo in
-                    if showLollipop, let selectedElement {
+                    if showLollipop, let selectedElement, let plotFrame = proxy.plotFrame {
                         let startPositionX1 = proxy.position(forX: selectedElement.date) ?? 0
                         
-                        let lineX = startPositionX1 + geo[proxy.plotAreaFrame].origin.x
-                        let lineHeight = geo[proxy.plotAreaFrame].maxY
+                        let lineX = startPositionX1 + geo[plotFrame].origin.x
+                        let lineHeight = geo[plotFrame].maxY
                         let boxWidth: CGFloat = 70
                         let boxOffset = max(0, min(geo.size.width - boxWidth, lineX - boxWidth / 2))
                         
@@ -118,8 +118,6 @@ struct PingGraph: View {
                             .position(x: lineX, y: lineHeight / 2)
                         
                         VStack(alignment: .center) {
-                            // Text("\(selectedElement.date, format: .dateTime.year().month().day())")
-                            
                             Text("\(selectedElement.date, format: .dateTime.hour().minute().second())")
                                 .callout()
                                 .foregroundStyle(.secondary)

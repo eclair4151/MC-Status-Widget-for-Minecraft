@@ -12,7 +12,7 @@ struct MOTDView: View {
         if let status, let _ = status.description {
             status.generateMOTDView()
                 .padding(10)
-                .frame(maxWidth: .infinity, alignment: .leading) // Make the Text view full width
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .cornerRadius(15)
         }
     }

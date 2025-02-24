@@ -92,7 +92,7 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
                 // apply formatter if it matches a known formatter value, then continue parsing string
                 if let sectionFormatter = javaSectionSignFormatCodes[String(modifierKey)] {
                     // cap off current section, so next set can have new formatters
-                    // if the text is empty dont both adding it
+                    // if text is empty dont both adding it
                     if !currentSection.text.isEmpty {
                         motdSections.append(currentSection)
                     }
@@ -109,12 +109,12 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
                     currentSection = newSection
                     
                 } else if let colorFormatter = javaSectionSignColorFormats[String(modifierKey)] {
-                    // if the text is empty dont bother adding it
+                    // if text is empty dont bother adding it
                     if !currentSection.text.isEmpty {
                         motdSections.append(currentSection)
                     }
                     
-                    // in java edition only, when a new color is specified, all previous formatters are reset
+                    // in Java edition only, when a new color is specified, all previous formatters are reset
                     currentSection = FormattedMOTDSection()
                     currentSection.color = colorFormatter.rawValue
                 }

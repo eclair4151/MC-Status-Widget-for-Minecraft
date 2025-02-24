@@ -53,15 +53,14 @@ public class JavaServerStatusResponse: Decodable {
 // is it a string, string array, or a desc object?
 class JavaMOTDDescriptionSection: Decodable {
     enum CodingKeys: String, CodingKey {
-        case text = "text"
-        case color = "color"
-        case extra = "extra"
-        case bold = "bold"
-        case italic = "italic"
-        case underlined = "underlined"
-        case strikethrough = "strikethrough"
-        case obfuscated = "obfuscated"
-        
+        case text = "text",
+             color = "color",
+             extra = "extra",
+             bold = "bold",
+             italic = "italic",
+             underlined = "underlined",
+             strikethrough = "strikethrough",
+             obfuscated = "obfuscated"
     }
     
     var text: String?

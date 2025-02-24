@@ -43,7 +43,7 @@ public class BedrockServerStatusParser: ServerStatusParserProtocol {
                 // apply formatter if it matches a known formatter value, then continue parsing string
                 if let sectionFormatter = bedrockSectionSignFormatCodes[String(modifierKey)] {
                     // cap off current section, so next set can have new formatters.
-                    // if the text is empty dont bother adding it
+                    // if text is empty dont bother adding it
                     if !currentSection.text.isEmpty {
                         motdSections.append(currentSection)
                     }
@@ -59,12 +59,12 @@ public class BedrockServerStatusParser: ServerStatusParserProtocol {
                     
                     currentSection = newSection
                 } else if let colorFormatter = bedrockSectionSignColorFormats[String(modifierKey)] {
-                    // if the text is empty dont both adding it
+                    // if text is empty dont both adding it
                     if !currentSection.text.isEmpty {
                         motdSections.append(currentSection)
                     }
                     
-                    // in bedrock edition only, when a new color is specified, formatters are passed to the following section
+                    // in Bedrock edition only, when a new color is specified, formatters are passed to the following section
                     let newSection = FormattedMOTDSection()
                     newSection.color = colorFormatter.rawValue
                     newSection.formatters = currentSection.formatters

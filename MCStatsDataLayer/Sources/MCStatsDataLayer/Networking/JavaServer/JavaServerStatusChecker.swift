@@ -121,7 +121,7 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
                 connection.cancel()
                 
                 //                case .preparing, .setup:
-                //                    print("Connection preparing or setup.")
+                //                    print("Connection preparing or setup")
                 //
                 //                case .waiting(let error):
                 //                    print("Connection waiting with error: \(error)" + "   -   server:", self.serverAddress)
@@ -184,7 +184,7 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
                 // if we have the expected message length already, we can continue with parsing, if not, recursivly call this func to download the next chunk of data
                 if messageComplete {
                     print("Data received successfully")
-                    // just in case...
+                    // Just in case
                     guard dataArr.count > 0 else {
                         callContinuationError(ServerStatusCheckerError.StatusUnparsable)
                         return
@@ -286,8 +286,11 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
             $0[0]
         }
         
-        data.append(addressLengthByte) // lenth of url we are about to send
-        data += addressBytes // the address of the server
+        // lenth of url we are about to send
+        data.append(addressLengthByte)
+        
+        // the address of the server
+        data += addressBytes
         
         // now for the server port. We gotta switch endians and make it a short (only 2 bytes)
         let portBytes = withUnsafeBytes(of: port) {
@@ -311,7 +314,7 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
         data.insert(handshakeLengthByte, at: 0)
         
         // Now append the second message which is a hardcoded 0 to ask for the status
-        // Since it is tcp we can write both requests in the same call
+        // Since it is TCP we can write both requests in the same call
         data.append(0x01) // length of following status packet (always 1)
         data.append(0x00) // status packet (always 0)
         

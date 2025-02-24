@@ -151,7 +151,7 @@ struct EditServerView: View {
     }
     
     private func extractPort(from text: String) {
-        // Check if the text contains a colon
+        // Check if text contains a colomn
         if let colonIndex = text.firstIndex(of: ":") {
             // Extract the port number after the colon
             let portValue = text[text.index(after: colonIndex)...]

@@ -35,7 +35,12 @@ public class UDPClient {
         address = NWEndpoint.Host(newAddress)
         port = codedPort
         
-        connection = NWConnection(host: address, port: port, using: .udp)
+        connection = NWConnection(
+            host: address,
+            port: port,
+            using: .udp
+        )
+        
         connection.stateUpdateHandler = { newState in
             switch (newState) {
             case .ready:
@@ -91,7 +96,7 @@ public class UDPClient {
             
             print("Received valid Data")
             
-            self.listener(.SUCCESS,self,data)
+            self.listener(.SUCCESS, self, data)
         }
     }
 }
