@@ -78,7 +78,7 @@ struct AppContainer: View {
                         .fontSize(30)
                         .foregroundStyle(.gray)
                     
-                    ContentUnavailableView("Add a Server", systemImage: "", description: Text ("Servers are synced with your phone. This may take some time"))
+                    ContentUnavailableView("Add a Server", systemImage: "", description: Text("Servers are synced with your phone. This may take some time"))
                         .scrollDisabled(true)
                     
                     Spacer()
@@ -113,7 +113,7 @@ struct AppContainer: View {
         }
         .onAppear {
             statusChecker.responseListener = { id, status in
-                guard let servervVM = self.serverVMCache[id] else {
+                guard let servervVM = serverVMCache[id] else {
                     return
                 }
                 
@@ -143,8 +143,8 @@ struct AppContainer: View {
                     self.iCloudStatus = .unknown
                 }
                 
-                if let error = error {
-                    print("Error checking iCloud account status: \(error.localizedDescription)")
+                if let error {
+                    print("Error checking iCloud account status:", error.localizedDescription)
                 }
             }
             
