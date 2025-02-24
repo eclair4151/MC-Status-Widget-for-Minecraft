@@ -51,25 +51,20 @@ struct AppContainer: View {
                 ServerDetails(vm)
             }
             .toolbar {
-                if let servers, !servers.isEmpty {
-                    ToolbarItem(placement: .topBarLeading) {
-                        Text("Servers")
-                            .fontSize(25)
-                            .bold()
+                ToolbarItem(placement: .topBarLeading) {
+                    NavigationLink(value: PageDestinations.SettingsRoot) {
+                        Label("Settings", systemImage: "gear")
+                            .foregroundColor(.white)
                     }
                 }
                 
-                ToolbarItemGroup(placement: .topBarTrailing) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         reloadData(forceRefresh: true)
                     } label: {
                         Label("Refresh", systemImage: "arrow.clockwise")
                             .foregroundColor(.white)
-                    }
-                    
-                    NavigationLink(value: PageDestinations.SettingsRoot) {
-                        Label("Settings", systemImage: "gear")
-                            .foregroundColor(.white)
+                        
                     }
                 }
             }
