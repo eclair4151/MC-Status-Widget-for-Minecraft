@@ -1,6 +1,8 @@
 import AppIntents
 
 public struct MCStatsShortcutsProvider: AppShortcutsProvider {
+    public static var shortcutTileColor: ShortcutTileColor = .blue
+    
     public static var appShortcuts: [AppShortcut] {
         AppShortcut(
             intent: SavedServerStatusOnlineCheckIntent(),
