@@ -25,7 +25,7 @@ struct AppContainer: View {
         return Int(timeInterval / 60)
     }
     
-    var statusChecker = WatchServerStatusChecker()
+    private var statusChecker = WatchServerStatusChecker()
     
     var body: some View {
         NavigationStack {

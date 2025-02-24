@@ -29,8 +29,6 @@ struct AppContainer: View {
     @State private var lastRefreshTime = Date()
     @State private var pendingDeepLink: String?
     @State private var showAlert = false
-    @State private var alertTitle = ""
-    @State private var alertMessage = ""
     
     var body: some View {
         NavigationStack(path: $nav) {
@@ -204,8 +202,6 @@ struct AppContainer: View {
             Button("OK") {
                 showReleaseNotes = true
             }
-        } message: {
-            Text(alertMessage)
         }
     }
     
@@ -224,7 +220,7 @@ struct AppContainer: View {
             self.nav.removeLast(self.nav.count)
             
             Task {
-                // hack! otherwise data wont refresh correctly
+                // hack! otherwise data won't refresh correctly
                 self.nav.append(vm)
             }
         }
