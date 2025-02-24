@@ -59,29 +59,32 @@ struct AppContainer: View {
                     }
                 }
                 
-                ToolbarItem(placement: .topBarTrailing) {
+                ToolbarItemGroup(placement: .topBarTrailing) {
                     Button {
                         reloadData(forceRefresh: true)
                     } label: {
                         Label("Refresh", systemImage: "arrow.clockwise")
                             .foregroundColor(.white)
                     }
+                    
+                    NavigationLink(value: PageDestinations.SettingsRoot) {
+                        Label("Settings", systemImage: "gear")
+                            .foregroundColor(.white)
+                    }
                 }
             }
-        }
-        .overlay {
-            if let servers, servers.isEmpty {
-                VStack {
-                    Spacer()
-                    
-                    Image(systemName: "server.rack")
-                        .fontSize(30)
-                        .foregroundStyle(.gray)
-                    
-                    ContentUnavailableView("Add a Server", systemImage: "", description: Text("Servers are synced with your phone. This may take some time"))
+            .navigationDestination(for: PageDestinations.self) { destination in
+                switch destination {
+                case .SettingsRoot:
+                    SettingsView {
+                        reloadData(forceRefresh: true)
+                    }
+                }
+            }
+            .overlay {
+                if let servers, servers.isEmpty {
+                    ContentUnavailableView("Add a Server", systemImage: "server.rack", description: Text("Servers are synced with your phone. This may take some time"))
                         .scrollDisabled(true)
-                    
-                    Spacer()
                 }
             }
         }

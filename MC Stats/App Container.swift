@@ -3,10 +3,6 @@ import SwiftData
 import CoreData
 import MCStatsDataLayer
 
-enum PageDestinations {
-    case SettingsRoot
-}
-
 struct AppContainer: View {
     @State private var nav = NavigationPath()
     private var reviewHelper = ReviewHelper()
@@ -141,7 +137,7 @@ struct AppContainer: View {
             .navigationTitle("Servers")
         }
         .onChange(of: scenePhase, initial: true) { _, newPhase in
-            // Some code to investigate an apple watch bug
+            // Some code to investigate an Apple Watch bug
             if newPhase == .active {
                 print("Active")
                 
