@@ -1,3 +1,4 @@
+import SwiftUI
 import AppIntents
 import MCStatsDataLayer
 
@@ -10,7 +11,7 @@ struct SavedServerEntity: AppEntity {
         DisplayRepresentation(
             title: "\(serverName)"
             // subtitle: "",
-            // image: <#T##DisplayRepresentation.Image?#>
+//            image: DisplayRepresentation.Image
         )
     }
     

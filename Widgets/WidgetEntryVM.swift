@@ -102,12 +102,6 @@ extension WidgetEntryVM {
         self.playersMax = 20
     }
     
-    mutating func setServerIcon(base64Data: String) {
-        print("Decoding base64 image")
-        
-        self.icon = ImageHelper.favIconString(base64Data) ?? UIImage(named: "DefaultIcon")!
-    }
-    
     mutating func setForUnconfiguredView() {
         self.serverName = "Edit Widget"
         self.progressString = "-- / --"
