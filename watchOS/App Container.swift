@@ -70,20 +70,7 @@ struct AppContainer: View {
             }
         }
         .overlay {
-            if self.iCloudStatus == .unavailable && servers?.isEmpty ?? true {
-                VStack {
-                    Spacer()
-                    
-                    Image(systemName: "icloud.slash")
-                        .fontSize(30)
-                        .foregroundStyle(.gray)
-                    
-                    ContentUnavailableView("Enable iCloud", systemImage: "", description: Text ("iCloud is required to sync servers to your watch."))
-                        .scrollDisabled(true)
-                    
-                    Spacer()
-                }
-            } else if let servers, servers.isEmpty {
+            if let servers, servers.isEmpty {
                 VStack {
                     Spacer()
                     
@@ -91,14 +78,14 @@ struct AppContainer: View {
                         .fontSize(30)
                         .foregroundStyle(.gray)
                     
-                    ContentUnavailableView("Add a Server", systemImage: "", description: Text ("Servers are synced with your phone. This may take some time."))
+                    ContentUnavailableView("Add a Server", systemImage: "", description: Text ("Servers are synced with your phone. This may take some time"))
                         .scrollDisabled(true)
                     
                     Spacer()
                 }
             }
         }
-        .onChange(of: scenePhase, initial: true) { old,newPhase in
+        .onChange(of: scenePhase, initial: true) { _, newPhase in
             // Some code to investigate an apple watch bug
             if newPhase == .active {
                 print("Active")
