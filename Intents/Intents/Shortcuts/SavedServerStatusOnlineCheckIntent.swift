@@ -62,7 +62,12 @@ struct SavedServerStatusOnlineCheckIntent: AppIntent {
         let res = try await runServerStatusIntentCheck(serverEntity: serverEntity) { savedServers in
             try await $serverEntity.requestDisambiguation(
                 among: savedServers.map {
-                    SavedServerEntity(id: $0.id, serverName: $0.name)
+                    SavedServerEntity(
+                        id: $0.id,
+                        serverName: $0.name,
+                        icon: $0.serverIcon,
+                        type: $0.serverType.rawValue
+                    )
                 },
                 dialog: IntentDialog("Which server would you like to check the status of?")
             )

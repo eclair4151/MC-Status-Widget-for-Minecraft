@@ -6,17 +6,21 @@ struct SavedServerEntity: AppEntity {
     static var defaultQuery = SavedServerQuery()
     static var typeDisplayRepresentation: TypeDisplayRepresentation = "Server"
     
-#warning("Add description & image")
     var displayRepresentation: DisplayRepresentation {
-        DisplayRepresentation(
-            title: "\(serverName)"
-            // subtitle: "",
-//            image: DisplayRepresentation.Image
+        let uiImage = ImageHelper.favIconString(icon) ?? UIImage(named: "DefaultIcon") ?? UIImage()
+        let imageData = uiImage.pngData() ?? Data()
+        
+        return DisplayRepresentation(
+            title: "\(serverName)",
+            subtitle: "\(type)",
+            image: .init(data: imageData)
         )
     }
     
     var id: UUID
     var serverName: String
+    var icon: String
+    var type: String
 }
 
 struct SavedServerQuery: EntityQuery {
@@ -31,7 +35,9 @@ struct SavedServerQuery: EntityQuery {
             
             result.append(SavedServerEntity(
                 id: server.id,
-                serverName: server.name
+                serverName: server.name,
+                icon: server.serverIcon,
+                type: server.serverType.rawValue
             ))
         }
         
@@ -43,7 +49,12 @@ struct SavedServerQuery: EntityQuery {
         let servers = await SwiftDataHelper.getSavedServers(container)
         
         return servers.map {
-            SavedServerEntity(id: $0.id, serverName: $0.name)
+            SavedServerEntity(
+                id: $0.id,
+                serverName: $0.name,
+                icon: $0.serverIcon,
+                type: $0.serverType.rawValue
+            )
         }
     }
 }
