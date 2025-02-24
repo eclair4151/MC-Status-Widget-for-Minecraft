@@ -78,17 +78,11 @@ struct CircularAccessoryWidgetView1: View {
                     .buttonStyle(.plain)
                 }
                 
-                VStack {
-                    Text(entry.vm.playersOnline)
-                    
-                    if entry.configuration.showMaxPlayerCount {
-                        Text("/ \(entry.vm.playersMax.description)")
-                    }
-                }
-                .padding(.bottom, 4)
-                .padding(.horizontal,2)
-                .minimumScaleFactor(0.01)
-                .semibold()
+                Text(entry.vm.playersOnline)
+                    .padding(.bottom, 4)
+                    .padding(.horizontal,2)
+                    .minimumScaleFactor(0.01)
+                    .semibold()
             }
         }
         .gaugeStyle(.accessoryCircularCapacity)
