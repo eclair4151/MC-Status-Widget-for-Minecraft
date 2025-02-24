@@ -1,6 +1,6 @@
 import AppIntents
 
-public struct MCStatusShortcutsProvider: AppShortcutsProvider {
+public struct MCStatsShortcutsProvider: AppShortcutsProvider {
     public static var appShortcuts: [AppShortcut] {
         AppShortcut(
             intent: SavedServerStatusOnlineCheckIntent(),

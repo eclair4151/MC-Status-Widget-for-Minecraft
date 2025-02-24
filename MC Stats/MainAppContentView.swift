@@ -169,7 +169,7 @@ struct MainAppContentView: View {
             if event.endDate != nil && event.type == .import {
                 print("refresh triggered via eventChangedNotification")
                 
-                MCStatusShortcutsProvider.updateAppShortcutParameters()
+                MCStatsShortcutsProvider.updateAppShortcutParameters()
                 reloadData()
             }
         }

@@ -1,6 +1,6 @@
 import Foundation
 
-// This class is used to call the 3rd party web API in the case we are unable to connect directly
+// Class for calling 3rd party web API when direct connection fails
 public class WebServerStatusChecker {
     static let API_URL = "https://api.mcstatus.io/v2/status"
     static let timeout = 4

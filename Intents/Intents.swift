@@ -1,4 +1,4 @@
 import AppIntents
 
 @main
-struct MCStatusAppIntentsExtension: AppIntentsExtension {}
+struct MCStatsAppIntentsExtension: AppIntentsExtension {}

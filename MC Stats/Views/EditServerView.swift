@@ -228,7 +228,7 @@ struct EditServerView: View {
             
             print("added server")
             
-            MCStatusShortcutsProvider.updateAppShortcutParameters()
+            MCStatsShortcutsProvider.updateAppShortcutParameters()
             
             parentViewRefreshCallBack()
             refreshAllWidgets()
