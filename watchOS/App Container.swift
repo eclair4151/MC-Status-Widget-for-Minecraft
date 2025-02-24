@@ -11,12 +11,12 @@ struct AppContainer: View {
     }
     
     @Environment(\.scenePhase) private var scenePhase
-    @Environment(\.modelContext) private var modelContext
+    @Environment(\.modelContext) var modelContext
     
-    @State private var servers: [ServerStatusVM]?
+    @State var servers: [ServerStatusVM]?
+    @State var lastRefreshTime = Date()
     @State private var serverVMCache: [UUID: ServerStatusVM] = [:]
     @State private var iCloudStatus: iCloudStatus = .unknown
-    @State private var lastRefreshTime = Date()
     
     private var minSinceLastRefresh: Int {
         let currentTime = Date()
@@ -157,22 +157,7 @@ struct AppContainer: View {
         }
     }
     
-    private func checkForAutoReload() {
-        let currentTime = Date()
-        
-        let timeInterval = currentTime.timeIntervalSince(lastRefreshTime)
-        
-        guard timeInterval > 60 else {
-            return
-        }
-        
-        // More than 60 seconds have passed, call the desired method
-        reloadData(forceRefresh: true)
-        
-        WidgetCenter.shared.reloadAllTimelines()
-    }
-    
-    private func reloadData(forceRefresh: Bool = false) {
+    func reloadData(forceRefresh: Bool = false) {
         let fetch = FetchDescriptor<SavedMinecraftServer>(
             predicate: nil,
             sortBy: [.init(\.displayOrder)]
@@ -215,22 +200,6 @@ struct AppContainer: View {
         }
         
         statusChecker.checkServers(serversToCheck)
-    }
-    
-    private func deleteItems(at offsets: IndexSet) {
-        offsets.makeIterator().forEach { pos in
-            if let serverVM = servers?[pos] {
-                modelContext.delete(serverVM.server)
-            }
-        }
-        
-        do {
-            try modelContext.save()
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-        servers?.remove(atOffsets: offsets)
     }
     
     private func refreshDisplayOrders() {

@@ -14,17 +14,17 @@ struct AppContainer: View {
     @Environment(\.requestReview) private var requestReview
 #endif
     @Environment(\.scenePhase) private var scenePhase
-    @Environment(\.modelContext) private var modelContext
+    @Environment(\.modelContext) var modelContext
     
-    @State private var servers: [ServerStatusVM]?
+    @State var servers: [ServerStatusVM]?
     
     // I can't think of a better way to do this since I don't want to regenerate the VM every time
     @State private var serverVMCache: [UUID: ServerStatusVM] = [:]
     @State private var showingAddSheet = false
     @State private var showReleaseNotes = false
-    @State private var lastRefreshTime = Date()
     @State private var pendingDeepLink: String?
     @State private var showAlert = false
+    @State var lastRefreshTime = Date()
     
     var body: some View {
         NavigationStack(path: $nav) {
@@ -222,22 +222,6 @@ struct AppContainer: View {
         }
     }
     
-    private func deleteItems(at offsets: IndexSet) {
-        offsets.makeIterator().forEach { pos in
-            if let serverVM = servers?[pos] {
-                modelContext.delete(serverVM.server)
-            }
-        }
-        
-        do {
-            try modelContext.save()
-        } catch {
-            print(error.localizedDescription)
-        }
-        
-        servers?.remove(atOffsets: offsets)
-    }
-    
     private func refreshDisplayOrders() {
         servers?.enumerated().forEach { index, vm in
             vm.server.displayOrder = index + 1
@@ -251,7 +235,7 @@ struct AppContainer: View {
         }
     }
     
-    private func reloadData(forceRefresh: Bool = false, forceSRVRefreh: Bool = false) {
+    func reloadData(forceRefresh: Bool = false, forceSRVRefreh: Bool = false) {
         // crashes when run in background from apple watch??
         // FB13069019
         guard scenePhase != .background else {
@@ -315,21 +299,6 @@ struct AppContainer: View {
         
         self.pendingDeepLink = nil
         goToServerView(vm)
-    }
-    
-    private func checkForAutoReload() {
-        let currentTime = Date()
-        
-        let timeInterval = currentTime.timeIntervalSince(lastRefreshTime)
-        
-        guard timeInterval > 60 else {
-            return
-        }
-        
-        // >60 seconds passed, reload servers and widgets
-        reloadData(forceRefresh: true)
-        
-        refreshAllWidgets()
     }
     
     private func checkForAppReviewRequest() {
