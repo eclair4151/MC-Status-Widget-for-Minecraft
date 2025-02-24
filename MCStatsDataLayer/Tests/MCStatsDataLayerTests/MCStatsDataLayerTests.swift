@@ -1,7 +1,7 @@
-import Testing
 import Foundation
+import Testing
 
-@testable import MCStatusDataLayer
+@testable import MCStatsDataLayer
 
 struct MCParsingTests {
     @Test func testParsing() throws {

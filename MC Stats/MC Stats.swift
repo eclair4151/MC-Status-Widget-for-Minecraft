@@ -1,5 +1,5 @@
 import ScrechKit
-import MCStatusDataLayer
+import MCStatsDataLayer
 
 @main
 struct MCStatsApp: App {

@@ -1,6 +1,6 @@
 import SwiftUI
 import StoreKit
-import MCStatusDataLayer
+import MCStatsDataLayer
 
 enum SettingsPageDestinations {
     case GeneralSettings, FAQ, Shortcuts, Siri, WhatsNew

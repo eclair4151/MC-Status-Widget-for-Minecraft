@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 import CloudKit
 import CoreData
-import MCStatusDataLayer
+import MCStatsDataLayer
 import WidgetKit
 
 //func testServer() -> SavedMinecraftServer {

@@ -1,5 +1,5 @@
 import SwiftUI
-import MCStatusDataLayer
+import MCStatsDataLayer
 
 extension ServerStatus {
     // Add this method inside the ServerStatus class

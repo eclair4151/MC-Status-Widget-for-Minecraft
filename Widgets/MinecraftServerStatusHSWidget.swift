@@ -1,6 +1,6 @@
 import SwiftUI
 import WidgetKit
-import MCStatusDataLayer
+import MCStatsDataLayer
 
 struct MinecraftServerStatusHSWidget: Widget {
     private let kind = "MinecraftServerStatusHSWidget"

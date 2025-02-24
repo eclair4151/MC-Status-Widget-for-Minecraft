@@ -1,6 +1,6 @@
 import SwiftUI
 import SwiftData
-import MCStatusDataLayer
+import MCStatsDataLayer
 
 struct EditServerView: View {
     private enum FocusedField {

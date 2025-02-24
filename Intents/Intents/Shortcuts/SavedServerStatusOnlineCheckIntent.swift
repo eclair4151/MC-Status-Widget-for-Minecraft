@@ -1,6 +1,6 @@
 import Foundation
 import AppIntents
-import MCStatusDataLayer
+import MCStatsDataLayer
 
 private func runServerStatusIntentCheck(
     serverEntity: SavedServerEntity?,

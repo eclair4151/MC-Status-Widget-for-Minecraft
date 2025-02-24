@@ -1,5 +1,5 @@
 import SwiftUI
-import MCStatusDataLayer
+import MCStatsDataLayer
 
 enum WidgetViewType {
     case Default, Preview, Unconfigured

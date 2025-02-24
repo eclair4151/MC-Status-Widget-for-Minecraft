@@ -14,7 +14,6 @@
 		F13095262CBC997200C4C7BA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EF76ED2CB7873F00EFFB20 /* WidgetKit.framework */; };
 		F13095272CBC997200C4C7BA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EF76EF2CB7873F00EFFB20 /* SwiftUI.framework */; };
 		F13095302CBC997300C4C7BA /* Watch Widgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F13095252CBC997200C4C7BA /* Watch Widgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F13095362CBC99AE00C4C7BA /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F13095352CBC99AE00C4C7BA /* MCStatusDataLayer */; };
 		F130954C2CBC9C5D00C4C7BA /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
 		F130954D2CBC9D1C00C4C7BA /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
 		F130954F2CBC9D5600C4C7BA /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F130954E2CBC9D5600C4C7BA /* ConfigHelper.swift */; };
@@ -60,9 +59,6 @@
 		F1A43C822A8472B20081A24C /* ServerStatusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */; };
 		F1AE29162CA48577009D0D14 /* ServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* ServerRowView.swift */; };
 		F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
-		F1C010412AAAB6DE0017B9A9 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F1C010402AAAB6DE0017B9A9 /* MCStatusDataLayer */; };
-		F1C010432AAAB6E50017B9A9 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F1C010422AAAB6E50017B9A9 /* MCStatusDataLayer */; };
-		F1C010452AAAB6EA0017B9A9 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F1C010442AAAB6EA0017B9A9 /* MCStatusDataLayer */; };
 		F1C010492AAAB9B60017B9A9 /* SwiftyPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */; };
 		F1CFCD512CABB567001A9E69 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
 		F1CFCD522CABB567001A9E69 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
@@ -80,7 +76,6 @@
 		F1EF76EE2CB7873F00EFFB20 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EF76ED2CB7873F00EFFB20 /* WidgetKit.framework */; };
 		F1EF76F02CB7873F00EFFB20 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EF76EF2CB7873F00EFFB20 /* SwiftUI.framework */; };
 		F1EF76FF2CB7874000EFFB20 /* Widgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F1EF76EC2CB7873F00EFFB20 /* Widgets.appex */; platformFilters = (ios, maccatalyst, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F1EF77382CB818AC00EFFB20 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F1EF77372CB818AC00EFFB20 /* MCStatusDataLayer */; };
 		F1EF775E2CB8B88B00EFFB20 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
 		F1EF775F2CB8B88B00EFFB20 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
 		F1EF77602CB8B88B00EFFB20 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
@@ -186,7 +181,6 @@
 		F35E1AAE2D6522D600718CB7 /* ShortcutsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4352CC1709700739646 /* ShortcutsGuideView.swift */; };
 		F35E1AAF2D6522D600718CB7 /* ServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* ServerRowView.swift */; };
 		F35E1AB02D6522D600718CB7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsView.swift */; };
-		F35E1AB22D6522EB00718CB7 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F35E1AB12D6522EB00718CB7 /* MCStatusDataLayer */; };
 		F35E1AB42D6522F400718CB7 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F35E1AB32D6522F400718CB7 /* NukeUI */; };
 		F35E1AB62D65230400718CB7 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F35E1AB52D65230400718CB7 /* ScrechKit */; };
 		F35E1AB72D65231500718CB7 /* MainAppContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */; };
@@ -251,7 +245,6 @@
 		F3C879F52D6572DF00840745 /* MinecraftItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */; };
 		F3C879F62D6572DF00840745 /* MinecraftBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30472582D63FBFC0055C007 /* MinecraftBold.otf */; };
 		F3C879F72D6572DF00840745 /* MinecraftBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30472592D63FBFC0055C007 /* MinecraftBoldItalic.otf */; };
-		F3C879F92D6572F500840745 /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3C879F82D6572F500840745 /* MCStatusDataLayer */; };
 		F3C879FB2D6572F900840745 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3C879FA2D6572F900840745 /* ScrechKit */; };
 		F3C879FD2D6572FD00840745 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F3C879FC2D6572FD00840745 /* Nuke */; };
 		F3C879FF2D65730000840745 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F3C879FE2D65730000840745 /* NukeUI */; };
@@ -269,8 +262,14 @@
 		F3C87A0F2D657A1500840745 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
 		F3C87A102D657A1500840745 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
 		F3C87A112D657A1500840745 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
+		F3C9235C2D6C6CC4004D31A9 /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3C9235B2D6C6CC4004D31A9 /* MCStatsDataLayer */; };
+		F3C9235E2D6C6CD3004D31A9 /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3C9235D2D6C6CD3004D31A9 /* MCStatsDataLayer */; };
+		F3C923602D6C6CDC004D31A9 /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3C9235F2D6C6CDC004D31A9 /* MCStatsDataLayer */; };
+		F3C923622D6C6CE2004D31A9 /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3C923612D6C6CE2004D31A9 /* MCStatsDataLayer */; };
+		F3C923642D6C6CE7004D31A9 /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3C923632D6C6CE7004D31A9 /* MCStatsDataLayer */; };
+		F3C923662D6C6CF2004D31A9 /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3C923652D6C6CF2004D31A9 /* MCStatsDataLayer */; };
+		F3C923682D6C6CF6004D31A9 /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3C923672D6C6CF6004D31A9 /* MCStatsDataLayer */; };
 		F3D9AE622D6C68EB00069BDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
-		F3EAB8552D6BB860006AEA9F /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3EAB8542D6BB860006AEA9F /* MCStatusDataLayer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -365,7 +364,6 @@
 		F11F63512A81E51000D47187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F13095252CBC997200C4C7BA /* Watch Widgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Watch Widgets.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F130954E2CBC9D5600C4C7BA /* ConfigHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigHelper.swift; sourceTree = "<group>"; };
-		F1322FE32AAAB3FC005EAF56 /* MCStatusDataLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MCStatusDataLayer; sourceTree = "<group>"; };
 		F13E5FF92A4BD614005BE9B2 /* MC Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC Stats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MC Stats.swift"; sourceTree = "<group>"; };
 		F13E60002A4BD614005BE9B2 /* MainAppContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppContentView.swift; sourceTree = "<group>"; };
@@ -453,6 +451,7 @@
 		F35E1A952D6501CC00718CB7 /* visionOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = visionOS.plist; sourceTree = "<group>"; };
 		F35E1A9D2D65209500718CB7 /* PlayerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCard.swift; sourceTree = "<group>"; };
 		F35E1ACB2D652C9000718CB7 /* visionOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = visionOS.entitlements; sourceTree = "<group>"; };
+		F360A8AE2D6C6BC3008E515E /* MCStatsDataLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MCStatsDataLayer; sourceTree = "<group>"; };
 		F37883692D6AF86A00D38522 /* Debug Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Debug Settings.swift"; sourceTree = "<group>"; };
 		F3BFB14C2D68055A00E16468 /* MOTD View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOTD View.swift"; sourceTree = "<group>"; };
 		F3C879BD2D65720500840745 /* tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -471,7 +470,7 @@
 			files = (
 				F1EF76C82CB4216F00EFFB20 /* NukeUI in Frameworks */,
 				F33A5CB32D640C440020D8A5 /* ScrechKit in Frameworks */,
-				F1C010432AAAB6E50017B9A9 /* MCStatusDataLayer in Frameworks */,
+				F3C9235E2D6C6CD3004D31A9 /* MCStatsDataLayer in Frameworks */,
 				F1EF76C62CB4216F00EFFB20 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,7 +481,7 @@
 			files = (
 				F13095272CBC997200C4C7BA /* SwiftUI.framework in Frameworks */,
 				F33A5CB12D640C3B0020D8A5 /* ScrechKit in Frameworks */,
-				F13095362CBC99AE00C4C7BA /* MCStatusDataLayer in Frameworks */,
+				F3C923682D6C6CF6004D31A9 /* MCStatsDataLayer in Frameworks */,
 				F13095262CBC997200C4C7BA /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,10 +490,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3EAB8552D6BB860006AEA9F /* MCStatusDataLayer in Frameworks */,
 				F1612CCA2CACC37300E602DC /* NukeUI in Frameworks */,
 				F33A5CAD2D640BEB0020D8A5 /* ScrechKit in Frameworks */,
-				F1C010412AAAB6DE0017B9A9 /* MCStatusDataLayer in Frameworks */,
+				F3C9235C2D6C6CC4004D31A9 /* MCStatsDataLayer in Frameworks */,
 				F1612CC82CACC37300E602DC /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,7 +501,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1C010452AAAB6EA0017B9A9 /* MCStatusDataLayer in Frameworks */,
+				F3C923642D6C6CE7004D31A9 /* MCStatsDataLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,7 +511,7 @@
 			files = (
 				F1EF76F02CB7873F00EFFB20 /* SwiftUI.framework in Frameworks */,
 				F33A5CAF2D640C370020D8A5 /* ScrechKit in Frameworks */,
-				F1EF77382CB818AC00EFFB20 /* MCStatusDataLayer in Frameworks */,
+				F3C923662D6C6CF2004D31A9 /* MCStatsDataLayer in Frameworks */,
 				F1EF76EE2CB7873F00EFFB20 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,8 +520,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3C923622D6C6CE2004D31A9 /* MCStatsDataLayer in Frameworks */,
 				F35E1AB62D65230400718CB7 /* ScrechKit in Frameworks */,
-				F35E1AB22D6522EB00718CB7 /* MCStatusDataLayer in Frameworks */,
 				F35E1AB42D6522F400718CB7 /* NukeUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,8 +531,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3C879FD2D6572FD00840745 /* Nuke in Frameworks */,
-				F3C879F92D6572F500840745 /* MCStatusDataLayer in Frameworks */,
 				F3C879FB2D6572F900840745 /* ScrechKit in Frameworks */,
+				F3C923602D6C6CDC004D31A9 /* MCStatsDataLayer in Frameworks */,
 				F3C879FF2D65730000840745 /* NukeUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -581,7 +579,7 @@
 				F35E1A972D6501CC00718CB7 /* visionOS */,
 				F3C879D02D65722200840745 /* tvOS */,
 				F1406BAA2AA391B800815BE8 /* Intents */,
-				F1322FE32AAAB3FC005EAF56 /* MCStatusDataLayer */,
+				F360A8AE2D6C6BC3008E515E /* MCStatsDataLayer */,
 				F13E5FFA2A4BD614005BE9B2 /* Products */,
 				F10C421B2AAE40BC000107D6 /* Frameworks */,
 			);
@@ -903,10 +901,10 @@
 			);
 			name = watchOS;
 			packageProductDependencies = (
-				F1C010422AAAB6E50017B9A9 /* MCStatusDataLayer */,
 				F1EF76C52CB4216F00EFFB20 /* Nuke */,
 				F1EF76C72CB4216F00EFFB20 /* NukeUI */,
 				F33A5CB22D640C440020D8A5 /* ScrechKit */,
+				F3C9235D2D6C6CD3004D31A9 /* MCStatsDataLayer */,
 			);
 			productName = "MCStatusWatchApp Watch App";
 			productReference = F11F634B2A81E50E00D47187 /* watchOS.app */;
@@ -926,8 +924,8 @@
 			);
 			name = "Watch Widgets";
 			packageProductDependencies = (
-				F13095352CBC99AE00C4C7BA /* MCStatusDataLayer */,
 				F33A5CB02D640C3B0020D8A5 /* ScrechKit */,
+				F3C923672D6C6CF6004D31A9 /* MCStatsDataLayer */,
 			);
 			productName = MCStatusWatchWidgetExtension;
 			productReference = F13095252CBC997200C4C7BA /* Watch Widgets.appex */;
@@ -953,11 +951,10 @@
 			);
 			name = "MC Stats";
 			packageProductDependencies = (
-				F1C010402AAAB6DE0017B9A9 /* MCStatusDataLayer */,
 				F1612CC72CACC37300E602DC /* Nuke */,
 				F1612CC92CACC37300E602DC /* NukeUI */,
 				F33A5CAC2D640BEB0020D8A5 /* ScrechKit */,
-				F3EAB8542D6BB860006AEA9F /* MCStatusDataLayer */,
+				F3C9235B2D6C6CC4004D31A9 /* MCStatsDataLayer */,
 			);
 			productName = MinecraftServerStatus;
 			productReference = F13E5FF92A4BD614005BE9B2 /* MC Stats.app */;
@@ -977,7 +974,7 @@
 			);
 			name = Intents;
 			packageProductDependencies = (
-				F1C010442AAAB6EA0017B9A9 /* MCStatusDataLayer */,
+				F3C923632D6C6CE7004D31A9 /* MCStatsDataLayer */,
 			);
 			productName = MCStatusIntentsFramework;
 			productReference = F1406BA92AA391B800815BE8 /* Intents.appex */;
@@ -997,8 +994,8 @@
 			);
 			name = Widgets;
 			packageProductDependencies = (
-				F1EF77372CB818AC00EFFB20 /* MCStatusDataLayer */,
 				F33A5CAE2D640C370020D8A5 /* ScrechKit */,
+				F3C923652D6C6CF2004D31A9 /* MCStatsDataLayer */,
 			);
 			productName = MCStatusWidgetExtensionExtension;
 			productReference = F1EF76EC2CB7873F00EFFB20 /* Widgets.appex */;
@@ -1018,9 +1015,9 @@
 			);
 			name = visionOS;
 			packageProductDependencies = (
-				F35E1AB12D6522EB00718CB7 /* MCStatusDataLayer */,
 				F35E1AB32D6522F400718CB7 /* NukeUI */,
 				F35E1AB52D65230400718CB7 /* ScrechKit */,
+				F3C923612D6C6CE2004D31A9 /* MCStatsDataLayer */,
 			);
 			productName = "MC Stats visionOS";
 			productReference = F35E1A7D2D6501A500718CB7 /* visionOS.app */;
@@ -1040,10 +1037,10 @@
 			);
 			name = tvOS;
 			packageProductDependencies = (
-				F3C879F82D6572F500840745 /* MCStatusDataLayer */,
 				F3C879FA2D6572F900840745 /* ScrechKit */,
 				F3C879FC2D6572FD00840745 /* Nuke */,
 				F3C879FE2D65730000840745 /* NukeUI */,
+				F3C9235F2D6C6CDC004D31A9 /* MCStatsDataLayer */,
 			);
 			productName = tvOS;
 			productReference = F3C879BD2D65720500840745 /* tvOS.app */;
@@ -1094,7 +1091,7 @@
 			packageReferences = (
 				F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */,
 				F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */,
-				F3EAB8532D6BB860006AEA9F /* XCLocalSwiftPackageReference "MCStatusDataLayer" */,
+				F3C9235A2D6C6CC4004D31A9 /* XCLocalSwiftPackageReference "MCStatsDataLayer" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F13E5FFA2A4BD614005BE9B2 /* Products */;
@@ -2146,9 +2143,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		F3EAB8532D6BB860006AEA9F /* XCLocalSwiftPackageReference "MCStatusDataLayer" */ = {
+		F3C9235A2D6C6CC4004D31A9 /* XCLocalSwiftPackageReference "MCStatsDataLayer" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = MCStatusDataLayer;
+			relativePath = MCStatsDataLayer;
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -2172,10 +2169,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F13095352CBC99AE00C4C7BA /* MCStatusDataLayer */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MCStatusDataLayer;
-		};
 		F1612CC72CACC37300E602DC /* Nuke */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
@@ -2186,18 +2179,6 @@
 			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = NukeUI;
 		};
-		F1C010402AAAB6DE0017B9A9 /* MCStatusDataLayer */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MCStatusDataLayer;
-		};
-		F1C010422AAAB6E50017B9A9 /* MCStatusDataLayer */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MCStatusDataLayer;
-		};
-		F1C010442AAAB6EA0017B9A9 /* MCStatusDataLayer */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MCStatusDataLayer;
-		};
 		F1EF76C52CB4216F00EFFB20 /* Nuke */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
@@ -2207,10 +2188,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = NukeUI;
-		};
-		F1EF77372CB818AC00EFFB20 /* MCStatusDataLayer */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MCStatusDataLayer;
 		};
 		F33A5CAC2D640BEB0020D8A5 /* ScrechKit */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -2232,10 +2209,6 @@
 			package = F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */;
 			productName = ScrechKit;
 		};
-		F35E1AB12D6522EB00718CB7 /* MCStatusDataLayer */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MCStatusDataLayer;
-		};
 		F35E1AB32D6522F400718CB7 /* NukeUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
@@ -2245,10 +2218,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */;
 			productName = ScrechKit;
-		};
-		F3C879F82D6572F500840745 /* MCStatusDataLayer */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MCStatusDataLayer;
 		};
 		F3C879FA2D6572F900840745 /* ScrechKit */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -2265,9 +2234,33 @@
 			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = NukeUI;
 		};
-		F3EAB8542D6BB860006AEA9F /* MCStatusDataLayer */ = {
+		F3C9235B2D6C6CC4004D31A9 /* MCStatsDataLayer */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = MCStatusDataLayer;
+			productName = MCStatsDataLayer;
+		};
+		F3C9235D2D6C6CD3004D31A9 /* MCStatsDataLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MCStatsDataLayer;
+		};
+		F3C9235F2D6C6CDC004D31A9 /* MCStatsDataLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MCStatsDataLayer;
+		};
+		F3C923612D6C6CE2004D31A9 /* MCStatsDataLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MCStatsDataLayer;
+		};
+		F3C923632D6C6CE7004D31A9 /* MCStatsDataLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MCStatsDataLayer;
+		};
+		F3C923652D6C6CF2004D31A9 /* MCStatsDataLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MCStatsDataLayer;
+		};
+		F3C923672D6C6CF6004D31A9 /* MCStatsDataLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MCStatsDataLayer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

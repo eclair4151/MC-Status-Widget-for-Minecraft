@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "MCStatusDataLayer",
+    name: "MCStatsDataLayer",
     platforms: [
         .macOS(.v10_15),
         .iOS(.v17),
@@ -14,19 +14,19 @@ let package = Package(
     ], products: [
         // Products define the executables and libraries a package produces, making them visible to other packages
         .library(
-            name: "MCStatusDataLayer",
-            targets: ["MCStatusDataLayer"]
+            name: "MCStatsDataLayer",
+            targets: ["MCStatsDataLayer"]
         )
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite
         // Targets can depend on other targets in this package and products from dependencies
         .target(
-            name: "MCStatusDataLayer"
+            name: "MCStatsDataLayer"
         ),
         .testTarget(
-            name: "MCStatusDataLayerTests",
-            dependencies: ["MCStatusDataLayer"]
+            name: "MCStatsDataLayerTests",
+            dependencies: ["MCStatsDataLayer"]
         )
     ]
 )

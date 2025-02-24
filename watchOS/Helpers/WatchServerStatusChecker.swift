@@ -1,5 +1,5 @@
 import Foundation
-import MCStatusDataLayer
+import MCStatsDataLayer
 import WatchConnectivity
 
 class WatchServerStatusChecker {

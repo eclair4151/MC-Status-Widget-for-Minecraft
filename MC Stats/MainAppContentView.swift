@@ -1,7 +1,7 @@
 import SwiftUI
 import SwiftData
 import CoreData
-import MCStatusDataLayer
+import MCStatsDataLayer
 
 enum PageDestinations {
     case SettingsRoot

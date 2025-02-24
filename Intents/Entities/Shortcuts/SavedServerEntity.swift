@@ -1,5 +1,5 @@
 import AppIntents
-import MCStatusDataLayer
+import MCStatsDataLayer
 
 struct SavedServerEntity: AppEntity {
     static var defaultQuery = SavedServerQuery()

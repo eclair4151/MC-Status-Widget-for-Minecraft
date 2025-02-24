@@ -1,5 +1,5 @@
 import AppIntents
-import MCStatusDataLayer
+import MCStatsDataLayer
 
 struct ArbitraryServerStatusOnlineCheckIntent: AppIntent {
     static var title: LocalizedStringResource = "Arbitrary Minecraft Server Status Check"

@@ -1,5 +1,5 @@
 import AppIntents
-import MCStatusDataLayer
+import MCStatsDataLayer
 
 struct ServerStatusEntity: AppEntity {
     var serverName: String
