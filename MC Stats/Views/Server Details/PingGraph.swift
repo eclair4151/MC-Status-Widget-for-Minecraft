@@ -156,10 +156,13 @@ struct PingGraph: View {
     
 #if !os(tvOS)
     private func findElement(location: CGPoint, proxy: ChartProxy, geo: GeometryProxy) -> ServerPing? {
-        let relativeXPosition = location.x - geo[proxy.plotAreaFrame].origin.x
+        guard let plotFrame = proxy.plotFrame else {
+            return nil
+        }
+        
+        let relativeXPosition = location.x - geo[plotFrame].origin.x
         
         if let date = proxy.value(atX: relativeXPosition) as Date? {
-            // Find the closest date element
             var minDistance: TimeInterval = .infinity
             var index: Int? = nil
             
