@@ -2,8 +2,8 @@ import SwiftUI
 import SwiftData
 import CloudKit
 import CoreData
-import MCStatsDataLayer
 import WidgetKit
+import MCStatsDataLayer
 
 struct AppContainer: View {
     private enum iCloudStatus {
@@ -13,7 +13,7 @@ struct AppContainer: View {
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.modelContext) private var modelContext
     
-    @State private var serverVMs: [ServerStatusVM]?
+    @State private var servers: [ServerStatusVM]?
     @State private var serverVMCache: [UUID: ServerStatusVM] = [:]
     @State private var iCloudStatus: iCloudStatus = .unknown
     @State private var lastRefreshTime = Date()
@@ -30,7 +30,7 @@ struct AppContainer: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(serverVMs ?? []) { vm in
+                ForEach(servers ?? []) { vm in
                     NavigationLink(value: vm) {
                         ServerRow(vm)
                     }
@@ -44,7 +44,7 @@ struct AppContainer: View {
                 ServerDetails(vm)
             }
             .toolbar {
-                if let serverVMs, !serverVMs.isEmpty {
+                if let servers, !servers.isEmpty {
                     ToolbarItem(placement: .topBarLeading) {
                         Text("Servers")
                             .fontSize(25)
@@ -63,7 +63,7 @@ struct AppContainer: View {
             }
         }
         .overlay {
-            if self.iCloudStatus == .unavailable && serverVMs?.isEmpty ?? true {
+            if self.iCloudStatus == .unavailable && servers?.isEmpty ?? true {
                 VStack {
                     Spacer()
                     
@@ -76,7 +76,7 @@ struct AppContainer: View {
                     
                     Spacer()
                 }
-            } else if let serverVMs, serverVMs.isEmpty {
+            } else if let servers, servers.isEmpty {
                 VStack {
                     Spacer()
                     
@@ -138,10 +138,10 @@ struct AppContainer: View {
                 switch accountStatus {
                 case .available:
                     self.iCloudStatus = .available
-                
+                    
                 case .noAccount, .restricted:
                     self.iCloudStatus = .unavailable
-                
+                    
                 case .couldNotDetermine, .temporarilyUnavailable:
                     self.iCloudStatus = .unknown
                     
@@ -186,13 +186,13 @@ struct AppContainer: View {
         )
         
         guard let servers = try? modelContext.fetch(fetch) else {
-            serverVMs = []
+            servers = []
             return
         }
         
         var serversToCheck: [SavedMinecraftServer] = []
         
-        self.serverVMs = servers.map {
+        self.servers = servers.map {
             if let cachedVm = serverVMCache[$0.id] {
                 return cachedVm
             }
@@ -210,7 +210,7 @@ struct AppContainer: View {
         if forceRefresh {
             lastRefreshTime = Date()
             
-            for vm in serverVMs ?? [] {
+            for vm in self.servers ?? [] {
                 vm.loadingStatus = .Loading
             }
             
