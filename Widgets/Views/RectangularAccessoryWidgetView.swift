@@ -47,12 +47,12 @@ struct RectangularAccessoryWidgetView: View {
                     Spacer()
                     
                     Button(intent: RefreshWidgetIntent()) {
-                        HStack(spacing: 4) { // Adjust spacing as needed
+                        HStack(spacing: 4) { // Adjust spacing & size as needed
                             Image(systemName: "arrow.clockwise")
                                 .imageScale(.medium)
                                 .frame(width: 5, height: 5)
-                                .scaleEffect(CGSize(width: 0.70, height: 0.70), anchor: .center)
-                                .foregroundColor(.veryTransparentText) // You can adjust the size as needed
+                                .scaleEffect(CGSize(width: 0.7, height: 0.7), anchor: .center)
+                                .foregroundColor(.veryTransparentText)
                         }
                     }
                     .buttonStyle(.plain)
