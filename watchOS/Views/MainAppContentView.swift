@@ -134,6 +134,7 @@ struct MainAppContentView: View {
                 }
                 
                 status.sortUsers()
+                
                 Task.detached { @MainActor in
                     servervVM.loadingStatus = .Finished
                     servervVM.status = status
@@ -147,10 +148,13 @@ struct MainAppContentView: View {
                 switch accountStatus {
                 case .available:
                     self.iCloudStatus = .available
+                
                 case .noAccount, .restricted:
                     self.iCloudStatus = .unavailable
+                
                 case .couldNotDetermine, .temporarilyUnavailable:
                     self.iCloudStatus = .unknown
+                    
                 @unknown default:
                     self.iCloudStatus = .unknown
                 }
@@ -165,6 +169,7 @@ struct MainAppContentView: View {
             //            print(server.name)
             //
             //            modelContext.insert(server)
+            
             MCStatsShortcutsProvider.updateAppShortcutParameters()
         }
     }
@@ -180,6 +185,7 @@ struct MainAppContentView: View {
         
         // More than 60 seconds have passed, call the desired method
         reloadData(forceRefresh: true)
+        
         WidgetCenter.shared.reloadAllTimelines()
     }
     
@@ -190,7 +196,7 @@ struct MainAppContentView: View {
         )
         
         guard let servers = try? modelContext.fetch(fetch) else {
-            self.serverVMs = []
+            serverVMs = []
             return
         }
         
@@ -201,7 +207,7 @@ struct MainAppContentView: View {
                 return cachedVm
             }
             
-            let vm = ServerStatusVM(modelContext: self.modelContext, server: $0)
+            let vm = ServerStatusVM(modelContext: modelContext, server: $0)
             serverVMCache[$0.id] = vm
             
             if !forceRefresh {
@@ -214,7 +220,7 @@ struct MainAppContentView: View {
         if forceRefresh {
             lastRefreshTime = Date()
             
-            for vm in self.serverVMs ?? [] {
+            for vm in serverVMs ?? [] {
                 vm.loadingStatus = .Loading
             }
             

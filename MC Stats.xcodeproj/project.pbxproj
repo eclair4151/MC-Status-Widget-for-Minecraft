@@ -212,6 +212,7 @@
 		F383D1992D67D3DB00FE4239 /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
 		F383D19A2D67D3DB00FE4239 /* SiriPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C42D65E6F70030F71C /* SiriPhrase.swift */; };
 		F383D19B2D67E60400FE4239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3C879CD2D65722200840745 /* Assets.xcassets */; };
+		F394B82C2D6C6F9D0040EBD7 /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F394B82B2D6C6F9D0040EBD7 /* MCStatsDataLayer */; };
 		F3BFB14D2D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
 		F3BFB14E2D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
 		F3BFB14F2D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
@@ -262,7 +263,6 @@
 		F3C87A0F2D657A1500840745 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
 		F3C87A102D657A1500840745 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
 		F3C87A112D657A1500840745 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
-		F3C9235C2D6C6CC4004D31A9 /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3C9235B2D6C6CC4004D31A9 /* MCStatsDataLayer */; };
 		F3C9235E2D6C6CD3004D31A9 /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3C9235D2D6C6CD3004D31A9 /* MCStatsDataLayer */; };
 		F3C923602D6C6CDC004D31A9 /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3C9235F2D6C6CDC004D31A9 /* MCStatsDataLayer */; };
 		F3C923622D6C6CE2004D31A9 /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3C923612D6C6CE2004D31A9 /* MCStatsDataLayer */; };
@@ -492,7 +492,7 @@
 			files = (
 				F1612CCA2CACC37300E602DC /* NukeUI in Frameworks */,
 				F33A5CAD2D640BEB0020D8A5 /* ScrechKit in Frameworks */,
-				F3C9235C2D6C6CC4004D31A9 /* MCStatsDataLayer in Frameworks */,
+				F394B82C2D6C6F9D0040EBD7 /* MCStatsDataLayer in Frameworks */,
 				F1612CC82CACC37300E602DC /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -954,7 +954,7 @@
 				F1612CC72CACC37300E602DC /* Nuke */,
 				F1612CC92CACC37300E602DC /* NukeUI */,
 				F33A5CAC2D640BEB0020D8A5 /* ScrechKit */,
-				F3C9235B2D6C6CC4004D31A9 /* MCStatsDataLayer */,
+				F394B82B2D6C6F9D0040EBD7 /* MCStatsDataLayer */,
 			);
 			productName = MinecraftServerStatus;
 			productReference = F13E5FF92A4BD614005BE9B2 /* MC Stats.app */;
@@ -1091,6 +1091,7 @@
 			packageReferences = (
 				F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */,
 				F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */,
+				F394B82A2D6C6F9D0040EBD7 /* XCLocalSwiftPackageReference "MCStatsDataLayer" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F13E5FFA2A4BD614005BE9B2 /* Products */;
@@ -2141,6 +2142,13 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		F394B82A2D6C6F9D0040EBD7 /* XCLocalSwiftPackageReference "MCStatsDataLayer" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = MCStatsDataLayer;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -2211,6 +2219,10 @@
 			package = F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */;
 			productName = ScrechKit;
 		};
+		F394B82B2D6C6F9D0040EBD7 /* MCStatsDataLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MCStatsDataLayer;
+		};
 		F3C879FA2D6572F900840745 /* ScrechKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */;
@@ -2225,10 +2237,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = NukeUI;
-		};
-		F3C9235B2D6C6CC4004D31A9 /* MCStatsDataLayer */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MCStatsDataLayer;
 		};
 		F3C9235D2D6C6CD3004D31A9 /* MCStatsDataLayer */ = {
 			isa = XCSwiftPackageProductDependency;
