@@ -89,9 +89,10 @@ struct AppContainer: View {
             }
         }
         .onChange(of: scenePhase, initial: true) { _, newPhase in
-            // Some code to investigate an apple watch bug
+            // Some code to investigate an Apple Watch bug
             if newPhase == .active {
                 print("Active")
+                
                 reloadData()
                 checkForAutoReload()
                 

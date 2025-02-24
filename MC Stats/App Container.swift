@@ -68,7 +68,7 @@ struct AppContainer: View {
                 }
             }
             .onOpenURL { url in
-                print("Received deep link: \(url)")
+                print("Received deep link:", url)
                 
                 // Manually go into specific server if id is server
                 if let serverUUID = UUID(uuidString: url.absoluteString), let vm = serverVMCache[serverUUID] {
