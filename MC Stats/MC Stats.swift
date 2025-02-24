@@ -2,7 +2,7 @@ import ScrechKit
 import MCStatusDataLayer
 
 @main
-struct MCStatusApp: App {
+struct MCStatsApp: App {
     var body: some Scene {
         WindowGroup {
             MainAppContentView()

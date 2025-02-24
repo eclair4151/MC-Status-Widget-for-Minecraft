@@ -15,7 +15,7 @@ import WidgetKit
 //    )
 //}
 
-struct WatchContentView: View {
+struct MainAppContentView: View {
     private enum iCloudStatus {
         case available, unavailable, unknown
     }
@@ -230,5 +230,5 @@ struct WatchContentView: View {
 }
 
 //#Preview {
-//    WatchContentView()
+//    MainAppContentView()
 //}
