@@ -79,10 +79,10 @@ struct CircularAccessoryWidgetView1: View {
                 }
                 
                 VStack {
+                    Text(entry.vm.playersOnline)
+                    
                     if entry.configuration.showMaxPlayerCount {
-                        Text(entry.vm.progressString)
-                    } else {
-                        Text(entry.vm.playersOnline)
+                        Text("/ \(entry.vm.playersMax.description)")
                     }
                 }
                 .padding(.bottom, 4)
