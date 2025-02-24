@@ -1,4 +1,4 @@
-import MCStatusDataLayer
+import MCStatsDataLayer
 
 class ConfigHelper {
     static func getServerCheckerConfig() -> ServerCheckerConfig {

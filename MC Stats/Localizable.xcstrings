@@ -154,6 +154,7 @@
 
     },
     "Enable iCloud" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -186,9 +187,6 @@
 
     },
     "How to Use Siri" : {
-
-    },
-    "iCloud is required to sync servers to your watch." : {
 
     },
     "iCloud Sync" : {
@@ -457,7 +455,7 @@
         }
       }
     },
-    "Servers are synced with your phone. This may take some time." : {
+    "Servers are synced with your phone. This may take some time" : {
 
     },
     "Settings" : {

@@ -1,5 +1,5 @@
 import SwiftUI
-import MCStatusDataLayer
+import MCStatsDataLayer
 
 struct ServerRowView: View {
     @Environment(\.modelContext) private var modelContext

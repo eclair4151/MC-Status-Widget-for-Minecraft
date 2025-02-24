@@ -10,12 +10,10 @@ struct PingGraph: View {
     
     private let detailChartHeight = 300.0
     
+    @State private var selectedElement: ServerPing? = nil
     @State private var lineWidth = 2.0
     @State private var chartColor: Color = .blue
     @State private var showSymbols = true
-    
-    @State private var selectedElement: ServerPing? = nil
-    
     @State private var showLollipop = true
     
     var average: Int {
@@ -59,7 +57,7 @@ struct PingGraph: View {
                 .lineStyle(StrokeStyle(lineWidth: 1))
                 .foregroundStyle(.red)
             
-            LineMark (
+            LineMark(
                 x: .value("Date", $0.date),
                 y: .value("Ping", $0.ping)
             )
@@ -88,7 +86,7 @@ struct PingGraph: View {
                                 )
                                 
                                 if selectedElement?.date == element?.date {
-                                    // If tapping the same element, clear the selection
+                                    // Clear the selection when tapping the same element
                                     selectedElement = nil
                                 } else {
                                     selectedElement = element
@@ -97,7 +95,11 @@ struct PingGraph: View {
                             .exclusively(
                                 before: DragGesture()
                                     .onChanged { value in
-                                        selectedElement = findElement(location: value.location, proxy: proxy, geo: geo)
+                                        selectedElement = findElement(
+                                            location: value.location,
+                                            proxy: proxy,
+                                            geo: geo
+                                        )
                                     }
                             )
                     )
@@ -106,11 +108,11 @@ struct PingGraph: View {
         .chartBackground { proxy in
             ZStack(alignment: .topLeading) {
                 GeometryReader { geo in
-                    if showLollipop, let selectedElement {
+                    if showLollipop, let selectedElement, let plotFrame = proxy.plotFrame {
                         let startPositionX1 = proxy.position(forX: selectedElement.date) ?? 0
                         
-                        let lineX = startPositionX1 + geo[proxy.plotAreaFrame].origin.x
-                        let lineHeight = geo[proxy.plotAreaFrame].maxY
+                        let lineX = startPositionX1 + geo[plotFrame].origin.x
+                        let lineHeight = geo[plotFrame].maxY
                         let boxWidth: CGFloat = 70
                         let boxOffset = max(0, min(geo.size.width - boxWidth, lineX - boxWidth / 2))
                         
@@ -120,8 +122,6 @@ struct PingGraph: View {
                             .position(x: lineX, y: lineHeight / 2)
                         
                         VStack(alignment: .center) {
-                            // Text("\(selectedElement.date, format: .dateTime.year().month().day())")
-                            
                             Text("\(selectedElement.date, format: .dateTime.hour().minute().second())")
                                 .callout()
                                 .foregroundStyle(.secondary)
@@ -158,10 +158,13 @@ struct PingGraph: View {
     
 #if !os(tvOS)
     private func findElement(location: CGPoint, proxy: ChartProxy, geo: GeometryProxy) -> ServerPing? {
-        let relativeXPosition = location.x - geo[proxy.plotAreaFrame].origin.x
+        guard let plotFrame = proxy.plotFrame else {
+            return nil
+        }
+        
+        let relativeXPosition = location.x - geo[plotFrame].origin.x
         
         if let date = proxy.value(atX: relativeXPosition) as Date? {
-            // Find the closest date element
             var minDistance: TimeInterval = .infinity
             var index: Int? = nil
             

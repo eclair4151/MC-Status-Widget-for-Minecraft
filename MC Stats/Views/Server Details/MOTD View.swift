@@ -1,5 +1,5 @@
 import SwiftUI
-import MCStatusDataLayer
+import MCStatsDataLayer
 
 struct MOTDView: View {
     private let status: ServerStatus?
@@ -12,9 +12,8 @@ struct MOTDView: View {
         if let status, let _ = status.description {
             status.generateMOTDView()
                 .padding(10)
-                .frame(maxWidth: .infinity, alignment: .leading) // Make the Text view full width
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .cornerRadius(15)
-                
         }
     }
 }

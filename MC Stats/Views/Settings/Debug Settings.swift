@@ -1,6 +1,6 @@
 import SwiftUI
 import SwiftData
-import MCStatusDataLayer
+import MCStatsDataLayer
 
 struct DebugSettings: View {
     @Query private var servers: [SavedMinecraftServer]

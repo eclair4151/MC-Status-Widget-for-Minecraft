@@ -1,5 +1,5 @@
 import SwiftUI
-import MCStatusDataLayer
+import MCStatsDataLayer
 
 struct PlayerList: View {
     @Environment(ServerStatusVM.self) private var vm

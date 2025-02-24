@@ -1,7 +1,6 @@
 import SwiftUI
-import MCStatusDataLayer
+import MCStatsDataLayer
 import Nuke
-
 
 struct ServerStatusDetailView: View {
     @Environment(\.modelContext) private var modelContext
@@ -15,12 +14,11 @@ struct ServerStatusDetailView: View {
         self.parentViewRefreshCallBack = parentViewRefreshCallBack
     }
     
+    @State private var pings: [ServerPing] = []
     @State private var pingDuration = 0
     @State private var showingEditSheet = false
     @State private var showingDeleteAlert = false
     @State private var sheetPings = false
-    
-    @State private var pings: [ServerPing] = []
     
     // Ping updater
     private let timer = Timer.publish(every: 1, on: .main, in: .default).autoconnect()

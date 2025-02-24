@@ -1,6 +1,6 @@
 import SwiftUI
 import WidgetKit
-import MCStatusDataLayer
+import MCStatsDataLayer
 import SwiftData
 
 struct LockscreenProvider: AppIntentTimelineProvider {

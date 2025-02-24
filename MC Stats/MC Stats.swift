@@ -1,11 +1,11 @@
 import ScrechKit
-import MCStatusDataLayer
+import MCStatsDataLayer
 
 @main
-struct MCStatusApp: App {
+struct MCStatsApp: App {
     var body: some Scene {
         WindowGroup {
-            MainAppContentView()
+            AppContainer()
         }
         .modelContainer(SwiftDataHelper.getModelContainter())
     }

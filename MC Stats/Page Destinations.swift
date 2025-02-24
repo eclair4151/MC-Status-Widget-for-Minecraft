@@ -1,0 +1,3 @@
+enum PageDestinations {
+    case SettingsRoot
+}

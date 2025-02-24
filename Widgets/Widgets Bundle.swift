@@ -1,7 +1,7 @@
 import ScrechKit
 
 @main
-struct MCStatusWidgetExtensionBundle: WidgetBundle {
+struct MCStatsWidgetExtensionBundle: WidgetBundle {
     var body: some Widget {
 #if !os(watchOS)
         MinecraftServerStatusHSWidget()
