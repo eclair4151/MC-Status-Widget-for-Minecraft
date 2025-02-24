@@ -100,7 +100,7 @@ struct BaseWidgetView: View {
                 .fontSize(CGFloat(entry.vm.progressStringSize))
                 .foregroundColor(.regularText)
                 .lineLimit(1)
-                .minimumScaleFactor(0.7)
+                .minimumScaleFactor(0.5)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.top,3)
                 .padding(.trailing, 16)

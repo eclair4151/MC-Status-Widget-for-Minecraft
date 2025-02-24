@@ -762,7 +762,6 @@
 				F39296302D6CFFE90021E2ED /* Lock Screen */,
 				F30471FC2D63E9C00055C007 /* InlineAccessoryWidgetView2.swift */,
 				F30471FD2D63E9C00055C007 /* MediumWidgetView.swift */,
-				F30471FE2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift */,
 				F30471FF2D63E9C00055C007 /* SmallWidgetView.swift */,
 			);
 			path = Views;
@@ -882,6 +881,7 @@
 				F30471F92D63E9C00055C007 /* CircularAccessoryWidgetView2.swift */,
 				F30471FA2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift */,
 				F30471FB2D63E9C00055C007 /* InlineAccessoryWidgetView.swift */,
+				F30471FE2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift */,
 			);
 			path = "Lock Screen";
 			sourceTree = "<group>";
