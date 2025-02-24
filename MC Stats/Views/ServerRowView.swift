@@ -23,7 +23,8 @@ struct ServerRowView: View {
                 .cornerRadius(8)
                 .clipShape(.rect(cornerRadius: 8))
                 .padding(.trailing, 5)
-                .shadow(color: .black.opacity(0.2), radius: 5, x: 3, y: 3) // Drop shadow
+                .shadow(color: .black.opacity(0.2), radius: 5, x: 3, y: 3)
+                .animation(.default, value: vm.serverIcon)
             
             VStack(alignment: .leading, spacing: 5) {
                 HStack {
@@ -120,7 +121,7 @@ struct ServerRowView: View {
         
         refreshAllWidgets()
         
-        self.presentationMode.wrappedValue.dismiss()
+        presentationMode.wrappedValue.dismiss()
     }
 }
 

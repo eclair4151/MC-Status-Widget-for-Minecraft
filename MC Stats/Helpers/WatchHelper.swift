@@ -23,14 +23,15 @@ class WatchHelper: NSObject, WCSessionDelegate {
     func handleWatchMessage(message: [String: Any], session: WCSession) {
         let decoder = JSONDecoder()
         
-        // i've done the lazy thing and hard coded the logic directly in here. Should be moved to a helper func at some point
+        // I've done the lazy thing and hard coded the logic directly in here
+        // Should be moved to a helper func at some point
         guard
             let requestString = message["request"] as? String,
             let jsonData = requestString.data(using: .utf8),
             let request = try? decoder.decode(WatchRequestMessage.self, from: jsonData)
         else {
             // unknown input? return nothing
-            print("error parsing watch request")
+            print("Error parsing watch request")
             return
         }
         
@@ -61,9 +62,9 @@ class WatchHelper: NSObject, WCSessionDelegate {
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
-        print("we've been waken from the background, and have been asked for data from the watch!")
+        print("We've been waken from the background, and have been asked for data from the watch!")
         
-        // initilize model container since sometimes its not ready yet???
+        // initilize model container since sometimes it's not ready yet??
         // https://developer.apple.com/forums/thread/734212
         let container = SwiftDataHelper.getModelContainter()
         

@@ -19,19 +19,16 @@ public class ServerStatusChecker {
             if let srvRecord = await SRVResolver.lookupMinecraftSRVRecord(server.serverUrl),
                (srvRecord.0 != server.srvServerUrl || srvRecord.1 != server.srvServerPort) {
                 // got updated SRV info, updated it and try to connect
-                // update on main thread to avoid crashing?
-                await MainActor.run {
-                    server.srvServerUrl = srvRecord.0
-                    server.srvServerPort = srvRecord.1
-                }
+                server.srvServerUrl = srvRecord.0
+                server.srvServerPort = srvRecord.1
             }
         }
         
         print("starting server check for:", server.serverUrl)
         
         // STEP 1 if we have SRV values, check that server
-        // only Java servers support SRV records
-        if  server.serverType == .Java && !server.srvServerUrl.isEmpty && server.srvServerPort != 0 {
+        // Only Java servers support SRV records
+        if server.serverType == .Java && !server.srvServerUrl.isEmpty && server.srvServerPort != 0 {
             do {
                 print("CHECKING SERVER FROM CACHED SRV:", server.srvServerUrl)
                 
@@ -46,12 +43,13 @@ public class ServerStatusChecker {
                 
                 return res
             } catch {
-                // something when horribly wrong. Move to next step
+                // something when horribly wrong
+                // Move to next step
                 print("ERROR CONNECTING TO CACHED SRV:", error.localizedDescription)
             }
         }
         
-        // STEP 2 if the direct provided url is different that the SRV record, attempt to connect using that directly.
+        // STEP 2 if the direct provided url is different that the SRV record, attempt to connect using that directly
         // ALSO THIS IS WHEN WE CONNECT TO BEDROCK SINCE THEY DONT HAVE SRV
         if server.serverType == .Bedrock || server.serverUrl != server.srvServerUrl || server.serverPort != server.srvServerPort {
             do {
@@ -79,12 +77,10 @@ public class ServerStatusChecker {
         if !forceRefeshSrv && server.serverType == .Java {
             if let srvRecord = await SRVResolver.lookupMinecraftSRVRecord(server.serverUrl),
                (srvRecord.0 != server.srvServerUrl || srvRecord.1 != server.srvServerPort) {
-                //got updated SRV info, updated it and try to connect.
-                // update on main thread to avoid crashing?
-                await MainActor.run {
-                    server.srvServerUrl = srvRecord.0
-                    server.srvServerPort = srvRecord.1
-                }
+                // got updated SRV info, updated it and try to connect
+                
+                server.srvServerUrl = srvRecord.0
+                server.srvServerPort = srvRecord.1
                 
                 // we need to save it in swift data here
                 print("FOUND NEW SRV RECORD FROM DNS! CHECKING SERVER AT:", server.srvServerUrl)
@@ -142,8 +138,8 @@ public struct ServerCheckerConfig {
     }
 }
 
-//            let res = await SwiftyPing.pingServer(serverUrl: serverURL)
-//            print("got res:", String(res.duration))
+// let res = await SwiftyPing.pingServer(serverUrl: serverURL)
+// print("got res:", String(res.duration))
 
 //let servers = [
 //    "buzz.manacube.com",
@@ -241,8 +237,8 @@ let servers2 = [
 
 func testCall() {
     //    for serverURL in servers {
-    //    let statusCheckerTask = Task {
-    //        let server = SavedMinecraftServer(id: UUID(), serverType: .Java, name: "", serverUrl: serverURL, serverPort: 25565)
+    //        let statusCheckerTask = Task {
+    //            let server = SavedMinecraftServer(id: UUID(), serverType: .Java, name: "", serverUrl: serverURL, serverPort: 25565)
     //            let status = await ServerStatusChecker.checkServer(server: server)
     //            print("👉:", serverURL + "   -   " + status.version + "  -   " + status.status.rawValue)
     //        }

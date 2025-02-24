@@ -144,8 +144,8 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
     // Then you could use an async await to download the data with a while loop instead of recurisve func
     // Not worth it at the moment
     func receiveConnectionData(_ connection: NWConnection, dataParts: [UInt8] = [], expectedSize: Int = -1) {
-        // i have implemented TCP paging logic since the response may be sent over multitple packets
-        // i would prefer to use connection.receiveMessage like in UDP for the bedrock server, but in my testing, java minecraft servers do not automatically close the connection after the message is finished sending, so you need to manually keep track of the incoming data packets and close the connection once you have received all the expected data
+        // I have implemented TCP paging logic since the response may be sent over multitple packets
+        // I would prefer to use connection.receiveMessage like in UDP for the bedrock server, but in my testing, java minecraft servers do not automatically close the connection after the message is finished sending, so you need to manually keep track of the incoming data packets and close the connection once you have received all the expected data
         connection.receive(minimumIncompleteLength: 1, maximumLength: 65536) { [self] data, _, isComplete, error in
             if let error {
                 print("Error receiving data: \(error)" + "  -  address:", self.serverAddress)
@@ -202,7 +202,7 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
                         return
                     }
                     
-                    //if we got to this point we should have a fully formed response string from the server
+                    // if we got to this point we should have a fully formed response string from the server
                     // Time to send it back for parsing
                     callContinuationResume(result: response)
                     connection.cancel()
@@ -275,8 +275,11 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
         var data: [UInt8] = []
         let addressBytes = Array(address.utf8)
         
-        data.append(0x00) // packet id (always 0)
-        data.append(0x00) // protocol version (0-752, we can use 0 since this api was here since the start)
+        // packet id (always 0)
+        data.append(0x00)
+        
+        // protocol version (0-752, we can use 0 since this api was here since the start)
+        data.append(0x00)
         
         // this is for the url of the length and string of the server
         let addressLengthByte = withUnsafeBytes(of: addressBytes.count) {
@@ -291,13 +294,15 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
             [$0[1], $0[0]]
         }
         
-        data += portBytes // the bytes for the server port
+        // bytes for the server port
+        data += portBytes
         
-        data.append(0x01) // request type (status_handshake = 1)
+        // request type (status_handshake = 1)
+        data.append(0x01)
         
         // calculate length of whole message
-        // for the sake of code simplicity, i have made a bad descision of locking the request size to 255 by only allowing a single byte of length
-        // but this is fine for now since i limit the url input in the app to 200 characters and the rest of the request is only around 10 bytes
+        // for the sake of code simplicity, I have made a bad descision of locking the request size to 255 by only allowing a single byte of length
+        // but this is fine for now since I limit the url input in the app to 200 characters and the rest of the request is only around 10 bytes
         let handshakeLengthByte = withUnsafeBytes(of: data.count) {
             $0[0]
         }
@@ -305,7 +310,8 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
         // insert the message length at the begining
         data.insert(handshakeLengthByte, at: 0)
         
-        // now append the second message which is a hardcoded 0 to ask for the status. since it is tcp we can write both requests in the same call
+        // Now append the second message which is a hardcoded 0 to ask for the status
+        // Since it is tcp we can write both requests in the same call
         data.append(0x01) // length of following status packet (always 1)
         data.append(0x00) // status packet (always 0)
         

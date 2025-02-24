@@ -36,7 +36,6 @@ struct ReleaseNotesView: View {
 #endif
                 }
                 
-                // Thank You & Tip/Review Buttons Section
                 Divider()
                     .padding(.vertical, 5)
                 

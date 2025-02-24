@@ -42,10 +42,24 @@
 
     },
     "Add test servers" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добавить тестовые серверы"
+          }
+        }
+      }
     },
     "Add Your First Server" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добавьте свой первый сервер"
+          }
+        }
+      }
     },
     "All bug reports and feature requests can be raised as an issue on the [GitHub repository](https://github.com/TopScrech/MC-Stats)" : {
 
@@ -343,7 +357,14 @@
 
     },
     "Save" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сохранить"
+          }
+        }
+      }
     },
     "Saved Minecraft Server Status Check" : {
 
@@ -352,7 +373,14 @@
 
     },
     "Select which server to show" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выберите, какой сервер показать"
+          }
+        }
+      }
     },
     "server" : {
       "localizations" : {
@@ -466,30 +494,8 @@
     "Sort players alphabetically" : {
 
     },
-    "Sort users alphabetically" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Сортировать пользователей по алфавиту"
-          }
-        }
-      }
-    },
     "Source Code" : {
 
-    },
-    "Source Code on GitHub" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Исходный код на GitHub"
-          }
-        }
-      }
     },
     "Start monitoring a server" : {
       "localizations" : {
@@ -598,7 +604,14 @@
 
     },
     "Widgets" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Виджеты"
+          }
+        }
+      }
     },
     "Widgets open directly to server" : {
 
