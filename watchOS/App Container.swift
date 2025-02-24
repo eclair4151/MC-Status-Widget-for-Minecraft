@@ -35,6 +35,13 @@ struct AppContainer: View {
                         ServerRow(vm)
                     }
                 }
+                .onMove {
+                    servers?.move(fromOffsets: $0, toOffset: $1)
+                    
+                    // update underlying display order
+                    refreshDisplayOrders()
+                }
+                .onDelete(perform: deleteItems)
                 
                 // Text("Updated \(minSinceLastRefresh)m ago")
                 //     .frame(maxWidth: .infinity, alignment: .center)
@@ -92,7 +99,7 @@ struct AppContainer: View {
             }
         }
         .onChange(of: scenePhase, initial: true) { old,newPhase in
-            // this is some code to investigate an apple watch bug
+            // Some code to investigate an apple watch bug
             if newPhase == .active {
                 print("Active")
                 reloadData()
@@ -222,6 +229,35 @@ struct AppContainer: View {
         }
         
         statusChecker.checkServers(serversToCheck)
+    }
+    
+    private func deleteItems(at offsets: IndexSet) {
+        offsets.makeIterator().forEach { pos in
+            if let serverVM = servers?[pos] {
+                modelContext.delete(serverVM.server)
+            }
+        }
+        
+        do {
+            try modelContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        servers?.remove(atOffsets: offsets)
+    }
+    
+    private func refreshDisplayOrders() {
+        servers?.enumerated().forEach { index, vm in
+            vm.server.displayOrder = index + 1
+            modelContext.insert(vm.server)
+        }
+        
+        do {
+            try modelContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 
