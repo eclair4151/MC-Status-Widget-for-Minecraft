@@ -6,7 +6,7 @@ public enum ServerType: String, Codable {
 }
 
 @Model
-public class SavedMinecraftServer: Identifiable, Codable {
+public class SavedMinecraftServer: Identifiable, Codable, @unchecked Sendable {
     public var id = UUID()
     public var name = ""
     public var serverUrl = ""
