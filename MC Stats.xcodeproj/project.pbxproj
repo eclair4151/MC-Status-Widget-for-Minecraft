@@ -1091,7 +1091,6 @@
 			packageReferences = (
 				F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */,
 				F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */,
-				F3C9235A2D6C6CC4004D31A9 /* XCLocalSwiftPackageReference "MCStatsDataLayer" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F13E5FFA2A4BD614005BE9B2 /* Products */;
@@ -2141,13 +2140,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		F3C9235A2D6C6CC4004D31A9 /* XCLocalSwiftPackageReference "MCStatsDataLayer" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = MCStatsDataLayer;
-		};
-/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
 		F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */ = {
