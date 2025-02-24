@@ -170,7 +170,6 @@
 		F35E1A752D64ACE400718CB7 /* Widgets Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472042D63E9C00055C007 /* Widgets Bundle.swift */; };
 		F35E1A772D64D32D00718CB7 /* RefreshWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A762D64D32D00718CB7 /* RefreshWidgets.swift */; };
 		F35E1A782D64DC2700718CB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
-		F35E1A9B2D6501CC00718CB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35E1A932D6501CC00718CB7 /* Assets.xcassets */; };
 		F35E1A9E2D65209500718CB7 /* PlayerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A9D2D65209500718CB7 /* PlayerCard.swift */; };
 		F35E1AA12D6522B300718CB7 /* LowPowerMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A732D64A4B200718CB7 /* LowPowerMode.swift */; };
 		F35E1AA22D6522B300718CB7 /* RefreshWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A762D64D32D00718CB7 /* RefreshWidgets.swift */; };
@@ -209,6 +208,7 @@
 		F35E1AC82D652B4700718CB7 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
 		F35E1AC92D652C5B00718CB7 /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* SavedServerEntity.swift */; };
 		F35E1ACA2D652C6D00718CB7 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
+		F360A8AC2D6C6942008E515E /* visionOS Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35E1A932D6501CC00718CB7 /* visionOS Icon.xcassets */; };
 		F378836A2D6AF86A00D38522 /* Debug Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37883692D6AF86A00D38522 /* Debug Settings.swift */; };
 		F378836B2D6AF86A00D38522 /* Debug Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37883692D6AF86A00D38522 /* Debug Settings.swift */; };
 		F378836C2D6AF86A00D38522 /* Debug Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37883692D6AF86A00D38522 /* Debug Settings.swift */; };
@@ -269,6 +269,7 @@
 		F3C87A0F2D657A1500840745 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
 		F3C87A102D657A1500840745 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
 		F3C87A112D657A1500840745 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
+		F3D9AE622D6C68EB00069BDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
 		F3EAB8552D6BB860006AEA9F /* MCStatusDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3EAB8542D6BB860006AEA9F /* MCStatusDataLayer */; };
 /* End PBXBuildFile section */
 
@@ -449,7 +450,7 @@
 		F35E1A732D64A4B200718CB7 /* LowPowerMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowPowerMode.swift; sourceTree = "<group>"; };
 		F35E1A762D64D32D00718CB7 /* RefreshWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshWidgets.swift; sourceTree = "<group>"; };
 		F35E1A7D2D6501A500718CB7 /* visionOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = visionOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F35E1A932D6501CC00718CB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F35E1A932D6501CC00718CB7 /* visionOS Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "visionOS Icon.xcassets"; sourceTree = "<group>"; };
 		F35E1A952D6501CC00718CB7 /* visionOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = visionOS.plist; sourceTree = "<group>"; };
 		F35E1A9D2D65209500718CB7 /* PlayerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCard.swift; sourceTree = "<group>"; };
 		F35E1ACB2D652C9000718CB7 /* visionOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = visionOS.entitlements; sourceTree = "<group>"; };
@@ -859,7 +860,7 @@
 			children = (
 				F35E1A952D6501CC00718CB7 /* visionOS.plist */,
 				F35E1ACB2D652C9000718CB7 /* visionOS.entitlements */,
-				F35E1A932D6501CC00718CB7 /* Assets.xcassets */,
+				F35E1A932D6501CC00718CB7 /* visionOS Icon.xcassets */,
 			);
 			path = visionOS;
 			sourceTree = "<group>";
@@ -1167,10 +1168,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F35E1A9B2D6501CC00718CB7 /* Assets.xcassets in Resources */,
 				F35E1AC12D65237200718CB7 /* MinecraftRegular.otf in Resources */,
 				F3C879D82D6572AA00840745 /* Localizable.xcstrings in Resources */,
 				F35E1AC22D65237200718CB7 /* MinecraftBold.otf in Resources */,
+				F360A8AC2D6C6942008E515E /* visionOS Icon.xcassets in Resources */,
+				F3D9AE622D6C68EB00069BDF /* Assets.xcassets in Resources */,
 				F35E1AC32D65237200718CB7 /* MinecraftBoldItalic.otf in Resources */,
 				F35E1AC42D65237200718CB7 /* MinecraftItalic.otf in Resources */,
 			);
@@ -1502,7 +1504,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1534,7 +1536,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1565,7 +1567,7 @@
 					"@executable_path/../../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.watchkitapp.WatchWidgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1595,7 +1597,7 @@
 					"@executable_path/../../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.watchkitapp.WatchWidgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1761,7 +1763,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -1807,7 +1809,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -1838,7 +1840,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.Intents";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1868,7 +1870,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.Intents";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1901,7 +1903,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.Widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1931,7 +1933,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.Widgets";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1961,7 +1963,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = xros;
@@ -1990,7 +1992,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = xros;
@@ -2024,7 +2026,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -2056,7 +2058,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
