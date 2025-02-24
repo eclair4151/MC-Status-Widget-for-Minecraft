@@ -140,9 +140,10 @@ class WatchServerStatusChecker {
             
             return res
         } catch {
-            // if we arent able to connect to the minecraft server directly, nor are we able to connect to the 3rd party server
-            // we arent online at all most likley. status is unknown (default value)
-            print("ERROR DIRECT CONNECTING TO BACKUP SERVER: phone most likley not connected at all." + error.localizedDescription)
+            // If not able to connect to the MC server directly, nor able to connect to the 3rd party server
+            // We arent online at all most likley
+            // Status is unknown (default value)
+            print("ERROR DIRECT CONNECTING TO BACKUP SERVER: phone most likley not connected at all" + error.localizedDescription)
             return ServerStatus()
         }
     }
