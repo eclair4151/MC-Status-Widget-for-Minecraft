@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "MCStatsDataLayer",
     platforms: [
-        .macOS(.v10_15),
+        .macOS(.v14),
         .iOS(.v17),
         .watchOS(.v10),
         .macCatalyst(.v17),

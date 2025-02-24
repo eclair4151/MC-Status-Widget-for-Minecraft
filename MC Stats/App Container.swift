@@ -209,7 +209,7 @@ struct AppContainer: View {
         }
         
         // go to server view
-        // first check if we are already showing a server, and if so, just update it
+        // First, check if a server is already displayed and update it if so
         if self.nav.isEmpty {
             self.nav.append(vm)
         } else {
