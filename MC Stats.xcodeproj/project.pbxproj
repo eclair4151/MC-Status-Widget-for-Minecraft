@@ -560,6 +560,7 @@
 		F11F634C2A81E50E00D47187 /* watchOS */ = {
 			isa = PBXGroup;
 			children = (
+				F1EF76BF2CB4204E00EFFB20 /* MainAppContentView.swift */,
 				F1C9A9AF2A879FBC00C058C7 /* watchOS.plist */,
 				F1C9A9AE2A879A4800C058C7 /* watchOS.entitlements */,
 				F11F63512A81E51000D47187 /* Assets.xcassets */,
@@ -701,7 +702,6 @@
 		F1EF76C12CB4204E00EFFB20 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F1EF76BF2CB4204E00EFFB20 /* MainAppContentView.swift */,
 				F1EF76C02CB4204E00EFFB20 /* WatchServerRowView.swift */,
 				F1EF76C92CB422D400EFFB20 /* WatchServerDetailScreen.swift */,
 			);

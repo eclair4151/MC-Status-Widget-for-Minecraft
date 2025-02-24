@@ -10,7 +10,7 @@ class WatchServerStatusChecker {
     init() {
         self.connectivityProvider.responseListener = { message in
             // recevied message from phone. Parse and remove from expected results, before passing on to listener.
-            guard let (serverID, status) = self.parseWatchResponse(message: message) else {
+            guard let (serverID, status) = self.parseWatchResponse(message) else {
                 return
             }
             
@@ -54,7 +54,7 @@ class WatchServerStatusChecker {
             do {
                 var connectiveStateCounter = 0
                 // first wait up to 1 second for the phone to become available.
-                while (!WCSession.default.isReachable || self.connectivityProvider.connectionState != .activated) && connectiveStateCounter < 4{
+                while (!WCSession.default.isReachable || connectivityProvider.connectionState != .activated) && connectiveStateCounter < 4 {
                     connectiveStateCounter += 1
                     try await Task.sleep(nanoseconds: UInt64(0.25 * Double(NSEC_PER_SEC)))
                 }
@@ -83,7 +83,7 @@ class WatchServerStatusChecker {
         }
     }
     
-    private func parseWatchResponse(message: [String:Any]) -> (UUID, ServerStatus)? {
+    private func parseWatchResponse(_ message: [String: Any]) -> (UUID, ServerStatus)? {
         guard
             let responseString = message["response"] as? String,
             let jsonData = responseString.data(using: .utf8)
@@ -115,7 +115,7 @@ class WatchServerStatusChecker {
             throw ServerStatusCheckerError.StatusUnparsable
         }
         
-        let payload = ["request":jsonString]
+        let payload = ["request": jsonString]
         
         print("sending request...")
         try self.connectivityProvider.send(message: payload)
