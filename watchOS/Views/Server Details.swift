@@ -2,7 +2,7 @@ import SwiftUI
 import MCStatsDataLayer
 import NukeUI
 
-struct WatchServerDetailScreen: View {
+struct ServerDetails: View {
     @State private var vm: ServerStatusVM
     
     init(_ vm: ServerStatusVM) {
@@ -70,5 +70,5 @@ struct WatchServerDetailScreen: View {
 }
 
 //#Preview {
-//    WatchServerDetailScreen()
+//    ServerDetails()
 //}

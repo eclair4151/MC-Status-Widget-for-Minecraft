@@ -3,7 +3,7 @@ import MCStatsDataLayer
 import Nuke
 import NukeUI
 
-struct WatchServerRowView: View {
+struct ServerRow: View {
     private var vm: ServerStatusVM
     
     init(_ vm: ServerStatusVM) {

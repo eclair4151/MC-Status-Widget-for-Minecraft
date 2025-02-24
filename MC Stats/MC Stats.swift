@@ -5,7 +5,7 @@ import MCStatsDataLayer
 struct MCStatsApp: App {
     var body: some Scene {
         WindowGroup {
-            MainAppContentView()
+            AppContainer()
         }
         .modelContainer(SwiftDataHelper.getModelContainter())
     }

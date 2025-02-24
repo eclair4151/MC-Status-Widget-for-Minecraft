@@ -5,17 +5,7 @@ import CoreData
 import MCStatsDataLayer
 import WidgetKit
 
-//func testServer() -> SavedMinecraftServer {
-//    SavedMinecraftServer(
-//        id: UUID(),
-//        serverType: .Java,
-//        name: "Hodor",
-//        serverUrl: "zero.minr.org",
-//        serverPort: 25565
-//    )
-//}
-
-struct MainAppContentView: View {
+struct AppContainer: View {
     private enum iCloudStatus {
         case available, unavailable, unknown
     }
@@ -42,7 +32,7 @@ struct MainAppContentView: View {
             List {
                 ForEach(serverVMs ?? []) { vm in
                     NavigationLink(value: vm) {
-                        WatchServerRowView(vm)
+                        ServerRow(vm)
                     }
                 }
                 
@@ -51,7 +41,7 @@ struct MainAppContentView: View {
                 //     .listRowBackground(Color.clear) // this is ugly so removing it
             }
             .navigationDestination(for: ServerStatusVM.self) { vm in
-                WatchServerDetailScreen(vm)
+                ServerDetails(vm)
             }
             .toolbar {
                 if let serverVMs, !serverVMs.isEmpty {
@@ -236,5 +226,5 @@ struct MainAppContentView: View {
 }
 
 //#Preview {
-//    MainAppContentView()
+//    AppContainer()
 //}

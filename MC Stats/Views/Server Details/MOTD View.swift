@@ -14,7 +14,6 @@ struct MOTDView: View {
                 .padding(10)
                 .frame(maxWidth: .infinity, alignment: .leading) // Make the Text view full width
                 .cornerRadius(15)
-                
         }
     }
 }

@@ -10,12 +10,10 @@ struct PingGraph: View {
     
     private let detailChartHeight = 300.0
     
+    @State private var selectedElement: ServerPing? = nil
     @State private var lineWidth = 2.0
     @State private var chartColor: Color = .blue
     @State private var showSymbols = true
-    
-    @State private var selectedElement: ServerPing? = nil
-    
     @State private var showLollipop = true
     
     var average: Int {

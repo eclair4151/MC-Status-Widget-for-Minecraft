@@ -7,7 +7,7 @@ enum PageDestinations {
     case SettingsRoot
 }
 
-struct MainAppContentView: View {
+struct AppContainer: View {
     @State private var nav = NavigationPath()
     private var reviewHelper = ReviewHelper()
 #if os(iOS)
@@ -343,7 +343,7 @@ struct MainAppContentView: View {
     private func checkForAppReviewRequest() {
         reviewHelper.appLaunched()
         
-        // dont show if they didn't add any servers
+        // Not showing if no servers were added
         if servers?.isEmpty ?? true {
             return
         }
