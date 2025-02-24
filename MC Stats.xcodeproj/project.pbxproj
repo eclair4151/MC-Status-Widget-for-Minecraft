@@ -110,12 +110,12 @@
 		F30472132D63E9C00055C007 /* RectangularAccessoryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FE2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift */; };
 		F30472142D63E9C00055C007 /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FF2D63E9C00055C007 /* SmallWidgetView.swift */; };
 		F30472152D63E9C00055C007 /* Widgets Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472042D63E9C00055C007 /* Widgets Bundle.swift */; };
-		F30472162D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472052D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift */; };
-		F30472172D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472062D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift */; };
+		F30472162D63E9C00055C007 /* MinecraftServerStatusHSWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472052D63E9C00055C007 /* MinecraftServerStatusHSWidget.swift */; };
+		F30472172D63E9C00055C007 /* MinecraftServerStatusLSWidget1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472062D63E9C00055C007 /* MinecraftServerStatusLSWidget1.swift */; };
 		F30472182D63E9C00055C007 /* WidgetEntryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472072D63E9C00055C007 /* WidgetEntryVM.swift */; };
 		F30472192D63E9C00055C007 /* CircularAccessoryWidgetView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F82D63E9C00055C007 /* CircularAccessoryWidgetView1.swift */; };
 		F304721A2D63E9C00055C007 /* CircularAccessoryWidgetView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F92D63E9C00055C007 /* CircularAccessoryWidgetView2.swift */; };
-		F304721B2D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472062D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift */; };
+		F304721B2D63E9C00055C007 /* MinecraftServerStatusLSWidget1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472062D63E9C00055C007 /* MinecraftServerStatusLSWidget1.swift */; };
 		F304721C2D63E9C00055C007 /* WidgetEntryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472072D63E9C00055C007 /* WidgetEntryVM.swift */; };
 		F304721D2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FE2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift */; };
 		F304721E2D63E9C00055C007 /* InlineAccessoryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FB2D63E9C00055C007 /* InlineAccessoryWidgetView.swift */; };
@@ -424,8 +424,8 @@
 		F30472022D63E9C00055C007 /* Widgets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Widgets.plist; sourceTree = "<group>"; };
 		F30472032D63E9C00055C007 /* Widgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widgets.entitlements; sourceTree = "<group>"; };
 		F30472042D63E9C00055C007 /* Widgets Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Widgets Bundle.swift"; sourceTree = "<group>"; };
-		F30472052D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusWidgetExtensionHS.swift; sourceTree = "<group>"; };
-		F30472062D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatusWidgetExtensionLS.swift; sourceTree = "<group>"; };
+		F30472052D63E9C00055C007 /* MinecraftServerStatusHSWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinecraftServerStatusHSWidget.swift; sourceTree = "<group>"; };
+		F30472062D63E9C00055C007 /* MinecraftServerStatusLSWidget1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinecraftServerStatusLSWidget1.swift; sourceTree = "<group>"; };
 		F30472072D63E9C00055C007 /* WidgetEntryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEntryVM.swift; sourceTree = "<group>"; };
 		F30472222D63E9C20055C007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F30472232D63E9C20055C007 /* Widgets watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Widgets watchOS.plist"; sourceTree = "<group>"; };
@@ -765,8 +765,8 @@
 				F30472022D63E9C00055C007 /* Widgets.plist */,
 				F30472032D63E9C00055C007 /* Widgets.entitlements */,
 				F30472012D63E9C00055C007 /* Assets.xcassets */,
-				F30472052D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift */,
-				F30472062D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift */,
+				F30472052D63E9C00055C007 /* MinecraftServerStatusHSWidget.swift */,
+				F30472062D63E9C00055C007 /* MinecraftServerStatusLSWidget1.swift */,
 				F30472072D63E9C00055C007 /* WidgetEntryVM.swift */,
 				F30471F72D63E9C00055C007 /* TimelineProviders */,
 				F30472002D63E9C00055C007 /* Views */,
@@ -1239,7 +1239,7 @@
 				F304724E2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */,
 				F30472192D63E9C00055C007 /* CircularAccessoryWidgetView1.swift in Sources */,
 				F304721A2D63E9C00055C007 /* CircularAccessoryWidgetView2.swift in Sources */,
-				F304721B2D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift in Sources */,
+				F304721B2D63E9C00055C007 /* MinecraftServerStatusLSWidget1.swift in Sources */,
 				F304721C2D63E9C00055C007 /* WidgetEntryVM.swift in Sources */,
 				F304721D2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift in Sources */,
 				F304721E2D63E9C00055C007 /* InlineAccessoryWidgetView.swift in Sources */,
@@ -1344,8 +1344,8 @@
 				F30472132D63E9C00055C007 /* RectangularAccessoryWidgetView.swift in Sources */,
 				F30472142D63E9C00055C007 /* SmallWidgetView.swift in Sources */,
 				F30472152D63E9C00055C007 /* Widgets Bundle.swift in Sources */,
-				F30472162D63E9C00055C007 /* MCStatusWidgetExtensionHS.swift in Sources */,
-				F30472172D63E9C00055C007 /* MCStatusWidgetExtensionLS.swift in Sources */,
+				F30472162D63E9C00055C007 /* MinecraftServerStatusHSWidget.swift in Sources */,
+				F30472172D63E9C00055C007 /* MinecraftServerStatusLSWidget1.swift in Sources */,
 				F30472182D63E9C00055C007 /* WidgetEntryVM.swift in Sources */,
 				F17AE0F12CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */,
 				F17AE0F72CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
