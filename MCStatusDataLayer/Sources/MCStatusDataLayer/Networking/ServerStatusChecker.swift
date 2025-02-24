@@ -30,8 +30,8 @@ public class ServerStatusChecker {
         print("starting server check for:", server.serverUrl)
         
         // STEP 1 if we have SRV values, check that server
-        // only Java servers support SRV records
-        if  server.serverType == .Java && !server.srvServerUrl.isEmpty && server.srvServerPort != 0 {
+        // Only Java servers support SRV records
+        if server.serverType == .Java && !server.srvServerUrl.isEmpty && server.srvServerPort != 0 {
             do {
                 print("CHECKING SERVER FROM CACHED SRV:", server.srvServerUrl)
                 
@@ -46,12 +46,13 @@ public class ServerStatusChecker {
                 
                 return res
             } catch {
-                // something when horribly wrong. Move to next step
+                // something when horribly wrong
+                // Move to next step
                 print("ERROR CONNECTING TO CACHED SRV:", error.localizedDescription)
             }
         }
         
-        // STEP 2 if the direct provided url is different that the SRV record, attempt to connect using that directly.
+        // STEP 2 if the direct provided url is different that the SRV record, attempt to connect using that directly
         // ALSO THIS IS WHEN WE CONNECT TO BEDROCK SINCE THEY DONT HAVE SRV
         if server.serverType == .Bedrock || server.serverUrl != server.srvServerUrl || server.serverPort != server.srvServerPort {
             do {
