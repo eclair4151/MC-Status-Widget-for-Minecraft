@@ -17,8 +17,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F3570D3B2D6E779500BDF069"
-               BuildableName = "MessagesExtension.appex"
-               BlueprintName = "MessagesExtension"
+               BuildableName = "iMessages.appex"
+               BlueprintName = "iMessages"
                ReferencedContainer = "container:MC Stats.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
