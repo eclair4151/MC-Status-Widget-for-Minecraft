@@ -127,6 +127,8 @@ struct TipJarView: View {
         }
         
         do {
+#warning("macOS")
+#if !os(macOS)
             let result = try await product.purchase(confirmIn: scene, options: [])
             
             switch result {
@@ -144,6 +146,7 @@ struct TipJarView: View {
             default:
                 break
             }
+#endif
         } catch {
             alertTitle = "Purchase Failed"
             alertMessage = "There was an error processing your purchase: \(error.localizedDescription)"
