@@ -207,6 +207,7 @@
 		F3570D592D6E77C000BDF069 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3570D532D6E77C000BDF069 /* Assets.xcassets */; };
 		F3570D5B2D6E77C000BDF069 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3570D562D6E77C000BDF069 /* MainInterface.storyboard */; };
 		F3570D5C2D6E77C000BDF069 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3570D572D6E77C000BDF069 /* MessagesViewController.swift */; };
+		F3570D5E2D6E7EF800BDF069 /* iMessages.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F3570D3C2D6E779500BDF069 /* iMessages.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F35E1A6D2D6489FD00718CB7 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */; };
 		F35E1A6F2D649C6000718CB7 /* FeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */; };
 		F35E1A712D649D1300718CB7 /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
@@ -369,6 +370,13 @@
 			remoteGlobalIDString = F1EF76EB2CB7873F00EFFB20;
 			remoteInfo = MCStatusWidgetExtensionExtension;
 		};
+		F3570D5F2D6E7EF800BDF069 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F13E5FF12A4BD614005BE9B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3570D3B2D6E779500BDF069;
+			remoteInfo = iMessages;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -411,6 +419,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				F3570D5E2D6E7EF800BDF069 /* iMessages.appex in Embed Foundation Extensions */,
 				F1EF76FF2CB7874000EFFB20 /* Widgets.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
@@ -1078,6 +1087,7 @@
 				F11F63572A81E51000D47187 /* PBXTargetDependency */,
 				F10C421E2AAE40BC000107D6 /* PBXTargetDependency */,
 				F1EF76FE2CB7874000EFFB20 /* PBXTargetDependency */,
+				F3570D602D6E7EF800BDF069 /* PBXTargetDependency */,
 			);
 			name = "MC Stats";
 			packageProductDependencies = (
@@ -1739,6 +1749,11 @@
 			isa = PBXTargetDependency;
 			target = F1EF76EB2CB7873F00EFFB20 /* Widgets */;
 			targetProxy = F1EF76FD2CB7874000EFFB20 /* PBXContainerItemProxy */;
+		};
+		F3570D602D6E7EF800BDF069 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F3570D3B2D6E779500BDF069 /* iMessages */;
+			targetProxy = F3570D5F2D6E7EF800BDF069 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
