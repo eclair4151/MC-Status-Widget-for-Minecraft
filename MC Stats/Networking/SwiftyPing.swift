@@ -115,7 +115,7 @@ public class SwiftyPing: NSObject {
             return String(cString: inet_ntoa(address.sin_addr), encoding: .ascii)
         }
         
-        /// Resolves the `host`.
+        /// Resolves the `host`
         public static func getIPv4AddressFromHost(host: String) throws -> Data {
             var streamError = CFStreamError()
             
@@ -159,8 +159,8 @@ public class SwiftyPing: NSObject {
             
             return returnData
         }
-        
     }
+    
     // MARK: - Initialization
     /// Ping host
     public let destination: Destination
@@ -475,13 +475,21 @@ public class SwiftyPing: NSObject {
             let address = self.destination.ipv4Address
             
             do {
-                let icmpPackage = try self.createICMPPackage(identifier: UInt16(self.identifier), sequenceNumber: UInt16(self.sequenceIndex))
+                let icmpPackage = try self.createICMPPackage(
+                    identifier: UInt16(self.identifier),
+                    sequenceNumber: UInt16(self.sequenceIndex)
+                )
                 
                 guard let socket = self.socket else {
                     return
                 }
                 
-                let socketError = CFSocketSendData(socket, address as CFData, icmpPackage as CFData, self.configuration.timeoutInterval)
+                let socketError = CFSocketSendData(
+                    socket,
+                    address as CFData,
+                    icmpPackage as CFData,
+                    self.configuration.timeoutInterval
+                )
                 
                 if socketError != .success {
                     var error: PingError?
@@ -643,6 +651,7 @@ public class SwiftyPing: NSObject {
                 packetsReceived: UInt64(roundtripTimes.count),
                 roundtrip: roundtrip
             )
+            
             callback(result)
         }
     }
