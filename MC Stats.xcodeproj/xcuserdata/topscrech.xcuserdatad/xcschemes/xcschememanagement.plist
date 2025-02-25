@@ -24,6 +24,11 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>iMessage.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>macOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -48,6 +53,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>F31D45A02D6DC62600981B1C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F3570D3B2D6E779500BDF069</key>
 		<dict>
 			<key>primary</key>
 			<true/>

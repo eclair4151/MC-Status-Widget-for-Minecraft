@@ -148,7 +148,6 @@
 		F304725E2D63FBFC0055C007 /* MinecraftBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30472592D63FBFC0055C007 /* MinecraftBoldItalic.otf */; };
 		F304725F2D63FBFC0055C007 /* MinecraftItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */; };
 		F30472602D63FBFC0055C007 /* MinecraftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725B2D63FBFC0055C007 /* MinecraftRegular.otf */; };
-		F31D45B82D6DC67B00981B1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F31D45AF2D6DC67B00981B1C /* Assets.xcassets */; };
 		F31D45B92D6DC68F00981B1C /* MC Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */; };
 		F31D45BC2D6DC6B700981B1C /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F31D45BB2D6DC6B700981B1C /* MCStatsDataLayer */; };
 		F31D45BE2D6DC6BD00981B1C /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F31D45BD2D6DC6BD00981B1C /* ScrechKit */; };
@@ -204,6 +203,10 @@
 		F33A5CAF2D640C370020D8A5 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33A5CAE2D640C370020D8A5 /* ScrechKit */; };
 		F33A5CB12D640C3B0020D8A5 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33A5CB02D640C3B0020D8A5 /* ScrechKit */; };
 		F33A5CB32D640C440020D8A5 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33A5CB22D640C440020D8A5 /* ScrechKit */; };
+		F3570D412D6E779500BDF069 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3570D402D6E779500BDF069 /* Messages.framework */; };
+		F3570D592D6E77C000BDF069 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3570D532D6E77C000BDF069 /* Assets.xcassets */; };
+		F3570D5B2D6E77C000BDF069 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3570D562D6E77C000BDF069 /* MainInterface.storyboard */; };
+		F3570D5C2D6E77C000BDF069 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3570D572D6E77C000BDF069 /* MessagesViewController.swift */; };
 		F35E1A6D2D6489FD00718CB7 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */; };
 		F35E1A6F2D649C6000718CB7 /* FeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */; };
 		F35E1A712D649D1300718CB7 /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
@@ -499,10 +502,15 @@
 		F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftItalic.otf; sourceTree = "<group>"; };
 		F304725B2D63FBFC0055C007 /* MinecraftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftRegular.otf; sourceTree = "<group>"; };
 		F31D45A12D6DC62600981B1C /* macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F31D45AF2D6DC67B00981B1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F31D45B22D6DC67B00981B1C /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		F31D45BA2D6DC6A800981B1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F326DB572D6416E100BCCB69 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		F3570D3C2D6E779500BDF069 /* MessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MessagesExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3570D402D6E779500BDF069 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = Library/Frameworks/Messages.framework; sourceTree = DEVELOPER_DIR; };
+		F3570D532D6E77C000BDF069 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F3570D542D6E77C000BDF069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3570D552D6E77C000BDF069 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		F3570D572D6E77C000BDF069 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
 		F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureRow.swift; sourceTree = "<group>"; };
 		F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriGuidePhrase.swift; sourceTree = "<group>"; };
@@ -592,6 +600,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F3570D392D6E779500BDF069 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3570D412D6E779500BDF069 /* Messages.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F35E1A7A2D6501A500718CB7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -629,6 +645,7 @@
 			children = (
 				F1EF76ED2CB7873F00EFFB20 /* WidgetKit.framework */,
 				F1EF76EF2CB7873F00EFFB20 /* SwiftUI.framework */,
+				F3570D402D6E779500BDF069 /* Messages.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -658,6 +675,7 @@
 				F30472262D63E9C20055C007 /* Widgets watchOS */,
 				F1406BAA2AA391B800815BE8 /* Intents */,
 				F360A8AE2D6C6BC3008E515E /* MCStatsDataLayer */,
+				F3570D582D6E77C000BDF069 /* MC Stats iMessage MessagesExtension */,
 				F13E5FFA2A4BD614005BE9B2 /* Products */,
 				F10C421B2AAE40BC000107D6 /* Frameworks */,
 			);
@@ -674,6 +692,7 @@
 				F35E1A7D2D6501A500718CB7 /* visionOS.app */,
 				F3C879BD2D65720500840745 /* tvOS.app */,
 				F31D45A12D6DC62600981B1C /* macOS.app */,
+				F3570D3C2D6E779500BDF069 /* MessagesExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -908,10 +927,20 @@
 			isa = PBXGroup;
 			children = (
 				F31D45BA2D6DC6A800981B1C /* Info.plist */,
-				F31D45AF2D6DC67B00981B1C /* Assets.xcassets */,
 				F31D45B22D6DC67B00981B1C /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		F3570D582D6E77C000BDF069 /* MC Stats iMessage MessagesExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F3570D532D6E77C000BDF069 /* Assets.xcassets */,
+				F3570D542D6E77C000BDF069 /* Info.plist */,
+				F3570D562D6E77C000BDF069 /* MainInterface.storyboard */,
+				F3570D572D6E77C000BDF069 /* MessagesViewController.swift */,
+			);
+			path = "MC Stats iMessage MessagesExtension";
 			sourceTree = "<group>";
 		};
 		F35E1A6B2D6489F900718CB7 /* Settings */ = {
@@ -1123,6 +1152,25 @@
 			productReference = F31D45A12D6DC62600981B1C /* macOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F3570D3B2D6E779500BDF069 /* MessagesExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3570D4C2D6E779600BDF069 /* Build configuration list for PBXNativeTarget "MessagesExtension" */;
+			buildPhases = (
+				F3570D382D6E779500BDF069 /* Sources */,
+				F3570D392D6E779500BDF069 /* Frameworks */,
+				F3570D3A2D6E779500BDF069 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MessagesExtension;
+			packageProductDependencies = (
+			);
+			productName = "MC Stats iMessage MessagesExtension";
+			productReference = F3570D3C2D6E779500BDF069 /* MessagesExtension.appex */;
+			productType = "com.apple.product-type.app-extension.messages";
+		};
 		F35E1A7C2D6501A500718CB7 /* visionOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F35E1A8E2D6501A600718CB7 /* Build configuration list for PBXNativeTarget "visionOS" */;
@@ -1196,6 +1244,9 @@
 					F31D45A02D6DC62600981B1C = {
 						CreatedOnToolsVersion = 16.3;
 					};
+					F3570D3B2D6E779500BDF069 = {
+						CreatedOnToolsVersion = 16.3;
+					};
 					F35E1A7C2D6501A500718CB7 = {
 						CreatedOnToolsVersion = 16.2;
 					};
@@ -1231,6 +1282,7 @@
 				F1406BA82AA391B800815BE8 /* Intents */,
 				F1EF76EB2CB7873F00EFFB20 /* Widgets */,
 				F13095242CBC997200C4C7BA /* Watch Widgets */,
+				F3570D3B2D6E779500BDF069 /* MessagesExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -1290,7 +1342,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F31D45E42D6DC7A800981B1C /* Assets.xcassets in Resources */,
-				F31D45B82D6DC67B00981B1C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3570D3A2D6E779500BDF069 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3570D592D6E77C000BDF069 /* Assets.xcassets in Resources */,
+				F3570D5B2D6E77C000BDF069 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1544,6 +1604,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F3570D382D6E779500BDF069 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3570D5C2D6E77C000BDF069 /* MessagesViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F35E1A792D6501A500718CB7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1671,6 +1739,17 @@
 			targetProxy = F1EF76FD2CB7874000EFFB20 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F3570D562D6E77C000BDF069 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F3570D552D6E77C000BDF069 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F11F635A2A81E51000D47187 /* Debug */ = {
@@ -2199,6 +2278,63 @@
 			};
 			name = Release;
 		};
+		F3570D4D2D6E779600BDF069 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MC Stats iMessage MessagesExtension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats iMessage";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.MessagesExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F3570D4E2D6E779600BDF069 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MC Stats iMessage MessagesExtension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MC Stats iMessage";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats.MessagesExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		F35E1A8F2D6501A600718CB7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2385,6 +2521,15 @@
 			buildConfigurations = (
 				F31D45AC2D6DC62700981B1C /* Debug */,
 				F31D45AD2D6DC62700981B1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3570D4C2D6E779600BDF069 /* Build configuration list for PBXNativeTarget "MessagesExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3570D4D2D6E779600BDF069 /* Debug */,
+				F3570D4E2D6E779600BDF069 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
