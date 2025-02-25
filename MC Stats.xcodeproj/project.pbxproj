@@ -206,8 +206,10 @@
 		F3570D412D6E779500BDF069 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3570D402D6E779500BDF069 /* Messages.framework */; };
 		F3570D592D6E77C000BDF069 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3570D532D6E77C000BDF069 /* Assets.xcassets */; };
 		F3570D5B2D6E77C000BDF069 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3570D562D6E77C000BDF069 /* MainInterface.storyboard */; };
-		F3570D5C2D6E77C000BDF069 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3570D572D6E77C000BDF069 /* MessagesViewController.swift */; };
+		F3570D5C2D6E77C000BDF069 /* Messages VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3570D572D6E77C000BDF069 /* Messages VC.swift */; };
 		F3570D5E2D6E7EF800BDF069 /* iMessages.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F3570D3C2D6E779500BDF069 /* iMessages.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F3570D622D6E8C4F00BDF069 /* Home View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3570D612D6E8C4F00BDF069 /* Home View.swift */; };
+		F3570D642D6E8CB300BDF069 /* Messages VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3570D632D6E8CB300BDF069 /* Messages VM.swift */; };
 		F35E1A6D2D6489FD00718CB7 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */; };
 		F35E1A6F2D649C6000718CB7 /* FeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */; };
 		F35E1A712D649D1300718CB7 /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
@@ -519,8 +521,10 @@
 		F3570D532D6E77C000BDF069 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3570D542D6E77C000BDF069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3570D552D6E77C000BDF069 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		F3570D572D6E77C000BDF069 /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		F3570D572D6E77C000BDF069 /* Messages VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Messages VC.swift"; sourceTree = "<group>"; };
 		F3570D5D2D6E7D5900BDF069 /* iMessages.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iMessages.entitlements; sourceTree = "<group>"; };
+		F3570D612D6E8C4F00BDF069 /* Home View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home View.swift"; sourceTree = "<group>"; };
+		F3570D632D6E8CB300BDF069 /* Messages VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Messages VM.swift"; sourceTree = "<group>"; };
 		F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
 		F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureRow.swift; sourceTree = "<group>"; };
 		F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriGuidePhrase.swift; sourceTree = "<group>"; };
@@ -945,7 +949,9 @@
 		F3570D582D6E77C000BDF069 /* iMessage */ = {
 			isa = PBXGroup;
 			children = (
-				F3570D572D6E77C000BDF069 /* MessagesViewController.swift */,
+				F3570D572D6E77C000BDF069 /* Messages VC.swift */,
+				F3570D612D6E8C4F00BDF069 /* Home View.swift */,
+				F3570D632D6E8CB300BDF069 /* Messages VM.swift */,
 				F3570D542D6E77C000BDF069 /* Info.plist */,
 				F3570D5D2D6E7D5900BDF069 /* iMessages.entitlements */,
 				F3570D532D6E77C000BDF069 /* Assets.xcassets */,
@@ -1620,7 +1626,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3570D5C2D6E77C000BDF069 /* MessagesViewController.swift in Sources */,
+				F3570D5C2D6E77C000BDF069 /* Messages VC.swift in Sources */,
+				F3570D622D6E8C4F00BDF069 /* Home View.swift in Sources */,
+				F3570D642D6E8CB300BDF069 /* Messages VM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
