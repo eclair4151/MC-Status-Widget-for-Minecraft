@@ -16,6 +16,17 @@ struct ServerRowView: View {
     
     var body: some View {
         HStack {
+#if os(macOS)
+            Image(nsImage: vm.serverIcon)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 65, height: 65)
+                .cornerRadius(8)
+                .clipShape(.rect(cornerRadius: 8))
+                .padding(.trailing, 5)
+                .shadow(color: .black.opacity(0.2), radius: 5, x: 3, y: 3)
+                .animation(.default, value: vm.serverIcon)
+#else
             Image(uiImage: vm.serverIcon)
                 .resizable()
                 .scaledToFit()
@@ -25,7 +36,7 @@ struct ServerRowView: View {
                 .padding(.trailing, 5)
                 .shadow(color: .black.opacity(0.2), radius: 5, x: 3, y: 3)
                 .animation(.default, value: vm.serverIcon)
-            
+#endif
             VStack(alignment: .leading, spacing: 5) {
                 HStack {
                     VStack(alignment: .leading) {

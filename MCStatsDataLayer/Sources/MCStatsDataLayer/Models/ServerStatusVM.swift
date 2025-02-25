@@ -20,7 +20,12 @@ public class ServerStatusVM: Identifiable, Hashable {
     public var status: ServerStatus?
     
     public var loadingStatus = LoadingStatus.Loading
+    
+#if os(macOS)
+    public var serverIcon = NSImage()
+#else
     public var serverIcon = UIImage()
+#endif
     private var modelContext: ModelContext
     
     public init(modelContext: ModelContext, server: SavedMinecraftServer, status: ServerStatus? = nil) {
@@ -113,10 +118,15 @@ public class ServerStatusVM: Identifiable, Hashable {
         }
         
         guard !base64Icon.isEmpty else {
+#if os(macOS)
+            if let defaultIcon = NSImage(named: "DefaultIcon") {
+                self.serverIcon =  defaultIcon
+            }
+#else
             if let defaultIcon = UIImage(named: "DefaultIcon") {
                 self.serverIcon =  defaultIcon
             }
-            
+#endif
             return
         }
         

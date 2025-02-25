@@ -69,7 +69,9 @@ struct EditServerView: View {
                         .frame(width: 25, height: 25)
                     
                     TextField("Server Name", text: $tempNameInput, prompt: Text("Server Name"))
+#if !os(macOS)
                         .textInputAutocapitalization(.words)
+#endif
                         .submitLabel(.next)
                         .focused($focusedField, equals: .serverName)
                         .onSubmit {
@@ -84,8 +86,10 @@ struct EditServerView: View {
                         .frame(width: 25, height: 25)
                     
                     TextField("Server Address/IP", text: $tempServerInput, prompt: Text("Server Address/IP"))
+#if !os(macOS)
                         .autocapitalization(.none)
                         .keyboardType(.URL)
+#endif
                         .autocorrectionDisabled(true)
                         .submitLabel(.done)
                         .focused($focusedField, equals: .serverAddress)
@@ -101,7 +105,9 @@ struct EditServerView: View {
                         .frame(width: 25, height: 25)
                     
                     TextField(portLabelPromptText, value: $tempPortInput, formatter: NumberFormatter(), prompt: Text(portLabelPromptText))
+#if !os(macOS)
                         .keyboardType(.numberPad)
+                    #endif
                 }
             } header: {
                 Text("Start monitoring a server")
@@ -110,12 +116,15 @@ struct EditServerView: View {
             }
             .headerProminence(.increased)
         }
+#if !os(macOS)
         .toolbar {
+#warning("macOS")
             ToolbarItem(placement: .topBarLeading) {
                 Button("Cancel") {
                     isPresented = false
                 }
             }
+            
             ToolbarItem(placement: .topBarTrailing) {
                 Button("Save") {
                     saveItem()
@@ -123,6 +132,7 @@ struct EditServerView: View {
                 .disabled(saveDisabled())
             }
         }
+#endif
         .onAppear {
             tempServerInput = server.serverUrl
             

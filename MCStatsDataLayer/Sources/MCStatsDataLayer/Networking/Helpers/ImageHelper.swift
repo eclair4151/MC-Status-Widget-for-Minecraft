@@ -1,6 +1,24 @@
 import SwiftUI
 
 class ImageHelper {
+#if os(macOS)
+    public var serverIcon = NSImage()
+    static func convertFavIconString(favIcon: String?) -> NSImage? {
+        if let favIconString = favIcon, favIconString != "" {
+            let favIconParts = favIconString.split(separator: ",")
+            
+            guard favIconParts.count == 2 else {
+                return nil
+            }
+            
+            if let decodedData = Data(base64Encoded: String(favIconParts[1]), options: .ignoreUnknownCharacters) {
+                return NSImage(data: decodedData)
+            }
+        }
+        
+        return nil
+    }
+#else
     static func convertFavIconString(favIcon: String?) -> UIImage? {
         if let favIconString = favIcon, favIconString != "" {
             let favIconParts = favIconString.split(separator: ",")
@@ -16,4 +34,6 @@ class ImageHelper {
         
         return nil
     }
+#endif
+    
 }

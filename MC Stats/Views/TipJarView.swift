@@ -72,7 +72,14 @@ struct TipJarView: View {
             Text(alertMessage)
         }
         .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
+#warning("Check on macOS")
+#if os(macOS)
+            let placement: ToolbarItemPlacement = .primaryAction
+#else
+            let placement: ToolbarItemPlacement = .topBarLeading
+#endif
+            
+            ToolbarItem(placement: placement) {
                 Button("Cancel") {
                     isPresented = false
                 }
@@ -97,6 +104,14 @@ struct TipJarView: View {
     }
     
     private func purchaseTip(_ product: Product) async {
+#if os(macOS)
+        guard let scene = NSApplication.shared.windows.first(where: { $0.isKeyWindow }) else {
+            alertTitle = "Purchase Error"
+            alertMessage = "Could not find an active window for the transaction."
+            showAlert = true
+            return
+        }
+#else
         guard let scene = UIApplication.shared.connectedScenes
             .first(where: { $0.activationState == .foregroundActive }) else {
             alertTitle = "Purchase Error"
@@ -104,7 +119,7 @@ struct TipJarView: View {
             showAlert = true
             return
         }
-        
+#endif
         isProcessing = true
         
         defer {

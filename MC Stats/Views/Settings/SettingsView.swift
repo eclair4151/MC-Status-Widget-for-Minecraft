@@ -64,7 +64,6 @@ struct SettingsView: View {
             } footer: {
                 Text("Leave a review to help others discover the app and support its development")
             }
-            
 #warning("In-App Purchases")
             //            Section {
             //                // Tip Developer
@@ -136,7 +135,7 @@ struct SettingsView: View {
     }
     
     private func leaveAppReview() {
-#if os(tvOS)
+#if os(tvOS) || os(macOS)
         let url = "https://apps.apple.com/app/6740754881?action=write-review"
         
         guard let writeReviewURL = URL(string: url) else {

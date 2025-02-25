@@ -148,6 +148,53 @@
 		F304725E2D63FBFC0055C007 /* MinecraftBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30472592D63FBFC0055C007 /* MinecraftBoldItalic.otf */; };
 		F304725F2D63FBFC0055C007 /* MinecraftItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */; };
 		F30472602D63FBFC0055C007 /* MinecraftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725B2D63FBFC0055C007 /* MinecraftRegular.otf */; };
+		F31D45B82D6DC67B00981B1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F31D45AF2D6DC67B00981B1C /* Assets.xcassets */; };
+		F31D45B92D6DC68F00981B1C /* MC Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */; };
+		F31D45BC2D6DC6B700981B1C /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F31D45BB2D6DC6B700981B1C /* MCStatsDataLayer */; };
+		F31D45BE2D6DC6BD00981B1C /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F31D45BD2D6DC6BD00981B1C /* ScrechKit */; };
+		F31D45C02D6DC6C200981B1C /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F31D45BF2D6DC6C200981B1C /* Nuke */; };
+		F31D45C22D6DC6C600981B1C /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F31D45C12D6DC6C600981B1C /* NukeUI */; };
+		F31D45C32D6DC74100981B1C /* App Container Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1E43A2D6C949900950F3D /* App Container Helper.swift */; };
+		F31D45C42D6DC74100981B1C /* App Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E60002A4BD614005BE9B2 /* App Container.swift */; };
+		F31D45C52D6DC74100981B1C /* Page Destinations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EAF722D6C82B900072794 /* Page Destinations.swift */; };
+		F31D45C62D6DC74C00981B1C /* TipJarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0FB2CC05F9000DC7A80 /* TipJarView.swift */; };
+		F31D45C72D6DC74C00981B1C /* ReleaseNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */; };
+		F31D45C82D6DC74C00981B1C /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
+		F31D45C92D6DC74C00981B1C /* FeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */; };
+		F31D45CA2D6DC74C00981B1C /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
+		F31D45CB2D6DC75200981B1C /* ServerStatusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */; };
+		F31D45CC2D6DC75200981B1C /* PlayerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A9D2D65209500718CB7 /* PlayerCard.swift */; };
+		F31D45CD2D6DC75200981B1C /* ServerPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D12D667ED50030F71C /* ServerPing.swift */; };
+		F31D45CE2D6DC75200981B1C /* PlayerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C82D6661D60030F71C /* PlayerList.swift */; };
+		F31D45CF2D6DC75200981B1C /* PingGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* PingGraph.swift */; };
+		F31D45D02D6DC75200981B1C /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
+		F31D45D12D6DC75700981B1C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsView.swift */; };
+		F31D45D22D6DC75700981B1C /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */; };
+		F31D45D32D6DC75700981B1C /* Debug Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37883692D6AF86A00D38522 /* Debug Settings.swift */; };
+		F31D45D42D6DC75700981B1C /* ShortcutsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4352CC1709700739646 /* ShortcutsGuideView.swift */; };
+		F31D45D52D6DC75D00981B1C /* SiriPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C42D65E6F70030F71C /* SiriPhrase.swift */; };
+		F31D45D62D6DC75D00981B1C /* SiriGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4332CC15F6A00739646 /* SiriGuideView.swift */; };
+		F31D45D72D6DC75D00981B1C /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
+		F31D45D82D6DC76200981B1C /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A052D6574DD00840745 /* FAQ.swift */; };
+		F31D45D92D6DC76200981B1C /* EditServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */; };
+		F31D45DA2D6DC76200981B1C /* ServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* ServerRowView.swift */; };
+		F31D45DB2D6DC76200981B1C /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */; };
+		F31D45DC2D6DC76200981B1C /* FAQRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A012D6574D200840745 /* FAQRow.swift */; };
+		F31D45DD2D6DC76800981B1C /* MOTD View Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* MOTD View Generator.swift */; };
+		F31D45DE2D6DC76800981B1C /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
+		F31D45DF2D6DC76800981B1C /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
+		F31D45E02D6DC76800981B1C /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F130954E2CBC9D5600C4C7BA /* ConfigHelper.swift */; };
+		F31D45E12D6DC76800981B1C /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
+		F31D45E22D6DC76800981B1C /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
+		F31D45E32D6DC79200981B1C /* SwiftyPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */; };
+		F31D45E42D6DC7A800981B1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
+		F31D45E52D6DC9C600981B1C /* Low Power Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A732D64A4B200718CB7 /* Low Power Mode.swift */; };
+		F31D45E62D6DC9C600981B1C /* Refresh Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A762D64D32D00718CB7 /* Refresh Widgets.swift */; };
+		F31D45E72D6DCA3400981B1C /* MCStatsShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MCStatsShortcutsProvider.swift */; };
+		F31D45E82D6DCA3E00981B1C /* SavedServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift */; };
+		F31D45E92D6DCA5000981B1C /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* SavedServerEntity.swift */; };
+		F31D45EA2D6DCA5E00981B1C /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
+		F31D45EB2D6DCB1300981B1C /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
 		F326DB582D6416E100BCCB69 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
 		F326DB592D6416E100BCCB69 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
 		F326DB5A2D6416E100BCCB69 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
@@ -451,6 +498,10 @@
 		F30472592D63FBFC0055C007 /* MinecraftBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftBoldItalic.otf; sourceTree = "<group>"; };
 		F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftItalic.otf; sourceTree = "<group>"; };
 		F304725B2D63FBFC0055C007 /* MinecraftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftRegular.otf; sourceTree = "<group>"; };
+		F31D45A12D6DC62600981B1C /* macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F31D45AF2D6DC67B00981B1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F31D45B22D6DC67B00981B1C /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		F31D45BA2D6DC6A800981B1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F326DB572D6416E100BCCB69 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
 		F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureRow.swift; sourceTree = "<group>"; };
@@ -530,6 +581,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F31D459E2D6DC62600981B1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F31D45C02D6DC6C200981B1C /* Nuke in Frameworks */,
+				F31D45BC2D6DC6B700981B1C /* MCStatsDataLayer in Frameworks */,
+				F31D45BE2D6DC6BD00981B1C /* ScrechKit in Frameworks */,
+				F31D45C22D6DC6C600981B1C /* NukeUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F35E1A7A2D6501A500718CB7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -589,6 +651,7 @@
 			children = (
 				F13E5FFB2A4BD614005BE9B2 /* MC Stats */,
 				F11F634C2A81E50E00D47187 /* watchOS */,
+				F31D45B42D6DC67B00981B1C /* macOS */,
 				F35E1A972D6501CC00718CB7 /* visionOS */,
 				F3C879D02D65722200840745 /* tvOS */,
 				F30472082D63E9C00055C007 /* Widgets */,
@@ -610,6 +673,7 @@
 				F13095252CBC997200C4C7BA /* Watch Widgets.appex */,
 				F35E1A7D2D6501A500718CB7 /* visionOS.app */,
 				F3C879BD2D65720500840745 /* tvOS.app */,
+				F31D45A12D6DC62600981B1C /* macOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -840,6 +904,16 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		F31D45B42D6DC67B00981B1C /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				F31D45BA2D6DC6A800981B1C /* Info.plist */,
+				F31D45AF2D6DC67B00981B1C /* Assets.xcassets */,
+				F31D45B22D6DC67B00981B1C /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
 		F35E1A6B2D6489F900718CB7 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1026,6 +1100,29 @@
 			productReference = F1EF76EC2CB7873F00EFFB20 /* Widgets.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		F31D45A02D6DC62600981B1C /* macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F31D45AE2D6DC62700981B1C /* Build configuration list for PBXNativeTarget "macOS" */;
+			buildPhases = (
+				F31D459D2D6DC62600981B1C /* Sources */,
+				F31D459E2D6DC62600981B1C /* Frameworks */,
+				F31D459F2D6DC62600981B1C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = macOS;
+			packageProductDependencies = (
+				F31D45BB2D6DC6B700981B1C /* MCStatsDataLayer */,
+				F31D45BD2D6DC6BD00981B1C /* ScrechKit */,
+				F31D45BF2D6DC6C200981B1C /* Nuke */,
+				F31D45C12D6DC6C600981B1C /* NukeUI */,
+			);
+			productName = macOS;
+			productReference = F31D45A12D6DC62600981B1C /* macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		F35E1A7C2D6501A500718CB7 /* visionOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F35E1A8E2D6501A600718CB7 /* Build configuration list for PBXNativeTarget "visionOS" */;
@@ -1078,7 +1175,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1620;
+				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					F11F634A2A81E50E00D47187 = {
@@ -1095,6 +1192,9 @@
 					};
 					F1EF76EB2CB7873F00EFFB20 = {
 						CreatedOnToolsVersion = 16.0;
+					};
+					F31D45A02D6DC62600981B1C = {
+						CreatedOnToolsVersion = 16.3;
 					};
 					F35E1A7C2D6501A500718CB7 = {
 						CreatedOnToolsVersion = 16.2;
@@ -1125,6 +1225,7 @@
 			targets = (
 				F13E5FF82A4BD614005BE9B2 /* MC Stats */,
 				F11F634A2A81E50E00D47187 /* watchOS */,
+				F31D45A02D6DC62600981B1C /* macOS */,
 				F3C879BC2D65720500840745 /* tvOS */,
 				F35E1A7C2D6501A500718CB7 /* visionOS */,
 				F1406BA82AA391B800815BE8 /* Intents */,
@@ -1181,6 +1282,15 @@
 			files = (
 				F326DB5B2D6416E100BCCB69 /* Localizable.xcstrings in Resources */,
 				F30472092D63E9C00055C007 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F31D459F2D6DC62600981B1C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F31D45E42D6DC7A800981B1C /* Assets.xcassets in Resources */,
+				F31D45B82D6DC67B00981B1C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1383,6 +1493,54 @@
 				F1EF77612CB8B89A00EFFB20 /* ImageHelper.swift in Sources */,
 				F13095502CBC9D5600C4C7BA /* ConfigHelper.swift in Sources */,
 				F157DDBF2CB9F7B500874CC7 /* UserDefaultHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F31D459D2D6DC62600981B1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F31D45B92D6DC68F00981B1C /* MC Stats.swift in Sources */,
+				F31D45D82D6DC76200981B1C /* FAQ.swift in Sources */,
+				F31D45D92D6DC76200981B1C /* EditServerView.swift in Sources */,
+				F31D45DA2D6DC76200981B1C /* ServerRowView.swift in Sources */,
+				F31D45EB2D6DCB1300981B1C /* ServerStatusEntity.swift in Sources */,
+				F31D45EA2D6DCA5E00981B1C /* IntentErrors.swift in Sources */,
+				F31D45DB2D6DC76200981B1C /* FAQView.swift in Sources */,
+				F31D45DC2D6DC76200981B1C /* FAQRow.swift in Sources */,
+				F31D45C62D6DC74C00981B1C /* TipJarView.swift in Sources */,
+				F31D45E92D6DCA5000981B1C /* SavedServerEntity.swift in Sources */,
+				F31D45C72D6DC74C00981B1C /* ReleaseNotesView.swift in Sources */,
+				F31D45C82D6DC74C00981B1C /* CustomProgressView.swift in Sources */,
+				F31D45C92D6DC74C00981B1C /* FeatureRow.swift in Sources */,
+				F31D45CA2D6DC74C00981B1C /* Feature.swift in Sources */,
+				F31D45C32D6DC74100981B1C /* App Container Helper.swift in Sources */,
+				F31D45C42D6DC74100981B1C /* App Container.swift in Sources */,
+				F31D45E52D6DC9C600981B1C /* Low Power Mode.swift in Sources */,
+				F31D45E62D6DC9C600981B1C /* Refresh Widgets.swift in Sources */,
+				F31D45C52D6DC74100981B1C /* Page Destinations.swift in Sources */,
+				F31D45CB2D6DC75200981B1C /* ServerStatusDetailView.swift in Sources */,
+				F31D45D12D6DC75700981B1C /* SettingsView.swift in Sources */,
+				F31D45E82D6DCA3E00981B1C /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
+				F31D45D22D6DC75700981B1C /* GeneralSettings.swift in Sources */,
+				F31D45E72D6DCA3400981B1C /* MCStatsShortcutsProvider.swift in Sources */,
+				F31D45D32D6DC75700981B1C /* Debug Settings.swift in Sources */,
+				F31D45DD2D6DC76800981B1C /* MOTD View Generator.swift in Sources */,
+				F31D45E32D6DC79200981B1C /* SwiftyPing.swift in Sources */,
+				F31D45DE2D6DC76800981B1C /* UserDefaultHelper.swift in Sources */,
+				F31D45DF2D6DC76800981B1C /* ImageHelper.swift in Sources */,
+				F31D45E02D6DC76800981B1C /* ConfigHelper.swift in Sources */,
+				F31D45E12D6DC76800981B1C /* ReviewHelper.swift in Sources */,
+				F31D45E22D6DC76800981B1C /* CustomExtentions.swift in Sources */,
+				F31D45D42D6DC75700981B1C /* ShortcutsGuideView.swift in Sources */,
+				F31D45CC2D6DC75200981B1C /* PlayerCard.swift in Sources */,
+				F31D45D52D6DC75D00981B1C /* SiriPhrase.swift in Sources */,
+				F31D45D62D6DC75D00981B1C /* SiriGuideView.swift in Sources */,
+				F31D45D72D6DC75D00981B1C /* SiriGuidePhrase.swift in Sources */,
+				F31D45CD2D6DC75200981B1C /* ServerPing.swift in Sources */,
+				F31D45CE2D6DC75200981B1C /* PlayerList.swift in Sources */,
+				F31D45CF2D6DC75200981B1C /* PingGraph.swift in Sources */,
+				F31D45D02D6DC75200981B1C /* MOTD View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1977,6 +2135,66 @@
 			};
 			name = Release;
 		};
+		F31D45AC2D6DC62700981B1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F31D45AD2D6DC62700981B1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8FQUA2F388;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		F35E1A8F2D6501A600718CB7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2158,6 +2376,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		F31D45AE2D6DC62700981B1C /* Build configuration list for PBXNativeTarget "macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F31D45AC2D6DC62700981B1C /* Debug */,
+				F31D45AD2D6DC62700981B1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F35E1A8E2D6501A600718CB7 /* Build configuration list for PBXNativeTarget "visionOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2221,6 +2448,25 @@
 			productName = Nuke;
 		};
 		F1EF76C72CB4216F00EFFB20 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
+		};
+		F31D45BB2D6DC6B700981B1C /* MCStatsDataLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MCStatsDataLayer;
+		};
+		F31D45BD2D6DC6BD00981B1C /* ScrechKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */;
+			productName = ScrechKit;
+		};
+		F31D45BF2D6DC6C200981B1C /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+		F31D45C12D6DC6C600981B1C /* NukeUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = NukeUI;

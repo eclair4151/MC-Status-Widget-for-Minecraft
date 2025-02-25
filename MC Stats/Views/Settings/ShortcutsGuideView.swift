@@ -20,7 +20,7 @@ struct ShortcutsGuideView: View {
         Form {
             // Overview Section
             Section {
-#if !os(tvOS)
+#if !os(tvOS) && !os(macOS)
                 ShortcutsLink()
                     .shortcutsLinkStyle(.automaticOutline)
 #endif
@@ -49,7 +49,7 @@ struct ShortcutsGuideView: View {
             }
         }
         .navigationTitle("Shortcuts")
-#if !os(tvOS)
+#if !os(tvOS) && !os(macOS)
         .background(Color(.systemGroupedBackground))
 #endif
     }

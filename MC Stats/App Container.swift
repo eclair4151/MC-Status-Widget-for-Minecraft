@@ -98,7 +98,10 @@ struct AppContainer: View {
                     ProgressView()
                 }
             }
+            .navigationTitle("Servers")
+#if !os(macOS)
             .toolbar {
+#warning("Enable on macOS")
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationLink(value: PageDestinations.SettingsRoot) {
 #if os(tvOS)
@@ -134,7 +137,7 @@ struct AppContainer: View {
                     }
                 }
             }
-            .navigationTitle("Servers")
+#endif
         }
         .onChange(of: scenePhase, initial: true) { _, newPhase in
             // Some code to investigate an Apple Watch bug

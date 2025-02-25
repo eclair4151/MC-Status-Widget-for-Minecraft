@@ -16,7 +16,7 @@ struct FAQView: View {
             }
         }
         .navigationTitle("FAQ")
-#if !os(tvOS)
+#if !os(tvOS) && !os(macOS)
         .background(Color(.systemGroupedBackground))
 #endif
     }

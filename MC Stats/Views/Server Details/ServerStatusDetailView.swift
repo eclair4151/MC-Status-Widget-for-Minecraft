@@ -76,6 +76,16 @@ struct ServerStatusDetailView: View {
             Section {
                 VStack(alignment: .leading, spacing: 0) {
                     HStack(alignment: .top, spacing: 0) {
+#if os(macOS)
+                        Image(nsImage: vm.serverIcon)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                            .cornerRadius(15)
+                            .clipShape(.rect(cornerRadius: 15))
+                            .padding(.trailing, 16)
+                            .shadow(color: .black.opacity(0.2), radius: 5, x: 3, y: 3) // Drop shadow
+#else
                         Image(uiImage: vm.serverIcon)
                             .resizable()
                             .scaledToFit()
@@ -84,7 +94,7 @@ struct ServerStatusDetailView: View {
                             .clipShape(.rect(cornerRadius: 15))
                             .padding(.trailing, 16)
                             .shadow(color: .black.opacity(0.2), radius: 5, x: 3, y: 3) // Drop shadow
-                        
+#endif
                         VStack(alignment: .leading, spacing: 0) {
                             Text(vm.server.name)
                                 .title(.bold)
@@ -189,7 +199,7 @@ struct ServerStatusDetailView: View {
         }
         .scrollIndicators(.never)
         .environment(vm)
-#if !os(tvOS)
+#if !os(tvOS) && !os(macOS)
         .listSectionSpacing(10)
         .listStyle(.insetGrouped)
         .environment(\.defaultMinListHeaderHeight, 15)
@@ -207,7 +217,9 @@ struct ServerStatusDetailView: View {
         .sheet($sheetPings) {
             PingGraph($pings)
         }
+#if !os(macOS)
         .toolbar {
+#warning("macOS")
             // Gross (show refresh button only on Mac status bar since they can't pull to refresh)
 #if targetEnvironment(macCatalyst)
             ToolbarItem(placement: .topBarTrailing) {
@@ -237,6 +249,7 @@ struct ServerStatusDetailView: View {
                 }
             }
         }
+#endif
         .onAppear {
             refreshPing()
             startPrefetchingUserImages(vm)

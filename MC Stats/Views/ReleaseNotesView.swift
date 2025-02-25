@@ -100,7 +100,7 @@ struct ReleaseNotesView: View {
     }
     
     private func leaveAppReview() {
-#if os(tvOS)
+#if os(tvOS) || os(macOS)
         let url = "https://apps.apple.com/app/6740754881?action=write-review"
         
         guard let writeReviewURL = URL(string: url) else {

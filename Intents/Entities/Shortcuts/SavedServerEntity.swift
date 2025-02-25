@@ -7,9 +7,13 @@ struct SavedServerEntity: AppEntity {
     static var typeDisplayRepresentation: TypeDisplayRepresentation = "Server"
     
     var displayRepresentation: DisplayRepresentation {
+#if os(macOS)
+        let nsImage = ImageHelper.favIconString(icon) ?? NSImage(named: "DefaultIcon") ?? NSImage()
+        let imageData = nsImage.pngData() ?? Data()
+#else
         let uiImage = ImageHelper.favIconString(icon) ?? UIImage(named: "DefaultIcon") ?? UIImage()
         let imageData = uiImage.pngData() ?? Data()
-        
+#endif
         return DisplayRepresentation(
             title: "\(serverName)",
             subtitle: "\(type)",
@@ -22,6 +26,21 @@ struct SavedServerEntity: AppEntity {
     var icon: String
     var type: String
 }
+
+#if os(macOS)
+extension NSImage {
+    func pngData() -> Data? {
+        guard
+            let tiffData = self.tiffRepresentation,
+            let bitmap = NSBitmapImageRep(data: tiffData)
+        else {
+            return nil
+        }
+        
+        return bitmap.representation(using: .png, properties: [:])
+    }
+}
+#endif
 
 struct SavedServerQuery: EntityQuery {
     func entities(for identifiers: [UUID]) async throws -> [SavedServerEntity] {
