@@ -107,7 +107,7 @@ struct TipJarView: View {
 #if os(macOS)
         guard let scene = NSApplication.shared.windows.first(where: { $0.isKeyWindow }) else {
             alertTitle = "Purchase Error"
-            alertMessage = "Could not find an active window for the transaction."
+            alertMessage = "Could not find an active window for the transaction"
             showAlert = true
             return
         }
@@ -115,7 +115,7 @@ struct TipJarView: View {
         guard let scene = UIApplication.shared.connectedScenes
             .first(where: { $0.activationState == .foregroundActive }) else {
             alertTitle = "Purchase Error"
-            alertMessage = "Could not find an active scene for the transaction."
+            alertMessage = "Could not find an active scene for the transaction"
             showAlert = true
             return
         }
