@@ -130,7 +130,7 @@ public class ServerStatusVM: Identifiable, Hashable {
             return
         }
         
-        if let decodedImage = ImageHelper.convertFavIconString(favIcon: base64Icon) {
+        if let decodedImage = ImageHelper.favIconString(base64Icon) {
             self.serverIcon =  decodedImage
         }
     }

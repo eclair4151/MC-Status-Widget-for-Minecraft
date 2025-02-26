@@ -1,13 +1,13 @@
 import SwiftUI
 
 #if os(macOS)
-typealias UniversalImage = NSImage
+public typealias UniversalImage = NSImage
 #else
-typealias UniversalImage = UIImage
+public typealias UniversalImage = UIImage
 #endif
 
-class ImageHelper {
-    static func convertFavIconString(favIcon: String?) -> UniversalImage? {
+public class ImageHelper {
+    public static func favIconString(_ favIcon: String?) -> UniversalImage? {
         guard let favIcon, !favIcon.isEmpty else {
             return nil
         }

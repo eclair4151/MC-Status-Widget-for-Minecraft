@@ -1,4 +1,4 @@
-import SwiftUICore
+import SwiftUI
 
 extension Color {
     init(hex: String) {
@@ -30,9 +30,7 @@ extension Color {
             opacity: Double(a) / 255
         )
     }
-}
-
-extension Color {
+    
     static let appBackgroundColor = Color("AppBackgroundColor")
     static let MOTDBackground = Color("MOTDBackground")
     static let secondaryTextColor = Color("SecondaryTextColor")
@@ -67,3 +65,18 @@ extension Font {
     
     static let minecraftFont = Font.custom("Minecraft-Regular", size: size)
 }
+
+#if os(macOS)
+extension NSImage {
+    func pngData() -> Data? {
+        guard
+            let tiffData = self.tiffRepresentation,
+            let bitmap = NSBitmapImageRep(data: tiffData)
+        else {
+            return nil
+        }
+        
+        return bitmap.representation(using: .png, properties: [:])
+    }
+}
+#endif

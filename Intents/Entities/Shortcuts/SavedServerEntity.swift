@@ -3,6 +3,18 @@ import AppIntents
 import MCStatsDataLayer
 
 struct SavedServerEntity: AppEntity {
+    var id: UUID
+    var serverName: String
+    var icon: String
+    var type: String
+    
+    init(_ server: SavedMinecraftServer) {
+        self.id = server.id
+        self.serverName = server.name
+        self.icon = server.serverIcon
+        self.type = server.serverType.rawValue
+    }
+    
     static var defaultQuery = SavedServerQuery()
     static var typeDisplayRepresentation: TypeDisplayRepresentation = "Server"
     
@@ -20,27 +32,7 @@ struct SavedServerEntity: AppEntity {
             image: .init(data: imageData)
         )
     }
-    
-    var id: UUID
-    var serverName: String
-    var icon: String
-    var type: String
 }
-
-#if os(macOS)
-fileprivate extension NSImage {
-    func pngData() -> Data? {
-        guard
-            let tiffData = self.tiffRepresentation,
-            let bitmap = NSBitmapImageRep(data: tiffData)
-        else {
-            return nil
-        }
-        
-        return bitmap.representation(using: .png, properties: [:])
-    }
-}
-#endif
 
 struct SavedServerQuery: EntityQuery {
     func entities(for identifiers: [UUID]) async throws -> [SavedServerEntity] {
@@ -52,12 +44,7 @@ struct SavedServerQuery: EntityQuery {
                 continue
             }
             
-            result.append(SavedServerEntity(
-                id: server.id,
-                serverName: server.name,
-                icon: server.serverIcon,
-                type: server.serverType.rawValue
-            ))
+            result.append(SavedServerEntity(server))
         }
         
         return result
@@ -67,13 +54,8 @@ struct SavedServerQuery: EntityQuery {
         let container = SwiftDataHelper.getModelContainter()
         let servers = await SwiftDataHelper.getSavedServers(container)
         
-        return servers.map {
-            SavedServerEntity(
-                id: $0.id,
-                serverName: $0.name,
-                icon: $0.serverIcon,
-                type: $0.serverType.rawValue
-            )
-        }
+        return servers.compactMap(
+            SavedServerEntity.init
+        )
     }
 }
