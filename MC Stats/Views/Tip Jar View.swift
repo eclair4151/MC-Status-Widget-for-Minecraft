@@ -127,7 +127,7 @@ struct TipJarView: View {
         }
         
         do {
-#warning("macOS")
+#warning("macOS") // 15.2
 #if !os(macOS)
             let result = try await product.purchase(confirmIn: scene, options: [])
             

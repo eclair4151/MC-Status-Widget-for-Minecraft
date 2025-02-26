@@ -76,25 +76,12 @@ struct ServerDetails: View {
             Section {
                 VStack(alignment: .leading, spacing: 0) {
                     HStack(alignment: .top, spacing: 0) {
-#warning("macOS")
 #if os(macOS)
                         Image(nsImage: vm.serverIcon)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 100, height: 100)
-                            .cornerRadius(15)
-                            .clipShape(.rect(cornerRadius: 15))
-                            .padding(.trailing, 16)
-                            .shadow(color: .black.opacity(0.2), radius: 5, x: 3, y: 3) // Drop shadow
+                            .serverIconStyle()
 #else
                         Image(uiImage: vm.serverIcon)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 100, height: 100)
-                            .cornerRadius(15)
-                            .clipShape(.rect(cornerRadius: 15))
-                            .padding(.trailing, 16)
-                            .shadow(color: .black.opacity(0.2), radius: 5, x: 3, y: 3) // Drop shadow
+                            .serverIconStyle()
 #endif
                         VStack(alignment: .leading, spacing: 0) {
                             Text(vm.server.name)
@@ -306,7 +293,7 @@ struct ServerDetails: View {
         refreshAllWidgets()
         
         parentViewRefreshCallBack()
-        self.presentationMode.wrappedValue.dismiss()
+        presentationMode.wrappedValue.dismiss()
     }
     
     private func startPrefetchingUserImages(_ vm: ServerStatusVM) {
@@ -316,5 +303,18 @@ struct ServerDetails: View {
         
         // Init and start prefetching all the image URLs
         prefetcher.startPrefetching(with: imageURLs)
+    }
+}
+
+fileprivate extension Image {
+    func serverIconStyle() -> some View {
+        self
+            .resizable()
+            .scaledToFit()
+            .frame(width: 100, height: 100)
+            .cornerRadius(15)
+            .clipShape(.rect(cornerRadius: 15))
+            .padding(.trailing, 16)
+            .shadow(color: .black.opacity(0.2), radius: 5, x: 3, y: 3) // Drop shadow
     }
 }

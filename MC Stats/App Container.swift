@@ -101,7 +101,7 @@ struct AppContainer: View {
             .navigationTitle("Servers")
 #if !os(macOS)
             .toolbar {
-#warning("Enable on macOS")
+#warning("macOS")
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationLink(value: PageDestinations.SettingsRoot) {
 #if os(tvOS)
