@@ -99,9 +99,28 @@ struct AppContainer: View {
                 }
             }
             .navigationTitle("Servers")
-#if !os(macOS)
             .toolbar {
-#warning("macOS")
+#if os(macOS)
+                ToolbarItem(placement: .navigation) {
+                    NavigationLink(value: PageDestinations.SettingsRoot) {
+                        Image(systemName: "gear")
+                    }
+                }
+                
+                ToolbarItemGroup {
+                    Button {
+                        reloadData(forceRefresh: true)
+                    } label: {
+                        Label("Refresh Servers", systemImage: "arrow.clockwise")
+                    }
+                    
+                    Button {
+                        showingAddSheet.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+#else // not macOS
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationLink(value: PageDestinations.SettingsRoot) {
 #if os(tvOS)
@@ -111,17 +130,10 @@ struct AppContainer: View {
 #endif
                     }
                 }
-                
-#if os(macOS) || os(tvOS)
+#if os(tvOS)
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button {
+                    Button("Refresh") {
                         reloadData(forceRefresh: true)
-                    } label: {
-#if os(macOS)
-                        Label("Refresh Servers", systemImage: "arrow.clockwise")
-#elseif os(tvOS)
-                        Text("Refresh")
-#endif
                     }
                 }
 #endif
@@ -136,8 +148,8 @@ struct AppContainer: View {
 #endif
                     }
                 }
-            }
 #endif
+            }
         }
         .onChange(of: scenePhase, initial: true) { _, newPhase in
             // Some code to investigate an Apple Watch bug
