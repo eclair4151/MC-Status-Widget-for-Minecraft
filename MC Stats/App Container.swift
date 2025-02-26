@@ -18,7 +18,7 @@ struct AppContainer: View {
     
     @State var servers: [ServerStatusVM]?
     
-    // I can't think of a better way to do this since I don't want to regenerate the VM every time
+    // Struggle to find a more efficient method without regenerating the VM each time
     @State private var serverVMCache: [UUID: ServerStatusVM] = [:]
     @State private var showingAddSheet = false
     @State private var showReleaseNotes = false
@@ -39,7 +39,6 @@ struct AppContainer: View {
                 .onMove {
                     servers?.move(fromOffsets: $0, toOffset: $1)
                     
-                    // update underlying display order
                     refreshDisplayOrders()
                 }
             }
