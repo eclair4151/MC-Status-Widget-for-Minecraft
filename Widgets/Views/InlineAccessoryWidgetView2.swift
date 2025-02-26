@@ -10,7 +10,7 @@ struct InlineAccessoryWidgetView2: View {
     }
     
     var body: some View {
-#if !targetEnvironment(macCatalyst)
+#if !os(macOS)
         HStack(spacing: 3) {
             Button(intent: RefreshWidgetIntent()) {
                 if entry.vm.viewType == .Unconfigured {

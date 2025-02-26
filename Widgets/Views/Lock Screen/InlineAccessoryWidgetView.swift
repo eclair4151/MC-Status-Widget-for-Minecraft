@@ -10,7 +10,7 @@ struct InlineAccessoryWidgetView: View {
     }
     
     var body: some View {
-#if !targetEnvironment(macCatalyst)
+#if !os(macOS)
         HStack(spacing: 8) {
             if let statusIcon = entry.vm.statusIcon {
                 Image(systemName: statusIcon)
@@ -38,7 +38,7 @@ struct InlineAccessoryWidgetView: View {
     }
 }
 
-#if !targetEnvironment(macCatalyst)
+#if !os(macOS)
 struct MinecraftServerStatusHSWidget_InlinePreview: PreviewProvider {
     static var previews: some View {
         MinecraftServerStatusLSWidgetEntryView(

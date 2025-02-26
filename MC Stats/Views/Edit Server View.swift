@@ -116,23 +116,27 @@ struct EditServerView: View {
             }
             .headerProminence(.increased)
         }
-#if !os(macOS)
         .toolbar {
-#warning("macOS")
-            ToolbarItem(placement: .topBarLeading) {
+#if os(macOS)
+            let leadingPlacement: ToolbarItemPlacement = .navigation
+            let trailingPlacement: ToolbarItemPlacement = .primaryAction
+#else
+            let leadingPlacement: ToolbarItemPlacement = .topBarLeading
+            let trailingPlacement: ToolbarItemPlacement = .topBarTrailing
+#endif
+            ToolbarItem(placement: leadingPlacement) {
                 Button("Cancel") {
                     isPresented = false
                 }
             }
             
-            ToolbarItem(placement: .topBarTrailing) {
+            ToolbarItem(placement: trailingPlacement) {
                 Button("Save") {
                     saveItem()
                 }
                 .disabled(saveDisabled())
             }
         }
-#endif
         .onAppear {
             tempServerInput = server.serverUrl
             

@@ -31,7 +31,7 @@ func getiOSFAQs() -> [FAQ] {
         FAQ("How do I report a bug/request a feature?", answer: "All bug reports and feature requests can be raised as an issue on the [GitHub repository](https://github.com/TopScrech/MC-Stats)")
     ]
     
-#if !targetEnvironment(macCatalyst)
+#if os(iOS)
     faqs.insert(FAQ("My Apple Watch isn't syncing", answer: """
 Data is synced automatically, but may be delayed under certain conditions controlled by the OS
     1. Make sure you have iCloud enabled on one of your devices

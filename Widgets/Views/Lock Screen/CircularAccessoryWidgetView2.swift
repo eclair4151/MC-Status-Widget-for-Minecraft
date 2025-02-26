@@ -10,7 +10,7 @@ struct CircularAccessoryWidgetView2: View {
     }
     
     var body: some View {
-#if !targetEnvironment(macCatalyst)
+#if !os(macOS)
         Gauge(value: entry.vm.progressValue) {
             ZStack {
                 if let statusIcon = entry.vm.statusIcon {
@@ -60,7 +60,7 @@ struct CircularAccessoryWidgetView2: View {
     }
 }
 
-#if !targetEnvironment(macCatalyst)
+#if !os(macOS)
 struct MinecraftServerStatusLSWidget_CircularPreview2: PreviewProvider {
     static var previews: some View {
         MinecraftServerStatusLSWidgetEntryView(entry: ServerStatusLSSnapshotEntry(date: Date(), configuration: ServerSelectNoThemeWidgetIntent(), vm: WidgetEntryVM()), widgetType: .OnlyImage)

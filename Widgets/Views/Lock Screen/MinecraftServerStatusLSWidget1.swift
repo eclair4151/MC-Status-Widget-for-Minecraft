@@ -6,7 +6,7 @@ struct MinecraftServerStatusLSWidget1: Widget {
     private let kind = "MinecraftServerStatusLSWidget1"
     
     private let supportedFamilies: [WidgetFamily] = {
-#if targetEnvironment(macCatalyst)
+#if os(macOS)
         []
 #elseif os(watchOS)
         [.accessoryCircular, .accessoryRectangular, .accessoryInline, .accessoryCorner]
@@ -38,7 +38,7 @@ struct MinecraftServerStatusLSWidget2: Widget {
     private let kind = "MinecraftServerStatusLSWidget2"
     
     private let supportedFamilies: [WidgetFamily] = {
-#if targetEnvironment(macCatalyst)
+#if os(macOS)
         []
 #elseif os(watchOS)
         [.accessoryCircular]
@@ -77,7 +77,7 @@ struct MinecraftServerStatusLSWidgetEntryView: View {
     @ViewBuilder
     var body: some View {
         switch family {
-#if !targetEnvironment(macCatalyst)
+#if !os(macOS)
         case .accessoryCircular:
             switch widgetType {
             case .ImageAndText:

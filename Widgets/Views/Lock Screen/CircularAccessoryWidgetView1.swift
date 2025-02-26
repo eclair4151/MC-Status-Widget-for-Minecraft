@@ -27,7 +27,7 @@ struct CircularAccessoryWidgetView1: View {
     }
     
     var body: some View {
-#if !targetEnvironment(macCatalyst)
+#if !os(macOS)
         Gauge(value: entry.vm.progressValue) {
             VStack(spacing: 1) {
                 ZStack {
@@ -90,7 +90,7 @@ struct CircularAccessoryWidgetView1: View {
     }
 }
 
-#if !targetEnvironment(macCatalyst)
+#if !os(macOS)
 struct MinecraftServerStatusHSWidget_CircularPreview: PreviewProvider {
     static var previews: some View {
         MinecraftServerStatusLSWidgetEntryView(

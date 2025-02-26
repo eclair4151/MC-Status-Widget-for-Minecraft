@@ -12,7 +12,7 @@ struct CornerAccessoryWidgetView1: View {
     var iconSize = 27.0
     
     var body: some View {
-#if !targetEnvironment(macCatalyst)
+#if !os(macOS)
         ZStack {
             if let statusIcon = entry.vm.statusIcon {
                 Image(systemName: statusIcon)

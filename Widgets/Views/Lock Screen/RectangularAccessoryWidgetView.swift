@@ -12,8 +12,8 @@ struct RectangularAccessoryWidgetView: View {
     let iconSize = 16.0
     
     var body: some View {
-#if !targetEnvironment(macCatalyst)
-        Gauge (value: entry.vm.progressValue) {
+#if !os(macOS)
+        Gauge(value: entry.vm.progressValue) {
             VStack(alignment: .leading, spacing: 2) {
                 HStack(spacing: 0) {
                     if let statusIcon = entry.vm.statusIcon {
@@ -70,7 +70,7 @@ struct RectangularAccessoryWidgetView: View {
     }
 }
 
-#if !targetEnvironment(macCatalyst)
+#if !os(macOS)
 struct MinecraftServerStatusHSWidget_RectanglePreview: PreviewProvider {
     static var previews: some View {
         MinecraftServerStatusLSWidgetEntryView(entry: ServerStatusLSSnapshotEntry(date: Date(), configuration: ServerSelectNoThemeWidgetIntent(), vm: WidgetEntryVM()))

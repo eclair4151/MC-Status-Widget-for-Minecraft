@@ -205,21 +205,26 @@ struct ServerDetails: View {
         .sheet($sheetPings) {
             PingGraph($pings)
         }
-#if !os(macOS)
         .toolbar {
-#warning("macOS")
-            // Gross (show refresh button only on Mac status bar since they can't pull to refresh)
-#if targetEnvironment(macCatalyst)
-            ToolbarItem(placement: .topBarTrailing) {
+#if os(macOS)
+            let leadingPlacement: ToolbarItemPlacement = .navigation
+            let trailingPlacement: ToolbarItemPlacement = .primaryAction
+#else
+            let leadingPlacement: ToolbarItemPlacement = .topBarLeading
+            let trailingPlacement: ToolbarItemPlacement = .topBarTrailing
+#endif
+            
+#if os(macOS)
+            ToolbarItem(placement: .primaryAction) {
                 Button {
-                    serverStatusVM.reloadData(ConfigHelper.getServerCheckerConfig())
+                    vm.reloadData(ConfigHelper.getServerCheckerConfig())
                     refreshPing()
                 } label: {
                     Label("Refresh Servers", systemImage: "arrow.clockwise")
                 }
             }
 #endif
-            ToolbarItemGroup(placement: .topBarTrailing) {
+            ToolbarItemGroup(placement: trailingPlacement) {
                 Button(role: .destructive) {
                     showingDeleteAlert = true
                 } label: {
@@ -237,7 +242,6 @@ struct ServerDetails: View {
                 }
             }
         }
-#endif
         .onAppear {
             refreshPing()
             startPrefetchingUserImages(vm)
