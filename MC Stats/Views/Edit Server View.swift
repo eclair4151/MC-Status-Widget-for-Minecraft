@@ -107,7 +107,7 @@ struct EditServerView: View {
                     TextField(portLabelPromptText, value: $tempPortInput, formatter: NumberFormatter(), prompt: Text(portLabelPromptText))
 #if !os(macOS)
                         .keyboardType(.numberPad)
-                    #endif
+#endif
                 }
             } header: {
                 Text("Start monitoring a server")

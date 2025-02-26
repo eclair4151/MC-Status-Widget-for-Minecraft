@@ -32,7 +32,7 @@
 		F1406BC22AA3936E00815BE8 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
 		F150B4342CC15F6A00739646 /* SiriGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4332CC15F6A00739646 /* SiriGuideView.swift */; };
 		F150B4362CC1709700739646 /* ShortcutsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4352CC1709700739646 /* ShortcutsGuideView.swift */; };
-		F150B43F2CC18C1100739646 /* ReleaseNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */; };
+		F150B43F2CC18C1100739646 /* Release Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B43E2CC18C1100739646 /* Release Notes.swift */; };
 		F157DDBF2CB9F7B500874CC7 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
 		F1612CC82CACC37300E602DC /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F1612CC72CACC37300E602DC /* Nuke */; };
 		F1612CCA2CACC37300E602DC /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F1612CC92CACC37300E602DC /* NukeUI */; };
@@ -42,8 +42,8 @@
 		F174A2FE2A8F8ED70051DA5B /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
 		F174A3012A915E450051DA5B /* WatchServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174A3002A915E450051DA5B /* WatchServerStatusChecker.swift */; };
 		F17A16BB2A893DD700F8FF2F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsView.swift */; };
-		F17A16BD2A8956DE00F8FF2F /* EditServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */; };
-		F17AE07D2CBE0B6600DC7A80 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
+		F17A16BD2A8956DE00F8FF2F /* Edit Server View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* Edit Server View.swift */; };
+		F17AE07D2CBE0B6600DC7A80 /* Custom Progress View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* Custom Progress View.swift */; };
 		F17AE0EC2CC01E9E00DC7A80 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */; };
 		F17AE0EE2CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* MOTD View Generator.swift */; };
 		F17AE0EF2CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* MOTD View Generator.swift */; };
@@ -55,17 +55,17 @@
 		F17AE0F62CC0504200DC7A80 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
 		F17AE0F72CC0504200DC7A80 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
 		F17AE0F82CC0504200DC7A80 /* ReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */; };
-		F17AE0FC2CC05F9000DC7A80 /* TipJarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0FB2CC05F9000DC7A80 /* TipJarView.swift */; };
-		F1A43C822A8472B20081A24C /* ServerStatusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */; };
-		F1AE29162CA48577009D0D14 /* ServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* ServerRowView.swift */; };
+		F17AE0FC2CC05F9000DC7A80 /* Tip Jar View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0FB2CC05F9000DC7A80 /* Tip Jar View.swift */; };
+		F1A43C822A8472B20081A24C /* Server Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C812A8472B20081A24C /* Server Details.swift */; };
+		F1AE29162CA48577009D0D14 /* Server Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* Server Row.swift */; };
 		F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */; };
 		F1C010492AAAB9B60017B9A9 /* SwiftyPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */; };
 		F1CFCD512CABB567001A9E69 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
 		F1CFCD522CABB567001A9E69 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
 		F1CFCD532CABB567001A9E69 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
 		F1DCB7B52CC4DE940005FFE0 /* MCStatusStoreKit Local.storekit in Resources */ = {isa = PBXBuildFile; fileRef = F1DCB7B42CC4DE940005FFE0 /* MCStatusStoreKit Local.storekit */; };
-		F1E671762CA73A86002BDFC0 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
-		F1EF76BA2CB41A2700EFFB20 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
+		F1E671762CA73A86002BDFC0 /* Custom Progress View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* Custom Progress View.swift */; };
+		F1EF76BA2CB41A2700EFFB20 /* Custom Progress View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* Custom Progress View.swift */; };
 		F1EF76C22CB4204E00EFFB20 /* App Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF76BF2CB4204E00EFFB20 /* App Container.swift */; };
 		F1EF76C32CB4204E00EFFB20 /* Server Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF76C02CB4204E00EFFB20 /* Server Row.swift */; };
 		F1EF76C62CB4216F00EFFB20 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F1EF76C52CB4216F00EFFB20 /* Nuke */; };
@@ -80,18 +80,18 @@
 		F1EF775F2CB8B88B00EFFB20 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
 		F1EF77602CB8B88B00EFFB20 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
 		F1EF77612CB8B89A00EFFB20 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */; };
-		F1EF77622CB8C62D00EFFB20 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
+		F1EF77622CB8C62D00EFFB20 /* Custom Progress View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* Custom Progress View.swift */; };
 		F1EF77632CB958B700EFFB20 /* CustomExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */; };
 		F30246C62D65E6F70030F71C /* SiriPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C42D65E6F70030F71C /* SiriPhrase.swift */; };
 		F30246C72D65E6F70030F71C /* SiriPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C42D65E6F70030F71C /* SiriPhrase.swift */; };
-		F30246C92D6661D60030F71C /* PlayerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C82D6661D60030F71C /* PlayerList.swift */; };
-		F30246CA2D6661D60030F71C /* PlayerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C82D6661D60030F71C /* PlayerList.swift */; };
-		F30246CB2D6661D60030F71C /* PlayerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C82D6661D60030F71C /* PlayerList.swift */; };
-		F30246D22D667ED50030F71C /* ServerPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D12D667ED50030F71C /* ServerPing.swift */; };
-		F30246D32D667ED50030F71C /* ServerPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D12D667ED50030F71C /* ServerPing.swift */; };
-		F30246D42D667ED50030F71C /* ServerPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D12D667ED50030F71C /* ServerPing.swift */; };
-		F30246D62D66816E0030F71C /* PingGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* PingGraph.swift */; };
-		F30246D82D66816E0030F71C /* PingGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* PingGraph.swift */; };
+		F30246C92D6661D60030F71C /* Player List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C82D6661D60030F71C /* Player List.swift */; };
+		F30246CA2D6661D60030F71C /* Player List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C82D6661D60030F71C /* Player List.swift */; };
+		F30246CB2D6661D60030F71C /* Player List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C82D6661D60030F71C /* Player List.swift */; };
+		F30246D22D667ED50030F71C /* Server Ping.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D12D667ED50030F71C /* Server Ping.swift */; };
+		F30246D32D667ED50030F71C /* Server Ping.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D12D667ED50030F71C /* Server Ping.swift */; };
+		F30246D42D667ED50030F71C /* Server Ping.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D12D667ED50030F71C /* Server Ping.swift */; };
+		F30246D62D66816E0030F71C /* Ping Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* Ping Graph.swift */; };
+		F30246D82D66816E0030F71C /* Ping Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* Ping Graph.swift */; };
 		F30472092D63E9C00055C007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F30472012D63E9C00055C007 /* Assets.xcassets */; };
 		F304720B2D63E9C00055C007 /* HomescreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F52D63E9C00055C007 /* HomescreenProvider.swift */; };
 		F304720C2D63E9C00055C007 /* LockscreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F62D63E9C00055C007 /* LockscreenProvider.swift */; };
@@ -156,16 +156,16 @@
 		F31D45C32D6DC74100981B1C /* App Container Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C1E43A2D6C949900950F3D /* App Container Helper.swift */; };
 		F31D45C42D6DC74100981B1C /* App Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E60002A4BD614005BE9B2 /* App Container.swift */; };
 		F31D45C52D6DC74100981B1C /* Page Destinations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39EAF722D6C82B900072794 /* Page Destinations.swift */; };
-		F31D45C62D6DC74C00981B1C /* TipJarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0FB2CC05F9000DC7A80 /* TipJarView.swift */; };
-		F31D45C72D6DC74C00981B1C /* ReleaseNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */; };
-		F31D45C82D6DC74C00981B1C /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
-		F31D45C92D6DC74C00981B1C /* FeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */; };
+		F31D45C62D6DC74C00981B1C /* Tip Jar View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0FB2CC05F9000DC7A80 /* Tip Jar View.swift */; };
+		F31D45C72D6DC74C00981B1C /* Release Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B43E2CC18C1100739646 /* Release Notes.swift */; };
+		F31D45C82D6DC74C00981B1C /* Custom Progress View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* Custom Progress View.swift */; };
+		F31D45C92D6DC74C00981B1C /* Feature Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6E2D649C6000718CB7 /* Feature Row.swift */; };
 		F31D45CA2D6DC74C00981B1C /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
-		F31D45CB2D6DC75200981B1C /* ServerStatusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */; };
-		F31D45CC2D6DC75200981B1C /* PlayerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A9D2D65209500718CB7 /* PlayerCard.swift */; };
-		F31D45CD2D6DC75200981B1C /* ServerPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D12D667ED50030F71C /* ServerPing.swift */; };
-		F31D45CE2D6DC75200981B1C /* PlayerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C82D6661D60030F71C /* PlayerList.swift */; };
-		F31D45CF2D6DC75200981B1C /* PingGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* PingGraph.swift */; };
+		F31D45CB2D6DC75200981B1C /* Server Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C812A8472B20081A24C /* Server Details.swift */; };
+		F31D45CC2D6DC75200981B1C /* Player Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A9D2D65209500718CB7 /* Player Card.swift */; };
+		F31D45CD2D6DC75200981B1C /* Server Ping.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D12D667ED50030F71C /* Server Ping.swift */; };
+		F31D45CE2D6DC75200981B1C /* Player List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C82D6661D60030F71C /* Player List.swift */; };
+		F31D45CF2D6DC75200981B1C /* Ping Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* Ping Graph.swift */; };
 		F31D45D02D6DC75200981B1C /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
 		F31D45D12D6DC75700981B1C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsView.swift */; };
 		F31D45D22D6DC75700981B1C /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */; };
@@ -175,8 +175,8 @@
 		F31D45D62D6DC75D00981B1C /* SiriGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4332CC15F6A00739646 /* SiriGuideView.swift */; };
 		F31D45D72D6DC75D00981B1C /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
 		F31D45D82D6DC76200981B1C /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A052D6574DD00840745 /* FAQ.swift */; };
-		F31D45D92D6DC76200981B1C /* EditServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */; };
-		F31D45DA2D6DC76200981B1C /* ServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* ServerRowView.swift */; };
+		F31D45D92D6DC76200981B1C /* Edit Server View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* Edit Server View.swift */; };
+		F31D45DA2D6DC76200981B1C /* Server Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* Server Row.swift */; };
 		F31D45DB2D6DC76200981B1C /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */; };
 		F31D45DC2D6DC76200981B1C /* FAQRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A012D6574D200840745 /* FAQRow.swift */; };
 		F31D45DD2D6DC76800981B1C /* MOTD View Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* MOTD View Generator.swift */; };
@@ -211,28 +211,28 @@
 		F3570D622D6E8C4F00BDF069 /* Home View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3570D612D6E8C4F00BDF069 /* Home View.swift */; };
 		F3570D642D6E8CB300BDF069 /* Messages VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3570D632D6E8CB300BDF069 /* Messages VM.swift */; };
 		F35E1A6D2D6489FD00718CB7 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */; };
-		F35E1A6F2D649C6000718CB7 /* FeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */; };
+		F35E1A6F2D649C6000718CB7 /* Feature Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6E2D649C6000718CB7 /* Feature Row.swift */; };
 		F35E1A712D649D1300718CB7 /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
 		F35E1A742D64A4B200718CB7 /* Low Power Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A732D64A4B200718CB7 /* Low Power Mode.swift */; };
 		F35E1A752D64ACE400718CB7 /* Widgets Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472042D63E9C00055C007 /* Widgets Bundle.swift */; };
 		F35E1A772D64D32D00718CB7 /* Refresh Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A762D64D32D00718CB7 /* Refresh Widgets.swift */; };
 		F35E1A782D64DC2700718CB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
-		F35E1A9E2D65209500718CB7 /* PlayerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A9D2D65209500718CB7 /* PlayerCard.swift */; };
+		F35E1A9E2D65209500718CB7 /* Player Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A9D2D65209500718CB7 /* Player Card.swift */; };
 		F35E1AA12D6522B300718CB7 /* Low Power Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A732D64A4B200718CB7 /* Low Power Mode.swift */; };
 		F35E1AA22D6522B300718CB7 /* Refresh Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A762D64D32D00718CB7 /* Refresh Widgets.swift */; };
-		F35E1AA32D6522C600718CB7 /* FeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */; };
-		F35E1AA42D6522C600718CB7 /* ReleaseNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */; };
+		F35E1AA32D6522C600718CB7 /* Feature Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6E2D649C6000718CB7 /* Feature Row.swift */; };
+		F35E1AA42D6522C600718CB7 /* Release Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B43E2CC18C1100739646 /* Release Notes.swift */; };
 		F35E1AA52D6522CB00718CB7 /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
 		F35E1AA62D6522CB00718CB7 /* SiriGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4332CC15F6A00739646 /* SiriGuideView.swift */; };
-		F35E1AA72D6522D100718CB7 /* PlayerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A9D2D65209500718CB7 /* PlayerCard.swift */; };
-		F35E1AA82D6522D100718CB7 /* ServerStatusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */; };
-		F35E1AA92D6522D100718CB7 /* TipJarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0FB2CC05F9000DC7A80 /* TipJarView.swift */; };
+		F35E1AA72D6522D100718CB7 /* Player Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A9D2D65209500718CB7 /* Player Card.swift */; };
+		F35E1AA82D6522D100718CB7 /* Server Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C812A8472B20081A24C /* Server Details.swift */; };
+		F35E1AA92D6522D100718CB7 /* Tip Jar View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0FB2CC05F9000DC7A80 /* Tip Jar View.swift */; };
 		F35E1AAA2D6522D100718CB7 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */; };
-		F35E1AAB2D6522D100718CB7 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
-		F35E1AAC2D6522D600718CB7 /* EditServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */; };
+		F35E1AAB2D6522D100718CB7 /* Custom Progress View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* Custom Progress View.swift */; };
+		F35E1AAC2D6522D600718CB7 /* Edit Server View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* Edit Server View.swift */; };
 		F35E1AAD2D6522D600718CB7 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */; };
 		F35E1AAE2D6522D600718CB7 /* ShortcutsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4352CC1709700739646 /* ShortcutsGuideView.swift */; };
-		F35E1AAF2D6522D600718CB7 /* ServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* ServerRowView.swift */; };
+		F35E1AAF2D6522D600718CB7 /* Server Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* Server Row.swift */; };
 		F35E1AB02D6522D600718CB7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsView.swift */; };
 		F35E1AB42D6522F400718CB7 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F35E1AB32D6522F400718CB7 /* NukeUI */; };
 		F35E1AB62D65230400718CB7 /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F35E1AB52D65230400718CB7 /* ScrechKit */; };
@@ -260,7 +260,7 @@
 		F378836B2D6AF86A00D38522 /* Debug Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37883692D6AF86A00D38522 /* Debug Settings.swift */; };
 		F378836C2D6AF86A00D38522 /* Debug Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37883692D6AF86A00D38522 /* Debug Settings.swift */; };
 		F38218852D671BAB005025E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F11F63512A81E51000D47187 /* Assets.xcassets */; };
-		F38218882D676E23005025E7 /* PingGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* PingGraph.swift */; };
+		F38218882D676E23005025E7 /* Ping Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* Ping Graph.swift */; };
 		F383D1982D67D3D100FE4239 /* SiriGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4332CC15F6A00739646 /* SiriGuideView.swift */; };
 		F383D1992D67D3DB00FE4239 /* SiriGuidePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */; };
 		F383D19A2D67D3DB00FE4239 /* SiriPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C42D65E6F70030F71C /* SiriPhrase.swift */; };
@@ -287,16 +287,16 @@
 		F3C879DA2D6572B000840745 /* App Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E60002A4BD614005BE9B2 /* App Container.swift */; };
 		F3C879DB2D6572BA00840745 /* Low Power Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A732D64A4B200718CB7 /* Low Power Mode.swift */; };
 		F3C879DC2D6572BA00840745 /* Refresh Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A762D64D32D00718CB7 /* Refresh Widgets.swift */; };
-		F3C879DD2D6572BE00840745 /* FeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */; };
-		F3C879DE2D6572BE00840745 /* ReleaseNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */; };
-		F3C879DF2D6572C400840745 /* ServerStatusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */; };
-		F3C879E02D6572C400840745 /* PlayerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A9D2D65209500718CB7 /* PlayerCard.swift */; };
-		F3C879E22D6572C400840745 /* TipJarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0FB2CC05F9000DC7A80 /* TipJarView.swift */; };
-		F3C879E42D6572C400840745 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */; };
+		F3C879DD2D6572BE00840745 /* Feature Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6E2D649C6000718CB7 /* Feature Row.swift */; };
+		F3C879DE2D6572BE00840745 /* Release Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B43E2CC18C1100739646 /* Release Notes.swift */; };
+		F3C879DF2D6572C400840745 /* Server Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C812A8472B20081A24C /* Server Details.swift */; };
+		F3C879E02D6572C400840745 /* Player Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A9D2D65209500718CB7 /* Player Card.swift */; };
+		F3C879E22D6572C400840745 /* Tip Jar View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0FB2CC05F9000DC7A80 /* Tip Jar View.swift */; };
+		F3C879E42D6572C400840745 /* Custom Progress View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* Custom Progress View.swift */; };
 		F3C879E52D6572C400840745 /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */; };
-		F3C879E62D6572CA00840745 /* ServerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* ServerRowView.swift */; };
+		F3C879E62D6572CA00840745 /* Server Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* Server Row.swift */; };
 		F3C879E72D6572CA00840745 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* SettingsView.swift */; };
-		F3C879E82D6572CA00840745 /* EditServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */; };
+		F3C879E82D6572CA00840745 /* Edit Server View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* Edit Server View.swift */; };
 		F3C879E92D6572CA00840745 /* ShortcutsGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4352CC1709700739646 /* ShortcutsGuideView.swift */; };
 		F3C879EA2D6572CA00840745 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */; };
 		F3C879EC2D6572D000840745 /* MOTD View Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* MOTD View Generator.swift */; };
@@ -449,25 +449,25 @@
 		F1406BB72AA391F400815BE8 /* Intents.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Intents.entitlements; sourceTree = "<group>"; };
 		F150B4332CC15F6A00739646 /* SiriGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriGuideView.swift; sourceTree = "<group>"; };
 		F150B4352CC1709700739646 /* ShortcutsGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsGuideView.swift; sourceTree = "<group>"; };
-		F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseNotesView.swift; sourceTree = "<group>"; };
+		F150B43E2CC18C1100739646 /* Release Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Release Notes.swift"; sourceTree = "<group>"; };
 		F174A2FB2A8F7FFA0051DA5B /* WatchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHelper.swift; sourceTree = "<group>"; };
 		F174A3002A915E450051DA5B /* WatchServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServerStatusChecker.swift; sourceTree = "<group>"; };
 		F17A16BA2A893DD700F8FF2F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditServerView.swift; sourceTree = "<group>"; };
+		F17A16BC2A8956DE00F8FF2F /* Edit Server View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Edit Server View.swift"; sourceTree = "<group>"; };
 		F17AE0EB2CC01E9E00DC7A80 /* FAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
 		F17AE0ED2CC0363F00DC7A80 /* MOTD View Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOTD View Generator.swift"; sourceTree = "<group>"; };
 		F17AE0F32CC0504200DC7A80 /* ReviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHelper.swift; sourceTree = "<group>"; };
 		F17AE0F92CC05CA200DC7A80 /* MCStatusStoreKit Synced.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "MCStatusStoreKit Synced.storekit"; sourceTree = "<group>"; };
-		F17AE0FB2CC05F9000DC7A80 /* TipJarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipJarView.swift; sourceTree = "<group>"; };
-		F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusDetailView.swift; sourceTree = "<group>"; };
-		F1AE29152CA48577009D0D14 /* ServerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRowView.swift; sourceTree = "<group>"; };
+		F17AE0FB2CC05F9000DC7A80 /* Tip Jar View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tip Jar View.swift"; sourceTree = "<group>"; };
+		F1A43C812A8472B20081A24C /* Server Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Server Details.swift"; sourceTree = "<group>"; };
+		F1AE29152CA48577009D0D14 /* Server Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Server Row.swift"; sourceTree = "<group>"; };
 		F1BF5D9E2A80261D00966D56 /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
 		F1C010482AAAB9B60017B9A9 /* SwiftyPing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyPing.swift; sourceTree = "<group>"; };
 		F1C9A9AE2A879A4800C058C7 /* watchOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = watchOS.entitlements; sourceTree = "<group>"; };
 		F1C9A9AF2A879FBC00C058C7 /* watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = watchOS.plist; sourceTree = "<group>"; };
 		F1CFCD502CABB55B001A9E69 /* CustomExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExtentions.swift; sourceTree = "<group>"; };
 		F1DCB7B42CC4DE940005FFE0 /* MCStatusStoreKit Local.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "MCStatusStoreKit Local.storekit"; sourceTree = "<group>"; };
-		F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
+		F1E671752CA73A86002BDFC0 /* Custom Progress View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Progress View.swift"; sourceTree = "<group>"; };
 		F1EF76BF2CB4204E00EFFB20 /* App Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Container.swift"; sourceTree = "<group>"; };
 		F1EF76C02CB4204E00EFFB20 /* Server Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Server Row.swift"; sourceTree = "<group>"; };
 		F1EF76C92CB422D400EFFB20 /* Server Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Server Details.swift"; sourceTree = "<group>"; };
@@ -476,9 +476,9 @@
 		F1EF76EF2CB7873F00EFFB20 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		F1EF775D2CB8B88B00EFFB20 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		F30246C42D65E6F70030F71C /* SiriPhrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriPhrase.swift; sourceTree = "<group>"; };
-		F30246C82D6661D60030F71C /* PlayerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerList.swift; sourceTree = "<group>"; };
-		F30246D12D667ED50030F71C /* ServerPing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerPing.swift; sourceTree = "<group>"; };
-		F30246D52D66816E0030F71C /* PingGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingGraph.swift; sourceTree = "<group>"; };
+		F30246C82D6661D60030F71C /* Player List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player List.swift"; sourceTree = "<group>"; };
+		F30246D12D667ED50030F71C /* Server Ping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Server Ping.swift"; sourceTree = "<group>"; };
+		F30246D52D66816E0030F71C /* Ping Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ping Graph.swift"; sourceTree = "<group>"; };
 		F30471F52D63E9C00055C007 /* HomescreenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenProvider.swift; sourceTree = "<group>"; };
 		F30471F62D63E9C00055C007 /* LockscreenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenProvider.swift; sourceTree = "<group>"; };
 		F30471F82D63E9C00055C007 /* CircularAccessoryWidgetView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularAccessoryWidgetView1.swift; sourceTree = "<group>"; };
@@ -526,14 +526,14 @@
 		F3570D612D6E8C4F00BDF069 /* Home View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home View.swift"; sourceTree = "<group>"; };
 		F3570D632D6E8CB300BDF069 /* Messages VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Messages VM.swift"; sourceTree = "<group>"; };
 		F35E1A6C2D6489FD00718CB7 /* GeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
-		F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureRow.swift; sourceTree = "<group>"; };
+		F35E1A6E2D649C6000718CB7 /* Feature Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Feature Row.swift"; sourceTree = "<group>"; };
 		F35E1A702D649D1300718CB7 /* SiriGuidePhrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriGuidePhrase.swift; sourceTree = "<group>"; };
 		F35E1A732D64A4B200718CB7 /* Low Power Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Low Power Mode.swift"; sourceTree = "<group>"; };
 		F35E1A762D64D32D00718CB7 /* Refresh Widgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Refresh Widgets.swift"; sourceTree = "<group>"; };
 		F35E1A7D2D6501A500718CB7 /* visionOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = visionOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F35E1A932D6501CC00718CB7 /* visionOS Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "visionOS Icon.xcassets"; sourceTree = "<group>"; };
 		F35E1A952D6501CC00718CB7 /* visionOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = visionOS.plist; sourceTree = "<group>"; };
-		F35E1A9D2D65209500718CB7 /* PlayerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCard.swift; sourceTree = "<group>"; };
+		F35E1A9D2D65209500718CB7 /* Player Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player Card.swift"; sourceTree = "<group>"; };
 		F35E1ACB2D652C9000718CB7 /* visionOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = visionOS.entitlements; sourceTree = "<group>"; };
 		F360A8AE2D6C6BC3008E515E /* MCStatsDataLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MCStatsDataLayer; sourceTree = "<group>"; };
 		F37883692D6AF86A00D38522 /* Debug Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Debug Settings.swift"; sourceTree = "<group>"; };
@@ -777,15 +777,15 @@
 		F1A43C802A84726F0081A24C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F150B43E2CC18C1100739646 /* ReleaseNotesView.swift */,
+				F150B43E2CC18C1100739646 /* Release Notes.swift */,
 				F3C87A0E2D657A1500840745 /* Feature.swift */,
-				F35E1A6E2D649C6000718CB7 /* FeatureRow.swift */,
-				F17AE0FB2CC05F9000DC7A80 /* TipJarView.swift */,
-				F1E671752CA73A86002BDFC0 /* CustomProgressView.swift */,
+				F35E1A6E2D649C6000718CB7 /* Feature Row.swift */,
+				F17AE0FB2CC05F9000DC7A80 /* Tip Jar View.swift */,
+				F1E671752CA73A86002BDFC0 /* Custom Progress View.swift */,
 				F30246CC2D667EBF0030F71C /* Server Details */,
 				F35E1A6B2D6489F900718CB7 /* Settings */,
-				F17A16BC2A8956DE00F8FF2F /* EditServerView.swift */,
-				F1AE29152CA48577009D0D14 /* ServerRowView.swift */,
+				F17A16BC2A8956DE00F8FF2F /* Edit Server View.swift */,
+				F1AE29152CA48577009D0D14 /* Server Row.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -834,12 +834,12 @@
 		F30246CC2D667EBF0030F71C /* Server Details */ = {
 			isa = PBXGroup;
 			children = (
-				F1A43C812A8472B20081A24C /* ServerStatusDetailView.swift */,
+				F1A43C812A8472B20081A24C /* Server Details.swift */,
 				F3BFB14C2D68055A00E16468 /* MOTD View.swift */,
-				F30246D12D667ED50030F71C /* ServerPing.swift */,
-				F30246D52D66816E0030F71C /* PingGraph.swift */,
-				F30246C82D6661D60030F71C /* PlayerList.swift */,
-				F35E1A9D2D65209500718CB7 /* PlayerCard.swift */,
+				F30246D12D667ED50030F71C /* Server Ping.swift */,
+				F30246D52D66816E0030F71C /* Ping Graph.swift */,
+				F30246C82D6661D60030F71C /* Player List.swift */,
+				F35E1A9D2D65209500718CB7 /* Player Card.swift */,
 			);
 			path = "Server Details";
 			sourceTree = "<group>";
@@ -1426,7 +1426,7 @@
 				F1EF76C32CB4204E00EFFB20 /* Server Row.swift in Sources */,
 				F174A2FE2A8F8ED70051DA5B /* UserDefaultHelper.swift in Sources */,
 				F39EAF762D6C82C200072794 /* Page Destinations.swift in Sources */,
-				F1EF76BA2CB41A2700EFFB20 /* CustomProgressView.swift in Sources */,
+				F1EF76BA2CB41A2700EFFB20 /* Custom Progress View.swift in Sources */,
 				F30472562D63E9D30055C007 /* SavedServerEntity.swift in Sources */,
 				F30472572D63E9D30055C007 /* ServerStatusEntity.swift in Sources */,
 				F10E94B12A8C61B60039DD2B /* ConnectivityProvider.swift in Sources */,
@@ -1446,7 +1446,7 @@
 				F304723B2D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */,
 				F304723C2D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */,
 				F130954D2CBC9D1C00C4C7BA /* ImageHelper.swift in Sources */,
-				F17AE07D2CBE0B6600DC7A80 /* CustomProgressView.swift in Sources */,
+				F17AE07D2CBE0B6600DC7A80 /* Custom Progress View.swift in Sources */,
 				F17AE0F42CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
 				F304724D2D63E9D20055C007 /* ServerIntentTypeAppEntity.swift in Sources */,
 				F304724E2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */,
@@ -1471,9 +1471,9 @@
 				F150B4342CC15F6A00739646 /* SiriGuideView.swift in Sources */,
 				F3C87A032D6574D200840745 /* FAQRow.swift in Sources */,
 				F35E1A772D64D32D00718CB7 /* Refresh Widgets.swift in Sources */,
-				F17AE0FC2CC05F9000DC7A80 /* TipJarView.swift in Sources */,
-				F1A43C822A8472B20081A24C /* ServerStatusDetailView.swift in Sources */,
-				F35E1A6F2D649C6000718CB7 /* FeatureRow.swift in Sources */,
+				F17AE0FC2CC05F9000DC7A80 /* Tip Jar View.swift in Sources */,
+				F1A43C822A8472B20081A24C /* Server Details.swift in Sources */,
+				F35E1A6F2D649C6000718CB7 /* Feature Row.swift in Sources */,
 				F30472542D63E9D30055C007 /* SavedServerEntity.swift in Sources */,
 				F378836A2D6AF86A00D38522 /* Debug Settings.swift in Sources */,
 				F35E1A742D64A4B200718CB7 /* Low Power Mode.swift in Sources */,
@@ -1481,16 +1481,16 @@
 				F3C1E43B2D6C949900950F3D /* App Container Helper.swift in Sources */,
 				F3C87A062D6574DD00840745 /* FAQ.swift in Sources */,
 				F30472552D63E9D30055C007 /* ServerStatusEntity.swift in Sources */,
-				F30246CB2D6661D60030F71C /* PlayerList.swift in Sources */,
+				F30246CB2D6661D60030F71C /* Player List.swift in Sources */,
 				F35E1A712D649D1300718CB7 /* SiriGuidePhrase.swift in Sources */,
 				F174A2FC2A8F7FFA0051DA5B /* WatchHelper.swift in Sources */,
-				F17A16BD2A8956DE00F8FF2F /* EditServerView.swift in Sources */,
+				F17A16BD2A8956DE00F8FF2F /* Edit Server View.swift in Sources */,
 				F17AE0EC2CC01E9E00DC7A80 /* FAQView.swift in Sources */,
 				F17AE0F62CC0504200DC7A80 /* ReviewHelper.swift in Sources */,
 				F1C010492AAAB9B60017B9A9 /* SwiftyPing.swift in Sources */,
 				F1BF5D9F2A80261D00966D56 /* UserDefaultHelper.swift in Sources */,
 				F3C87A112D657A1500840745 /* Feature.swift in Sources */,
-				F30246D42D667ED50030F71C /* ServerPing.swift in Sources */,
+				F30246D42D667ED50030F71C /* Server Ping.swift in Sources */,
 				F13E5FFD2A4BD614005BE9B2 /* MC Stats.swift in Sources */,
 				F150B4362CC1709700739646 /* ShortcutsGuideView.swift in Sources */,
 				F35E1A6D2D6489FD00718CB7 /* GeneralSettings.swift in Sources */,
@@ -1501,15 +1501,15 @@
 				F30246C72D65E6F70030F71C /* SiriPhrase.swift in Sources */,
 				F16990822CA5DDE500F41232 /* IntentErrors.swift in Sources */,
 				F1EF775F2CB8B88B00EFFB20 /* ImageHelper.swift in Sources */,
-				F30246D82D66816E0030F71C /* PingGraph.swift in Sources */,
+				F30246D82D66816E0030F71C /* Ping Graph.swift in Sources */,
 				F1CFCD512CABB567001A9E69 /* CustomExtentions.swift in Sources */,
-				F35E1A9E2D65209500718CB7 /* PlayerCard.swift in Sources */,
+				F35E1A9E2D65209500718CB7 /* Player Card.swift in Sources */,
 				F16990872CA5DDE500F41232 /* MCStatsShortcutsProvider.swift in Sources */,
 				F17A16BB2A893DD700F8FF2F /* SettingsView.swift in Sources */,
-				F1AE29162CA48577009D0D14 /* ServerRowView.swift in Sources */,
+				F1AE29162CA48577009D0D14 /* Server Row.swift in Sources */,
 				F13E60012A4BD614005BE9B2 /* App Container.swift in Sources */,
-				F1E671762CA73A86002BDFC0 /* CustomProgressView.swift in Sources */,
-				F150B43F2CC18C1100739646 /* ReleaseNotesView.swift in Sources */,
+				F1E671762CA73A86002BDFC0 /* Custom Progress View.swift in Sources */,
+				F150B43F2CC18C1100739646 /* Release Notes.swift in Sources */,
 				F130954F2CBC9D5600C4C7BA /* ConfigHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1567,7 +1567,7 @@
 				F30472492D63E9D20055C007 /* ServerIntentTypeAppEntity.swift in Sources */,
 				F304724A2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */,
 				F1EF77632CB958B700EFFB20 /* CustomExtentions.swift in Sources */,
-				F1EF77622CB8C62D00EFFB20 /* CustomProgressView.swift in Sources */,
+				F1EF77622CB8C62D00EFFB20 /* Custom Progress View.swift in Sources */,
 				F1EF77612CB8B89A00EFFB20 /* ImageHelper.swift in Sources */,
 				F13095502CBC9D5600C4C7BA /* ConfigHelper.swift in Sources */,
 				F157DDBF2CB9F7B500874CC7 /* UserDefaultHelper.swift in Sources */,
@@ -1580,24 +1580,24 @@
 			files = (
 				F31D45B92D6DC68F00981B1C /* MC Stats.swift in Sources */,
 				F31D45D82D6DC76200981B1C /* FAQ.swift in Sources */,
-				F31D45D92D6DC76200981B1C /* EditServerView.swift in Sources */,
-				F31D45DA2D6DC76200981B1C /* ServerRowView.swift in Sources */,
+				F31D45D92D6DC76200981B1C /* Edit Server View.swift in Sources */,
+				F31D45DA2D6DC76200981B1C /* Server Row.swift in Sources */,
 				F31D45EB2D6DCB1300981B1C /* ServerStatusEntity.swift in Sources */,
 				F31D45EA2D6DCA5E00981B1C /* IntentErrors.swift in Sources */,
 				F31D45DB2D6DC76200981B1C /* FAQView.swift in Sources */,
 				F31D45DC2D6DC76200981B1C /* FAQRow.swift in Sources */,
-				F31D45C62D6DC74C00981B1C /* TipJarView.swift in Sources */,
+				F31D45C62D6DC74C00981B1C /* Tip Jar View.swift in Sources */,
 				F31D45E92D6DCA5000981B1C /* SavedServerEntity.swift in Sources */,
-				F31D45C72D6DC74C00981B1C /* ReleaseNotesView.swift in Sources */,
-				F31D45C82D6DC74C00981B1C /* CustomProgressView.swift in Sources */,
-				F31D45C92D6DC74C00981B1C /* FeatureRow.swift in Sources */,
+				F31D45C72D6DC74C00981B1C /* Release Notes.swift in Sources */,
+				F31D45C82D6DC74C00981B1C /* Custom Progress View.swift in Sources */,
+				F31D45C92D6DC74C00981B1C /* Feature Row.swift in Sources */,
 				F31D45CA2D6DC74C00981B1C /* Feature.swift in Sources */,
 				F31D45C32D6DC74100981B1C /* App Container Helper.swift in Sources */,
 				F31D45C42D6DC74100981B1C /* App Container.swift in Sources */,
 				F31D45E52D6DC9C600981B1C /* Low Power Mode.swift in Sources */,
 				F31D45E62D6DC9C600981B1C /* Refresh Widgets.swift in Sources */,
 				F31D45C52D6DC74100981B1C /* Page Destinations.swift in Sources */,
-				F31D45CB2D6DC75200981B1C /* ServerStatusDetailView.swift in Sources */,
+				F31D45CB2D6DC75200981B1C /* Server Details.swift in Sources */,
 				F31D45D12D6DC75700981B1C /* SettingsView.swift in Sources */,
 				F31D45E82D6DCA3E00981B1C /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
 				F31D45D22D6DC75700981B1C /* GeneralSettings.swift in Sources */,
@@ -1611,13 +1611,13 @@
 				F31D45E12D6DC76800981B1C /* ReviewHelper.swift in Sources */,
 				F31D45E22D6DC76800981B1C /* CustomExtentions.swift in Sources */,
 				F31D45D42D6DC75700981B1C /* ShortcutsGuideView.swift in Sources */,
-				F31D45CC2D6DC75200981B1C /* PlayerCard.swift in Sources */,
+				F31D45CC2D6DC75200981B1C /* Player Card.swift in Sources */,
 				F31D45D52D6DC75D00981B1C /* SiriPhrase.swift in Sources */,
 				F31D45D62D6DC75D00981B1C /* SiriGuideView.swift in Sources */,
 				F31D45D72D6DC75D00981B1C /* SiriGuidePhrase.swift in Sources */,
-				F31D45CD2D6DC75200981B1C /* ServerPing.swift in Sources */,
-				F31D45CE2D6DC75200981B1C /* PlayerList.swift in Sources */,
-				F31D45CF2D6DC75200981B1C /* PingGraph.swift in Sources */,
+				F31D45CD2D6DC75200981B1C /* Server Ping.swift in Sources */,
+				F31D45CE2D6DC75200981B1C /* Player List.swift in Sources */,
+				F31D45CF2D6DC75200981B1C /* Ping Graph.swift in Sources */,
 				F31D45D02D6DC75200981B1C /* MOTD View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1641,19 +1641,19 @@
 				F35E1AA22D6522B300718CB7 /* Refresh Widgets.swift in Sources */,
 				F35E1AA52D6522CB00718CB7 /* SiriGuidePhrase.swift in Sources */,
 				F35E1AA62D6522CB00718CB7 /* SiriGuideView.swift in Sources */,
-				F30246D62D66816E0030F71C /* PingGraph.swift in Sources */,
-				F35E1AA32D6522C600718CB7 /* FeatureRow.swift in Sources */,
-				F35E1AA72D6522D100718CB7 /* PlayerCard.swift in Sources */,
+				F30246D62D66816E0030F71C /* Ping Graph.swift in Sources */,
+				F35E1AA32D6522C600718CB7 /* Feature Row.swift in Sources */,
+				F35E1AA72D6522D100718CB7 /* Player Card.swift in Sources */,
 				F3C1E43D2D6C949900950F3D /* App Container Helper.swift in Sources */,
-				F35E1AA82D6522D100718CB7 /* ServerStatusDetailView.swift in Sources */,
-				F35E1AA92D6522D100718CB7 /* TipJarView.swift in Sources */,
+				F35E1AA82D6522D100718CB7 /* Server Details.swift in Sources */,
+				F35E1AA92D6522D100718CB7 /* Tip Jar View.swift in Sources */,
 				F35E1AB72D65231500718CB7 /* App Container.swift in Sources */,
-				F30246D32D667ED50030F71C /* ServerPing.swift in Sources */,
+				F30246D32D667ED50030F71C /* Server Ping.swift in Sources */,
 				F30246C62D65E6F70030F71C /* SiriPhrase.swift in Sources */,
 				F35E1AAA2D6522D100718CB7 /* FAQView.swift in Sources */,
-				F30246C92D6661D60030F71C /* PlayerList.swift in Sources */,
+				F30246C92D6661D60030F71C /* Player List.swift in Sources */,
 				F3C87A022D6574D200840745 /* FAQRow.swift in Sources */,
-				F35E1AAC2D6522D600718CB7 /* EditServerView.swift in Sources */,
+				F35E1AAC2D6522D600718CB7 /* Edit Server View.swift in Sources */,
 				F35E1ACA2D652C6D00718CB7 /* ServerStatusEntity.swift in Sources */,
 				F35E1AC02D65236900718CB7 /* SwiftyPing.swift in Sources */,
 				F39EAF752D6C82B900072794 /* Page Destinations.swift in Sources */,
@@ -1661,10 +1661,10 @@
 				F35E1AC62D652B3000718CB7 /* MCStatsShortcutsProvider.swift in Sources */,
 				F35E1AAD2D6522D600718CB7 /* GeneralSettings.swift in Sources */,
 				F35E1AAE2D6522D600718CB7 /* ShortcutsGuideView.swift in Sources */,
-				F35E1AAF2D6522D600718CB7 /* ServerRowView.swift in Sources */,
+				F35E1AAF2D6522D600718CB7 /* Server Row.swift in Sources */,
 				F35E1AC52D65238800718CB7 /* MC Stats.swift in Sources */,
 				F35E1AB02D6522D600718CB7 /* SettingsView.swift in Sources */,
-				F35E1AAB2D6522D100718CB7 /* CustomProgressView.swift in Sources */,
+				F35E1AAB2D6522D100718CB7 /* Custom Progress View.swift in Sources */,
 				F3C87A102D657A1500840745 /* Feature.swift in Sources */,
 				F378836C2D6AF86A00D38522 /* Debug Settings.swift in Sources */,
 				F3C87A072D6574DD00840745 /* FAQ.swift in Sources */,
@@ -1676,7 +1676,7 @@
 				F35E1ABD2D65236300718CB7 /* ConfigHelper.swift in Sources */,
 				F35E1ABF2D65236300718CB7 /* MOTD View Generator.swift in Sources */,
 				F35E1AC92D652C5B00718CB7 /* SavedServerEntity.swift in Sources */,
-				F35E1AA42D6522C600718CB7 /* ReleaseNotesView.swift in Sources */,
+				F35E1AA42D6522C600718CB7 /* Release Notes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1684,9 +1684,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3C879DF2D6572C400840745 /* ServerStatusDetailView.swift in Sources */,
+				F3C879DF2D6572C400840745 /* Server Details.swift in Sources */,
 				F3BFB14F2D68055A00E16468 /* MOTD View.swift in Sources */,
-				F3C879E02D6572C400840745 /* PlayerCard.swift in Sources */,
+				F3C879E02D6572C400840745 /* Player Card.swift in Sources */,
 				F3C87A0B2D6575B700840745 /* IntentErrors.swift in Sources */,
 				F383D1982D67D3D100FE4239 /* SiriGuideView.swift in Sources */,
 				F3C87A092D65759B00840745 /* MCStatsShortcutsProvider.swift in Sources */,
@@ -1694,15 +1694,15 @@
 				F3C879F32D6572D500840745 /* SwiftyPing.swift in Sources */,
 				F3C1E43C2D6C949900950F3D /* App Container Helper.swift in Sources */,
 				F3C87A0A2D6575AE00840745 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
-				F3C879E22D6572C400840745 /* TipJarView.swift in Sources */,
-				F30246D22D667ED50030F71C /* ServerPing.swift in Sources */,
-				F30246CA2D6661D60030F71C /* PlayerList.swift in Sources */,
+				F3C879E22D6572C400840745 /* Tip Jar View.swift in Sources */,
+				F30246D22D667ED50030F71C /* Server Ping.swift in Sources */,
+				F30246CA2D6661D60030F71C /* Player List.swift in Sources */,
 				F383D1992D67D3DB00FE4239 /* SiriGuidePhrase.swift in Sources */,
 				F383D19A2D67D3DB00FE4239 /* SiriPhrase.swift in Sources */,
-				F3C879E42D6572C400840745 /* CustomProgressView.swift in Sources */,
+				F3C879E42D6572C400840745 /* Custom Progress View.swift in Sources */,
 				F3C87A082D6574DD00840745 /* FAQ.swift in Sources */,
 				F3C879E52D6572C400840745 /* FAQView.swift in Sources */,
-				F38218882D676E23005025E7 /* PingGraph.swift in Sources */,
+				F38218882D676E23005025E7 /* Ping Graph.swift in Sources */,
 				F3C879EC2D6572D000840745 /* MOTD View Generator.swift in Sources */,
 				F39EAF732D6C82B900072794 /* Page Destinations.swift in Sources */,
 				F3C879ED2D6572D000840745 /* CustomExtentions.swift in Sources */,
@@ -1713,15 +1713,15 @@
 				F3C87A0C2D6575C800840745 /* ServerStatusEntity.swift in Sources */,
 				F3C87A0F2D657A1500840745 /* Feature.swift in Sources */,
 				F3C879F22D6572D000840745 /* UserDefaultHelper.swift in Sources */,
-				F3C879DD2D6572BE00840745 /* FeatureRow.swift in Sources */,
+				F3C879DD2D6572BE00840745 /* Feature Row.swift in Sources */,
 				F378836B2D6AF86A00D38522 /* Debug Settings.swift in Sources */,
-				F3C879DE2D6572BE00840745 /* ReleaseNotesView.swift in Sources */,
+				F3C879DE2D6572BE00840745 /* Release Notes.swift in Sources */,
 				F3C879D92D6572B000840745 /* MC Stats.swift in Sources */,
 				F3C879DB2D6572BA00840745 /* Low Power Mode.swift in Sources */,
 				F3C879DC2D6572BA00840745 /* Refresh Widgets.swift in Sources */,
-				F3C879E62D6572CA00840745 /* ServerRowView.swift in Sources */,
+				F3C879E62D6572CA00840745 /* Server Row.swift in Sources */,
 				F3C879E72D6572CA00840745 /* SettingsView.swift in Sources */,
-				F3C879E82D6572CA00840745 /* EditServerView.swift in Sources */,
+				F3C879E82D6572CA00840745 /* Edit Server View.swift in Sources */,
 				F3C879E92D6572CA00840745 /* ShortcutsGuideView.swift in Sources */,
 				F3C879EA2D6572CA00840745 /* GeneralSettings.swift in Sources */,
 				F3C879DA2D6572B000840745 /* App Container.swift in Sources */,

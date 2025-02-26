@@ -31,7 +31,7 @@ struct AppContainer: View {
             List {
                 ForEach(servers ?? []) { vm in
                     NavigationLink(value: vm) {
-                        ServerRowView(vm)
+                        ServerRow(vm)
                     }
                     .listRowInsets(EdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15))
                 }
@@ -45,7 +45,7 @@ struct AppContainer: View {
             }
             .scrollIndicators(.never)
             .navigationDestination(for: ServerStatusVM.self) { vm in
-                ServerStatusDetailView(vm) {
+                ServerDetails(vm) {
                     reloadData()
                     refreshDisplayOrders()
                 }
@@ -64,7 +64,7 @@ struct AppContainer: View {
                 case .FAQ:             FAQView(getiOSFAQs())
                 case .Shortcuts:       ShortcutsGuideView()
                 case .Siri:            SiriGuideView()
-                case .WhatsNew:        ReleaseNotesView(showDismissButton: false)
+                case .WhatsNew:        ReleaseNotes(showDismissButton: false)
                 }
             }
             .onOpenURL { url in
@@ -194,7 +194,7 @@ struct AppContainer: View {
         }
         .sheet($showReleaseNotes) {
             NavigationStack {
-                ReleaseNotesView()
+                ReleaseNotes()
             }
         }
         .alert("Title", isPresented: $showAlert) {

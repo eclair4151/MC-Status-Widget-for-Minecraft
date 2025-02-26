@@ -1,7 +1,7 @@
 import SwiftUI
 import StoreKit
 
-struct ReleaseNotesView: View {
+struct ReleaseNotes: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
     

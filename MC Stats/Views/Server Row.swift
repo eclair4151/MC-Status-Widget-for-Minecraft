@@ -1,7 +1,7 @@
 import SwiftUI
 import MCStatsDataLayer
 
-struct ServerRowView: View {
+struct ServerRow: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     

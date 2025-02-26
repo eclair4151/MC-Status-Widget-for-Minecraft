@@ -2,7 +2,7 @@ import SwiftUI
 import MCStatsDataLayer
 import Nuke
 
-struct ServerStatusDetailView: View {
+struct ServerDetails: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     
