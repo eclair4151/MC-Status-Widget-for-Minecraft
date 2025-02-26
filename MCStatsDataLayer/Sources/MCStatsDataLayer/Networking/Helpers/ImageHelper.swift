@@ -1,40 +1,26 @@
 import SwiftUI
 
-class ImageHelper {
-#warning("macOS")
 #if os(macOS)
-    public var serverIcon = NSImage()
-    static func convertFavIconString(favIcon: String?) -> NSImage? {
-        if let favIconString = favIcon, favIconString != "" {
-            let favIconParts = favIconString.split(separator: ",")
-            
-            guard favIconParts.count == 2 else {
-                return nil
-            }
-            
-            if let decodedData = Data(base64Encoded: String(favIconParts[1]), options: .ignoreUnknownCharacters) {
-                return NSImage(data: decodedData)
-            }
-        }
-        
-        return nil
-    }
+typealias UniversalImage = NSImage
 #else
-    static func convertFavIconString(favIcon: String?) -> UIImage? {
-        if let favIconString = favIcon, favIconString != "" {
-            let favIconParts = favIconString.split(separator: ",")
-            
-            guard favIconParts.count == 2 else {
-                return nil
-            }
-            
-            if let decodedData = Data(base64Encoded: String(favIconParts[1]), options: .ignoreUnknownCharacters) {
-                return UIImage(data: decodedData)
-            }
+typealias UniversalImage = UIImage
+#endif
+
+class ImageHelper {
+    static func convertFavIconString(favIcon: String?) -> UniversalImage? {
+        guard let favIcon, !favIcon.isEmpty else {
+            return nil
         }
         
-        return nil
+        let favIconParts = favIcon.split(separator: ",")
+        
+        guard
+            favIconParts.count == 2,
+            let decodedData = Data(base64Encoded: String(favIconParts[1]), options: .ignoreUnknownCharacters)
+        else {
+            return nil
+        }
+        
+        return UniversalImage(data: decodedData)
     }
-#endif
-    
 }
