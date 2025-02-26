@@ -105,21 +105,18 @@ struct TipJarView: View {
     
     private func purchaseTip(_ product: Product) async {
 #if os(macOS)
-        guard let scene = NSApplication.shared.windows.first(where: { $0.isKeyWindow }) else {
-            alertTitle = "Purchase Error"
-            alertMessage = "Could not find an active window for the transaction"
-            showAlert = true
-            return
-        }
+        let scene = NSApplication.shared.windows.first(where: { $0.isKeyWindow })
 #else
-        guard let scene = UIApplication.shared.connectedScenes
-            .first(where: { $0.activationState == .foregroundActive }) else {
+        let scene = UIApplication.shared.connectedScenes
+            .first(where: { $0.activationState == .foregroundActive })
+#endif
+        guard let scene else {
             alertTitle = "Purchase Error"
             alertMessage = "Could not find an active scene for the transaction"
             showAlert = true
             return
         }
-#endif
+        
         isProcessing = true
         
         defer {
@@ -127,26 +124,27 @@ struct TipJarView: View {
         }
         
         do {
-#warning("macOS") // 15.2
-#if !os(macOS)
-            let result = try await product.purchase(confirmIn: scene, options: [])
-            
-            switch result {
-            case .success(let verification):
-                switch verification {
-                case .verified(let transaction):
-                    await handlePurchase(transaction)
-                    
-                case .unverified(_, let error):
-                    alertTitle = "Purchase Error"
-                    alertMessage = "Transaction verification failed: \(error.localizedDescription)"
-                    showAlert = true
-                }
+            if #available(macOS 15.2, *) {
+                let result = try await product.purchase(confirmIn: scene, options: [])
                 
-            default:
-                break
+                switch result {
+                case .success(let verification):
+                    switch verification {
+                    case .verified(let transaction):
+                        await handlePurchase(transaction)
+                        
+                    case .unverified(_, let error):
+                        alertTitle = "Purchase Error"
+                        alertMessage = "Transaction verification failed: \(error.localizedDescription)"
+                        showAlert = true
+                    }
+                    
+                default:
+                    break
+                }
+            } else {
+                throw(SKError(.paymentNotAllowed))
             }
-#endif
         } catch {
             alertTitle = "Purchase Failed"
             alertMessage = "There was an error processing your purchase: \(error.localizedDescription)"
