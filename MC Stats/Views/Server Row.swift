@@ -16,27 +16,17 @@ struct ServerRow: View {
     
     var body: some View {
         HStack {
+            Group {
 #if os(macOS)
-            Image(nsImage: vm.serverIcon)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 65, height: 65)
-                .cornerRadius(8)
-                .clipShape(.rect(cornerRadius: 8))
-                .padding(.trailing, 5)
-                .shadow(color: .black.opacity(0.2), radius: 5, x: 3, y: 3)
-                .animation(.default, value: vm.serverIcon)
+                Image(nsImage: vm.serverIcon)
+                    .serverIconStyle()
 #else
-            Image(uiImage: vm.serverIcon)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 65, height: 65)
-                .cornerRadius(8)
-                .clipShape(.rect(cornerRadius: 8))
-                .padding(.trailing, 5)
-                .shadow(color: .black.opacity(0.2), radius: 5, x: 3, y: 3)
-                .animation(.default, value: vm.serverIcon)
+                Image(uiImage: vm.serverIcon)
+                    .serverIconStyle()
 #endif
+            }
+            .animation(.default, value: vm.serverIcon)
+            
             VStack(alignment: .leading, spacing: 5) {
                 HStack {
                     VStack(alignment: .leading) {
@@ -140,3 +130,16 @@ struct ServerRow: View {
 ////    ServerRowView(title: "test", subtitle: "subtitle")
 ////    let vm = ServerStatusVM(modelContext: , server: <#T##SavedMinecraftServer#>)
 //}
+
+fileprivate extension Image {
+    func serverIconStyle() -> some View {
+        self
+            .resizable()
+            .scaledToFit()
+            .frame(width: 65, height: 65)
+            .cornerRadius(8)
+            .clipShape(.rect(cornerRadius: 8))
+            .padding(.trailing, 5)
+            .shadow(color: .black.opacity(0.2), radius: 5, x: 3, y: 3)
+    }
+}

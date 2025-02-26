@@ -76,6 +76,7 @@ struct ServerDetails: View {
             Section {
                 VStack(alignment: .leading, spacing: 0) {
                     HStack(alignment: .top, spacing: 0) {
+#warning("macOS")
 #if os(macOS)
                         Image(nsImage: vm.serverIcon)
                             .resizable()

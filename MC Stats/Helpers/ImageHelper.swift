@@ -1,6 +1,7 @@
 import SwiftUI
 
 class ImageHelper {
+#warning("macOS")
 #if os(macOS)
     static func favIconString(_ favIcon: String?) -> NSImage? {
         if let favIconString = favIcon, favIconString != "" {

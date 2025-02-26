@@ -1,6 +1,7 @@
 import SwiftUI
 
 class ImageHelper {
+#warning("macOS")
 #if os(macOS)
     public var serverIcon = NSImage()
     static func convertFavIconString(favIcon: String?) -> NSImage? {

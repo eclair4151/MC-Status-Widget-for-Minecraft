@@ -8,12 +8,12 @@ struct SavedServerEntity: AppEntity {
     
     var displayRepresentation: DisplayRepresentation {
 #if os(macOS)
-        let nsImage = ImageHelper.favIconString(icon) ?? NSImage(named: "DefaultIcon") ?? NSImage()
-        let imageData = nsImage.pngData() ?? Data()
+        let image = ImageHelper.favIconString(icon) ?? NSImage(named: "DefaultIcon") ?? NSImage()
 #else
-        let uiImage = ImageHelper.favIconString(icon) ?? UIImage(named: "DefaultIcon") ?? UIImage()
-        let imageData = uiImage.pngData() ?? Data()
+        let image = ImageHelper.favIconString(icon) ?? UIImage(named: "DefaultIcon") ?? UIImage()
 #endif
+        let imageData = image.pngData() ?? Data()
+        
         return DisplayRepresentation(
             title: "\(serverName)",
             subtitle: "\(type)",
@@ -28,7 +28,7 @@ struct SavedServerEntity: AppEntity {
 }
 
 #if os(macOS)
-extension NSImage {
+fileprivate extension NSImage {
     func pngData() -> Data? {
         guard
             let tiffData = self.tiffRepresentation,
