@@ -182,7 +182,6 @@ struct ServerDetails: View {
             }
             .padding([.top, .trailing, .leading], 10)
             .listRowInsets(EdgeInsets())
-            .listRowBackground(Color.appBackgroundColor)
             
             PlayerList()
         }
