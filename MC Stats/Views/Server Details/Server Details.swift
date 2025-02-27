@@ -268,6 +268,7 @@ struct ServerDetails: View {
             let pingResult = await SwiftyPing.pingServer(vm.getServerAddressToPing())
             
             guard pingResult.error == nil else {
+                print("Ping error:", pingResult.error ?? "Unknown")
                 return
             }
             
@@ -284,6 +285,15 @@ struct ServerDetails: View {
         }
     }
     
+    private func startPrefetchingUserImages(_ vm: ServerStatusVM) {
+        let imageURLs = (vm.status?.playerSample ?? []).compactMap {
+            URL(string: vm.getMcHeadsUrl($0.uuid))
+        }
+        
+        // Init and start prefetching all the image URLs
+        prefetcher.startPrefetching(with: imageURLs)
+    }
+    
     private func deleteServer() {
         modelContext.delete(vm.server)
         
@@ -298,15 +308,6 @@ struct ServerDetails: View {
         
         parentViewRefreshCallBack()
         presentationMode.wrappedValue.dismiss()
-    }
-    
-    private func startPrefetchingUserImages(_ vm: ServerStatusVM) {
-        let imageURLs = (vm.status?.playerSample ?? []).compactMap {
-            URL(string: vm.getMcHeadsUrl($0.uuid))
-        }
-        
-        // Init and start prefetching all the image URLs
-        prefetcher.startPrefetching(with: imageURLs)
     }
 }
 
