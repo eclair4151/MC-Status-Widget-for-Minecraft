@@ -90,7 +90,7 @@ struct ServerRow: View {
                 Button(role: .destructive) {
                     showingDeleteAlert = true
                 } label: {
-                    Label("Delete Server", systemImage: "trash")
+                    Label("Delete", systemImage: "trash")
                 }
             }
         }
