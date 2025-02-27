@@ -18,7 +18,7 @@ struct SettingsView: View {
     @State private var showingTipSheet = false
     
     var body: some View {
-        Form {
+        List {
             Section {
                 Text("Powered by **[Bisquit.Host](https://bisquit.host)**")
                     .tint(.orange)
