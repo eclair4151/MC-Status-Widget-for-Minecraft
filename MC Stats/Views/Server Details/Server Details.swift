@@ -140,6 +140,7 @@ struct ServerDetails: View {
                                         .foregroundColor(.tertiaryTextColor)
                                         .cornerRadius(16)
                                     }
+                                    .buttonStyle(.plain)
                                 }
                             }
                             .padding(.top, 8)
