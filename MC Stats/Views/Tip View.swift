@@ -43,7 +43,7 @@ struct TipView: View {
                                 .headline()
                                 .frame(maxWidth: .infinity)
                                 .padding()
-                                .background(Color.blue)
+                                .background(.blue)
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
                         }
@@ -78,7 +78,6 @@ struct TipView: View {
 #else
             let placement: ToolbarItemPlacement = .topBarLeading
 #endif
-            
             ToolbarItem(placement: placement) {
                 Button("Cancel") {
                     isPresented = false

@@ -181,6 +181,7 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
         if let newColor = input.color {
             if let motdColor = javaJsonColorFormats[newColor] {
                 currentMotdColor = motdColor.rawValue
+                
             } else if newColor.contains("#") {
                 currentMotdColor = newColor
             }

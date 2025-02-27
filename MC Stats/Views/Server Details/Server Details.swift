@@ -37,9 +37,9 @@ struct ServerDetails: View {
         
         if let status = vm.status, vm.loadingStatus != .Loading {
             if status.status == .Online {
-                color = Color.statusBackgroundGreen
+                color = .statusBackgroundGreen
             } else if status.status == .Offline {
-                color = Color.red
+                color = .red
             }
         }
         
@@ -136,7 +136,7 @@ struct ServerDetails: View {
                                         }
                                         .padding(.horizontal, 14)
                                         .padding(.vertical, 7)
-                                        .background(Color.standoutPillGrey)
+                                        .background(.standoutPillGrey)
                                         .foregroundStyle(.tertiary)
                                         .cornerRadius(16)
                                     }
@@ -153,7 +153,7 @@ struct ServerDetails: View {
                             .subheadline(.bold)
                             .padding(.horizontal, 6)
                             .padding(.vertical, 3)
-                            .background(Color.standoutPillGrey)
+                            .background(.standoutPillGrey)
                             .cornerRadius(6)
                             .foregroundStyle(.tertiary)
                         

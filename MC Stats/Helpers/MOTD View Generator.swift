@@ -37,9 +37,11 @@ extension ServerStatus {
             
             // Set the color if available
             if section.color.isEmpty {
-                text = text.foregroundColor(Color.white)
+                text = text
+                    .foregroundStyle(.white)
             } else {
-                text = text.foregroundColor(Color(hex: section.color))
+                text = text
+                    .foregroundStyle(Color(hex: section.color))
             }
             
             // Append the formatted text to the combinedText

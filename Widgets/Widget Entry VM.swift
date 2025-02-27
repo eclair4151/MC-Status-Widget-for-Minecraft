@@ -76,13 +76,13 @@ extension WidgetEntryVM {
         
         switch theme {
         case .blue:
-            self.bgColor = Color.widgetBackgroundBlue
+            self.bgColor = .widgetBackgroundBlue
             
         case .green:
-            self.bgColor = Color.widgetBackgroundGreen
+            self.bgColor = .widgetBackgroundGreen
             
         case .red:
-            self.bgColor = Color.widgetBackgroundRed
+            self.bgColor = .widgetBackgroundRed
             
         default: break
         }
