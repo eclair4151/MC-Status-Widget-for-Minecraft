@@ -5,7 +5,9 @@ class WebServerStatusParser {
         let status = ServerStatus()
         
         if let motdString = input.motd?.raw {
-            status.description = FormattedMOTD(messageSections: JavaServerStatusParser.parseJavaMOTD(input: motdString))
+            status.description = FormattedMOTD(
+                messageSections: JavaServerStatusParser.parseJavaMOTD(motdString)
+            )
         }
         
         if let iconString = input.icon {
@@ -17,7 +19,10 @@ class WebServerStatusParser {
             status.onlinePlayerCount = players.online
             
             status.playerSample = players.list.map {
-                return Player(name: $0.name_clean, uuid: $0.uuid)
+                return Player(
+                    name: $0.name_clean,
+                    uuid: $0.uuid
+                )
             }
         }
         

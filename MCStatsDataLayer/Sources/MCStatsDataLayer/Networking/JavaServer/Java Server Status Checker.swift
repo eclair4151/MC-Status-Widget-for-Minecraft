@@ -75,7 +75,7 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
         else {
             print("Invalid Port... canceling")
             
-            self.callContinuationError(ServerStatusCheckerError.InvalidPort)
+            self.callContinuationError(.InvalidPort)
             return
         }
         
@@ -99,7 +99,7 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
             print("Timed out after connecting to \(serverAddress):\(port)")
             
             // ok now it took too long. timeout!
-            callContinuationError(ServerStatusCheckerError.ServerUnreachable)
+            callContinuationError(.ServerUnreachable)
             connection.cancel()
         }
         
@@ -112,7 +112,7 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
                     if let error {
                         print("Error sending data:", error)
                         
-                        self.callContinuationError(ServerStatusCheckerError.ServerUnreachable)
+                        self.callContinuationError(.ServerUnreachable)
                         connection.cancel()
                     } else {
                         // nothing to do now, just wait for the response in the other listener
@@ -123,7 +123,7 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
             case .failed(let error):
                 print("Connection failed with error: \(error)" + "   -   server:", self.serverAddress)
                 
-                self.callContinuationError(ServerStatusCheckerError.ServerUnreachable)
+                self.callContinuationError(.ServerUnreachable)
                 connection.cancel()
                 
                 //                case .preparing, .setup:
@@ -156,7 +156,7 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
             if let error {
                 print("Error receiving data: \(error)" + "  -  address:", self.serverAddress)
                 
-                self.callContinuationError(ServerStatusCheckerError.ServerUnreachable)
+                self.callContinuationError(.ServerUnreachable)
                 connection.cancel()
                 
             } else if let data {
@@ -193,7 +193,7 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
                     print("Data received successfully")
                     // Just in case
                     guard dataArr.count > 0 else {
-                        callContinuationError(ServerStatusCheckerError.StatusUnparsable)
+                        callContinuationError(.StatusUnparsable)
                         return
                     }
                     
@@ -205,11 +205,11 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
                     
                     // now the remaining data should just be a json string. First make sure this is a valid string
                     guard let response = String(bytes: dataArr, encoding: .utf8) else {
-                        callContinuationError(ServerStatusCheckerError.StatusUnparsable)
+                        callContinuationError(.StatusUnparsable)
                         return
                     }
                     
-                    // if we got to this point we should have a fully formed response string from the server
+                    // If we got to this point we should have a fully formed response string from the server
                     // Time to send it back for parsing
                     callContinuationResume(result: response)
                     connection.cancel()
@@ -226,7 +226,7 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
         }
     }
     
-    // convert the Data object into a byte array, so we can store and append all the data chunks, and recontruct a string from the final data array
+    // Convert the Data object into a byte array, so we can store and append all the data chunks, and recontruct a string from the final data array
     func convertDataToUInt8Array(data: Data) -> [UInt8] {
         data.withUnsafeBytes { rawBufferPointer in
             // Access the raw bytes through the buffer pointer

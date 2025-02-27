@@ -20,14 +20,14 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
         }
         
         let formattedMOTDSections = if let desc = responseObject.description, let extras = desc.extra, !extras.isEmpty {
-            parseJavaMOTD(input: desc)
+            parseJavaMOTD(desc)
         } else if let desc = responseObject.description, let motdText = desc.text {
             // had no extras, so its just a string. check if we have section signs
             // If we do send it though string parser. If not sent through json parser
             if motdText.contains("§") {
-                parseJavaMOTD(input: motdText)
+                parseJavaMOTD(motdText)
             } else {
-                parseJavaMOTD(input: desc)
+                parseJavaMOTD(desc)
             }
         } else {
             [FormattedMOTDSection]()
@@ -57,7 +57,10 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
         }
         
         status.playerSample = (responseObject.players?.sample ?? []).map { userSample in
-            return Player(name: userSample.name.removingMinecraftFormatCodes(), uuid: userSample.id)
+            return Player(
+                name: userSample.name.removingMinecraftFormatCodes(),
+                uuid: userSample.id
+            )
         }
         
         // filter out empty values
@@ -77,7 +80,7 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
     // https://minecraft.fandom.com/wiki/Formatting_codes
     // § is a section-sign which is used for formatting legacy style MOTD
     // Idealy, i would have the same code for both java and bedrock MOTD parsing, but alas there are some subtle differences in the parsing code that make it just annoying enough to require breaking into 2 seperate funcs (See other parser in BedrockServerStatusParser
-    static func parseJavaMOTD(input: String) -> [FormattedMOTDSection] {
+    static func parseJavaMOTD(_ input: String) -> [FormattedMOTDSection] {
         var motdSections: [FormattedMOTDSection] = []
         var currentSection = FormattedMOTDSection()
         var currentIndex = input.startIndex
@@ -129,9 +132,13 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
         return motdSections
     }
     
-    // newer systems use the JSON based system which is a recursive
+    // Newer systems use the JSON based system which is a recursive
     // https://minecraft.fandom.com/wiki/Raw_JSON_text_format
-    static func parseJavaMOTD(input: JavaMOTDDescriptionSection, color: String = "", formatters: Set<MOTDFormatter> = []) -> [FormattedMOTDSection] {
+    static func parseJavaMOTD(
+        _ input: JavaMOTDDescriptionSection,
+        color: String = "",
+        formatters: Set<MOTDFormatter> = []
+    ) -> [FormattedMOTDSection] {
         var response: [FormattedMOTDSection] = []
         
         var newFormatters = formatters
@@ -145,7 +152,7 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
         }
         
         if let underlined = input.underlined {
-            if underlined{
+            if underlined {
                 newFormatters.insert(.Underline)
             } else {
                 newFormatters.remove(.Underline)
@@ -198,7 +205,11 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
         }
         
         input.extra?.forEach { extraSection in
-            response.append(contentsOf: parseJavaMOTD(input: extraSection, color: currentMotdColor, formatters: newFormatters))
+            response.append(contentsOf: parseJavaMOTD(
+                extraSection,
+                color: currentMotdColor,
+                formatters: newFormatters
+            ))
         }
         
         return response
