@@ -7,25 +7,11 @@ public enum LoadingStatus: String {
 
 @Observable
 public class ServerStatusVM: Identifiable, Hashable {
-    public static func == (lhs: ServerStatusVM, rhs: ServerStatusVM) -> Bool {
-        ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
-    }
-    
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(ObjectIdentifier(self))
-    }
-    
     public let server: SavedMinecraftServer
-    
     public var status: ServerStatus?
-    
     public var loadingStatus = LoadingStatus.Loading
+    public var serverIcon = UniversalImage()
     
-#if os(macOS)
-    public var serverIcon = NSImage()
-#else
-    public var serverIcon = UIImage()
-#endif
     private var modelContext: ModelContext
     
     public init(modelContext: ModelContext, server: SavedMinecraftServer, status: ServerStatus? = nil) {
@@ -34,6 +20,14 @@ public class ServerStatusVM: Identifiable, Hashable {
         self.modelContext = modelContext
         
         loadIcon()
+    }
+    
+    public static func == (lhs: ServerStatusVM, rhs: ServerStatusVM) -> Bool {
+        ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(ObjectIdentifier(self))
     }
     
     public func reloadData(_ config: ServerCheckerConfig) {
@@ -96,6 +90,10 @@ public class ServerStatusVM: Identifiable, Hashable {
         }
     }
     
+    public func getMcHeadsUrl(_ uuid: String) -> String {
+        "https://mc-heads.net/avatar/" + uuid + "/90"
+    }
+    
     public func hasSRVRecord() -> Bool {
         guard !server.srvServerUrl.isEmpty && server.srvServerPort != 0 else {
             return false
@@ -133,9 +131,5 @@ public class ServerStatusVM: Identifiable, Hashable {
         if let decodedImage = ImageHelper.favIconString(base64Icon) {
             self.serverIcon =  decodedImage
         }
-    }
-    
-    public func getMcHeadsUrl(_ uuid: String) -> String {
-        "https://mc-heads.net/avatar/" + uuid + "/90"
     }
 }
