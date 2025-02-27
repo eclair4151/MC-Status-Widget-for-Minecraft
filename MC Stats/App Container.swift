@@ -195,7 +195,7 @@ struct AppContainer: View {
                 displayOrder: 0
             )
             
-            NavigationView {
+            NavigationStack {
                 EditServerView(newServer, isPresented: $showingAddSheet) {
                     reloadData(forceSRVRefreh: true)
                     refreshDisplayOrders()

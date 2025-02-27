@@ -165,7 +165,6 @@
 		F31D45D62D6DC75D00981B1C /* Siri Guide.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4332CC15F6A00739646 /* Siri Guide.swift */; };
 		F31D45D72D6DC75D00981B1C /* Siri Guide Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A702D649D1300718CB7 /* Siri Guide Phrase.swift */; };
 		F31D45D82D6DC76200981B1C /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A052D6574DD00840745 /* FAQ.swift */; };
-		F31D45D92D6DC76200981B1C /* Edit Server View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* Edit Server View.swift */; };
 		F31D45DA2D6DC76200981B1C /* Server Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* Server Row.swift */; };
 		F31D45DB2D6DC76200981B1C /* FAQ View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0EB2CC01E9E00DC7A80 /* FAQ View.swift */; };
 		F31D45DC2D6DC76200981B1C /* FAQ Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A012D6574D200840745 /* FAQ Row.swift */; };
@@ -318,6 +317,7 @@
 		F3C923662D6C6CF2004D31A9 /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3C923652D6C6CF2004D31A9 /* MCStatsDataLayer */; };
 		F3C923682D6C6CF6004D31A9 /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3C923672D6C6CF6004D31A9 /* MCStatsDataLayer */; };
 		F3D9AE622D6C68EB00069BDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
+		F3EFC1722D70877F00EE988A /* Edit Server View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC1712D70877F00EE988A /* Edit Server View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -529,6 +529,7 @@
 		F3C87A012D6574D200840745 /* FAQ Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FAQ Row.swift"; sourceTree = "<group>"; };
 		F3C87A052D6574DD00840745 /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
 		F3C87A0E2D657A1500840745 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		F3EFC1712D70877F00EE988A /* Edit Server View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Edit Server View.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -921,6 +922,7 @@
 			children = (
 				F31D45BA2D6DC6A800981B1C /* Info.plist */,
 				F31D45B22D6DC67B00981B1C /* macOS.entitlements */,
+				F3EFC1712D70877F00EE988A /* Edit Server View.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -1549,7 +1551,6 @@
 			files = (
 				F31D45B92D6DC68F00981B1C /* MC Stats.swift in Sources */,
 				F31D45D82D6DC76200981B1C /* FAQ.swift in Sources */,
-				F31D45D92D6DC76200981B1C /* Edit Server View.swift in Sources */,
 				F31D45DA2D6DC76200981B1C /* Server Row.swift in Sources */,
 				F31D45EB2D6DCB1300981B1C /* Server Status Entity.swift in Sources */,
 				F31D45EA2D6DCA5E00981B1C /* Intent Errors.swift in Sources */,
@@ -1563,6 +1564,7 @@
 				F31D45CA2D6DC74C00981B1C /* Feature.swift in Sources */,
 				F31D45C32D6DC74100981B1C /* App Container Helper.swift in Sources */,
 				F31D45C42D6DC74100981B1C /* App Container.swift in Sources */,
+				F3EFC1722D70877F00EE988A /* Edit Server View.swift in Sources */,
 				F31D45E52D6DC9C600981B1C /* Low Power Mode.swift in Sources */,
 				F31D45E62D6DC9C600981B1C /* Refresh Widgets.swift in Sources */,
 				F31D45C52D6DC74100981B1C /* Page Destinations.swift in Sources */,

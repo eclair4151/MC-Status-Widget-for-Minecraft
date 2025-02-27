@@ -37,19 +37,17 @@ struct EditServerView: View {
     @State private var showingInvalidPortAlert = false
     
     var body: some View {
-        Form {
-            Section {
-                VStack(alignment: .leading) {
-                    HStack {
-                        Image(systemName: "list.bullet")
-                            .foregroundColor(.gray)
-                            .headline()
-                            .frame(width: 25, height: 25)
-                        
-                        Text("Server Type")
-                    }
+        List {
+            VStack(alignment: .leading) {
+                HStack {
+                    Image(systemName: "list.bullet")
+                        .foregroundColor(.gray)
+                        .headline()
+                        .frame(width: 25, height: 25)
                     
-                    Picker("Server Type", selection: $tempServerType) {
+                    Text("Server Type")
+                    
+                    Picker("", selection: $tempServerType) {
                         Text("Java Edition")
                             .tag(ServerType.Java)
                         
@@ -65,64 +63,61 @@ struct EditServerView: View {
                         }
                     }
                 }
-                
-                HStack {
-                    Image(systemName: "tag.fill")
-                        .foregroundColor(.gray)
-                        .headline()
-                        .frame(width: 25, height: 25)
-                    
-                    TextField("Server Name", text: $tempNameInput, prompt: Text("Server Name"))
-                        .textInputAutocapitalization(.words)
-                        .submitLabel(.next)
-                        .focused($focusedField, equals: .serverName)
-                        .onSubmit {
-                            focusedField = .serverAddress
-                        }
-                }
-                
-                HStack {
-                    Image(systemName: "rectangle.connected.to.line.below")
-                        .foregroundColor(.gray)
-                        .headline()
-                        .frame(width: 25, height: 25)
-                    
-                    TextField("Server Address/IP", text: $tempServerInput, prompt: Text("Server Address/IP"))
-                        .autocapitalization(.none)
-                        .keyboardType(.URL)
-                        .autocorrectionDisabled(true)
-                        .submitLabel(.done)
-                        .focused($focusedField, equals: .serverAddress)
-                        .onChange(of: tempServerInput, initial: false) { _, newValue  in
-                            extractPort(newValue)
-                        }
-                }
-                
-                HStack {
-                    Image(systemName: "number")
-                        .foregroundColor(.gray)
-                        .headline()
-                        .frame(width: 25, height: 25)
-                    
-                    TextField(portLabelPromptText, value: $tempPortInput, formatter: NumberFormatter(), prompt: Text(portLabelPromptText))
-                        .monospacedDigit()
-                        .keyboardType(.numberPad)
-                }
-            } header: {
-                Text("Start monitoring a server")
-            } footer: {
-                Text("MC Stats is used for checking the status an existing server. It will not create, setup, or host a new server")
             }
-            .headerProminence(.increased)
+            
+            HStack {
+                Image(systemName: "tag.fill")
+                    .foregroundColor(.gray)
+                    .headline()
+                    .frame(width: 25, height: 25)
+                
+                TextField("Server Name", text: $tempNameInput, prompt: Text("Server Name"))
+                    .submitLabel(.next)
+                    .focused($focusedField, equals: .serverName)
+                    .onSubmit {
+                        focusedField = .serverAddress
+                    }
+            }
+            
+            HStack {
+                Image(systemName: "rectangle.connected.to.line.below")
+                    .foregroundColor(.gray)
+                    .headline()
+                    .frame(width: 25, height: 25)
+                
+                TextField("Server Address/IP", text: $tempServerInput, prompt: Text("Server Address/IP"))
+                    .autocorrectionDisabled(true)
+                    .submitLabel(.done)
+                    .focused($focusedField, equals: .serverAddress)
+                    .onChange(of: tempServerInput, initial: false) { _, newValue  in
+                        extractPort(newValue)
+                    }
+            }
+            
+            HStack {
+                Image(systemName: "number")
+                    .foregroundColor(.gray)
+                    .headline()
+                    .frame(width: 25, height: 25)
+                
+                TextField(portLabelPromptText, value: $tempPortInput, formatter: NumberFormatter(), prompt: Text(portLabelPromptText))
+                    .monospacedDigit()
+            }
+            
+            Text("MC Stats is used for checking the status an existing server. It will not create, setup, or host a new server")
+                .footnote()
+                .secondary()
         }
+        .frame(minHeight: 400)
+        .navigationTitle("Start monitoring a server")
         .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button("Cancel") {
+            ToolbarItem(placement: .cancellationAction) {
+                Button("Cancel", role: .destructive) {
                     isPresented = false
                 }
             }
             
-            ToolbarItem(placement: .topBarTrailing) {
+            ToolbarItem(placement: .confirmationAction) {
                 Button("Save") {
                     saveItem()
                 }
@@ -185,7 +180,7 @@ struct EditServerView: View {
         !url.contains(":") && !url.contains("/")
     }
     
-    // CALLED WHEN A SERVER IS EDITED OR ADDED
+    // THIS IS CALLED WHEN A SERVER IS EDITED OR ADDED
     private func saveItem() {
         // first validate url doesnt contains any / or :
         tempServerInput = tempServerInput.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -244,6 +239,22 @@ struct EditServerView: View {
     }
 }
 
-//#Preview {
-//    EditServerView(server: )
-//}
+#Preview {
+    @Previewable @State var isPresented = true
+    
+    let server = SavedMinecraftServer.initialize(
+        id: UUID(),
+        serverType: .Java,
+        name: "",
+        serverUrl: "",
+        serverPort: 0,
+        srvServerUrl: "",
+        srvServerPort: 0,
+        serverIcon: "",
+        displayOrder: 0
+    )
+    
+    NavigationStack {
+        EditServerView(server, isPresented: $isPresented)
+    }
+}
