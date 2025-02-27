@@ -4,14 +4,14 @@ import CoreData
 import MCStatsDataLayer
 
 struct AppContainer: View {
-    @State private var nav = NavigationPath()
-    private var reviewHelper = ReviewHelper()
+    @State var nav = NavigationPath()
+    var reviewHelper = ReviewHelper()
 #if os(iOS)
     private let watchHelper = WatchHelper()
 #endif
     
 #if !os(tvOS)
-    @Environment(\.requestReview) private var requestReview
+    @Environment(\.requestReview) var requestReview
 #endif
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.modelContext) var modelContext
@@ -19,10 +19,10 @@ struct AppContainer: View {
     @State var servers: [ServerStatusVM]?
     
     // Struggle to find a more efficient method without regenerating the VM each time
-    @State private var serverVMCache: [UUID: ServerStatusVM] = [:]
+    @State var serverVMCache: [UUID: ServerStatusVM] = [:]
     @State private var showingAddSheet = false
     @State private var showReleaseNotes = false
-    @State private var pendingDeepLink: String?
+    @State var pendingDeepLink: String?
     @State private var showAlert = false
     @State var lastRefreshTime = Date()
     
@@ -215,27 +215,6 @@ struct AppContainer: View {
         }
     }
     
-    private func goToServerView(_ vm: ServerStatusVM) {
-        // check if user has disabled deep links, if so just go to main list
-        if !UserDefaultsHelper.shared.get(for: .openToSpecificServer, defaultValue: true) {
-            self.nav.removeLast(self.nav.count)
-            return
-        }
-        
-        // go to server view
-        // First, check if a server is already displayed and update it if so
-        if self.nav.isEmpty {
-            self.nav.append(vm)
-        } else {
-            self.nav.removeLast(self.nav.count)
-            
-            Task {
-                // hack! otherwise data won't refresh correctly
-                self.nav.append(vm)
-            }
-        }
-    }
-    
     private func refreshDisplayOrders() {
         servers?.enumerated().forEach { index, vm in
             vm.server.displayOrder = index + 1
@@ -300,37 +279,5 @@ struct AppContainer: View {
         }
         
         checkForPendingDeepLink()
-    }
-    
-    private func checkForPendingDeepLink() {
-        guard
-            let pendingDeepLink,
-            let serverID = UUID(uuidString: pendingDeepLink),
-            let vm = serverVMCache[serverID]
-        else {
-            return
-        }
-        
-        self.pendingDeepLink = nil
-        goToServerView(vm)
-    }
-    
-    private func checkForAppReviewRequest() {
-        reviewHelper.appLaunched()
-        
-        // Not showing if no servers were added
-        if servers?.isEmpty ?? true {
-            return
-        }
-        
-        if reviewHelper.shouldShowRequestView() {
-            Task {
-                try await Task.sleep(for: .seconds(6))
-#if !os(tvOS)
-                requestReview()
-#endif
-                reviewHelper.didShowReview()
-            }
-        }
     }
 }
