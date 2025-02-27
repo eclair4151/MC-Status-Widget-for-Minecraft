@@ -1,6 +1,6 @@
 import AppIntents
 
-public struct MCStatsShortcutsProvider: AppShortcutsProvider {
+public struct ShortcutsProvider: AppShortcutsProvider {
     public static var shortcutTileColor: ShortcutTileColor = .blue
     
     public static var appShortcuts: [AppShortcut] {

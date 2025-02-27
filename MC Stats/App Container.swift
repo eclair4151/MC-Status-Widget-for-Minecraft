@@ -177,7 +177,7 @@ struct AppContainer: View {
             if event.endDate != nil && event.type == .import {
                 print("refresh triggered via eventChangedNotification")
                 
-                MCStatsShortcutsProvider.updateAppShortcutParameters()
+                ShortcutsProvider.updateAppShortcutParameters()
                 reloadData()
             }
         }

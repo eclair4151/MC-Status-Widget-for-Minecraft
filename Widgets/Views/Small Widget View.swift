@@ -157,7 +157,7 @@ struct SmallWidgetView: View {
 
 struct MinecraftServerStatusHSWidget_SmallPreview: PreviewProvider {
     static var previews: some View {
-        MinecraftServerStatusHSWidgetEntryView(
+        ServerStatusHSWidgetEntryView(
             ServerStatusHSSnapshotEntry(
                 date: Date(),
                 configuration: SelectServerIntent(),

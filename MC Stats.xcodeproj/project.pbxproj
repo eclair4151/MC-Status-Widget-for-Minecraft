@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F10C42172AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift */; };
+		F10C42172AAD55BF000107D6 /* Shortcuts Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* Shortcuts Provider.swift */; };
 		F10C421C2AAE40BC000107D6 /* Intents.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = F1406BA92AA391B800815BE8 /* Intents.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F10E94B12A8C61B60039DD2B /* Connectivity Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E94B02A8C61B60039DD2B /* Connectivity Provider.swift */; };
 		F11F63582A81E51000D47187 /* watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F11F634B2A81E50E00D47187 /* watchOS.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -36,7 +36,7 @@
 		F1612CC82CACC37300E602DC /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F1612CC72CACC37300E602DC /* Nuke */; };
 		F1612CCA2CACC37300E602DC /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F1612CC92CACC37300E602DC /* NukeUI */; };
 		F16990822CA5DDE500F41232 /* Intent Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* Intent Errors.swift */; };
-		F16990872CA5DDE500F41232 /* MC Stats Shortcuts Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift */; };
+		F16990872CA5DDE500F41232 /* Shortcuts Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* Shortcuts Provider.swift */; };
 		F174A2FC2A8F7FFA0051DA5B /* Watch Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174A2FB2A8F7FFA0051DA5B /* Watch Helper.swift */; };
 		F174A2FE2A8F8ED70051DA5B /* UserDefaults Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaults Helper.swift */; };
 		F174A3012A915E450051DA5B /* Watch Server Status Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174A3002A915E450051DA5B /* Watch Server Status Checker.swift */; };
@@ -71,7 +71,7 @@
 		F1EF76C82CB4216F00EFFB20 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F1EF76C72CB4216F00EFFB20 /* NukeUI */; };
 		F1EF76CA2CB422D400EFFB20 /* Server Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF76C92CB422D400EFFB20 /* Server Details.swift */; };
 		F1EF76D22CB449E700EFFB20 /* Intent Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* Intent Errors.swift */; };
-		F1EF76D52CB449E700EFFB20 /* MC Stats Shortcuts Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift */; };
+		F1EF76D52CB449E700EFFB20 /* Shortcuts Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* Shortcuts Provider.swift */; };
 		F1EF76EE2CB7873F00EFFB20 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EF76ED2CB7873F00EFFB20 /* WidgetKit.framework */; };
 		F1EF76F02CB7873F00EFFB20 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EF76EF2CB7873F00EFFB20 /* SwiftUI.framework */; };
 		F1EF76FF2CB7874000EFFB20 /* Widgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F1EF76EC2CB7873F00EFFB20 /* Widgets.appex */; platformFilters = (ios, maccatalyst, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -183,7 +183,7 @@
 		F31D45E42D6DC7A800981B1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
 		F31D45E52D6DC9C600981B1C /* Low Power Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A732D64A4B200718CB7 /* Low Power Mode.swift */; };
 		F31D45E62D6DC9C600981B1C /* Refresh Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A762D64D32D00718CB7 /* Refresh Widgets.swift */; };
-		F31D45E72D6DCA3400981B1C /* MC Stats Shortcuts Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift */; };
+		F31D45E72D6DCA3400981B1C /* Shortcuts Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* Shortcuts Provider.swift */; };
 		F31D45E82D6DCA3E00981B1C /* Saved Server Status Online Check Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* Saved Server Status Online Check Intent.swift */; };
 		F31D45E92D6DCA5000981B1C /* Saved Server Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* Saved Server Entity.swift */; };
 		F31D45EA2D6DCA5E00981B1C /* Intent Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* Intent Errors.swift */; };
@@ -242,7 +242,7 @@
 		F35E1AC32D65237200718CB7 /* MinecraftBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30472592D63FBFC0055C007 /* MinecraftBoldItalic.otf */; };
 		F35E1AC42D65237200718CB7 /* MinecraftItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */; };
 		F35E1AC52D65238800718CB7 /* MC Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */; };
-		F35E1AC62D652B3000718CB7 /* MC Stats Shortcuts Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift */; };
+		F35E1AC62D652B3000718CB7 /* Shortcuts Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* Shortcuts Provider.swift */; };
 		F35E1AC72D652B3B00718CB7 /* Saved Server Status Online Check Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* Saved Server Status Online Check Intent.swift */; };
 		F35E1AC82D652B4700718CB7 /* Intent Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* Intent Errors.swift */; };
 		F35E1AC92D652C5B00718CB7 /* Saved Server Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* Saved Server Entity.swift */; };
@@ -312,7 +312,7 @@
 		F3C87A062D6574DD00840745 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A052D6574DD00840745 /* FAQ.swift */; };
 		F3C87A072D6574DD00840745 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A052D6574DD00840745 /* FAQ.swift */; };
 		F3C87A082D6574DD00840745 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A052D6574DD00840745 /* FAQ.swift */; };
-		F3C87A092D65759B00840745 /* MC Stats Shortcuts Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift */; };
+		F3C87A092D65759B00840745 /* Shortcuts Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* Shortcuts Provider.swift */; };
 		F3C87A0A2D6575AE00840745 /* Saved Server Status Online Check Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* Saved Server Status Online Check Intent.swift */; };
 		F3C87A0B2D6575B700840745 /* Intent Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* Intent Errors.swift */; };
 		F3C87A0C2D6575C800840745 /* Server Status Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* Server Status Entity.swift */; };
@@ -423,7 +423,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F10C42162AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MC Stats Shortcuts Provider.swift"; sourceTree = "<group>"; };
+		F10C42162AAD55BF000107D6 /* Shortcuts Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shortcuts Provider.swift"; sourceTree = "<group>"; };
 		F10E94B02A8C61B60039DD2B /* Connectivity Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Connectivity Provider.swift"; sourceTree = "<group>"; };
 		F11F634B2A81E50E00D47187 /* watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watchOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F11F63512A81E51000D47187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -642,7 +642,7 @@
 		F10C42152AAD55A6000107D6 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
-				F10C42162AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift */,
+				F10C42162AAD55BF000107D6 /* Shortcuts Provider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -836,13 +836,13 @@
 			path = "Server Details";
 			sourceTree = "<group>";
 		};
-		F30471F72D63E9C00055C007 /* TimelineProviders */ = {
+		F30471F72D63E9C00055C007 /* Timeline Providers */ = {
 			isa = PBXGroup;
 			children = (
 				F30471F52D63E9C00055C007 /* Homescreen Provider.swift */,
 				F30471F62D63E9C00055C007 /* Lockscreen Provider.swift */,
 			);
-			path = TimelineProviders;
+			path = "Timeline Providers";
 			sourceTree = "<group>";
 		};
 		F30472002D63E9C00055C007 /* Views */ = {
@@ -864,7 +864,7 @@
 				F30472012D63E9C00055C007 /* Assets.xcassets */,
 				F30472052D63E9C00055C007 /* Minecraft Server Status HS Widget.swift */,
 				F30472072D63E9C00055C007 /* Widget Entry VM.swift */,
-				F30471F72D63E9C00055C007 /* TimelineProviders */,
+				F30471F72D63E9C00055C007 /* Timeline Providers */,
 				F30472002D63E9C00055C007 /* Views */,
 			);
 			path = Widgets;
@@ -1411,7 +1411,7 @@
 				F3C1E43E2D6C949900950F3D /* App Container Helper.swift in Sources */,
 				F3C1E43F2D6C957900950F3D /* Refresh Widgets.swift in Sources */,
 				F17AE0EE2CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */,
-				F1EF76D52CB449E700EFFB20 /* MC Stats Shortcuts Provider.swift in Sources */,
+				F1EF76D52CB449E700EFFB20 /* Shortcuts Provider.swift in Sources */,
 				F30472442D63E9D00055C007 /* Arbitrary Server Status Online Check Intent.swift in Sources */,
 				F3BFB1502D68055A00E16468 /* MOTD View.swift in Sources */,
 				F30472452D63E9D00055C007 /* Saved Server Status Online Check Intent.swift in Sources */,
@@ -1494,7 +1494,7 @@
 				F30246D82D66816E0030F71C /* Ping Graph.swift in Sources */,
 				F1CFCD512CABB567001A9E69 /* Custom Extentions.swift in Sources */,
 				F35E1A9E2D65209500718CB7 /* Player Card.swift in Sources */,
-				F16990872CA5DDE500F41232 /* MC Stats Shortcuts Provider.swift in Sources */,
+				F16990872CA5DDE500F41232 /* Shortcuts Provider.swift in Sources */,
 				F17A16BB2A893DD700F8FF2F /* Settings View.swift in Sources */,
 				F1AE29162CA48577009D0D14 /* Server Row.swift in Sources */,
 				F13E60012A4BD614005BE9B2 /* App Container.swift in Sources */,
@@ -1513,7 +1513,7 @@
 				F30472402D63E9D00055C007 /* Arbitrary Server Status Online Check Intent.swift in Sources */,
 				F30472412D63E9D00055C007 /* Saved Server Status Online Check Intent.swift in Sources */,
 				F13095592CBD497200C4C7BA /* Watch Server Status Checker.swift in Sources */,
-				F10C42172AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift in Sources */,
+				F10C42172AAD55BF000107D6 /* Shortcuts Provider.swift in Sources */,
 				F304724B2D63E9D20055C007 /* Server Intent Type App Entity.swift in Sources */,
 				F304724C2D63E9D20055C007 /* Theme Intent Type App Entity.swift in Sources */,
 				F1CFCD522CABB567001A9E69 /* Custom Extentions.swift in Sources */,
@@ -1589,7 +1589,7 @@
 				F31D45D12D6DC75700981B1C /* Settings View.swift in Sources */,
 				F31D45E82D6DCA3E00981B1C /* Saved Server Status Online Check Intent.swift in Sources */,
 				F31D45D22D6DC75700981B1C /* General Settings.swift in Sources */,
-				F31D45E72D6DCA3400981B1C /* MC Stats Shortcuts Provider.swift in Sources */,
+				F31D45E72D6DCA3400981B1C /* Shortcuts Provider.swift in Sources */,
 				F31D45D32D6DC75700981B1C /* Debug Settings.swift in Sources */,
 				F31D45DD2D6DC76800981B1C /* MOTD View Generator.swift in Sources */,
 				F31D45E32D6DC79200981B1C /* Swifty Ping.swift in Sources */,
@@ -1645,7 +1645,7 @@
 				F35E1AC02D65236900718CB7 /* Swifty Ping.swift in Sources */,
 				F39EAF752D6C82B900072794 /* Page Destinations.swift in Sources */,
 				F35E1AC72D652B3B00718CB7 /* Saved Server Status Online Check Intent.swift in Sources */,
-				F35E1AC62D652B3000718CB7 /* MC Stats Shortcuts Provider.swift in Sources */,
+				F35E1AC62D652B3000718CB7 /* Shortcuts Provider.swift in Sources */,
 				F35E1AAD2D6522D600718CB7 /* General Settings.swift in Sources */,
 				F35E1AAE2D6522D600718CB7 /* Shortcuts Guide.swift in Sources */,
 				F35E1AAF2D6522D600718CB7 /* Server Row.swift in Sources */,
@@ -1675,7 +1675,7 @@
 				F3C879E02D6572C400840745 /* Player Card.swift in Sources */,
 				F3C87A0B2D6575B700840745 /* Intent Errors.swift in Sources */,
 				F383D1982D67D3D100FE4239 /* Siri Guide.swift in Sources */,
-				F3C87A092D65759B00840745 /* MC Stats Shortcuts Provider.swift in Sources */,
+				F3C87A092D65759B00840745 /* Shortcuts Provider.swift in Sources */,
 				F3C87A0D2D6575DE00840745 /* Saved Server Entity.swift in Sources */,
 				F3C879F32D6572D500840745 /* Swifty Ping.swift in Sources */,
 				F3C1E43C2D6C949900950F3D /* App Container Helper.swift in Sources */,

@@ -47,7 +47,7 @@ private struct InnerMediumWidget: View {
 
 struct MinecraftServerStatusHSWidget_MediumPreview: PreviewProvider {
     static var previews: some View {
-        MinecraftServerStatusHSWidgetEntryView(
+        ServerStatusHSWidgetEntryView(
             ServerStatusHSSnapshotEntry(
                 date: Date(),
                 configuration: SelectServerIntent(),

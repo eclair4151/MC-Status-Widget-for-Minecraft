@@ -106,7 +106,8 @@ struct AppContainer: View {
             // may have gotten new/changed data refresh models from database
             if event.endDate != nil && event.type == .import {
                 reloadData()
-                MCStatsShortcutsProvider.updateAppShortcutParameters()
+                
+                ShortcutsProvider.updateAppShortcutParameters()
                 WidgetCenter.shared.invalidateConfigurationRecommendations()
             }
         }
@@ -153,7 +154,7 @@ struct AppContainer: View {
             //
             //            modelContext.insert(server)
             
-            MCStatsShortcutsProvider.updateAppShortcutParameters()
+            ShortcutsProvider.updateAppShortcutParameters()
         }
     }
     

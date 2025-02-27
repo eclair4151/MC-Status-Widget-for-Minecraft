@@ -15,7 +15,7 @@ struct MinecraftServerStatusHSWidget: Widget {
             intent: SelectServerIntent.self,
             provider: HomescreenProvider()
         ) { entry in
-            MinecraftServerStatusHSWidgetEntryView(entry)
+            ServerStatusHSWidgetEntryView(entry)
                 .containerBackground(for: .widget) {
                     if entry.configuration.Theme == nil || entry.configuration.Theme?.id ?? "" == Theme.auto.rawValue {
                         entry.vm.bgColor
@@ -37,7 +37,7 @@ struct MinecraftServerStatusHSWidget: Widget {
     }
 }
 
-struct MinecraftServerStatusHSWidgetEntryView: View {
+struct ServerStatusHSWidgetEntryView: View {
     @Environment(\.widgetFamily) private var family
     
     private var entry: HomescreenProvider.Entry
