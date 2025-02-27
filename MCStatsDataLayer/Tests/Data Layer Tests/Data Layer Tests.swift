@@ -3,7 +3,7 @@ import Testing
 
 @testable import MCStatsDataLayer
 
-struct MCParsingTests {
+struct ParsingTests {
     @Test func testParsing() throws {
         let stringInput = #"""
         {

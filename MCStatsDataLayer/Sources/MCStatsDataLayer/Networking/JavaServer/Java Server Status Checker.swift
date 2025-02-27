@@ -8,7 +8,7 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
     
     // calling a contination twice will cause the app to crash. This ensures incase an error is called twice, ect that nothing happens
     // This feels like a hack, but i cant think of a better way due to the enherint unknowns of how the error system works in iOS,
-    // i dont think there is a way to ensure that any part of these errors are not called twice
+    // I don't think there is a way to ensure that any part of these errors are not called twice
     // we also need to use a task dispatch queue since the response are being called from many threads, so cant ensure atomic operations on the continuationHasBeenCalled variable
     var continuationHasBeenCalled = false
     let queue = DispatchQueue(label: "continuationCallerQueue")
@@ -46,6 +46,7 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
             guard !continuationHasBeenCalled else {
                 return
             }
+            
             timeoutTask?.cancel()
             continuationHasBeenCalled = true
             continuation?.resume(returning: result)
@@ -65,12 +66,12 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
     }
     
     func startTCPConnection(dataToSend: Data) {
-        print("Going to start TCP Connection to \(self.serverAddress):\(self.port)")
+        print("Going to start TCP Connection to \(serverAddress):\(port)")
         
         guard
-            self.port <= 65535,
-            self.port >= 0,
-            let port = NWEndpoint.Port(rawValue: UInt16(self.port))
+            port <= 65535,
+            port >= 0,
+            let port = NWEndpoint.Port(rawValue: UInt16(port))
         else {
             print("Invalid Port... canceling")
             
@@ -78,20 +79,25 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
             return
         }
         
-        let connection = NWConnection(host: NWEndpoint.Host(self.serverAddress), port: port, using: .tcp)
+        let connection = NWConnection(
+            host: NWEndpoint.Host(serverAddress),
+            port: port,
+            using: .tcp
+        )
         
         // set a 5 second timeout to receive the data
         self.timeoutTask = Task {
-            
             try await Task.sleep(nanoseconds: UInt64(5) * NSEC_PER_SEC)
             
             // see if we got any data so far, if we did wait 3 more seconds
             if self.recievedData {
                 print("Waited 3 seconds but got data so waiting 3 more")
+                
                 try await Task.sleep(nanoseconds: UInt64(3) * NSEC_PER_SEC)
             }
             
-            print("Timed out after connecting to \(self.serverAddress):\(self.port)")
+            print("Timed out after connecting to \(serverAddress):\(port)")
+            
             // ok now it took too long. timeout!
             callContinuationError(ServerStatusCheckerError.ServerUnreachable)
             connection.cancel()
@@ -149,11 +155,12 @@ public class JavaServerStatusChecker: ServerStatusCheckerProtocol {
         connection.receive(minimumIncompleteLength: 1, maximumLength: 65536) { [self] data, _, isComplete, error in
             if let error {
                 print("Error receiving data: \(error)" + "  -  address:", self.serverAddress)
+                
                 self.callContinuationError(ServerStatusCheckerError.ServerUnreachable)
                 connection.cancel()
                 
             } else if let data {
-                print("Data: \(data)")
+                print("Data:", data)
                 
                 // when we get here, the server has returned a chunk of data
                 // We need to dynamaically store the chunks of data in an array to we can reconstruct it whole once we are finished downloading

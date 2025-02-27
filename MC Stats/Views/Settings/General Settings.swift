@@ -1,6 +1,6 @@
 import SwiftUI
+import MCStatsDataLayer
 
-// General Settings Sub-View
 struct GeneralSettings: View {
     @AppStorage(UserDefaultsHelper.Key.iCloudEnabled.rawValue)        private var icloudSync = true
     @AppStorage(UserDefaultsHelper.Key.showUsersOnHomesreen.rawValue) private var playersInServerList = true
