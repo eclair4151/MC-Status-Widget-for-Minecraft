@@ -49,7 +49,7 @@ final class ReviewHelper {
     // Check if six months have passed since the last request
     private func isTimeSinceLastRequestExceeded() -> Bool {
         // Calculate the timestamp for six months ago
-        let sixMonthsInSeconds: TimeInterval = 6 * 30 * 24 * 60 * 60 // Approximation of 6 months
+        let sixMonthsInSeconds = 6.0 * 30 * 24 * 60 * 60 // Approximation of 6 months
         let sixMonthsAgo = Date().timeIntervalSince1970 - sixMonthsInSeconds
         
         // if 0, user just installed, set it to 6 months ago, +1 day, so user wont see alert for 2 days after install
