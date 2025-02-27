@@ -2,6 +2,19 @@ import Foundation
 import MCStatsDataLayer
 
 extension AppContainer {
+    func refreshDisplayOrders() {
+        servers?.enumerated().forEach { index, vm in
+            vm.server.displayOrder = index + 1
+            modelContext.insert(vm.server)
+        }
+        
+        do {
+            try modelContext.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     func deleteItems(at offsets: IndexSet) {
         offsets.makeIterator().forEach { pos in
             if let serverVM = servers?[pos] {

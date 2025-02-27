@@ -215,19 +215,6 @@ struct AppContainer: View {
         }
     }
     
-    private func refreshDisplayOrders() {
-        servers?.enumerated().forEach { index, vm in
-            vm.server.displayOrder = index + 1
-            modelContext.insert(vm.server)
-        }
-        
-        do {
-            try modelContext.save()
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
     func reloadData(forceRefresh: Bool = false, forceSRVRefreh: Bool = false) {
         // crashes when run in background from apple watch??
         // FB13069019

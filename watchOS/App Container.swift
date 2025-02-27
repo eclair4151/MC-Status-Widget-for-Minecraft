@@ -202,19 +202,6 @@ struct AppContainer: View {
         
         statusChecker.checkServers(serversToCheck)
     }
-    
-    private func refreshDisplayOrders() {
-        servers?.enumerated().forEach { index, vm in
-            vm.server.displayOrder = index + 1
-            modelContext.insert(vm.server)
-        }
-        
-        do {
-            try modelContext.save()
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
 }
 
 //#Preview {
