@@ -498,7 +498,7 @@
 		F30472592D63FBFC0055C007 /* MinecraftBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftBoldItalic.otf; sourceTree = "<group>"; };
 		F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftItalic.otf; sourceTree = "<group>"; };
 		F304725B2D63FBFC0055C007 /* MinecraftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftRegular.otf; sourceTree = "<group>"; };
-		F31D45A12D6DC62600981B1C /* macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F31D45A12D6DC62600981B1C /* MC Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC Stats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F31D45B22D6DC67B00981B1C /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		F31D45BA2D6DC6A800981B1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F326DB572D6416E100BCCB69 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -693,7 +693,7 @@
 				F13095252CBC997200C4C7BA /* Watch Widgets.appex */,
 				F35E1A7D2D6501A500718CB7 /* visionOS.app */,
 				F3C879BD2D65720500840745 /* tvOS.app */,
-				F31D45A12D6DC62600981B1C /* macOS.app */,
+				F31D45A12D6DC62600981B1C /* MC Stats.app */,
 				F3570D3C2D6E779500BDF069 /* iMessages.appex */,
 			);
 			name = Products;
@@ -1154,7 +1154,7 @@
 				F31D45C12D6DC6C600981B1C /* NukeUI */,
 			);
 			productName = macOS;
-			productReference = F31D45A12D6DC62600981B1C /* macOS.app */;
+			productReference = F31D45A12D6DC62600981B1C /* MC Stats.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F3570D3B2D6E779500BDF069 /* iMessages */ = {
@@ -2227,7 +2227,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "MC Stats";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2259,7 +2259,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.topscrech.MC-Stats";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "MC Stats";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
