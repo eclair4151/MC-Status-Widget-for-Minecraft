@@ -318,6 +318,10 @@
 		F3C923682D6C6CF6004D31A9 /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3C923672D6C6CF6004D31A9 /* MCStatsDataLayer */; };
 		F3D9AE622D6C68EB00069BDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
 		F3EFC1722D70877F00EE988A /* Edit Server View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC1712D70877F00EE988A /* Edit Server View.swift */; };
+		F3EFC1742D709C5700EE988A /* Ping Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC1732D709C5700EE988A /* Ping Error.swift */; };
+		F3EFC1752D709C5700EE988A /* Ping Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC1732D709C5700EE988A /* Ping Error.swift */; };
+		F3EFC1762D709C5700EE988A /* Ping Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC1732D709C5700EE988A /* Ping Error.swift */; };
+		F3EFC1772D709C5700EE988A /* Ping Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC1732D709C5700EE988A /* Ping Error.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -530,6 +534,7 @@
 		F3C87A052D6574DD00840745 /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
 		F3C87A0E2D657A1500840745 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		F3EFC1712D70877F00EE988A /* Edit Server View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Edit Server View.swift"; sourceTree = "<group>"; };
+		F3EFC1732D709C5700EE988A /* Ping Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ping Error.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -775,6 +780,7 @@
 			isa = PBXGroup;
 			children = (
 				F1C010482AAAB9B60017B9A9 /* Swifty Ping.swift */,
+				F3EFC1732D709C5700EE988A /* Ping Error.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1481,6 +1487,7 @@
 				F35E1A9E2D65209500718CB7 /* Player Card.swift in Sources */,
 				F16990872CA5DDE500F41232 /* Shortcuts Provider.swift in Sources */,
 				F17A16BB2A893DD700F8FF2F /* Settings View.swift in Sources */,
+				F3EFC1742D709C5700EE988A /* Ping Error.swift in Sources */,
 				F1AE29162CA48577009D0D14 /* Server Row.swift in Sources */,
 				F13E60012A4BD614005BE9B2 /* App Container.swift in Sources */,
 				F1E671762CA73A86002BDFC0 /* Custom Progress View.swift in Sources */,
@@ -1583,6 +1590,7 @@
 				F31D45CC2D6DC75200981B1C /* Player Card.swift in Sources */,
 				F31D45D52D6DC75D00981B1C /* Siri Phrase.swift in Sources */,
 				F31D45D62D6DC75D00981B1C /* Siri Guide.swift in Sources */,
+				F3EFC1752D709C5700EE988A /* Ping Error.swift in Sources */,
 				F31D45D72D6DC75D00981B1C /* Siri Guide Phrase.swift in Sources */,
 				F31D45CD2D6DC75200981B1C /* Server Ping.swift in Sources */,
 				F31D45CE2D6DC75200981B1C /* Player List.swift in Sources */,
@@ -1639,6 +1647,7 @@
 				F3C87A072D6574DD00840745 /* FAQ.swift in Sources */,
 				F35E1AB92D65236300718CB7 /* Custom Extentions.swift in Sources */,
 				F35E1ABA2D65236300718CB7 /* Review Helper.swift in Sources */,
+				F3EFC1762D709C5700EE988A /* Ping Error.swift in Sources */,
 				F35E1AC82D652B4700718CB7 /* Intent Errors.swift in Sources */,
 				F35E1ABD2D65236300718CB7 /* Config Helper.swift in Sources */,
 				F35E1ABF2D65236300718CB7 /* MOTD View Generator.swift in Sources */,
@@ -1685,6 +1694,7 @@
 				F3C879DB2D6572BA00840745 /* Low Power Mode.swift in Sources */,
 				F3C879DC2D6572BA00840745 /* Refresh Widgets.swift in Sources */,
 				F3C879E62D6572CA00840745 /* Server Row.swift in Sources */,
+				F3EFC1772D709C5700EE988A /* Ping Error.swift in Sources */,
 				F3C879E72D6572CA00840745 /* Settings View.swift in Sources */,
 				F3C879E82D6572CA00840745 /* Edit Server View.swift in Sources */,
 				F3C879E92D6572CA00840745 /* Shortcuts Guide.swift in Sources */,
