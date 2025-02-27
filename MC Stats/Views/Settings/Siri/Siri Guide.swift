@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SiriGuideView: View {
+struct SiriGuide: View {
     private let phrases = [
         SiriPhrase("Check the status of my (Minecraft) server"),
         SiriPhrase("What's the status of my (Minecraft) server"),

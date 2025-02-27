@@ -59,7 +59,7 @@ extension WidgetEntryVM {
         if status.playerSample.count > 0 {
             var playerList = status.playerSample
             
-            if UserDefaultHelper.shared.get(for: .sortUsersByName, defaultValue: true) {
+            if UserDefaultsHelper.shared.get(for: .sortUsersByName, defaultValue: true) {
                 playerList.sort {
                     $0.name.lowercased() < $1.name.lowercased()
                 }

@@ -1,7 +1,7 @@
 import SwiftUI
 import StoreKit
 
-struct TipJarView: View {
+struct TipView: View {
     @Binding var isPresented: Bool
     
     init(_ isPresented: Binding<Bool>) {

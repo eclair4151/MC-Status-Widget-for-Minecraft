@@ -3,7 +3,7 @@ import MCStatsDataLayer
 class ConfigHelper {
     static func getServerCheckerConfig() -> ServerCheckerConfig {
         ServerCheckerConfig(
-            sortUsers: UserDefaultHelper.shared.get(
+            sortUsers: UserDefaultsHelper.shared.get(
                 for: .sortUsersByName,
                 defaultValue: true
             )

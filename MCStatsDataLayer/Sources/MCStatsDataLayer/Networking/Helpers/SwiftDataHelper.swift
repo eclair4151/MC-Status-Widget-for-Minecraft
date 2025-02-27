@@ -3,7 +3,7 @@ import SwiftData
 
 public class SwiftDataHelper {
     public static func getModelContainter() -> ModelContainer {
-        if UserDefaultHelper.shared.get(for: .iCloudEnabled, defaultValue: true) {
+        if UserDefaultsHelper.shared.get(for: .iCloudEnabled, defaultValue: true) {
             do {
                 let config = ModelConfiguration(
                     nil,

@@ -61,8 +61,8 @@ struct AppContainer: View {
                 switch destination {
                 case .GeneralSettings: GeneralSettings()
                 case .FAQ:             FAQView(getiOSFAQs())
-                case .Shortcuts:       ShortcutsGuideView()
-                case .Siri:            SiriGuideView()
+                case .Shortcuts:       ShortcutsGuide()
+                case .Siri:            SiriGuide()
                 case .WhatsNew:        ReleaseNotes(showDismissButton: false)
                 }
             }
@@ -217,7 +217,7 @@ struct AppContainer: View {
     
     private func goToServerView(_ vm: ServerStatusVM) {
         // check if user has disabled deep links, if so just go to main list
-        if !UserDefaultHelper.shared.get(for: .openToSpecificServer, defaultValue: true) {
+        if !UserDefaultsHelper.shared.get(for: .openToSpecificServer, defaultValue: true) {
             self.nav.removeLast(self.nav.count)
             return
         }

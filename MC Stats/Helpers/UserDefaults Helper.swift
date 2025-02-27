@@ -1,6 +1,6 @@
 import Foundation
 
-class UserDefaultHelper {
+class UserDefaultsHelper {
     // Define the possible keys as an enum
     // Add more keys here as needed
     enum Key: String {
@@ -11,7 +11,7 @@ class UserDefaultHelper {
     }
     
     // Singleton instance
-    static let shared = UserDefaultHelper()
+    static let shared = UserDefaultsHelper()
     
     // Prevents external instantiation
     private init() {}

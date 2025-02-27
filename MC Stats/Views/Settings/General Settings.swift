@@ -2,10 +2,10 @@ import SwiftUI
 
 // General Settings Sub-View
 struct GeneralSettings: View {
-    @AppStorage(UserDefaultHelper.Key.iCloudEnabled.rawValue)        private var icloudSync = true
-    @AppStorage(UserDefaultHelper.Key.showUsersOnHomesreen.rawValue) private var playersInServerList = true
-    @AppStorage(UserDefaultHelper.Key.sortUsersByName.rawValue)      private var sortPlayersByName = true
-    @AppStorage(UserDefaultHelper.Key.openToSpecificServer.rawValue) private var openToSpecificServer = true
+    @AppStorage(UserDefaultsHelper.Key.iCloudEnabled.rawValue)        private var icloudSync = true
+    @AppStorage(UserDefaultsHelper.Key.showUsersOnHomesreen.rawValue) private var playersInServerList = true
+    @AppStorage(UserDefaultsHelper.Key.sortUsersByName.rawValue)      private var sortPlayersByName = true
+    @AppStorage(UserDefaultsHelper.Key.openToSpecificServer.rawValue) private var openToSpecificServer = true
     
     var body: some View {
         Form {

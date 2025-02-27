@@ -64,7 +64,7 @@ struct ServerRow: View {
                         .frame(height: 8)
                 }
                 
-                if UserDefaultHelper.shared.get(for: .showUsersOnHomesreen, defaultValue: true) {
+                if UserDefaultsHelper.shared.get(for: .showUsersOnHomesreen, defaultValue: true) {
                     let sampletext = vm.getUserSampleText()
                     
                     if !sampletext.isEmpty {
