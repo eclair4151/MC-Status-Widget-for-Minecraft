@@ -153,17 +153,6 @@
     "Edit Widget" : {
 
     },
-    "Enable iCloud" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Включить iCloud"
-          }
-        }
-      }
-    },
     "Error: Server not found" : {
 
     },
