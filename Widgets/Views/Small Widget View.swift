@@ -77,7 +77,7 @@ struct BaseWidgetView: View {
                         } else {
                             Image(systemName: statusIcon)
                                 .fontSize(24)
-                                .foregroundColor(.unknownColor)
+                                .foregroundStyle(.unknown)
                                 .background {
                                     Color.white
                                         .mask(Circle())

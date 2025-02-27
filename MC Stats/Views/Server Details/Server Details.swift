@@ -91,13 +91,13 @@ struct ServerDetails: View {
                             
                             Text(serverAddressString)
                                 .footnote()
-                                .foregroundColor(.secondaryTextColor)
+                                .secondary()
                                 .lineLimit(1)
                             
                             if !srvAddressText.isEmpty {
                                 Text(srvAddressText)
                                     .footnote()
-                                    .foregroundColor(.secondaryTextColor)
+                                    .secondary()
                                     .lineLimit(1)
                             }
                             
@@ -137,7 +137,7 @@ struct ServerDetails: View {
                                         .padding(.horizontal, 14)
                                         .padding(.vertical, 7)
                                         .background(Color.standoutPillGrey)
-                                        .foregroundColor(.tertiaryTextColor)
+                                        .foregroundStyle(.tertiary)
                                         .cornerRadius(16)
                                     }
                                     .buttonStyle(.plain)
@@ -155,13 +155,13 @@ struct ServerDetails: View {
                             .padding(.vertical, 3)
                             .background(Color.standoutPillGrey)
                             .cornerRadius(6)
-                            .foregroundColor(.tertiaryTextColor)
+                            .foregroundStyle(.tertiary)
                         
                         if let version = vm.status?.version, !version.isEmpty {
                             Text(version)
                                 .subheadline()
                                 .padding(.top, 3)
-                                .foregroundColor(.secondaryTextColor)
+                                .secondary()
                         }
                     }
                     .padding(.bottom, 10)

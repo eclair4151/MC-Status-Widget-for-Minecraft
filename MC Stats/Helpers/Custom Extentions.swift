@@ -31,11 +31,6 @@ extension Color {
         )
     }
     
-    static let appBackgroundColor = Color("AppBackgroundColor")
-    static let MOTDBackground = Color("MOTDBackground")
-    static let secondaryTextColor = Color("SecondaryTextColor")
-    static let tertiaryTextColor = Color("TertiaryTextColor")
-    static let unknownColor = Color("UnknownColor")
     //    static let widgetBackground = Color("WidgetBackground")
     
     //    static let statusBackgroundYellow = Color("StatusBackgroundYellow")
