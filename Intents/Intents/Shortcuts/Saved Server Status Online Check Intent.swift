@@ -3,7 +3,7 @@ import AppIntents
 import MCStatsDataLayer
 
 private func runServerStatusIntentCheck(
-    serverEntity: SavedServerEntity?,
+    _ serverEntity: SavedServerEntity?,
     dismabiguationCallback: @escaping ([SavedMinecraftServer]) async throws -> SavedServerEntity
 ) async throws -> ServerStatusEntity {
     let container = SwiftDataHelper.getModelContainter()
@@ -66,7 +66,7 @@ struct SavedServerStatusOnlineCheckIntent: AppIntent {
     var serverEntity: SavedServerEntity?
     
     func perform() async throws -> some ProvidesDialog & IntentResult & ReturnsValue<ServerStatusEntity>{
-        let res = try await runServerStatusIntentCheck(serverEntity: serverEntity) { savedServers in
+        let res = try await runServerStatusIntentCheck(serverEntity) { savedServers in
             try await $serverEntity.requestDisambiguation(
                 among: savedServers.map {
                     SavedServerEntity($0)

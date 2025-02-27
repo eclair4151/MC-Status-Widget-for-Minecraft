@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F10C42172AAD55BF000107D6 /* MCStatsShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MCStatsShortcutsProvider.swift */; };
+		F10C42172AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift */; };
 		F10C421C2AAE40BC000107D6 /* Intents.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = F1406BA92AA391B800815BE8 /* Intents.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F10E94B12A8C61B60039DD2B /* Connectivity Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E94B02A8C61B60039DD2B /* Connectivity Provider.swift */; };
 		F11F63582A81E51000D47187 /* watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F11F634B2A81E50E00D47187 /* watchOS.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -20,14 +20,14 @@
 		F13095512CBC9D5600C4C7BA /* Config Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F130954E2CBC9D5600C4C7BA /* Config Helper.swift */; };
 		F13095532CBC9D5600C4C7BA /* Config Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F130954E2CBC9D5600C4C7BA /* Config Helper.swift */; };
 		F13095542CBC9DB300C4C7BA /* UserDefaults Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaults Helper.swift */; };
-		F13095572CBD48ED00C4C7BA /* WatchServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174A3002A915E450051DA5B /* WatchServerStatusChecker.swift */; };
+		F13095572CBD48ED00C4C7BA /* Watch Server Status Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174A3002A915E450051DA5B /* Watch Server Status Checker.swift */; };
 		F13095582CBD494300C4C7BA /* Connectivity Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E94B02A8C61B60039DD2B /* Connectivity Provider.swift */; };
-		F13095592CBD497200C4C7BA /* WatchServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174A3002A915E450051DA5B /* WatchServerStatusChecker.swift */; };
+		F13095592CBD497200C4C7BA /* Watch Server Status Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174A3002A915E450051DA5B /* Watch Server Status Checker.swift */; };
 		F130955A2CBD499700C4C7BA /* Connectivity Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10E94B02A8C61B60039DD2B /* Connectivity Provider.swift */; };
 		F13E5FFD2A4BD614005BE9B2 /* MC Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */; };
 		F13E60012A4BD614005BE9B2 /* App Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E60002A4BD614005BE9B2 /* App Container.swift */; };
 		F1406BAC2AA391B800815BE8 /* Intents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BAB2AA391B800815BE8 /* Intents.swift */; };
-		F1406BBF2AA3933400815BE8 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
+		F1406BBF2AA3933400815BE8 /* Intent Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* Intent Errors.swift */; };
 		F1406BC22AA3936E00815BE8 /* UserDefaults Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaults Helper.swift */; };
 		F150B4342CC15F6A00739646 /* Siri Guide.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4332CC15F6A00739646 /* Siri Guide.swift */; };
 		F150B4362CC1709700739646 /* Shortcuts Guide.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150B4352CC1709700739646 /* Shortcuts Guide.swift */; };
@@ -35,11 +35,11 @@
 		F157DDBF2CB9F7B500874CC7 /* UserDefaults Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaults Helper.swift */; };
 		F1612CC82CACC37300E602DC /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F1612CC72CACC37300E602DC /* Nuke */; };
 		F1612CCA2CACC37300E602DC /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F1612CC92CACC37300E602DC /* NukeUI */; };
-		F16990822CA5DDE500F41232 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
-		F16990872CA5DDE500F41232 /* MCStatsShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MCStatsShortcutsProvider.swift */; };
+		F16990822CA5DDE500F41232 /* Intent Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* Intent Errors.swift */; };
+		F16990872CA5DDE500F41232 /* MC Stats Shortcuts Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift */; };
 		F174A2FC2A8F7FFA0051DA5B /* Watch Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174A2FB2A8F7FFA0051DA5B /* Watch Helper.swift */; };
 		F174A2FE2A8F8ED70051DA5B /* UserDefaults Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BF5D9E2A80261D00966D56 /* UserDefaults Helper.swift */; };
-		F174A3012A915E450051DA5B /* WatchServerStatusChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174A3002A915E450051DA5B /* WatchServerStatusChecker.swift */; };
+		F174A3012A915E450051DA5B /* Watch Server Status Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F174A3002A915E450051DA5B /* Watch Server Status Checker.swift */; };
 		F17A16BB2A893DD700F8FF2F /* Settings View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BA2A893DD700F8FF2F /* Settings View.swift */; };
 		F17A16BD2A8956DE00F8FF2F /* Edit Server View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* Edit Server View.swift */; };
 		F17AE07D2CBE0B6600DC7A80 /* Custom Progress View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* Custom Progress View.swift */; };
@@ -70,8 +70,8 @@
 		F1EF76C62CB4216F00EFFB20 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F1EF76C52CB4216F00EFFB20 /* Nuke */; };
 		F1EF76C82CB4216F00EFFB20 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F1EF76C72CB4216F00EFFB20 /* NukeUI */; };
 		F1EF76CA2CB422D400EFFB20 /* Server Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF76C92CB422D400EFFB20 /* Server Details.swift */; };
-		F1EF76D22CB449E700EFFB20 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
-		F1EF76D52CB449E700EFFB20 /* MCStatsShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MCStatsShortcutsProvider.swift */; };
+		F1EF76D22CB449E700EFFB20 /* Intent Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* Intent Errors.swift */; };
+		F1EF76D52CB449E700EFFB20 /* MC Stats Shortcuts Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift */; };
 		F1EF76EE2CB7873F00EFFB20 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EF76ED2CB7873F00EFFB20 /* WidgetKit.framework */; };
 		F1EF76F02CB7873F00EFFB20 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EF76EF2CB7873F00EFFB20 /* SwiftUI.framework */; };
 		F1EF76FF2CB7874000EFFB20 /* Widgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F1EF76EC2CB7873F00EFFB20 /* Widgets.appex */; platformFilters = (ios, maccatalyst, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -88,57 +88,57 @@
 		F30246D62D66816E0030F71C /* Ping Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* Ping Graph.swift */; };
 		F30246D82D66816E0030F71C /* Ping Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246D52D66816E0030F71C /* Ping Graph.swift */; };
 		F30472092D63E9C00055C007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F30472012D63E9C00055C007 /* Assets.xcassets */; };
-		F304720B2D63E9C00055C007 /* HomescreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F52D63E9C00055C007 /* HomescreenProvider.swift */; };
-		F304720C2D63E9C00055C007 /* LockscreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F62D63E9C00055C007 /* LockscreenProvider.swift */; };
-		F304720D2D63E9C00055C007 /* CircularAccessoryWidgetView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F82D63E9C00055C007 /* CircularAccessoryWidgetView1.swift */; };
-		F304720E2D63E9C00055C007 /* CircularAccessoryWidgetView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F92D63E9C00055C007 /* CircularAccessoryWidgetView2.swift */; };
-		F304720F2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FA2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift */; };
-		F30472102D63E9C00055C007 /* InlineAccessoryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FB2D63E9C00055C007 /* InlineAccessoryWidgetView.swift */; };
-		F30472112D63E9C00055C007 /* InlineAccessoryWidgetView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FC2D63E9C00055C007 /* InlineAccessoryWidgetView2.swift */; };
-		F30472122D63E9C00055C007 /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FD2D63E9C00055C007 /* MediumWidgetView.swift */; };
-		F30472132D63E9C00055C007 /* RectangularAccessoryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FE2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift */; };
-		F30472142D63E9C00055C007 /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FF2D63E9C00055C007 /* SmallWidgetView.swift */; };
+		F304720B2D63E9C00055C007 /* Homescreen Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F52D63E9C00055C007 /* Homescreen Provider.swift */; };
+		F304720C2D63E9C00055C007 /* Lockscreen Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F62D63E9C00055C007 /* Lockscreen Provider.swift */; };
+		F304720D2D63E9C00055C007 /* Circular Accessory WidgetView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F82D63E9C00055C007 /* Circular Accessory WidgetView1.swift */; };
+		F304720E2D63E9C00055C007 /* Circular Accessory WidgetView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F92D63E9C00055C007 /* Circular Accessory WidgetView2.swift */; };
+		F304720F2D63E9C00055C007 /* Corner Accessory WidgetView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FA2D63E9C00055C007 /* Corner Accessory WidgetView1.swift */; };
+		F30472102D63E9C00055C007 /* Inline Accessory WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FB2D63E9C00055C007 /* Inline Accessory WidgetView.swift */; };
+		F30472112D63E9C00055C007 /* Inline Accessory WidgetView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FC2D63E9C00055C007 /* Inline Accessory WidgetView2.swift */; };
+		F30472122D63E9C00055C007 /* Medium Widget View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FD2D63E9C00055C007 /* Medium Widget View.swift */; };
+		F30472132D63E9C00055C007 /* Rectangular Accessory WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FE2D63E9C00055C007 /* Rectangular Accessory WidgetView.swift */; };
+		F30472142D63E9C00055C007 /* Small Widget View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FF2D63E9C00055C007 /* Small Widget View.swift */; };
 		F30472152D63E9C00055C007 /* Widgets Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472042D63E9C00055C007 /* Widgets Bundle.swift */; };
-		F30472162D63E9C00055C007 /* MinecraftServerStatusHSWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472052D63E9C00055C007 /* MinecraftServerStatusHSWidget.swift */; };
-		F30472172D63E9C00055C007 /* MinecraftServerStatusLSWidget1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472062D63E9C00055C007 /* MinecraftServerStatusLSWidget1.swift */; };
-		F30472182D63E9C00055C007 /* WidgetEntryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472072D63E9C00055C007 /* WidgetEntryVM.swift */; };
-		F30472192D63E9C00055C007 /* CircularAccessoryWidgetView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F82D63E9C00055C007 /* CircularAccessoryWidgetView1.swift */; };
-		F304721A2D63E9C00055C007 /* CircularAccessoryWidgetView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F92D63E9C00055C007 /* CircularAccessoryWidgetView2.swift */; };
-		F304721B2D63E9C00055C007 /* MinecraftServerStatusLSWidget1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472062D63E9C00055C007 /* MinecraftServerStatusLSWidget1.swift */; };
-		F304721C2D63E9C00055C007 /* WidgetEntryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472072D63E9C00055C007 /* WidgetEntryVM.swift */; };
-		F304721D2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FE2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift */; };
-		F304721E2D63E9C00055C007 /* InlineAccessoryWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FB2D63E9C00055C007 /* InlineAccessoryWidgetView.swift */; };
-		F304721F2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FA2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift */; };
-		F30472202D63E9C00055C007 /* InlineAccessoryWidgetView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FC2D63E9C00055C007 /* InlineAccessoryWidgetView2.swift */; };
-		F30472212D63E9C00055C007 /* LockscreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F62D63E9C00055C007 /* LockscreenProvider.swift */; };
+		F30472162D63E9C00055C007 /* Minecraft Server Status HS Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472052D63E9C00055C007 /* Minecraft Server Status HS Widget.swift */; };
+		F30472172D63E9C00055C007 /* Minecraft Server Status LSWidget1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472062D63E9C00055C007 /* Minecraft Server Status LSWidget1.swift */; };
+		F30472182D63E9C00055C007 /* Widget Entry VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472072D63E9C00055C007 /* Widget Entry VM.swift */; };
+		F30472192D63E9C00055C007 /* Circular Accessory WidgetView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F82D63E9C00055C007 /* Circular Accessory WidgetView1.swift */; };
+		F304721A2D63E9C00055C007 /* Circular Accessory WidgetView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F92D63E9C00055C007 /* Circular Accessory WidgetView2.swift */; };
+		F304721B2D63E9C00055C007 /* Minecraft Server Status LSWidget1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472062D63E9C00055C007 /* Minecraft Server Status LSWidget1.swift */; };
+		F304721C2D63E9C00055C007 /* Widget Entry VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472072D63E9C00055C007 /* Widget Entry VM.swift */; };
+		F304721D2D63E9C00055C007 /* Rectangular Accessory WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FE2D63E9C00055C007 /* Rectangular Accessory WidgetView.swift */; };
+		F304721E2D63E9C00055C007 /* Inline Accessory WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FB2D63E9C00055C007 /* Inline Accessory WidgetView.swift */; };
+		F304721F2D63E9C00055C007 /* Corner Accessory WidgetView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FA2D63E9C00055C007 /* Corner Accessory WidgetView1.swift */; };
+		F30472202D63E9C00055C007 /* Inline Accessory WidgetView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471FC2D63E9C00055C007 /* Inline Accessory WidgetView2.swift */; };
+		F30472212D63E9C00055C007 /* Lockscreen Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30471F62D63E9C00055C007 /* Lockscreen Provider.swift */; };
 		F30472282D63E9C20055C007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F30472222D63E9C20055C007 /* Assets.xcassets */; };
-		F304722E2D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722A2D63E9CF0055C007 /* RefreshWidgetIntent.swift */; };
-		F304722F2D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722B2D63E9CF0055C007 /* ServerSelectNoTheme.swift */; };
-		F30472302D63E9CF0055C007 /* SelectServerIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722C2D63E9CF0055C007 /* SelectServerIntent.swift */; };
-		F30472372D63E9CF0055C007 /* SelectServerIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722C2D63E9CF0055C007 /* SelectServerIntent.swift */; };
-		F30472382D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722A2D63E9CF0055C007 /* RefreshWidgetIntent.swift */; };
-		F30472392D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722B2D63E9CF0055C007 /* ServerSelectNoTheme.swift */; };
-		F304723A2D63E9CF0055C007 /* SelectServerIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722C2D63E9CF0055C007 /* SelectServerIntent.swift */; };
-		F304723B2D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722A2D63E9CF0055C007 /* RefreshWidgetIntent.swift */; };
-		F304723C2D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722B2D63E9CF0055C007 /* ServerSelectNoTheme.swift */; };
-		F30472402D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723D2D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift */; };
-		F30472412D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift */; };
-		F30472422D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723D2D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift */; };
-		F30472432D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift */; };
-		F30472442D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723D2D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift */; };
-		F30472452D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift */; };
-		F30472492D63E9D20055C007 /* ServerIntentTypeAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472462D63E9D20055C007 /* ServerIntentTypeAppEntity.swift */; };
-		F304724A2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472472D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift */; };
-		F304724B2D63E9D20055C007 /* ServerIntentTypeAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472462D63E9D20055C007 /* ServerIntentTypeAppEntity.swift */; };
-		F304724C2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472472D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift */; };
-		F304724D2D63E9D20055C007 /* ServerIntentTypeAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472462D63E9D20055C007 /* ServerIntentTypeAppEntity.swift */; };
-		F304724E2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472472D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift */; };
-		F30472522D63E9D30055C007 /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* SavedServerEntity.swift */; };
-		F30472532D63E9D30055C007 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
-		F30472542D63E9D30055C007 /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* SavedServerEntity.swift */; };
-		F30472552D63E9D30055C007 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
-		F30472562D63E9D30055C007 /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* SavedServerEntity.swift */; };
-		F30472572D63E9D30055C007 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
+		F304722E2D63E9CF0055C007 /* Refresh Widget Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722A2D63E9CF0055C007 /* Refresh Widget Intent.swift */; };
+		F304722F2D63E9CF0055C007 /* Server Select No Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722B2D63E9CF0055C007 /* Server Select No Theme.swift */; };
+		F30472302D63E9CF0055C007 /* Select Server Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722C2D63E9CF0055C007 /* Select Server Intent.swift */; };
+		F30472372D63E9CF0055C007 /* Select Server Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722C2D63E9CF0055C007 /* Select Server Intent.swift */; };
+		F30472382D63E9CF0055C007 /* Refresh Widget Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722A2D63E9CF0055C007 /* Refresh Widget Intent.swift */; };
+		F30472392D63E9CF0055C007 /* Server Select No Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722B2D63E9CF0055C007 /* Server Select No Theme.swift */; };
+		F304723A2D63E9CF0055C007 /* Select Server Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722C2D63E9CF0055C007 /* Select Server Intent.swift */; };
+		F304723B2D63E9CF0055C007 /* Refresh Widget Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722A2D63E9CF0055C007 /* Refresh Widget Intent.swift */; };
+		F304723C2D63E9CF0055C007 /* Server Select No Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304722B2D63E9CF0055C007 /* Server Select No Theme.swift */; };
+		F30472402D63E9D00055C007 /* Arbitrary Server Status Online Check Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723D2D63E9D00055C007 /* Arbitrary Server Status Online Check Intent.swift */; };
+		F30472412D63E9D00055C007 /* Saved Server Status Online Check Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* Saved Server Status Online Check Intent.swift */; };
+		F30472422D63E9D00055C007 /* Arbitrary Server Status Online Check Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723D2D63E9D00055C007 /* Arbitrary Server Status Online Check Intent.swift */; };
+		F30472432D63E9D00055C007 /* Saved Server Status Online Check Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* Saved Server Status Online Check Intent.swift */; };
+		F30472442D63E9D00055C007 /* Arbitrary Server Status Online Check Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723D2D63E9D00055C007 /* Arbitrary Server Status Online Check Intent.swift */; };
+		F30472452D63E9D00055C007 /* Saved Server Status Online Check Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* Saved Server Status Online Check Intent.swift */; };
+		F30472492D63E9D20055C007 /* Server Intent Type App Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472462D63E9D20055C007 /* Server Intent Type App Entity.swift */; };
+		F304724A2D63E9D20055C007 /* Theme Intent Type App Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472472D63E9D20055C007 /* Theme Intent Type App Entity.swift */; };
+		F304724B2D63E9D20055C007 /* Server Intent Type App Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472462D63E9D20055C007 /* Server Intent Type App Entity.swift */; };
+		F304724C2D63E9D20055C007 /* Theme Intent Type App Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472472D63E9D20055C007 /* Theme Intent Type App Entity.swift */; };
+		F304724D2D63E9D20055C007 /* Server Intent Type App Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472462D63E9D20055C007 /* Server Intent Type App Entity.swift */; };
+		F304724E2D63E9D20055C007 /* Theme Intent Type App Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472472D63E9D20055C007 /* Theme Intent Type App Entity.swift */; };
+		F30472522D63E9D30055C007 /* Saved Server Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* Saved Server Entity.swift */; };
+		F30472532D63E9D30055C007 /* Server Status Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* Server Status Entity.swift */; };
+		F30472542D63E9D30055C007 /* Saved Server Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* Saved Server Entity.swift */; };
+		F30472552D63E9D30055C007 /* Server Status Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* Server Status Entity.swift */; };
+		F30472562D63E9D30055C007 /* Saved Server Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* Saved Server Entity.swift */; };
+		F30472572D63E9D30055C007 /* Server Status Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* Server Status Entity.swift */; };
 		F304725D2D63FBFC0055C007 /* MinecraftBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30472582D63FBFC0055C007 /* MinecraftBold.otf */; };
 		F304725E2D63FBFC0055C007 /* MinecraftBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30472592D63FBFC0055C007 /* MinecraftBoldItalic.otf */; };
 		F304725F2D63FBFC0055C007 /* MinecraftItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */; };
@@ -183,11 +183,11 @@
 		F31D45E42D6DC7A800981B1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
 		F31D45E52D6DC9C600981B1C /* Low Power Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A732D64A4B200718CB7 /* Low Power Mode.swift */; };
 		F31D45E62D6DC9C600981B1C /* Refresh Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A762D64D32D00718CB7 /* Refresh Widgets.swift */; };
-		F31D45E72D6DCA3400981B1C /* MCStatsShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MCStatsShortcutsProvider.swift */; };
-		F31D45E82D6DCA3E00981B1C /* SavedServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift */; };
-		F31D45E92D6DCA5000981B1C /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* SavedServerEntity.swift */; };
-		F31D45EA2D6DCA5E00981B1C /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
-		F31D45EB2D6DCB1300981B1C /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
+		F31D45E72D6DCA3400981B1C /* MC Stats Shortcuts Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift */; };
+		F31D45E82D6DCA3E00981B1C /* Saved Server Status Online Check Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* Saved Server Status Online Check Intent.swift */; };
+		F31D45E92D6DCA5000981B1C /* Saved Server Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* Saved Server Entity.swift */; };
+		F31D45EA2D6DCA5E00981B1C /* Intent Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* Intent Errors.swift */; };
+		F31D45EB2D6DCB1300981B1C /* Server Status Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* Server Status Entity.swift */; };
 		F326DB582D6416E100BCCB69 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
 		F326DB592D6416E100BCCB69 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
 		F326DB5A2D6416E100BCCB69 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F326DB572D6416E100BCCB69 /* Localizable.xcstrings */; };
@@ -242,11 +242,11 @@
 		F35E1AC32D65237200718CB7 /* MinecraftBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F30472592D63FBFC0055C007 /* MinecraftBoldItalic.otf */; };
 		F35E1AC42D65237200718CB7 /* MinecraftItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */; };
 		F35E1AC52D65238800718CB7 /* MC Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */; };
-		F35E1AC62D652B3000718CB7 /* MCStatsShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MCStatsShortcutsProvider.swift */; };
-		F35E1AC72D652B3B00718CB7 /* SavedServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift */; };
-		F35E1AC82D652B4700718CB7 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
-		F35E1AC92D652C5B00718CB7 /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* SavedServerEntity.swift */; };
-		F35E1ACA2D652C6D00718CB7 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
+		F35E1AC62D652B3000718CB7 /* MC Stats Shortcuts Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift */; };
+		F35E1AC72D652B3B00718CB7 /* Saved Server Status Online Check Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* Saved Server Status Online Check Intent.swift */; };
+		F35E1AC82D652B4700718CB7 /* Intent Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* Intent Errors.swift */; };
+		F35E1AC92D652C5B00718CB7 /* Saved Server Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* Saved Server Entity.swift */; };
+		F35E1ACA2D652C6D00718CB7 /* Server Status Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* Server Status Entity.swift */; };
 		F360A8AC2D6C6942008E515E /* visionOS Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F35E1A932D6501CC00718CB7 /* visionOS Icon.xcassets */; };
 		F360A8AD2D6C6B5C008E515E /* MC Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13E5FFC2A4BD614005BE9B2 /* MC Stats.swift */; };
 		F378836A2D6AF86A00D38522 /* Debug Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37883692D6AF86A00D38522 /* Debug Settings.swift */; };
@@ -312,11 +312,11 @@
 		F3C87A062D6574DD00840745 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A052D6574DD00840745 /* FAQ.swift */; };
 		F3C87A072D6574DD00840745 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A052D6574DD00840745 /* FAQ.swift */; };
 		F3C87A082D6574DD00840745 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A052D6574DD00840745 /* FAQ.swift */; };
-		F3C87A092D65759B00840745 /* MCStatsShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MCStatsShortcutsProvider.swift */; };
-		F3C87A0A2D6575AE00840745 /* SavedServerStatusOnlineCheckIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift */; };
-		F3C87A0B2D6575B700840745 /* IntentErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */; };
-		F3C87A0C2D6575C800840745 /* ServerStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* ServerStatusEntity.swift */; };
-		F3C87A0D2D6575DE00840745 /* SavedServerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* SavedServerEntity.swift */; };
+		F3C87A092D65759B00840745 /* MC Stats Shortcuts Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift */; };
+		F3C87A0A2D6575AE00840745 /* Saved Server Status Online Check Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* Saved Server Status Online Check Intent.swift */; };
+		F3C87A0B2D6575B700840745 /* Intent Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* Intent Errors.swift */; };
+		F3C87A0C2D6575C800840745 /* Server Status Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* Server Status Entity.swift */; };
+		F3C87A0D2D6575DE00840745 /* Saved Server Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* Saved Server Entity.swift */; };
 		F3C87A0F2D657A1500840745 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
 		F3C87A102D657A1500840745 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
 		F3C87A112D657A1500840745 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C87A0E2D657A1500840745 /* Feature.swift */; };
@@ -423,7 +423,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F10C42162AAD55BF000107D6 /* MCStatsShortcutsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCStatsShortcutsProvider.swift; sourceTree = "<group>"; };
+		F10C42162AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MC Stats Shortcuts Provider.swift"; sourceTree = "<group>"; };
 		F10E94B02A8C61B60039DD2B /* Connectivity Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Connectivity Provider.swift"; sourceTree = "<group>"; };
 		F11F634B2A81E50E00D47187 /* watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watchOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F11F63512A81E51000D47187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -435,7 +435,7 @@
 		F13E60022A4BD615005BE9B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F13E60042A4BD615005BE9B2 /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
 		F13E60082A4BD615005BE9B2 /* iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = iOS.plist; sourceTree = "<group>"; };
-		F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentErrors.swift; sourceTree = "<group>"; };
+		F1406BA32AA2DD2C00815BE8 /* Intent Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Intent Errors.swift"; sourceTree = "<group>"; };
 		F1406BA92AA391B800815BE8 /* Intents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = Intents.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1406BAB2AA391B800815BE8 /* Intents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intents.swift; sourceTree = "<group>"; };
 		F1406BAF2AA391B800815BE8 /* Intents.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Intents.plist; sourceTree = "<group>"; };
@@ -444,7 +444,7 @@
 		F150B4352CC1709700739646 /* Shortcuts Guide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shortcuts Guide.swift"; sourceTree = "<group>"; };
 		F150B43E2CC18C1100739646 /* Release Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Release Notes.swift"; sourceTree = "<group>"; };
 		F174A2FB2A8F7FFA0051DA5B /* Watch Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Watch Helper.swift"; sourceTree = "<group>"; };
-		F174A3002A915E450051DA5B /* WatchServerStatusChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchServerStatusChecker.swift; sourceTree = "<group>"; };
+		F174A3002A915E450051DA5B /* Watch Server Status Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Watch Server Status Checker.swift"; sourceTree = "<group>"; };
 		F17A16BA2A893DD700F8FF2F /* Settings View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings View.swift"; sourceTree = "<group>"; };
 		F17A16BC2A8956DE00F8FF2F /* Edit Server View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Edit Server View.swift"; sourceTree = "<group>"; };
 		F17AE0EB2CC01E9E00DC7A80 /* FAQ View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FAQ View.swift"; sourceTree = "<group>"; };
@@ -471,35 +471,35 @@
 		F30246C82D6661D60030F71C /* Player List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player List.swift"; sourceTree = "<group>"; };
 		F30246D12D667ED50030F71C /* Server Ping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Server Ping.swift"; sourceTree = "<group>"; };
 		F30246D52D66816E0030F71C /* Ping Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ping Graph.swift"; sourceTree = "<group>"; };
-		F30471F52D63E9C00055C007 /* HomescreenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenProvider.swift; sourceTree = "<group>"; };
-		F30471F62D63E9C00055C007 /* LockscreenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockscreenProvider.swift; sourceTree = "<group>"; };
-		F30471F82D63E9C00055C007 /* CircularAccessoryWidgetView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularAccessoryWidgetView1.swift; sourceTree = "<group>"; };
-		F30471F92D63E9C00055C007 /* CircularAccessoryWidgetView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularAccessoryWidgetView2.swift; sourceTree = "<group>"; };
-		F30471FA2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerAccessoryWidgetView1.swift; sourceTree = "<group>"; };
-		F30471FB2D63E9C00055C007 /* InlineAccessoryWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineAccessoryWidgetView.swift; sourceTree = "<group>"; };
-		F30471FC2D63E9C00055C007 /* InlineAccessoryWidgetView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineAccessoryWidgetView2.swift; sourceTree = "<group>"; };
-		F30471FD2D63E9C00055C007 /* MediumWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumWidgetView.swift; sourceTree = "<group>"; };
-		F30471FE2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularAccessoryWidgetView.swift; sourceTree = "<group>"; };
-		F30471FF2D63E9C00055C007 /* SmallWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidgetView.swift; sourceTree = "<group>"; };
+		F30471F52D63E9C00055C007 /* Homescreen Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Homescreen Provider.swift"; sourceTree = "<group>"; };
+		F30471F62D63E9C00055C007 /* Lockscreen Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lockscreen Provider.swift"; sourceTree = "<group>"; };
+		F30471F82D63E9C00055C007 /* Circular Accessory WidgetView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Circular Accessory WidgetView1.swift"; sourceTree = "<group>"; };
+		F30471F92D63E9C00055C007 /* Circular Accessory WidgetView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Circular Accessory WidgetView2.swift"; sourceTree = "<group>"; };
+		F30471FA2D63E9C00055C007 /* Corner Accessory WidgetView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Corner Accessory WidgetView1.swift"; sourceTree = "<group>"; };
+		F30471FB2D63E9C00055C007 /* Inline Accessory WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Inline Accessory WidgetView.swift"; sourceTree = "<group>"; };
+		F30471FC2D63E9C00055C007 /* Inline Accessory WidgetView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Inline Accessory WidgetView2.swift"; sourceTree = "<group>"; };
+		F30471FD2D63E9C00055C007 /* Medium Widget View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medium Widget View.swift"; sourceTree = "<group>"; };
+		F30471FE2D63E9C00055C007 /* Rectangular Accessory WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rectangular Accessory WidgetView.swift"; sourceTree = "<group>"; };
+		F30471FF2D63E9C00055C007 /* Small Widget View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Small Widget View.swift"; sourceTree = "<group>"; };
 		F30472012D63E9C00055C007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F30472022D63E9C00055C007 /* Widgets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Widgets.plist; sourceTree = "<group>"; };
 		F30472032D63E9C00055C007 /* Widgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Widgets.entitlements; sourceTree = "<group>"; };
 		F30472042D63E9C00055C007 /* Widgets Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Widgets Bundle.swift"; sourceTree = "<group>"; };
-		F30472052D63E9C00055C007 /* MinecraftServerStatusHSWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinecraftServerStatusHSWidget.swift; sourceTree = "<group>"; };
-		F30472062D63E9C00055C007 /* MinecraftServerStatusLSWidget1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinecraftServerStatusLSWidget1.swift; sourceTree = "<group>"; };
-		F30472072D63E9C00055C007 /* WidgetEntryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEntryVM.swift; sourceTree = "<group>"; };
+		F30472052D63E9C00055C007 /* Minecraft Server Status HS Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Minecraft Server Status HS Widget.swift"; sourceTree = "<group>"; };
+		F30472062D63E9C00055C007 /* Minecraft Server Status LSWidget1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Minecraft Server Status LSWidget1.swift"; sourceTree = "<group>"; };
+		F30472072D63E9C00055C007 /* Widget Entry VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Widget Entry VM.swift"; sourceTree = "<group>"; };
 		F30472222D63E9C20055C007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F30472232D63E9C20055C007 /* Widgets watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Widgets watchOS.plist"; sourceTree = "<group>"; };
 		F30472242D63E9C20055C007 /* Widgets watchOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Widgets watchOS.entitlements"; sourceTree = "<group>"; };
-		F304722A2D63E9CF0055C007 /* RefreshWidgetIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshWidgetIntent.swift; sourceTree = "<group>"; };
-		F304722B2D63E9CF0055C007 /* ServerSelectNoTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSelectNoTheme.swift; sourceTree = "<group>"; };
-		F304722C2D63E9CF0055C007 /* SelectServerIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectServerIntent.swift; sourceTree = "<group>"; };
-		F304723D2D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArbitraryServerStatusOnlineCheckIntent.swift; sourceTree = "<group>"; };
-		F304723E2D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedServerStatusOnlineCheckIntent.swift; sourceTree = "<group>"; };
-		F30472462D63E9D20055C007 /* ServerIntentTypeAppEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerIntentTypeAppEntity.swift; sourceTree = "<group>"; };
-		F30472472D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeIntentTypeAppEntity.swift; sourceTree = "<group>"; };
-		F304724F2D63E9D30055C007 /* SavedServerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedServerEntity.swift; sourceTree = "<group>"; };
-		F30472502D63E9D30055C007 /* ServerStatusEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStatusEntity.swift; sourceTree = "<group>"; };
+		F304722A2D63E9CF0055C007 /* Refresh Widget Intent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Refresh Widget Intent.swift"; sourceTree = "<group>"; };
+		F304722B2D63E9CF0055C007 /* Server Select No Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Server Select No Theme.swift"; sourceTree = "<group>"; };
+		F304722C2D63E9CF0055C007 /* Select Server Intent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Select Server Intent.swift"; sourceTree = "<group>"; };
+		F304723D2D63E9D00055C007 /* Arbitrary Server Status Online Check Intent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Arbitrary Server Status Online Check Intent.swift"; sourceTree = "<group>"; };
+		F304723E2D63E9D00055C007 /* Saved Server Status Online Check Intent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Saved Server Status Online Check Intent.swift"; sourceTree = "<group>"; };
+		F30472462D63E9D20055C007 /* Server Intent Type App Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Server Intent Type App Entity.swift"; sourceTree = "<group>"; };
+		F30472472D63E9D20055C007 /* Theme Intent Type App Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme Intent Type App Entity.swift"; sourceTree = "<group>"; };
+		F304724F2D63E9D30055C007 /* Saved Server Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Saved Server Entity.swift"; sourceTree = "<group>"; };
+		F30472502D63E9D30055C007 /* Server Status Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Server Status Entity.swift"; sourceTree = "<group>"; };
 		F30472582D63FBFC0055C007 /* MinecraftBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftBold.otf; sourceTree = "<group>"; };
 		F30472592D63FBFC0055C007 /* MinecraftBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftBoldItalic.otf; sourceTree = "<group>"; };
 		F304725A2D63FBFC0055C007 /* MinecraftItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MinecraftItalic.otf; sourceTree = "<group>"; };
@@ -642,7 +642,7 @@
 		F10C42152AAD55A6000107D6 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
-				F10C42162AAD55BF000107D6 /* MCStatsShortcutsProvider.swift */,
+				F10C42162AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -728,7 +728,7 @@
 			children = (
 				F30472482D63E9D20055C007 /* Widget */,
 				F30472512D63E9D30055C007 /* Shortcuts */,
-				F1406BA32AA2DD2C00815BE8 /* IntentErrors.swift */,
+				F1406BA32AA2DD2C00815BE8 /* Intent Errors.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -818,7 +818,7 @@
 			isa = PBXGroup;
 			children = (
 				F10E94B02A8C61B60039DD2B /* Connectivity Provider.swift */,
-				F174A3002A915E450051DA5B /* WatchServerStatusChecker.swift */,
+				F174A3002A915E450051DA5B /* Watch Server Status Checker.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -839,8 +839,8 @@
 		F30471F72D63E9C00055C007 /* TimelineProviders */ = {
 			isa = PBXGroup;
 			children = (
-				F30471F52D63E9C00055C007 /* HomescreenProvider.swift */,
-				F30471F62D63E9C00055C007 /* LockscreenProvider.swift */,
+				F30471F52D63E9C00055C007 /* Homescreen Provider.swift */,
+				F30471F62D63E9C00055C007 /* Lockscreen Provider.swift */,
 			);
 			path = TimelineProviders;
 			sourceTree = "<group>";
@@ -849,9 +849,8 @@
 			isa = PBXGroup;
 			children = (
 				F39296302D6CFFE90021E2ED /* Lock Screen */,
-				F30471FC2D63E9C00055C007 /* InlineAccessoryWidgetView2.swift */,
-				F30471FD2D63E9C00055C007 /* MediumWidgetView.swift */,
-				F30471FF2D63E9C00055C007 /* SmallWidgetView.swift */,
+				F30471FD2D63E9C00055C007 /* Medium Widget View.swift */,
+				F30471FF2D63E9C00055C007 /* Small Widget View.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -863,8 +862,8 @@
 				F30472022D63E9C00055C007 /* Widgets.plist */,
 				F30472032D63E9C00055C007 /* Widgets.entitlements */,
 				F30472012D63E9C00055C007 /* Assets.xcassets */,
-				F30472052D63E9C00055C007 /* MinecraftServerStatusHSWidget.swift */,
-				F30472072D63E9C00055C007 /* WidgetEntryVM.swift */,
+				F30472052D63E9C00055C007 /* Minecraft Server Status HS Widget.swift */,
+				F30472072D63E9C00055C007 /* Widget Entry VM.swift */,
 				F30471F72D63E9C00055C007 /* TimelineProviders */,
 				F30472002D63E9C00055C007 /* Views */,
 			);
@@ -884,9 +883,9 @@
 		F304722D2D63E9CF0055C007 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
-				F304722A2D63E9CF0055C007 /* RefreshWidgetIntent.swift */,
-				F304722B2D63E9CF0055C007 /* ServerSelectNoTheme.swift */,
-				F304722C2D63E9CF0055C007 /* SelectServerIntent.swift */,
+				F304722A2D63E9CF0055C007 /* Refresh Widget Intent.swift */,
+				F304722B2D63E9CF0055C007 /* Server Select No Theme.swift */,
+				F304722C2D63E9CF0055C007 /* Select Server Intent.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -894,8 +893,8 @@
 		F304723F2D63E9D00055C007 /* Shortcuts */ = {
 			isa = PBXGroup;
 			children = (
-				F304723D2D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift */,
-				F304723E2D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift */,
+				F304723D2D63E9D00055C007 /* Arbitrary Server Status Online Check Intent.swift */,
+				F304723E2D63E9D00055C007 /* Saved Server Status Online Check Intent.swift */,
 			);
 			path = Shortcuts;
 			sourceTree = "<group>";
@@ -903,8 +902,8 @@
 		F30472482D63E9D20055C007 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
-				F30472462D63E9D20055C007 /* ServerIntentTypeAppEntity.swift */,
-				F30472472D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift */,
+				F30472462D63E9D20055C007 /* Server Intent Type App Entity.swift */,
+				F30472472D63E9D20055C007 /* Theme Intent Type App Entity.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -912,8 +911,8 @@
 		F30472512D63E9D30055C007 /* Shortcuts */ = {
 			isa = PBXGroup;
 			children = (
-				F304724F2D63E9D30055C007 /* SavedServerEntity.swift */,
-				F30472502D63E9D30055C007 /* ServerStatusEntity.swift */,
+				F304724F2D63E9D30055C007 /* Saved Server Entity.swift */,
+				F30472502D63E9D30055C007 /* Server Status Entity.swift */,
 			);
 			path = Shortcuts;
 			sourceTree = "<group>";
@@ -988,12 +987,13 @@
 		F39296302D6CFFE90021E2ED /* Lock Screen */ = {
 			isa = PBXGroup;
 			children = (
-				F30472062D63E9C00055C007 /* MinecraftServerStatusLSWidget1.swift */,
-				F30471F82D63E9C00055C007 /* CircularAccessoryWidgetView1.swift */,
-				F30471F92D63E9C00055C007 /* CircularAccessoryWidgetView2.swift */,
-				F30471FA2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift */,
-				F30471FB2D63E9C00055C007 /* InlineAccessoryWidgetView.swift */,
-				F30471FE2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift */,
+				F30472062D63E9C00055C007 /* Minecraft Server Status LSWidget1.swift */,
+				F30471F82D63E9C00055C007 /* Circular Accessory WidgetView1.swift */,
+				F30471F92D63E9C00055C007 /* Circular Accessory WidgetView2.swift */,
+				F30471FA2D63E9C00055C007 /* Corner Accessory WidgetView1.swift */,
+				F30471FB2D63E9C00055C007 /* Inline Accessory WidgetView.swift */,
+				F30471FE2D63E9C00055C007 /* Rectangular Accessory WidgetView.swift */,
+				F30471FC2D63E9C00055C007 /* Inline Accessory WidgetView2.swift */,
 			);
 			path = "Lock Screen";
 			sourceTree = "<group>";
@@ -1400,28 +1400,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1EF76CA2CB422D400EFFB20 /* Server Details.swift in Sources */,
-				F174A3012A915E450051DA5B /* WatchServerStatusChecker.swift in Sources */,
+				F174A3012A915E450051DA5B /* Watch Server Status Checker.swift in Sources */,
 				F360A8AD2D6C6B5C008E515E /* MC Stats.swift in Sources */,
 				F13095532CBC9D5600C4C7BA /* Config Helper.swift in Sources */,
 				F39EAF782D6C831000072794 /* Settings View.swift in Sources */,
 				F39EAF792D6C845000072794 /* Debug Settings.swift in Sources */,
 				F1CFCD532CABB567001A9E69 /* Custom Extentions.swift in Sources */,
-				F1EF76D22CB449E700EFFB20 /* IntentErrors.swift in Sources */,
+				F1EF76D22CB449E700EFFB20 /* Intent Errors.swift in Sources */,
 				F17AE0F82CC0504200DC7A80 /* Review Helper.swift in Sources */,
 				F3C1E43E2D6C949900950F3D /* App Container Helper.swift in Sources */,
 				F3C1E43F2D6C957900950F3D /* Refresh Widgets.swift in Sources */,
 				F17AE0EE2CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */,
-				F1EF76D52CB449E700EFFB20 /* MCStatsShortcutsProvider.swift in Sources */,
-				F30472442D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */,
+				F1EF76D52CB449E700EFFB20 /* MC Stats Shortcuts Provider.swift in Sources */,
+				F30472442D63E9D00055C007 /* Arbitrary Server Status Online Check Intent.swift in Sources */,
 				F3BFB1502D68055A00E16468 /* MOTD View.swift in Sources */,
-				F30472452D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
+				F30472452D63E9D00055C007 /* Saved Server Status Online Check Intent.swift in Sources */,
 				F1EF76C22CB4204E00EFFB20 /* App Container.swift in Sources */,
 				F1EF76C32CB4204E00EFFB20 /* Server Row.swift in Sources */,
 				F174A2FE2A8F8ED70051DA5B /* UserDefaults Helper.swift in Sources */,
 				F39EAF762D6C82C200072794 /* Page Destinations.swift in Sources */,
 				F1EF76BA2CB41A2700EFFB20 /* Custom Progress View.swift in Sources */,
-				F30472562D63E9D30055C007 /* SavedServerEntity.swift in Sources */,
-				F30472572D63E9D30055C007 /* ServerStatusEntity.swift in Sources */,
+				F30472562D63E9D30055C007 /* Saved Server Entity.swift in Sources */,
+				F30472572D63E9D30055C007 /* Server Status Entity.swift in Sources */,
 				F10E94B12A8C61B60039DD2B /* Connectivity Provider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1431,25 +1431,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				F13095542CBC9DB300C4C7BA /* UserDefaults Helper.swift in Sources */,
-				F13095572CBD48ED00C4C7BA /* WatchServerStatusChecker.swift in Sources */,
+				F13095572CBD48ED00C4C7BA /* Watch Server Status Checker.swift in Sources */,
 				F13095582CBD494300C4C7BA /* Connectivity Provider.swift in Sources */,
 				F35E1A752D64ACE400718CB7 /* Widgets Bundle.swift in Sources */,
-				F304723A2D63E9CF0055C007 /* SelectServerIntent.swift in Sources */,
-				F304723B2D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */,
-				F304723C2D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */,
+				F304723A2D63E9CF0055C007 /* Select Server Intent.swift in Sources */,
+				F304723B2D63E9CF0055C007 /* Refresh Widget Intent.swift in Sources */,
+				F304723C2D63E9CF0055C007 /* Server Select No Theme.swift in Sources */,
 				F17AE07D2CBE0B6600DC7A80 /* Custom Progress View.swift in Sources */,
 				F17AE0F42CC0504200DC7A80 /* Review Helper.swift in Sources */,
-				F304724D2D63E9D20055C007 /* ServerIntentTypeAppEntity.swift in Sources */,
-				F304724E2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */,
-				F30472192D63E9C00055C007 /* CircularAccessoryWidgetView1.swift in Sources */,
-				F304721A2D63E9C00055C007 /* CircularAccessoryWidgetView2.swift in Sources */,
-				F304721B2D63E9C00055C007 /* MinecraftServerStatusLSWidget1.swift in Sources */,
-				F304721C2D63E9C00055C007 /* WidgetEntryVM.swift in Sources */,
-				F304721D2D63E9C00055C007 /* RectangularAccessoryWidgetView.swift in Sources */,
-				F304721E2D63E9C00055C007 /* InlineAccessoryWidgetView.swift in Sources */,
-				F304721F2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift in Sources */,
-				F30472202D63E9C00055C007 /* InlineAccessoryWidgetView2.swift in Sources */,
-				F30472212D63E9C00055C007 /* LockscreenProvider.swift in Sources */,
+				F304724D2D63E9D20055C007 /* Server Intent Type App Entity.swift in Sources */,
+				F304724E2D63E9D20055C007 /* Theme Intent Type App Entity.swift in Sources */,
+				F30472192D63E9C00055C007 /* Circular Accessory WidgetView1.swift in Sources */,
+				F304721A2D63E9C00055C007 /* Circular Accessory WidgetView2.swift in Sources */,
+				F304721B2D63E9C00055C007 /* Minecraft Server Status LSWidget1.swift in Sources */,
+				F304721C2D63E9C00055C007 /* Widget Entry VM.swift in Sources */,
+				F304721D2D63E9C00055C007 /* Rectangular Accessory WidgetView.swift in Sources */,
+				F304721E2D63E9C00055C007 /* Inline Accessory WidgetView.swift in Sources */,
+				F304721F2D63E9C00055C007 /* Corner Accessory WidgetView1.swift in Sources */,
+				F30472202D63E9C00055C007 /* Inline Accessory WidgetView2.swift in Sources */,
+				F30472212D63E9C00055C007 /* Lockscreen Provider.swift in Sources */,
 				F17AE0F02CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */,
 				F130954C2CBC9C5D00C4C7BA /* Custom Extentions.swift in Sources */,
 			);
@@ -1465,13 +1465,13 @@
 				F17AE0FC2CC05F9000DC7A80 /* Tip View.swift in Sources */,
 				F1A43C822A8472B20081A24C /* Server Details.swift in Sources */,
 				F35E1A6F2D649C6000718CB7 /* Feature Row.swift in Sources */,
-				F30472542D63E9D30055C007 /* SavedServerEntity.swift in Sources */,
+				F30472542D63E9D30055C007 /* Saved Server Entity.swift in Sources */,
 				F378836A2D6AF86A00D38522 /* Debug Settings.swift in Sources */,
 				F35E1A742D64A4B200718CB7 /* Low Power Mode.swift in Sources */,
 				F3BFB14D2D68055A00E16468 /* MOTD View.swift in Sources */,
 				F3C1E43B2D6C949900950F3D /* App Container Helper.swift in Sources */,
 				F3C87A062D6574DD00840745 /* FAQ.swift in Sources */,
-				F30472552D63E9D30055C007 /* ServerStatusEntity.swift in Sources */,
+				F30472552D63E9D30055C007 /* Server Status Entity.swift in Sources */,
 				F30246CB2D6661D60030F71C /* Player List.swift in Sources */,
 				F35E1A712D649D1300718CB7 /* Siri Guide Phrase.swift in Sources */,
 				F174A2FC2A8F7FFA0051DA5B /* Watch Helper.swift in Sources */,
@@ -1485,16 +1485,16 @@
 				F13E5FFD2A4BD614005BE9B2 /* MC Stats.swift in Sources */,
 				F150B4362CC1709700739646 /* Shortcuts Guide.swift in Sources */,
 				F35E1A6D2D6489FD00718CB7 /* General Settings.swift in Sources */,
-				F30472422D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */,
-				F30472432D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
+				F30472422D63E9D00055C007 /* Arbitrary Server Status Online Check Intent.swift in Sources */,
+				F30472432D63E9D00055C007 /* Saved Server Status Online Check Intent.swift in Sources */,
 				F39EAF742D6C82B900072794 /* Page Destinations.swift in Sources */,
 				F17AE0EF2CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */,
 				F30246C72D65E6F70030F71C /* Siri Phrase.swift in Sources */,
-				F16990822CA5DDE500F41232 /* IntentErrors.swift in Sources */,
+				F16990822CA5DDE500F41232 /* Intent Errors.swift in Sources */,
 				F30246D82D66816E0030F71C /* Ping Graph.swift in Sources */,
 				F1CFCD512CABB567001A9E69 /* Custom Extentions.swift in Sources */,
 				F35E1A9E2D65209500718CB7 /* Player Card.swift in Sources */,
-				F16990872CA5DDE500F41232 /* MCStatsShortcutsProvider.swift in Sources */,
+				F16990872CA5DDE500F41232 /* MC Stats Shortcuts Provider.swift in Sources */,
 				F17A16BB2A893DD700F8FF2F /* Settings View.swift in Sources */,
 				F1AE29162CA48577009D0D14 /* Server Row.swift in Sources */,
 				F13E60012A4BD614005BE9B2 /* App Container.swift in Sources */,
@@ -1508,22 +1508,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F30472522D63E9D30055C007 /* SavedServerEntity.swift in Sources */,
-				F30472532D63E9D30055C007 /* ServerStatusEntity.swift in Sources */,
-				F30472402D63E9D00055C007 /* ArbitraryServerStatusOnlineCheckIntent.swift in Sources */,
-				F30472412D63E9D00055C007 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
-				F13095592CBD497200C4C7BA /* WatchServerStatusChecker.swift in Sources */,
-				F10C42172AAD55BF000107D6 /* MCStatsShortcutsProvider.swift in Sources */,
-				F304724B2D63E9D20055C007 /* ServerIntentTypeAppEntity.swift in Sources */,
-				F304724C2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */,
+				F30472522D63E9D30055C007 /* Saved Server Entity.swift in Sources */,
+				F30472532D63E9D30055C007 /* Server Status Entity.swift in Sources */,
+				F30472402D63E9D00055C007 /* Arbitrary Server Status Online Check Intent.swift in Sources */,
+				F30472412D63E9D00055C007 /* Saved Server Status Online Check Intent.swift in Sources */,
+				F13095592CBD497200C4C7BA /* Watch Server Status Checker.swift in Sources */,
+				F10C42172AAD55BF000107D6 /* MC Stats Shortcuts Provider.swift in Sources */,
+				F304724B2D63E9D20055C007 /* Server Intent Type App Entity.swift in Sources */,
+				F304724C2D63E9D20055C007 /* Theme Intent Type App Entity.swift in Sources */,
 				F1CFCD522CABB567001A9E69 /* Custom Extentions.swift in Sources */,
 				F17AE0F52CC0504200DC7A80 /* Review Helper.swift in Sources */,
 				F1406BAC2AA391B800815BE8 /* Intents.swift in Sources */,
-				F1406BBF2AA3933400815BE8 /* IntentErrors.swift in Sources */,
+				F1406BBF2AA3933400815BE8 /* Intent Errors.swift in Sources */,
 				F130955A2CBD499700C4C7BA /* Connectivity Provider.swift in Sources */,
-				F304722E2D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */,
-				F304722F2D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */,
-				F30472302D63E9CF0055C007 /* SelectServerIntent.swift in Sources */,
+				F304722E2D63E9CF0055C007 /* Refresh Widget Intent.swift in Sources */,
+				F304722F2D63E9CF0055C007 /* Server Select No Theme.swift in Sources */,
+				F30472302D63E9CF0055C007 /* Select Server Intent.swift in Sources */,
 				F13095512CBC9D5600C4C7BA /* Config Helper.swift in Sources */,
 				F17AE0F22CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */,
 				F1406BC22AA3936E00815BE8 /* UserDefaults Helper.swift in Sources */,
@@ -1534,27 +1534,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F304720B2D63E9C00055C007 /* HomescreenProvider.swift in Sources */,
-				F304720C2D63E9C00055C007 /* LockscreenProvider.swift in Sources */,
-				F30472372D63E9CF0055C007 /* SelectServerIntent.swift in Sources */,
-				F30472382D63E9CF0055C007 /* RefreshWidgetIntent.swift in Sources */,
-				F30472392D63E9CF0055C007 /* ServerSelectNoTheme.swift in Sources */,
-				F304720D2D63E9C00055C007 /* CircularAccessoryWidgetView1.swift in Sources */,
-				F304720E2D63E9C00055C007 /* CircularAccessoryWidgetView2.swift in Sources */,
-				F304720F2D63E9C00055C007 /* CornerAccessoryWidgetView1.swift in Sources */,
-				F30472102D63E9C00055C007 /* InlineAccessoryWidgetView.swift in Sources */,
-				F30472112D63E9C00055C007 /* InlineAccessoryWidgetView2.swift in Sources */,
-				F30472122D63E9C00055C007 /* MediumWidgetView.swift in Sources */,
-				F30472132D63E9C00055C007 /* RectangularAccessoryWidgetView.swift in Sources */,
-				F30472142D63E9C00055C007 /* SmallWidgetView.swift in Sources */,
+				F304720B2D63E9C00055C007 /* Homescreen Provider.swift in Sources */,
+				F304720C2D63E9C00055C007 /* Lockscreen Provider.swift in Sources */,
+				F30472372D63E9CF0055C007 /* Select Server Intent.swift in Sources */,
+				F30472382D63E9CF0055C007 /* Refresh Widget Intent.swift in Sources */,
+				F30472392D63E9CF0055C007 /* Server Select No Theme.swift in Sources */,
+				F304720D2D63E9C00055C007 /* Circular Accessory WidgetView1.swift in Sources */,
+				F304720E2D63E9C00055C007 /* Circular Accessory WidgetView2.swift in Sources */,
+				F304720F2D63E9C00055C007 /* Corner Accessory WidgetView1.swift in Sources */,
+				F30472102D63E9C00055C007 /* Inline Accessory WidgetView.swift in Sources */,
+				F30472112D63E9C00055C007 /* Inline Accessory WidgetView2.swift in Sources */,
+				F30472122D63E9C00055C007 /* Medium Widget View.swift in Sources */,
+				F30472132D63E9C00055C007 /* Rectangular Accessory WidgetView.swift in Sources */,
+				F30472142D63E9C00055C007 /* Small Widget View.swift in Sources */,
 				F30472152D63E9C00055C007 /* Widgets Bundle.swift in Sources */,
-				F30472162D63E9C00055C007 /* MinecraftServerStatusHSWidget.swift in Sources */,
-				F30472172D63E9C00055C007 /* MinecraftServerStatusLSWidget1.swift in Sources */,
-				F30472182D63E9C00055C007 /* WidgetEntryVM.swift in Sources */,
+				F30472162D63E9C00055C007 /* Minecraft Server Status HS Widget.swift in Sources */,
+				F30472172D63E9C00055C007 /* Minecraft Server Status LSWidget1.swift in Sources */,
+				F30472182D63E9C00055C007 /* Widget Entry VM.swift in Sources */,
 				F17AE0F12CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */,
 				F17AE0F72CC0504200DC7A80 /* Review Helper.swift in Sources */,
-				F30472492D63E9D20055C007 /* ServerIntentTypeAppEntity.swift in Sources */,
-				F304724A2D63E9D20055C007 /* ThemeIntentTypeAppEntity.swift in Sources */,
+				F30472492D63E9D20055C007 /* Server Intent Type App Entity.swift in Sources */,
+				F304724A2D63E9D20055C007 /* Theme Intent Type App Entity.swift in Sources */,
 				F1EF77632CB958B700EFFB20 /* Custom Extentions.swift in Sources */,
 				F1EF77622CB8C62D00EFFB20 /* Custom Progress View.swift in Sources */,
 				F13095502CBC9D5600C4C7BA /* Config Helper.swift in Sources */,
@@ -1570,12 +1570,12 @@
 				F31D45D82D6DC76200981B1C /* FAQ.swift in Sources */,
 				F31D45D92D6DC76200981B1C /* Edit Server View.swift in Sources */,
 				F31D45DA2D6DC76200981B1C /* Server Row.swift in Sources */,
-				F31D45EB2D6DCB1300981B1C /* ServerStatusEntity.swift in Sources */,
-				F31D45EA2D6DCA5E00981B1C /* IntentErrors.swift in Sources */,
+				F31D45EB2D6DCB1300981B1C /* Server Status Entity.swift in Sources */,
+				F31D45EA2D6DCA5E00981B1C /* Intent Errors.swift in Sources */,
 				F31D45DB2D6DC76200981B1C /* FAQ View.swift in Sources */,
 				F31D45DC2D6DC76200981B1C /* FAQ Row.swift in Sources */,
 				F31D45C62D6DC74C00981B1C /* Tip View.swift in Sources */,
-				F31D45E92D6DCA5000981B1C /* SavedServerEntity.swift in Sources */,
+				F31D45E92D6DCA5000981B1C /* Saved Server Entity.swift in Sources */,
 				F31D45C72D6DC74C00981B1C /* Release Notes.swift in Sources */,
 				F31D45C82D6DC74C00981B1C /* Custom Progress View.swift in Sources */,
 				F31D45C92D6DC74C00981B1C /* Feature Row.swift in Sources */,
@@ -1587,9 +1587,9 @@
 				F31D45C52D6DC74100981B1C /* Page Destinations.swift in Sources */,
 				F31D45CB2D6DC75200981B1C /* Server Details.swift in Sources */,
 				F31D45D12D6DC75700981B1C /* Settings View.swift in Sources */,
-				F31D45E82D6DCA3E00981B1C /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
+				F31D45E82D6DCA3E00981B1C /* Saved Server Status Online Check Intent.swift in Sources */,
 				F31D45D22D6DC75700981B1C /* General Settings.swift in Sources */,
-				F31D45E72D6DCA3400981B1C /* MCStatsShortcutsProvider.swift in Sources */,
+				F31D45E72D6DCA3400981B1C /* MC Stats Shortcuts Provider.swift in Sources */,
 				F31D45D32D6DC75700981B1C /* Debug Settings.swift in Sources */,
 				F31D45DD2D6DC76800981B1C /* MOTD View Generator.swift in Sources */,
 				F31D45E32D6DC79200981B1C /* Swifty Ping.swift in Sources */,
@@ -1641,11 +1641,11 @@
 				F30246C92D6661D60030F71C /* Player List.swift in Sources */,
 				F3C87A022D6574D200840745 /* FAQ Row.swift in Sources */,
 				F35E1AAC2D6522D600718CB7 /* Edit Server View.swift in Sources */,
-				F35E1ACA2D652C6D00718CB7 /* ServerStatusEntity.swift in Sources */,
+				F35E1ACA2D652C6D00718CB7 /* Server Status Entity.swift in Sources */,
 				F35E1AC02D65236900718CB7 /* Swifty Ping.swift in Sources */,
 				F39EAF752D6C82B900072794 /* Page Destinations.swift in Sources */,
-				F35E1AC72D652B3B00718CB7 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
-				F35E1AC62D652B3000718CB7 /* MCStatsShortcutsProvider.swift in Sources */,
+				F35E1AC72D652B3B00718CB7 /* Saved Server Status Online Check Intent.swift in Sources */,
+				F35E1AC62D652B3000718CB7 /* MC Stats Shortcuts Provider.swift in Sources */,
 				F35E1AAD2D6522D600718CB7 /* General Settings.swift in Sources */,
 				F35E1AAE2D6522D600718CB7 /* Shortcuts Guide.swift in Sources */,
 				F35E1AAF2D6522D600718CB7 /* Server Row.swift in Sources */,
@@ -1657,11 +1657,11 @@
 				F3C87A072D6574DD00840745 /* FAQ.swift in Sources */,
 				F35E1AB92D65236300718CB7 /* Custom Extentions.swift in Sources */,
 				F35E1ABA2D65236300718CB7 /* Review Helper.swift in Sources */,
-				F35E1AC82D652B4700718CB7 /* IntentErrors.swift in Sources */,
+				F35E1AC82D652B4700718CB7 /* Intent Errors.swift in Sources */,
 				F35E1ABC2D65236300718CB7 /* UserDefaults Helper.swift in Sources */,
 				F35E1ABD2D65236300718CB7 /* Config Helper.swift in Sources */,
 				F35E1ABF2D65236300718CB7 /* MOTD View Generator.swift in Sources */,
-				F35E1AC92D652C5B00718CB7 /* SavedServerEntity.swift in Sources */,
+				F35E1AC92D652C5B00718CB7 /* Saved Server Entity.swift in Sources */,
 				F35E1AA42D6522C600718CB7 /* Release Notes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1673,13 +1673,13 @@
 				F3C879DF2D6572C400840745 /* Server Details.swift in Sources */,
 				F3BFB14F2D68055A00E16468 /* MOTD View.swift in Sources */,
 				F3C879E02D6572C400840745 /* Player Card.swift in Sources */,
-				F3C87A0B2D6575B700840745 /* IntentErrors.swift in Sources */,
+				F3C87A0B2D6575B700840745 /* Intent Errors.swift in Sources */,
 				F383D1982D67D3D100FE4239 /* Siri Guide.swift in Sources */,
-				F3C87A092D65759B00840745 /* MCStatsShortcutsProvider.swift in Sources */,
-				F3C87A0D2D6575DE00840745 /* SavedServerEntity.swift in Sources */,
+				F3C87A092D65759B00840745 /* MC Stats Shortcuts Provider.swift in Sources */,
+				F3C87A0D2D6575DE00840745 /* Saved Server Entity.swift in Sources */,
 				F3C879F32D6572D500840745 /* Swifty Ping.swift in Sources */,
 				F3C1E43C2D6C949900950F3D /* App Container Helper.swift in Sources */,
-				F3C87A0A2D6575AE00840745 /* SavedServerStatusOnlineCheckIntent.swift in Sources */,
+				F3C87A0A2D6575AE00840745 /* Saved Server Status Online Check Intent.swift in Sources */,
 				F3C879E22D6572C400840745 /* Tip View.swift in Sources */,
 				F30246D22D667ED50030F71C /* Server Ping.swift in Sources */,
 				F30246CA2D6661D60030F71C /* Player List.swift in Sources */,
@@ -1695,7 +1695,7 @@
 				F3C879EE2D6572D000840745 /* Config Helper.swift in Sources */,
 				F3C87A042D6574D200840745 /* FAQ Row.swift in Sources */,
 				F3C879F12D6572D000840745 /* Review Helper.swift in Sources */,
-				F3C87A0C2D6575C800840745 /* ServerStatusEntity.swift in Sources */,
+				F3C87A0C2D6575C800840745 /* Server Status Entity.swift in Sources */,
 				F3C87A0F2D657A1500840745 /* Feature.swift in Sources */,
 				F3C879F22D6572D000840745 /* UserDefaults Helper.swift in Sources */,
 				F3C879DD2D6572BE00840745 /* Feature Row.swift in Sources */,
