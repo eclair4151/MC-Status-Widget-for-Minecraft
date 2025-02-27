@@ -108,7 +108,7 @@ struct EditServerView: View {
                 .footnote()
                 .secondary()
         }
-        .frame(minHeight: 400)
+        .frame(minHeight: 200)
         .navigationTitle("Start monitoring a server")
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
