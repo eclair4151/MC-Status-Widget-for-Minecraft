@@ -48,6 +48,9 @@ struct PingGraph: View {
             }
         }
         .ornamentDismissButton()
+#if os(macOS)
+        .frame(minWidth: 600, minHeight: 500)
+#endif
     }
     
     private var chart: some View {
