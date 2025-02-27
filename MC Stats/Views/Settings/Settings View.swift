@@ -110,6 +110,15 @@ struct SettingsView: View {
                 TipView($showingTipSheet)
             }
         }
+        .navigationDestination(for: SettingsPageDestinations.self) { destination in
+            switch destination {
+            case .GeneralSettings: GeneralSettings()
+            case .FAQ:             FAQView(getiOSFAQs())
+            case .Shortcuts:       ShortcutsGuide()
+            case .Siri:            SiriGuide()
+            case .WhatsNew:        ReleaseNotes(showDismissButton: false)
+            }
+        }
     }
     
     private func openGithub() {

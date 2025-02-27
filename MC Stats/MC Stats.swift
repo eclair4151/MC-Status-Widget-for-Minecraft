@@ -8,5 +8,13 @@ struct MCStatsApp: App {
             AppContainer()
         }
         .modelContainer(SwiftDataHelper.getModelContainter())
+        
+#if os(macOS)
+        Settings {
+            NavigationStack {
+                SettingsView()
+            }
+        }
+#endif
     }
 }

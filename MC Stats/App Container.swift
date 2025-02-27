@@ -57,15 +57,6 @@ struct AppContainer: View {
                     }
                 }
             }
-            .navigationDestination(for: SettingsPageDestinations.self) { destination in
-                switch destination {
-                case .GeneralSettings: GeneralSettings()
-                case .FAQ:             FAQView(getiOSFAQs())
-                case .Shortcuts:       ShortcutsGuide()
-                case .Siri:            SiriGuide()
-                case .WhatsNew:        ReleaseNotes(showDismissButton: false)
-                }
-            }
             .onOpenURL { url in
                 print("Received deep link:", url)
                 
@@ -100,12 +91,6 @@ struct AppContainer: View {
             .navigationTitle("Servers")
             .toolbar {
 #if os(macOS)
-                ToolbarItem(placement: .navigation) {
-                    NavigationLink(value: PageDestinations.SettingsRoot) {
-                        Image(systemName: "gear")
-                    }
-                }
-                
                 ToolbarItemGroup {
                     Button {
                         reloadData(forceRefresh: true)
