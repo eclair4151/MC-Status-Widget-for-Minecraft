@@ -26,6 +26,18 @@ struct AppContainer: View {
     @State private var showAlert = false
     @State var lastRefreshTime = Date()
     
+    @State private var newServer = SavedMinecraftServer.initialize(
+        id: UUID(),
+        serverType: .Java,
+        name: "",
+        serverUrl: "",
+        serverPort: 0,
+        srvServerUrl: "",
+        srvServerPort: 0,
+        serverIcon: "",
+        displayOrder: 0
+    )
+    
     var body: some View {
         NavigationStack(path: $nav) {
             List {
@@ -42,7 +54,11 @@ struct AppContainer: View {
                     refreshDisplayOrders()
                 }
             }
+            .navigationTitle("Servers")
             .scrollIndicators(.never)
+            .refreshable {
+                reloadData(forceRefresh: true)
+            }
             .navigationDestination(for: ServerStatusVM.self) { vm in
                 ServerDetails(vm) {
                     reloadData()
@@ -56,19 +72,6 @@ struct AppContainer: View {
                         reloadData(forceRefresh: true)
                     }
                 }
-            }
-            .onOpenURL { url in
-                print("Received deep link:", url)
-                
-                // Manually go into specific server if id is server
-                if let serverUUID = UUID(uuidString: url.absoluteString), let vm = serverVMCache[serverUUID] {
-                    goToServerView(vm)
-                } else if !url.absoluteString.isEmpty {
-                    pendingDeepLink = url.absoluteString
-                }
-            }
-            .refreshable {
-                reloadData(forceRefresh: true)
             }
             .overlay {
                 //hack to avoid showing overlay for a split second before we have had a chance to check the database
@@ -88,7 +91,6 @@ struct AppContainer: View {
                     ProgressView()
                 }
             }
-            .navigationTitle("Servers")
             .toolbar {
 #if os(macOS)
                 ToolbarItemGroup {
@@ -135,6 +137,9 @@ struct AppContainer: View {
 #endif
             }
         }
+        .onOpenURL { url in
+            processDeeplink(url)
+        }
         .onChange(of: scenePhase, initial: true) { _, newPhase in
             // Some code to investigate an Apple Watch bug
             if newPhase == .active {
@@ -156,7 +161,7 @@ struct AppContainer: View {
                 return
             }
             
-            // May have gotten new/changed data refresh models from db
+            // May have gotten new/changed data refresh models from DB
             // Can we somehow check if anything actually changed?
             // This is spam called on every open
             if event.endDate != nil && event.type == .import {
@@ -167,19 +172,6 @@ struct AppContainer: View {
             }
         }
         .sheet($showingAddSheet) {
-            // Create new binding server to add
-            let newServer = SavedMinecraftServer.initialize(
-                id: UUID(),
-                serverType: .Java,
-                name: "",
-                serverUrl: "",
-                serverPort: 0,
-                srvServerUrl: "",
-                srvServerPort: 0,
-                serverIcon: "",
-                displayOrder: 0
-            )
-            
             NavigationStack {
                 EditServerView(newServer, isPresented: $showingAddSheet) {
                     reloadData(forceSRVRefreh: true)
@@ -195,6 +187,58 @@ struct AppContainer: View {
         .alert("Title", isPresented: $showAlert) {
             Button("OK") {
                 showReleaseNotes = true
+            }
+        }
+    }
+    
+    func processDeeplink(_ url: URL) {
+        print("Received deeplink:", url)
+        
+        if url.scheme == "mc-stats" {
+            // mc-stats://add-server?address=\(subdomain)
+            
+            guard
+                let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+            else {
+                print("Invalid URL")
+                return
+            }
+            
+            guard
+                let action = components.host,
+                action == "add-server"
+            else {
+                print("Unknown URL")
+                return
+            }
+            
+            guard
+                let address = components.queryItems?.first(where: { $0.name == "address" })?.value,
+                let name = components.queryItems?.first(where: { $0.name == "name" })?.value
+            else {
+                print("Address not found")
+                return
+            }
+            
+            newServer = SavedMinecraftServer.initialize(
+                id: UUID(),
+                serverType: .Java,
+                name: name,
+                serverUrl: address,
+                serverPort: 0,
+                srvServerUrl: "",
+                srvServerPort: 0,
+                serverIcon: "",
+                displayOrder: 0
+            )
+            
+            showingAddSheet = true
+        } else {
+            // Manually go into specific server if id is server
+            if let serverUUID = UUID(uuidString: url.absoluteString), let vm = serverVMCache[serverUUID] {
+                goToServerView(vm)
+            } else if !url.absoluteString.isEmpty {
+                pendingDeepLink = url.absoluteString
             }
         }
     }

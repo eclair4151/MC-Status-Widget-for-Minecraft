@@ -6,7 +6,7 @@
 	<array>
 		<dict>
 			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
+			<string>None</string>
 			<key>CFBundleURLName</key>
 			<string>dev.topscrech.MC-Stats</string>
 			<key>CFBundleURLSchemes</key>

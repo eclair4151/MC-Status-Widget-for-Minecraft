@@ -55,7 +55,7 @@ struct EditServerView: View {
                             .tag(ServerType.Bedrock)
                     }
                     .pickerStyle(.segmented)
-                    .onChange(of: tempServerType, initial: false) { _, newValue in
+                    .onChange(of: tempServerType) { _, newValue in
                         if newValue == .Java {
                             portLabelPromptText = "Port (Optional - Default 25565)"
                         } else if newValue == .Bedrock {
@@ -89,7 +89,7 @@ struct EditServerView: View {
                     .autocorrectionDisabled(true)
                     .submitLabel(.done)
                     .focused($focusedField, equals: .serverAddress)
-                    .onChange(of: tempServerInput, initial: false) { _, newValue  in
+                    .onChange(of: tempServerInput) { _, newValue  in
                         extractPort(newValue)
                     }
             }

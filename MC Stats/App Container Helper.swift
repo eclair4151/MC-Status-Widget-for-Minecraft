@@ -59,6 +59,7 @@ extension AppContainer {
         self.pendingDeepLink = nil
         goToServerView(vm)
     }
+    
     func checkForAppReviewRequest() {
         reviewHelper.appLaunched()
         
