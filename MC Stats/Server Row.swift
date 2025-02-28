@@ -16,17 +16,15 @@ struct ServerRow: View {
     
     var body: some View {
         HStack {
-            Group {
 #if os(macOS)
-                Image(nsImage: vm.serverIcon)
-                    .serverIconStyle()
+            Image(nsImage: vm.serverIcon)
+                .serverIconStyle()
+                .animation(.default, value: vm.serverIcon)
 #else
-                Image(uiImage: vm.serverIcon)
-                    .serverIconStyle()
+            Image(uiImage: vm.serverIcon)
+                .serverIconStyle()
+                .animation(.default, value: vm.serverIcon)
 #endif
-            }
-            .animation(.default, value: vm.serverIcon)
-            
             VStack(alignment: .leading, spacing: 5) {
                 HStack {
                     VStack(alignment: .leading) {
@@ -85,6 +83,10 @@ struct ServerRow: View {
             } label: {
                 Label("Edit", systemImage: "pencil")
             }
+            
+            let serverAddressString = vm.server.serverUrl + ":" + String(vm.server.serverPort)
+            
+            ShareLink(item: serverAddressString)
             
             Section {
                 Button(role: .destructive) {
