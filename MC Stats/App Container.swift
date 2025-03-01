@@ -54,6 +54,7 @@ struct AppContainer: View {
                     refreshDisplayOrders()
                 }
             }
+            .animation(.default, value: servers)
             .navigationTitle("Servers")
             .scrollIndicators(.never)
             .refreshable {
