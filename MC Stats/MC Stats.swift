@@ -15,6 +15,7 @@ struct MCStatsApp: App {
                 SettingsView()
             }
         }
+        .modelContainer(SwiftDataHelper.getModelContainter())
 #endif
     }
 }

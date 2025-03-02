@@ -11,7 +11,7 @@ struct DebugSettings: View {
     @State private var confirmDeleteAll = false
     
     var body: some View {
-        Section("Debug") {
+        Section {
             Button {
                 addTestServers()
             } label: {
@@ -29,6 +29,12 @@ struct DebugSettings: View {
                     deleteAllServers()
                 }
             }
+        } header: {
+            Text("Debug")
+        } footer: {
+#if os(macOS)
+            Text("Might require a restart")
+#endif
         }
     }
     
@@ -45,7 +51,6 @@ struct DebugSettings: View {
         
         reloadServers()
     }
-    
     
     private func addTestServers() {
         modelContext.insert(SavedMinecraftServer.initialize(id: UUID(), serverType: .Java, name: "Insanity Craft", serverUrl: "join.insanitycraft.net", serverPort: 25565))

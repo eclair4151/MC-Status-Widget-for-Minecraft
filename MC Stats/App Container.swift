@@ -166,9 +166,10 @@ struct AppContainer: View {
             // Can we somehow check if anything actually changed?
             // This is spam called on every open
             if event.endDate != nil && event.type == .import {
-                print("refresh triggered via eventChangedNotification")
+                print("Refresh triggered via eventChangedNotification")
                 
                 ShortcutsProvider.updateAppShortcutParameters()
+                
                 reloadData()
             }
         }
