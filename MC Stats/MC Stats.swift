@@ -14,6 +14,7 @@ struct MCStatsApp: App {
             NavigationStack {
                 SettingsView()
             }
+            .frame(width: 800, height: 600)
         }
         .modelContainer(SwiftDataHelper.getModelContainter())
 #endif
