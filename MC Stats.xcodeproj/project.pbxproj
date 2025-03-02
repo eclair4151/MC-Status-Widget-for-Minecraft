@@ -318,6 +318,20 @@
 		F3C923682D6C6CF6004D31A9 /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3C923672D6C6CF6004D31A9 /* MCStatsDataLayer */; };
 		F3D9AE622D6C68EB00069BDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
 		F3DD086A2D75226A00A67D4B /* Server List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DD08692D75226A00A67D4B /* Server List.swift */; };
+		F3DD086B2D75232500A67D4B /* Server Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE29152CA48577009D0D14 /* Server Row.swift */; };
+		F3DD086D2D75233000A67D4B /* ScrechKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3DD086C2D75233000A67D4B /* ScrechKit */; };
+		F3DD086F2D75233300A67D4B /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = F3DD086E2D75233300A67D4B /* NukeUI */; };
+		F3DD08712D75233600A67D4B /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F3DD08702D75233600A67D4B /* Nuke */; };
+		F3DD08722D75234F00A67D4B /* Custom Progress View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E671752CA73A86002BDFC0 /* Custom Progress View.swift */; };
+		F3DD08732D75236E00A67D4B /* Edit Server View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A16BC2A8956DE00F8FF2F /* Edit Server View.swift */; };
+		F3DD08742D75237D00A67D4B /* Refresh Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A762D64D32D00718CB7 /* Refresh Widgets.swift */; };
+		F3DD08752D75237D00A67D4B /* Low Power Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A732D64A4B200718CB7 /* Low Power Mode.swift */; };
+		F3DD08762D75238B00A67D4B /* Config Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F130954E2CBC9D5600C4C7BA /* Config Helper.swift */; };
+		F3DD08772D7523A500A67D4B /* Shortcuts Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10C42162AAD55BF000107D6 /* Shortcuts Provider.swift */; };
+		F3DD08782D7523AC00A67D4B /* Saved Server Status Online Check Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304723E2D63E9D00055C007 /* Saved Server Status Online Check Intent.swift */; };
+		F3DD08792D7523B300A67D4B /* Intent Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1406BA32AA2DD2C00815BE8 /* Intent Errors.swift */; };
+		F3DD087A2D7523BD00A67D4B /* Saved Server Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F304724F2D63E9D30055C007 /* Saved Server Entity.swift */; };
+		F3DD087B2D7523C500A67D4B /* Server Status Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30472502D63E9D30055C007 /* Server Status Entity.swift */; };
 		F3EFC1722D70877F00EE988A /* Edit Server View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC1712D70877F00EE988A /* Edit Server View.swift */; };
 		F3EFC1742D709C5700EE988A /* Ping Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC1732D709C5700EE988A /* Ping Error.swift */; };
 		F3EFC1752D709C5700EE988A /* Ping Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC1732D709C5700EE988A /* Ping Error.swift */; };
@@ -607,8 +621,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3DD086D2D75233000A67D4B /* ScrechKit in Frameworks */,
 				F3BC6B202D6F56950016A68D /* MCStatsDataLayer in Frameworks */,
 				F3570D412D6E779500BDF069 /* Messages.framework in Frameworks */,
+				F3DD086F2D75233300A67D4B /* NukeUI in Frameworks */,
+				F3DD08712D75233600A67D4B /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1167,6 +1184,9 @@
 			name = iMessages;
 			packageProductDependencies = (
 				F3BC6B1F2D6F56950016A68D /* MCStatsDataLayer */,
+				F3DD086C2D75233000A67D4B /* ScrechKit */,
+				F3DD086E2D75233300A67D4B /* NukeUI */,
+				F3DD08702D75233600A67D4B /* Nuke */,
 			);
 			productName = "MC Stats iMessage MessagesExtension";
 			productReference = F3570D3C2D6E779500BDF069 /* iMessages.appex */;
@@ -1598,10 +1618,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3DD08762D75238B00A67D4B /* Config Helper.swift in Sources */,
+				F3DD08772D7523A500A67D4B /* Shortcuts Provider.swift in Sources */,
 				F3570D5C2D6E77C000BDF069 /* Messages VC.swift in Sources */,
+				F3DD08742D75237D00A67D4B /* Refresh Widgets.swift in Sources */,
+				F3DD08752D75237D00A67D4B /* Low Power Mode.swift in Sources */,
 				F3570D622D6E8C4F00BDF069 /* App Container.swift in Sources */,
+				F3DD08722D75234F00A67D4B /* Custom Progress View.swift in Sources */,
+				F3DD087B2D7523C500A67D4B /* Server Status Entity.swift in Sources */,
+				F3DD087A2D7523BD00A67D4B /* Saved Server Entity.swift in Sources */,
+				F3DD08732D75236E00A67D4B /* Edit Server View.swift in Sources */,
+				F3DD08792D7523B300A67D4B /* Intent Errors.swift in Sources */,
+				F3DD086B2D75232500A67D4B /* Server Row.swift in Sources */,
 				F3DD086A2D75226A00A67D4B /* Server List.swift in Sources */,
 				F3570D642D6E8CB300BDF069 /* Messages VM.swift in Sources */,
+				F3DD08782D7523AC00A67D4B /* Saved Server Status Online Check Intent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2683,6 +2714,21 @@
 		F3C923672D6C6CF6004D31A9 /* MCStatsDataLayer */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MCStatsDataLayer;
+		};
+		F3DD086C2D75233000A67D4B /* ScrechKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */;
+			productName = ScrechKit;
+		};
+		F3DD086E2D75233300A67D4B /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
+		};
+		F3DD08702D75233600A67D4B /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F1612CC62CACC37300E602DC /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
