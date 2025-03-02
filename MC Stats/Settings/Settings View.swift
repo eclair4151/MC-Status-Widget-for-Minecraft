@@ -80,10 +80,7 @@ struct SettingsView: View {
                     Label {
                         Text("Join TestFlight")
                     } icon: {
-                        Image(.testFlight)
-                            .resizable()
-                            .frame(width: 32, height: 32)
-                            .clipShape(.rect(cornerRadius: 6))
+                        Image(systemName: "airplane")
                     }
                 }
             } footer: {
