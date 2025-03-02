@@ -3,7 +3,7 @@ import StoreKit
 
 struct ReleaseNotes: View {
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.openURL) private var openURL
+    @Environment(\.openURL) private var openUrl
     
     @State private var showingTipSheet = false
     var showDismissButton = true
@@ -108,7 +108,7 @@ struct ReleaseNotes: View {
             return
         }
         
-        openURL(writeReviewURL)
+        openUrl(writeReviewURL)
 #else
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
             return

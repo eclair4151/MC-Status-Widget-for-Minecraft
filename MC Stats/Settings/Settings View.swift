@@ -7,7 +7,7 @@ enum SettingsPageDestinations {
 }
 
 struct SettingsView: View {
-    @Environment(\.openURL) private var openURL
+    @Environment(\.openURL) private var openUrl
     
     private let reloadServers: () -> Void
     
@@ -129,7 +129,7 @@ struct SettingsView: View {
             return
         }
         
-        openURL(githubUrl)
+        openUrl(githubUrl)
     }
     
     private func joinTestFlight() {
@@ -140,7 +140,7 @@ struct SettingsView: View {
             return
         }
         
-        openURL(testflightUrl)
+        openUrl(testflightUrl)
     }
     
     private func leaveAppReview() {
@@ -152,7 +152,7 @@ struct SettingsView: View {
             return
         }
         
-        openURL(writeReviewURL)
+        openUrl(writeReviewURL)
 #else
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
             return
