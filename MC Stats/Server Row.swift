@@ -83,11 +83,10 @@ struct ServerRow: View {
             } label: {
                 Label("Edit", systemImage: "pencil")
             }
-            
+#if !os(tvOS)
             let serverAddressString = vm.server.serverUrl + ":" + String(vm.server.serverPort)
-            
             ShareLink(item: serverAddressString)
-            
+#endif
             Section {
                 Button(role: .destructive) {
                     showingDeleteAlert = true
