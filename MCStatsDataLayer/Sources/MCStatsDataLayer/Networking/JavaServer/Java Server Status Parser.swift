@@ -73,7 +73,7 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
             status.sortUsers()
         }
         
-        status.status = .Online
+        status.status = .online
         return status
     }
     

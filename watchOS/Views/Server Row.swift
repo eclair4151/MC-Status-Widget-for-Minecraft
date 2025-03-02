@@ -35,7 +35,7 @@ struct ServerRow: View {
                     HStack {
                         Text(status.getWatchDisplayText())
                             .footnote()
-                            .foregroundStyle((status.status == .Offline) ? .red : .primary)
+                            .foregroundStyle((status.status == .offline) ? .red : .primary)
                         
                         if vm.loadingStatus == .Loading {
                             ProgressView()

@@ -18,7 +18,7 @@ extension WidgetEntryVM {
         self.icon = serverIcon
         self.serverName = serverName
         
-        if status.status == OnlineStatus.Online {
+        if status.status == OnlineStatus.online {
             self.statusIcon = nil
             self.progressString = "\(status.onlinePlayerCount) / \(status.maxPlayerCount)"
             
@@ -35,7 +35,7 @@ extension WidgetEntryVM {
             self.progressStringAlpha = 1
             self.progressStringSize = 23
             
-        } else if status.status == OnlineStatus.Offline {
+        } else if status.status == OnlineStatus.offline {
             self.statusIcon = "multiply.circle.fill"
             self.progressString = "-- / --"
             self.progressValue = 0

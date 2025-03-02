@@ -1,7 +1,7 @@
 import Foundation
 
 public enum OnlineStatus: String, Codable {
-    case Online, Offline, Unknown
+    case online, offline, unknown
 }
 
 public enum Source: Codable {
@@ -12,7 +12,7 @@ public enum Source: Codable {
 public class ServerStatus: Identifiable, Codable {
     public var source: Source?
     public var description: FormattedMOTD?
-    public var status = OnlineStatus.Unknown
+    public var status = OnlineStatus.unknown
     public var maxPlayerCount = 0
     public var onlinePlayerCount = 0
     public var playerSample: [Player] = []
@@ -24,7 +24,7 @@ public class ServerStatus: Identifiable, Codable {
     }
     
     public func getWatchDisplayText() -> String {
-        if status == .Online {
+        if status == .online {
             String(onlinePlayerCount) + "/" + String(maxPlayerCount)
         } else {
             status.rawValue

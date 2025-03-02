@@ -20,7 +20,7 @@ public class BedrockServerStatusParser: ServerStatusParserProtocol {
         serverStatus.onlinePlayerCount = Int(dataParts[4]) ?? 0
         serverStatus.maxPlayerCount = Int(dataParts[5]) ?? 0
         serverStatus.version = String(dataParts[3])
-        serverStatus.status = .Online
+        serverStatus.status = .online
         
         return serverStatus
     }

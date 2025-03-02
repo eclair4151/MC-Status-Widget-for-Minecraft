@@ -36,9 +36,9 @@ struct ServerDetails: View {
         var color = Color.standoutPillGrey
         
         if let status = vm.status, vm.loadingStatus != .Loading {
-            if status.status == .Online {
+            if status.status == .online {
                 color = .statusBackgroundGreen
-            } else if status.status == .Offline {
+            } else if status.status == .offline {
                 color = .red
             }
         }

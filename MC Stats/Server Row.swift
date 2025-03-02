@@ -33,7 +33,7 @@ struct ServerRow: View {
                             .foregroundColor(.primary)
                         
                         if let status = vm.status {
-                            if status.status == .Offline {
+                            if status.status == .offline {
                                 Text(status.status.rawValue.capitalized)
                                     .subheadline(.bold)
                                     .foregroundColor(.red)
@@ -57,7 +57,7 @@ struct ServerRow: View {
                     }
                 }
                 
-                if let status = vm.status, status.status != .Offline {
+                if let status = vm.status, status.status != .offline {
                     CustomProgressView(progress: vm.getPlayerCountPercentage())
                         .frame(height: 8)
                 }

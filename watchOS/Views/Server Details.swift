@@ -13,7 +13,7 @@ struct ServerDetails: View {
         let playerList = vm.status?.playerSample ?? []
         let onlinePlayerCount = vm.status?.onlinePlayerCount ?? 0
         
-        if vm.status?.status == .Offline {
+        if vm.status?.status == .offline {
             Text("Server is offline")
             
         } else if vm.server.serverType == .Bedrock {

@@ -24,7 +24,7 @@ public class WebServerStatusChecker {
             if (response as? HTTPURLResponse)?.statusCode == 400 {
                 // if the backup server returns a 400, then we address we supplied is invalid, so the server is offline
                 let status = ServerStatus()
-                status.status = .Offline
+                status.status = .offline
                 
                 return status
             } else {
