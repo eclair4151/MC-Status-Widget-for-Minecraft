@@ -10,7 +10,7 @@ class MessagesViewController: MSMessagesAppViewController {
         
         // Do any additional setup after loading the view
         
-        let child = UIHostingController(rootView: HomeView(.constant(self)))
+        let child = UIHostingController(rootView: NavContainer(.constant(self)))
         child.view.translatesAutoresizingMaskIntoConstraints = false
         
         self.view.addSubview(child.view)

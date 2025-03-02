@@ -194,7 +194,7 @@
 		F3570D592D6E77C000BDF069 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3570D532D6E77C000BDF069 /* Assets.xcassets */; };
 		F3570D5C2D6E77C000BDF069 /* Messages VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3570D572D6E77C000BDF069 /* Messages VC.swift */; };
 		F3570D5E2D6E7EF800BDF069 /* iMessages.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F3570D3C2D6E779500BDF069 /* iMessages.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F3570D622D6E8C4F00BDF069 /* Home View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3570D612D6E8C4F00BDF069 /* Home View.swift */; };
+		F3570D622D6E8C4F00BDF069 /* App Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3570D612D6E8C4F00BDF069 /* App Container.swift */; };
 		F3570D642D6E8CB300BDF069 /* Messages VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3570D632D6E8CB300BDF069 /* Messages VM.swift */; };
 		F35E1A6D2D6489FD00718CB7 /* General Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6C2D6489FD00718CB7 /* General Settings.swift */; };
 		F35E1A6F2D649C6000718CB7 /* Feature Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E1A6E2D649C6000718CB7 /* Feature Row.swift */; };
@@ -317,6 +317,7 @@
 		F3C923662D6C6CF2004D31A9 /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3C923652D6C6CF2004D31A9 /* MCStatsDataLayer */; };
 		F3C923682D6C6CF6004D31A9 /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3C923672D6C6CF6004D31A9 /* MCStatsDataLayer */; };
 		F3D9AE622D6C68EB00069BDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F13E60022A4BD615005BE9B2 /* Assets.xcassets */; };
+		F3DD086A2D75226A00A67D4B /* Server List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DD08692D75226A00A67D4B /* Server List.swift */; };
 		F3EFC1722D70877F00EE988A /* Edit Server View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC1712D70877F00EE988A /* Edit Server View.swift */; };
 		F3EFC1742D709C5700EE988A /* Ping Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC1732D709C5700EE988A /* Ping Error.swift */; };
 		F3EFC1752D709C5700EE988A /* Ping Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EFC1732D709C5700EE988A /* Ping Error.swift */; };
@@ -508,7 +509,7 @@
 		F3570D542D6E77C000BDF069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3570D572D6E77C000BDF069 /* Messages VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Messages VC.swift"; sourceTree = "<group>"; };
 		F3570D5D2D6E7D5900BDF069 /* iMessages.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iMessages.entitlements; sourceTree = "<group>"; };
-		F3570D612D6E8C4F00BDF069 /* Home View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home View.swift"; sourceTree = "<group>"; };
+		F3570D612D6E8C4F00BDF069 /* App Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Container.swift"; sourceTree = "<group>"; };
 		F3570D632D6E8CB300BDF069 /* Messages VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Messages VM.swift"; sourceTree = "<group>"; };
 		F35E1A6C2D6489FD00718CB7 /* General Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "General Settings.swift"; sourceTree = "<group>"; };
 		F35E1A6E2D649C6000718CB7 /* Feature Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Feature Row.swift"; sourceTree = "<group>"; };
@@ -533,6 +534,7 @@
 		F3C87A012D6574D200840745 /* FAQ Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FAQ Row.swift"; sourceTree = "<group>"; };
 		F3C87A052D6574DD00840745 /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
 		F3C87A0E2D657A1500840745 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		F3DD08692D75226A00A67D4B /* Server List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Server List.swift"; sourceTree = "<group>"; };
 		F3EFC1712D70877F00EE988A /* Edit Server View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Edit Server View.swift"; sourceTree = "<group>"; };
 		F3EFC1732D709C5700EE988A /* Ping Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ping Error.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -932,7 +934,8 @@
 				F3570D542D6E77C000BDF069 /* Info.plist */,
 				F3570D5D2D6E7D5900BDF069 /* iMessages.entitlements */,
 				F3570D532D6E77C000BDF069 /* Assets.xcassets */,
-				F3570D612D6E8C4F00BDF069 /* Home View.swift */,
+				F3570D612D6E8C4F00BDF069 /* App Container.swift */,
+				F3DD08692D75226A00A67D4B /* Server List.swift */,
 				F3570D632D6E8CB300BDF069 /* Messages VM.swift */,
 			);
 			path = iMessage;
@@ -1596,7 +1599,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3570D5C2D6E77C000BDF069 /* Messages VC.swift in Sources */,
-				F3570D622D6E8C4F00BDF069 /* Home View.swift in Sources */,
+				F3570D622D6E8C4F00BDF069 /* App Container.swift in Sources */,
+				F3DD086A2D75226A00A67D4B /* Server List.swift in Sources */,
 				F3570D642D6E8CB300BDF069 /* Messages VM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

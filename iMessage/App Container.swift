@@ -1,6 +1,8 @@
 import SwiftUI
+import SwiftData
+import MCStatsDataLayer
 
-struct HomeView: View {
+struct NavContainer: View {
     @State private var vm: MessagesVM
     @Binding private var vc: MessagesViewController?
     
@@ -10,10 +12,7 @@ struct HomeView: View {
     }
     
     var body: some View {
-        Text("HomeView")
+        ServerList()
+            .modelContainer(SwiftDataHelper.getModelContainter())
     }
 }
-
-//#Preview {
-//    HomeView()
-//}
