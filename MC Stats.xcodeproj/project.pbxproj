@@ -700,8 +700,10 @@
 				F1C9A9AF2A879FBC00C058C7 /* watchOS.plist */,
 				F1C9A9AE2A879A4800C058C7 /* watchOS.entitlements */,
 				F11F63512A81E51000D47187 /* Assets.xcassets */,
+				F1EF76C02CB4204E00EFFB20 /* Server Row.swift */,
+				F1EF76C92CB422D400EFFB20 /* Server Details.swift */,
+				F39EAF772D6C831000072794 /* Settings View.swift */,
 				F1EF76C42CB4205200EFFB20 /* Helpers */,
-				F1EF76C12CB4204E00EFFB20 /* Views */,
 			);
 			path = watchOS;
 			sourceTree = "<group>";
@@ -827,16 +829,6 @@
 				F174A2FB2A8F7FFA0051DA5B /* Watch Helper.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		F1EF76C12CB4204E00EFFB20 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				F1EF76C02CB4204E00EFFB20 /* Server Row.swift */,
-				F1EF76C92CB422D400EFFB20 /* Server Details.swift */,
-				F39EAF772D6C831000072794 /* Settings View.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		F1EF76C42CB4205200EFFB20 /* Helpers */ = {

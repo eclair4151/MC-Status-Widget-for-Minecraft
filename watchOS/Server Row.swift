@@ -17,11 +17,6 @@ struct ServerRow: View {
                 .scaledToFit()
                 .frame(width: 40, height: 40)
                 .cornerRadius(5)
-                .background(.serverIconBackground)
-                .overlay {
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(Color(hex: "6e6e6e"), lineWidth: 3)
-                }
                 .clipShape(.rect(cornerRadius: 5))
                 .padding(.trailing, 5)
             

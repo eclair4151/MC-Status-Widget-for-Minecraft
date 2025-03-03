@@ -12,7 +12,7 @@ class ConnectivityProvider: NSObject, WCSessionDelegate {
     func sessionDidDeactivate(_ session: WCSession) {}
 #endif
     
-    var responseListener: (([String:Any]) -> Void)?
+    var responseListener: (([String: Any]) -> Void)?
     var connectionState: WCSessionActivationState = .inactive
     
     override init() {
@@ -22,12 +22,12 @@ class ConnectivityProvider: NSObject, WCSessionDelegate {
     
     // converted code to comminucate with iPhone as async/Await
     // send a message to the phone. error throw if one is encountered
-    func send(message: [String:Any]) throws {
+    func send(message: [String: Any]) throws {
         print("Checking if phone is connected to watch...")
         
         guard WCSession.default.isReachable else {
             // Phone not connected. throw error
-            print("Phone is not connected..")
+            print("Phone is not connected...")
             throw WatchConnectivityError.DeviceNotConnected
         }
         
@@ -43,8 +43,12 @@ class ConnectivityProvider: NSObject, WCSessionDelegate {
         responseListener?(message)
     }
     
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        print("Watch session activationState:", String(activationState.rawValue))
+    func session(
+        _ session: WCSession,
+        activationDidCompleteWith activationState: WCSessionActivationState,
+        error: Error?
+    ) {
+        print("Watch session activationState:", activationState.rawValue)
         connectionState = activationState
     }
     
