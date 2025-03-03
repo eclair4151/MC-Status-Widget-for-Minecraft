@@ -141,7 +141,7 @@ struct SettingsView: View {
     }
     
     private func leaveAppReview() {
-#if os(tvOS) || os(macOS)
+#if os(tvOS) || os(macOS) || iMessage
         let url = "https://apps.apple.com/app/6740754881?action=write-review"
         
         guard let writeReviewURL = URL(string: url) else {

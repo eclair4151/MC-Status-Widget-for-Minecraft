@@ -60,20 +60,20 @@ struct AppContainer: View {
             .refreshable {
                 reloadData(forceRefresh: true)
             }
-            //            .navigationDestination(for: ServerStatusVM.self) { vm in
-            //                ServerDetails(vm) {
-            //                    reloadData()
-            //                    refreshDisplayOrders()
-            //                }
-            //            }
-            //            .navigationDestination(for: PageDestinations.self) { destination in
-            //                switch destination {
-            //                case .SettingsRoot:
-            //                    SettingsView {
-            //                        reloadData(forceRefresh: true)
-            //                    }
-            //                }
-            //            }
+            .navigationDestination(for: ServerStatusVM.self) { vm in
+                ServerDetails(vm) {
+                    reloadData()
+                    refreshDisplayOrders()
+                }
+            }
+            .navigationDestination(for: PageDestinations.self) { destination in
+                switch destination {
+                case .SettingsRoot:
+                    SettingsView {
+                        reloadData(forceRefresh: true)
+                    }
+                }
+            }
             .overlay {
                 //hack to avoid showing overlay for a split second before we have had a chance to check the database
                 if let vms = servers, vms.isEmpty {
