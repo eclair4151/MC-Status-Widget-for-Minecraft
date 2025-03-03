@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "DirtBlock-1 2.png",
+      "filename" : "CA064DBD-23E9-4969-A643-B7AF80290168.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,11 +12,6 @@
     {
       "idiom" : "universal",
       "scale" : "3x"
-    },
-    {
-      "filename" : "DirtBlock-1 1.png",
-      "idiom" : "watch",
-      "scale" : "2x"
     }
   ],
   "info" : {
