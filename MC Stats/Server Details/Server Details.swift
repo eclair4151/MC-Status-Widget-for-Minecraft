@@ -37,7 +37,8 @@ struct ServerDetails: View {
         
         if let status = vm.status, vm.loadingStatus != .Loading {
             if status.status == .online {
-                color = .statusBackgroundGreen
+                color = .green
+                
             } else if status.status == .offline {
                 color = .red
             }
@@ -64,8 +65,8 @@ struct ServerDetails: View {
     
     private func pingColor(for strength: Int) -> Color {
         switch strength {
-        case 1...75:        .statusBackgroundGreen
-        case 76...200:      .statusBackgroundYellow
+        case 1...75:        .green
+        case 76...200:      .orange
         case 200...Int.max: .red
         default:            .gray
         }
