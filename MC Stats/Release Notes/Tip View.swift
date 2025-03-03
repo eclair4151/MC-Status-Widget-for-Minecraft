@@ -103,6 +103,7 @@ struct TipView: View {
     }
     
     private func purchaseTip(_ product: Product) async {
+#if !iMessage
 #if os(macOS)
         let scene = NSApplication.shared.windows.first(where: { $0.isKeyWindow })
 #else
@@ -149,6 +150,7 @@ struct TipView: View {
             alertMessage = "There was an error processing your purchase: \(error.localizedDescription)"
             showAlert = true
         }
+#endif
     }
     
     // Handle successful purchase transaction

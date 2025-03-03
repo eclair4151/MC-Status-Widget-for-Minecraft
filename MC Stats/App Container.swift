@@ -40,103 +40,103 @@ struct AppContainer: View {
     
     var body: some View {
         NavigationStack(path: $nav) {
-            List {
-                ForEach(servers ?? []) { vm in
-                    NavigationLink(value: vm) {
-                        ServerRow(vm)
-                    }
-                    .listRowInsets(EdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15))
-                }
-                .onDelete(perform: deleteItems)
-                .onMove {
-                    servers?.move(fromOffsets: $0, toOffset: $1)
-                    
-                    refreshDisplayOrders()
-                }
-            }
-            .animation(.default, value: servers)
-            .navigationTitle("Servers")
-            .scrollIndicators(.never)
-            .refreshable {
-                reloadData(forceRefresh: true)
-            }
-            .navigationDestination(for: ServerStatusVM.self) { vm in
-                ServerDetails(vm) {
-                    reloadData()
-                    refreshDisplayOrders()
-                }
-            }
-            .navigationDestination(for: PageDestinations.self) { destination in
-                switch destination {
-                case .SettingsRoot:
-                    SettingsView {
-                        reloadData(forceRefresh: true)
-                    }
-                }
-            }
-            .overlay {
-                //hack to avoid showing overlay for a split second before we have had a chance to check the database
-                if let vms = servers, vms.isEmpty {
-                    ContentUnavailableView {
-                        Label("Add Your First Server", systemImage: "server.rack")
-                    } description: {
-                        Text("Use the button below or the \"+\" in the top right corner")
-                    } actions: {
-                        Button("Add Server") {
-                            showingAddSheet = true
-                        }
-                        .semibold()
-                        .buttonStyle(.borderedProminent)
-                    }
-                } else if servers == nil {
-                    ProgressView()
-                }
-            }
-            .toolbar {
-#if os(macOS)
-                ToolbarItemGroup {
-                    Button {
-                        reloadData(forceRefresh: true)
-                    } label: {
-                        Label("Refresh Servers", systemImage: "arrow.clockwise")
-                    }
-                    
-                    Button {
-                        showingAddSheet.toggle()
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                }
-#else // not macOS
-                ToolbarItem(placement: .topBarLeading) {
-                    NavigationLink(value: PageDestinations.SettingsRoot) {
-#if os(tvOS)
-                        Text("Settings")
-#else
-                        Image(systemName: "gear")
-#endif
-                    }
-                }
-#if os(tvOS)
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("Refresh") {
-                        reloadData(forceRefresh: true)
-                    }
-                }
-#endif
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        showingAddSheet.toggle()
-                    } label: {
-#if os(tvOS)
-                        Text("+")
-#else
-                        Image(systemName: "plus")
-#endif
-                    }
-                }
-#endif
-            }
+//            List {
+//                ForEach(servers ?? []) { vm in
+//                    NavigationLink(value: vm) {
+//                        ServerRow(vm)
+//                    }
+//                    .listRowInsets(EdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15))
+//                }
+//                .onDelete(perform: deleteItems)
+//                .onMove {
+//                    servers?.move(fromOffsets: $0, toOffset: $1)
+//                    
+//                    refreshDisplayOrders()
+//                }
+//            }
+//            .animation(.default, value: servers)
+//            .navigationTitle("Servers")
+//            .scrollIndicators(.never)
+//            .refreshable {
+//                reloadData(forceRefresh: true)
+//            }
+//            .navigationDestination(for: ServerStatusVM.self) { vm in
+//                ServerDetails(vm) {
+//                    reloadData()
+//                    refreshDisplayOrders()
+//                }
+//            }
+//            .navigationDestination(for: PageDestinations.self) { destination in
+//                switch destination {
+//                case .SettingsRoot:
+//                    SettingsView {
+//                        reloadData(forceRefresh: true)
+//                    }
+//                }
+//            }
+//            .overlay {
+//                //hack to avoid showing overlay for a split second before we have had a chance to check the database
+//                if let vms = servers, vms.isEmpty {
+//                    ContentUnavailableView {
+//                        Label("Add Your First Server", systemImage: "server.rack")
+//                    } description: {
+//                        Text("Use the button below or the \"+\" in the top right corner")
+//                    } actions: {
+//                        Button("Add Server") {
+//                            showingAddSheet = true
+//                        }
+//                        .semibold()
+//                        .buttonStyle(.borderedProminent)
+//                    }
+//                } else if servers == nil {
+//                    ProgressView()
+//                }
+//            }
+//            .toolbar {
+//#if os(macOS)
+//                ToolbarItemGroup {
+//                    Button {
+//                        reloadData(forceRefresh: true)
+//                    } label: {
+//                        Label("Refresh Servers", systemImage: "arrow.clockwise")
+//                    }
+//                    
+//                    Button {
+//                        showingAddSheet.toggle()
+//                    } label: {
+//                        Image(systemName: "plus")
+//                    }
+//                }
+//#else // not macOS
+//                ToolbarItem(placement: .topBarLeading) {
+//                    NavigationLink(value: PageDestinations.SettingsRoot) {
+//#if os(tvOS)
+//                        Text("Settings")
+//#else
+//                        Image(systemName: "gear")
+//#endif
+//                    }
+//                }
+//#if os(tvOS)
+//                ToolbarItem(placement: .topBarTrailing) {
+//                    Button("Refresh") {
+//                        reloadData(forceRefresh: true)
+//                    }
+//                }
+//#endif
+//                ToolbarItem(placement: .topBarTrailing) {
+//                    Button {
+//                        showingAddSheet.toggle()
+//                    } label: {
+//#if os(tvOS)
+//                        Text("+")
+//#else
+//                        Image(systemName: "plus")
+//#endif
+//                    }
+//                }
+//#endif
+//            }
         }
         .onOpenURL { url in
             processDeeplink(url)
@@ -246,7 +246,7 @@ struct AppContainer: View {
     }
     
     func reloadData(forceRefresh: Bool = false, forceSRVRefreh: Bool = false) {
-        // crashes when run in background from apple watch??
+        // crashes when run in background from Apple Watch?
         // FB13069019
         guard scenePhase != .background else {
             return

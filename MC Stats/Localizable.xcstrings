@@ -32,13 +32,7 @@
     "%lld ping" : {
 
     },
-    "+" : {
-
-    },
     "Add a Server" : {
-
-    },
-    "Add Server" : {
 
     },
     "Add test servers" : {
@@ -52,6 +46,7 @@
       }
     },
     "Add Your First Server" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -432,6 +427,7 @@
       }
     },
     "Servers" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ru" : {
           "stringUnit" : {
@@ -577,9 +573,6 @@
           }
         }
       }
-    },
-    "Use the button below or the \"+\" in the top right corner" : {
-
     },
     "Which server would you like to check the status of?" : {
 
