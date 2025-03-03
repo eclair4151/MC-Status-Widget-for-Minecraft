@@ -34,7 +34,9 @@ struct ServerDetails: View {
                         
                         LazyImage(url: imageUrl) { state in
                             if let image = state.image {
-                                image.resizable().scaledToFit()
+                                image
+                                    .resizable()
+                                    .scaledToFit()
                                 
                             } else if state.error != nil {
                                 Color.serverIconBackground
