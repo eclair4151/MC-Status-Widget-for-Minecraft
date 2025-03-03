@@ -277,6 +277,7 @@
 		F3B0740E2D76697000F24939 /* Expected Result Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0740D2D76697000F24939 /* Expected Result Batch.swift */; };
 		F3B0740F2D76697000F24939 /* Expected Result Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0740D2D76697000F24939 /* Expected Result Batch.swift */; };
 		F3B074102D76697000F24939 /* Expected Result Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0740D2D76697000F24939 /* Expected Result Batch.swift */; };
+		F3B074132D766AC200F24939 /* Edit Server View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074122D766AC200F24939 /* Edit Server View.swift */; };
 		F3BC6B202D6F56950016A68D /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3BC6B1F2D6F56950016A68D /* MCStatsDataLayer */; };
 		F3BFB14D2D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
 		F3BFB14E2D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
@@ -565,6 +566,7 @@
 		F39EAF722D6C82B900072794 /* Page Destinations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page Destinations.swift"; sourceTree = "<group>"; };
 		F39EAF772D6C831000072794 /* Settings View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings View.swift"; sourceTree = "<group>"; };
 		F3B0740D2D76697000F24939 /* Expected Result Batch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expected Result Batch.swift"; sourceTree = "<group>"; };
+		F3B074122D766AC200F24939 /* Edit Server View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Edit Server View.swift"; sourceTree = "<group>"; };
 		F3BFB14C2D68055A00E16468 /* MOTD View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOTD View.swift"; sourceTree = "<group>"; };
 		F3C1E43A2D6C949900950F3D /* App Container Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Container Helper.swift"; sourceTree = "<group>"; };
 		F3C879BD2D65720500840745 /* tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -707,6 +709,7 @@
 				F1EF76C02CB4204E00EFFB20 /* Server Row.swift */,
 				F1EF76C92CB422D400EFFB20 /* Server Details.swift */,
 				F39EAF772D6C831000072794 /* Settings View.swift */,
+				F3B074122D766AC200F24939 /* Edit Server View.swift */,
 				F1EF76C42CB4205200EFFB20 /* Helpers */,
 			);
 			path = watchOS;
@@ -1448,6 +1451,7 @@
 				F17AE0F82CC0504200DC7A80 /* Review Helper.swift in Sources */,
 				F3C1E43F2D6C957900950F3D /* Refresh Widgets.swift in Sources */,
 				F17AE0EE2CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */,
+				F3B074132D766AC200F24939 /* Edit Server View.swift in Sources */,
 				F1EF76D52CB449E700EFFB20 /* Shortcuts Provider.swift in Sources */,
 				F30472442D63E9D00055C007 /* Arbitrary Server Status Online Check Intent.swift in Sources */,
 				F3BFB1502D68055A00E16468 /* MOTD View.swift in Sources */,

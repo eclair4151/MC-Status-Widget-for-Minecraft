@@ -56,7 +56,7 @@ struct EditServerView: View {
                         Text("Bedrock/MCPE")
                             .tag(ServerType.Bedrock)
                     }
-                    .pickerStyle(.segmented)
+//                    .pickerStyle(.segmented)
                     .onChange(of: tempServerType) { _, newValue in
                         if newValue == .Java {
                             portLabelPromptText = "Port (Optional - Default 25565)"
@@ -88,8 +88,8 @@ struct EditServerView: View {
                         .frame(width: 25, height: 25)
                     
                     TextField("Server Address/IP", text: $tempServerInput, prompt: Text("Server Address/IP"))
-                        .autocapitalization(.none)
-                        .keyboardType(.URL)
+//                        .autocapitalization(.none)
+//                        .keyboardType(.URL)
                         .autocorrectionDisabled(true)
                         .submitLabel(.done)
                         .focused($focusedField, equals: .serverAddress)
@@ -106,7 +106,7 @@ struct EditServerView: View {
                     
                     TextField(portLabelPromptText, value: $tempPortInput, formatter: NumberFormatter(), prompt: Text(portLabelPromptText))
                         .monospacedDigit()
-                        .keyboardType(.numberPad)
+//                        .keyboardType(.numberPad)
                 }
             } header: {
                 Text("Start monitoring a server")

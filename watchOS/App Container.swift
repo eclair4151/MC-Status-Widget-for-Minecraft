@@ -73,6 +73,7 @@ struct AppContainer: View {
                 case .SettingsRoot:
                     SettingsView {
                         reloadData(forceRefresh: true)
+                        refreshDisplayOrders()
                     }
                 }
             }

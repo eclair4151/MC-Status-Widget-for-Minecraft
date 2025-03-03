@@ -20,7 +20,7 @@ struct AppContainer: View {
     
     // Struggle to find a more efficient method without regenerating the VM each time
     @State var serverVMCache: [UUID: ServerStatusVM] = [:]
-    @State private var showingAddSheet = false
+    @State private var sheetAdd = false
     @State private var showReleaseNotes = false
     @State var pendingDeepLink: String?
     @State private var showAlert = false
@@ -83,7 +83,7 @@ struct AppContainer: View {
                         Text("Use the button below or the \"+\" in the top right corner")
                     } actions: {
                         Button("Add Server") {
-                            showingAddSheet = true
+                            sheetAdd = true
                         }
                         .semibold()
                         .buttonStyle(.borderedProminent)
@@ -102,7 +102,7 @@ struct AppContainer: View {
                     }
                     
                     Button {
-                        showingAddSheet.toggle()
+                        sheetAdd = true
                     } label: {
                         Image(systemName: "plus")
                     }
@@ -126,7 +126,7 @@ struct AppContainer: View {
 #endif
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        showingAddSheet.toggle()
+                        sheetAdd = true
                     } label: {
 #if os(tvOS)
                         Text("+")
@@ -173,9 +173,9 @@ struct AppContainer: View {
                 reloadData()
             }
         }
-        .sheet($showingAddSheet) {
+        .sheet($sheetAdd) {
             NavigationStack {
-                EditServerView(newServer, isPresented: $showingAddSheet) {
+                EditServerView(newServer, isPresented: $sheetAdd) {
                     reloadData(forceSRVRefreh: true)
                     refreshDisplayOrders()
                 }
@@ -234,7 +234,7 @@ struct AppContainer: View {
                 displayOrder: 0
             )
             
-            showingAddSheet = true
+            sheetAdd = true
         } else {
             // Manually go into specific server if id is server
             if let serverUUID = UUID(uuidString: url.absoluteString), let vm = serverVMCache[serverUUID] {
