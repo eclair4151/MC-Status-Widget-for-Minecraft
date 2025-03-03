@@ -51,9 +51,11 @@ struct ServerRow: View {
                     }
                 }
                 
-                CustomProgressView(progress: vm.getPlayerCountPercentage())
-                    .frame(height:6)
-                    .padding(.vertical, 3)
+                if let status = vm.status, status.status != .offline {
+                    CustomProgressView(progress: vm.getPlayerCountPercentage())
+                        .frame(height: 6)
+                        .padding(.vertical, 3)
+                }
             }
         }
     }
