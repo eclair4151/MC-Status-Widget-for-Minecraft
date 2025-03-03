@@ -11,8 +11,19 @@ struct NavContainer: View {
         self.vm = .init(vc.wrappedValue)
     }
     
+    @State private var fullScreen = false
+    
     var body: some View {
-        ServerList()
-            .modelContainer(SwiftDataHelper.getModelContainter())
+        VStack {
+            Text("Full-screen only")
+            
+            Button("Open in full screen") {
+                fullScreen = true
+            }
+        }
+        .fullScreenCover(isPresented: $fullScreen) {
+            ServerList()
+                .modelContainer(SwiftDataHelper.getModelContainter())
+        }
     }
 }
