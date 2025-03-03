@@ -274,9 +274,9 @@
 		F3B0740A2D76566200F24939 /* MOTD View Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17AE0ED2CC0363F00DC7A80 /* MOTD View Generator.swift */; };
 		F3B0740B2D76566700F24939 /* Custom Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFCD502CABB55B001A9E69 /* Custom Extentions.swift */; };
 		F3B0740C2D76567000F24939 /* Server Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A43C812A8472B20081A24C /* Server Details.swift */; };
-		F3B0740E2D76697000F24939 /* ExpectedResultBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0740D2D76697000F24939 /* ExpectedResultBatch.swift */; };
-		F3B0740F2D76697000F24939 /* ExpectedResultBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0740D2D76697000F24939 /* ExpectedResultBatch.swift */; };
-		F3B074102D76697000F24939 /* ExpectedResultBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0740D2D76697000F24939 /* ExpectedResultBatch.swift */; };
+		F3B0740E2D76697000F24939 /* Expected Result Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0740D2D76697000F24939 /* Expected Result Batch.swift */; };
+		F3B0740F2D76697000F24939 /* Expected Result Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0740D2D76697000F24939 /* Expected Result Batch.swift */; };
+		F3B074102D76697000F24939 /* Expected Result Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0740D2D76697000F24939 /* Expected Result Batch.swift */; };
 		F3BC6B202D6F56950016A68D /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3BC6B1F2D6F56950016A68D /* MCStatsDataLayer */; };
 		F3BFB14D2D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
 		F3BFB14E2D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
@@ -564,7 +564,7 @@
 		F37883692D6AF86A00D38522 /* Debug Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Debug Settings.swift"; sourceTree = "<group>"; };
 		F39EAF722D6C82B900072794 /* Page Destinations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Page Destinations.swift"; sourceTree = "<group>"; };
 		F39EAF772D6C831000072794 /* Settings View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings View.swift"; sourceTree = "<group>"; };
-		F3B0740D2D76697000F24939 /* ExpectedResultBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpectedResultBatch.swift; sourceTree = "<group>"; };
+		F3B0740D2D76697000F24939 /* Expected Result Batch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expected Result Batch.swift"; sourceTree = "<group>"; };
 		F3BFB14C2D68055A00E16468 /* MOTD View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOTD View.swift"; sourceTree = "<group>"; };
 		F3C1E43A2D6C949900950F3D /* App Container Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Container Helper.swift"; sourceTree = "<group>"; };
 		F3C879BD2D65720500840745 /* tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -840,7 +840,7 @@
 			children = (
 				F10E94B02A8C61B60039DD2B /* Connectivity Provider.swift */,
 				F174A3002A915E450051DA5B /* Watch Server Status Checker.swift */,
-				F3B0740D2D76697000F24939 /* ExpectedResultBatch.swift */,
+				F3B0740D2D76697000F24939 /* Expected Result Batch.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1443,7 +1443,7 @@
 				F39EAF782D6C831000072794 /* Settings View.swift in Sources */,
 				F39EAF792D6C845000072794 /* Debug Settings.swift in Sources */,
 				F1CFCD532CABB567001A9E69 /* Custom Extentions.swift in Sources */,
-				F3B074102D76697000F24939 /* ExpectedResultBatch.swift in Sources */,
+				F3B074102D76697000F24939 /* Expected Result Batch.swift in Sources */,
 				F1EF76D22CB449E700EFFB20 /* Intent Errors.swift in Sources */,
 				F17AE0F82CC0504200DC7A80 /* Review Helper.swift in Sources */,
 				F3C1E43F2D6C957900950F3D /* Refresh Widgets.swift in Sources */,
@@ -1478,7 +1478,7 @@
 				F304724D2D63E9D20055C007 /* Server Intent Type App Entity.swift in Sources */,
 				F304724E2D63E9D20055C007 /* Theme Intent Type App Entity.swift in Sources */,
 				F30472192D63E9C00055C007 /* Circular Accessory WidgetView1.swift in Sources */,
-				F3B0740E2D76697000F24939 /* ExpectedResultBatch.swift in Sources */,
+				F3B0740E2D76697000F24939 /* Expected Result Batch.swift in Sources */,
 				F304721A2D63E9C00055C007 /* Circular Accessory WidgetView2.swift in Sources */,
 				F304721B2D63E9C00055C007 /* Minecraft Server Status LSWidget1.swift in Sources */,
 				F304721C2D63E9C00055C007 /* Widget Entry VM.swift in Sources */,
@@ -1546,7 +1546,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F30472522D63E9D30055C007 /* Saved Server Entity.swift in Sources */,
-				F3B0740F2D76697000F24939 /* ExpectedResultBatch.swift in Sources */,
+				F3B0740F2D76697000F24939 /* Expected Result Batch.swift in Sources */,
 				F30472532D63E9D30055C007 /* Server Status Entity.swift in Sources */,
 				F30472402D63E9D00055C007 /* Arbitrary Server Status Online Check Intent.swift in Sources */,
 				F30472412D63E9D00055C007 /* Saved Server Status Online Check Intent.swift in Sources */,
