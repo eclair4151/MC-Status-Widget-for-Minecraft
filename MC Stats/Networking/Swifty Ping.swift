@@ -220,7 +220,7 @@ public class SwiftyPing: NSObject {
                 )
                 
                 continuation.resume(returning: res)
-                print("ERROR PINGING:" + error.localizedDescription)
+                print("ERROR PINGING:", error.localizedDescription)
             }
         }
     }
@@ -672,7 +672,7 @@ public class SwiftyPing: NSObject {
         } catch let error as PingError {
             validationError = error
         } catch {
-            print("Unhandled error thrown: \(error)")
+            print("Unhandled error thrown:", error)
         }
         
         timeoutTimer?.invalidate()

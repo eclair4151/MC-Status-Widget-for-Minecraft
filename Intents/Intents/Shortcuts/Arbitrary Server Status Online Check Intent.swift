@@ -38,7 +38,7 @@ struct ArbitraryServerStatusOnlineCheckIntent: AppIntent {
         // need to change this if we are on watch!!
         let status = await ServerStatusChecker.checkServer(tempServer)
         
-        print("container:" + container.schema.debugDescription)
+        print("container:", container.schema.debugDescription)
         
         let res = ServerStatusEntity(
             serverId: UUID(),

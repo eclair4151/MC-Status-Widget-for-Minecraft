@@ -47,7 +47,7 @@ private func runServerStatusIntentCheck(
     let status = await ServerStatusChecker.checkServer(refrencedServer, config: checkerConfig)
 #endif
     
-    print("container:" + container.schema.debugDescription)
+    print("container:", container.schema.debugDescription)
     
     return ServerStatusEntity(
         serverId: UUID(),

@@ -9,15 +9,15 @@ class WatchHelper: NSObject, WCSessionDelegate {
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        print("watch session changed state:", String(activationState.rawValue))
+        print("Watch session changed state:", activationState.rawValue)
     }
     
     func sessionDidBecomeInactive(_ session: WCSession) {
-        print("watch session became inactive")
+        print("Watch session became inactive")
     }
     
     func sessionDidDeactivate(_ session: WCSession) {
-        print("watch session deactivated")
+        print("Watch session deactivated")
     }
     
     func handleWatchMessage(message: [String: Any], session: WCSession) {
@@ -70,7 +70,7 @@ class WatchHelper: NSObject, WCSessionDelegate {
         
         handleWatchMessage(message: message, session: session)
         
-        print("container:" + container.schema.debugDescription)
+        print("container:", container.schema.debugDescription)
     }
     
     func connect() {

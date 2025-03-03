@@ -9,7 +9,7 @@ class WatchServerStatusChecker {
     
     init() {
         self.connectivityProvider.responseListener = { message in
-            // recevied message from phone. Parse and remove from expected results, before passing on to listener.
+            // recevied message from phone. Parse and remove from expected results, before passing on to listener
             guard let (serverID, status) = self.parseWatchResponse(message) else {
                 return
             }
@@ -59,20 +59,20 @@ class WatchServerStatusChecker {
                     try await Task.sleep(nanoseconds: UInt64(0.25 * Double(NSEC_PER_SEC)))
                 }
                 
-                //only bother trying to connect via phone is it says it is reachable
+                // only bother trying to connect via phone is it says it is reachable
                 if WCSession.default.isReachable {
                     try checkServersViaPhone(servers: servers)
-                    // wait 8 seconds, and check if we need to backup for any of the pending servers.
+                    // wait 8 seconds, and check if we need to backup for any of the pending servers
                     try await Task.sleep(nanoseconds: UInt64(8) * NSEC_PER_SEC)
                 }
                 
             } catch let error {
-                print("Failed to check servers via phone: \(error.localizedDescription)")
+                print("Failed to check servers via phone:", error.localizedDescription)
             }
             
-            // after timeout, anything left in the batch needs to be checked via the backup web api.
+            // after timeout, anything left in the batch needs to be checked via the backup web API
             expectedBatch.expectedResults.forEach { id, server in
-                // start a new async task for each request to go in parrallel
+                // start new async task for each request to go in parrallel
                 Task {
                     let status = await checkServerViaWeb(server: server)
                     self.responseListener?(id, status)
@@ -97,7 +97,7 @@ class WatchServerStatusChecker {
             let response = try decoder.decode(WatchResponseMessage.self, from: jsonData)
             return (response.id, response.status)
         } catch {
-            print("Error decoding: \(error)")
+            print("Error decoding", error.localizedDescription)
             return nil
         }
     }
@@ -118,7 +118,7 @@ class WatchServerStatusChecker {
         let payload = ["request": jsonString]
         
         print("sending request...")
-        try self.connectivityProvider.send(message: payload)
+        try self.connectivityProvider.send(payload)
         
         print("try to send request...")
     }
@@ -134,6 +134,7 @@ class WatchServerStatusChecker {
                 serverType: server.serverType,
                 config: nil
             )
+            
             res.source = Source.ThirdParty
             
             print("Got result from third part. Returning...")
@@ -141,26 +142,10 @@ class WatchServerStatusChecker {
             return res
         } catch {
             // If not able to connect to the MC server directly, nor able to connect to the 3rd party server
-            // We arent online at all most likley
+            // We arent online at all most likely
             // Status is unknown (default value)
-            print("ERROR DIRECT CONNECTING TO BACKUP SERVER: phone most likley not connected at all" + error.localizedDescription)
+            print("ERROR DIRECT CONNECTING TO BACKUP SERVER: phone most likely not connected at all", error.localizedDescription)
             return ServerStatus()
         }
     }
-}
-
-class ExpectedResultBatch: Hashable {
-    static func == (lhs: ExpectedResultBatch, rhs: ExpectedResultBatch) -> Bool {
-        lhs.expectedResults == rhs.expectedResults
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(expectedResults)
-    }
-    
-    init(expectedResults: [UUID: SavedMinecraftServer]) {
-        self.expectedResults = expectedResults
-    }
-    
-    var expectedResults: [UUID: SavedMinecraftServer] = [:]
 }

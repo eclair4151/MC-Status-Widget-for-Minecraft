@@ -22,7 +22,7 @@ class ConnectivityProvider: NSObject, WCSessionDelegate {
     
     // converted code to comminucate with iPhone as async/Await
     // send a message to the phone. error throw if one is encountered
-    func send(message: [String: Any]) throws {
+    func send(_ message: [String: Any]) throws {
         print("Checking if phone is connected to watch...")
         
         guard WCSession.default.isReachable else {

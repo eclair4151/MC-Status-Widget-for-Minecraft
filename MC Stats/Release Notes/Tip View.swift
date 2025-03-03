@@ -98,7 +98,7 @@ struct TipView: View {
                 return p1.price < p2.price
             }
         } catch {
-            print("Failed to load tip product: \(error)")
+            print("Failed to load tip product:", error)
         }
     }
     
