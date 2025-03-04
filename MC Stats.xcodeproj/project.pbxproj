@@ -278,7 +278,6 @@
 		F3B0740F2D76697000F24939 /* Expected Result Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0740D2D76697000F24939 /* Expected Result Batch.swift */; };
 		F3B074102D76697000F24939 /* Expected Result Batch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B0740D2D76697000F24939 /* Expected Result Batch.swift */; };
 		F3B074132D766AC200F24939 /* Edit Server View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074122D766AC200F24939 /* Edit Server View.swift */; };
-		F3B074162D76E22900F24939 /* Player List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074152D76E22900F24939 /* Player List.swift */; };
 		F3B074182D76E2E100F24939 /* Player Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074172D76E2E100F24939 /* Player Card.swift */; };
 		F3B074212D76FF5500F24939 /* Server Details Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074202D76FF5500F24939 /* Server Details Helper.swift */; };
 		F3B074222D76FF5500F24939 /* Server Details Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074202D76FF5500F24939 /* Server Details Helper.swift */; };
@@ -286,6 +285,7 @@
 		F3B074242D76FF5500F24939 /* Server Details Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074202D76FF5500F24939 /* Server Details Helper.swift */; };
 		F3B074252D76FF5500F24939 /* Server Details Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074202D76FF5500F24939 /* Server Details Helper.swift */; };
 		F3B074262D76FFB300F24939 /* Server Details Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074202D76FF5500F24939 /* Server Details Helper.swift */; };
+		F3B074272D77008C00F24939 /* Player List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30246C82D6661D60030F71C /* Player List.swift */; };
 		F3BC6B202D6F56950016A68D /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3BC6B1F2D6F56950016A68D /* MCStatsDataLayer */; };
 		F3BFB14D2D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
 		F3BFB14E2D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
@@ -575,7 +575,6 @@
 		F39EAF772D6C831000072794 /* Settings View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings View.swift"; sourceTree = "<group>"; };
 		F3B0740D2D76697000F24939 /* Expected Result Batch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expected Result Batch.swift"; sourceTree = "<group>"; };
 		F3B074122D766AC200F24939 /* Edit Server View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Edit Server View.swift"; sourceTree = "<group>"; };
-		F3B074152D76E22900F24939 /* Player List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player List.swift"; sourceTree = "<group>"; };
 		F3B074172D76E2E100F24939 /* Player Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player Card.swift"; sourceTree = "<group>"; };
 		F3B074202D76FF5500F24939 /* Server Details Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Server Details Helper.swift"; sourceTree = "<group>"; };
 		F3BFB14C2D68055A00E16468 /* MOTD View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOTD View.swift"; sourceTree = "<group>"; };
@@ -1040,7 +1039,6 @@
 			isa = PBXGroup;
 			children = (
 				F1EF76C92CB422D400EFFB20 /* Server Details.swift */,
-				F3B074152D76E22900F24939 /* Player List.swift */,
 				F3B074172D76E2E100F24939 /* Player Card.swift */,
 			);
 			path = "Server Details";
@@ -1483,10 +1481,10 @@
 				F1EF76C22CB4204E00EFFB20 /* App Container.swift in Sources */,
 				F3A9A7ED2D704CD700964023 /* App Container Helper.swift in Sources */,
 				F1EF76C32CB4204E00EFFB20 /* Server Row.swift in Sources */,
-				F3B074162D76E22900F24939 /* Player List.swift in Sources */,
 				F39EAF762D6C82C200072794 /* Page Destinations.swift in Sources */,
 				F1EF76BA2CB41A2700EFFB20 /* Custom Progress View.swift in Sources */,
 				F30472562D63E9D30055C007 /* Saved Server Entity.swift in Sources */,
+				F3B074272D77008C00F24939 /* Player List.swift in Sources */,
 				F30472572D63E9D30055C007 /* Server Status Entity.swift in Sources */,
 				F10E94B12A8C61B60039DD2B /* Connectivity Provider.swift in Sources */,
 			);

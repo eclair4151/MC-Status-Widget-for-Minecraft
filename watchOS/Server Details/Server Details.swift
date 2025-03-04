@@ -38,16 +38,7 @@ struct ServerDetails: View {
                 Text("This server has disabled player lists")
             }
             
-            Section {
-                PlayerList()
-                    .environment(vm)
-            } footer: {
-                let playerSampleCount = vm.status?.playerSample.count ?? 0
-                
-                if playerSampleCount > 0 && playerSampleCount < onlinePlayerCount {
-                    Text("Player list limited to \(playerSampleCount) users by server")
-                }
-            }
+            PlayerList()
             
             Section {
                 Button {
@@ -65,6 +56,7 @@ struct ServerDetails: View {
             }
         }
         .navigationTitle(vm.server.name)
+        .environment(vm)
         .alert("Delete Server?", isPresented: $alertDelete) {
             Button("Delete", role: .destructive) {
                 deleteServer()
