@@ -32,7 +32,6 @@ extension Color {
     }
     
     //    static let widgetBackground = Color("WidgetBackground")
-    //    static let standoutPillGrey = Color("StandoutPillGrey")
     //    static let placeholderGrey = Color("PlaceholderGrey")
     
     //    static let semiTransparentText = Color("SemiTransparentText")

@@ -33,7 +33,7 @@ struct ServerDetails: View {
     }
     
     private var pillColor: Color {
-        var color = Color.standoutPillGrey
+        var color = Color.secondary
         
         if let status = vm.status, vm.loadingStatus != .Loading {
             if status.status == .online {
@@ -137,7 +137,7 @@ struct ServerDetails: View {
                                         }
                                         .padding(.horizontal, 14)
                                         .padding(.vertical, 7)
-                                        .background(.standoutPillGrey)
+                                        .background(.ultraThinMaterial)
                                         .foregroundStyle(.tertiary)
                                         .cornerRadius(16)
                                     }
@@ -154,7 +154,7 @@ struct ServerDetails: View {
                             .subheadline(.bold)
                             .padding(.horizontal, 6)
                             .padding(.vertical, 3)
-                            .background(.standoutPillGrey)
+                            .background(.ultraThinMaterial)
                             .cornerRadius(6)
                             .foregroundStyle(.tertiary)
                         
