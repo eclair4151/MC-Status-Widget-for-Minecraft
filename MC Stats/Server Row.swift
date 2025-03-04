@@ -3,7 +3,7 @@ import MCStatsDataLayer
 
 struct ServerRow: View {
     @Environment(\.modelContext) private var modelContext
-    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    @Environment(\.dismiss) private var dismiss
     
     private var vm: ServerStatusVM
     
@@ -122,8 +122,7 @@ struct ServerRow: View {
         }
         
         refreshAllWidgets()
-        
-        presentationMode.wrappedValue.dismiss()
+        dismiss()
     }
 }
 

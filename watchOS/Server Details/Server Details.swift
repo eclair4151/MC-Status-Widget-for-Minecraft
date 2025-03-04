@@ -6,7 +6,7 @@ struct ServerDetails: View {
     @State private var vm: ServerStatusVM
     
     @Environment(\.modelContext) private var modelContext
-    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    @Environment(\.dismiss) private var dismiss
     
     private var parentViewRefreshCallBack: () -> Void
     
@@ -95,7 +95,7 @@ struct ServerDetails: View {
         refreshAllWidgets()
         
         parentViewRefreshCallBack()
-        presentationMode.wrappedValue.dismiss()
+        dismiss()
     }
 }
 
