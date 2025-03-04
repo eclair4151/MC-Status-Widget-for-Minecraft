@@ -17,7 +17,7 @@ struct ServerDetails: View {
     @State private var pings: [ServerPing] = []
     @State private var pingDuration = 0
     @State private var sheetEdit = false
-    @State private var showingDeleteAlert = false
+    @State private var alertDelete = false
     @State private var sheetPings = false
     
     // Ping updater
@@ -227,7 +227,7 @@ struct ServerDetails: View {
 #endif
             ToolbarItemGroup(placement: trailingPlacement) {
                 Button(role: .destructive) {
-                    showingDeleteAlert = true
+                    alertDelete = true
                 } label: {
 #if os(tvOS)
                     Text("Delete")
@@ -247,7 +247,7 @@ struct ServerDetails: View {
             refreshPing()
             startPrefetchingUserImages(vm)
         }
-        .alert("Delete Server?", isPresented: $showingDeleteAlert) {
+        .alert("Delete Server?", isPresented: $alertDelete) {
             Button("Delete", role: .destructive) {
                 deleteServer()
             }

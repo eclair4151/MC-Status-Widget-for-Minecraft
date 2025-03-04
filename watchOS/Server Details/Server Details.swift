@@ -5,6 +5,9 @@ import NukeUI
 struct ServerDetails: View {
     @State private var vm: ServerStatusVM
     
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    
     private var parentViewRefreshCallBack: () -> Void
     
     init(_ vm: ServerStatusVM, parentViewRefreshCallBack: @escaping () -> Void) {
@@ -13,6 +16,7 @@ struct ServerDetails: View {
     }
     
     @State private var sheetEdit = false
+    @State private var alertDelete = false
     
     var body: some View {
         let playerList = vm.status?.playerSample ?? []
@@ -51,9 +55,23 @@ struct ServerDetails: View {
                 } label: {
                     Label("Edit", systemImage: "pencil")
                 }
+                
+                Button(role: .destructive) {
+                    alertDelete = true
+                } label: {
+                    Label("Delete", systemImage: "trash")
+                        .foregroundStyle(.red)
+                }
             }
         }
         .navigationTitle(vm.server.name)
+        .alert("Delete Server?", isPresented: $alertDelete) {
+            Button("Delete", role: .destructive) {
+                deleteServer()
+            }
+            
+            Button("Cancel", role: .cancel) {}
+        }
         .sheet($sheetEdit) {
             NavigationStack {
                 EditServerView(vm.server, isPresented: $sheetEdit) {
@@ -62,6 +80,22 @@ struct ServerDetails: View {
                 }
             }
         }
+    }
+    
+    private func deleteServer() {
+        modelContext.delete(vm.server)
+        
+        do {
+            try modelContext.save()
+        } catch {
+            // Failures include issues such as an invalid unique constraint
+            print(error.localizedDescription)
+        }
+        
+        refreshAllWidgets()
+        
+        parentViewRefreshCallBack()
+        presentationMode.wrappedValue.dismiss()
     }
 }
 
