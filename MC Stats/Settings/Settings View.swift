@@ -104,7 +104,7 @@ struct SettingsView: View {
         .scrollIndicators(.never)
         .sheet($showingTipSheet) {
             NavigationStack {
-                TipView($showingTipSheet)
+                TipView()
             }
         }
         .navigationDestination(for: SettingsPageDestinations.self) { destination in

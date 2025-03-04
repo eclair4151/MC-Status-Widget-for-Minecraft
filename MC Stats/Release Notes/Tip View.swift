@@ -2,11 +2,7 @@ import SwiftUI
 import StoreKit
 
 struct TipView: View {
-    @Binding var isPresented: Bool
-    
-    init(_ isPresented: Binding<Bool>) {
-        _isPresented = isPresented
-    }
+    @Environment(\.dismiss) private var dismiss
     
     @State private var isProcessing = false
     @State private var tipProducts: [Product]?
@@ -80,7 +76,7 @@ struct TipView: View {
 #endif
             ToolbarItem(placement: placement) {
                 Button("Cancel") {
-                    isPresented = false
+                    dismiss()
                 }
             }
         }

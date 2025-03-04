@@ -85,7 +85,7 @@ struct ReleaseNotes: View {
         .scrollIndicators(.never)
         .sheet($showingTipSheet) {
             NavigationStack {
-                TipView($showingTipSheet)
+                TipView()
             }
         }
         .toolbar {
