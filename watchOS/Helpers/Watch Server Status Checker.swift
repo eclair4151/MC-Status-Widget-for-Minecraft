@@ -2,7 +2,7 @@ import Foundation
 import MCStatsDataLayer
 import WatchConnectivity
 
-class WatchServerStatusChecker {
+final class WatchServerStatusChecker {
     var responseListener: ((UUID, ServerStatus) -> Void)?
     let connectivityProvider = ConnectivityProvider()
     var expectedResponseBatches: Set<ExpectedResultBatch> = Set()
@@ -53,7 +53,7 @@ class WatchServerStatusChecker {
         Task {
             do {
                 var connectiveStateCounter = 0
-                // first wait up to 1 second for the phone to become available.
+                // first wait up to 1s for the phone to become available
                 while (!WCSession.default.isReachable || connectivityProvider.connectionState != .activated) && connectiveStateCounter < 4 {
                     connectiveStateCounter += 1
                     try await Task.sleep(nanoseconds: UInt64(0.25 * Double(NSEC_PER_SEC)))
@@ -61,7 +61,7 @@ class WatchServerStatusChecker {
                 
                 // only bother trying to connect via phone is it says it is reachable
                 if WCSession.default.isReachable {
-                    try checkServersViaPhone(servers: servers)
+                    try checkServersViaPhone(servers)
                     // wait 8 seconds, and check if we need to backup for any of the pending servers
                     try await Task.sleep(nanoseconds: UInt64(8) * NSEC_PER_SEC)
                 }
@@ -74,7 +74,7 @@ class WatchServerStatusChecker {
             expectedBatch.expectedResults.forEach { id, server in
                 // start new async task for each request to go in parrallel
                 Task {
-                    let status = await checkServerViaWeb(server: server)
+                    let status = await checkServerViaWeb(server)
                     self.responseListener?(id, status)
                 }
             }
@@ -102,7 +102,7 @@ class WatchServerStatusChecker {
         }
     }
     
-    private func checkServersViaPhone(servers: [SavedMinecraftServer]) throws {
+    private func checkServersViaPhone(_ servers: [SavedMinecraftServer]) throws {
         let messageRequest = WatchRequestMessage()
         messageRequest.servers = servers
         
@@ -124,14 +124,14 @@ class WatchServerStatusChecker {
     }
     
     // if we are calling third party do it individually so we can show the responses as they come in
-    private func checkServerViaWeb(server: SavedMinecraftServer) async -> ServerStatus {
+    private func checkServerViaWeb(_ server: SavedMinecraftServer) async -> ServerStatus {
         do {
             print("CALLING BACKUP SERVER")
             
             let res = try await WebServerStatusChecker.checkServer(
-                serverUrl: server.serverUrl,
-                serverPort: server.serverPort,
-                serverType: server.serverType,
+                url: server.serverUrl,
+                port: server.serverPort,
+                type: server.serverType,
                 config: nil
             )
             

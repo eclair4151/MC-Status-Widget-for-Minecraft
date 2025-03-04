@@ -1,11 +1,10 @@
-import Foundation
 import WatchConnectivity
 
 enum WatchConnectivityError: Error {
     case DeviceNotConnected, ResponseParseError
 }
 
-class ConnectivityProvider: NSObject, WCSessionDelegate {
+final class ConnectivityProvider: NSObject, WCSessionDelegate {
 #if os(iOS)
     func sessionDidBecomeInactive(_ session: WCSession) {}
     
@@ -20,7 +19,14 @@ class ConnectivityProvider: NSObject, WCSessionDelegate {
         self.connect()
     }
     
-    // converted code to comminucate with iPhone as async/Await
+    private func connect() {
+        if WCSession.isSupported() {
+            WCSession.default.delegate = self
+            WCSession.default.activate()
+        }
+    }
+    
+    // converted code to comminucate with iPhone as async/await
     // send a message to the phone. error throw if one is encountered
     func send(_ message: [String: Any]) throws {
         print("Checking if phone is connected to watch...")
@@ -50,12 +56,5 @@ class ConnectivityProvider: NSObject, WCSessionDelegate {
     ) {
         print("Watch session activationState:", activationState.rawValue)
         connectionState = activationState
-    }
-    
-    func connect() {
-        if WCSession.isSupported() {
-            WCSession.default.delegate = self
-            WCSession.default.activate()
-        }
     }
 }

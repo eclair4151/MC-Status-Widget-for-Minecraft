@@ -109,9 +109,9 @@ public class ServerStatusChecker {
             print("CALLING BACKUP SERVER")
             
             let res = try await WebServerStatusChecker.checkServer(
-                serverUrl: server.serverUrl,
-                serverPort: server.serverPort,
-                serverType: server.serverType,
+                url: server.serverUrl,
+                port: server.serverPort,
+                type: server.serverType,
                 config: config
             )
             
