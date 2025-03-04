@@ -1,9 +1,10 @@
 import SwiftUI
-import NukeUI
 import MCStatsDataLayer
+import NukeUI
 
 struct PlayerCard: View {
     @Environment(ServerStatusVM.self) private var vm
+    
     private let player: Player
     
     init(_ player: Player) {
