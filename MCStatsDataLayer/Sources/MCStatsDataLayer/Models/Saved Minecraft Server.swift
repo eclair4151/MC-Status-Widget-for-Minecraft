@@ -46,7 +46,9 @@ public class SavedMinecraftServer: Identifiable, Codable, @unchecked Sendable {
     init() {}
     
     public enum CodingKeys: CodingKey {
-        case id, name, serverUrl, serverPort, srvServerUrl, srvServerPort, serverIcon, displayOrder, serverType
+        case id, name, serverUrl,
+             serverPort, srvServerUrl, srvServerPort,
+             serverIcon, displayOrder, serverType
     }
     
     required public init(from decoder: Decoder) throws {
