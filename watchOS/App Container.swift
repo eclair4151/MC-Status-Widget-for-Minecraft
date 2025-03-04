@@ -6,12 +6,12 @@ import WidgetKit
 import MCStatsDataLayer
 
 struct AppContainer: View {
+    @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.modelContext) var modelContext
+    
     private enum iCloudStatus {
         case available, unavailable, unknown
     }
-    
-    @Environment(\.scenePhase) private var scenePhase
-    @Environment(\.modelContext) var modelContext
     
     @State var servers: [ServerStatusVM]?
     @State var lastRefreshTime = Date()
