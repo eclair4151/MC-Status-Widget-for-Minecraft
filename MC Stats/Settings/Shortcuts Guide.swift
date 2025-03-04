@@ -18,7 +18,7 @@ struct ShortcutsGuide: View {
     
     var body: some View {
         List {
-            // Overview Section
+            // Overview
             Section {
 #if !os(tvOS) && !os(macOS)
                 ShortcutsLink()
@@ -28,7 +28,7 @@ struct ShortcutsGuide: View {
                     .padding(.vertical, 5)
             }
             
-            // Shortcut Steps Section
+            // Shortcut Steps
             ForEach(0..<shortcutImages.count, id: \.self) { index in
                 Section {
                     Text(shortcutDescriptions[index])
