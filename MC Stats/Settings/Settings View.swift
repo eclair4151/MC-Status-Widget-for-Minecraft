@@ -61,6 +61,7 @@ struct SettingsView: View {
                             .foregroundStyle(.yellow.gradient)
                     }
                 }
+                .foregroundStyle(.foreground)
             } footer: {
                 Text("Leave a review to help others discover the app and support its development")
             }
@@ -81,8 +82,10 @@ struct SettingsView: View {
                         Text("Join TestFlight")
                     } icon: {
                         Image(systemName: "airplane")
+                            .foregroundStyle(.blue.gradient)
                     }
                 }
+                .foregroundStyle(.foreground)
             } footer: {
                 Text("Join the beta program to access experimental features before they’re released")
             }
@@ -90,8 +93,14 @@ struct SettingsView: View {
             // GitHub
             Section {
                 Button(action: openGithub) {
-                    Label("Source Code", systemImage: "curlybraces")
+                    Label {
+                        Text("Source Code")
+                    } icon: {
+                        Image(systemName: "curlybraces")
+                            .foregroundStyle(.blue.gradient)
+                    }
                 }
+                .foregroundStyle(.foreground)
             } footer: {
                 Text("See the code that makes this app work, as well as file bugs and feature requests. Forked from [eclair4151's MC-Status](https://github.com/eclair4151/MC-Status-Widget-for-Minecraft)")
             }
@@ -165,7 +174,7 @@ struct SettingsView: View {
 }
 
 #Preview {
-    NavigationView {
+    NavigationStack {
         SettingsView()
     }
 }
