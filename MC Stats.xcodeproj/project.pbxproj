@@ -280,6 +280,12 @@
 		F3B074132D766AC200F24939 /* Edit Server View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074122D766AC200F24939 /* Edit Server View.swift */; };
 		F3B074162D76E22900F24939 /* Player List.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074152D76E22900F24939 /* Player List.swift */; };
 		F3B074182D76E2E100F24939 /* Player Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074172D76E2E100F24939 /* Player Card.swift */; };
+		F3B074212D76FF5500F24939 /* Server Details Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074202D76FF5500F24939 /* Server Details Helper.swift */; };
+		F3B074222D76FF5500F24939 /* Server Details Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074202D76FF5500F24939 /* Server Details Helper.swift */; };
+		F3B074232D76FF5500F24939 /* Server Details Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074202D76FF5500F24939 /* Server Details Helper.swift */; };
+		F3B074242D76FF5500F24939 /* Server Details Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074202D76FF5500F24939 /* Server Details Helper.swift */; };
+		F3B074252D76FF5500F24939 /* Server Details Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074202D76FF5500F24939 /* Server Details Helper.swift */; };
+		F3B074262D76FFB300F24939 /* Server Details Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074202D76FF5500F24939 /* Server Details Helper.swift */; };
 		F3BC6B202D6F56950016A68D /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3BC6B1F2D6F56950016A68D /* MCStatsDataLayer */; };
 		F3BFB14D2D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
 		F3BFB14E2D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
@@ -571,6 +577,7 @@
 		F3B074122D766AC200F24939 /* Edit Server View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Edit Server View.swift"; sourceTree = "<group>"; };
 		F3B074152D76E22900F24939 /* Player List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player List.swift"; sourceTree = "<group>"; };
 		F3B074172D76E2E100F24939 /* Player Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player Card.swift"; sourceTree = "<group>"; };
+		F3B074202D76FF5500F24939 /* Server Details Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Server Details Helper.swift"; sourceTree = "<group>"; };
 		F3BFB14C2D68055A00E16468 /* MOTD View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MOTD View.swift"; sourceTree = "<group>"; };
 		F3C1E43A2D6C949900950F3D /* App Container Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Container Helper.swift"; sourceTree = "<group>"; };
 		F3C879BD2D65720500840745 /* tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -856,6 +863,7 @@
 			isa = PBXGroup;
 			children = (
 				F1A43C812A8472B20081A24C /* Server Details.swift */,
+				F3B074202D76FF5500F24939 /* Server Details Helper.swift */,
 				F3BFB14C2D68055A00E16468 /* MOTD View.swift */,
 				F30246D12D667ED50030F71C /* Server Ping.swift */,
 				F30246D52D66816E0030F71C /* Ping Graph.swift */,
@@ -1468,6 +1476,7 @@
 				F17AE0EE2CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */,
 				F3B074132D766AC200F24939 /* Edit Server View.swift in Sources */,
 				F1EF76D52CB449E700EFFB20 /* Shortcuts Provider.swift in Sources */,
+				F3B074262D76FFB300F24939 /* Server Details Helper.swift in Sources */,
 				F30472442D63E9D00055C007 /* Arbitrary Server Status Online Check Intent.swift in Sources */,
 				F3BFB1502D68055A00E16468 /* MOTD View.swift in Sources */,
 				F30472452D63E9D00055C007 /* Saved Server Status Online Check Intent.swift in Sources */,
@@ -1553,6 +1562,7 @@
 				F16990872CA5DDE500F41232 /* Shortcuts Provider.swift in Sources */,
 				F17A16BB2A893DD700F8FF2F /* Settings View.swift in Sources */,
 				F3EFC1742D709C5700EE988A /* Ping Error.swift in Sources */,
+				F3B074252D76FF5500F24939 /* Server Details Helper.swift in Sources */,
 				F1AE29162CA48577009D0D14 /* Server Row.swift in Sources */,
 				F13E60012A4BD614005BE9B2 /* App Container.swift in Sources */,
 				F1E671762CA73A86002BDFC0 /* Custom Progress View.swift in Sources */,
@@ -1632,6 +1642,7 @@
 				F31D45C62D6DC74C00981B1C /* Tip View.swift in Sources */,
 				F31D45E92D6DCA5000981B1C /* Saved Server Entity.swift in Sources */,
 				F31D45C72D6DC74C00981B1C /* Release Notes.swift in Sources */,
+				F3B074232D76FF5500F24939 /* Server Details Helper.swift in Sources */,
 				F31D45C82D6DC74C00981B1C /* Custom Progress View.swift in Sources */,
 				F31D45C92D6DC74C00981B1C /* Feature Row.swift in Sources */,
 				F31D45CA2D6DC74C00981B1C /* Feature.swift in Sources */,
@@ -1694,6 +1705,7 @@
 				F3DD08732D75236E00A67D4B /* Edit Server View.swift in Sources */,
 				F3B073F72D7655D500F24939 /* Siri Guide Phrase.swift in Sources */,
 				F3B073FA2D7655D900F24939 /* FAQ.swift in Sources */,
+				F3B074242D76FF5500F24939 /* Server Details Helper.swift in Sources */,
 				F3B073FB2D7655D900F24939 /* FAQ Row.swift in Sources */,
 				F3B073FC2D7655D900F24939 /* FAQ View.swift in Sources */,
 				F3B073F82D7655D500F24939 /* Siri Guide.swift in Sources */,
@@ -1730,6 +1742,7 @@
 				F35E1AA72D6522D100718CB7 /* Player Card.swift in Sources */,
 				F3C1E43D2D6C949900950F3D /* App Container Helper.swift in Sources */,
 				F35E1AA82D6522D100718CB7 /* Server Details.swift in Sources */,
+				F3B074222D76FF5500F24939 /* Server Details Helper.swift in Sources */,
 				F35E1AA92D6522D100718CB7 /* Tip View.swift in Sources */,
 				F35E1AB72D65231500718CB7 /* App Container.swift in Sources */,
 				F30246D32D667ED50030F71C /* Server Ping.swift in Sources */,
@@ -1777,6 +1790,7 @@
 				F3C879F32D6572D500840745 /* Swifty Ping.swift in Sources */,
 				F3C1E43C2D6C949900950F3D /* App Container Helper.swift in Sources */,
 				F3C87A0A2D6575AE00840745 /* Saved Server Status Online Check Intent.swift in Sources */,
+				F3B074212D76FF5500F24939 /* Server Details Helper.swift in Sources */,
 				F3C879E22D6572C400840745 /* Tip View.swift in Sources */,
 				F30246D22D667ED50030F71C /* Server Ping.swift in Sources */,
 				F30246CA2D6661D60030F71C /* Player List.swift in Sources */,

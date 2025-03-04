@@ -3,12 +3,12 @@ import MCStatsDataLayer
 import NukeUI
 
 struct ServerDetails: View {
-    @State private var vm: ServerStatusVM
+    @State var vm: ServerStatusVM
     
-    @Environment(\.modelContext) private var modelContext
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) var modelContext
+    @Environment(\.dismiss) var dismiss
     
-    private var parentViewRefreshCallBack: () -> Void
+    var parentViewRefreshCallBack: () -> Void
     
     init(_ vm: ServerStatusVM, parentViewRefreshCallBack: @escaping () -> Void) {
         self.vm = vm
@@ -80,22 +80,6 @@ struct ServerDetails: View {
                 }
             }
         }
-    }
-    
-    private func deleteServer() {
-        modelContext.delete(vm.server)
-        
-        do {
-            try modelContext.save()
-        } catch {
-            // Failures include issues such as an invalid unique constraint
-            print(error.localizedDescription)
-        }
-        
-        refreshAllWidgets()
-        
-        parentViewRefreshCallBack()
-        dismiss()
     }
 }
 
