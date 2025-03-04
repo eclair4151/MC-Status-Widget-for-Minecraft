@@ -51,7 +51,7 @@ struct RectangularAccessoryWidgetView: View {
                             Image(systemName: "arrow.clockwise")
                                 .imageScale(.medium)
                                 .frame(width: 5, height: 5)
-                                .scaleEffect(CGSize(width: 0.7, height: 0.7), anchor: .center)
+                                .scaleEffect(0.7)
                                 .foregroundColor(.veryTransparentText)
                         }
                     }

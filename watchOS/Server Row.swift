@@ -35,7 +35,7 @@ struct ServerRow: View {
                         if vm.loadingStatus == .Loading {
                             ProgressView()
                                 .frame(width: 15, height: 15)
-                                .scaleEffect(CGSize(width: 0.65, height: 0.65), anchor: .center)
+                                .scaleEffect(0.65)
                         }
                     }
                 } else {
@@ -47,7 +47,7 @@ struct ServerRow: View {
                         
                         ProgressView()
                             .frame(width: 20, height: 20)
-                            .scaleEffect(CGSize(width: 0.8, height: 0.8), anchor: .center)
+                            .scaleEffect(0.8)
                     }
                 }
                 

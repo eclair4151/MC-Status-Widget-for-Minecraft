@@ -36,7 +36,7 @@ struct BaseWidgetView: View {
                         Image(systemName: "arrow.clockwise")
                             .imageScale(.medium)
                             .frame(width: 16, height: 16)
-                            .scaleEffect(CGSize(width: 0.65, height: 0.65), anchor: .center)
+                            .scaleEffect(0.65)
                             .foregroundColor(.veryTransparentText)
                             .invalidatableContent() // Adjust the size as needed
                         
