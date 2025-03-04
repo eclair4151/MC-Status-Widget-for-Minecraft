@@ -6,7 +6,7 @@
 	<array>
 		<dict>
 			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
+			<string>None</string>
 			<key>CFBundleURLName</key>
 			<string>dev.topscrech.MC-Stats</string>
 			<key>CFBundleURLSchemes</key>
@@ -39,10 +39,5 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
-	<key>UILaunchScreen</key>
-	<dict>
-		<key>UIImageName</key>
-		<string>LaunchImage</string>
-	</dict>
 </dict>
 </plist>

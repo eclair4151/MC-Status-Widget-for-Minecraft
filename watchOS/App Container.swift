@@ -6,12 +6,12 @@ import WidgetKit
 import MCStatsDataLayer
 
 struct AppContainer: View {
+    @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.modelContext) var modelContext
+    
     private enum iCloudStatus {
         case available, unavailable, unknown
     }
-    
-    @Environment(\.scenePhase) private var scenePhase
-    @Environment(\.modelContext) var modelContext
     
     @State var servers: [ServerStatusVM]?
     @State var lastRefreshTime = Date()
@@ -48,7 +48,10 @@ struct AppContainer: View {
                 //     .listRowBackground(Color.clear) // this is ugly so removing it
             }
             .navigationDestination(for: ServerStatusVM.self) { vm in
-                ServerDetails(vm)
+                ServerDetails(vm) {
+                    reloadData()
+                    refreshDisplayOrders()
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -73,6 +76,7 @@ struct AppContainer: View {
                 case .SettingsRoot:
                     SettingsView {
                         reloadData(forceRefresh: true)
+                        refreshDisplayOrders()
                     }
                 }
             }
@@ -106,7 +110,8 @@ struct AppContainer: View {
             // may have gotten new/changed data refresh models from database
             if event.endDate != nil && event.type == .import {
                 reloadData()
-                MCStatsShortcutsProvider.updateAppShortcutParameters()
+                
+                ShortcutsProvider.updateAppShortcutParameters()
                 WidgetCenter.shared.invalidateConfigurationRecommendations()
             }
         }
@@ -153,7 +158,7 @@ struct AppContainer: View {
             //
             //            modelContext.insert(server)
             
-            MCStatsShortcutsProvider.updateAppShortcutParameters()
+            ShortcutsProvider.updateAppShortcutParameters()
         }
     }
     
@@ -200,19 +205,6 @@ struct AppContainer: View {
         }
         
         statusChecker.checkServers(serversToCheck)
-    }
-    
-    private func refreshDisplayOrders() {
-        servers?.enumerated().forEach { index, vm in
-            vm.server.displayOrder = index + 1
-            modelContext.insert(vm.server)
-        }
-        
-        do {
-            try modelContext.save()
-        } catch {
-            print(error.localizedDescription)
-        }
     }
 }
 

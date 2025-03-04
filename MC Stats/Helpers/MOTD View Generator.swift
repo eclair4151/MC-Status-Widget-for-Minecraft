@@ -19,27 +19,29 @@ extension ServerStatus {
             text = text.font(Font.minecraftFont)
             
             // Apply formatting based on the section properties
-            if section.formatters.contains(.Bold) {
+            if section.formatters.contains(.bold) {
                 text = text.bold()
             }
             
-            if section.formatters.contains(.Italic) {
+            if section.formatters.contains(.italic) {
                 text = text.italic()
             }
             
-            if section.formatters.contains(.Underline) {
+            if section.formatters.contains(.underline) {
                 text = text.underline()
             }
             
-            if section.formatters.contains(.Strikethrough) {
+            if section.formatters.contains(.strikethrough) {
                 text = text.strikethrough()
             }
             
             // Set the color if available
             if section.color.isEmpty {
-                text = text.foregroundColor(Color.white)
+                text = text
+                    .foregroundStyle(.white)
             } else {
-                text = text.foregroundColor(Color(hex: section.color))
+                text = text
+                    .foregroundStyle(Color(hex: section.color))
             }
             
             // Append the formatted text to the combinedText

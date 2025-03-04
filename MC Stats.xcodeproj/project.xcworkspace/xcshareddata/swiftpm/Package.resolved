@@ -1,5 +1,5 @@
 {
-  "originHash" : "2a83e12e3533a386448fcbd8ff5a2b5c4d78391e928e0fc64617fa390229abbc",
+  "originHash" : "dfda1b2373faf41caa3188671ba670b2200fab944b02101cc60f880c7bb040cf",
   "pins" : [
     {
       "identity" : "nuke",
@@ -16,7 +16,7 @@
       "location" : "https://github.com/TopScrech/ScrechKit",
       "state" : {
         "branch" : "main",
-        "revision" : "1190df4ba1d021c417951146a5c117edb9503069"
+        "revision" : "25bb79b2e34686515629a7e4f582244cbda5dea1"
       }
     }
   ],

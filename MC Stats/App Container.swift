@@ -4,34 +4,46 @@ import CoreData
 import MCStatsDataLayer
 
 struct AppContainer: View {
-    @State private var nav = NavigationPath()
-    private var reviewHelper = ReviewHelper()
+    @State var nav = NavigationPath()
+    var reviewHelper = ReviewHelper()
 #if os(iOS)
     private let watchHelper = WatchHelper()
 #endif
     
 #if !os(tvOS)
-    @Environment(\.requestReview) private var requestReview
+    @Environment(\.requestReview) var requestReview
 #endif
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.modelContext) var modelContext
     
     @State var servers: [ServerStatusVM]?
     
-    // I can't think of a better way to do this since I don't want to regenerate the VM every time
-    @State private var serverVMCache: [UUID: ServerStatusVM] = [:]
-    @State private var showingAddSheet = false
+    // Struggle to find a more efficient method without regenerating the VM each time
+    @State var serverVMCache: [UUID: ServerStatusVM] = [:]
+    @State private var sheetAdd = false
     @State private var showReleaseNotes = false
-    @State private var pendingDeepLink: String?
+    @State var pendingDeepLink: String?
     @State private var showAlert = false
     @State var lastRefreshTime = Date()
+    
+    @State private var newServer = SavedMinecraftServer.initialize(
+        id: UUID(),
+        serverType: .Java,
+        name: "",
+        serverUrl: "",
+        serverPort: 0,
+        srvServerUrl: "",
+        srvServerPort: 0,
+        serverIcon: "",
+        displayOrder: 0
+    )
     
     var body: some View {
         NavigationStack(path: $nav) {
             List {
                 ForEach(servers ?? []) { vm in
                     NavigationLink(value: vm) {
-                        ServerRowView(vm)
+                        ServerRow(vm)
                     }
                     .listRowInsets(EdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15))
                 }
@@ -39,13 +51,17 @@ struct AppContainer: View {
                 .onMove {
                     servers?.move(fromOffsets: $0, toOffset: $1)
                     
-                    // update underlying display order
                     refreshDisplayOrders()
                 }
             }
+            .animation(.default, value: servers)
+            .navigationTitle("Servers")
             .scrollIndicators(.never)
+            .refreshable {
+                reloadData(forceRefresh: true)
+            }
             .navigationDestination(for: ServerStatusVM.self) { vm in
-                ServerStatusDetailView(vm) {
+                ServerDetails(vm) {
                     reloadData()
                     refreshDisplayOrders()
                 }
@@ -58,28 +74,6 @@ struct AppContainer: View {
                     }
                 }
             }
-            .navigationDestination(for: SettingsPageDestinations.self) { destination in
-                switch destination {
-                case .GeneralSettings: GeneralSettings()
-                case .FAQ:             FAQView(getiOSFAQs())
-                case .Shortcuts:       ShortcutsGuideView()
-                case .Siri:            SiriGuideView()
-                case .WhatsNew:        ReleaseNotesView(showDismissButton: false)
-                }
-            }
-            .onOpenURL { url in
-                print("Received deep link:", url)
-                
-                // Manually go into specific server if id is server
-                if let serverUUID = UUID(uuidString: url.absoluteString), let vm = serverVMCache[serverUUID] {
-                    goToServerView(vm)
-                } else if !url.absoluteString.isEmpty {
-                    pendingDeepLink = url.absoluteString
-                }
-            }
-            .refreshable {
-                reloadData(forceRefresh: true)
-            }
             .overlay {
                 //hack to avoid showing overlay for a split second before we have had a chance to check the database
                 if let vms = servers, vms.isEmpty {
@@ -89,7 +83,7 @@ struct AppContainer: View {
                         Text("Use the button below or the \"+\" in the top right corner")
                     } actions: {
                         Button("Add Server") {
-                            showingAddSheet = true
+                            sheetAdd = true
                         }
                         .semibold()
                         .buttonStyle(.borderedProminent)
@@ -99,6 +93,21 @@ struct AppContainer: View {
                 }
             }
             .toolbar {
+#if os(macOS)
+                ToolbarItemGroup {
+                    Button {
+                        reloadData(forceRefresh: true)
+                    } label: {
+                        Label("Refresh Servers", systemImage: "arrow.clockwise")
+                    }
+                    
+                    Button {
+                        sheetAdd = true
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+#else // not macOS
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationLink(value: PageDestinations.SettingsRoot) {
 #if os(tvOS)
@@ -108,23 +117,16 @@ struct AppContainer: View {
 #endif
                     }
                 }
-                
-#if os(macOS) || os(tvOS)
+#if os(tvOS)
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button {
+                    Button("Refresh") {
                         reloadData(forceRefresh: true)
-                    } label: {
-#if os(macOS)
-                        Label("Refresh Servers", systemImage: "arrow.clockwise")
-#elseif os(tvOS)
-                        Text("Refresh")
-#endif
                     }
                 }
 #endif
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        showingAddSheet.toggle()
+                        sheetAdd = true
                     } label: {
 #if os(tvOS)
                         Text("+")
@@ -133,8 +135,11 @@ struct AppContainer: View {
 #endif
                     }
                 }
+#endif
             }
-            .navigationTitle("Servers")
+        }
+        .onOpenURL { url in
+            processDeeplink(url)
         }
         .onChange(of: scenePhase, initial: true) { _, newPhase in
             // Some code to investigate an Apple Watch bug
@@ -157,33 +162,20 @@ struct AppContainer: View {
                 return
             }
             
-            // May have gotten new/changed data refresh models from db
+            // May have gotten new/changed data refresh models from DB
             // Can we somehow check if anything actually changed?
             // This is spam called on every open
             if event.endDate != nil && event.type == .import {
-                print("refresh triggered via eventChangedNotification")
+                print("Refresh triggered via eventChangedNotification")
                 
-                MCStatsShortcutsProvider.updateAppShortcutParameters()
+                ShortcutsProvider.updateAppShortcutParameters()
+                
                 reloadData()
             }
         }
-        .sheet($showingAddSheet) {
-            // Create new binding server to add
-            let newServer = SavedMinecraftServer.initialize(
-                id: UUID(),
-                serverType: .Java,
-                name: "",
-                serverUrl: "",
-                serverPort: 0,
-                srvServerUrl: "",
-                srvServerPort: 0,
-                serverIcon: "",
-                displayOrder: 0
-            )
-            
+        .sheet($sheetAdd) {
             NavigationStack {
-                EditServerView(newServer, isPresented: $showingAddSheet) {
-                    // callback when server is edited or added
+                EditServerView(newServer) {
                     reloadData(forceSRVRefreh: true)
                     refreshDisplayOrders()
                 }
@@ -191,7 +183,7 @@ struct AppContainer: View {
         }
         .sheet($showReleaseNotes) {
             NavigationStack {
-                ReleaseNotesView()
+                ReleaseNotes()
             }
         }
         .alert("Title", isPresented: $showAlert) {
@@ -201,42 +193,59 @@ struct AppContainer: View {
         }
     }
     
-    private func goToServerView(_ vm: ServerStatusVM) {
-        // check if user has disabled deep links, if so just go to main list
-        if !UserDefaultHelper.shared.get(for: .openToSpecificServer, defaultValue: true) {
-            self.nav.removeLast(self.nav.count)
-            return
-        }
+    func processDeeplink(_ url: URL) {
+        print("Received deeplink:", url)
         
-        // go to server view
-        // First, check if a server is already displayed and update it if so
-        if self.nav.isEmpty {
-            self.nav.append(vm)
-        } else {
-            self.nav.removeLast(self.nav.count)
+        // mc-stats://add-server?address=\(subdomain)
+        if url.scheme == "mc-stats" {
+            guard
+                let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+            else {
+                print("Invalid URL")
+                return
+            }
             
-            Task {
-                // hack! otherwise data won't refresh correctly
-                self.nav.append(vm)
+            guard
+                let action = components.host,
+                action == "add-server"
+            else {
+                print("Unknown URL")
+                return
+            }
+            
+            guard
+                let address = components.queryItems?.first(where: { $0.name == "address" })?.value,
+                let name = components.queryItems?.first(where: { $0.name == "name" })?.value
+            else {
+                print("Address not found")
+                return
+            }
+            
+            newServer = SavedMinecraftServer.initialize(
+                id: UUID(),
+                serverType: .Java,
+                name: name,
+                serverUrl: address,
+                serverPort: 0,
+                srvServerUrl: "",
+                srvServerPort: 0,
+                serverIcon: "",
+                displayOrder: 0
+            )
+            
+            sheetAdd = true
+        } else {
+            // Manually go into specific server if id is server
+            if let serverUUID = UUID(uuidString: url.absoluteString), let vm = serverVMCache[serverUUID] {
+                goToServerView(vm)
+            } else if !url.absoluteString.isEmpty {
+                pendingDeepLink = url.absoluteString
             }
         }
     }
     
-    private func refreshDisplayOrders() {
-        servers?.enumerated().forEach { index, vm in
-            vm.server.displayOrder = index + 1
-            modelContext.insert(vm.server)
-        }
-        
-        do {
-            try modelContext.save()
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
     func reloadData(forceRefresh: Bool = false, forceSRVRefreh: Bool = false) {
-        // crashes when run in background from apple watch??
+        // crashes when run in background from Apple Watch?
         // FB13069019
         guard scenePhase != .background else {
             return
@@ -286,37 +295,5 @@ struct AppContainer: View {
         }
         
         checkForPendingDeepLink()
-    }
-    
-    private func checkForPendingDeepLink() {
-        guard
-            let pendingDeepLink,
-            let serverID = UUID(uuidString: pendingDeepLink),
-            let vm = serverVMCache[serverID]
-        else {
-            return
-        }
-        
-        self.pendingDeepLink = nil
-        goToServerView(vm)
-    }
-    
-    private func checkForAppReviewRequest() {
-        reviewHelper.appLaunched()
-        
-        // Not showing if no servers were added
-        if servers?.isEmpty ?? true {
-            return
-        }
-        
-        if reviewHelper.shouldShowRequestView() {
-            Task {
-                try await Task.sleep(for: .seconds(6))
-#if !os(tvOS)
-                requestReview()
-#endif
-                reviewHelper.didShowReview()
-            }
-        }
     }
 }

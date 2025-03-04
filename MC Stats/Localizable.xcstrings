@@ -13,12 +13,6 @@
     "**Hold and drag** over the chart to view and move the lollipop" : {
 
     },
-    "/ %@" : {
-
-    },
-    "/ %lld" : {
-
-    },
     "%@" : {
 
     },
@@ -36,9 +30,6 @@
 
     },
     "%lld ping" : {
-
-    },
-    "+" : {
 
     },
     "Add a Server" : {
@@ -159,17 +150,6 @@
     "Edit Widget" : {
 
     },
-    "Enable iCloud" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Включить iCloud"
-          }
-        }
-      }
-    },
     "Error: Server not found" : {
 
     },
@@ -184,6 +164,9 @@
       }
     },
     "Features" : {
+
+    },
+    "Full-screen only" : {
 
     },
     "General Settings" : {
@@ -320,7 +303,7 @@
     "Online Status" : {
 
     },
-    "Overview of Shortcuts" : {
+    "Open in full screen" : {
 
     },
     "Ping" : {
