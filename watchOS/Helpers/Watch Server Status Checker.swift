@@ -118,7 +118,7 @@ final class WatchServerStatusChecker {
         let payload = ["request": jsonString]
         
         print("sending request...")
-        try self.connectivityProvider.send(payload)
+        try connectivityProvider.send(payload)
         
         print("try to send request...")
     }
