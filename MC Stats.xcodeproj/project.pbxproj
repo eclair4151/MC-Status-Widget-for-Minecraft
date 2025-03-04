@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 90;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -428,47 +428,39 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		F10C421F2AAE40BC000107D6 /* Embed ExtensionKit Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
 			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
-			dstSubfolderSpec = 16;
+			dstSubfolder = Product;
 			files = (
 				F10C421C2AAE40BC000107D6 /* Intents.appex in Embed ExtensionKit Extensions */,
 			);
 			name = "Embed ExtensionKit Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F11F635C2A81E51000D47187 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
+			dstSubfolder = Product;
 			files = (
 				F11F63582A81E51000D47187 /* watchOS.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F19528E92CBAB86800B56E5D /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 13;
+			dstSubfolder = PlugIns;
 			files = (
 				F13095302CBC997300C4C7BA /* Watch Widgets.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F1EF77052CB7874100EFFB20 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 13;
+			dstSubfolder = PlugIns;
 			files = (
 				F1EF76FF2CB7874000EFFB20 /* Widgets.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -601,70 +593,57 @@
 /* Begin PBXFrameworksBuildPhase section */
 		F11F63482A81E50E00D47187 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F1EF76C82CB4216F00EFFB20 /* NukeUI in Frameworks */,
 				F33A5CB32D640C440020D8A5 /* ScrechKit in Frameworks */,
 				F3C9235E2D6C6CD3004D31A9 /* MCStatsDataLayer in Frameworks */,
 				F1EF76C62CB4216F00EFFB20 /* Nuke in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F13095222CBC997200C4C7BA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F13095272CBC997200C4C7BA /* SwiftUI.framework in Frameworks */,
 				F33A5CB12D640C3B0020D8A5 /* ScrechKit in Frameworks */,
 				F3C923682D6C6CF6004D31A9 /* MCStatsDataLayer in Frameworks */,
 				F13095262CBC997200C4C7BA /* WidgetKit.framework in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F13E5FF62A4BD614005BE9B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F1612CCA2CACC37300E602DC /* NukeUI in Frameworks */,
 				F33A5CAD2D640BEB0020D8A5 /* ScrechKit in Frameworks */,
 				F3C1E4392D6C8CA400950F3D /* MCStatsDataLayer in Frameworks */,
 				F1612CC82CACC37300E602DC /* Nuke in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F1406BA62AA391B800815BE8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F3C923642D6C6CE7004D31A9 /* MCStatsDataLayer in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F1EF76E92CB7873F00EFFB20 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F1EF76F02CB7873F00EFFB20 /* SwiftUI.framework in Frameworks */,
 				F33A5CAF2D640C370020D8A5 /* ScrechKit in Frameworks */,
 				F3C923662D6C6CF2004D31A9 /* MCStatsDataLayer in Frameworks */,
 				F1EF76EE2CB7873F00EFFB20 /* WidgetKit.framework in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F31D459E2D6DC62600981B1C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F31D45C02D6DC6C200981B1C /* Nuke in Frameworks */,
 				F31D45BC2D6DC6B700981B1C /* MCStatsDataLayer in Frameworks */,
 				F31D45BE2D6DC6BD00981B1C /* ScrechKit in Frameworks */,
 				F31D45C22D6DC6C600981B1C /* NukeUI in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F3570D392D6E779500BDF069 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F3DD086D2D75233000A67D4B /* ScrechKit in Frameworks */,
 				F3BC6B202D6F56950016A68D /* MCStatsDataLayer in Frameworks */,
@@ -672,28 +651,23 @@
 				F3DD086F2D75233300A67D4B /* NukeUI in Frameworks */,
 				F3DD08712D75233600A67D4B /* Nuke in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F35E1A7A2D6501A500718CB7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F3C923622D6C6CE2004D31A9 /* MCStatsDataLayer in Frameworks */,
 				F35E1AB62D65230400718CB7 /* ScrechKit in Frameworks */,
 				F35E1AB42D6522F400718CB7 /* NukeUI in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F3C879BA2D65720500840745 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F3C879FD2D6572FD00840745 /* Nuke in Frameworks */,
 				F3C879FB2D6572F900840745 /* ScrechKit in Frameworks */,
 				F3C923602D6C6CDC004D31A9 /* MCStatsDataLayer in Frameworks */,
 				F3C879FF2D65730000840745 /* NukeUI in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -1122,8 +1096,6 @@
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			name = "Watch Widgets";
 			packageProductDependencies = (
 				F33A5CB02D640C3B0020D8A5 /* ScrechKit */,
@@ -1172,8 +1144,6 @@
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			name = Intents;
 			packageProductDependencies = (
 				F3C923632D6C6CE7004D31A9 /* MCStatsDataLayer */,
@@ -1191,8 +1161,6 @@
 				F1EF76EA2CB7873F00EFFB20 /* Resources */,
 			);
 			buildRules = (
-			);
-			dependencies = (
 			);
 			name = Widgets;
 			packageProductDependencies = (
@@ -1212,8 +1180,6 @@
 				F31D459F2D6DC62600981B1C /* Resources */,
 			);
 			buildRules = (
-			);
-			dependencies = (
 			);
 			name = macOS;
 			packageProductDependencies = (
@@ -1236,8 +1202,6 @@
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			name = iMessages;
 			packageProductDependencies = (
 				F3BC6B1F2D6F56950016A68D /* MCStatsDataLayer */,
@@ -1259,8 +1223,6 @@
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			name = visionOS;
 			packageProductDependencies = (
 				F35E1AB32D6522F400718CB7 /* NukeUI */,
@@ -1280,8 +1242,6 @@
 				F3C879BB2D65720500840745 /* Resources */,
 			);
 			buildRules = (
-			);
-			dependencies = (
 			);
 			name = tvOS;
 			packageProductDependencies = (
@@ -1347,7 +1307,7 @@
 				F33A5CAB2D640BEB0020D8A5 /* XCRemoteSwiftPackageReference "ScrechKit" */,
 				F394B82A2D6C6F9D0040EBD7 /* XCLocalSwiftPackageReference "MCStatsDataLayer" */,
 			);
-			preferredProjectObjectVersion = 77;
+			preferredProjectObjectVersion = 90;
 			productRefGroup = F13E5FFA2A4BD614005BE9B2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1368,25 +1328,20 @@
 /* Begin PBXResourcesBuildPhase section */
 		F11F63492A81E50E00D47187 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F38218852D671BAB005025E7 /* Assets.xcassets in Resources */,
 				F326DB592D6416E100BCCB69 /* Localizable.xcstrings in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F13095232CBC997200C4C7BA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F326DB5C2D6416E100BCCB69 /* Localizable.xcstrings in Resources */,
 				F30472282D63E9C20055C007 /* Assets.xcassets in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F13E5FF72A4BD614005BE9B2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F35E1A782D64DC2700718CB7 /* Assets.xcassets in Resources */,
 				F1DCB7B52CC4DE940005FFE0 /* MCStatusStoreKit Local.storekit in Resources */,
@@ -1396,46 +1351,36 @@
 				F304725F2D63FBFC0055C007 /* MinecraftItalic.otf in Resources */,
 				F30472602D63FBFC0055C007 /* MinecraftRegular.otf in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F1406BA72AA391B800815BE8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F326DB5A2D6416E100BCCB69 /* Localizable.xcstrings in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F1EF76EA2CB7873F00EFFB20 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F326DB5B2D6416E100BCCB69 /* Localizable.xcstrings in Resources */,
 				F30472092D63E9C00055C007 /* Assets.xcassets in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F31D459F2D6DC62600981B1C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F31D45E42D6DC7A800981B1C /* Assets.xcassets in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F3570D3A2D6E779500BDF069 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F3DD08892D7527BF00A67D4B /* iMessage Icon.xcassets in Resources */,
 				F3DD08812D7524CF00A67D4B /* Localizable.xcstrings in Resources */,
 				F3DD08822D7524DA00A67D4B /* Assets.xcassets in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F35E1A7B2D6501A500718CB7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F35E1AC12D65237200718CB7 /* MinecraftRegular.otf in Resources */,
 				F3C879D82D6572AA00840745 /* Localizable.xcstrings in Resources */,
@@ -1445,11 +1390,9 @@
 				F35E1AC32D65237200718CB7 /* MinecraftBoldItalic.otf in Resources */,
 				F35E1AC42D65237200718CB7 /* MinecraftItalic.otf in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F3C879BB2D65720500840745 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F383D19B2D67E60400FE4239 /* Assets.xcassets in Resources */,
 				F3C879D72D6572AA00840745 /* Localizable.xcstrings in Resources */,
@@ -1458,14 +1401,12 @@
 				F3C879F62D6572DF00840745 /* MinecraftBold.otf in Resources */,
 				F3C879F72D6572DF00840745 /* MinecraftBoldItalic.otf in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F11F63472A81E50E00D47187 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F1EF76CA2CB422D400EFFB20 /* Server Details.swift in Sources */,
 				F174A3012A915E450051DA5B /* Watch Server Status Checker.swift in Sources */,
@@ -1497,11 +1438,9 @@
 				F30472572D63E9D30055C007 /* Server Status Entity.swift in Sources */,
 				F10E94B12A8C61B60039DD2B /* Connectivity Provider.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F13095212CBC997200C4C7BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F13095572CBD48ED00C4C7BA /* Watch Server Status Checker.swift in Sources */,
 				F13095582CBD494300C4C7BA /* Connectivity Provider.swift in Sources */,
@@ -1526,11 +1465,9 @@
 				F17AE0F02CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */,
 				F130954C2CBC9C5D00C4C7BA /* Custom Extentions.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F13E5FF52A4BD614005BE9B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F150B4342CC15F6A00739646 /* Siri Guide.swift in Sources */,
 				F3C87A032D6574D200840745 /* FAQ Row.swift in Sources */,
@@ -1577,11 +1514,9 @@
 				F150B43F2CC18C1100739646 /* Release Notes.swift in Sources */,
 				F130954F2CBC9D5600C4C7BA /* Config Helper.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F1406BA52AA391B800815BE8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F30472522D63E9D30055C007 /* Saved Server Entity.swift in Sources */,
 				F3B0740F2D76697000F24939 /* Expected Result Batch.swift in Sources */,
@@ -1603,11 +1538,9 @@
 				F13095512CBC9D5600C4C7BA /* Config Helper.swift in Sources */,
 				F17AE0F22CC0363F00DC7A80 /* MOTD View Generator.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F1EF76E82CB7873F00EFFB20 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F304720B2D63E9C00055C007 /* Homescreen Provider.swift in Sources */,
 				F304720C2D63E9C00055C007 /* Lockscreen Provider.swift in Sources */,
@@ -1634,11 +1567,9 @@
 				F1EF77622CB8C62D00EFFB20 /* Custom Progress View.swift in Sources */,
 				F13095502CBC9D5600C4C7BA /* Config Helper.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F31D459D2D6DC62600981B1C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F31D45B92D6DC68F00981B1C /* MC Stats.swift in Sources */,
 				F31D45D82D6DC76200981B1C /* FAQ.swift in Sources */,
@@ -1683,11 +1614,9 @@
 				F31D45CF2D6DC75200981B1C /* Ping Graph.swift in Sources */,
 				F31D45D02D6DC75200981B1C /* MOTD View.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F3570D382D6E779500BDF069 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F3B0740A2D76566200F24939 /* MOTD View Generator.swift in Sources */,
 				F3DD08762D75238B00A67D4B /* Config Helper.swift in Sources */,
@@ -1736,11 +1665,9 @@
 				F3DD08782D7523AC00A67D4B /* Saved Server Status Online Check Intent.swift in Sources */,
 				F3DD08842D75252400A67D4B /* Release Notes.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F35E1A792D6501A500718CB7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F35E1AA12D6522B300718CB7 /* Low Power Mode.swift in Sources */,
 				F3BFB14E2D68055A00E16468 /* MOTD View.swift in Sources */,
@@ -1785,11 +1712,9 @@
 				F35E1AC92D652C5B00718CB7 /* Saved Server Entity.swift in Sources */,
 				F35E1AA42D6522C600718CB7 /* Release Notes.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F3C879B92D65720500840745 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				F3C879DF2D6572C400840745 /* Server Details.swift in Sources */,
 				F3BFB14F2D68055A00E16468 /* MOTD View.swift in Sources */,
@@ -1834,7 +1759,6 @@
 				F3C879EA2D6572CA00840745 /* General Settings.swift in Sources */,
 				F3C879DA2D6572B000840745 /* App Container.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
@@ -1869,7 +1793,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		F11F635A2A81E51000D47187 /* Debug */ = {
+		F11F635A2A81E51000D47187 /* Debug configuration for PBXNativeTarget "watchOS" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1901,7 +1825,7 @@
 			};
 			name = Debug;
 		};
-		F11F635B2A81E51000D47187 /* Release */ = {
+		F11F635B2A81E51000D47187 /* Release configuration for PBXNativeTarget "watchOS" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1934,7 +1858,7 @@
 			};
 			name = Release;
 		};
-		F13095322CBC997300C4C7BA /* Debug */ = {
+		F13095322CBC997300C4C7BA /* Debug configuration for PBXNativeTarget "Watch Widgets" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1964,7 +1888,7 @@
 			};
 			name = Debug;
 		};
-		F13095332CBC997300C4C7BA /* Release */ = {
+		F13095332CBC997300C4C7BA /* Release configuration for PBXNativeTarget "Watch Widgets" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1995,7 +1919,7 @@
 			};
 			name = Release;
 		};
-		F13E60092A4BD615005BE9B2 /* Debug */ = {
+		F13E60092A4BD615005BE9B2 /* Debug configuration for PBXProject "MC Stats" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -2060,7 +1984,7 @@
 			};
 			name = Debug;
 		};
-		F13E600A2A4BD615005BE9B2 /* Release */ = {
+		F13E600A2A4BD615005BE9B2 /* Release configuration for PBXProject "MC Stats" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -2117,7 +2041,7 @@
 			};
 			name = Release;
 		};
-		F13E600C2A4BD615005BE9B2 /* Debug */ = {
+		F13E600C2A4BD615005BE9B2 /* Debug configuration for PBXNativeTarget "MC Stats" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2163,7 +2087,7 @@
 			};
 			name = Debug;
 		};
-		F13E600D2A4BD615005BE9B2 /* Release */ = {
+		F13E600D2A4BD615005BE9B2 /* Release configuration for PBXNativeTarget "MC Stats" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2209,7 +2133,7 @@
 			};
 			name = Release;
 		};
-		F1406BB42AA391B800815BE8 /* Debug */ = {
+		F1406BB42AA391B800815BE8 /* Debug configuration for PBXNativeTarget "Intents" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Intents/Intents.entitlements;
@@ -2239,7 +2163,7 @@
 			};
 			name = Debug;
 		};
-		F1406BB52AA391B800815BE8 /* Release */ = {
+		F1406BB52AA391B800815BE8 /* Release configuration for PBXNativeTarget "Intents" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Intents/Intents.entitlements;
@@ -2270,7 +2194,7 @@
 			};
 			name = Release;
 		};
-		F1EF77032CB7874100EFFB20 /* Debug */ = {
+		F1EF77032CB7874100EFFB20 /* Debug configuration for PBXNativeTarget "Widgets" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2300,7 +2224,7 @@
 			};
 			name = Debug;
 		};
-		F1EF77042CB7874100EFFB20 /* Release */ = {
+		F1EF77042CB7874100EFFB20 /* Release configuration for PBXNativeTarget "Widgets" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2331,7 +2255,7 @@
 			};
 			name = Release;
 		};
-		F31D45AC2D6DC62700981B1C /* Debug */ = {
+		F31D45AC2D6DC62700981B1C /* Debug configuration for PBXNativeTarget "macOS" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2363,7 +2287,7 @@
 			};
 			name = Debug;
 		};
-		F31D45AD2D6DC62700981B1C /* Release */ = {
+		F31D45AD2D6DC62700981B1C /* Release configuration for PBXNativeTarget "macOS" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2395,7 +2319,7 @@
 			};
 			name = Release;
 		};
-		F3570D4D2D6E779600BDF069 /* Debug */ = {
+		F3570D4D2D6E779600BDF069 /* Debug configuration for PBXNativeTarget "iMessages" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
@@ -2426,7 +2350,7 @@
 			};
 			name = Debug;
 		};
-		F3570D4E2D6E779600BDF069 /* Release */ = {
+		F3570D4E2D6E779600BDF069 /* Release configuration for PBXNativeTarget "iMessages" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
@@ -2458,7 +2382,7 @@
 			};
 			name = Release;
 		};
-		F35E1A8F2D6501A600718CB7 /* Debug */ = {
+		F35E1A8F2D6501A600718CB7 /* Debug configuration for PBXNativeTarget "visionOS" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2487,7 +2411,7 @@
 			};
 			name = Debug;
 		};
-		F35E1A902D6501A600718CB7 /* Release */ = {
+		F35E1A902D6501A600718CB7 /* Release configuration for PBXNativeTarget "visionOS" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2517,7 +2441,7 @@
 			};
 			name = Release;
 		};
-		F3C879C92D65720600840745 /* Debug */ = {
+		F3C879C92D65720600840745 /* Debug configuration for PBXNativeTarget "tvOS" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
@@ -2548,7 +2472,7 @@
 			};
 			name = Debug;
 		};
-		F3C879CA2D65720600840745 /* Release */ = {
+		F3C879CA2D65720600840745 /* Release configuration for PBXNativeTarget "tvOS" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
@@ -2586,91 +2510,81 @@
 		F11F63592A81E51000D47187 /* Build configuration list for PBXNativeTarget "watchOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F11F635A2A81E51000D47187 /* Debug */,
-				F11F635B2A81E51000D47187 /* Release */,
+				F11F635A2A81E51000D47187 /* Debug configuration for PBXNativeTarget "watchOS" */,
+				F11F635B2A81E51000D47187 /* Release configuration for PBXNativeTarget "watchOS" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		F13095312CBC997300C4C7BA /* Build configuration list for PBXNativeTarget "Watch Widgets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F13095322CBC997300C4C7BA /* Debug */,
-				F13095332CBC997300C4C7BA /* Release */,
+				F13095322CBC997300C4C7BA /* Debug configuration for PBXNativeTarget "Watch Widgets" */,
+				F13095332CBC997300C4C7BA /* Release configuration for PBXNativeTarget "Watch Widgets" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		F13E5FF42A4BD614005BE9B2 /* Build configuration list for PBXProject "MC Stats" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F13E60092A4BD615005BE9B2 /* Debug */,
-				F13E600A2A4BD615005BE9B2 /* Release */,
+				F13E60092A4BD615005BE9B2 /* Debug configuration for PBXProject "MC Stats" */,
+				F13E600A2A4BD615005BE9B2 /* Release configuration for PBXProject "MC Stats" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		F13E600B2A4BD615005BE9B2 /* Build configuration list for PBXNativeTarget "MC Stats" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F13E600C2A4BD615005BE9B2 /* Debug */,
-				F13E600D2A4BD615005BE9B2 /* Release */,
+				F13E600C2A4BD615005BE9B2 /* Debug configuration for PBXNativeTarget "MC Stats" */,
+				F13E600D2A4BD615005BE9B2 /* Release configuration for PBXNativeTarget "MC Stats" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		F1406BB32AA391B800815BE8 /* Build configuration list for PBXNativeTarget "Intents" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F1406BB42AA391B800815BE8 /* Debug */,
-				F1406BB52AA391B800815BE8 /* Release */,
+				F1406BB42AA391B800815BE8 /* Debug configuration for PBXNativeTarget "Intents" */,
+				F1406BB52AA391B800815BE8 /* Release configuration for PBXNativeTarget "Intents" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		F1EF77022CB7874100EFFB20 /* Build configuration list for PBXNativeTarget "Widgets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F1EF77032CB7874100EFFB20 /* Debug */,
-				F1EF77042CB7874100EFFB20 /* Release */,
+				F1EF77032CB7874100EFFB20 /* Debug configuration for PBXNativeTarget "Widgets" */,
+				F1EF77042CB7874100EFFB20 /* Release configuration for PBXNativeTarget "Widgets" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		F31D45AE2D6DC62700981B1C /* Build configuration list for PBXNativeTarget "macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F31D45AC2D6DC62700981B1C /* Debug */,
-				F31D45AD2D6DC62700981B1C /* Release */,
+				F31D45AC2D6DC62700981B1C /* Debug configuration for PBXNativeTarget "macOS" */,
+				F31D45AD2D6DC62700981B1C /* Release configuration for PBXNativeTarget "macOS" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		F3570D4C2D6E779600BDF069 /* Build configuration list for PBXNativeTarget "iMessages" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F3570D4D2D6E779600BDF069 /* Debug */,
-				F3570D4E2D6E779600BDF069 /* Release */,
+				F3570D4D2D6E779600BDF069 /* Debug configuration for PBXNativeTarget "iMessages" */,
+				F3570D4E2D6E779600BDF069 /* Release configuration for PBXNativeTarget "iMessages" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		F35E1A8E2D6501A600718CB7 /* Build configuration list for PBXNativeTarget "visionOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F35E1A8F2D6501A600718CB7 /* Debug */,
-				F35E1A902D6501A600718CB7 /* Release */,
+				F35E1A8F2D6501A600718CB7 /* Debug configuration for PBXNativeTarget "visionOS" */,
+				F35E1A902D6501A600718CB7 /* Release configuration for PBXNativeTarget "visionOS" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		F3C879C82D65720600840745 /* Build configuration list for PBXNativeTarget "tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F3C879C92D65720600840745 /* Debug */,
-				F3C879CA2D65720600840745 /* Release */,
+				F3C879C92D65720600840745 /* Debug configuration for PBXNativeTarget "tvOS" */,
+				F3C879CA2D65720600840745 /* Release configuration for PBXNativeTarget "tvOS" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
