@@ -104,7 +104,7 @@ struct ServerRow: View {
         }
         .sheet($showingEditSheet) {
             NavigationStack {
-                EditServerView(vm.server, isPresented: $showingEditSheet) {
+                EditServerView(vm.server) {
                     vm.reloadData(ConfigHelper.getServerCheckerConfig())
                 }
             }
