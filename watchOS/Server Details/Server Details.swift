@@ -13,20 +13,22 @@ struct ServerDetails: View {
         let playerList = vm.status?.playerSample ?? []
         let onlinePlayerCount = vm.status?.onlinePlayerCount ?? 0
         
-        if vm.status?.status == .offline {
-            Text("Server is offline")
-            
-        } else if vm.server.serverType == .Bedrock {
-            Text("Bedrock servers do not support player lists")
-            
-        } else if onlinePlayerCount == 0 {
-            Text("No players online")
-            
-        } else if playerList.isEmpty && onlinePlayerCount > 0 {
-            Text("This server has disabled player lists")
-        }
-        
         List {
+            MOTDView(vm.status)
+            
+            if vm.status?.status == .offline {
+                Text("Server is offline")
+                
+            } else if vm.server.serverType == .Bedrock {
+                Text("Bedrock servers do not support player lists")
+                
+            } else if onlinePlayerCount == 0 {
+                Text("No players online")
+                
+            } else if playerList.isEmpty && onlinePlayerCount > 0 {
+                Text("This server has disabled player lists")
+            }
+            
             Section {
                 PlayerList()
                     .environment(vm)
