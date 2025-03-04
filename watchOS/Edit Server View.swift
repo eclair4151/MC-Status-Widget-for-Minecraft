@@ -3,15 +3,15 @@ import SwiftData
 import MCStatsDataLayer
 
 struct EditServerView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) var modelContext
+    @Environment(\.dismiss) var dismiss
     
     private enum FocusedField {
         case serverName, serverAddress
     }
     
-    @State private var server: SavedMinecraftServer
-    private var refresh: () -> Void
+    @State var server: SavedMinecraftServer
+    var refresh: () -> Void
     
     init(
         _ server: SavedMinecraftServer,
@@ -30,9 +30,9 @@ struct EditServerView: View {
     
     @State var portLabelPromptText = "Port (Optional - Default 25565)"
     
-    @State private var showingInvalidURLAlert = false
-    @State private var showingInvalidNameAlert = false
-    @State private var showingInvalidPortAlert = false
+    @State var showingInvalidUrlAlert = false
+    @State var showingInvalidNameAlert = false
+    @State var showingInvalidPortAlert = false
     
     var body: some View {
         Form {
@@ -114,7 +114,7 @@ struct EditServerView: View {
             focusedField = .serverName
         }
         .interactiveDismissDisabled(inputHasChanged())
-        .alert("Invalid Server URL/IP Address", isPresented: $showingInvalidURLAlert) {
+        .alert("Invalid Server URL/IP Address", isPresented: $showingInvalidUrlAlert) {
             Button("OK") {}
         } message: {
             Text("Minecraft Server domains/ip addresses must be the root domain, and not contain any '/' or ':'")
@@ -126,93 +126,6 @@ struct EditServerView: View {
             Button("OK") {}
         } message: {
             Text("Port must be a number between 0 and 65535")
-        }
-    }
-    
-    private func extractPort(_ text: String) {
-        // Check if text contains a colomn
-        if let colonIndex = text.firstIndex(of: ":") {
-            // Extract the port number after the colon
-            let portValue = text[text.index(after: colonIndex)...]
-            let port = String(portValue)
-            
-            // Remove the port from serverIP if necessary
-            let serverIP = String(text[..<colonIndex])
-            tempServerInput = serverIP
-            tempPortInput = Int(port)
-        }
-    }
-    
-    private func saveDisabled() -> Bool {
-        tempNameInput.isEmpty || tempServerInput.isEmpty
-    }
-    
-    private func inputHasChanged() -> Bool {
-        tempNameInput != server.name ||
-        tempServerInput != server.serverUrl ||
-        (tempPortInput ?? 0) != server.serverPort
-    }
-    
-    // server domains cannot have / or :
-    private func isUrlValid(url: String) -> Bool {
-        !url.contains(":") && !url.contains("/")
-    }
-    
-    // CALLED WHEN A SERVER IS EDITED OR ADDED
-    private func saveItem() {
-        // first validate url doesnt contains any / or :
-        tempServerInput = tempServerInput.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        if !isUrlValid(url: tempServerInput) {
-            showingInvalidURLAlert = true
-            return
-        }
-        
-        tempNameInput = tempNameInput.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        if tempNameInput.isEmpty {
-            showingInvalidNameAlert = true
-            return
-        }
-        
-        if let tempPortInput,tempPortInput < 0 || tempPortInput > 65535 {
-            showingInvalidPortAlert = true
-            return
-        }
-        
-        withAnimation {
-            server.serverUrl = tempServerInput
-            
-            if let tempPortInput {
-                server.serverPort = tempPortInput
-                
-            } else if tempServerType == .Java {
-                server.serverPort = 25565
-                
-            } else if tempServerType == .Bedrock {
-                server.serverPort = 19132
-            }
-            
-            server.name = tempNameInput
-            server.serverType = tempServerType
-            server.srvServerUrl = ""
-            server.srvServerPort = 0
-            modelContext.insert(server)
-            
-            do {
-                try modelContext.save()
-            } catch {
-                print(error.localizedDescription)
-            }
-            
-            print("Added server")
-            
-            ShortcutsProvider.updateAppShortcutParameters()
-            
-            refresh()
-            refreshAllWidgets()
-            
-            dismiss()
         }
     }
 }
