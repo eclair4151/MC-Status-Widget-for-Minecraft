@@ -3,12 +3,11 @@ import NukeUI
 import MCStatsDataLayer
 
 struct PlayerCard: View {
-    @State private var vm: ServerStatusVM
+    @Environment(ServerStatusVM.self) private var vm
     private let player: Player
     
-    init(_ player: Player, vm: ServerStatusVM) {
+    init(_ player: Player) {
         self.player = player
-        self.vm = vm
     }
     
     var body: some View {
@@ -45,4 +44,5 @@ struct PlayerCard: View {
 
 //#Preview {
 //    PlayerCard()
+//        .environment(ServerStatusVM())
 //}

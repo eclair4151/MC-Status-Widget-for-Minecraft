@@ -28,7 +28,8 @@ struct ServerDetails: View {
         
         List {
             Section {
-                PlayerList(vm)
+                PlayerList()
+                    .environment(vm)
             } footer: {
                 let playerSampleCount = vm.status?.playerSample.count ?? 0
                 let onlinePlayersCount = vm.status?.onlinePlayerCount ?? 0
