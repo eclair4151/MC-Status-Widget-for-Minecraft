@@ -196,9 +196,8 @@ struct AppContainer: View {
     func processDeeplink(_ url: URL) {
         print("Received deeplink:", url)
         
+        // mc-stats://add-server?address=\(subdomain)
         if url.scheme == "mc-stats" {
-            // mc-stats://add-server?address=\(subdomain)
-            
             guard
                 let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
             else {
