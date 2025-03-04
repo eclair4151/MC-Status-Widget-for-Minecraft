@@ -66,7 +66,7 @@ struct ServerDetails: View {
         }
         .sheet($sheetEdit) {
             NavigationStack {
-                EditServerView(vm.server, isPresented: $sheetEdit) {
+                EditServerView(vm.server) {
                     vm.reloadData(ConfigHelper.getServerCheckerConfig())
                     parentViewRefreshCallBack()
                 }

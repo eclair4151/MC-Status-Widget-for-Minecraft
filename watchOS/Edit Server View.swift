@@ -4,22 +4,20 @@ import MCStatsDataLayer
 
 struct EditServerView: View {
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var dismiss
     
     private enum FocusedField {
         case serverName, serverAddress
     }
     
     @State private var server: SavedMinecraftServer
-    @Binding private var isPresented: Bool
     private var parentViewRefreshCallBack: () -> Void
     
     init(
         _ server: SavedMinecraftServer,
-        isPresented: Binding<Bool>,
         parentViewRefreshCallBack: @escaping () -> Void = {}
     ) {
         self.server = server
-        _isPresented = isPresented
         self.parentViewRefreshCallBack = parentViewRefreshCallBack
     }
     
@@ -92,7 +90,7 @@ struct EditServerView: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button("Cancel") {
-                    isPresented = false
+                    dismiss()
                 }
             }
             
@@ -214,7 +212,7 @@ struct EditServerView: View {
             parentViewRefreshCallBack()
             refreshAllWidgets()
             
-            isPresented = false
+            dismiss()
         }
     }
 }
