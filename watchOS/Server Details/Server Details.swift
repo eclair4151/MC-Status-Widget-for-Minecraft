@@ -5,9 +5,14 @@ import NukeUI
 struct ServerDetails: View {
     @State private var vm: ServerStatusVM
     
-    init(_ vm: ServerStatusVM) {
+    private var parentViewRefreshCallBack: () -> Void
+    
+    init(_ vm: ServerStatusVM, parentViewRefreshCallBack: @escaping () -> Void) {
         self.vm = vm
+        self.parentViewRefreshCallBack = parentViewRefreshCallBack
     }
+    
+    @State private var sheetEdit = false
     
     var body: some View {
         let playerList = vm.status?.playerSample ?? []
@@ -39,8 +44,24 @@ struct ServerDetails: View {
                     Text("Player list limited to \(playerSampleCount) users by server")
                 }
             }
+            
+            Section {
+                Button {
+                    sheetEdit = true
+                } label: {
+                    Label("Edit", systemImage: "pencil")
+                }
+            }
         }
         .navigationTitle(vm.server.name)
+        .sheet($sheetEdit) {
+            NavigationStack {
+                EditServerView(vm.server, isPresented: $sheetEdit) {
+                    vm.reloadData(ConfigHelper.getServerCheckerConfig())
+                    parentViewRefreshCallBack()
+                }
+            }
+        }
     }
 }
 

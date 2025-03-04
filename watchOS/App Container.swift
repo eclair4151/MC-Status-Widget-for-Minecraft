@@ -48,7 +48,10 @@ struct AppContainer: View {
                 //     .listRowBackground(Color.clear) // this is ugly so removing it
             }
             .navigationDestination(for: ServerStatusVM.self) { vm in
-                ServerDetails(vm)
+                ServerDetails(vm) {
+                    reloadData()
+                    refreshDisplayOrders()
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

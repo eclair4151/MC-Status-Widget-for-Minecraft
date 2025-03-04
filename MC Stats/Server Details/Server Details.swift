@@ -7,7 +7,7 @@ struct ServerDetails: View {
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     
     @State var vm: ServerStatusVM
-    var parentViewRefreshCallBack: () -> Void
+    private var parentViewRefreshCallBack: () -> Void
     
     init(_ vm: ServerStatusVM, parentViewRefreshCallBack: @escaping () -> Void) {
         self.vm = vm
@@ -16,7 +16,7 @@ struct ServerDetails: View {
     
     @State private var pings: [ServerPing] = []
     @State private var pingDuration = 0
-    @State private var showingEditSheet = false
+    @State private var sheetEdit = false
     @State private var showingDeleteAlert = false
     @State private var sheetPings = false
     
@@ -239,7 +239,7 @@ struct ServerDetails: View {
                 .foregroundColor(.red)
                 
                 Button("Edit") {
-                    showingEditSheet = true
+                    sheetEdit = true
                 }
             }
         }
@@ -254,9 +254,9 @@ struct ServerDetails: View {
             
             Button("Cancel", role: .cancel) {}
         }
-        .sheet($showingEditSheet) {
+        .sheet($sheetEdit) {
             NavigationStack {
-                EditServerView(vm.server, isPresented: $showingEditSheet) {
+                EditServerView(vm.server, isPresented: $sheetEdit) {
                     vm.reloadData(ConfigHelper.getServerCheckerConfig())
                     parentViewRefreshCallBack()
                 }
