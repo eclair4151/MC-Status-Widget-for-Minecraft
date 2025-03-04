@@ -34,9 +34,8 @@ struct ServerDetails: View {
                     .environment(vm)
             } footer: {
                 let playerSampleCount = vm.status?.playerSample.count ?? 0
-                let onlinePlayersCount = vm.status?.onlinePlayerCount ?? 0
                 
-                if playerSampleCount > 0 && playerSampleCount < onlinePlayersCount {
+                if playerSampleCount > 0 && playerSampleCount < onlinePlayerCount {
                     Text("Player list limited to \(playerSampleCount) users by server")
                 }
             }
