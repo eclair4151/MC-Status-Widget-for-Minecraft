@@ -10,17 +10,14 @@ struct EditServerView: View {
     }
     
     @State private var server: SavedMinecraftServer
-    @Binding private var isPresented: Bool
-    private var parentViewRefreshCallBack: () -> Void
+    private var refresh: () -> Void
     
     init(
         _ server: SavedMinecraftServer,
-        isPresented: Binding<Bool>,
-        parentViewRefreshCallBack: @escaping () -> Void = {}
+        refresh: @escaping () -> Void = {}
     ) {
         self.server = server
-        _isPresented = isPresented
-        self.parentViewRefreshCallBack = parentViewRefreshCallBack
+        self.refresh = refresh
     }
     
     @FocusState private var focusedField: FocusedField?
@@ -231,7 +228,7 @@ struct EditServerView: View {
             
             ShortcutsProvider.updateAppShortcutParameters()
             
-            parentViewRefreshCallBack()
+            refresh()
             refreshAllWidgets()
             
             isPresented = false
@@ -240,8 +237,6 @@ struct EditServerView: View {
 }
 
 #Preview {
-    @Previewable @State var isPresented = true
-    
     let server = SavedMinecraftServer.initialize(
         id: UUID(),
         serverType: .Java,
@@ -255,6 +250,6 @@ struct EditServerView: View {
     )
     
     NavigationStack {
-        EditServerView(server, isPresented: $isPresented)
+        EditServerView(server)
     }
 }

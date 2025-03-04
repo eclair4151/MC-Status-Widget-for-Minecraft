@@ -7,11 +7,11 @@ struct ServerDetails: View {
     @Environment(\.dismiss) var dismiss
     
     @State var vm: ServerStatusVM
-    var parentViewRefreshCallBack: () -> Void
+    var refresh: () -> Void
     
-    init(_ vm: ServerStatusVM, parentViewRefreshCallBack: @escaping () -> Void) {
+    init(_ vm: ServerStatusVM, refresh: @escaping () -> Void) {
         self.vm = vm
-        self.parentViewRefreshCallBack = parentViewRefreshCallBack
+        self.refresh = refresh
     }
     
     @State private var pings: [ServerPing] = []
@@ -258,7 +258,7 @@ struct ServerDetails: View {
             NavigationStack {
                 EditServerView(vm.server, isPresented: $sheetEdit) {
                     vm.reloadData(ConfigHelper.getServerCheckerConfig())
-                    parentViewRefreshCallBack()
+                    refresh()
                 }
             }
         }

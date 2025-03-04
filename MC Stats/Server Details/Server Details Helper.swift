@@ -11,7 +11,7 @@ extension ServerDetails {
         
         refreshAllWidgets()
         
-        parentViewRefreshCallBack()
+        refresh()
         dismiss()
     }
 }

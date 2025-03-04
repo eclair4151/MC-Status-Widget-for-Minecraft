@@ -11,14 +11,14 @@ struct EditServerView: View {
     }
     
     @State private var server: SavedMinecraftServer
-    private var parentViewRefreshCallBack: () -> Void
+    private var refresh: () -> Void
     
     init(
         _ server: SavedMinecraftServer,
-        parentViewRefreshCallBack: @escaping () -> Void = {}
+        refresh: @escaping () -> Void = {}
     ) {
         self.server = server
-        self.parentViewRefreshCallBack = parentViewRefreshCallBack
+        self.refresh = refresh
     }
     
     @FocusState private var focusedField: FocusedField?
@@ -209,7 +209,7 @@ struct EditServerView: View {
             
             ShortcutsProvider.updateAppShortcutParameters()
             
-            parentViewRefreshCallBack()
+            refresh()
             refreshAllWidgets()
             
             dismiss()

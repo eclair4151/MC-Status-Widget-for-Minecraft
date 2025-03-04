@@ -8,11 +8,11 @@ struct ServerDetails: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
     
-    var parentViewRefreshCallBack: () -> Void
+    var refresh: () -> Void
     
-    init(_ vm: ServerStatusVM, parentViewRefreshCallBack: @escaping () -> Void) {
+    init(_ vm: ServerStatusVM, refresh: @escaping () -> Void) {
         self.vm = vm
-        self.parentViewRefreshCallBack = parentViewRefreshCallBack
+        self.refresh = refresh
     }
     
     @State private var sheetEdit = false
@@ -68,7 +68,7 @@ struct ServerDetails: View {
             NavigationStack {
                 EditServerView(vm.server) {
                     vm.reloadData(ConfigHelper.getServerCheckerConfig())
-                    parentViewRefreshCallBack()
+                    refresh()
                 }
             }
         }
