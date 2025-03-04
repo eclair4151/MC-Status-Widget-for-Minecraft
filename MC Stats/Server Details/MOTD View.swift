@@ -11,8 +11,9 @@ struct MOTDView: View {
     var body: some View {
         if let status, let _ = status.description {
             status.generateMOTDView()
+                .shadow(radius: 5)
                 .padding(10)
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxWidth: .infinity)
                 .cornerRadius(15)
         }
     }
