@@ -32,8 +32,6 @@ extension Color {
     }
     
     //    static let widgetBackground = Color("WidgetBackground")
-    //    static let placeholderGrey = Color("PlaceholderGrey")
-    
     //    static let semiTransparentText = Color("SemiTransparentText")
     //    static let veryTransparentText = Color("VeryTransparentText")
     //    static let regularText = Color("RegularText")
