@@ -21,11 +21,11 @@ struct PlayerCard: View {
                         .scaledToFit()
                     
                 } else if state.error != nil {
-                    Color.serverIconBackground
+                    Color(.darkGray)
                     
                 } else {
                     ZStack {
-                        Color.serverIconBackground
+                        Color(.darkGray)
                         
                         ProgressView()
                             .opacity(0.3)
