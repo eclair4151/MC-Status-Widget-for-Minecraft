@@ -1076,8 +1076,8 @@
 			isa = PBXGroup;
 			children = (
 				F150B43E2CC18C1100739646 /* Release Notes.swift */,
-				F3C87A0E2D657A1500840745 /* Feature.swift */,
 				F35E1A6E2D649C6000718CB7 /* Feature Row.swift */,
+				F3C87A0E2D657A1500840745 /* Feature.swift */,
 				F17AE0FB2CC05F9000DC7A80 /* Tip View.swift */,
 			);
 			path = "Release Notes";
