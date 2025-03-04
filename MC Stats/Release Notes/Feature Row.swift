@@ -10,6 +10,7 @@ struct FeatureRow: View {
     var body: some View {
         HStack(alignment: .top, spacing: 10) {
             Image(systemName: feature.icon)
+                .semibold()
                 .foregroundColor(feature.iconColor)
                 .imageScale(.large)
                 .scaledToFit()
@@ -24,4 +25,8 @@ struct FeatureRow: View {
             }
         }
     }
+}
+
+#Preview {
+    ReleaseNotes()
 }

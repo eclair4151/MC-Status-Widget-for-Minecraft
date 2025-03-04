@@ -36,7 +36,7 @@ struct ReleaseNotes: View {
         Feature(
             "iCloud Sync",
             description: "Sync your server list seamlessly across all of your devices",
-            icon: "arrow.trianglehead.2.clockwise.rotate.90.icloud",
+            icon: "arrow.trianglehead.2.clockwise.rotate.90.icloud.fill",
             iconColor: .blue
         ),
         Feature(
@@ -167,4 +167,8 @@ struct ReleaseNotes: View {
         SKStoreReviewController.requestReview(in: windowScene)
 #endif
     }
+}
+
+#Preview {
+    ReleaseNotes()
 }
