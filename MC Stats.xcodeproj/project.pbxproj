@@ -291,6 +291,7 @@
 		F3B0742B2D77063B00F24939 /* Edit Server View Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074282D77050900F24939 /* Edit Server View Helper.swift */; };
 		F3B0742C2D77063B00F24939 /* Edit Server View Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074282D77050900F24939 /* Edit Server View Helper.swift */; };
 		F3B0742D2D77064000F24939 /* Edit Server View Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074282D77050900F24939 /* Edit Server View Helper.swift */; };
+		F3B0742E2D770BF900F24939 /* Edit Server View Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B074282D77050900F24939 /* Edit Server View Helper.swift */; };
 		F3BC6B202D6F56950016A68D /* MCStatsDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = F3BC6B1F2D6F56950016A68D /* MCStatsDataLayer */; };
 		F3BFB14D2D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
 		F3BFB14E2D68055A00E16468 /* MOTD View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BFB14C2D68055A00E16468 /* MOTD View.swift */; };
@@ -1645,6 +1646,7 @@
 				F31D45EB2D6DCB1300981B1C /* Server Status Entity.swift in Sources */,
 				F31D45EA2D6DCA5E00981B1C /* Intent Errors.swift in Sources */,
 				F31D45DB2D6DC76200981B1C /* FAQ View.swift in Sources */,
+				F3B0742E2D770BF900F24939 /* Edit Server View Helper.swift in Sources */,
 				F31D45DC2D6DC76200981B1C /* FAQ Row.swift in Sources */,
 				F31D45C62D6DC74C00981B1C /* Tip View.swift in Sources */,
 				F31D45E92D6DCA5000981B1C /* Saved Server Entity.swift in Sources */,
