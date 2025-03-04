@@ -28,36 +28,7 @@ struct ServerDetails: View {
         
         List {
             Section {
-                ForEach(playerList) { player in
-                    HStack {
-                        let imageUrl = URL(string: vm.getMcHeadsUrl(player.uuid))
-                        
-                        LazyImage(url: imageUrl) { state in
-                            if let image = state.image {
-                                image
-                                    .resizable()
-                                    .scaledToFit()
-                                
-                            } else if state.error != nil {
-                                Color.serverIconBackground
-                                
-                            } else {
-                                ZStack {
-                                    Color.serverIconBackground
-                                    
-                                    ProgressView()
-                                        .opacity(0.3)
-                                }
-                            }
-                        }
-                        .cornerRadius(2)
-                        .frame(width: 25, height: 25)
-                        .padding(.trailing, 3)
-                        
-                        Text(player.name)
-                            .lineLimit(1)
-                    }
-                }
+                PlayerList(vm)
             } footer: {
                 let playerSampleCount = vm.status?.playerSample.count ?? 0
                 let onlinePlayersCount = vm.status?.onlinePlayerCount ?? 0

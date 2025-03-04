@@ -77,12 +77,12 @@ public class FormattedMOTDSection: Codable {
 }
 
 public enum MOTDFormatter: Codable {
-    case Bold,
-         Italic,
-         Underline,
-         Strikethrough,
-         Obfuscated,
-         Reset
+    case bold,
+         italic,
+         underline,
+         strikethrough,
+         obfuscated,
+         reset
 }
 
 public enum MOTDColor: String {

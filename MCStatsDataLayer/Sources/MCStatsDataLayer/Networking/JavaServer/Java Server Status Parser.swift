@@ -102,7 +102,7 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
                     
                     let newSection = FormattedMOTDSection()
                     
-                    if sectionFormatter != .Reset {
+                    if sectionFormatter != .reset {
                         // if we are not resetting, copy the old formatters, and add the new one
                         newSection.color = currentSection.color
                         newSection.formatters = currentSection.formatters
@@ -145,41 +145,41 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
         
         if let bold = input.bold {
             if bold {
-                newFormatters.insert(.Bold)
+                newFormatters.insert(.bold)
             } else {
-                newFormatters.remove(.Bold)
+                newFormatters.remove(.bold)
             }
         }
         
         if let underlined = input.underlined {
             if underlined {
-                newFormatters.insert(.Underline)
+                newFormatters.insert(.underline)
             } else {
-                newFormatters.remove(.Underline)
+                newFormatters.remove(.underline)
             }
         }
         
         if let strikethrough = input.strikethrough {
             if strikethrough {
-                newFormatters.insert(.Strikethrough)
+                newFormatters.insert(.strikethrough)
             } else {
-                newFormatters.remove(.Strikethrough)
+                newFormatters.remove(.strikethrough)
             }
         }
         
         if let obfuscated = input.obfuscated {
             if obfuscated {
-                newFormatters.insert(.Obfuscated)
+                newFormatters.insert(.obfuscated)
             } else {
-                newFormatters.remove(.Obfuscated)
+                newFormatters.remove(.obfuscated)
             }
         }
         
         if let italic = input.italic {
             if italic {
-                newFormatters.insert(.Italic)
+                newFormatters.insert(.italic)
             } else {
-                newFormatters.remove(.Italic)
+                newFormatters.remove(.italic)
             }
         }
         
@@ -216,12 +216,12 @@ public class JavaServerStatusParser: ServerStatusParserProtocol {
     }
     
     static let javaSectionSignFormatCodes = [
-        "k": MOTDFormatter.Obfuscated,
-        "l": .Bold,
-        "m": .Strikethrough,
-        "n": .Underline,
-        "o": .Italic,
-        "r": .Reset
+        "k": MOTDFormatter.obfuscated,
+        "l": .bold,
+        "m": .strikethrough,
+        "n": .underline,
+        "o": .italic,
+        "r": .reset
     ]
     
     static let javaSectionSignColorFormats = [

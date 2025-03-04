@@ -50,7 +50,7 @@ public class BedrockServerStatusParser: ServerStatusParserProtocol {
                     
                     let newSection = FormattedMOTDSection()
                     
-                    if sectionFormatter != .Reset {
+                    if sectionFormatter != .reset {
                         // if we are not resetting, copy the old formatters, and add the new one
                         newSection.color = currentSection.color
                         newSection.formatters = currentSection.formatters
@@ -87,10 +87,10 @@ public class BedrockServerStatusParser: ServerStatusParserProtocol {
     }
     
     static let bedrockSectionSignFormatCodes = [
-        "k": MOTDFormatter.Obfuscated,
-        "l": .Bold,
-        "o": .Italic,
-        "r": .Reset
+        "k": MOTDFormatter.obfuscated,
+        "l": .bold,
+        "o": .italic,
+        "r": .reset
     ]
     
     static let bedrockSectionSignColorFormats = [
