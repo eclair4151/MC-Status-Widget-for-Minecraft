@@ -138,9 +138,7 @@ struct AppContainer: View {
 #endif
             }
         }
-        .onOpenURL { url in
-            processDeeplink(url)
-        }
+        .onOpenURL(perform: processDeeplink)
         .onChange(of: scenePhase, initial: true) { _, newPhase in
             // Some code to investigate an Apple Watch bug
             if newPhase == .active {
@@ -193,7 +191,7 @@ struct AppContainer: View {
         }
     }
     
-    func processDeeplink(_ url: URL) {
+    private func processDeeplink(_ url: URL) {
         print("Received deeplink:", url)
         
         // mc-stats://add-server?address=\(subdomain)
