@@ -35,7 +35,7 @@ struct SettingsView: View {
             }
         }
         .sheet($sheetAdd) {
-            EditServerView(newServer) {
+            EditServerView($newServer) {
                 reloadServers()
             }
         }
