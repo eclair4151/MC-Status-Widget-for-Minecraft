@@ -15,6 +15,8 @@ struct ServerRow: View {
     @State private var showingDeleteAlert = false
     
     var body: some View {
+        @Bindable var vm = vm
+        
         HStack {
 #if os(macOS)
             Image(nsImage: vm.serverIcon)
@@ -104,7 +106,7 @@ struct ServerRow: View {
         }
         .sheet($showingEditSheet) {
             NavigationStack {
-                EditServerView(vm.server) {
+                EditServerView($vm.server) {
                     vm.reloadData(ConfigHelper.getServerCheckerConfig())
                 }
             }

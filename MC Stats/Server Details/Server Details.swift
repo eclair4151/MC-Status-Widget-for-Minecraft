@@ -256,7 +256,7 @@ struct ServerDetails: View {
         }
         .sheet($sheetEdit) {
             NavigationStack {
-                EditServerView(vm.server) {
+                EditServerView($vm.server) {
                     vm.reloadData(ConfigHelper.getServerCheckerConfig())
                     refresh()
                 }

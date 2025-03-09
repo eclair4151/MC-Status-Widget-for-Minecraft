@@ -7,7 +7,7 @@ public enum LoadingStatus: String {
 
 @Observable
 public class ServerStatusVM: Identifiable, Hashable {
-    public let server: SavedMinecraftServer
+    public var server: SavedMinecraftServer
     public var status: ServerStatus?
     public var loadingStatus = LoadingStatus.Loading
     public var serverIcon = UniversalImage()

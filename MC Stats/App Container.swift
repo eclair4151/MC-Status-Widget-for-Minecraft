@@ -173,7 +173,7 @@ struct AppContainer: View {
         }
         .sheet($sheetAdd) {
             NavigationStack {
-                EditServerView(newServer) {
+                EditServerView($newServer) {
                     reloadData(forceSRVRefreh: true)
                     refreshDisplayOrders()
                 }

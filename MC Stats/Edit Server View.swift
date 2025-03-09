@@ -10,14 +10,14 @@ struct EditServerView: View {
         case serverName, serverAddress
     }
     
-    @State var server: SavedMinecraftServer
+    @Binding var server: SavedMinecraftServer
     var refresh: () -> Void
     
     init(
-        _ server: SavedMinecraftServer,
+        _ server: Binding<SavedMinecraftServer>,
         refresh: @escaping () -> Void = {}
     ) {
-        self.server = server
+        _server = server
         self.refresh = refresh
     }
     
@@ -157,5 +157,5 @@ struct EditServerView: View {
 }
 
 //#Preview {
-//    EditServerView(server: )
+//    EditServerView(server: $)
 //}
