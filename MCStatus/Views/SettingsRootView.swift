@@ -67,7 +67,7 @@ struct SettingsRootView: View {
                }
            }
            
-           Section(footer: Text("Help support the development of free, adless, open source apps.")) {
+           Section(footer: Text("Help support the development of free, ad-less, open source apps.")) {
                // Tip Developer
                Button(action: tipDeveloper) {
                    Label("Leave Developer a Tip", systemImage: "giftcard")
